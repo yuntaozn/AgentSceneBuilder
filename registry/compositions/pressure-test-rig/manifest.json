@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "0.1", "id": "mep.pressure-test-rig", "version": "0.1.0", "kind": "composition",
+  "title": "管道打压测试装置", "summary": "从水电工艺课件提炼的水桶、打压泵、软管、压力表和冷热水接口组合。", "license": "Apache-2.0",
+  "semanticType": "mep.pressure-test", "capabilities": ["inspect-structure", "path-edit", "material", "animate"], "tags": ["MEP", "打压试验", "设备", "课件迁移"],
+  "parameters": { "bucketRadius": { "type": "number", "unit": "m", "default": 0.52 }, "hoseRadius": { "type": "number", "unit": "m", "default": 0.03 } }, "dependencies": ["mep.pipe@0.1.0"],
+  "editor": { "document": { "id": "pressure-test-rig", "component": "core.composition", "parameters": { "nodes": [
+    { "id": "bucket", "semanticType": "equipment.water-bucket", "geometry": { "type": "cylinder", "radius": 0.52, "height": 0.86, "radialSegments": 32 }, "transform": { "position": [1.7,0.43,-0.8], "rotation": [0,0,0], "scale": [1,1,1] }, "appearance": { "color": "#59646b", "opacity": 1 } },
+    { "id": "pump", "semanticType": "equipment.pressure-pump", "geometry": { "type": "box", "size": [0.9,0.32,0.58] }, "transform": { "position": [0.65,0.2,-0.65], "rotation": [0,0,0], "scale": [1,1,1] }, "appearance": { "color": "#d6a83e", "opacity": 1 } },
+    { "id": "hose-cold", "semanticType": "mep.test-hose.cold", "geometry": { "type": "tube-along", "points": [[1.7,0.88,-0.8],[1.25,0.65,-0.7],[0.65,0.42,-0.65],[-1.6,0.8,-1.0]], "radius": 0.03 }, "appearance": { "color": "#54a8ff", "opacity": 1 } },
+    { "id": "hose-hot", "semanticType": "mep.test-hose.hot", "geometry": { "type": "tube-along", "points": [[0.65,0.42,-0.65],[-0.2,0.64,-0.8],[-1.6,0.8,-0.35]], "radius": 0.026 }, "appearance": { "color": "#ff746c", "opacity": 1 } },
+    { "id": "gauge-face", "semanticType": "instrument.pressure-gauge", "geometry": { "type": "cylinder", "radius": 0.25, "height": 0.06, "radialSegments": 32 }, "transform": { "position": [0.65,0.82,-0.25], "rotation": [1.5708,0,0], "scale": [1,1,1] }, "appearance": { "color": "#e8edf0", "opacity": 1 } },
+    { "id": "gauge-rim", "semanticType": "instrument.pressure-gauge.rim", "geometry": { "type": "torus", "majorRadius": 0.25, "tubeRadius": 0.025 }, "transform": { "position": [0.65,0.82,-0.21], "rotation": [1.5708,0,0], "scale": [1,1,1] }, "appearance": { "color": "#8d9ba3", "opacity": 1 } }
+  ], "anchors": { "cold-port": { "node": "hose-cold", "position": [-1.6,0.8,-1], "direction": [-1,0,0], "kind": "pipe-port" }, "hot-port": { "node": "hose-hot", "position": [-1.6,0.8,-0.35], "direction": [-1,0,0], "kind": "pipe-port" } } } } },
+  "example": "registry/compositions/pressure-test-rig/manifest.json"
+}

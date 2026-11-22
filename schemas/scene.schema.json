@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentscene.local/schema/scene.schema.json",
+  "title": "AgentSceneBuilder Scene Document",
+  "type": "object",
+  "required": ["version", "metadata", "objects"],
+  "properties": {
+    "version": { "type": "string" },
+    "metadata": {
+      "type": "object",
+      "required": ["title"],
+      "properties": {
+        "title": { "type": "string" },
+        "domain": { "type": "string" },
+        "language": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "units": { "type": "string", "default": "meter" },
+    "objects": { "type": "array", "items": { "$ref": "#/$defs/object" } },
+    "materials": { "type": "array", "items": { "$ref": "#/$defs/material" } },
+    "cameras": { "type": "array", "items": { "$ref": "#/$defs/camera" } },
+    "steps": { "type": "array", "items": { "$ref": "#/$defs/step" } },
+    "interactions": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+    "extensions": { "type": "object", "additionalProperties": true }
+  },
+  "$defs": {
+    "vec3": { "type": "array", "minItems": 3, "maxItems": 3, "items": { "type": "number" } },
+    "object": {
+      "type": "object",
+      "required": ["id", "type"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "name": { "type": "string" },
+        "component": { "type": "string" },
+        "position": { "$ref": "#/$defs/vec3" },
+        "rotation": { "$ref": "#/$defs/vec3" },
+        "scale": { "$ref": "#/$defs/vec3" },
+        "size": { "$ref": "#/$defs/vec3" },
+        "material": { "type": "string" },
+        "target": { "type": "string" },
+        "text": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "teaching": { "type": "object", "additionalProperties": true },
+        "params": { "type": "object", "additionalProperties": true },
+        "extensions": { "type": "object", "additionalProperties": true }
+      },
+      "additionalProperties": true
+    },
+    "material": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "color": { "type": "string" },
+        "opacity": { "type": "number", "minimum": 0, "maximum": 1 },
+        "roughness": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": true
+    },
+    "camera": {
+      "type": "object",
+      "required": ["id", "position", "target"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string", "default": "perspective" },
+        "position": { "$ref": "#/$defs/vec3" },
+        "target": { "$ref": "#/$defs/vec3" },
+        "fov": { "type": "number" }
+      },
+      "additionalProperties": true
+    },
+    "step": {
+      "type": "object",
+      "required": ["id", "title"],
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "camera": { "type": "string" },
+        "show": { "type": "array", "items": { "type": "string" } },
+        "hide": { "type": "array", "items": { "type": "string" } },
+        "highlight": { "type": "array", "items": { "type": "string" } },
+        "animations": { "type": "array", "items": { "type": "object", "additionalProperties": true } }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

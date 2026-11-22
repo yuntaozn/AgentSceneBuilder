@@ -1,0 +1,781 @@
+{
+  "schemaVersion": "0.1",
+  "id": "electronics.display-monitor",
+  "version": "0.2.1",
+  "kind": "composition",
+  "title": "桌面显示器",
+  "summary": "完全由参数化几何组成的桌面显示器模型，表达屏幕面板、发光显示面、窄边框、背壳、铰链、支架、底座、控制按键、接口和线缆连接点。",
+  "license": "Apache-2.0",
+  "semanticType": "electronics.display.monitor",
+  "capabilities": [
+    "inspect-structure",
+    "anchors",
+    "material",
+    "edit-repetition",
+    "screen-surface",
+    "no-glb"
+  ],
+  "tags": [
+    "电子设备",
+    "显示器",
+    "桌面外设",
+    "屏幕",
+    "参数化模型",
+    "无GLB"
+  ],
+  "parameters": {
+    "screenSize": {
+      "type": "vec2",
+      "unit": "m",
+      "default": [
+        0.528,
+        0.297
+      ]
+    },
+    "standHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.1804
+    },
+    "buttonCount": {
+      "type": "integer",
+      "default": 5
+    }
+  },
+  "dependencies": [
+    "primitive.box@0.1.0",
+    "primitive.cylinder@0.1.0",
+    "primitive.torus@0.1.0",
+    "primitive.sphere@0.1.0",
+    "spatial.linear-repeat@0.1.0"
+  ],
+  "editor": {
+    "document": {
+      "id": "display-monitor",
+      "title": "桌面显示器",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "monitor",
+            "semanticType": "electronics.monitor.root",
+            "transform": {
+              "position": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "screen-frame",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.frame",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.539,
+                0.3124,
+                0.0176
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.3476,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#171c21",
+              "opacity": 1,
+              "metalness": 0.35
+            }
+          },
+          {
+            "id": "display-surface",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.display-surface",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.4884,
+                0.2596,
+                0.00396
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.3498,
+                0.0121
+              ]
+            },
+            "appearance": {
+              "color": "#1f6eea",
+              "opacity": 0.88,
+              "emissive": "#1f6eea",
+              "glow": 10
+            }
+          },
+          {
+            "id": "display-gradient",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.display-highlight",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.242,
+                0.077,
+                0.0044
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.0836,
+                0.4004,
+                0.01474
+              ],
+              "rotation": [
+                0,
+                0,
+                -0.08
+              ]
+            },
+            "appearance": {
+              "color": "#77d7ff",
+              "opacity": 0.38,
+              "emissive": "#77d7ff",
+              "glow": 12
+            }
+          },
+          {
+            "id": "top-bezel",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.bezel.top",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.5324,
+                0.0154,
+                0.02244
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.4972,
+                0.00748
+              ]
+            },
+            "appearance": {
+              "color": "#090d12",
+              "opacity": 1,
+              "metalness": 0.22
+            }
+          },
+          {
+            "id": "side-bezel",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.bezel.side",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.01584,
+                0.2728,
+                0.02244
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [
+                -0.2607,
+                0.3476,
+                0.00748
+              ],
+              "step": [
+                0.5214,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#090d12",
+              "opacity": 1,
+              "metalness": 0.22
+            }
+          },
+          {
+            "id": "webcam-dot",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.webcam",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.00572,
+              "segments": 16
+            },
+            "transform": {
+              "position": [
+                0,
+                0.4972,
+                0.02024
+              ],
+              "scale": [
+                1,
+                0.45,
+                1
+              ]
+            },
+            "appearance": {
+              "color": "#05080b",
+              "opacity": 1,
+              "metalness": 0.4
+            }
+          },
+          {
+            "id": "bottom-bezel",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.bezel",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.539,
+                0.0242,
+                0.0209
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.2002,
+                0.0044
+              ]
+            },
+            "appearance": {
+              "color": "#0d1115",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "back-shell",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.back-shell",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.4796,
+                0.2464,
+                0.0264
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.3476,
+                -0.0198
+              ]
+            },
+            "appearance": {
+              "color": "#252b31",
+              "opacity": 1,
+              "metalness": 0.28
+            }
+          },
+          {
+            "id": "rear-vent-slot",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.vent-slot",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0242,
+                0.00396,
+                0.00396
+              ]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [
+                8,
+                1,
+                2
+              ],
+              "start": [
+                -0.1056,
+                0.4048,
+                -0.0363
+              ],
+              "stepX": [
+                0.0308,
+                0,
+                0
+              ],
+              "stepY": [
+                0,
+                0,
+                0
+              ],
+              "stepZ": [
+                0,
+                -0.0264,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#0c1014",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "vesa-plate",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.vesa-mount",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0924,
+                0.066,
+                0.0077
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.3036,
+                -0.0374
+              ]
+            },
+            "appearance": {
+              "color": "#3a424a",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "vesa-screw",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.vesa-screw",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.00484,
+              "segments": 16
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [
+                2,
+                1,
+                2
+              ],
+              "start": [
+                -0.033,
+                0.2816,
+                -0.0451
+              ],
+              "stepX": [
+                0.066,
+                0,
+                0
+              ],
+              "stepY": [
+                0,
+                0,
+                0
+              ],
+              "stepZ": [
+                0,
+                0.044,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#15191d",
+              "opacity": 1,
+              "metalness": 0.75
+            }
+          },
+          {
+            "id": "hinge-cylinder",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.hinge",
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.0176,
+              "height": 0.1056,
+              "radialSegments": 32
+            },
+            "transform": {
+              "position": [
+                0,
+                0.2046,
+                -0.0176
+              ],
+              "rotation": [
+                0,
+                0,
+                1.5708
+              ]
+            },
+            "appearance": {
+              "color": "#454e56",
+              "opacity": 1,
+              "metalness": 0.65
+            }
+          },
+          {
+            "id": "stand-neck",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.stand-neck",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0352,
+                0.1716,
+                0.0264
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.1144,
+                -0.0176
+              ]
+            },
+            "appearance": {
+              "color": "#323a42",
+              "opacity": 1,
+              "metalness": 0.55
+            }
+          },
+          {
+            "id": "stand-side-brace",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.stand-brace",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0099,
+                0.1232,
+                0.0099
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [
+                -0.0264,
+                0.1078,
+                -0.01804
+              ],
+              "step": [
+                0.0528,
+                0,
+                0
+              ]
+            },
+            "transform": {
+              "rotation": [
+                0,
+                0,
+                0.12
+              ]
+            },
+            "appearance": {
+              "color": "#4a545e",
+              "opacity": 1,
+              "metalness": 0.62
+            }
+          },
+          {
+            "id": "stand-cable-slot",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.cable-slot",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0176,
+                0.0484,
+                0.00396
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.1056,
+                -0.033
+              ]
+            },
+            "appearance": {
+              "color": "#0e1215",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "base-pad",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.base",
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.1012,
+              "height": 0.0176,
+              "radialSegments": 56
+            },
+            "transform": {
+              "position": [
+                0,
+                0.0088,
+                -0.011
+              ],
+              "scale": [
+                1.35,
+                1,
+                0.72
+              ]
+            },
+            "appearance": {
+              "color": "#242b31",
+              "opacity": 1,
+              "metalness": 0.55
+            }
+          },
+          {
+            "id": "control-button",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.control-button",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0121,
+                0.00396,
+                0.00484
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "start": [
+                0.1716,
+                0.1892,
+                0.0176
+              ],
+              "step": [
+                0.0165,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#68717a",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "power-led",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.power-led",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.00528,
+              "segments": 16
+            },
+            "transform": {
+              "position": [
+                0.242,
+                0.1892,
+                0.0187
+              ]
+            },
+            "appearance": {
+              "color": "#6df36d",
+              "opacity": 1,
+              "emissive": "#6df36d",
+              "glow": 8
+            }
+          },
+          {
+            "id": "rear-port",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.rear-port",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0352,
+                0.0176,
+                0.0055
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [
+                -0.0528,
+                0.231,
+                -0.0418
+              ],
+              "step": [
+                0.0528,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#0b0f12",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "port-metal-lip",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.port-lip",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0418,
+                0.0209,
+                0.0022
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [
+                -0.0528,
+                0.231,
+                -0.04466
+              ],
+              "step": [
+                0.0528,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#5d6872",
+              "opacity": 1,
+              "metalness": 0.75
+            }
+          },
+          {
+            "id": "power-cable",
+            "parent": "monitor",
+            "semanticType": "electronics.monitor.power-cable",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [
+                  -0.0352,
+                  0.2266,
+                  -0.044
+                ],
+                [
+                  -0.0528,
+                  0.1716,
+                  -0.066
+                ],
+                [
+                  -0.022,
+                  0.0528,
+                  -0.0792
+                ]
+              ],
+              "radius": 0.00352,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#111519",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "display-center": {
+            "node": "display-surface",
+            "position": [
+              0,
+              0,
+              0.0022
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "screen-surface"
+          },
+          "stand-base": {
+            "node": "base-pad",
+            "position": [
+              0,
+              -0.0088,
+              0
+            ],
+            "direction": [
+              0,
+              -1,
+              0
+            ],
+            "kind": "desk-contact"
+          },
+          "rear-cable-port": {
+            "node": "rear-port",
+            "occurrence": {
+              "index": 0
+            },
+            "position": [
+              0,
+              0,
+              -0.00264
+            ],
+            "direction": [
+              0,
+              0,
+              -1
+            ],
+            "kind": "cable-port"
+          }
+        },
+        "animations": [
+          {
+            "id": "monitor-screen-pulse",
+            "target": "display-gradient",
+            "property": "position",
+            "from": [
+              0,
+              -0.03,
+              0
+            ],
+            "to": [
+              0,
+              0.03,
+              0
+            ],
+            "duration": 2.4,
+            "loop": true
+          }
+        ],
+        "annotations": [
+          {
+            "id": "monitor-screen-note",
+            "text": "发光显示面与窄边框",
+            "position": [
+              0.297,
+              0.396,
+              0.0264
+            ],
+            "color": "#77d7ff"
+          },
+          {
+            "id": "monitor-stand-note",
+            "text": "支架、铰链与底座",
+            "position": [
+              0.1716,
+              0.1144,
+              -0.022
+            ],
+            "color": "#eaf3cf"
+          }
+        ]
+      }
+    }
+  }
+}

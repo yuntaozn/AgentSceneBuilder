@@ -1,0 +1,466 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.mobile-panel-crane",
+  "version": "0.4.2",
+  "kind": "composition",
+  "title": "移动式施工吊机",
+  "summary": "只表达吊机本体的程序化机械模型，使用清晰的移动底盘、支腿、回转上车、立柱、简化桁架吊臂、卷扬机构、端部滑轮、吊线和吊钩表达完整机械关系。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.mobile-crane",
+  "capabilities": ["articulated-hierarchy", "animate", "lifting-points", "inspect-structure", "stabilizer-footing", "no-glb"],
+  "tags": ["施工机械", "吊机", "移动式设备", "程序化模型", "无GLB"],
+  "ai": {
+    "intent": "提供一个可解释、可编辑的移动式施工吊机数字模型，重点表达吊机作为完整机械对象的底盘稳定、回转、臂架、卷扬与吊点关系，而不是表达被吊物或施工场景。",
+    "useWhen": [
+      "需要施工设备、吊装工艺、装配式构件安装或机械安全教学中的移动式吊机对象。",
+      "需要参考如何用层级节点表达底盘、上车、臂架、吊线和吊钩之间的运动关系。",
+      "需要可继续调整吊臂长度、吊线长度、支腿展开宽度或吊点位置的程序化模型。"
+    ],
+    "avoidWhen": [
+      "需要汽车起重机、塔吊或履带吊的完整真实机械结构。",
+      "需要液压管路、发动机内部、真实钢丝绳绕组或制造级桁架节点细节。",
+      "需要同时表达被吊墙板、吊带或现场环境；这些应作为独立模型组合。"
+    ],
+    "editableParts": [
+      "base",
+      "left-wheel",
+      "right-wheel",
+      "outrigger",
+      "jack-post",
+      "turntable",
+      "upper",
+      "counterweight",
+      "mast",
+      "boom-pivot",
+      "boom",
+      "tip-sheave",
+      "winch-drum",
+      "hook-line",
+      "hook"
+    ],
+    "qualityChecks": [
+      "hook-line 的起点必须与 boom 的远端端点一致，避免吊线从臂架中段或空中漂出。",
+      "吊钩和滑轮应跟随 boom-pivot 父节点运动，保证 boom-lift 动画时吊点关系保持稳定。",
+      "支腿和支脚只表达吊机自身稳定结构，不应包含墙板、吊带或施工物料。",
+      "底盘、轮组、回转上车、配重和立柱应形成清晰的机械层级，不能混成单个不可编辑大块。"
+    ],
+    "commonVariants": [
+      "小型室内吊机：缩短 boom、降低 mast，并减少支腿展开宽度。",
+      "重载型吊机：加大 counterweight、base 和 jack-foot-pad，增加 boom-brace 数量。",
+      "运输状态：降低 boom-pivot 旋转角度并缩短 hook-line。"
+    ]
+  },
+  "parameters": {
+    "boomLength": { "type": "number", "unit": "m", "default": 5.4 },
+    "hookLength": { "type": "number", "unit": "m", "default": 2.1 },
+    "outriggerSpan": { "type": "number", "unit": "m", "default": 4.4 }
+  },
+  "dependencies": [],
+  "editor": {
+    "document": {
+      "id": "mobile-panel-crane",
+      "title": "移动式施工吊机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "crane",
+            "semanticType": "equipment.crane.root",
+            "transform": { "position": [0, 0, 0] }
+          },
+          {
+            "id": "base",
+            "parent": "crane",
+            "semanticType": "equipment.crane.base",
+            "geometry": { "type": "box", "size": [2.8, 0.42, 1.55] },
+            "transform": { "position": [0, 0.34, 0] },
+            "appearance": { "color": "#4f5960", "opacity": 1, "metalness": 0.35, "roughness": 0.48 }
+          },
+          {
+            "id": "deck-plate",
+            "parent": "crane",
+            "semanticType": "equipment.crane.deck",
+            "geometry": { "type": "box", "size": [2.55, 0.08, 1.28] },
+            "transform": { "position": [0.08, 0.61, 0] },
+            "appearance": { "color": "#67727a", "opacity": 1, "metalness": 0.42, "roughness": 0.42 }
+          },
+          {
+            "id": "front-bumper",
+            "parent": "crane",
+            "semanticType": "equipment.crane.bumper",
+            "geometry": { "type": "box", "size": [0.18, 0.22, 1.42] },
+            "transform": { "position": [-1.48, 0.42, 0] },
+            "appearance": { "color": "#30383f", "opacity": 1, "metalness": 0.25 }
+          },
+          {
+            "id": "rear-counter-base",
+            "parent": "crane",
+            "semanticType": "equipment.crane.counter-base",
+            "geometry": { "type": "box", "size": [0.58, 0.36, 1.35] },
+            "transform": { "position": [1.18, 0.72, 0] },
+            "appearance": { "color": "#3f474d", "opacity": 1, "metalness": 0.38 }
+          },
+          {
+            "id": "wheel-axle",
+            "parent": "crane",
+            "semanticType": "equipment.crane.axle",
+            "geometry": { "type": "cylinder", "radius": 0.045, "height": 1.72, "radialSegments": 16 },
+            "transform": { "position": [-0.82, 0.22, 0], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#323b42", "opacity": 1, "metalness": 0.5 }
+          },
+          {
+            "id": "rear-wheel-axle",
+            "parent": "crane",
+            "semanticType": "equipment.crane.axle",
+            "geometry": { "type": "cylinder", "radius": 0.045, "height": 1.72, "radialSegments": 16 },
+            "transform": { "position": [0.82, 0.22, 0], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#323b42", "opacity": 1, "metalness": 0.5 }
+          },
+          {
+            "id": "left-wheel",
+            "parent": "crane",
+            "semanticType": "equipment.crane.wheel",
+            "geometry": { "type": "cylinder", "radius": 0.24, "height": 0.16, "radialSegments": 40 },
+            "transform": { "position": [-0.82, 0.22, -0.86], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#171b1f", "opacity": 1, "metalness": 0.18, "roughness": 0.72 }
+          },
+          {
+            "id": "left-wheel-rear",
+            "parent": "crane",
+            "semanticType": "equipment.crane.wheel",
+            "geometry": { "type": "cylinder", "radius": 0.24, "height": 0.16, "radialSegments": 40 },
+            "transform": { "position": [0.82, 0.22, -0.86], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#171b1f", "opacity": 1, "metalness": 0.18, "roughness": 0.72 }
+          },
+          {
+            "id": "right-wheel",
+            "parent": "crane",
+            "semanticType": "equipment.crane.wheel",
+            "geometry": { "type": "cylinder", "radius": 0.24, "height": 0.16, "radialSegments": 40 },
+            "transform": { "position": [-0.82, 0.22, 0.86], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#171b1f", "opacity": 1, "metalness": 0.18, "roughness": 0.72 }
+          },
+          {
+            "id": "right-wheel-rear",
+            "parent": "crane",
+            "semanticType": "equipment.crane.wheel",
+            "geometry": { "type": "cylinder", "radius": 0.24, "height": 0.16, "radialSegments": 40 },
+            "transform": { "position": [0.82, 0.22, 0.86], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#171b1f", "opacity": 1, "metalness": 0.18, "roughness": 0.72 }
+          },
+          {
+            "id": "left-wheel-hub",
+            "parent": "crane",
+            "semanticType": "equipment.crane.wheel-hub",
+            "geometry": { "type": "cylinder", "radius": 0.095, "height": 0.045, "radialSegments": 28 },
+            "transform": { "position": [-0.82, 0.22, -0.965], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#9aa6ad", "opacity": 1, "metalness": 0.7 }
+          },
+          {
+            "id": "left-wheel-rear-hub",
+            "parent": "crane",
+            "semanticType": "equipment.crane.wheel-hub",
+            "geometry": { "type": "cylinder", "radius": 0.095, "height": 0.045, "radialSegments": 28 },
+            "transform": { "position": [0.82, 0.22, -0.965], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#9aa6ad", "opacity": 1, "metalness": 0.7 }
+          },
+          {
+            "id": "right-wheel-hub",
+            "parent": "crane",
+            "semanticType": "equipment.crane.wheel-hub",
+            "geometry": { "type": "cylinder", "radius": 0.095, "height": 0.045, "radialSegments": 28 },
+            "transform": { "position": [-0.82, 0.22, 0.965], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#9aa6ad", "opacity": 1, "metalness": 0.7 }
+          },
+          {
+            "id": "right-wheel-rear-hub",
+            "parent": "crane",
+            "semanticType": "equipment.crane.wheel-hub",
+            "geometry": { "type": "cylinder", "radius": 0.095, "height": 0.045, "radialSegments": 28 },
+            "transform": { "position": [0.82, 0.22, 0.965], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#9aa6ad", "opacity": 1, "metalness": 0.7 }
+          },
+          {
+            "id": "outrigger",
+            "parent": "crane",
+            "semanticType": "equipment.crane.outrigger",
+            "geometry": { "type": "box", "size": [4.4, 0.14, 0.16] },
+            "repetition": { "type": "linear", "count": 2, "start": [0, 0.19, -0.9], "step": [0, 0, 1.8] },
+            "appearance": { "color": "#d46a3a", "opacity": 1, "metalness": 0.35 }
+          },
+          {
+            "id": "outrigger-end-cap",
+            "parent": "crane",
+            "semanticType": "equipment.crane.outrigger.end-cap",
+            "geometry": { "type": "box", "size": [0.16, 0.18, 0.22] },
+            "repetition": { "type": "grid", "count": [2, 1, 2], "start": [-2.12, 0.19, -0.9], "stepX": [4.24, 0, 0], "stepY": [0, 0, 0], "stepZ": [0, 0, 1.8] },
+            "appearance": { "color": "#f0a44b", "opacity": 1, "metalness": 0.38 }
+          },
+          {
+            "id": "jack-post",
+            "parent": "crane",
+            "semanticType": "equipment.crane.stabilizer-jack",
+            "geometry": { "type": "cylinder", "radius": 0.06, "height": 0.55, "radialSegments": 18 },
+            "repetition": { "type": "grid", "count": [2, 1, 2], "start": [-2.12, 0.07, -0.9], "stepX": [4.24, 0, 0], "stepY": [0, 0, 0], "stepZ": [0, 0, 1.8] },
+            "appearance": { "color": "#8c979e", "opacity": 1, "metalness": 0.65 }
+          },
+          {
+            "id": "jack-foot-pad",
+            "parent": "crane",
+            "semanticType": "equipment.crane.stabilizer-foot",
+            "geometry": { "type": "box", "size": [0.48, 0.08, 0.38] },
+            "repetition": { "type": "grid", "count": [2, 1, 2], "start": [-2.12, -0.04, -0.9], "stepX": [4.24, 0, 0], "stepY": [0, 0, 0], "stepZ": [0, 0, 1.8] },
+            "appearance": { "color": "#343b40", "opacity": 1, "metalness": 0.35 }
+          },
+          {
+            "id": "turntable",
+            "parent": "crane",
+            "semanticType": "equipment.crane.turntable",
+            "geometry": { "type": "cylinder", "radius": 0.62, "height": 0.3, "radialSegments": 48 },
+            "transform": { "position": [0, 0.82, 0] },
+            "appearance": { "color": "#737e84", "opacity": 1, "metalness": 0.55 }
+          },
+          {
+            "id": "slew-ring-tooth",
+            "parent": "crane",
+            "semanticType": "equipment.crane.slew-ring-tooth",
+            "geometry": { "type": "box", "size": [0.09, 0.05, 0.12] },
+            "repetition": { "type": "radial", "count": 18, "center": [0, 0.99, 0], "radius": 0.68, "axis": "y", "startAngle": 0 },
+            "appearance": { "color": "#9aa6ad", "opacity": 1, "metalness": 0.62 }
+          },
+          {
+            "id": "upper",
+            "parent": "crane",
+            "semanticType": "equipment.crane.upper",
+            "transform": { "position": [0, 0.98, 0], "rotation": [0, 0, 0] }
+          },
+          {
+            "id": "upper-frame",
+            "parent": "upper",
+            "semanticType": "equipment.crane.upper-frame",
+            "geometry": { "type": "box", "size": [1.35, 0.32, 0.92] },
+            "transform": { "position": [0.18, 0.14, 0] },
+            "appearance": { "color": "#545f66", "opacity": 1, "metalness": 0.42 }
+          },
+          {
+            "id": "counterweight",
+            "parent": "upper",
+            "semanticType": "equipment.crane.counterweight",
+            "geometry": { "type": "box", "size": [0.72, 0.78, 0.96] },
+            "transform": { "position": [0.92, 0.55, 0] },
+            "appearance": { "color": "#3d454b", "opacity": 1, "metalness": 0.45 }
+          },
+          {
+            "id": "counterweight-band",
+            "parent": "upper",
+            "semanticType": "equipment.crane.counterweight-band",
+            "geometry": { "type": "box", "size": [0.76, 0.06, 1.02] },
+            "repetition": { "type": "linear", "count": 3, "start": [0.92, 0.28, 0], "step": [0, 0.22, 0] },
+            "appearance": { "color": "#65717a", "opacity": 1, "metalness": 0.5 }
+          },
+          {
+            "id": "operator-panel",
+            "parent": "upper",
+            "semanticType": "equipment.crane.operator-panel",
+            "geometry": { "type": "box", "size": [0.52, 0.42, 0.5] },
+            "transform": { "position": [-0.22, 0.45, -0.5] },
+            "appearance": { "color": "#2c3339", "opacity": 1, "metalness": 0.35 }
+          },
+          {
+            "id": "operator-window",
+            "parent": "upper",
+            "semanticType": "equipment.crane.operator-window",
+            "geometry": { "type": "box", "size": [0.38, 0.25, 0.02] },
+            "transform": { "position": [-0.22, 0.52, -0.765] },
+            "appearance": { "color": "#7fc4de", "opacity": 0.55, "emissive": "#2e6f84", "glow": 1.2 }
+          },
+          {
+            "id": "mast",
+            "parent": "upper",
+            "semanticType": "equipment.crane.mast",
+            "geometry": { "type": "cylinder", "radius": 0.1, "height": 4.8, "radialSegments": 24 },
+            "transform": { "position": [0, 2.4, 0] },
+            "appearance": { "color": "#d46a3a", "opacity": 1, "metalness": 0.35 }
+          },
+          {
+            "id": "mast-side-rail",
+            "parent": "upper",
+            "semanticType": "equipment.crane.mast-rail",
+            "geometry": { "type": "box", "size": [0.08, 4.5, 0.08] },
+            "repetition": { "type": "linear", "count": 2, "start": [0, 2.4, -0.22], "step": [0, 0, 0.44] },
+            "appearance": { "color": "#e88345", "opacity": 1, "metalness": 0.38 }
+          },
+          {
+            "id": "mast-cross-member",
+            "parent": "upper",
+            "semanticType": "equipment.crane.mast-cross-member",
+            "geometry": { "type": "box", "size": [0.1, 0.045, 0.44] },
+            "repetition": { "type": "linear", "count": 5, "start": [0, 1.05, 0], "step": [0, 0.75, 0] },
+            "appearance": { "color": "#f0a44b", "opacity": 0.82, "metalness": 0.36 }
+          },
+          {
+            "id": "mast-base-collar",
+            "parent": "upper",
+            "semanticType": "equipment.crane.mast-base-collar",
+            "geometry": { "type": "cylinder", "radius": 0.24, "height": 0.18, "radialSegments": 32 },
+            "transform": { "position": [0, 0.18, 0] },
+            "appearance": { "color": "#737e84", "opacity": 1, "metalness": 0.58 }
+          },
+          {
+            "id": "winch-drum",
+            "parent": "upper",
+            "semanticType": "equipment.crane.winch-drum",
+            "geometry": { "type": "cylinder", "radius": 0.22, "height": 0.72, "radialSegments": 32 },
+            "transform": { "position": [0.42, 0.55, 0], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#38434a", "opacity": 1, "metalness": 0.66 }
+          },
+          {
+            "id": "winch-flange",
+            "parent": "upper",
+            "semanticType": "equipment.crane.winch-flange",
+            "geometry": { "type": "cylinder", "radius": 0.26, "height": 0.06, "radialSegments": 32 },
+            "repetition": { "type": "linear", "count": 2, "start": [0.42, 0.55, -0.39], "step": [0, 0, 0.78] },
+            "transform": { "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#909ba2", "opacity": 1, "metalness": 0.72 }
+          },
+          {
+            "id": "winch-cable-guide",
+            "parent": "upper",
+            "semanticType": "equipment.crane.cable-guide",
+            "geometry": { "type": "cylinder-between", "start": [0.18, 0.72, 0], "end": [-0.08, 4.42, 0], "radius": 0.012, "radialSegments": 8 },
+            "appearance": { "color": "#566168", "opacity": 0.55, "metalness": 0.55 }
+          },
+          {
+            "id": "boom-pivot",
+            "parent": "upper",
+            "semanticType": "equipment.crane.boom-joint",
+            "transform": { "position": [0, 4.65, 0], "rotation": [0, 0, 0.1745] }
+          },
+          {
+            "id": "boom-pin",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.boom-pin",
+            "geometry": { "type": "cylinder", "radius": 0.18, "height": 0.58, "radialSegments": 32 },
+            "transform": { "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#9aa6ad", "opacity": 1, "metalness": 0.75 }
+          },
+          {
+            "id": "boom",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.boom",
+            "geometry": { "type": "box", "size": [5.4, 0.11, 0.13] },
+            "transform": { "position": [-2.5, 0, 0] },
+            "appearance": { "color": "#c75f32", "opacity": 0.88, "metalness": 0.35 }
+          },
+          {
+            "id": "boom-upper-chord",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.boom-chord",
+            "geometry": { "type": "box", "size": [5.05, 0.065, 0.065] },
+            "transform": { "position": [-2.62, 0.15, 0] },
+            "appearance": { "color": "#f0a44b", "opacity": 1, "metalness": 0.36 }
+          },
+          {
+            "id": "boom-lower-chord",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.boom-chord",
+            "geometry": { "type": "box", "size": [5.05, 0.065, 0.065] },
+            "transform": { "position": [-2.62, -0.15, 0] },
+            "appearance": { "color": "#f0a44b", "opacity": 1, "metalness": 0.36 }
+          },
+          {
+            "id": "boom-side-chord",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.boom-side-chord",
+            "geometry": { "type": "box", "size": [5.05, 0.045, 0.045] },
+            "repetition": { "type": "linear", "count": 2, "start": [-2.62, 0, -0.12], "step": [0, 0, 0.24] },
+            "appearance": { "color": "#b9542e", "opacity": 0.9, "metalness": 0.36 }
+          },
+          {
+            "id": "boom-brace-a",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.boom-brace",
+            "geometry": { "type": "tube-along", "points": [[-0.35, -0.13, -0.11], [-0.82, 0.13, -0.11], [-1.28, -0.13, -0.11], [-1.75, 0.13, -0.11], [-2.22, -0.13, -0.11], [-2.69, 0.13, -0.11], [-3.16, -0.13, -0.11], [-3.63, 0.13, -0.11], [-4.1, -0.13, -0.11], [-4.57, 0.13, -0.11], [-5.0, -0.13, -0.11]], "radius": 0.024, "radialSegments": 8 },
+            "appearance": { "color": "#ffd16b", "opacity": 0.82, "metalness": 0.32 }
+          },
+          {
+            "id": "boom-brace-b",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.boom-brace",
+            "geometry": { "type": "tube-along", "points": [[-0.35, 0.13, 0.11], [-0.82, -0.13, 0.11], [-1.28, 0.13, 0.11], [-1.75, -0.13, 0.11], [-2.22, 0.13, 0.11], [-2.69, -0.13, 0.11], [-3.16, 0.13, 0.11], [-3.63, -0.13, 0.11], [-4.1, 0.13, 0.11], [-4.57, -0.13, 0.11], [-5.0, 0.13, 0.11]], "radius": 0.024, "radialSegments": 8 },
+            "appearance": { "color": "#ffd16b", "opacity": 0.82, "metalness": 0.32 }
+          },
+          {
+            "id": "tip-sheave",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.sheave",
+            "geometry": { "type": "torus", "majorRadius": 0.13, "tubeRadius": 0.03, "radialSegments": 36, "tubularSegments": 10 },
+            "transform": { "position": [-5.2, 0, 0], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#7f8b91", "opacity": 1, "metalness": 0.68 }
+          },
+          {
+            "id": "tip-sheave-pin",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.sheave-pin",
+            "geometry": { "type": "cylinder", "radius": 0.055, "height": 0.42, "radialSegments": 18 },
+            "transform": { "position": [-5.2, 0, 0], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#c1ccd2", "opacity": 1, "metalness": 0.78 }
+          },
+          {
+            "id": "hook-line",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.hoist-line",
+            "geometry": { "type": "cylinder-between", "start": [-5.2, 0, 0], "end": [-5.2, -2.1, 0], "radius": 0.025, "radialSegments": 10 },
+            "appearance": { "color": "#556168", "opacity": 1, "metalness": 0.55 }
+          },
+          {
+            "id": "hook-block",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.hook-block",
+            "geometry": { "type": "box", "size": [0.38, 0.24, 0.28] },
+            "transform": { "position": [-5.2, -2.18, 0] },
+            "appearance": { "color": "#3f474d", "opacity": 1, "metalness": 0.55 }
+          },
+          {
+            "id": "hook-block-sheave",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.hook-block-sheave",
+            "geometry": { "type": "torus", "majorRadius": 0.11, "tubeRadius": 0.022, "radialSegments": 28, "tubularSegments": 8 },
+            "transform": { "position": [-5.2, -2.18, 0], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#9aa6ad", "opacity": 1, "metalness": 0.72 }
+          },
+          {
+            "id": "hook",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.hook",
+            "geometry": { "type": "torus", "majorRadius": 0.16, "tubeRadius": 0.035, "radialSegments": 36, "tubularSegments": 10 },
+            "transform": { "position": [-5.2, -2.42, 0], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#f0a44b", "opacity": 1, "metalness": 0.58 }
+          },
+          {
+            "id": "hook-throat",
+            "parent": "boom-pivot",
+            "semanticType": "equipment.crane.hook-throat",
+            "geometry": { "type": "box", "size": [0.08, 0.32, 0.06] },
+            "transform": { "position": [-5.12, -2.45, 0], "rotation": [0, 0, -0.45] },
+            "appearance": { "color": "#f0a44b", "opacity": 1, "metalness": 0.58 }
+          }
+        ],
+        "anchors": {
+          "hook-point": { "node": "hook", "position": [0, -0.16, 0], "direction": [0, -1, 0], "kind": "lifting-hook" },
+          "boom-tip": { "node": "tip-sheave", "position": [0, 0, 0], "direction": [-1, 0, 0], "kind": "boom-tip" },
+          "slew-center": { "node": "turntable", "position": [0, 0.15, 0], "direction": [0, 1, 0], "kind": "rotation-center" },
+          "base-contact": { "node": "jack-foot-pad", "occurrence": { "gridIndex": [0, 0, 0] }, "position": [0, -0.04, 0], "direction": [0, -1, 0], "kind": "ground-contact" },
+          "stabilizer-right-front": { "node": "jack-foot-pad", "occurrence": { "gridIndex": [1, 0, 1] }, "position": [0, -0.04, 0], "direction": [0, -1, 0], "kind": "stabilizer-foot" }
+        },
+        "animations": [
+          { "id": "crane-slew", "target": "upper", "property": "rotation", "from": [0, -0.5, 0], "to": [0, 0.5, 0], "duration": 5, "loop": true },
+          { "id": "boom-lift", "target": "boom-pivot", "property": "rotation", "from": [0, 0, 0.08], "to": [0, 0, 0.32], "duration": 3, "loop": true },
+          { "id": "winch-drum-spin", "target": "winch-drum", "property": "rotation", "from": [1.5708, 0, 0], "to": [1.5708, 0, 6.2832], "duration": 2.4, "loop": true }
+        ],
+        "annotations": []
+      }
+    }
+  },
+  "example": "registry/compositions/mobile-panel-crane/manifest.json"
+}

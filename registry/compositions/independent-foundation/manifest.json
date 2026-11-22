@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "0.1", "id": "construction.independent-foundation-system", "version": "0.1.0", "kind": "composition",
+  "title": "独立基础与双向钢筋", "summary": "由旧教学课件中的代码生成模型提炼，包含垫层、基础、柱墩和双向钢筋阵列。", "license": "Apache-2.0",
+  "semanticType": "construction.independent-foundation", "capabilities": ["resize", "inspect-structure", "edit-repetition", "material"], "tags": ["施工", "基础", "钢筋", "课件迁移"],
+  "parameters": { "foundationSize": { "type": "vec3", "unit": "m", "default": [6.4, 0.8, 4.2] }, "rebarSpacing": { "type": "number", "unit": "m", "default": 0.4 } },
+  "dependencies": ["primitive.box@0.1.0"],
+  "editor": { "document": { "id": "independent-foundation-system", "component": "core.composition", "parameters": { "nodes": [
+    { "id": "blinding", "semanticType": "construction.blinding", "geometry": { "type": "box", "size": [6.8, 0.16, 4.56] }, "transform": { "position": [0, 0.08, 0], "rotation": [0,0,0], "scale": [1,1,1] }, "appearance": { "color": "#aab1b5", "opacity": 1 } },
+    { "id": "foundation", "semanticType": "structure.foundation", "geometry": { "type": "box", "size": [6.4, 0.8, 4.2] }, "transform": { "position": [0, 0.56, 0], "rotation": [0,0,0], "scale": [1,1,1] }, "appearance": { "color": "#7f8b91", "opacity": 0.72 } },
+    { "id": "pedestal", "semanticType": "structure.pedestal", "geometry": { "type": "box", "size": [1.4, 1.8, 1.4] }, "transform": { "position": [0, 1.85, 0], "rotation": [0,0,0], "scale": [1,1,1] }, "appearance": { "color": "#89969c", "opacity": 0.82 } },
+    { "id": "rebar-x", "semanticType": "structure.rebar", "geometry": { "type": "cylinder-between", "start": [-3.05, 0.28, -2], "end": [3.05, 0.28, -2], "radius": 0.038 }, "repetition": { "type": "linear", "count": 11, "start": [0,0,0], "step": [0,0,0.4] }, "appearance": { "color": "#c58a55", "opacity": 1 } },
+    { "id": "rebar-z", "semanticType": "structure.rebar", "geometry": { "type": "cylinder-between", "start": [-3, 0.34, -2.05], "end": [-3, 0.34, 2.05], "radius": 0.038 }, "repetition": { "type": "linear", "count": 16, "start": [0,0,0], "step": [0.4,0,0] }, "appearance": { "color": "#d39a61", "opacity": 1 } }
+  ], "anchors": { "column-center": { "node": "pedestal", "position": [0, 2.75, 0], "direction": [0,1,0], "kind": "structure-axis" } } } } },
+  "example": "registry/compositions/independent-foundation/manifest.json"
+}

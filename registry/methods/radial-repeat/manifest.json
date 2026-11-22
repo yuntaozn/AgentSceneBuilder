@@ -1,0 +1,5 @@
+{
+  "schemaVersion":"0.1","id":"spatial.radial-repeat","version":"0.1.0","kind":"method","title":"径向重复","summary":"围绕指定中心、半径和轴生成环形构件阵列，并可让实例朝向径向。","license": "Apache-2.0","capabilities":["repeat","radial-addressing","radial-orientation"],"tags":["空间方法","环形阵列","方向"],"parameters":{"count":{"type":"integer"},"center":{"type":"vec3","unit":"m"},"radius":{"type":"number","unit":"m"},"axis":{"type":"axis"}},"dependencies":[],
+  "guide":{"problem":"法兰螺栓、叶片和环形座位需要围绕共同中心稳定排列。","result":"调整数量或半径即可重新生成整圈实例，并保留角度与实例索引。","steps":["定义单个原型","指定共同中心和旋转轴","设置数量、半径和扫描角度","选择固定或径向朝向"]},
+  "editor":{"document":{"id":"radial-repeat-example","component":"core.composition","parameters":{"nodes":[{"id":"ring","semanticType":"mechanical.ring","geometry":{"type":"torus","majorRadius":1.25,"tubeRadius":0.12},"appearance":{"color":"#75838b","opacity":1}},{"id":"bolt","semanticType":"mechanical.fastener","geometry":{"type":"box","size":[0.18,0.5,0.18]},"repetition":{"type":"radial","count":12,"center":[0,0,0],"radius":1.25,"axis":"y"},"orientation":{"mode":"radial-outward","localAxis":[0,1,0]},"appearance":{"color":"#c8f24d","opacity":1}}],"anchors":{}}}}
+}

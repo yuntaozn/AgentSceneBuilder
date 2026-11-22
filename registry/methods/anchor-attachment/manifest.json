@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "0.1", "id": "spatial.anchor-attachment", "version": "0.1.0", "kind": "method",
+  "title": "锚点连接", "summary": "依据命名锚点计算构件之间的对齐、方向和连接契约。", "license": "Apache-2.0",
+  "capabilities": ["attach", "align", "direction-check"], "tags": ["空间方法", "锚点", "连接"],
+  "ai": {
+    "intent": "让 Agent 用命名锚点描述构件连接关系，并由内核计算对齐、方向和间隙检查，避免手写临时坐标补偿。",
+    "useWhen": ["两个构件需要通过 inlet/outlet、mount、support 等语义锚点连接。", "需要检查方向是否相容、是否允许嵌入或是否存在间隙。"],
+    "avoidWhen": ["连接方案需要领域选择且没有唯一答案时，不应由方法直接替 Agent 决策。", "构件没有稳定 anchor 时，应先补 anchor 而不是硬算坐标。"],
+    "editableParts": ["source", "target", "anchor kind", "direction policy"],
+    "qualityChecks": ["锚点必须命名稳定并携带方向。", "方法输出应是事实、候选或 proposal，不直接改写用户场景。"],
+    "commonVariants": ["允许嵌入连接", "仅接触连接", "带方向兼容检查的连接"]
+  },
+  "parameters": { "source": { "type": "anchor-ref" }, "target": { "type": "anchor-ref" } },
+  "dependencies": [],
+  "guide": { "problem": "两个构件只知道各自坐标时，Agent 必须反复计算如何移动才能把指定接口准确接在一起。", "result": "使用稳定锚点引用后，系统返回确定的平移量和连接检查结果，构件尺寸变化后仍可重新连接。", "steps": ["构件公开带方向的命名锚点", "指定移动构件的源锚点", "指定目标构件的目标锚点", "计算对齐变换并检查距离与方向"] },
+  "editor": { "document": { "id": "anchor-attachment-example", "component": "core.composition", "parameters": { "nodes": [
+    { "id": "fixed-pipe", "semanticType": "mep.pipe.fixed", "geometry": { "type": "cylinder-between", "start": [-2,1,0], "end": [0,1,0], "radius": 0.16 }, "appearance": { "color": "#54a8ff", "opacity": 1 } },
+    { "id": "moving-pipe", "semanticType": "mep.pipe.moving", "geometry": { "type": "cylinder-between", "start": [0,1,0], "end": [2,1,0], "radius": 0.13 }, "appearance": { "color": "#c8f24d", "opacity": 1 } },
+    { "id": "connector", "semanticType": "mep.connector", "geometry": { "type": "torus", "majorRadius": 0.2, "tubeRadius": 0.045 }, "transform": { "position": [0,1,0], "rotation": [0,0,1.5708], "scale": [1,1,1] }, "appearance": { "color": "#ffcf67", "opacity": 0.95 } }
+  ], "anchors": { "fixed-outlet": { "node": "fixed-pipe", "position": [0,1,0], "direction": [1,0,0], "kind": "pipe-port" }, "moving-inlet": { "node": "moving-pipe", "position": [0,1,0], "direction": [-1,0,0], "kind": "pipe-port" } }, "attachments": [{ "id": "pipe-joint", "from": "fixed-outlet", "to": "moving-inlet", "contract": { "contact": "socket", "gapTolerance": 0.002, "required": true, "direction": "opposed", "angularTolerance": 0.0872665 } }] } } }
+}

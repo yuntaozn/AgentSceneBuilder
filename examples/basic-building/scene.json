@@ -1,0 +1,68 @@
+{
+  "version": "0.1",
+  "metadata": {
+    "title": "二层建筑外墙保温板施工演示",
+    "domain": "construction-teaching",
+    "language": "zh-CN"
+  },
+  "units": "meter",
+  "materials": [
+    { "id": "concrete_light", "name": "浅灰混凝土", "color": "#d8d8d0", "roughness": 0.8 },
+    { "id": "insulation_blue", "name": "蓝色保温板", "color": "#72b6d8", "roughness": 0.6 }
+  ],
+  "objects": [
+    {
+      "id": "building_01",
+      "type": "component",
+      "component": "simple_building",
+      "name": "二层教学楼主体",
+      "position": [0, 0, 0],
+      "params": { "floors": 2, "width": 8, "depth": 5, "floor_height": 3 },
+      "tags": ["building", "teaching"]
+    },
+    {
+      "id": "panel_01",
+      "type": "box",
+      "name": "外墙保温板",
+      "position": [0, 2, -2.65],
+      "size": [7.5, 2.5, 0.12],
+      "material": "insulation_blue",
+      "tags": ["construction", "insulation"],
+      "teaching": { "label": "外墙保温板", "description": "演示保温板安装到外墙基层的过程" }
+    },
+    {
+      "id": "label_01",
+      "type": "label",
+      "text": "外墙保温板安装位置",
+      "target": "panel_01",
+      "position": [3.9, 3.4, -2.5],
+      "style": "teaching_label"
+    }
+  ],
+  "cameras": [
+    { "id": "front_iso", "type": "perspective", "position": [8, 6, 8], "target": [0, 2, 0], "fov": 45 }
+  ],
+  "steps": [
+    {
+      "id": "step_01",
+      "title": "观察建筑外墙基层",
+      "description": "展示二层建筑主体和待安装区域。",
+      "camera": "front_iso",
+      "show": ["building_01"],
+      "highlight": ["building_01"]
+    },
+    {
+      "id": "step_02",
+      "title": "安装外墙保温板",
+      "description": "展示保温板移动到外墙表面的施工过程。",
+      "camera": "front_iso",
+      "show": ["building_01", "panel_01", "label_01"],
+      "highlight": ["panel_01"],
+      "animations": [
+        { "target": "panel_01", "type": "move", "from": [0, 2, -4], "to": [0, 2, -2.65], "duration": 1.2 }
+      ]
+    }
+  ],
+  "interactions": [],
+  "extensions": {}
+}

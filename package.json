@@ -1,0 +1,28 @@
+{
+  "name": "agentscene-builder-workspace",
+  "version": "0.1.0-alpha.1",
+  "private": true,
+  "type": "module",
+  "description": "Agent-native parametric 3D modeling core with optional renderer and asset adapters.",
+  "license": "Apache-2.0",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "agentscene": "node packages/cli/src/agentscene.mjs",
+    "component:list": "node scripts/model.mjs component list",
+    "registry:check": "node scripts/registry.mjs",
+    "registry:build": "node scripts/registry.mjs --write",
+    "build:editor": "esbuild ././apps/editor/app.js --bundle --format=esm --target=es2022 --splitting --minify --outdir=./apps/editor --entry-names=app.bundle --chunk-names=chunks/[name]-[hash]",
+    "build:library": "esbuild ././apps/library/app.js --bundle --format=esm --target=es2022 --outfile=./apps/library/app.bundle.js"
+  },
+  "workspaces": [
+    "packages/*",
+    "adapters/*",
+    "apps/*"
+  ],
+  "dependencies": {
+    "three": "^0.185.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "0.1", "id": "construction.blinding-formwork", "version": "0.1.0", "kind": "composition",
+  "title": "基础垫层与边模", "summary": "从独立基础施工课件提炼的垫层分带浇筑、矩形木边模和定位线组合。", "license": "Apache-2.0",
+  "semanticType": "construction.blinding-formwork", "capabilities": ["resize", "inspect-structure", "edit-repetition", "material"], "tags": ["施工", "垫层", "模板", "课件迁移"],
+  "parameters": { "padWidth": { "type": "number", "unit": "m", "default": 6.8 }, "padDepth": { "type": "number", "unit": "m", "default": 4.56 } }, "dependencies": ["primitive.box@0.1.0"],
+  "editor": { "document": { "id": "foundation-blinding-formwork", "component": "core.composition", "parameters": { "nodes": [
+    { "id": "pad-strip", "semanticType": "construction.blinding", "geometry": { "type": "box", "size": [6.8,0.16,0.93] }, "repetition": { "type": "linear", "count": 5, "start": [0,0.08,-1.86], "step": [0,0,0.93] }, "appearance": { "color": "#aeb8bd", "opacity": 1 } },
+    { "id": "form-long", "semanticType": "construction.formwork", "geometry": { "type": "box", "size": [7.04,0.23,0.14] }, "repetition": { "type": "linear", "count": 2, "start": [0,0.115,-2.35], "step": [0,0,4.7] }, "appearance": { "color": "#a57545", "opacity": 1 } },
+    { "id": "form-short", "semanticType": "construction.formwork", "geometry": { "type": "box", "size": [0.14,0.23,4.56] }, "repetition": { "type": "linear", "count": 2, "start": [-3.47,0.115,0], "step": [6.94,0,0] }, "appearance": { "color": "#a57545", "opacity": 1 } },
+    { "id": "center-line-x", "semanticType": "construction.layout-line", "geometry": { "type": "box", "size": [6.5,0.025,0.035] }, "transform": { "position": [0,0.19,0], "rotation": [0,0,0], "scale": [1,1,1] }, "appearance": { "color": "#f3d64e", "opacity": 1 } },
+    { "id": "center-line-z", "semanticType": "construction.layout-line", "geometry": { "type": "box", "size": [0.035,0.025,4.4] }, "transform": { "position": [0,0.19,0], "rotation": [0,0,0], "scale": [1,1,1] }, "appearance": { "color": "#f3d64e", "opacity": 1 } }
+  ], "anchors": { "center": { "node": "center-line-x", "position": [0,0.2,0], "direction": [0,1,0], "kind": "layout-origin" } } } } },
+  "example": "registry/compositions/foundation-blinding-formwork/manifest.json"
+}

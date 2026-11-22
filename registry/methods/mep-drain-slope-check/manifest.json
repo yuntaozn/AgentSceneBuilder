@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.drain-slope-check",
+  "version": "0.1.0",
+  "kind": "method",
+  "title": "排水管坡度检查",
+  "summary": "按流向分析排水管路径的水平长度、落差、分段坡度和异常段，用结构化事实帮助 Agent 判断排水路径是否需要调整。",
+  "license": "Apache-2.0",
+  "capabilities": ["path-analysis", "slope-check", "mep", "diagnostics", "no-glb"],
+  "tags": ["MEP", "排水", "坡度", "检查", "空间方法"],
+  "parameters": {
+    "points": { "type": "vec3[]", "unit": "m" },
+    "minSlope": { "type": "number", "default": 0.005 },
+    "maxSlope": { "type": "number", "default": 0.03 },
+    "flowDirection": { "type": "string", "default": "forward" }
+  },
+  "dependencies": ["spatial.repeat-along-path@0.1.0"],
+  "ai": {
+    "intent": "让 Agent 在设计排水管时获得分段坡度、总落差和异常段，而不是凭视觉或临时脚本猜测路径是否合理。",
+    "useWhen": [
+      "排水管、冷凝水管、地漏支管等需要按流向保留坡度。",
+      "模型中管线有多个控制点，需要判断哪些段太平、倒坡或过陡。",
+      "教学模型需要显示坡度检查结果、风险点或整改建议。"
+    ],
+    "avoidWhen": [
+      "管线不是重力排水或不需要坡度。",
+      "需要替代专业规范审查时不要单独依赖该方法；它只检查输入参数下的几何事实。"
+    ],
+    "editableParts": ["points", "minSlope", "maxSlope", "flowDirection"],
+    "qualityChecks": [
+      "points 应按真实流向排序，否则倒坡判断会反向。",
+      "竖向段不会作为水平排水坡度段参与平均坡度。",
+      "异常段应反馈给 Agent 或人工复核，而不是自动改动模型。"
+    ],
+    "commonVariants": ["地漏排水坡度", "冷凝水管坡度", "多支路排水检查", "整改前后坡度对比"]
+  },
+  "guide": {
+    "problem": "水电课件中的排水管有连续下降的控制点，AI 直接画管线时容易丢失坡度逻辑。",
+    "result": "返回每段 horizontal、fall、slope、percent、status 和 issues，便于 Agent 把问题段标出来。",
+    "steps": [
+      "按流向输入排水管 points。",
+      "设置允许的 minSlope / maxSlope。",
+      "调用 CLI：agentscene mep drain-slope-check。",
+      "根据 issues 决定是否调整控制点或仅作为教学标注。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "mep-drain-slope-check-example",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "drain",
+            "semanticType": "mep.drain.pipe",
+            "geometry": { "type": "tube-along", "points": [[-1.8, 0.08, -0.8], [0, 0.055, -0.6], [1.6, 0.03, -0.2], [2.6, 0.01, 0.35]], "radius": 0.05 },
+            "appearance": { "color": "#8d98a4", "opacity": 1 }
+          },
+          {
+            "id": "slope-marker",
+            "semanticType": "mep.drain.slope-marker",
+            "geometry": { "type": "box", "size": [0.16, 0.025, 0.08] },
+            "repetition": { "type": "path", "points": [[-1.8, 0.18, -0.8], [0, 0.155, -0.6], [1.6, 0.13, -0.2], [2.6, 0.11, 0.35]], "spacing": 0.65, "startOffset": 0.1, "endOffset": 0.1, "includeEnd": true },
+            "orientation": { "mode": "tangent", "localAxis": [1, 0, 0] },
+            "appearance": { "color": "#ffe082", "opacity": 1 }
+          }
+        ],
+        "annotations": [
+          { "id": "slope-note", "text": "按流向检查落差 / 坡度", "position": [0.8, 0.55, -0.35] }
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  "example": "examples/digital-modeling/mep/drain-slope-check.json"
+}

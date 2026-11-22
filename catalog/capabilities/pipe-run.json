@@ -1,0 +1,17 @@
+{
+  "kind": "capability",
+  "id": "mep.pipe-run",
+  "version": "0.1.0",
+  "title": "Build a parametric pipe run",
+  "description": "Generate a semantic pipe from a dimensioned 3D path and report endpoints, bounds, centerline length, diameter, and approximate outer volume.",
+  "goals": ["model a pipe route", "calculate pipe length", "preserve pipe endpoints", "create editable MEP geometry"],
+  "inputs": ["3D path", "outside diameter", "system", "material role"],
+  "outputs": ["tube geometry description", "start and end anchors", "local bounds", "length and volume metrics"],
+  "sideEffects": "none",
+  "command": "node scripts/model.mjs component build examples/digital-modeling/cold-water-pipe.json",
+  "limitations": [
+    "Contract 0.1 represents the path centerline but does not yet generate fittings or enforce bend radii.",
+    "The approximate volume describes the outside cylinder envelope, not material volume for a hollow pipe."
+  ],
+  "tags": ["digital-modeling", "parametric", "mep", "pipe", "path", "quantities"]
+}

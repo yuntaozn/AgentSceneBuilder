@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.pipe-clip",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "管线固定管卡",
+  "summary": "用于水电隐蔽工程、支吊架和墙顶面敷设的基础固定件，表达底座、抱箍与螺钉，而不是把管卡简化成一个孤立方块。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.pipe-clip",
+  "capabilities": ["attach", "repeat", "path-sampling", "inspect-structure", "material", "no-glb"],
+  "tags": ["MEP", "管卡", "支撑", "水电", "参数化构件"],
+  "parameters": {
+    "pipeRadius": { "type": "number", "unit": "m", "default": 0.05, "minimum": 0.005 },
+    "clipWidth": { "type": "number", "unit": "m", "default": 0.16, "minimum": 0.02 },
+    "baseThickness": { "type": "number", "unit": "m", "default": 0.03, "minimum": 0.005 }
+  },
+  "anchors": ["pipe-center", "wall-mount"],
+  "dependencies": [],
+  "ai": {
+    "intent": "让 Agent 在管线路径上复用稳定的固定件语义和锚点，不必每次临时手写管卡外形、间距和朝向。",
+    "useWhen": [
+      "管线沿墙、顶、支架或设备面敷设，需要按路径重复固定件。",
+      "需要表达管卡底座、抱箍、螺钉这些可编辑细节，但不需要复杂制造级模型。"
+    ],
+    "avoidWhen": [
+      "只需要粗略表达管线方向，不关心固定方式。",
+      "需要厂家级卡箍、膨胀螺栓或抗震支吊架详图，应建立更专业构件。"
+    ],
+    "editableParts": ["base", "strap", "screw-left", "screw-right", "pipe-center", "wall-mount"],
+    "qualityChecks": [
+      "管卡应贴近被支撑管线，不能远离路径漂浮。",
+      "沿路径重复时应保留 repetition 规则，而不是展开成无语义小块。"
+    ],
+    "commonVariants": ["单管卡", "双联管卡", "墙面管卡", "顶面吊卡", "沿路径自动重复管卡"]
+  },
+  "editor": {
+    "document": {
+      "id": "pipe-clip-component",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "mep.pipe-clip.base",
+            "geometry": { "type": "box", "size": [0.2, 0.03, 0.18] },
+            "transform": { "position": [0, 0, 0] },
+            "appearance": { "color": "#87949c", "opacity": 1 }
+          },
+          {
+            "id": "strap",
+            "semanticType": "mep.pipe-clip.strap",
+            "geometry": { "type": "torus", "majorRadius": 0.07, "tubeRadius": 0.012, "radialSegments": 16, "tubularSegments": 36 },
+            "transform": { "position": [0, 0.065, 0], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#c9d3d8", "opacity": 1, "metalness": 0.35 }
+          },
+          {
+            "id": "screw-left",
+            "semanticType": "mep.pipe-clip.screw",
+            "geometry": { "type": "cylinder", "radius": 0.018, "height": 0.035, "radialSegments": 14 },
+            "transform": { "position": [-0.075, 0.025, 0], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#30383d", "opacity": 1, "metalness": 0.5 }
+          },
+          {
+            "id": "screw-right",
+            "semanticType": "mep.pipe-clip.screw",
+            "geometry": { "type": "cylinder", "radius": 0.018, "height": 0.035, "radialSegments": 14 },
+            "transform": { "position": [0.075, 0.025, 0], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#30383d", "opacity": 1, "metalness": 0.5 }
+          }
+        ],
+        "anchors": {
+          "pipe-center": { "node": "strap", "position": [0, 0.065, 0], "direction": [0, 1, 0], "kind": "pipe-support-center" },
+          "wall-mount": { "node": "base", "position": [0, -0.015, 0], "direction": [0, -1, 0], "kind": "mount" }
+        }
+      }
+    }
+  },
+  "example": "registry/compositions/pipe-support-layout/manifest.json"
+}

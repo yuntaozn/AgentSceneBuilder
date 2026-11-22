@@ -1,0 +1,69 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.fire-hydrant",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "室外消防栓",
+  "summary": "完全由参数化几何组成的室外地上式消防栓模型，表达底座法兰、主管、侧出水口、前出水口、顶盖、操作螺母、法兰螺栓和防丢链等关键构件。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.fire-safety.hydrant",
+  "capabilities": ["inspect-structure", "anchors", "material", "edit-repetition", "animate", "no-glb"],
+  "tags": ["消防", "消防栓", "室外消火栓", "参数化模型", "构件表达", "无GLB"],
+  "parameters": {
+    "height": { "type": "number", "unit": "m", "default": 1.85 },
+    "barrelRadius": { "type": "number", "unit": "m", "default": 0.24 },
+    "outletCount": { "type": "integer", "default": 3 },
+    "flangeBoltCount": { "type": "integer", "default": 8 }
+  },
+  "dependencies": [
+    "primitive.cylinder@0.1.0",
+    "primitive.torus@0.1.0",
+    "primitive.sphere@0.1.0",
+    "primitive.box@0.1.0",
+    "spatial.radial-repeat@0.1.0"
+  ],
+  "editor": {
+    "document": {
+      "id": "fire-hydrant",
+      "title": "室外消防栓",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          { "id": "hydrant", "semanticType": "equipment.fire.hydrant.root", "transform": { "position": [0, 0, 0] } },
+          { "id": "base-flange", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.base-flange", "geometry": { "type": "cylinder", "radius": 0.36, "height": 0.14, "radialSegments": 48 }, "transform": { "position": [0, 0.07, 0] }, "appearance": { "color": "#9f2323", "opacity": 1, "metalness": 0.5 } },
+          { "id": "flange-rim", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.flange-rim", "geometry": { "type": "torus", "majorRadius": 0.32, "tubeRadius": 0.025, "radialSegments": 48, "tubularSegments": 10 }, "transform": { "position": [0, 0.15, 0] }, "appearance": { "color": "#6f1718", "opacity": 1 } },
+          { "id": "flange-bolt", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.flange-bolt", "geometry": { "type": "cylinder", "radius": 0.025, "height": 0.08, "radialSegments": 12 }, "repetition": { "type": "radial", "count": 8, "center": [0, 0.19, 0], "radius": 0.29, "axis": "y", "startAngle": 0.3927 }, "appearance": { "color": "#2e3336", "opacity": 1, "metalness": 0.7 } },
+          { "id": "lower-barrel", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.lower-barrel", "geometry": { "type": "cylinder", "radius": 0.2, "height": 0.62, "radialSegments": 48 }, "transform": { "position": [0, 0.48, 0] }, "appearance": { "color": "#c92f2f", "opacity": 1, "metalness": 0.42 } },
+          { "id": "waist-ring", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.waist-ring", "geometry": { "type": "torus", "majorRadius": 0.215, "tubeRadius": 0.028, "radialSegments": 48, "tubularSegments": 10 }, "transform": { "position": [0, 0.8, 0] }, "appearance": { "color": "#861c1d", "opacity": 1 } },
+          { "id": "main-barrel", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.main-barrel", "geometry": { "type": "cylinder", "radius": 0.25, "height": 0.78, "radialSegments": 56 }, "transform": { "position": [0, 1.18, 0] }, "appearance": { "color": "#d63833", "opacity": 1, "metalness": 0.45 } },
+          { "id": "front-outlet", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.front-outlet", "geometry": { "type": "cylinder", "radius": 0.12, "height": 0.55, "radialSegments": 32 }, "transform": { "position": [0, 1.25, 0.42], "rotation": [1.5708, 0, 0] }, "appearance": { "color": "#bb2929", "opacity": 1 } },
+          { "id": "front-cap", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.outlet-cap", "geometry": { "type": "cylinder", "radius": 0.16, "height": 0.12, "radialSegments": 32 }, "transform": { "position": [0, 1.25, 0.72], "rotation": [1.5708, 0, 0] }, "appearance": { "color": "#e24a42", "opacity": 1, "metalness": 0.4 } },
+          { "id": "front-cap-rim", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.cap-rim", "geometry": { "type": "torus", "majorRadius": 0.15, "tubeRadius": 0.018, "radialSegments": 32, "tubularSegments": 8 }, "transform": { "position": [0, 1.25, 0.79], "rotation": [1.5708, 0, 0] }, "appearance": { "color": "#7c1c1c", "opacity": 1 } },
+          { "id": "side-outlet-left", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.side-outlet", "geometry": { "type": "cylinder", "radius": 0.1, "height": 0.48, "radialSegments": 32 }, "transform": { "position": [-0.42, 1.16, 0], "rotation": [0, 0, 1.5708] }, "appearance": { "color": "#bb2929", "opacity": 1 } },
+          { "id": "side-cap-left", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.outlet-cap", "geometry": { "type": "cylinder", "radius": 0.14, "height": 0.12, "radialSegments": 32 }, "transform": { "position": [-0.69, 1.16, 0], "rotation": [0, 0, 1.5708] }, "appearance": { "color": "#e24a42", "opacity": 1, "metalness": 0.4 } },
+          { "id": "side-outlet-right", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.side-outlet", "geometry": { "type": "cylinder", "radius": 0.1, "height": 0.48, "radialSegments": 32 }, "transform": { "position": [0.42, 1.16, 0], "rotation": [0, 0, 1.5708] }, "appearance": { "color": "#bb2929", "opacity": 1 } },
+          { "id": "side-cap-right", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.outlet-cap", "geometry": { "type": "cylinder", "radius": 0.14, "height": 0.12, "radialSegments": 32 }, "transform": { "position": [0.69, 1.16, 0], "rotation": [0, 0, 1.5708] }, "appearance": { "color": "#e24a42", "opacity": 1, "metalness": 0.4 } },
+          { "id": "cap-chain-left", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.safety-chain", "geometry": { "type": "tube-along", "points": [[-0.55, 1.08, 0.05], [-0.44, 0.98, 0.1], [-0.28, 0.94, 0.05]], "radius": 0.012, "radialSegments": 8 }, "appearance": { "color": "#2c3336", "opacity": 1, "metalness": 0.75 } },
+          { "id": "cap-chain-right", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.safety-chain", "geometry": { "type": "tube-along", "points": [[0.55, 1.08, 0.05], [0.44, 0.98, 0.1], [0.28, 0.94, 0.05]], "radius": 0.012, "radialSegments": 8 }, "appearance": { "color": "#2c3336", "opacity": 1, "metalness": 0.75 } },
+          { "id": "bonnet", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.bonnet", "geometry": { "type": "sphere", "radius": 0.27, "segments": 32 }, "transform": { "position": [0, 1.64, 0], "scale": [1, 0.72, 1] }, "appearance": { "color": "#d63833", "opacity": 1, "metalness": 0.45 } },
+          { "id": "bonnet-band", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.bonnet-band", "geometry": { "type": "torus", "majorRadius": 0.24, "tubeRadius": 0.026, "radialSegments": 48, "tubularSegments": 10 }, "transform": { "position": [0, 1.52, 0] }, "appearance": { "color": "#861c1d", "opacity": 1 } },
+          { "id": "operating-nut", "parent": "hydrant", "semanticType": "equipment.fire.hydrant.operating-nut", "geometry": { "type": "cylinder", "radius": 0.075, "height": 0.13, "radialSegments": 6 }, "transform": { "position": [0, 1.9, 0] }, "appearance": { "color": "#2e3336", "opacity": 1, "metalness": 0.8 } }
+        ],
+        "anchors": {
+          "base-center": { "node": "base-flange", "position": [0, -0.07, 0], "direction": [0, -1, 0], "kind": "ground-mount" },
+          "main-outlet": { "node": "front-cap", "position": [0, 0.06, 0], "direction": [0, 0, 1], "kind": "hose-coupling" },
+          "left-outlet": { "node": "side-cap-left", "position": [0, 0.06, 0], "direction": [-1, 0, 0], "kind": "hose-coupling" },
+          "right-outlet": { "node": "side-cap-right", "position": [0, 0.06, 0], "direction": [1, 0, 0], "kind": "hose-coupling" },
+          "operating-point": { "node": "operating-nut", "position": [0, 0.065, 0], "direction": [0, 1, 0], "kind": "wrench-operation" }
+        },
+        "animations": [
+          { "id": "hydrant-nut-turn", "target": "operating-nut", "property": "rotation", "from": [0, 0, 0], "to": [0, 6.283185307, 0], "duration": 2.2, "loop": true, "space": "local" }
+        ],
+        "annotations": [
+          { "id": "hydrant-outlet-note", "text": "三向出水口与防丢链", "position": [0.9, 1.25, 0.35], "color": "#ffd36b" },
+          { "id": "hydrant-base-note", "text": "法兰底座与环形螺栓阵列", "position": [0.85, 0.28, -0.2], "color": "#eaf3cf" }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,858 @@
+{
+  "schemaVersion": "0.1",
+  "id": "character.human-right-foot-module",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "人体右脚子构件",
+  "summary": "由参数化几何生成的可编辑右脚与工靴模块，包含脚踝、轴向 loft 靴体、鞋头、鞋底、鞋带与地面接触锚点，可作为完整数字人或施工角色的脚部子构件复用。",
+  "license": "Apache-2.0",
+  "semanticType": "character.human.part.foot.right",
+  "capabilities": [
+    "inspect-structure",
+    "anchors",
+    "human-part",
+    "human-foot-module",
+    "axis-lofted-footwear",
+    "foot-contact-anchor",
+    "boot-layer",
+    "no-glb"
+  ],
+  "tags": [
+    "人物",
+    "脚",
+    "右脚",
+    "工靴",
+    "地面接触点",
+    "参数化模型",
+    "无GLB"
+  ],
+  "parameters": {
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.74
+    },
+    "part": {
+      "type": "enum",
+      "values": [
+        "foot"
+      ],
+      "default": "foot"
+    },
+    "side": {
+      "type": "enum",
+      "values": [
+        "right"
+      ],
+      "default": "right"
+    }
+  },
+  "dependencies": [
+    "character.human-surface-lowpoly@0.1.0",
+    "primitive.box@0.1.0",
+    "primitive.lofted-surface@0.1.0"
+  ],
+  "ai": {
+    "intent": "给 Agent 一个可单独复用的人体脚部/工靴数字构件，用轴向 loft 表达鞋体和地面接触，而不是盒子加球形鞋头。",
+    "useWhen": [
+      "需要让人形角色站在地面、踏板、设备平台或施工场景中时使用。",
+      "需要单独检查脚底接触、工靴鞋体、鞋带和朝向时使用。"
+    ],
+    "avoidWhen": [
+      "需要真实鞋面纹理、软体鞋带、足部解剖或运动鞋高精模型时不要把它当最终资产。"
+    ],
+    "editableParts": [
+      "right-foot-root",
+      "right-ankle-pivot",
+      "right-shoe",
+      "right-toe-cap",
+      "right-boot-sole",
+      "right-boot-lace-a",
+      "right-boot-lace-b"
+    ],
+    "qualityChecks": [
+      "鞋体应沿脚长方向 loft，不应退回简单盒子。",
+      "foot-contact 锚点必须保持在鞋底下方，方便放置到地面或设备踏板。"
+    ],
+    "commonVariants": [
+      "工人右脚",
+      "设备操作员右脚",
+      "站立角色地面接触脚"
+    ]
+  },
+  "visibility": "internal",
+  "editor": {
+    "document": {
+      "id": "human-right-foot-module",
+      "title": "人体右脚子构件",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "right-foot-root",
+            "semanticType": "character.human.part.foot.right.root",
+            "transform": {
+              "position": [
+                0,
+                0,
+                0
+              ]
+            },
+            "metadata": {
+              "humanPart": "foot",
+              "side": "right",
+              "generatedBy": "character.human-surface-lowpoly",
+              "modulePose": "standing-foot-readable"
+            }
+          },
+          {
+            "id": "right-ankle-pivot",
+            "parent": "right-foot-root",
+            "semanticType": "character.human.rig.pivot.ankle.right",
+            "transform": {
+              "position": [
+                0,
+                0.015,
+                -0.035
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "right-ankle-collar",
+            "parent": "right-foot-root",
+            "semanticType": "character.human.foot.ankle-collar.right",
+            "geometry": {
+              "type": "lofted-surface",
+              "sections": [
+                {
+                  "id": "collar-bottom",
+                  "center": [
+                    0.004,
+                    -0.028,
+                    -0.04
+                  ],
+                  "axisX": [
+                    0.043,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.019,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.82,
+                      0.72
+                    ],
+                    [
+                      0.22,
+                      0.98
+                    ],
+                    [
+                      -0.7,
+                      0.72
+                    ],
+                    [
+                      -1,
+                      0.05
+                    ],
+                    [
+                      -0.86,
+                      -0.86
+                    ],
+                    [
+                      0,
+                      -1
+                    ],
+                    [
+                      0.9,
+                      -0.74
+                    ]
+                  ]
+                },
+                {
+                  "id": "collar-top",
+                  "center": [
+                    0.004,
+                    0.05,
+                    -0.044
+                  ],
+                  "axisX": [
+                    0.037,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.017,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.82,
+                      0.72
+                    ],
+                    [
+                      0.22,
+                      0.98
+                    ],
+                    [
+                      -0.7,
+                      0.72
+                    ],
+                    [
+                      -1,
+                      0.05
+                    ],
+                    [
+                      -0.86,
+                      -0.86
+                    ],
+                    [
+                      0,
+                      -1
+                    ],
+                    [
+                      0.9,
+                      -0.74
+                    ]
+                  ]
+                }
+              ],
+              "radialSegments": 10,
+              "capStart": true,
+              "capEnd": true
+            },
+            "appearance": {
+              "color": "#c89a54",
+              "opacity": 1,
+              "roughness": 0.72,
+              "flatShading": true
+            }
+          },
+          {
+            "id": "right-shoe",
+            "parent": "right-foot-root",
+            "semanticType": "character.human.foot.shoe.right",
+            "geometry": {
+              "type": "lofted-surface",
+              "sections": [
+                {
+                  "id": "boot-heel",
+                  "center": [
+                    0.004,
+                    -0.046,
+                    -0.071
+                  ],
+                  "radiusX": 0.043,
+                  "radiusZ": 0.025,
+                  "role": "heel volume",
+                  "axisX": [
+                    0.043,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.025,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.82,
+                      0.72
+                    ],
+                    [
+                      0.22,
+                      0.98
+                    ],
+                    [
+                      -0.7,
+                      0.72
+                    ],
+                    [
+                      -1,
+                      0.05
+                    ],
+                    [
+                      -0.86,
+                      -0.86
+                    ],
+                    [
+                      0,
+                      -1
+                    ],
+                    [
+                      0.9,
+                      -0.74
+                    ]
+                  ]
+                },
+                {
+                  "id": "boot-arch",
+                  "center": [
+                    0.006,
+                    -0.046,
+                    0.02
+                  ],
+                  "radiusX": 0.056,
+                  "radiusZ": 0.031,
+                  "role": "boot arch and instep",
+                  "axisX": [
+                    0.056,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.031,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.82,
+                      0.72
+                    ],
+                    [
+                      0.22,
+                      0.98
+                    ],
+                    [
+                      -0.7,
+                      0.72
+                    ],
+                    [
+                      -1,
+                      0.05
+                    ],
+                    [
+                      -0.86,
+                      -0.86
+                    ],
+                    [
+                      0,
+                      -1
+                    ],
+                    [
+                      0.9,
+                      -0.74
+                    ]
+                  ]
+                },
+                {
+                  "id": "boot-ball",
+                  "center": [
+                    0.008,
+                    -0.043,
+                    0.105
+                  ],
+                  "radiusX": 0.058,
+                  "radiusZ": 0.03,
+                  "role": "ball of foot",
+                  "axisX": [
+                    0.058,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.03,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.82,
+                      0.72
+                    ],
+                    [
+                      0.22,
+                      0.98
+                    ],
+                    [
+                      -0.7,
+                      0.72
+                    ],
+                    [
+                      -1,
+                      0.05
+                    ],
+                    [
+                      -0.86,
+                      -0.86
+                    ],
+                    [
+                      0,
+                      -1
+                    ],
+                    [
+                      0.9,
+                      -0.74
+                    ]
+                  ]
+                },
+                {
+                  "id": "boot-toe",
+                  "center": [
+                    0.008,
+                    -0.043,
+                    0.175
+                  ],
+                  "radiusX": 0.049,
+                  "radiusZ": 0.027,
+                  "role": "rounded toe box",
+                  "axisX": [
+                    0.049,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.027,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.82,
+                      0.72
+                    ],
+                    [
+                      0.22,
+                      0.98
+                    ],
+                    [
+                      -0.7,
+                      0.72
+                    ],
+                    [
+                      -1,
+                      0.05
+                    ],
+                    [
+                      -0.86,
+                      -0.86
+                    ],
+                    [
+                      0,
+                      -1
+                    ],
+                    [
+                      0.9,
+                      -0.74
+                    ]
+                  ]
+                },
+                {
+                  "id": "boot-front",
+                  "center": [
+                    0.008,
+                    -0.046,
+                    0.22
+                  ],
+                  "radiusX": 0.032,
+                  "radiusZ": 0.019,
+                  "role": "toe front taper",
+                  "axisX": [
+                    0.032,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.019,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.82,
+                      0.72
+                    ],
+                    [
+                      0.22,
+                      0.98
+                    ],
+                    [
+                      -0.7,
+                      0.72
+                    ],
+                    [
+                      -1,
+                      0.05
+                    ],
+                    [
+                      -0.86,
+                      -0.86
+                    ],
+                    [
+                      0,
+                      -1
+                    ],
+                    [
+                      0.9,
+                      -0.74
+                    ]
+                  ]
+                }
+              ],
+              "radialSegments": 10,
+              "capStart": true,
+              "capEnd": true
+            },
+            "appearance": {
+              "color": "#c89a54",
+              "opacity": 1,
+              "roughness": 0.72,
+              "flatShading": true
+            }
+          },
+          {
+            "id": "right-toe-cap",
+            "parent": "right-foot-root",
+            "semanticType": "character.human.foot.toe.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.082,
+                0.011,
+                0.04
+              ]
+            },
+            "transform": {
+              "position": [
+                0.008,
+                -0.012,
+                0.178
+              ]
+            },
+            "appearance": {
+              "color": "#e0bd78",
+              "opacity": 0.68,
+              "roughness": 0.72
+            }
+          },
+          {
+            "id": "right-boot-sole",
+            "parent": "right-foot-root",
+            "semanticType": "character.human.foot.boot-sole.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.124,
+                0.015,
+                0.31
+              ]
+            },
+            "transform": {
+              "position": [
+                0.008,
+                -0.078,
+                0.075
+              ]
+            },
+            "appearance": {
+              "color": "#7b5630",
+              "opacity": 1,
+              "roughness": 0.78
+            }
+          },
+          {
+            "id": "right-heel-block",
+            "parent": "right-foot-root",
+            "semanticType": "character.human.foot.heel.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.092,
+                0.034,
+                0.068
+              ]
+            },
+            "transform": {
+              "position": [
+                0.008,
+                -0.062,
+                -0.06
+              ]
+            },
+            "appearance": {
+              "color": "#8a6338",
+              "opacity": 1,
+              "roughness": 0.78
+            }
+          },
+          {
+            "id": "right-boot-side-panel",
+            "parent": "right-foot-root",
+            "semanticType": "character.human.foot.boot-side-panel.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.005,
+                0.04,
+                0.14
+              ]
+            },
+            "transform": {
+              "position": [
+                0.064,
+                -0.035,
+                0.05
+              ],
+              "rotation": [
+                0,
+                0,
+                0.04
+              ]
+            },
+            "appearance": {
+              "color": "#b68142",
+              "opacity": 0.62,
+              "roughness": 0.72
+            }
+          },
+          {
+            "id": "right-boot-lace-a",
+            "parent": "right-foot-root",
+            "semanticType": "character.human.foot.boot-lace.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.069,
+                0.0045,
+                0.006
+              ]
+            },
+            "transform": {
+              "position": [
+                0.008,
+                -0.009,
+                0.052
+              ],
+              "rotation": [
+                0,
+                -0.42,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#f2e2b5",
+              "opacity": 1,
+              "roughness": 0.65
+            }
+          },
+          {
+            "id": "right-boot-lace-b",
+            "parent": "right-foot-root",
+            "semanticType": "character.human.foot.boot-lace.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.063,
+                0.0045,
+                0.006
+              ]
+            },
+            "transform": {
+              "position": [
+                0.008,
+                -0.007,
+                0.079
+              ],
+              "rotation": [
+                0,
+                0.36,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#f2e2b5",
+              "opacity": 1,
+              "roughness": 0.65
+            }
+          },
+          {
+            "id": "right-boot-lace-c",
+            "parent": "right-foot-root",
+            "semanticType": "character.human.foot.boot-lace.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.056,
+                0.0045,
+                0.006
+              ]
+            },
+            "transform": {
+              "position": [
+                0.008,
+                -0.006,
+                0.105
+              ],
+              "rotation": [
+                0,
+                -0.28,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#f2e2b5",
+              "opacity": 1,
+              "roughness": 0.65
+            }
+          }
+        ],
+        "anchors": {
+          "right-ankle": {
+            "node": "right-ankle-pivot",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "kind": "joint"
+          },
+          "ankle-joint": {
+            "node": "right-ankle-pivot",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "kind": "joint"
+          },
+          "right-foot-contact": {
+            "node": "right-boot-sole",
+            "position": [
+              0,
+              -0.0075,
+              0
+            ],
+            "direction": [
+              0,
+              -1,
+              0
+            ],
+            "kind": "ground-contact"
+          },
+          "foot-contact": {
+            "node": "right-boot-sole",
+            "position": [
+              0,
+              -0.0075,
+              0
+            ],
+            "direction": [
+              0,
+              -1,
+              0
+            ],
+            "kind": "ground-contact"
+          },
+          "toe-forward": {
+            "node": "right-shoe",
+            "position": [
+              0,
+              0,
+              0.22
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "orientation"
+          }
+        },
+        "relations": [
+          {
+            "type": "human-part-module",
+            "name": "right-foot",
+            "nodes": [
+              "right-foot-root",
+              "right-ankle-pivot",
+              "right-shoe"
+            ]
+          },
+          {
+            "type": "footwear-layer",
+            "name": "right-boot",
+            "nodes": [
+              "right-ankle-collar",
+              "right-shoe",
+              "right-toe-cap",
+              "right-boot-sole",
+              "right-heel-block",
+              "right-boot-side-panel",
+              "right-boot-lace-a",
+              "right-boot-lace-b",
+              "right-boot-lace-c"
+            ]
+          }
+        ],
+        "metrics": {
+          "standingHeightReference": 1.74,
+          "humanPart": "foot",
+          "side": "right",
+          "generatedBy": "character.human-surface-lowpoly",
+          "reusableAs": "foot module for mirrored human compositions"
+        },
+        "annotations": [
+          {
+            "id": "right-foot-module-note",
+            "text": "Foot module: axis-lofted boot, sole, laces and ground contact anchor",
+            "position": [
+              0.2,
+              -0.04,
+              0.22
+            ],
+            "color": "#f0d879"
+          }
+        ]
+      }
+    }
+  }
+}

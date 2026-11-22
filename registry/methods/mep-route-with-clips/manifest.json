@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.route-with-clips",
+  "version": "0.1.0",
+  "kind": "method",
+  "title": "管线路径与管卡自动布置",
+  "summary": "从一组管线路径生成可编辑管线，并沿路径保留管卡 repetition 规则，适合水电隐蔽工程、机电支吊架和工业管线教学模型。",
+  "license": "Apache-2.0",
+  "capabilities": ["path-sampling", "repeat", "support-layout", "mep", "composition-generation", "no-glb"],
+  "tags": ["MEP", "水电", "路径", "管卡", "空间方法"],
+  "parameters": {
+    "routes": { "type": "object[]", "description": "每条管线的 id、system、points、radius、clipSpacing 等。" },
+    "defaultClipSpacing": { "type": "number", "unit": "m", "default": 0.7, "minimum": 0.001 }
+  },
+  "dependencies": ["mep.pipe@0.1.0", "mep.pipe-clip@0.1.0", "spatial.repeat-along-path@0.1.0"],
+  "ai": {
+    "intent": "让 Agent 把管线路径、管卡间距和支撑规则作为结构化数据复用，避免每次重新计算管卡坐标或把重复构件展开成一堆无语义小块。",
+    "useWhen": [
+      "水电、消防、喷淋、弱电桥架或工业管线需要沿路径布置固定件。",
+      "路径未来可能会修改，固定件应跟随路径重新计算。",
+      "需要把课件里的管卡间距经验变成可审阅的数字规则。"
+    ],
+    "avoidWhen": [
+      "只是表达一条孤立管线，不需要固定件或支撑规则。",
+      "需要根据真实规范自动判定所有间距时，应由上层 Agent 或专业规则库提供参数，本方法只执行给定规则。"
+    ],
+    "editableParts": ["routes[].points", "routes[].radius", "routes[].clipSpacing", "routes[].clipOffset", "routes[].system"],
+    "qualityChecks": [
+      "管卡路径应贴近对应管线，不能因为偏移方向错误而漂浮。",
+      "管卡间距必须为正数，路径至少包含两个不同控制点。",
+      "方法只返回结构化生成结果，不替 Agent 判断具体工程规范是否满足。"
+    ],
+    "commonVariants": ["冷热水双管", "强弱电分路", "排水管带坡度", "吊顶管线支架", "墙面开槽管卡"]
+  },
+  "guide": {
+    "problem": "AI 写水电管线模型时经常重复手算每个管卡位置，路径一改就全部失效。",
+    "result": "得到保留路径 repetition 的 CompositionSpec：管线是 tube-along，管卡是 path repetition，Agent 可以继续编辑路径和间距。",
+    "steps": [
+      "定义每条管线的 points、system 和半径。",
+      "设置默认或单独的 clipSpacing、clipOffset。",
+      "调用 CLI：agentscene mep route-with-clips。",
+      "检查返回的 routes、totalLength 和 composition，再导入编辑器微调。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "mep-route-with-clips-example",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cold-water",
+            "semanticType": "mep.water.cold",
+            "geometry": { "type": "tube-along", "points": [[-2.4, 0.4, -0.6], [-2.4, 2.1, -0.6], [-1.2, 2.45, 0], [2.4, 2.45, 0]], "radius": 0.055 },
+            "appearance": { "color": "#54a8ff", "opacity": 1 }
+          },
+          {
+            "id": "cold-water-clip",
+            "semanticType": "mep.pipe-clip",
+            "geometry": { "type": "box", "size": [0.16, 0.055, 0.2] },
+            "repetition": { "type": "path", "points": [[-2.4, 0.5, -0.6], [-2.4, 2.2, -0.6], [-1.2, 2.55, 0], [2.4, 2.55, 0]], "spacing": 0.72, "startOffset": 0.16, "endOffset": 0.16, "includeEnd": true },
+            "orientation": { "mode": "tangent", "localAxis": [1, 0, 0] },
+            "appearance": { "color": "#d8e1e6", "opacity": 1 }
+          }
+        ],
+        "anchors": {}
+      }
+    }
+  },
+  "example": "examples/digital-modeling/mep/route-with-clips.json"
+}

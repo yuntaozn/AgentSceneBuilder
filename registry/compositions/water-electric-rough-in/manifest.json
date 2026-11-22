@@ -1,0 +1,227 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.water-electric-rough-in-system",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "水电隐蔽工程管线系统",
+  "summary": "从既有水电工艺教学课件抽取的数字化模型：包含冷热水管、强弱电管、墙顶面开槽、管卡、排水坡度、打压测试装置和可复用接口锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.water-electric-rough-in-system",
+  "capabilities": ["path-edit", "edit-repetition", "drain-slope-check", "pressure-test-loop", "anchors", "inspect-structure", "material", "no-glb"],
+  "tags": ["MEP", "水电", "隐蔽工程", "管线", "教学模型", "课件迁移"],
+  "parameters": {
+    "waterPipeRadius": { "type": "number", "unit": "m", "default": 0.055 },
+    "conduitRadius": { "type": "number", "unit": "m", "default": 0.04 },
+    "clipSpacing": { "type": "number", "unit": "m", "default": 0.7 },
+    "drainMinSlope": { "type": "number", "default": 0.005 },
+    "testPressureMpa": { "type": "number", "unit": "MPa", "default": 0.8 }
+  },
+  "dependencies": ["mep.pipe@0.1.0", "mep.pipe-clip@0.1.0", "mep.route-with-clips@0.1.0", "mep.drain-slope-check@0.1.0", "mep.pressure-test-loop@0.1.0"],
+  "ai": {
+    "intent": "给 Agent 一个完整、可编辑、无 GLB 的水电隐蔽工程基准模型，用于复用管线路径、管卡间距、排水坡度和打压测试结构。",
+    "useWhen": [
+      "需要创建住宅、教学或工程交底里的水电管线隐蔽工程模型。",
+      "需要参考冷热水管、强弱电管、排水坡度和打压测试如何组合。",
+      "需要把课件里的工艺经验抽成可编辑 CompositionSpec，而不是复制课件页面。"
+    ],
+    "avoidWhen": [
+      "需要表达完整建筑房间、装修材质或真实 BIM 系统时，该模型只能作为轻量教学/说明基准。",
+      "需要依据具体地区规范自动判定合规时，应额外接入专业规则，本条目只保留结构化几何和可检查参数。"
+    ],
+    "editableParts": ["cold-water", "hot-water", "strong-electric", "weak-electric", "floor-drain", "cold-water-clip", "hot-water-clip", "pressure-test", "distribution-box"],
+    "qualityChecks": [
+      "排水管 points 应按流向逐步下降，必要时用 mep.drain-slope-check 复核。",
+      "管卡应通过 path repetition 保留间距规则，不要展开成大量无语义节点。",
+      "打压测试软管端点应连接冷热水接口锚点，压力表应有可视读取位置。"
+    ],
+    "commonVariants": ["厨房水电隐蔽工程", "卫生间排水坡度模型", "冷热水打压测试", "强弱电分路敷设", "吊顶管线管卡布置"]
+  },
+  "editor": {
+    "document": {
+      "id": "water-electric-rough-in-system",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "floor-reference",
+            "semanticType": "building.room.floor-reference",
+            "geometry": { "type": "box", "size": [7.6, 0.04, 4.8] },
+            "transform": { "position": [0, -0.02, 0] },
+            "appearance": { "color": "#34404a", "opacity": 0.28 }
+          },
+          {
+            "id": "back-wall-reference",
+            "semanticType": "building.room.wall-reference",
+            "geometry": { "type": "box", "size": [7.6, 3.0, 0.05] },
+            "transform": { "position": [0, 1.5, -2.42] },
+            "appearance": { "color": "#60707a", "opacity": 0.22 }
+          },
+          {
+            "id": "ceiling-slot",
+            "semanticType": "construction.wall-slot.ceiling-route",
+            "geometry": { "type": "box", "size": [5.3, 0.035, 0.16] },
+            "repetition": { "type": "linear", "count": 3, "start": [-0.15, 2.72, -0.75], "step": [0, 0, 0.82] },
+            "appearance": { "color": "#11181f", "opacity": 0.42 }
+          },
+          {
+            "id": "wall-slot",
+            "semanticType": "construction.wall-slot.vertical-route",
+            "geometry": { "type": "box", "size": [0.16, 1.62, 0.035] },
+            "repetition": { "type": "linear", "count": 4, "start": [-3.15, 1.28, -2.39], "step": [0.45, 0, 0] },
+            "appearance": { "color": "#11181f", "opacity": 0.45 }
+          },
+          {
+            "id": "distribution-box",
+            "semanticType": "mep.electrical.distribution-box",
+            "geometry": { "type": "box", "size": [0.9, 1.25, 0.12] },
+            "transform": { "position": [-3.15, 1.22, -2.3] },
+            "appearance": { "color": "#e8edf0", "opacity": 0.72 }
+          },
+          {
+            "id": "breaker",
+            "parent": "distribution-box",
+            "semanticType": "mep.electrical.breaker",
+            "geometry": { "type": "box", "size": [0.11, 0.26, 0.045] },
+            "repetition": { "type": "grid", "count": [4, 2, 1], "start": [-0.3, 0.2, 0.08], "stepX": [0.2, 0, 0], "stepY": [0, -0.42, 0], "stepZ": [0, 0, 0] },
+            "appearance": { "color": "#f5c84b", "opacity": 1 }
+          },
+          {
+            "id": "cold-water",
+            "semanticType": "mep.water.cold",
+            "geometry": { "type": "tube-along", "points": [[-2.8, 0.42, -2.36], [-2.8, 2.12, -2.36], [-2.15, 2.55, -1.35], [2.85, 2.55, -1.35]], "radius": 0.055, "radialSegments": 28 },
+            "appearance": { "color": "#54a8ff", "opacity": 1 },
+            "metadata": { "method": "mep.route-with-clips", "system": "cold-water" }
+          },
+          {
+            "id": "hot-water",
+            "semanticType": "mep.water.hot",
+            "geometry": { "type": "tube-along", "points": [[-2.2, 0.42, -2.36], [-2.2, 2.05, -2.36], [-1.55, 2.43, -0.82], [2.85, 2.43, -0.82]], "radius": 0.055, "radialSegments": 28 },
+            "appearance": { "color": "#ff746c", "opacity": 1 },
+            "metadata": { "method": "mep.route-with-clips", "system": "hot-water" }
+          },
+          {
+            "id": "strong-electric",
+            "semanticType": "mep.electrical.strong",
+            "geometry": { "type": "tube-along", "points": [[-3.15, 0.58, -2.34], [-3.15, 2.02, -2.34], [-2.36, 2.68, 0.55], [2.65, 2.68, 0.55]], "radius": 0.045, "radialSegments": 24 },
+            "appearance": { "color": "#f5c84b", "opacity": 1 },
+            "metadata": { "method": "mep.route-with-clips", "system": "strong-electric" }
+          },
+          {
+            "id": "weak-electric",
+            "semanticType": "mep.electrical.weak",
+            "geometry": { "type": "tube-along", "points": [[-2.7, 0.58, -2.34], [-2.7, 2.0, -2.34], [-1.65, 2.78, 1.05], [2.65, 2.78, 1.05]], "radius": 0.04, "radialSegments": 24 },
+            "appearance": { "color": "#71d3a8", "opacity": 1 },
+            "metadata": { "method": "mep.route-with-clips", "system": "weak-electric" }
+          },
+          {
+            "id": "cold-water-clip",
+            "semanticType": "mep.pipe-clip",
+            "geometry": { "type": "box", "size": [0.16, 0.055, 0.2] },
+            "repetition": { "type": "path", "points": [[-2.8, 0.52, -2.36], [-2.8, 2.22, -2.36], [-2.15, 2.65, -1.35], [2.85, 2.65, -1.35]], "spacing": 0.72, "startOffset": 0.16, "endOffset": 0.16, "includeEnd": true },
+            "orientation": { "mode": "tangent", "localAxis": [1, 0, 0] },
+            "appearance": { "color": "#d8e1e6", "opacity": 1 },
+            "metadata": { "supportsRoute": "cold-water", "method": "mep.route-with-clips" }
+          },
+          {
+            "id": "hot-water-clip",
+            "semanticType": "mep.pipe-clip",
+            "geometry": { "type": "box", "size": [0.16, 0.055, 0.2] },
+            "repetition": { "type": "path", "points": [[-2.2, 0.52, -2.36], [-2.2, 2.15, -2.36], [-1.55, 2.53, -0.82], [2.85, 2.53, -0.82]], "spacing": 0.72, "startOffset": 0.16, "endOffset": 0.16, "includeEnd": true },
+            "orientation": { "mode": "tangent", "localAxis": [1, 0, 0] },
+            "appearance": { "color": "#d8e1e6", "opacity": 1 },
+            "metadata": { "supportsRoute": "hot-water", "method": "mep.route-with-clips" }
+          },
+          {
+            "id": "electric-clip",
+            "semanticType": "mep.pipe-clip",
+            "geometry": { "type": "box", "size": [0.14, 0.05, 0.16] },
+            "repetition": { "type": "path", "points": [[-3.15, 0.66, -2.34], [-3.15, 2.1, -2.34], [-2.36, 2.76, 0.55], [2.65, 2.76, 0.55]], "spacing": 0.68, "startOffset": 0.16, "endOffset": 0.16, "includeEnd": true },
+            "orientation": { "mode": "tangent", "localAxis": [1, 0, 0] },
+            "appearance": { "color": "#d8e1e6", "opacity": 1 },
+            "metadata": { "supportsRoute": "strong-electric", "method": "mep.route-with-clips" }
+          },
+          {
+            "id": "floor-drain",
+            "semanticType": "mep.drain.pipe",
+            "geometry": { "type": "tube-along", "points": [[-1.2, 0.08, -1.55], [0.75, 0.058, -1.35], [2.45, 0.035, -0.9], [3.35, 0.015, -0.35]], "radius": 0.05, "radialSegments": 24 },
+            "appearance": { "color": "#8d98a4", "opacity": 1 },
+            "metadata": { "method": "mep.drain-slope-check", "minSlope": 0.005, "maxSlope": 0.03 }
+          },
+          {
+            "id": "drain-slope-marker",
+            "semanticType": "mep.drain.slope-marker",
+            "geometry": { "type": "box", "size": [0.16, 0.025, 0.08] },
+            "repetition": { "type": "path", "points": [[-1.2, 0.19, -1.55], [0.75, 0.168, -1.35], [2.45, 0.145, -0.9], [3.35, 0.125, -0.35]], "spacing": 0.65, "startOffset": 0.12, "endOffset": 0.12, "includeEnd": true },
+            "orientation": { "mode": "tangent", "localAxis": [1, 0, 0] },
+            "appearance": { "color": "#ffe082", "opacity": 1 }
+          },
+          {
+            "id": "pressure-bucket",
+            "semanticType": "equipment.water-bucket",
+            "geometry": { "type": "cylinder", "radius": 0.36, "height": 0.58, "radialSegments": 28 },
+            "transform": { "position": [3.0, 0.29, -2.0] },
+            "appearance": { "color": "#59646b", "opacity": 1 }
+          },
+          {
+            "id": "pressure-pump",
+            "semanticType": "equipment.pressure-pump",
+            "geometry": { "type": "box", "size": [0.62, 0.22, 0.4] },
+            "transform": { "position": [2.15, 0.14, -1.9] },
+            "appearance": { "color": "#d6a83e", "opacity": 1 }
+          },
+          {
+            "id": "pressure-cold-hose",
+            "semanticType": "mep.pressure-test.hose.cold",
+            "geometry": { "type": "tube-along", "points": [[3.0, 0.62, -2.0], [2.55, 0.46, -1.95], [2.15, 0.3, -1.9], [-2.8, 0.42, -2.36]], "radius": 0.025, "radialSegments": 16 },
+            "appearance": { "color": "#54a8ff", "opacity": 1 },
+            "metadata": { "method": "mep.pressure-test-loop" }
+          },
+          {
+            "id": "pressure-hot-hose",
+            "semanticType": "mep.pressure-test.hose.hot",
+            "geometry": { "type": "tube-along", "points": [[2.15, 0.3, -1.9], [0.2, 0.42, -2.08], [-2.2, 0.42, -2.36]], "radius": 0.022, "radialSegments": 16 },
+            "appearance": { "color": "#ff746c", "opacity": 1 },
+            "metadata": { "method": "mep.pressure-test-loop" }
+          },
+          {
+            "id": "pressure-gauge-face",
+            "semanticType": "instrument.pressure-gauge",
+            "geometry": { "type": "cylinder", "radius": 0.18, "height": 0.045, "radialSegments": 36 },
+            "transform": { "position": [2.15, 0.68, -1.55], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#e8edf0", "opacity": 1 }
+          },
+          {
+            "id": "pressure-gauge-rim",
+            "semanticType": "instrument.pressure-gauge.rim",
+            "geometry": { "type": "torus", "majorRadius": 0.18, "tubeRadius": 0.018 },
+            "transform": { "position": [2.15, 0.68, -1.52], "rotation": [1.5708, 0, 0] },
+            "appearance": { "color": "#8d9ba3", "opacity": 1 }
+          }
+        ],
+        "anchors": {
+          "cold-water-inlet": { "node": "cold-water", "position": [-2.8, 0.42, -2.36], "direction": [0, -1, 0], "kind": "pipe-port" },
+          "hot-water-inlet": { "node": "hot-water", "position": [-2.2, 0.42, -2.36], "direction": [0, -1, 0], "kind": "pipe-port" },
+          "cold-water-end": { "node": "cold-water", "position": [2.85, 2.55, -1.35], "direction": [1, 0, 0], "kind": "pipe-port" },
+          "hot-water-end": { "node": "hot-water", "position": [2.85, 2.43, -0.82], "direction": [1, 0, 0], "kind": "pipe-port" },
+          "drain-start": { "node": "floor-drain", "position": [-1.2, 0.08, -1.55], "direction": [-1, 0, 0], "kind": "drain-port" },
+          "drain-outlet": { "node": "floor-drain", "position": [3.35, 0.015, -0.35], "direction": [1, 0, 0], "kind": "drain-port" },
+          "gauge-read": { "node": "pressure-gauge-face", "position": [2.15, 0.68, -1.55], "direction": [0, 0, 1], "kind": "inspection-point" },
+          "distribution-service": { "node": "distribution-box", "position": [-3.15, 1.22, -2.24], "direction": [0, 0, 1], "kind": "service-panel" }
+        },
+        "metrics": {
+          "source": "docs/courseware-model-migration-inventory.md",
+          "methods": ["mep.route-with-clips", "mep.drain-slope-check", "mep.pressure-test-loop"],
+          "testPressureMpa": 0.8,
+          "holdMinutes": 30
+        },
+        "annotations": [
+          { "id": "water-note", "text": "冷热水管：路径 + 管卡规则", "position": [0.6, 2.95, -1.35] },
+          { "id": "electric-note", "text": "强弱电分路：保留开槽与管卡", "position": [0.25, 3.08, 0.9] },
+          { "id": "drain-note", "text": "排水管按流向下降，可用坡度检查", "position": [1.35, 0.55, -0.85] },
+          { "id": "pressure-note", "text": "打压测试：接口、软管、压力表", "position": [2.45, 1.05, -1.7] }
+        ]
+      }
+    }
+  },
+  "example": "registry/compositions/water-electric-rough-in/manifest.json"
+}

@@ -1,0 +1,1379 @@
+{
+  "schemaVersion": "0.1",
+  "id": "character.human-right-hand-module",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "人体右手子构件",
+  "summary": "由参数化几何生成的可编辑右手模块，包含手腕、袖口、手掌、拇指、四指、指尖与抓取锚点，可作为完整数字人或设备操作场景中的手部子构件复用。",
+  "license": "Apache-2.0",
+  "semanticType": "character.human.part.hand.right",
+  "capabilities": [
+    "inspect-structure",
+    "anchors",
+    "human-part",
+    "human-hand-module",
+    "semantic-fingers",
+    "finger-chain",
+    "finger-pivots",
+    "fine-hand-anchors",
+    "section-loft-hands",
+    "grasp-pose-ready",
+    "no-glb"
+  ],
+  "tags": [
+    "人物",
+    "手",
+    "右手",
+    "手指",
+    "抓取锚点",
+    "参数化模型",
+    "无GLB"
+  ],
+  "parameters": {
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.74
+    },
+    "part": {
+      "type": "enum",
+      "values": [
+        "hand"
+      ],
+      "default": "hand"
+    },
+    "side": {
+      "type": "enum",
+      "values": [
+        "right"
+      ],
+      "default": "right"
+    }
+  },
+  "dependencies": [
+    "character.human-surface-lowpoly@0.1.0",
+    "character.human-pose-rig@0.1.0",
+    "primitive.sphere@0.1.0",
+    "primitive.box@0.1.0",
+    "primitive.cylinder@0.1.0"
+  ],
+  "ai": {
+    "intent": "给 Agent 一个可单独复用的人体手部数字构件，保留手掌、拇指、四指、指尖和抓取锚点，减少每次重写手指结构的工作。",
+    "useWhen": [
+      "需要表达抓取、指向、操作按钮、握持工具等手部动作前的基础几何时使用。",
+      "需要把手作为独立模块放到机械臂、人形角色或教学示意中时使用。"
+    ],
+    "avoidWhen": [
+      "需要真实皮肤褶皱、指甲、手掌纹理或完整手部骨骼蒙皮时不要把它当最终高精模型。"
+    ],
+    "editableParts": [
+      "right-hand-root",
+      "right-wrist-pivot",
+      "right-sleeve-cuff",
+      "right-hand",
+      "right-thumb-pivot",
+      "right-thumb",
+      "right-index-finger",
+      "right-middle-finger",
+      "right-ring-finger",
+      "right-little-finger"
+    ],
+    "qualityChecks": [
+      "手指应保持语义链和指尖锚点，不能合并成一个不可编辑整体。",
+      "手掌应使用掌形轮廓，不应退回球体或方块。"
+    ],
+    "commonVariants": [
+      "右手抓取姿态基础",
+      "右手指向姿态基础",
+      "戴手套工人右手"
+    ]
+  },
+  "visibility": "internal",
+  "editor": {
+    "document": {
+      "id": "human-right-hand-module",
+      "title": "人体右手子构件",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "right-hand-root",
+            "semanticType": "character.human.part.hand.right.root",
+            "transform": {
+              "position": [
+                0,
+                0,
+                0
+              ]
+            },
+            "metadata": {
+              "humanPart": "hand",
+              "side": "right",
+              "generatedBy": "character.human-surface-lowpoly",
+              "modulePose": "open-palm-readable"
+            }
+          },
+          {
+            "id": "right-wrist-pivot",
+            "parent": "right-hand-root",
+            "semanticType": "character.human.rig.pivot.wrist.right",
+            "transform": {
+              "position": [
+                0,
+                0,
+                -0.095
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "right-sleeve-cuff",
+            "parent": "right-hand-root",
+            "semanticType": "character.human.clothing.sleeve-cuff.right",
+            "geometry": {
+              "type": "lofted-surface",
+              "sections": [
+                {
+                  "id": "cuff-back",
+                  "center": [
+                    0,
+                    0,
+                    -0.108
+                  ],
+                  "axisX": [
+                    0.043,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.018,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.74,
+                      0.7
+                    ],
+                    [
+                      0,
+                      0.95
+                    ],
+                    [
+                      -0.74,
+                      0.7
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.66,
+                      -0.62
+                    ],
+                    [
+                      0,
+                      -0.76
+                    ],
+                    [
+                      0.66,
+                      -0.62
+                    ]
+                  ]
+                },
+                {
+                  "id": "cuff-front",
+                  "center": [
+                    0,
+                    0,
+                    -0.064
+                  ],
+                  "axisX": [
+                    0.04,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.016,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.74,
+                      0.7
+                    ],
+                    [
+                      0,
+                      0.95
+                    ],
+                    [
+                      -0.74,
+                      0.7
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.66,
+                      -0.62
+                    ],
+                    [
+                      0,
+                      -0.76
+                    ],
+                    [
+                      0.66,
+                      -0.62
+                    ]
+                  ]
+                }
+              ],
+              "radialSegments": 8,
+              "capStart": true,
+              "capEnd": true
+            },
+            "appearance": {
+              "color": "#f2f0f8",
+              "opacity": 1,
+              "roughness": 0.58,
+              "flatShading": true
+            }
+          },
+          {
+            "id": "right-hand",
+            "parent": "right-hand-root",
+            "semanticType": "character.human.hand.palm.right",
+            "geometry": {
+              "type": "lofted-surface",
+              "sections": [
+                {
+                  "id": "palm-wrist",
+                  "center": [
+                    0,
+                    0,
+                    -0.056
+                  ],
+                  "radiusX": 0.034,
+                  "radiusZ": 0.014,
+                  "role": "narrow wrist side",
+                  "axisX": [
+                    0.034,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.014,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.84,
+                      0.58
+                    ],
+                    [
+                      0.38,
+                      0.92
+                    ],
+                    [
+                      -0.38,
+                      0.92
+                    ],
+                    [
+                      -0.84,
+                      0.58
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.78,
+                      -0.55
+                    ],
+                    [
+                      0,
+                      -0.72
+                    ],
+                    [
+                      0.78,
+                      -0.55
+                    ]
+                  ]
+                },
+                {
+                  "id": "palm-body",
+                  "center": [
+                    0.004,
+                    0.002,
+                    0
+                  ],
+                  "radiusX": 0.053,
+                  "radiusZ": 0.018,
+                  "role": "broad palm body",
+                  "axisX": [
+                    0.053,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.018,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.84,
+                      0.58
+                    ],
+                    [
+                      0.38,
+                      0.92
+                    ],
+                    [
+                      -0.38,
+                      0.92
+                    ],
+                    [
+                      -0.84,
+                      0.58
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.78,
+                      -0.55
+                    ],
+                    [
+                      0,
+                      -0.72
+                    ],
+                    [
+                      0.78,
+                      -0.55
+                    ]
+                  ]
+                },
+                {
+                  "id": "knuckle-row",
+                  "center": [
+                    0.002,
+                    0,
+                    0.065
+                  ],
+                  "radiusX": 0.058,
+                  "radiusZ": 0.015,
+                  "role": "four finger root row",
+                  "axisX": [
+                    0.058,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.015,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.84,
+                      0.58
+                    ],
+                    [
+                      0.38,
+                      0.92
+                    ],
+                    [
+                      -0.38,
+                      0.92
+                    ],
+                    [
+                      -0.84,
+                      0.58
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.78,
+                      -0.55
+                    ],
+                    [
+                      0,
+                      -0.72
+                    ],
+                    [
+                      0.78,
+                      -0.55
+                    ]
+                  ]
+                }
+              ],
+              "radialSegments": 10,
+              "capStart": true,
+              "capEnd": true
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5,
+              "flatShading": true
+            }
+          },
+          {
+            "id": "right-palm-pad",
+            "parent": "right-hand-root",
+            "semanticType": "character.human.hand.palm-pad.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.026,
+              "segments": 10
+            },
+            "transform": {
+              "position": [
+                0.012,
+                0.014,
+                0.014
+              ],
+              "scale": [
+                1.2,
+                0.22,
+                0.9
+              ]
+            },
+            "appearance": {
+              "color": "#e5e5dc",
+              "opacity": 0.24,
+              "roughness": 0.55
+            }
+          },
+          {
+            "id": "right-palm-crease",
+            "parent": "right-hand-root",
+            "semanticType": "character.human.hand.palm-crease.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.062,
+                0.003,
+                0.003
+              ]
+            },
+            "transform": {
+              "position": [
+                0.002,
+                0.019,
+                0.025
+              ],
+              "rotation": [
+                0,
+                0,
+                0.06
+              ]
+            },
+            "appearance": {
+              "color": "#e5e5dc",
+              "opacity": 0.45,
+              "roughness": 0.52
+            }
+          },
+          {
+            "id": "right-thumb-pivot",
+            "parent": "right-hand-root",
+            "semanticType": "character.human.hand.thumb-pivot.right",
+            "transform": {
+              "position": [
+                0.048,
+                0.004,
+                -0.002
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "right-thumb",
+            "parent": "right-thumb-pivot",
+            "semanticType": "character.human.hand.thumb.proximal.right",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [
+                0,
+                0,
+                0
+              ],
+              "end": [
+                0.026,
+                0.002,
+                0.034
+              ],
+              "startRadius": 0.009,
+              "endRadius": 0.007,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-thumb-distal",
+            "parent": "right-thumb-pivot",
+            "semanticType": "character.human.hand.thumb.distal.right",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [
+                0.026,
+                0.002,
+                0.034
+              ],
+              "end": [
+                0.038,
+                -0.002,
+                0.069
+              ],
+              "startRadius": 0.0068,
+              "endRadius": 0.0054,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-thumb-tip",
+            "parent": "right-thumb-pivot",
+            "semanticType": "character.human.hand.thumb.tip.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0065,
+              "segments": 10
+            },
+            "transform": {
+              "position": [
+                0.04,
+                -0.002,
+                0.071
+              ],
+              "scale": [
+                0.9,
+                0.72,
+                0.9
+              ]
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-index-finger-pivot",
+            "parent": "right-hand-root",
+            "semanticType": "character.human.hand.finger-pivot.index.right",
+            "transform": {
+              "position": [
+                0.034,
+                0.002,
+                0.07
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "right-index-knuckle",
+            "parent": "right-index-finger-pivot",
+            "semanticType": "character.human.hand.knuckle.index.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.006615,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                0,
+                0.003,
+                0
+              ],
+              "scale": [
+                0.9,
+                0.42,
+                0.72
+              ]
+            },
+            "appearance": {
+              "color": "#e5e5dc",
+              "opacity": 0.28,
+              "roughness": 0.52
+            }
+          },
+          {
+            "id": "right-index-finger",
+            "parent": "right-index-finger-pivot",
+            "semanticType": "character.human.hand.finger.index.right",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [
+                0,
+                0,
+                0
+              ],
+              "end": [
+                -0.003,
+                0,
+                0.03596
+              ],
+              "startRadius": 0.0063,
+              "endRadius": 0.00542,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-index-finger-distal",
+            "parent": "right-index-finger-pivot",
+            "semanticType": "character.human.hand.finger-distal.index.right",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [
+                -0.003,
+                0,
+                0.03596
+              ],
+              "end": [
+                -0.0054,
+                -0.004,
+                0.062
+              ],
+              "startRadius": 0.00529,
+              "endRadius": 0.00403,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-index-tip",
+            "parent": "right-index-finger-pivot",
+            "semanticType": "character.human.hand.fingertip.index.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.004914,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                -0.0054,
+                -0.004,
+                0.064
+              ],
+              "scale": [
+                0.82,
+                0.62,
+                0.9
+              ]
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-middle-finger-pivot",
+            "parent": "right-hand-root",
+            "semanticType": "character.human.hand.finger-pivot.middle.right",
+            "transform": {
+              "position": [
+                0.012,
+                0.002,
+                0.073
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "right-middle-knuckle",
+            "parent": "right-middle-finger-pivot",
+            "semanticType": "character.human.hand.knuckle.middle.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.00693,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                0,
+                0.003,
+                0
+              ],
+              "scale": [
+                0.9,
+                0.42,
+                0.72
+              ]
+            },
+            "appearance": {
+              "color": "#e5e5dc",
+              "opacity": 0.28,
+              "roughness": 0.52
+            }
+          },
+          {
+            "id": "right-middle-finger",
+            "parent": "right-middle-finger-pivot",
+            "semanticType": "character.human.hand.finger.middle.right",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [
+                0,
+                0,
+                0
+              ],
+              "end": [
+                0,
+                0,
+                0.04292
+              ],
+              "startRadius": 0.0066,
+              "endRadius": 0.00568,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-middle-finger-distal",
+            "parent": "right-middle-finger-pivot",
+            "semanticType": "character.human.hand.finger-distal.middle.right",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [
+                0,
+                0,
+                0.04292
+              ],
+              "end": [
+                0,
+                -0.004,
+                0.074
+              ],
+              "startRadius": 0.00554,
+              "endRadius": 0.00422,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-middle-tip",
+            "parent": "right-middle-finger-pivot",
+            "semanticType": "character.human.hand.fingertip.middle.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.005148,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                0,
+                -0.004,
+                0.076
+              ],
+              "scale": [
+                0.82,
+                0.62,
+                0.9
+              ]
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-ring-finger-pivot",
+            "parent": "right-hand-root",
+            "semanticType": "character.human.hand.finger-pivot.ring.right",
+            "transform": {
+              "position": [
+                -0.012,
+                0.002,
+                0.071
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "right-ring-knuckle",
+            "parent": "right-ring-finger-pivot",
+            "semanticType": "character.human.hand.knuckle.ring.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0063,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                0,
+                0.003,
+                0
+              ],
+              "scale": [
+                0.9,
+                0.42,
+                0.72
+              ]
+            },
+            "appearance": {
+              "color": "#e5e5dc",
+              "opacity": 0.28,
+              "roughness": 0.52
+            }
+          },
+          {
+            "id": "right-ring-finger",
+            "parent": "right-ring-finger-pivot",
+            "semanticType": "character.human.hand.finger.ring.right",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [
+                0,
+                0,
+                0
+              ],
+              "end": [
+                0.002,
+                0,
+                0.03828
+              ],
+              "startRadius": 0.006,
+              "endRadius": 0.00516,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-ring-finger-distal",
+            "parent": "right-ring-finger-pivot",
+            "semanticType": "character.human.hand.finger-distal.ring.right",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [
+                0.002,
+                0,
+                0.03828
+              ],
+              "end": [
+                0.0036,
+                -0.004,
+                0.066
+              ],
+              "startRadius": 0.00504,
+              "endRadius": 0.00384,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-ring-tip",
+            "parent": "right-ring-finger-pivot",
+            "semanticType": "character.human.hand.fingertip.ring.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.00468,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                0.0036,
+                -0.004,
+                0.068
+              ],
+              "scale": [
+                0.82,
+                0.62,
+                0.9
+              ]
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-little-finger-pivot",
+            "parent": "right-hand-root",
+            "semanticType": "character.human.hand.finger-pivot.little.right",
+            "transform": {
+              "position": [
+                -0.034,
+                0.002,
+                0.066
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "right-little-knuckle",
+            "parent": "right-little-finger-pivot",
+            "semanticType": "character.human.hand.knuckle.little.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.00546,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                0,
+                0.003,
+                0
+              ],
+              "scale": [
+                0.9,
+                0.42,
+                0.72
+              ]
+            },
+            "appearance": {
+              "color": "#e5e5dc",
+              "opacity": 0.28,
+              "roughness": 0.52
+            }
+          },
+          {
+            "id": "right-little-finger",
+            "parent": "right-little-finger-pivot",
+            "semanticType": "character.human.hand.finger.little.right",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [
+                0,
+                0,
+                0
+              ],
+              "end": [
+                0.004,
+                0,
+                0.03016
+              ],
+              "startRadius": 0.0052,
+              "endRadius": 0.00447,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-little-finger-distal",
+            "parent": "right-little-finger-pivot",
+            "semanticType": "character.human.hand.finger-distal.little.right",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [
+                0.004,
+                0,
+                0.03016
+              ],
+              "end": [
+                0.0072,
+                -0.004,
+                0.052
+              ],
+              "startRadius": 0.00437,
+              "endRadius": 0.00333,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-little-tip",
+            "parent": "right-little-finger-pivot",
+            "semanticType": "character.human.hand.fingertip.little.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.004056,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                0.0072,
+                -0.004,
+                0.054
+              ],
+              "scale": [
+                0.82,
+                0.62,
+                0.9
+              ]
+            },
+            "appearance": {
+              "color": "#fbfbf4",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          }
+        ],
+        "anchors": {
+          "right-wrist": {
+            "node": "right-wrist-pivot",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              0,
+              -1
+            ],
+            "kind": "joint"
+          },
+          "right-hand-grip": {
+            "node": "right-hand",
+            "position": [
+              0,
+              0.018,
+              0.02
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "kind": "hand-grip"
+          },
+          "hand-grip": {
+            "node": "right-hand",
+            "position": [
+              0,
+              0.018,
+              0.02
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "kind": "hand-grip"
+          },
+          "right-thumb-tip": {
+            "node": "right-thumb-tip",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              1,
+              0,
+              1
+            ],
+            "kind": "fingertip"
+          },
+          "thumb-tip": {
+            "node": "right-thumb-tip",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              1,
+              0,
+              1
+            ],
+            "kind": "fingertip"
+          },
+          "right-index-tip": {
+            "node": "right-index-tip",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "fingertip"
+          },
+          "index-tip": {
+            "node": "right-index-tip",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "fingertip"
+          },
+          "right-middle-tip": {
+            "node": "right-middle-tip",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "fingertip"
+          },
+          "middle-tip": {
+            "node": "right-middle-tip",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "fingertip"
+          },
+          "right-ring-tip": {
+            "node": "right-ring-tip",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "fingertip"
+          },
+          "ring-tip": {
+            "node": "right-ring-tip",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "fingertip"
+          },
+          "right-little-tip": {
+            "node": "right-little-tip",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "fingertip"
+          },
+          "little-tip": {
+            "node": "right-little-tip",
+            "position": [
+              0,
+              0,
+              0
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "fingertip"
+          }
+        },
+        "relations": [
+          {
+            "type": "human-part-module",
+            "name": "right-hand",
+            "nodes": [
+              "right-hand-root",
+              "right-wrist-pivot",
+              "right-hand"
+            ]
+          },
+          {
+            "type": "finger-chain",
+            "name": "right-thumb",
+            "nodes": [
+              "right-wrist-pivot",
+              "right-hand",
+              "right-thumb-pivot",
+              "right-thumb",
+              "right-thumb-distal",
+              "right-thumb-tip"
+            ]
+          },
+          {
+            "type": "finger-chain",
+            "name": "right-index",
+            "nodes": [
+              "right-wrist-pivot",
+              "right-hand",
+              "right-index-finger-pivot",
+              "right-index-knuckle",
+              "right-index-finger",
+              "right-index-finger-distal",
+              "right-index-tip"
+            ]
+          },
+          {
+            "type": "finger-chain",
+            "name": "right-middle",
+            "nodes": [
+              "right-wrist-pivot",
+              "right-hand",
+              "right-middle-finger-pivot",
+              "right-middle-knuckle",
+              "right-middle-finger",
+              "right-middle-finger-distal",
+              "right-middle-tip"
+            ]
+          },
+          {
+            "type": "finger-chain",
+            "name": "right-ring",
+            "nodes": [
+              "right-wrist-pivot",
+              "right-hand",
+              "right-ring-finger-pivot",
+              "right-ring-knuckle",
+              "right-ring-finger",
+              "right-ring-finger-distal",
+              "right-ring-tip"
+            ]
+          },
+          {
+            "type": "finger-chain",
+            "name": "right-little",
+            "nodes": [
+              "right-wrist-pivot",
+              "right-hand",
+              "right-little-finger-pivot",
+              "right-little-knuckle",
+              "right-little-finger",
+              "right-little-finger-distal",
+              "right-little-tip"
+            ]
+          }
+        ],
+        "metrics": {
+          "standingHeightReference": 1.74,
+          "humanPart": "hand",
+          "side": "right",
+          "generatedBy": "character.human-surface-lowpoly",
+          "reusableAs": "hand module for mirrored human compositions"
+        },
+        "annotations": [
+          {
+            "id": "right-hand-module-note",
+            "text": "Hand module: palm, thumb, four fingers, grip and fingertip anchors",
+            "position": [
+              0.16,
+              -0.08,
+              0.16
+            ],
+            "color": "#f0d879"
+          }
+        ]
+      }
+    }
+  }
+}

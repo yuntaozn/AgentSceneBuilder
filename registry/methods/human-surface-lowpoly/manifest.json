@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "0.1",
+  "id": "character.human-surface-lowpoly",
+  "version": "0.1.0",
+  "kind": "method",
+  "title": "低多边形人体表面生成",
+  "summary": "根据真实人体比例与命名关节生成可编辑的低多边形人体表面，并可对已有 CompositionSpec 人物提出表面重构 changeset，避免 Agent 每次用球体和圆柱临时堆出玩偶感人物。",
+  "license": "Apache-2.0",
+  "semanticType": "character.human.surface",
+  "capabilities": [
+    "human-surface",
+    "low-poly-body",
+    "human-section-profile",
+    "anatomical-proportions",
+    "worker-clothing",
+    "semantic-fingers",
+    "tapered-cylinder-between",
+    "tapered-limbs",
+    "lofted-surface",
+    "section-loft-body",
+    "section-loft-head",
+    "section-loft-hands",
+    "profiled-section-contours",
+    "face-lite",
+    "fine-hand-geometry",
+    "reduced-doll-joints",
+    "rig-compatible",
+    "surface-refinement",
+    "add-missing-surface-nodes",
+    "changeset-proposal",
+    "composition-generation",
+    "no-glb",
+    "axis-lofted-footwear",
+    "facial-feature-lofting",
+    "limb-profile-lofting",
+    "worker-silhouette-v3",
+    "human-part-generation",
+    "human-head-module",
+    "human-hand-module",
+    "human-foot-module"
+  ],
+  "tags": [
+    "人物",
+    "人体表面",
+    "低多边形",
+    "施工人员",
+    "衣服外壳",
+    "changeset",
+    "数字建模方法",
+    "无GLB"
+  ],
+  "ai": {
+    "intent": "让 Agent 不再把人形当作通用 primitive 的简单堆叠，而是先按人体关键部位生成胸腰胯、头脸、袖管、裤腿、鞋、手掌等可编辑表面，再把姿态、IK 和抓取交给 human-pose-rig。",
+    "useWhen": [
+      "需要生成一个可编辑、可放入工程或教学场景的低多边形人物，而不是导入 GLB 人物模型。",
+      "已有 CompositionSpec 人物看起来像玩偶、球形关节过多、躯干过圆或四肢像塑料杆，需要表面重构。",
+      "需要给 Codex、YuntaoCode 等 Agent 一套可复用的人体建模语法，减少重复推导人体比例和部件命名。"
+    ],
+    "avoidWhen": [
+      "需要真实扫描人物、布料皱褶、肌肉变形、表情驱动或影视级角色资产时，本方法只能作为低模结构草图。",
+      "需要修改人物姿态、IK 或手指抓取时，应使用 character.human-pose-rig；本方法只负责表面形体。",
+      "目标模型没有稳定节点 ID 时，不应直接应用表面重构 changeset；应先生成完整 low-poly worker composition。"
+    ],
+    "editableParts": [
+      "height",
+      "surfaceProfile",
+      "torsoBlocks",
+      "headSurface",
+      "helmet",
+      "armSleeves",
+      "forearms",
+      "trouserLegs",
+      "boots",
+      "handPalms",
+      "surfaceRefinementChangeset",
+      "headModule",
+      "handModule",
+      "footModule"
+    ],
+    "qualityChecks": [
+      "躯干应优先使用衣服外壳体块，不应使用大球体表达胸腹。",
+      "肩、肘、膝等关节可以存在于 rig 中，但视觉上应弱化或隐藏，不能像玩具铰链一样外露。",
+      "左右部件必须保持 left/right 命名和镜像关系，方便后续姿态方法继续工作。",
+      "生成或重构结果必须保持 CompositionSpec 可编辑，不依赖 GLB、贴图或某个渲染器。"
+    ],
+    "commonVariants": [
+      "施工人员：黄色上衣、灰色裤子、安全帽、手套和工靴。",
+      "普通站立人：保留人体表面和关节锚点，去掉安全帽与工装颜色。",
+      "设备操作员：在工装人物基础上增加抓取锚点、安全带和工具挂点。",
+      "低细节远景人：保留胸腰胯、头、四肢和脚底锚点，去掉眼镜、手指和衣服细节。"
+    ]
+  },
+  "parameters": {
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.74
+    },
+    "profile": {
+      "type": "enum",
+      "values": [
+        "low-poly-worker"
+      ],
+      "default": "low-poly-worker"
+    },
+    "id": {
+      "type": "string",
+      "default": "low-poly-worker-human"
+    },
+    "surfaceRefinementTarget": {
+      "type": "composition-ref",
+      "default": "character.basic-human-figure"
+    },
+    "addMissing": {
+      "type": "boolean",
+      "default": false,
+      "description": "When true, refinement proposals include missing semantic human surface nodes such as helmet, fingers, shoes, and section details."
+    }
+  },
+  "dependencies": [
+    "primitive.box@0.1.0",
+    "primitive.sphere@0.1.0",
+    "primitive.cylinder@0.1.0",
+    "primitive.cone@0.1.0",
+    "spatial.hierarchy-pivot@0.1.0",
+    "character.human-pose-rig@0.1.0"
+  ],
+  "guide": {
+    "contract": "Core API: createHumanSurfaceProfile(request) returns reusable human section and limb proportions, including lofted-surface torso/leg/head/hand sections and lofted-surface limb profiles, axis-lofted facial/footwear profiles, and tapered-cylinder-between requirements for fingers. generateHumanPart(request) returns a reusable head/hand/foot core.composition module. generateLowPolyWorkerHuman(request) returns a complete core.composition document assembled from the same human surface grammar. proposeHumanSurfaceRefinement(document, request) returns a reviewable changeset that updates existing node geometry, transform, appearance, semantic type, and metadata; request.addMissing=true also proposes missing semantic surface nodes.",
+    "cli": [
+      "node packages/cli/src/agentscene.mjs human-geometry profile examples/digital-modeling/human-geometry/lowpoly-worker-request.json",
+      "node packages/cli/src/agentscene.mjs human-geometry generate-lowpoly-worker examples/digital-modeling/human-geometry/lowpoly-worker-request.json",
+      "node packages/cli/src/agentscene.mjs human-geometry generate-part {\"part\":\"hand\",\"side\":\"right\"}",
+      "node packages/cli/src/agentscene.mjs composition analyze-human-quality registry/compositions/basic-human-figure/manifest.json",
+      "node packages/cli/src/agentscene.mjs human-geometry propose-surface-refinement registry/compositions/basic-human-figure/manifest.json",
+      "node packages/cli/src/agentscene.mjs human-geometry propose-surface-refinement rough-human.json examples/digital-modeling/human-geometry/add-missing-surface-request.json"
+    ],
+    "boundary": "This method owns visual human surface grammar. It does not solve pose, inverse kinematics, grasp pose, renderer material setup, or mesh import."
+  },
+  "visibility": "internal"
+}

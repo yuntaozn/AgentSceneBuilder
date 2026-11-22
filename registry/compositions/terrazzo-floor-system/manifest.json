@@ -1,0 +1,12 @@
+{
+  "schemaVersion":"0.1","id":"construction.terrazzo-floor-system","version":"0.1.0","kind":"composition","title":"无机磨石施工分层系统","summary":"将基层处理、界面层、找平层、磨石面层、固化渗透层和抛光保护层组织为可检查的材料层级。","license": "Apache-2.0","semanticType":"construction.floor.terrazzo","capabilities":["inspect-layers","resize","material","section-view"],"tags":["地坪","无机磨石","材料分层","课件迁移"],
+  "parameters":{"floorSize":{"type":"number","unit":"m","default":10},"layerThickness":{"type":"number","unit":"m","default":0.08}},"dependencies":["primitive.box@0.1.0"],
+  "editor":{"document":{"id":"terrazzo-floor-system","component":"core.composition","parameters":{"nodes":[
+    {"id":"base","semanticType":"construction.floor.base","geometry":{"type":"box","size":[10,0.18,10]},"transform":{"position":[0,0.09,0]},"appearance":{"color":"#777f82","opacity":1}},
+    {"id":"interface","semanticType":"construction.floor.interface","geometry":{"type":"box","size":[9.9,0.035,9.9]},"transform":{"position":[0,0.1975,0]},"appearance":{"color":"#b99a62","opacity":0.9}},
+    {"id":"leveling","semanticType":"construction.floor.leveling","geometry":{"type":"box","size":[9.8,0.11,9.8]},"transform":{"position":[0,0.27,0]},"appearance":{"color":"#aaa494","opacity":1}},
+    {"id":"terrazzo","semanticType":"construction.floor.terrazzo","geometry":{"type":"box","size":[9.7,0.09,9.7]},"transform":{"position":[0,0.37,0]},"appearance":{"color":"#d8d0c0","opacity":1}},
+    {"id":"hardener","semanticType":"construction.floor.hardener","geometry":{"type":"box","size":[9.62,0.022,9.62]},"transform":{"position":[0,0.426,0]},"appearance":{"color":"#7fc3d0","opacity":0.52}},
+    {"id":"sealer","semanticType":"construction.floor.sealer","geometry":{"type":"box","size":[9.55,0.014,9.55]},"transform":{"position":[0,0.444,0]},"appearance":{"color":"#9ed8df","opacity":0.6}}
+  ],"anchors":{"finished-surface":{"node":"sealer","position":[0,0.451,0],"direction":[0,1,0],"kind":"finished-surface"}}}}},"example":"registry/compositions/terrazzo-floor-system/manifest.json"
+}

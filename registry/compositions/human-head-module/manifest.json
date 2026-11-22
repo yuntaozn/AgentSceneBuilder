@@ -1,0 +1,1549 @@
+{
+  "schemaVersion": "0.1",
+  "id": "character.human-head-module",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "人体头部子构件",
+  "summary": "由参数化几何生成的可编辑人体头部模块，包含头部轮廓、鼻梁、脸颊、眼睛、眼镜、安全帽、颈部与视线锚点，可作为完整数字人或工人角色的头部子构件复用。",
+  "license": "Apache-2.0",
+  "semanticType": "character.human.part.head",
+  "capabilities": [
+    "inspect-structure",
+    "anchors",
+    "human-part",
+    "human-head-module",
+    "facial-feature-lofting",
+    "section-loft-head",
+    "helmet",
+    "glasses",
+    "no-glb"
+  ],
+  "tags": [
+    "人物",
+    "头部",
+    "脸部",
+    "安全帽",
+    "参数化模型",
+    "无GLB"
+  ],
+  "parameters": {
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.74
+    },
+    "part": {
+      "type": "enum",
+      "values": [
+        "head"
+      ],
+      "default": "head"
+    }
+  },
+  "dependencies": [
+    "character.human-surface-lowpoly@0.1.0",
+    "primitive.sphere@0.1.0",
+    "primitive.box@0.1.0",
+    "primitive.torus@0.1.0"
+  ],
+  "ai": {
+    "intent": "给 Agent 一个可单独复用的人体头部数字构件，避免每次用球体、锥体和盒子临时堆出玩偶感头部。",
+    "useWhen": [
+      "需要给工人、讲师、司机、操作员等人形角色添加可编辑头部时使用。",
+      "需要测试或改进脸部、头盔、眼镜、视线锚点等头部细节时使用。"
+    ],
+    "avoidWhen": [
+      "需要真实人脸扫描、表情绑定、毛发系统或影视级角色资产时不要把它当最终美术模型。"
+    ],
+    "editableParts": [
+      "head-root",
+      "neck",
+      "head-pivot",
+      "head",
+      "nose",
+      "left-cheek-facet",
+      "right-cheek-facet",
+      "left-eye",
+      "right-eye",
+      "glasses",
+      "safety-helmet"
+    ],
+    "qualityChecks": [
+      "鼻子和脸颊应是贴合头部的低浮雕构件，不应像独立玩具零件漂在外面。",
+      "安全帽应作为头部外层装备，不应遮挡眼睛和视线锚点。"
+    ],
+    "commonVariants": [
+      "安全帽工人头部",
+      "普通人头部",
+      "佩戴眼镜的讲师或工程师头部"
+    ]
+  },
+  "visibility": "internal",
+  "editor": {
+    "document": {
+      "id": "human-head-module",
+      "title": "人体头部子构件",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "head-root",
+            "semanticType": "character.human.part.head.root",
+            "transform": {
+              "position": [
+                0,
+                0,
+                0
+              ]
+            },
+            "metadata": {
+              "humanPart": "head",
+              "generatedBy": "character.human-surface-lowpoly"
+            }
+          },
+          {
+            "id": "neck",
+            "parent": "head-root",
+            "semanticType": "character.human.neck",
+            "geometry": {
+              "type": "lofted-surface",
+              "sections": [
+                {
+                  "id": "neck-base",
+                  "center": [
+                    0,
+                    -0.18,
+                    -0.006
+                  ],
+                  "radiusX": 0.04,
+                  "radiusZ": 0.034,
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.7,
+                      0.68
+                    ],
+                    [
+                      0.2,
+                      1.1
+                    ],
+                    [
+                      0,
+                      1.16
+                    ],
+                    [
+                      -0.2,
+                      1.1
+                    ],
+                    [
+                      -0.7,
+                      0.68
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.72,
+                      -0.7
+                    ],
+                    [
+                      0,
+                      -0.82
+                    ],
+                    [
+                      0.72,
+                      -0.7
+                    ]
+                  ]
+                },
+                {
+                  "id": "neck-top",
+                  "center": [
+                    0,
+                    -0.075,
+                    -0.002
+                  ],
+                  "radiusX": 0.034,
+                  "radiusZ": 0.03,
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.7,
+                      0.68
+                    ],
+                    [
+                      0.2,
+                      1.1
+                    ],
+                    [
+                      0,
+                      1.16
+                    ],
+                    [
+                      -0.2,
+                      1.1
+                    ],
+                    [
+                      -0.7,
+                      0.68
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.72,
+                      -0.7
+                    ],
+                    [
+                      0,
+                      -0.82
+                    ],
+                    [
+                      0.72,
+                      -0.7
+                    ]
+                  ]
+                }
+              ],
+              "radialSegments": 10,
+              "capStart": true,
+              "capEnd": true
+            },
+            "appearance": {
+              "color": "#efd7c1",
+              "opacity": 1,
+              "roughness": 0.52,
+              "flatShading": true
+            }
+          },
+          {
+            "id": "head-pivot",
+            "parent": "head-root",
+            "semanticType": "character.human.rig.pivot.head",
+            "transform": {
+              "position": [
+                0,
+                0,
+                0
+              ],
+              "rotation": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "head",
+            "parent": "head-pivot",
+            "semanticType": "character.human.head",
+            "geometry": {
+              "type": "lofted-surface",
+              "sections": [
+                {
+                  "id": "chin-plane",
+                  "center": [
+                    0,
+                    -0.118,
+                    0.035
+                  ],
+                  "radiusX": 0.048,
+                  "radiusZ": 0.034,
+                  "role": "narrow chin",
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.7,
+                      0.68
+                    ],
+                    [
+                      0.2,
+                      1.1
+                    ],
+                    [
+                      0,
+                      1.16
+                    ],
+                    [
+                      -0.2,
+                      1.1
+                    ],
+                    [
+                      -0.7,
+                      0.68
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.72,
+                      -0.7
+                    ],
+                    [
+                      0,
+                      -0.82
+                    ],
+                    [
+                      0.72,
+                      -0.7
+                    ]
+                  ]
+                },
+                {
+                  "id": "jaw-plane",
+                  "center": [
+                    0,
+                    -0.082,
+                    0.044
+                  ],
+                  "radiusX": 0.066,
+                  "radiusZ": 0.045,
+                  "role": "jaw and lower face",
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.7,
+                      0.68
+                    ],
+                    [
+                      0.2,
+                      1.1
+                    ],
+                    [
+                      0,
+                      1.16
+                    ],
+                    [
+                      -0.2,
+                      1.1
+                    ],
+                    [
+                      -0.7,
+                      0.68
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.72,
+                      -0.7
+                    ],
+                    [
+                      0,
+                      -0.82
+                    ],
+                    [
+                      0.72,
+                      -0.7
+                    ]
+                  ]
+                },
+                {
+                  "id": "mouth-cheek",
+                  "center": [
+                    0,
+                    -0.04,
+                    0.048
+                  ],
+                  "radiusX": 0.078,
+                  "radiusZ": 0.054,
+                  "role": "mouth and cheek volume",
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.7,
+                      0.68
+                    ],
+                    [
+                      0.2,
+                      1.1
+                    ],
+                    [
+                      0,
+                      1.16
+                    ],
+                    [
+                      -0.2,
+                      1.1
+                    ],
+                    [
+                      -0.7,
+                      0.68
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.72,
+                      -0.7
+                    ],
+                    [
+                      0,
+                      -0.82
+                    ],
+                    [
+                      0.72,
+                      -0.7
+                    ]
+                  ]
+                },
+                {
+                  "id": "eye-cheek",
+                  "center": [
+                    0,
+                    0.02,
+                    0.044
+                  ],
+                  "radiusX": 0.09,
+                  "radiusZ": 0.062,
+                  "role": "eye and cheek width",
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.7,
+                      0.68
+                    ],
+                    [
+                      0.2,
+                      1.1
+                    ],
+                    [
+                      0,
+                      1.16
+                    ],
+                    [
+                      -0.2,
+                      1.1
+                    ],
+                    [
+                      -0.7,
+                      0.68
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.72,
+                      -0.7
+                    ],
+                    [
+                      0,
+                      -0.82
+                    ],
+                    [
+                      0.72,
+                      -0.7
+                    ]
+                  ]
+                },
+                {
+                  "id": "temple",
+                  "center": [
+                    0,
+                    0.08,
+                    0.012
+                  ],
+                  "radiusX": 0.083,
+                  "radiusZ": 0.057,
+                  "role": "temple narrowing",
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.7,
+                      0.68
+                    ],
+                    [
+                      0.2,
+                      1.1
+                    ],
+                    [
+                      0,
+                      1.16
+                    ],
+                    [
+                      -0.2,
+                      1.1
+                    ],
+                    [
+                      -0.7,
+                      0.68
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.72,
+                      -0.7
+                    ],
+                    [
+                      0,
+                      -0.82
+                    ],
+                    [
+                      0.72,
+                      -0.7
+                    ]
+                  ]
+                },
+                {
+                  "id": "skull-top",
+                  "center": [
+                    0,
+                    0.135,
+                    -0.006
+                  ],
+                  "radiusX": 0.054,
+                  "radiusZ": 0.04,
+                  "role": "skull top under helmet",
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.7,
+                      0.68
+                    ],
+                    [
+                      0.2,
+                      1.1
+                    ],
+                    [
+                      0,
+                      1.16
+                    ],
+                    [
+                      -0.2,
+                      1.1
+                    ],
+                    [
+                      -0.7,
+                      0.68
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.72,
+                      -0.7
+                    ],
+                    [
+                      0,
+                      -0.82
+                    ],
+                    [
+                      0.72,
+                      -0.7
+                    ]
+                  ]
+                }
+              ],
+              "radialSegments": 12,
+              "capStart": true,
+              "capEnd": true
+            },
+            "appearance": {
+              "color": "#efd7c1",
+              "opacity": 1,
+              "roughness": 0.52,
+              "flatShading": true
+            }
+          },
+          {
+            "id": "nose",
+            "parent": "head-pivot",
+            "semanticType": "character.human.nose",
+            "geometry": {
+              "type": "lofted-surface",
+              "sections": [
+                {
+                  "id": "nose-root",
+                  "center": [
+                    0,
+                    0.018,
+                    0.086
+                  ],
+                  "radiusX": 0.013,
+                  "radiusZ": 0.011,
+                  "role": "nose bridge root",
+                  "axisX": [
+                    0.013,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.011,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      0.72,
+                      0.12
+                    ],
+                    [
+                      0.4,
+                      0.86
+                    ],
+                    [
+                      0,
+                      1
+                    ],
+                    [
+                      -0.4,
+                      0.86
+                    ],
+                    [
+                      -0.72,
+                      0.12
+                    ],
+                    [
+                      -0.45,
+                      -0.78
+                    ],
+                    [
+                      0,
+                      -1
+                    ],
+                    [
+                      0.45,
+                      -0.78
+                    ]
+                  ]
+                },
+                {
+                  "id": "nose-bridge",
+                  "center": [
+                    0,
+                    -0.004,
+                    0.104
+                  ],
+                  "radiusX": 0.011,
+                  "radiusZ": 0.015,
+                  "role": "nose bridge low relief",
+                  "axisX": [
+                    0.011,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.015,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      0.72,
+                      0.12
+                    ],
+                    [
+                      0.4,
+                      0.86
+                    ],
+                    [
+                      0,
+                      1
+                    ],
+                    [
+                      -0.4,
+                      0.86
+                    ],
+                    [
+                      -0.72,
+                      0.12
+                    ],
+                    [
+                      -0.45,
+                      -0.78
+                    ],
+                    [
+                      0,
+                      -1
+                    ],
+                    [
+                      0.45,
+                      -0.78
+                    ]
+                  ]
+                },
+                {
+                  "id": "nose-tip",
+                  "center": [
+                    0,
+                    -0.026,
+                    0.119
+                  ],
+                  "radiusX": 0.009,
+                  "radiusZ": 0.011,
+                  "role": "small rounded nose tip",
+                  "axisX": [
+                    0.009,
+                    0,
+                    0
+                  ],
+                  "axisZ": [
+                    0,
+                    0.011,
+                    0
+                  ],
+                  "profile": [
+                    [
+                      0.72,
+                      0.12
+                    ],
+                    [
+                      0.4,
+                      0.86
+                    ],
+                    [
+                      0,
+                      1
+                    ],
+                    [
+                      -0.4,
+                      0.86
+                    ],
+                    [
+                      -0.72,
+                      0.12
+                    ],
+                    [
+                      -0.45,
+                      -0.78
+                    ],
+                    [
+                      0,
+                      -1
+                    ],
+                    [
+                      0.45,
+                      -0.78
+                    ]
+                  ]
+                }
+              ],
+              "radialSegments": 8,
+              "capStart": true,
+              "capEnd": true
+            },
+            "appearance": {
+              "color": "#e2bea5",
+              "opacity": 1,
+              "roughness": 0.5,
+              "flatShading": true
+            }
+          },
+          {
+            "id": "left-cheek-facet",
+            "parent": "head-pivot",
+            "semanticType": "character.human.face.cheek.left",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.034,
+                0.045,
+                0.004
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.041,
+                -0.022,
+                0.088
+              ],
+              "rotation": [
+                0,
+                -0.22,
+                -0.04
+              ]
+            },
+            "appearance": {
+              "color": "#e8c8b0",
+              "opacity": 0.5,
+              "roughness": 0.54
+            }
+          },
+          {
+            "id": "right-cheek-facet",
+            "parent": "head-pivot",
+            "semanticType": "character.human.face.cheek.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.034,
+                0.045,
+                0.004
+              ]
+            },
+            "transform": {
+              "position": [
+                0.041,
+                -0.022,
+                0.088
+              ],
+              "rotation": [
+                0,
+                0.22,
+                0.04
+              ]
+            },
+            "appearance": {
+              "color": "#e8c8b0",
+              "opacity": 0.5,
+              "roughness": 0.54
+            }
+          },
+          {
+            "id": "left-ear",
+            "parent": "head-pivot",
+            "semanticType": "character.human.ear.left",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.018,
+              "segments": 10
+            },
+            "transform": {
+              "position": [
+                -0.102,
+                -0.004,
+                -0.006
+              ],
+              "scale": [
+                0.42,
+                0.9,
+                0.6
+              ]
+            },
+            "appearance": {
+              "color": "#efd7c1",
+              "opacity": 1,
+              "roughness": 0.52
+            }
+          },
+          {
+            "id": "right-ear",
+            "parent": "head-pivot",
+            "semanticType": "character.human.ear.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.018,
+              "segments": 10
+            },
+            "transform": {
+              "position": [
+                0.102,
+                -0.004,
+                -0.006
+              ],
+              "scale": [
+                0.42,
+                0.9,
+                0.6
+              ]
+            },
+            "appearance": {
+              "color": "#efd7c1",
+              "opacity": 1,
+              "roughness": 0.52
+            }
+          },
+          {
+            "id": "left-eye",
+            "parent": "head-pivot",
+            "semanticType": "character.human.eye.left",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0058,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                -0.032,
+                0.024,
+                0.096
+              ],
+              "scale": [
+                1.45,
+                0.58,
+                0.24
+              ]
+            },
+            "appearance": {
+              "color": "#242426",
+              "opacity": 1,
+              "roughness": 0.38
+            }
+          },
+          {
+            "id": "right-eye",
+            "parent": "head-pivot",
+            "semanticType": "character.human.eye.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0058,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                0.032,
+                0.024,
+                0.096
+              ],
+              "scale": [
+                1.45,
+                0.58,
+                0.24
+              ]
+            },
+            "appearance": {
+              "color": "#242426",
+              "opacity": 1,
+              "roughness": 0.38
+            }
+          },
+          {
+            "id": "left-brow",
+            "parent": "head-pivot",
+            "semanticType": "character.human.brow.left",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.036,
+                0.0035,
+                0.0035
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.032,
+                0.049,
+                0.099
+              ],
+              "rotation": [
+                0,
+                0,
+                -0.06
+              ]
+            },
+            "appearance": {
+              "color": "#f1f1ec",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "right-brow",
+            "parent": "head-pivot",
+            "semanticType": "character.human.brow.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.036,
+                0.0035,
+                0.0035
+              ]
+            },
+            "transform": {
+              "position": [
+                0.032,
+                0.049,
+                0.099
+              ],
+              "rotation": [
+                0,
+                0,
+                0.06
+              ]
+            },
+            "appearance": {
+              "color": "#f1f1ec",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "left-glasses-rim",
+            "parent": "head-pivot",
+            "semanticType": "character.human.glasses.rim.left",
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.0165,
+              "tubeRadius": 0.0015,
+              "radialSegments": 18,
+              "tubularSegments": 6
+            },
+            "transform": {
+              "position": [
+                -0.033,
+                0.024,
+                0.104
+              ],
+              "scale": [
+                1.18,
+                0.76,
+                0.18
+              ]
+            },
+            "appearance": {
+              "color": "#5a5148",
+              "opacity": 1,
+              "roughness": 0.4,
+              "metalness": 0.25
+            }
+          },
+          {
+            "id": "right-glasses-rim",
+            "parent": "head-pivot",
+            "semanticType": "character.human.glasses.rim.right",
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.0165,
+              "tubeRadius": 0.0015,
+              "radialSegments": 18,
+              "tubularSegments": 6
+            },
+            "transform": {
+              "position": [
+                0.033,
+                0.024,
+                0.104
+              ],
+              "scale": [
+                1.18,
+                0.76,
+                0.18
+              ]
+            },
+            "appearance": {
+              "color": "#5a5148",
+              "opacity": 1,
+              "roughness": 0.4,
+              "metalness": 0.25
+            }
+          },
+          {
+            "id": "glasses-bridge",
+            "parent": "head-pivot",
+            "semanticType": "character.human.glasses.bridge",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.021,
+                0.0028,
+                0.0028
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.024,
+                0.104
+              ]
+            },
+            "appearance": {
+              "color": "#5a5148",
+              "opacity": 1,
+              "roughness": 0.4,
+              "metalness": 0.25
+            }
+          },
+          {
+            "id": "mouth",
+            "parent": "head-pivot",
+            "semanticType": "character.human.mouth",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.03,
+                0.0025,
+                0.003
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                -0.058,
+                0.084
+              ]
+            },
+            "appearance": {
+              "color": "#7a4238",
+              "opacity": 1,
+              "roughness": 0.42
+            }
+          },
+          {
+            "id": "chin",
+            "parent": "head-pivot",
+            "semanticType": "character.human.chin",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.014,
+              "segments": 8
+            },
+            "transform": {
+              "position": [
+                0,
+                -0.096,
+                0.046
+              ],
+              "scale": [
+                1.05,
+                0.28,
+                0.42
+              ]
+            },
+            "appearance": {
+              "color": "#e8c7ad",
+              "opacity": 1,
+              "roughness": 0.52
+            }
+          },
+          {
+            "id": "safety-helmet-shell",
+            "parent": "head-pivot",
+            "semanticType": "character.human.safety-helmet.shell",
+            "geometry": {
+              "type": "lofted-surface",
+              "sections": [
+                {
+                  "id": "helmet-rim",
+                  "center": [
+                    0,
+                    0.058,
+                    0.002
+                  ],
+                  "radiusX": 0.118,
+                  "radiusZ": 0.106,
+                  "role": "flat hard-hat lower rim",
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.92,
+                      0.58
+                    ],
+                    [
+                      0.42,
+                      1
+                    ],
+                    [
+                      0,
+                      1.06
+                    ],
+                    [
+                      -0.42,
+                      1
+                    ],
+                    [
+                      -0.92,
+                      0.58
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.88,
+                      -0.48
+                    ],
+                    [
+                      0,
+                      -0.64
+                    ],
+                    [
+                      0.88,
+                      -0.48
+                    ]
+                  ]
+                },
+                {
+                  "id": "helmet-dome",
+                  "center": [
+                    0,
+                    0.116,
+                    -0.004
+                  ],
+                  "radiusX": 0.102,
+                  "radiusZ": 0.092,
+                  "role": "hard-hat dome",
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.92,
+                      0.58
+                    ],
+                    [
+                      0.42,
+                      1
+                    ],
+                    [
+                      0,
+                      1.06
+                    ],
+                    [
+                      -0.42,
+                      1
+                    ],
+                    [
+                      -0.92,
+                      0.58
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.88,
+                      -0.48
+                    ],
+                    [
+                      0,
+                      -0.64
+                    ],
+                    [
+                      0.88,
+                      -0.48
+                    ]
+                  ]
+                },
+                {
+                  "id": "helmet-crown",
+                  "center": [
+                    0,
+                    0.162,
+                    -0.008
+                  ],
+                  "radiusX": 0.046,
+                  "radiusZ": 0.04,
+                  "role": "hard-hat crown",
+                  "profile": [
+                    [
+                      1,
+                      0
+                    ],
+                    [
+                      0.92,
+                      0.58
+                    ],
+                    [
+                      0.42,
+                      1
+                    ],
+                    [
+                      0,
+                      1.06
+                    ],
+                    [
+                      -0.42,
+                      1
+                    ],
+                    [
+                      -0.92,
+                      0.58
+                    ],
+                    [
+                      -1,
+                      0
+                    ],
+                    [
+                      -0.88,
+                      -0.48
+                    ],
+                    [
+                      0,
+                      -0.64
+                    ],
+                    [
+                      0.88,
+                      -0.48
+                    ]
+                  ]
+                }
+              ],
+              "radialSegments": 12,
+              "capStart": true,
+              "capEnd": true
+            },
+            "appearance": {
+              "color": "#f5f7f5",
+              "opacity": 1,
+              "roughness": 0.42,
+              "flatShading": true
+            }
+          },
+          {
+            "id": "safety-helmet-brim",
+            "parent": "head-pivot",
+            "semanticType": "character.human.safety-helmet.brim",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.232,
+                0.011,
+                0.074
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.052,
+                0.086
+              ]
+            },
+            "appearance": {
+              "color": "#eff2ef",
+              "opacity": 1,
+              "roughness": 0.45
+            }
+          },
+          {
+            "id": "safety-helmet-side-rim",
+            "parent": "head-pivot",
+            "semanticType": "character.human.safety-helmet.side-rim",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.23,
+                0.01,
+                0.016
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.056,
+                -0.06
+              ]
+            },
+            "appearance": {
+              "color": "#ecefeb",
+              "opacity": 1,
+              "roughness": 0.45
+            }
+          },
+          {
+            "id": "safety-helmet-ridge",
+            "parent": "head-pivot",
+            "semanticType": "character.human.safety-helmet.ridge",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.022,
+                0.021,
+                0.165
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.142,
+                -0.008
+              ]
+            },
+            "appearance": {
+              "color": "#e7eae5",
+              "opacity": 1,
+              "roughness": 0.45
+            }
+          },
+          {
+            "id": "safety-helmet-front-badge",
+            "parent": "head-pivot",
+            "semanticType": "character.human.safety-helmet.badge",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.046,
+                0.017,
+                0.005
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.087,
+                0.115
+              ]
+            },
+            "appearance": {
+              "color": "#ff6f2a",
+              "opacity": 1,
+              "roughness": 0.5
+            }
+          },
+          {
+            "id": "eye-line",
+            "parent": "head-pivot",
+            "semanticType": "character.human.measure.eye-line",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [
+                -0.1,
+                0.024,
+                0.108
+              ],
+              "end": [
+                0.1,
+                0.024,
+                0.108
+              ],
+              "radius": 0.0025,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#69d9d3",
+              "opacity": 0.85,
+              "roughness": 0.62,
+              "emissive": "#69d9d3",
+              "glow": 1
+            }
+          }
+        ],
+        "anchors": {
+          "head-top": {
+            "node": "safety-helmet-shell",
+            "position": [
+              0,
+              0.162,
+              0
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "kind": "height-top"
+          },
+          "eye-forward": {
+            "node": "head-pivot",
+            "position": [
+              0,
+              0.024,
+              0.108
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "gaze-forward"
+          },
+          "neck-base": {
+            "node": "neck",
+            "position": [
+              0,
+              -0.18,
+              -0.006
+            ],
+            "direction": [
+              0,
+              -1,
+              0
+            ],
+            "kind": "joint"
+          }
+        },
+        "relations": [
+          {
+            "type": "human-part-module",
+            "name": "head",
+            "nodes": [
+              "head-root",
+              "neck",
+              "head-pivot",
+              "head"
+            ]
+          },
+          {
+            "type": "facial-feature-group",
+            "name": "face-lite",
+            "nodes": [
+              "head",
+              "nose",
+              "left-eye",
+              "right-eye",
+              "left-cheek-facet",
+              "right-cheek-facet",
+              "mouth",
+              "chin"
+            ]
+          },
+          {
+            "type": "safety-equipment-layer",
+            "name": "helmet",
+            "nodes": [
+              "safety-helmet-shell",
+              "safety-helmet-brim",
+              "safety-helmet-side-rim",
+              "safety-helmet-ridge",
+              "safety-helmet-front-badge"
+            ]
+          }
+        ],
+        "metrics": {
+          "standingHeightReference": 1.74,
+          "humanPart": "head",
+          "generatedBy": "character.human-surface-lowpoly",
+          "reusableAs": "head module for human compositions"
+        },
+        "annotations": [
+          {
+            "id": "head-module-note",
+            "text": "Head module: face, helmet, glasses, neck anchor",
+            "position": [
+              0.22,
+              0.07,
+              0.2
+            ],
+            "color": "#b8ff4d"
+          },
+          {
+            "id": "face-loft-note",
+            "text": "Nose and cheeks are low-relief editable facial geometry",
+            "position": [
+              0.2,
+              -0.08,
+              0.22
+            ],
+            "color": "#69d9d3"
+          }
+        ]
+      }
+    }
+  }
+}

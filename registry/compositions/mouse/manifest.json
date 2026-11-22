@@ -1,0 +1,508 @@
+{
+  "schemaVersion": "0.1",
+  "id": "electronics.mouse",
+  "version": "0.5.0",
+  "kind": "composition",
+  "title": "桌面鼠标",
+  "summary": "完全由参数化几何组成的桌面鼠标模型，表达一体化弧形机身、左右键、滚轮、分割缝、侧键和短线缆。",
+  "license": "Apache-2.0",
+  "semanticType": "electronics.input.mouse",
+  "capabilities": [
+    "inspect-structure",
+    "anchors",
+    "hose-path",
+    "material",
+    "animate",
+    "no-glb"
+  ],
+  "tags": [
+    "电子设备",
+    "鼠标",
+    "输入设备",
+    "曲面近似",
+    "参数化模型",
+    "无GLB"
+  ],
+  "ai": {
+    "intent": "提供一个轻量、可编辑的桌面鼠标结构参考，重点表达鼠标的整体轮廓和主要交互部件，而不是追求高拟真工业设计曲面。",
+    "useWhen": [
+      "需要在办公桌面、设备清单或教学场景中快速放置可解释鼠标对象。",
+      "需要示范消费电子外壳可由参数化几何近似表达。"
+    ],
+    "avoidWhen": [
+      "需要产品级高拟真外观、复杂人体工学曲面或真实制造倒角。",
+      "需要展示底部传感器、脚垫等不可见结构细节。"
+    ],
+    "editableParts": [
+      "body-shell",
+      "left-button",
+      "right-button",
+      "scroll-wheel",
+      "front-cable-grommet",
+      "mouse-cable"
+    ],
+    "qualityChecks": [
+      "主体应由连续圆润外壳主导，线缆不能拖大模型包围盒。",
+      "常规视角下不应暴露底部传感器、脚垫或远端 USB 块。"
+    ],
+    "commonVariants": [
+      "无线鼠标：删除 front-cable-grommet 和 mouse-cable。",
+      "游戏鼠标：增加低透明侧键和顶部 DPI 键，但保持主体包围盒稳定。"
+    ]
+  },
+  "parameters": {
+    "bodyLength": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.096
+    },
+    "bodyWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.055
+    },
+    "buttonCount": {
+      "type": "integer",
+      "default": 2
+    }
+  },
+  "dependencies": [
+    "primitive.sphere@0.1.0",
+    "primitive.box@0.1.0",
+    "primitive.cylinder@0.1.0",
+    "primitive.torus@0.1.0"
+  ],
+  "editor": {
+    "document": {
+      "id": "mouse",
+      "title": "桌面鼠标",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mouse",
+            "semanticType": "electronics.mouse.root",
+            "transform": {
+              "position": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "body-shell",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.body-shell",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.042,
+              "segments": 40
+            },
+            "transform": {
+              "position": [
+                0,
+                0.022,
+                0
+              ],
+              "scale": [
+                0.68,
+                0.28,
+                1.08
+              ]
+            },
+            "appearance": {
+              "color": "#252b31",
+              "opacity": 1,
+              "metalness": 0.16
+            }
+          },
+          {
+            "id": "palm-highlight",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.palm-highlight",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.022,
+              "segments": 24
+            },
+            "transform": {
+              "position": [
+                0,
+                0.0315,
+                0.012
+              ],
+              "scale": [
+                0.82,
+                0.08,
+                0.82
+              ]
+            },
+            "appearance": {
+              "color": "#3c4650",
+              "opacity": 0.18,
+              "metalness": 0.08
+            }
+          },
+          {
+            "id": "left-button",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.button.left",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.019,
+              "segments": 24
+            },
+            "transform": {
+              "position": [
+                -0.0085,
+                0.0315,
+                -0.0255
+              ],
+              "scale": [
+                0.56,
+                0.045,
+                0.72
+              ]
+            },
+            "appearance": {
+              "color": "#303740",
+              "opacity": 0.34
+            }
+          },
+          {
+            "id": "right-button",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.button.right",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.019,
+              "segments": 24
+            },
+            "transform": {
+              "position": [
+                0.0085,
+                0.0315,
+                -0.0255
+              ],
+              "scale": [
+                0.56,
+                0.045,
+                0.72
+              ]
+            },
+            "appearance": {
+              "color": "#303740",
+              "opacity": 0.34
+            }
+          },
+          {
+            "id": "center-seam",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.seam",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [
+                  0,
+                  0.0325,
+                  -0.0385
+                ],
+                [
+                  0,
+                  0.0325,
+                  -0.0285
+                ],
+                [
+                  0,
+                  0.0304,
+                  -0.0175
+                ]
+              ],
+              "radius": 0.00022,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#10161d",
+              "opacity": 0.42
+            }
+          },
+          {
+            "id": "scroll-wheel",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.scroll-wheel",
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.0036,
+              "height": 0.0046,
+              "radialSegments": 24
+            },
+            "transform": {
+              "position": [
+                0,
+                0.0323,
+                -0.0385
+              ],
+              "rotation": [
+                1.5708,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#111519",
+              "opacity": 1,
+              "metalness": 0.45
+            }
+          },
+          {
+            "id": "dpi-button",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.button.dpi",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0045,
+                0.0006,
+                0.0024
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.0312,
+                -0.016
+              ]
+            },
+            "appearance": {
+              "color": "#151b22",
+              "opacity": 0.38
+            }
+          },
+          {
+            "id": "side-button",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.side-button",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0025,
+                0.0025,
+                0.0105
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [
+                -0.026,
+                0.0235,
+                -0.002
+              ],
+              "step": [
+                0,
+                0,
+                0.014
+              ]
+            },
+            "appearance": {
+              "color": "#26313a",
+              "opacity": 0.68
+            }
+          },
+          {
+            "id": "side-grip-rib",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.side-grip-rib",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0008,
+                0.0014,
+                0.0052
+              ]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [
+                2,
+                1,
+                3
+              ],
+              "start": [
+                -0.0265,
+                0.0155,
+                0.004
+              ],
+              "stepX": [
+                0.053,
+                0,
+                0
+              ],
+              "stepY": [
+                0,
+                0,
+                0
+              ],
+              "stepZ": [
+                0,
+                0,
+                0.009
+              ]
+            },
+            "appearance": {
+              "color": "#182028",
+              "opacity": 0.48
+            }
+          },
+          {
+            "id": "front-cable-grommet",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.cable-grommet",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0028,
+              "segments": 16
+            },
+            "transform": {
+              "position": [
+                0,
+                0.0175,
+                -0.045
+              ],
+              "scale": [
+                1,
+                0.7,
+                0.75
+              ]
+            },
+            "appearance": {
+              "color": "#101419",
+              "opacity": 0.9
+            }
+          },
+          {
+            "id": "mouse-cable",
+            "parent": "mouse",
+            "semanticType": "electronics.mouse.cable",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [
+                  0,
+                  0.015,
+                  -0.047
+                ],
+                [
+                  0.0015,
+                  0.011,
+                  -0.058
+                ],
+                [
+                  -0.0035,
+                  0.009,
+                  -0.068
+                ]
+              ],
+              "radius": 0.0008,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#101419",
+              "opacity": 0.9
+            }
+          }
+        ],
+        "anchors": {
+          "hand-grip-center": {
+            "node": "body-shell",
+            "position": [
+              0,
+              0.018,
+              0.005
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "kind": "hand-contact"
+          },
+          "cable-exit": {
+            "node": "front-cable-grommet",
+            "position": [
+              0,
+              0,
+              -0.003
+            ],
+            "direction": [
+              0,
+              0,
+              -1
+            ],
+            "kind": "cable-port"
+          }
+        },
+        "animations": [
+          {
+            "id": "scroll-wheel-roll",
+            "target": "scroll-wheel",
+            "property": "rotation",
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              6.283185307,
+              0,
+              0
+            ],
+            "duration": 1.2,
+            "loop": true,
+            "space": "local"
+          },
+          {
+            "id": "left-button-click",
+            "target": "left-button",
+            "property": "position",
+            "from": [
+              0,
+              0.012,
+              0
+            ],
+            "to": [
+              0,
+              -0.008,
+              0
+            ],
+            "duration": 0.45,
+            "loop": true
+          }
+        ],
+        "annotations": [
+          {
+            "id": "mouse-shell-note",
+            "text": "一体化圆润上壳",
+            "position": [
+              0.044,
+              0.036,
+              0.01
+            ],
+            "color": "#77d7ff"
+          },
+          {
+            "id": "mouse-cable-note",
+            "text": "短线缆与前端出线口",
+            "position": [
+              0.034,
+              0.02,
+              -0.052
+            ],
+            "color": "#eaf3cf"
+          }
+        ]
+      }
+    }
+  }
+}

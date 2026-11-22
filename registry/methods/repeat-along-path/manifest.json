@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "0.1", "id": "spatial.repeat-along-path", "version": "0.1.0", "kind": "method",
+  "title": "沿路径重复", "summary": "按间距或数量将构件稳定分布在折线路径上，并可跟随切线定向。", "license": "Apache-2.0",
+  "capabilities": ["repeat", "path-sampling", "tangent-orientation"], "tags": ["空间方法", "路径", "阵列"],
+  "ai": {
+    "intent": "让 Agent 沿折线路径稳定放置重复构件，并保留路径距离、分段和切向信息，避免为每个实例手算坐标和朝向。",
+    "useWhen": ["管线支吊架、电缆托架、路缘构件、路线标记等需要沿路径排布。", "路径修改后需要重复实例自动重算。"],
+    "avoidWhen": ["对象只是规则矩形阵列时应使用 grid 或 linear repetition。", "路径上每个实例需要人工独立调位时不要强行路径重复。"],
+    "editableParts": ["points", "spacing", "startOffset", "endOffset", "orientation.localAxis"],
+    "qualityChecks": ["路径至少包含两个控制点。", "spacing 必须大于 0。", "需要跟随路径方向时应显式声明 tangent orientation。"],
+    "commonVariants": ["包含终点的路径重复", "带首尾偏移的路径重复", "沿切线朝向的支架阵列"]
+  },
+  "parameters": { "points": { "type": "vec3[]", "unit": "m" }, "spacing": { "type": "number", "unit": "m", "minimum": 0.001 } },
+  "dependencies": [],
+  "guide": { "problem": "一条弯曲管线需要按固定间距自动设置支吊架，人工逐个计算位置会产生重复工作。", "result": "修改路径或间距后，所有支吊架沿新路径重新计算位置；构件原型只定义一次。", "steps": ["用控制点定义管线路径", "选择需要重复的支架原型", "设置间距和是否包含终点", "系统计算距离位置与路径方向"] },
+  "editor": { "document": { "id": "repeat-along-path-example", "component": "core.composition", "parameters": { "nodes": [
+    { "id": "route", "semanticType": "mep.pipe", "geometry": { "type": "tube-along", "points": [[-3,1,0],[-1,1,0],[0,1.7,0.7],[3,1.7,0.7]], "radius": 0.1 }, "appearance": { "color": "#54a8ff", "opacity": 1 } },
+    { "id": "support", "semanticType": "mep.support", "geometry": { "type": "box", "size": [0.12,0.7,0.45] }, "repetition": { "type": "path", "points": [[-3,1.42,0],[-1,1.42,0],[0,2.12,0.7],[3,2.12,0.7]], "spacing": 0.7, "includeEnd": true }, "orientation": { "mode": "tangent", "localAxis": [1,0,0] }, "appearance": { "color": "#c8f24d", "opacity": 1 } }
+  ], "anchors": {} } } },
+  "example": "examples/digital-modeling/paths/sample-supports.json"
+}

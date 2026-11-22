@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "0.1", "id": "composition.service-rack", "version": "0.2.0", "kind": "composition",
+  "title": "管线支架组合", "summary": "展示结构柱、路径管线、沿路径吊架和径向紧固件的可编辑组合。", "license": "Apache-2.0",
+  "semanticType": "mep.service-rack", "capabilities": ["inspect", "edit", "animate", "reuse"], "tags": ["组合案例", "MEP", "教学"],
+  "ai": {
+    "intent": "展示结构柱、管线路径、沿路径吊架和径向紧固件如何组合为一个可编辑服务支架参考对象。",
+    "useWhen": ["需要示范 CompositionSpec 中父子结构、路径重复、径向重复和锚点连接如何协同。", "需要快速生成可编辑的 MEP 支架组合参考。"],
+    "avoidWhen": ["需要真实项目的管综深化、荷载校核或施工规范判定。", "需要表达完整施工环境、货物或作业流程时，应另行组合场景对象。"],
+    "editableParts": ["pipe", "hanger", "flange-bolt", "column", "path points"],
+    "qualityChecks": ["完整模型只表达支架组合本身，不混入施工环境。", "沿路径吊架应保留 repetition 规则，避免展开后失去生成意图。"],
+    "commonVariants": ["双管支架", "多跨支架", "不同吊架间距", "不同法兰螺栓数量"]
+  },
+  "dependencies": ["mep.pipe@0.1.0", "spatial.repeat-along-path@0.1.0"],
+  "editor": { "document": { "id": "service-rack", "component": "core.composition", "parameters": {
+    "nodes": [
+      { "id": "base", "semanticType": "structure.base", "geometry": { "type": "box", "size": [5.8,0.18,2.4] }, "transform": { "position": [0,0.09,0] }, "appearance": { "color": "#7d8991", "opacity": 1 } },
+      { "id": "frame", "semanticType": "structure.frame", "transform": { "position": [-2.4,0.2,-0.8] } },
+      { "id": "column", "parent": "frame", "semanticType": "structure.column", "geometry": { "type": "box", "size": [0.16,2.6,0.16] }, "repetition": { "type": "linear", "count": 5, "start": [0,1.3,0], "step": [1.2,0,0] }, "appearance": { "color": "#8fd0d1", "opacity": 1 } },
+      { "id": "pipe", "semanticType": "mep.pipe", "geometry": { "type": "tube-along", "points": [[-2.5,1.9,-0.5],[2.5,1.9,-0.5],[2.5,1.2,0.6]], "radius": 0.11 }, "appearance": { "color": "#54a8ff", "opacity": 1 } },
+      { "id": "hanger", "semanticType": "mep.hanger", "geometry": { "type": "box", "size": [0.09,0.55,0.09] }, "repetition": { "type": "path", "points": [[-2.4,2.2,-0.5],[2.4,2.2,-0.5]], "spacing": 1.2, "includeEnd": true }, "orientation": { "mode": "fixed" }, "appearance": { "color": "#8fd0d1", "opacity": 1 } },
+      { "id": "flange-bolt", "semanticType": "mep.fastener", "geometry": { "type": "box", "size": [0.1,0.22,0.1] }, "repetition": { "type": "radial", "count": 8, "center": [2.5,1.2,0.6], "radius": 0.28, "axis": "x" }, "orientation": { "mode": "radial-outward", "localAxis": [0,1,0] }, "appearance": { "color": "#d9ff57", "opacity": 1 } }
+    ],
+    "anchors": {
+      "inlet": { "node": "pipe", "position": [-2.5,1.9,-0.5], "direction": [-1,0,0], "kind": "pipe-port" },
+      "outlet": { "node": "pipe", "position": [2.5,1.2,0.6], "direction": [0,-1,0], "kind": "pipe-port" }
+    }
+  } } },
+  "example": "apps/editor/default-document"
+}

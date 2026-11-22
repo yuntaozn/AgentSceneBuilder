@@ -1,0 +1,14 @@
+{
+  "schemaVersion":"0.1","id":"construction.epoxy-floor-system","version":"0.1.0","kind":"composition","title":"厂房环氧地坪分层系统","summary":"基层、混凝土、清理面、底漆、砂浆、腻子、面漆和耐磨光泽层的完整参数化剖层。","license": "Apache-2.0","semanticType":"construction.floor.epoxy","capabilities":["inspect-layers","resize","material","section-view"],"tags":["地坪","环氧","材料分层","课件迁移"],
+  "parameters":{"length":{"type":"number","unit":"m","default":18},"width":{"type":"number","unit":"m","default":12},"layerThickness":{"type":"number[]","unit":"m"}},"dependencies":["primitive.box@0.1.0"],
+  "editor":{"document":{"id":"epoxy-floor-system","component":"core.composition","parameters":{"nodes":[
+    {"id":"subgrade","semanticType":"construction.floor.subgrade","geometry":{"type":"box","size":[18.4,0.25,12.4]},"transform":{"position":[0,-0.125,0]},"appearance":{"color":"#59646b","opacity":1}},
+    {"id":"concrete","semanticType":"construction.floor.concrete","geometry":{"type":"box","size":[18,0.24,12]},"transform":{"position":[0,0.12,0]},"appearance":{"color":"#8c959a","opacity":1}},
+    {"id":"clean-surface","semanticType":"construction.floor.preparation","geometry":{"type":"box","size":[17.75,0.018,11.75]},"transform":{"position":[0,0.249,0]},"appearance":{"color":"#b9c0c3","opacity":1}},
+    {"id":"primer","semanticType":"construction.floor.primer","geometry":{"type":"box","size":[17.5,0.024,11.5]},"transform":{"position":[0,0.27,0]},"appearance":{"color":"#c79448","opacity":0.9}},
+    {"id":"mortar","semanticType":"construction.floor.epoxy-mortar","geometry":{"type":"box","size":[17.28,0.05,11.28]},"transform":{"position":[0,0.307,0]},"appearance":{"color":"#b9a56f","opacity":1}},
+    {"id":"putty","semanticType":"construction.floor.putty","geometry":{"type":"box","size":[17.14,0.022,11.14]},"transform":{"position":[0,0.343,0]},"appearance":{"color":"#d9d1bd","opacity":1}},
+    {"id":"topcoat","semanticType":"construction.floor.topcoat","geometry":{"type":"box","size":[17,0.026,11]},"transform":{"position":[0,0.367,0]},"appearance":{"color":"#36a9e8","opacity":1}},
+    {"id":"wear-gloss","semanticType":"construction.floor.wearcoat","geometry":{"type":"box","size":[16.92,0.01,10.92]},"transform":{"position":[0,0.385,0]},"appearance":{"color":"#9ee8f5","opacity":0.72}}
+  ],"anchors":{"surface":{"node":"wear-gloss","position":[0,0.39,0],"direction":[0,1,0],"kind":"finished-surface"}}}}},"example":"registry/compositions/epoxy-floor-system/manifest.json"
+}

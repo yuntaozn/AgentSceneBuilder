@@ -1,0 +1,17 @@
+{
+  "kind": "capability",
+  "id": "construction.independent-foundation",
+  "version": "0.1.0",
+  "title": "Build a parametric independent foundation",
+  "description": "Generate a dimensioned foundation pad, blinding layer, column starter, and bottom reinforcement as semantic geometry instead of an imported mesh.",
+  "goals": ["model an independent foundation", "calculate concrete volume", "generate a reinforcement grid", "create editable construction geometry"],
+  "inputs": ["foundation dimensions", "column dimensions", "rebar diameter and spacing", "concrete cover"],
+  "outputs": ["geometry nodes", "stable child ids", "local bounds", "anchors", "concrete and reinforcement metrics"],
+  "sideEffects": "none",
+  "command": "node scripts/model.mjs component build examples/digital-modeling/independent-foundation.json",
+  "limitations": [
+    "Contract 0.1 builds in local coordinates and does not yet apply instance transforms.",
+    "The reinforcement model is an educational bottom grid, not a complete structural detailing system."
+  ],
+  "tags": ["digital-modeling", "parametric", "construction", "foundation", "rebar", "quantities"]
+}

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "0.1",
+  "id": "electronics.laptop",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "笔记本电脑",
+  "summary": "完全由参数化几何组成的笔记本电脑模型，表达机身底座、键盘区域、触控板、显示屏、屏幕边框、摄像头、转轴、接口、散热栅格和底部脚垫。",
+  "license": "Apache-2.0",
+  "semanticType": "electronics.computer.laptop",
+  "capabilities": ["inspect-structure", "anchors", "edit-repetition", "animate", "material", "no-glb"],
+  "tags": ["电子设备", "笔记本", "电脑", "便携", "参数化模型", "无GLB"],
+  "ai": {
+    "intent": "提供一个完全由参数化几何组成的笔记本电脑结构参考，重点表达机身、键盘、触控板、转轴、屏幕、接口和散热等可编辑部件，而不是依赖外部模型文件。",
+    "useWhen": [
+      "需要在办公、教学、数字设备或人机交互场景中快速放置可解释的笔记本电脑对象。",
+      "需要参考如何用基础几何、grid repetition 和少量局部细节表达便携电脑。",
+      "需要模型可被 agent 继续拆分、替换接口、调整屏幕角度或修改键盘密度。"
+    ],
+    "avoidWhen": [
+      "需要特定品牌笔记本、真实倒角工艺、超薄曲面外壳或产品级高拟真渲染。",
+      "需要精确键帽文字、主板内部结构或真实接口开孔制造细节。"
+    ],
+    "editableParts": [
+      "base-body",
+      "keyboard-key",
+      "spacebar",
+      "trackpad",
+      "hinge-barrel",
+      "screen-lid",
+      "screen-display",
+      "webcam",
+      "usb-c-port-left",
+      "usb-a-port",
+      "hdmi-port",
+      "vent-grille-left"
+    ],
+    "qualityChecks": [
+      "键盘重复阵列必须保持在机身顶板范围内，不能穿出底座边缘。",
+      "屏幕、边框和摄像头应跟随相近的屏幕倾角，不能与底座错位脱离。",
+      "接口、散热栅格和脚垫应贴合机身侧面或底面，不应漂浮在模型外部。",
+      "桌面接触锚点应位于底部脚垫附近，屏幕中心锚点应位于显示区域中央。"
+    ],
+    "commonVariants": [
+      "轻薄本：降低 base-body 高度、缩小接口数量并减弱散热栅格。",
+      "工程工作站：加厚 base-body、增加左右散热栅格和接口数量。",
+      "演示状态：调大 screen-lid 的打开角度，并提高 screen-display 的 glow。"
+    ]
+  },
+  "parameters": {
+    "bodySize": { "type": "vec3", "unit": "m", "default": [0.36, 0.022, 0.25] },
+    "screenSize": { "type": "vec3", "unit": "m", "default": [0.35, 0.23, 0.012] },
+    "keyCount": { "type": "integer", "default": 71 }
+  },
+  "dependencies": [
+    "primitive.box@0.1.0",
+    "primitive.cylinder@0.1.0",
+    "primitive.sphere@0.1.0",
+    "spatial.linear-repeat@0.1.0",
+    "spatial.grid-repeat@0.1.0"
+  ],
+  "editor": {
+    "document": {
+      "id": "laptop",
+      "title": "笔记本电脑",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          { "id": "laptop", "semanticType": "electronics.laptop.root", "transform": { "position": [0, 0, 0] } },
+          { "id": "base-body", "parent": "laptop", "semanticType": "electronics.laptop.base-body", "geometry": { "type": "box", "size": [0.36, 0.022, 0.25] }, "transform": { "position": [0, 0.011, 0] }, "appearance": { "color": "#2a2d33", "opacity": 1, "metalness": 0.55, "roughness": 0.35 } },
+          { "id": "base-top-plate", "parent": "laptop", "semanticType": "electronics.laptop.base-top-plate", "geometry": { "type": "box", "size": [0.34, 0.003, 0.235] }, "transform": { "position": [0, 0.0235, 0] }, "appearance": { "color": "#1e2126", "opacity": 1, "metalness": 0.4 } },
+          { "id": "keyboard-key", "parent": "laptop", "semanticType": "electronics.laptop.keyboard.key", "geometry": { "type": "box", "size": [0.016, 0.003, 0.016] }, "repetition": { "type": "grid", "count": [14, 5, 1], "start": [-0.126, 0.0265, -0.055], "stepX": [0.019, 0, 0], "stepY": [0, 0, 0], "stepZ": [0, 0, 0.019] }, "appearance": { "color": "#0d0f12", "opacity": 1, "metalness": 0.2 } },
+          { "id": "spacebar", "parent": "laptop", "semanticType": "electronics.laptop.keyboard.spacebar", "geometry": { "type": "box", "size": [0.085, 0.003, 0.016] }, "transform": { "position": [0, 0.0265, 0.04] }, "appearance": { "color": "#0d0f12", "opacity": 1, "metalness": 0.2 } },
+          { "id": "trackpad", "parent": "laptop", "semanticType": "electronics.laptop.trackpad", "geometry": { "type": "box", "size": [0.10, 0.002, 0.065] }, "transform": { "position": [0, 0.025, 0.075] }, "appearance": { "color": "#3a3e45", "opacity": 1, "metalness": 0.3, "roughness": 0.5 } },
+          { "id": "hinge-barrel", "parent": "laptop", "semanticType": "electronics.laptop.hinge", "geometry": { "type": "cylinder", "radius": 0.008, "height": 0.32, "radialSegments": 16 }, "transform": { "position": [0, 0.022, -0.125], "rotation": [0, 0, 1.5708] }, "appearance": { "color": "#4a4e55", "opacity": 1, "metalness": 0.7 } },
+          { "id": "screen-lid", "parent": "laptop", "semanticType": "electronics.laptop.screen-lid", "geometry": { "type": "box", "size": [0.355, 0.24, 0.009] }, "transform": { "position": [0, 0.145, -0.145], "rotation": [-0.12, 0, 0] }, "appearance": { "color": "#2a2d33", "opacity": 1, "metalness": 0.55, "roughness": 0.35 } },
+          { "id": "screen-bezel", "parent": "laptop", "semanticType": "electronics.laptop.screen-bezel", "geometry": { "type": "box", "size": [0.34, 0.225, 0.003] }, "transform": { "position": [0, 0.145, -0.139], "rotation": [-0.12, 0, 0] }, "appearance": { "color": "#0a0c0e", "opacity": 1 } },
+          { "id": "screen-display", "parent": "laptop", "semanticType": "electronics.laptop.screen-display", "geometry": { "type": "box", "size": [0.32, 0.205, 0.002] }, "transform": { "position": [0, 0.145, -0.137], "rotation": [-0.12, 0, 0] }, "appearance": { "color": "#1a3a5c", "opacity": 1, "emissive": "#1a3a5c", "glow": 4 } },
+          { "id": "webcam", "parent": "laptop", "semanticType": "electronics.laptop.webcam", "geometry": { "type": "sphere", "radius": 0.004, "segments": 12 }, "transform": { "position": [0, 0.258, -0.135], "rotation": [-0.12, 0, 0] }, "appearance": { "color": "#1a1c20", "opacity": 1 } },
+          { "id": "webcam-led", "parent": "laptop", "semanticType": "electronics.laptop.webcam-led", "geometry": { "type": "sphere", "radius": 0.0015, "segments": 8 }, "transform": { "position": [0.01, 0.258, -0.135], "rotation": [-0.12, 0, 0] }, "appearance": { "color": "#44ff44", "opacity": 1, "emissive": "#44ff44", "glow": 6 } },
+          { "id": "usb-c-port-left", "parent": "laptop", "semanticType": "electronics.laptop.port.usb-c", "geometry": { "type": "box", "size": [0.012, 0.005, 0.008] }, "transform": { "position": [-0.183, 0.011, -0.04] }, "appearance": { "color": "#0a0c0e", "opacity": 1 } },
+          { "id": "usb-c-port-right", "parent": "laptop", "semanticType": "electronics.laptop.port.usb-c", "geometry": { "type": "box", "size": [0.012, 0.005, 0.008] }, "transform": { "position": [-0.183, 0.011, 0.02] }, "appearance": { "color": "#0a0c0e", "opacity": 1 } },
+          { "id": "usb-a-port", "parent": "laptop", "semanticType": "electronics.laptop.port.usb-a", "geometry": { "type": "box", "size": [0.012, 0.006, 0.014] }, "transform": { "position": [0.183, 0.011, -0.02] }, "appearance": { "color": "#0a0c0e", "opacity": 1 } },
+          { "id": "hdmi-port", "parent": "laptop", "semanticType": "electronics.laptop.port.hdmi", "geometry": { "type": "box", "size": [0.012, 0.006, 0.016] }, "transform": { "position": [0.183, 0.011, 0.02] }, "appearance": { "color": "#0a0c0e", "opacity": 1 } },
+          { "id": "headphone-jack", "parent": "laptop", "semanticType": "electronics.laptop.port.audio", "geometry": { "type": "cylinder", "radius": 0.0035, "height": 0.006, "radialSegments": 12 }, "transform": { "position": [0.183, 0.011, 0.06], "rotation": [0, 0, 1.5708] }, "appearance": { "color": "#0a0c0e", "opacity": 1 } },
+          { "id": "vent-grille-left", "parent": "laptop", "semanticType": "electronics.laptop.vent", "geometry": { "type": "box", "size": [0.005, 0.012, 0.06] }, "transform": { "position": [-0.183, 0.011, -0.09] }, "appearance": { "color": "#1a1c20", "opacity": 0.8 } },
+          { "id": "vent-grille-right", "parent": "laptop", "semanticType": "electronics.laptop.vent", "geometry": { "type": "box", "size": [0.005, 0.012, 0.06] }, "transform": { "position": [0.183, 0.011, -0.09] }, "appearance": { "color": "#1a1c20", "opacity": 0.8 } },
+          { "id": "bottom-plate", "parent": "laptop", "semanticType": "electronics.laptop.bottom-plate", "geometry": { "type": "box", "size": [0.34, 0.003, 0.23] }, "transform": { "position": [0, 0.0015, 0] }, "appearance": { "color": "#22252a", "opacity": 1, "metalness": 0.5 } },
+          { "id": "rubber-foot", "parent": "laptop", "semanticType": "electronics.laptop.foot", "geometry": { "type": "box", "size": [0.03, 0.003, 0.015] }, "repetition": { "type": "grid", "count": [2, 1, 2], "start": [-0.14, -0.0015, -0.1], "stepX": [0.28, 0, 0], "stepY": [0, 0, 0], "stepZ": [0, 0, 0.2] }, "appearance": { "color": "#111315", "opacity": 1 } },
+          { "id": "power-button", "parent": "laptop", "semanticType": "electronics.laptop.power-button", "geometry": { "type": "cylinder", "radius": 0.006, "height": 0.002, "radialSegments": 16 }, "transform": { "position": [0.14, 0.026, -0.09] }, "appearance": { "color": "#3a3e45", "opacity": 1, "metalness": 0.4 } },
+          { "id": "speaker-grille", "parent": "laptop", "semanticType": "electronics.laptop.speaker", "geometry": { "type": "box", "size": [0.06, 0.002, 0.008] }, "repetition": { "type": "linear", "count": 2, "start": [-0.14, 0.0255, -0.085], "step": [0.28, 0, 0] }, "appearance": { "color": "#1a1c20", "opacity": 0.7 } }
+        ],
+        "anchors": {
+          "power-button": { "node": "power-button", "position": [0, 0.001, 0], "direction": [0, 1, 0], "kind": "operation-button" },
+          "usb-c-left": { "node": "usb-c-port-left", "position": [-0.006, 0, 0], "direction": [-1, 0, 0], "kind": "port" },
+          "usb-c-right": { "node": "usb-c-port-right", "position": [-0.006, 0, 0], "direction": [-1, 0, 0], "kind": "port" },
+          "screen-center": { "node": "screen-display", "position": [0, 0, 0.001], "direction": [0, 0, 1], "kind": "display" },
+          "desk-contact": { "node": "rubber-foot", "occurrence": { "gridIndex": [0, 0, 0] }, "position": [0, -0.0015, 0], "direction": [0, -1, 0], "kind": "support-foot" }
+        },
+        "animations": [
+          { "id": "screen-glow-pulse", "target": "screen-display", "property": "emissiveIntensity", "from": 3, "to": 5, "duration": 3, "loop": true },
+          { "id": "led-blink", "target": "webcam-led", "property": "opacity", "from": 1, "to": 0.3, "duration": 1.5, "loop": true }
+        ],
+        "annotations": [
+          { "id": "laptop-keyboard-note", "text": "全尺寸键盘与触控板", "position": [0.25, 0.06, 0.05], "color": "#ffd36b" },
+          { "id": "laptop-screen-note", "text": "显示屏与摄像头", "position": [0.25, 0.22, -0.12], "color": "#69d9d3" },
+          { "id": "laptop-ports-note", "text": "侧面接口：USB-C / USB-A / HDMI / 音频", "position": [-0.25, 0.05, 0], "color": "#b85cff" }
+        ]
+      }
+    }
+  }
+}

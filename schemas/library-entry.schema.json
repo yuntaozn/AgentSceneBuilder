@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://agentscenebuilder.dev/schemas/library-entry.schema.json",
+  "title": "AgentSceneBuilder digital model library entry",
+  "type": "object",
+  "required": ["schemaVersion", "id", "version", "kind", "title", "summary", "license", "capabilities", "tags"],
+  "properties": {
+    "schemaVersion": { "const": "0.1" },
+    "id": { "type": "string", "pattern": "^[a-z0-9]+(?:[.-][a-z0-9]+)+$" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "kind": { "enum": ["component", "method", "composition"] },
+    "title": { "type": "string", "minLength": 1 },
+    "summary": { "type": "string", "minLength": 1 },
+    "license": { "type": "string", "minLength": 1 },
+    "semanticType": { "type": "string" },
+    "capabilities": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "tags": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "parameters": { "type": "object" },
+    "anchors": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "dependencies": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "guide": {
+      "type": "object",
+      "properties": {
+        "problem": { "type": "string" },
+        "result": { "type": "string" },
+        "steps": { "type": "array", "items": { "type": "string" } }
+      },
+      "required": ["problem", "result", "steps"],
+      "additionalProperties": false
+    },
+    "ai": {
+      "type": "object",
+      "properties": {
+        "intent": { "type": "string", "minLength": 1 },
+        "useWhen": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "avoidWhen": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "editableParts": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "qualityChecks": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+        "commonVariants": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true }
+      },
+      "required": ["intent"],
+      "additionalProperties": false
+    },
+    "editor": {
+      "type": "object",
+      "properties": {
+        "template": { "type": "string" },
+        "node": { "type": "object" },
+        "document": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "example": { "type": "string" }
+  },
+  "additionalProperties": false
+}

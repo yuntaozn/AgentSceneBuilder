@@ -1,0 +1,13 @@
+{
+  "schemaVersion":"0.1","id":"inspection.floor-bond-strength-test","version":"0.1.0","kind":"composition","title":"地坪粘结强度试验体","summary":"包含工作台、涂层试样、标准块、胶粘层、连接头与拉拔方向的检测组合。","license": "Apache-2.0","semanticType":"inspection.bond-strength","capabilities":["inspect-structure","resize","animate","annotate"],"tags":["检测","地坪","拉拔试验","课件迁移"],
+  "parameters":{"sampleSize":{"type":"vec3","unit":"m","default":[2.4,0.09,2.4]},"blockSize":{"type":"vec3","unit":"m","default":[0.5,0.12,1.2]}},"dependencies":["primitive.box@0.1.0"],
+  "editor":{"document":{"id":"floor-bond-strength-test","component":"core.composition","parameters":{"nodes":[
+    {"id":"bench","semanticType":"inspection.bench","geometry":{"type":"box","size":[8,0.32,6]},"transform":{"position":[0,0.16,0]},"appearance":{"color":"#5f5a50","opacity":1}},
+    {"id":"coating","semanticType":"construction.floor.coating","geometry":{"type":"box","size":[7.6,0.08,5.6]},"transform":{"position":[0,0.36,0]},"appearance":{"color":"#3ba8d8","opacity":1}},
+    {"id":"sample","semanticType":"inspection.sample","geometry":{"type":"box","size":[2.4,0.09,2.4]},"repetition":{"type":"grid","count":[2,1,2],"start":[-1.21,0.445,-1.21],"stepX":[2.42,0,0],"stepY":[0,0,0],"stepZ":[0,0,2.42]},"appearance":{"color":"#d2c8b1","opacity":1}},
+    {"id":"adhesive","semanticType":"inspection.adhesive","geometry":{"type":"box","size":[0.5,0.04,1.2]},"transform":{"position":[0.26,0.53,0.61]},"appearance":{"color":"#d4b04f","opacity":0.85}},
+    {"id":"standard-block","semanticType":"inspection.standard-block","geometry":{"type":"box","size":[0.5,0.12,1.2]},"transform":{"position":[0.26,0.61,0.61]},"appearance":{"color":"#b8c0c5","opacity":1}},
+    {"id":"coupling","semanticType":"inspection.coupling","geometry":{"type":"cylinder","radius":0.15,"height":0.22},"transform":{"position":[0.26,0.78,0.61]},"appearance":{"color":"#79868d","opacity":1}},
+    {"id":"pull-axis","semanticType":"inspection.force-direction","geometry":{"type":"cone","radius":0.16,"height":0.34},"transform":{"position":[0.26,1.42,0.61]},"appearance":{"color":"#ff665f","opacity":1}}
+  ],"anchors":{"load-point":{"node":"coupling","position":[0.26,0.89,0.61],"direction":[0,1,0],"kind":"test-load-point"}}}}},"example":"registry/compositions/bond-strength-test/manifest.json"
+}

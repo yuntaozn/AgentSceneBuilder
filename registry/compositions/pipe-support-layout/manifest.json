@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "0.1", "id": "mep.pipe-support-layout", "version": "0.1.0", "kind": "composition",
+  "title": "管线与支吊架布置", "summary": "一条转弯管线与沿路径自动布置的吊杆、横担组合，用于理解路径重复和构件结构。", "license": "Apache-2.0",
+  "semanticType": "mep.pipe-support-system", "capabilities": ["path-edit", "edit-repetition", "resize", "inspect-structure"], "tags": ["MEP", "支吊架", "路径", "组合示例"],
+  "parameters": { "supportSpacing": { "type": "number", "unit": "m", "default": 0.9 }, "pipeRadius": { "type": "number", "unit": "m", "default": 0.11 } }, "dependencies": ["mep.pipe@0.1.0", "spatial.repeat-along-path@0.1.0"],
+  "editor": { "document": { "id": "pipe-support-layout", "component": "core.composition", "parameters": { "nodes": [
+    { "id": "pipe", "semanticType": "mep.pipe", "geometry": { "type": "tube-along", "points": [[-3,1.4,-0.6],[0,1.4,-0.6],[1.2,2.1,0.2],[3,2.1,0.2]], "radius": 0.11 }, "appearance": { "color": "#54a8ff", "opacity": 1 } },
+    { "id": "hanger", "semanticType": "mep.hanger", "geometry": { "type": "box", "size": [0.09,0.75,0.09] }, "repetition": { "type": "path", "points": [[-2.8,1.85,-0.6],[-0.1,1.85,-0.6],[1.25,2.55,0.2],[2.8,2.55,0.2]], "spacing": 0.9, "includeEnd": true }, "orientation": { "mode": "fixed" }, "appearance": { "color": "#c8f24d", "opacity": 1 } },
+    { "id": "crossbar", "semanticType": "mep.crossbar", "geometry": { "type": "box", "size": [0.12,0.12,0.72] }, "repetition": { "type": "path", "points": [[-2.8,1.42,-0.6],[-0.1,1.42,-0.6],[1.25,2.12,0.2],[2.8,2.12,0.2]], "spacing": 0.9, "includeEnd": true }, "orientation": { "mode": "tangent", "localAxis": [1,0,0] }, "appearance": { "color": "#f0a85c", "opacity": 1 } }
+  ], "anchors": {} } } }
+}

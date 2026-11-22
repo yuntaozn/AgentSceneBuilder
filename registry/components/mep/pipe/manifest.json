@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "0.1", "id": "mep.pipe", "version": "0.1.0", "kind": "component",
+  "title": "路径管线", "summary": "根据空间路径和半径生成管线，并保留端口及路径语义。", "license": "Apache-2.0",
+  "semanticType": "mep.pipe", "capabilities": ["path-edit", "resize", "attach", "measure-length"], "tags": ["MEP", "路径构件"],
+  "parameters": { "points": { "type": "vec3[]", "unit": "m" }, "radius": { "type": "number", "unit": "m", "default": 0.08, "minimum": 0.001 } },
+  "anchors": ["start", "end"], "dependencies": [], "editor": { "template": "pipe", "node": { "id": "pipe", "semanticType": "mep.pipe", "geometry": { "type": "tube-along", "points": [[-1, 0, 0], [0.15, 0, 0], [0.15, 0.75, 0.55], [1, 0.75, 0.55]], "radius": 0.08 }, "transform": { "position": [0, 0.35, 0], "rotation": [0, 0, 0], "scale": [1, 1, 1] }, "appearance": { "color": "#54a8ff", "opacity": 1 } } }, "example": "examples/digital-modeling/cold-water-pipe.json"
+}

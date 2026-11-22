@@ -1,0 +1,18 @@
+{
+  "kind": "capability",
+  "id": "asset.inspect-gltf",
+  "version": "0.1.0",
+  "title": "Inspect GLB or GLTF asset",
+  "description": "Read structural metadata, declared bounds, dependencies, and common asset warnings without modifying the source asset.",
+  "goals": ["understand a 3D asset", "check model size", "detect missing external resources", "inspect GLB structure"],
+  "inputs": [".glb file", ".gltf file"],
+  "outputs": ["JSON inspection evidence"],
+  "sideEffects": "none",
+  "command": "python scripts/agentscene.py asset inspect <path>",
+  "limitations": [
+    "Bounds depend on accessor min/max declarations and may be unavailable.",
+    "The probe does not render the asset or judge visual quality."
+  ],
+  "tags": ["asset", "gltf", "glb", "inspection", "bounds", "read-only"]
+}
+

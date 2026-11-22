@@ -1,0 +1,48 @@
+{
+  "metadata": {
+    "title": "独立基础与给水管数字化组合示例",
+    "units": "meter"
+  },
+  "instances": [
+    {
+      "id": "foundation-01",
+      "component": "construction.independent-foundation",
+      "parameters": {
+        "width": 6.5,
+        "depth": 4.4,
+        "height": 0.8,
+        "columnWidth": 1.2,
+        "columnDepth": 1.2,
+        "columnHeight": 2.4,
+        "rebarDiameter": 0.032,
+        "rebarSpacing": 0.4
+      },
+      "transform": {
+        "position": [2, 0, -1],
+        "rotation": [0, 0.5235987755982988, 0],
+        "scale": [1, 1, 1]
+      }
+    },
+    {
+      "id": "cold-water-01",
+      "component": "mep.pipe-run",
+      "parameters": {
+        "path": [[0, 0, 0], [0, 2, 0], [3, 2, 0]],
+        "diameter": 0.025,
+        "system": "cold-water"
+      },
+      "transform": {
+        "position": [2, 3.3, -1]
+      }
+    }
+  ],
+  "relations": [
+    {
+      "type": "connects",
+      "from": "foundation-01#columnTopCenter",
+      "to": "cold-water-01#start",
+      "tolerance": 0.000001,
+      "required": true
+    }
+  ]
+}

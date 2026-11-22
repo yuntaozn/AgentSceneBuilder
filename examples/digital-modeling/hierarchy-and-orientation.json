@@ -1,0 +1,47 @@
+{
+  "id": "hierarchy-orientation-01",
+  "component": "core.composition",
+  "parameters": {
+    "nodes": [
+      {
+        "id": "base",
+        "transform": { "position": [0, 0.1, 0] },
+        "geometry": { "type": "box", "size": [1.2, 0.2, 1.2] },
+        "semanticType": "example.base"
+      },
+      {
+        "id": "hinge",
+        "parent": "base",
+        "transform": { "position": [0, 0.1, 0], "rotation": [0, 0, 0.35] }
+      },
+      {
+        "id": "arm",
+        "parent": "hinge",
+        "pivot": [0, -1, 0],
+        "transform": { "position": [0, 1, 0] },
+        "geometry": { "type": "box", "size": [0.2, 2, 0.2] },
+        "semanticType": "example.arm"
+      },
+      {
+        "id": "path-support",
+        "geometry": { "type": "box", "size": [0.1, 0.6, 0.1] },
+        "semanticType": "example.path-support",
+        "repetition": {
+          "type": "path",
+          "points": [[2, 0, 0], [4, 0, 0], [4, 0, 2]],
+          "spacing": 1,
+          "includeEnd": true
+        },
+        "orientation": { "mode": "tangent", "localAxis": [0, 1, 0] }
+      }
+    ],
+    "anchors": {
+      "arm-tip": {
+        "node": "arm",
+        "position": [0, 1, 0],
+        "direction": [0, 1, 0],
+        "kind": "tool-mount"
+      }
+    }
+  }
+}

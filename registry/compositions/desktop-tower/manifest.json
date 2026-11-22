@@ -1,0 +1,995 @@
+{
+  "schemaVersion": "0.1",
+  "id": "electronics.desktop-tower",
+  "version": "0.2.1",
+  "kind": "composition",
+  "title": "桌面电脑主机",
+  "summary": "完全由参数化几何组成的桌面电脑主机模型，表达机箱主体、前面板、侧透面板、电源按钮、I/O 接口、通风栅格、风扇、脚垫、后部扩展槽和电源接口。",
+  "license": "Apache-2.0",
+  "semanticType": "electronics.computer.desktop-tower",
+  "capabilities": [
+    "inspect-structure",
+    "anchors",
+    "edit-repetition",
+    "animate",
+    "material",
+    "no-glb"
+  ],
+  "tags": [
+    "电子设备",
+    "主机",
+    "电脑机箱",
+    "风扇",
+    "参数化模型",
+    "无GLB"
+  ],
+  "parameters": {
+    "caseSize": {
+      "type": "vec3",
+      "unit": "m",
+      "default": [
+        0.205,
+        0.3875,
+        0.14
+      ]
+    },
+    "fanBladeCount": {
+      "type": "integer",
+      "default": 7
+    },
+    "frontVentCount": {
+      "type": "integer",
+      "default": 9
+    }
+  },
+  "dependencies": [
+    "primitive.box@0.1.0",
+    "primitive.cylinder@0.1.0",
+    "primitive.torus@0.1.0",
+    "primitive.sphere@0.1.0",
+    "spatial.linear-repeat@0.1.0",
+    "spatial.radial-repeat@0.1.0"
+  ],
+  "editor": {
+    "document": {
+      "id": "desktop-tower",
+      "title": "桌面电脑主机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tower",
+            "semanticType": "electronics.desktop-tower.root",
+            "transform": {
+              "position": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "case-body",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.case-body",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.205,
+                0.3875,
+                0.14
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.2,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#20262d",
+              "opacity": 1,
+              "metalness": 0.35
+            }
+          },
+          {
+            "id": "top-panel",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.top-panel",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.19,
+                0.00875,
+                0.13
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.3975,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#171d24",
+              "opacity": 1,
+              "metalness": 0.42
+            }
+          },
+          {
+            "id": "top-vent-slat",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.top-vent-slat",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.125,
+                0.0035,
+                0.0045
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [
+                0,
+                0.403,
+                -0.05
+              ],
+              "step": [
+                0,
+                0,
+                0.02
+              ]
+            },
+            "appearance": {
+              "color": "#06090d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "front-panel",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.front-panel",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.18,
+                0.355,
+                0.00875
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.205,
+                0.07625
+              ]
+            },
+            "appearance": {
+              "color": "#12171d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "front-mesh-frame",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.front-mesh-frame",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.155,
+                0.18,
+                0.0045
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.17,
+                0.08325
+              ]
+            },
+            "appearance": {
+              "color": "#090d12",
+              "opacity": 0.68,
+              "metalness": 0.25
+            }
+          },
+          {
+            "id": "side-glass",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.side-window",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.00875,
+                0.29,
+                0.1075
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.1075,
+                0.2075,
+                0.005
+              ]
+            },
+            "appearance": {
+              "color": "#69d9d3",
+              "opacity": 0.26,
+              "emissive": "#1f98a4",
+              "glow": 5
+            }
+          },
+          {
+            "id": "motherboard-board",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.internal.motherboard",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.00625,
+                0.19,
+                0.085
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.0875,
+                0.215,
+                -0.0075
+              ]
+            },
+            "appearance": {
+              "color": "#1b5142",
+              "opacity": 0.9,
+              "metalness": 0.18
+            }
+          },
+          {
+            "id": "gpu-card",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.internal.gpu-card",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.095,
+                0.02,
+                0.045
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.045,
+                0.14,
+                0.005
+              ]
+            },
+            "appearance": {
+              "color": "#262d36",
+              "opacity": 1,
+              "metalness": 0.36
+            }
+          },
+          {
+            "id": "memory-stick",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.internal.memory-stick",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0045,
+                0.09,
+                0.00875
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [
+                -0.0795,
+                0.25,
+                0.015
+              ],
+              "step": [
+                0,
+                0,
+                0.015
+              ]
+            },
+            "appearance": {
+              "color": "#74ffd7",
+              "opacity": 0.8,
+              "emissive": "#22c7a6",
+              "glow": 6
+            }
+          },
+          {
+            "id": "power-button",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.power-button",
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.015,
+              "height": 0.00625,
+              "radialSegments": 32
+            },
+            "transform": {
+              "position": [
+                0.06,
+                0.35,
+                0.0825
+              ],
+              "rotation": [
+                1.5708,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#7bff6a",
+              "opacity": 1,
+              "emissive": "#7bff6a",
+              "glow": 8
+            }
+          },
+          {
+            "id": "front-usb-port",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.front-io.usb",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0275,
+                0.00875,
+                0.0045
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [
+                -0.05,
+                0.335,
+                0.0825
+              ],
+              "step": [
+                0.0325,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#05080b",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "front-usb-c-port",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.front-io.usb-c",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.01875,
+                0.0065,
+                0.0045
+              ]
+            },
+            "transform": {
+              "position": [
+                0.055,
+                0.3125,
+                0.0825
+              ]
+            },
+            "appearance": {
+              "color": "#05080b",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "audio-port",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.front-io.audio",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0045,
+              "segments": 16
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [
+                -0.065,
+                0.3125,
+                0.0845
+              ],
+              "step": [
+                0.0225,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#05080b",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "front-vent-slat",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.front-vent-slat",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.145,
+                0.00625,
+                0.0045
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 9,
+              "start": [
+                0,
+                0.0825,
+                0.0825
+              ],
+              "step": [
+                0,
+                0.02,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#3b444d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "fan-ring",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.cooling-fan.ring",
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.0475,
+              "tubeRadius": 0.0045,
+              "radialSegments": 40,
+              "tubularSegments": 8
+            },
+            "transform": {
+              "position": [
+                0,
+                0.18,
+                0.08375
+              ],
+              "rotation": [
+                1.5708,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#6b747c",
+              "opacity": 1,
+              "metalness": 0.55
+            }
+          },
+          {
+            "id": "fan-hub",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.cooling-fan.hub",
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.01375,
+              "height": 0.0075,
+              "radialSegments": 24
+            },
+            "transform": {
+              "position": [
+                0,
+                0.18,
+                0.085
+              ],
+              "rotation": [
+                1.5708,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#8dbdff",
+              "opacity": 1,
+              "emissive": "#3677ff",
+              "glow": 7
+            }
+          },
+          {
+            "id": "fan-blade",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.cooling-fan.blade",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.04,
+                0.00875,
+                0.003
+              ]
+            },
+            "repetition": {
+              "type": "radial",
+              "count": 7,
+            "center": [
+              0,
+              0.18,
+              0.0875
+            ],
+            "radius": 0.0275,
+              "axis": "z",
+              "startAngle": 0.18
+            },
+            "orientation": {
+              "mode": "radial-outward",
+              "localAxis": [
+                1,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#7e8892",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "fan-guard-spoke",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.cooling-fan.guard-spoke",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.05,
+                0.003,
+                0.003
+              ]
+            },
+            "repetition": {
+              "type": "radial",
+              "count": 8,
+            "center": [
+              0,
+              0.18,
+              0.0905
+            ],
+            "radius": 0.0225,
+              "axis": "z",
+              "startAngle": 0
+            },
+            "orientation": {
+              "mode": "radial-outward",
+              "localAxis": [
+                1,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#303842",
+              "opacity": 1,
+              "metalness": 0.45
+            }
+          },
+          {
+            "id": "rear-panel",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.rear-panel",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.175,
+                0.33,
+                0.0075
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.215,
+                -0.0775
+              ]
+            },
+            "appearance": {
+              "color": "#303842",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "rear-fan-ring",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.rear-fan.ring",
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.0325,
+              "tubeRadius": 0.0035,
+              "radialSegments": 32,
+              "tubularSegments": 8
+            },
+            "transform": {
+              "position": [
+                0.045,
+                0.285,
+                -0.08425
+              ],
+              "rotation": [
+                1.5708,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#59636d",
+              "opacity": 1,
+              "metalness": 0.55
+            }
+          },
+          {
+            "id": "rear-fan-blade",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.rear-fan.blade",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.02625,
+                0.006,
+                0.0025
+              ]
+            },
+            "repetition": {
+              "type": "radial",
+              "count": 5,
+            "center": [
+              0.045,
+              0.285,
+              -0.0875
+            ],
+            "radius": 0.018,
+              "axis": "z",
+              "startAngle": 0.12
+            },
+            "orientation": {
+              "mode": "radial-outward",
+              "localAxis": [
+                1,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#87929c",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "expansion-slot",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.expansion-slot",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.09,
+                0.00875,
+                0.0045
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "start": [
+                0.0125,
+                0.115,
+                -0.08375
+              ],
+              "step": [
+                0,
+                0.0175,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#11161b",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "psu-inlet",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.power-inlet",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.055,
+                0.04,
+                0.005
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.055,
+                0.055,
+                -0.085
+              ]
+            },
+            "appearance": {
+              "color": "#070a0d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "case-foot",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.case-foot",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.045,
+                0.015,
+                0.03
+              ]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [
+                2,
+                1,
+                2
+              ],
+              "start": [
+                -0.07,
+                0.0075,
+                -0.05
+              ],
+              "stepX": [
+                0.14,
+                0,
+                0
+              ],
+              "stepY": [
+                0,
+                0,
+                0
+              ],
+              "stepZ": [
+                0,
+                0,
+                0.1
+              ]
+            },
+            "appearance": {
+              "color": "#101419",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "rgb-light-strip",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.rgb-strip",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [
+                  -0.09,
+                  0.065,
+                  0.0775
+                ],
+                [
+                  -0.09,
+                  0.32,
+                  0.0775
+                ]
+              ],
+              "radius": 0.003,
+              "radialSegments": 8
+            },
+            "appearance": {
+              "color": "#b85cff",
+              "opacity": 1,
+              "emissive": "#b85cff",
+              "glow": 12
+            }
+          },
+          {
+            "id": "storage-bay",
+            "parent": "tower",
+            "semanticType": "electronics.desktop-tower.internal.storage-bay",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.085,
+                0.0275,
+                0.0475
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [
+                0.03,
+                0.085,
+                0.005
+              ],
+              "step": [
+                0,
+                0.035,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#38424d",
+              "opacity": 0.86,
+              "metalness": 0.35
+            }
+          }
+        ],
+        "anchors": {
+          "power-button": {
+            "node": "power-button",
+            "position": [
+              0,
+              0,
+              0.003
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "operation-button"
+          },
+          "front-io": {
+            "node": "front-usb-port",
+            "occurrence": {
+              "index": 1
+            },
+            "position": [
+              0,
+              0,
+              0.0025
+            ],
+            "direction": [
+              0,
+              0,
+              1
+            ],
+            "kind": "front-io"
+          },
+          "power-inlet": {
+            "node": "psu-inlet",
+            "position": [
+              0,
+              0,
+              -0.0025
+            ],
+            "direction": [
+              0,
+              0,
+              -1
+            ],
+            "kind": "power-cable-port"
+          },
+          "desk-contact": {
+            "node": "case-foot",
+            "occurrence": {
+              "gridIndex": [
+                0,
+                0,
+                0
+              ]
+            },
+            "position": [
+              0,
+              -0.0075,
+              0
+            ],
+            "direction": [
+              0,
+              -1,
+              0
+            ],
+            "kind": "support-foot"
+          }
+        },
+        "animations": [
+          {
+            "id": "case-fan-spin",
+            "target": "fan-blade",
+            "property": "rotation",
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              0,
+              0,
+              6.283185307
+            ],
+            "duration": 1.1,
+            "loop": true,
+            "space": "group",
+            "pivot": [
+              0,
+              0.72,
+              0.35
+            ]
+          },
+          {
+            "id": "rear-fan-spin",
+            "target": "rear-fan-blade",
+            "property": "rotation",
+            "from": [
+              0,
+              0,
+              0
+            ],
+            "to": [
+              0,
+              0,
+              6.283185307
+            ],
+            "duration": 0.95,
+            "loop": true,
+            "space": "group",
+            "pivot": [
+              0.18,
+              1.14,
+              -0.35
+            ]
+          },
+          {
+            "id": "rgb-strip-pulse",
+            "target": "rgb-light-strip",
+            "property": "position",
+            "from": [
+              0,
+              -0.02,
+              0
+            ],
+            "to": [
+              0,
+              0.02,
+              0
+            ],
+            "duration": 2,
+            "loop": true
+          }
+        ],
+        "annotations": [
+          {
+            "id": "tower-front-note",
+            "text": "前置 I/O、通风栅格与风扇",
+            "position": [
+              0.18,
+              0.225,
+              0.0875
+            ],
+            "color": "#ffd36b"
+          },
+          {
+            "id": "tower-side-note",
+            "text": "侧透面板展示内部发光结构",
+            "position": [
+              -0.1875,
+              0.2375,
+              0.02
+            ],
+            "color": "#69d9d3"
+          }
+        ]
+      }
+    }
+  }
+}

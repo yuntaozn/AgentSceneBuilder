@@ -1,0 +1,43 @@
+{
+  "id": "spatial-methods-01",
+  "component": "core.composition",
+  "parameters": {
+    "nodes": [
+      {
+        "id": "grid-marker",
+        "semanticType": "example.grid-marker",
+        "geometry": { "type": "box", "size": [0.2, 0.2, 0.2] },
+        "repetition": {
+          "type": "grid",
+          "count": [3, 1, 2],
+          "start": [0, 0, 0],
+          "stepX": [1, 0, 0],
+          "stepZ": [0, 0, 1]
+        }
+      },
+      {
+        "id": "radial-marker",
+        "semanticType": "example.radial-marker",
+        "geometry": { "type": "box", "size": [0.15, 0.15, 0.15] },
+        "repetition": {
+          "type": "radial",
+          "count": 8,
+          "center": [5, 0, 0],
+          "axis": "y",
+          "radius": 1
+        }
+      },
+      {
+        "id": "path-marker",
+        "semanticType": "example.path-marker",
+        "geometry": { "type": "box", "size": [0.1, 0.4, 0.1] },
+        "repetition": {
+          "type": "path",
+          "points": [[0, 0, 3], [2, 0, 3], [2, 0, 5]],
+          "spacing": 0.75,
+          "includeEnd": true
+        }
+      }
+    ]
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "0.1",
+  "id": "character.human-pose-rig",
+  "version": "0.1.0",
+  "kind": "method",
+  "visibility": "internal",
+  "title": "人体姿态骨架方法",
+  "summary": "从参数化人形模型的命名锚点中推导骨架链、骨段长度、左右镜像、关节角度和可审阅姿态 changeset，帮助 Agent 处理人物姿态而不是反复手写临时人体比例。",
+  "license": "Apache-2.0",
+  "semanticType": "character.human.pose-rig",
+  "capabilities": ["pose-rig", "joint-chain", "bilateral-symmetry", "bone-length", "reach-analysis", "ik-lite", "grasp-pose", "hand-grasp-pose", "finger-curl", "palm-orientation", "pose-changeset", "anchor-analysis", "no-glb"],
+  "tags": ["人物", "人体骨架", "姿态", "关节", "左右镜像", "changeset", "数字建模方法", "无GLB"],
+  "ai": {
+    "intent": "让 Agent 能把一个参数化人形看成可计算的骨架数据：先读稳定锚点，再得到关节、骨段、左右镜像、身高、视线和姿态变更建议，而不是每次都自己临时推导人体比例与节点命名。",
+    "useWhen": [
+      "需要检查人形模型是否保留真实人体尺度、左右肢体镜像和关键姿态锚点。",
+      "需要从基础站姿或 A-pose 生成可审阅的姿态变更，例如挥手、转头、伸手、轻量 IK-lite 抓取或后续操作姿态。",
+      "需要让 Codex、YuntaoCode 等 Agent 复用人体关节链数据，而不是直接依赖 GLB、骨骼蒙皮或某个渲染器格式。"
+    ],
+    "avoidWhen": [
+      "需要真实动画系统、全身 IK、骨骼蒙皮、肌肉变形、表情驱动或群体行为仿真；本方法只提供可审阅的轻量手臂 IK-lite 与姿态 changeset。",
+      "模型缺少稳定的人体锚点时，不应硬算姿态；应先补 head、shoulder、elbow、wrist、hip、knee、ankle、foot-contact 等锚点。",
+      "需要识别具体真人身份或生成医学级人体测量时，此方法只能作为一般比例参考。"
+    ],
+    "editableParts": [
+      "jointAnchors",
+      "boneDefinitions",
+      "symmetryTolerance",
+      "expectedHeightRange",
+      "posePreset",
+      "ikLiteTarget",
+      "ikLiteTolerance",
+      "graspType",
+      "orientPalm",
+      "pivotRotations"
+    ],
+    "qualityChecks": [
+      "输入模型必须公开稳定命名的人体锚点，姿态方法不应从渲染后的像素里反推关节。",
+      "左右关节应能按 X 轴镜像检查，骨段长度差异应返回数据型偏差而不是只靠视觉判断。",
+      "姿态输出必须是 changeset proposal，方便 Agent 或人类审阅后再应用，不能静默改写原模型。",
+      "如果模型没有可旋转的 pivot 节点，方法应返回缺失目标警告，而不是假装姿态已经生效。"
+    ],
+    "commonVariants": [
+      "基础 A-pose 分析：只读取锚点并返回人体尺度、骨段长度、镜像偏差和关节角度。",
+      "挥手姿态：更新肩、肘、腕 pivot 的旋转，保持上臂、前臂、手部作为子树运动。",
+      "观察姿态：更新 head-pivot 的旋转，并保留 eye-forward 锚点用于视线检查。",
+      "施工人员姿态：在基础 rig 上继续挂接工具、脚踏板、扶手或安全带锚点。"
+    ]
+  },
+  "parameters": {
+    "jointAnchors": { "type": "string[]", "default": ["head-top", "neck-base", "left-shoulder", "right-shoulder", "left-elbow", "right-elbow", "left-wrist", "right-wrist", "left-hip", "right-hip", "left-knee", "right-knee", "left-ankle", "right-ankle"] },
+    "symmetryTolerance": { "type": "number", "unit": "m", "default": 0.035 },
+    "expectedHeightRange": { "type": "vec2", "unit": "m", "default": [1.2, 2.2] },
+    "posePreset": { "type": "enum", "values": ["right-arm-wave", "left-arm-wave", "look-left", "look-right", "right-hand-reach", "left-hand-reach", "custom"], "default": "right-arm-wave" },
+    "graspType": { "type": "enum", "values": ["open", "relaxed", "point", "pinch", "power-grip"], "default": "relaxed" },
+    "orientPalm": { "type": "boolean", "default": true },
+    "targetPoint": { "type": "vec3", "unit": "m", "default": [0.45, 1.12, 0.22] },
+    "side": { "type": "enum", "values": ["left", "right", "auto"], "default": "auto" },
+    "solver": { "type": "enum", "values": ["reach-envelope-analysis", "preset-reach-not-ik", "ik-lite", "hand-grasp-pose-lite"], "default": "reach-envelope-analysis" },
+    "ikLiteTolerance": { "type": "number", "unit": "m", "default": 0.035 }
+  },
+  "dependencies": [
+    "spatial.hierarchy-pivot@0.1.0",
+    "spatial.anchor-attachment@0.1.0"
+  ],
+  "guide": {
+    "problem": "人形模型如果只是一组几何体，Agent 仍然需要反复猜测哪个点是肩、肘、腕，哪个节点应该跟随哪个关节运动。",
+    "result": "姿态骨架方法把命名锚点转为稳定骨架数据，并把姿态变化表达成可审阅的 changeset，后续可以由编辑器、人类或 Agent 决定是否应用。",
+    "steps": [
+      "在人形模型中公开 head、shoulder、elbow、wrist、hip、knee、ankle、foot-contact 等锚点。",
+      "推导左右骨段、中心骨段、人体尺度和左右镜像偏差。",
+      "需要姿态变化时，只更新 pivot 节点旋转，避免直接改写所有几何坐标。",
+      "把结果返回为 facts、warnings 和 changeset proposal，供 Agent 继续组合或人类审阅。"
+    ]
+  }
+}

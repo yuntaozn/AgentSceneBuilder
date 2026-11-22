@@ -1,0 +1,71 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.pressure-test-loop",
+  "version": "0.1.0",
+  "kind": "method",
+  "title": "管道打压测试回路生成",
+  "summary": "根据冷热水接口、泵和水桶位置生成打压测试回路，包含软管、压力表、接口锚点和目标压力/保压时长等数据。",
+  "license": "Apache-2.0",
+  "capabilities": ["composition-generation", "anchors", "measurement", "mep", "teaching-model", "no-glb"],
+  "tags": ["MEP", "打压测试", "水电", "检测", "空间方法"],
+  "parameters": {
+    "hotPort": { "type": "vec3", "unit": "m" },
+    "coldPort": { "type": "vec3", "unit": "m" },
+    "pumpPosition": { "type": "vec3", "unit": "m" },
+    "bucketPosition": { "type": "vec3", "unit": "m" },
+    "targetPressureMpa": { "type": "number", "unit": "MPa", "default": 0.8 },
+    "holdMinutes": { "type": "number", "unit": "min", "default": 30 }
+  },
+  "dependencies": ["mep.pipe@0.1.0"],
+  "ai": {
+    "intent": "让 Agent 按接口生成一套可编辑的打压测试设备和软管回路，并保留压力、保压时长、接口锚点等教学/检查数据。",
+    "useWhen": [
+      "水电隐蔽工程、冷热水管、消防支管等需要展示打压测试。",
+      "已有管线接口点，希望自动生成泵、压力表和软管，而不是手工拼一堆设备小块。",
+      "需要把测试压力、保压时长和软管长度作为结构化事实返回。"
+    ],
+    "avoidWhen": [
+      "只需要静态压力表图标，不需要真实接口和软管路径。",
+      "需要替代正式试验规程或验收记录时，应由上层业务系统提供规范参数和结论。"
+    ],
+    "editableParts": ["hotPort", "coldPort", "pumpPosition", "bucketPosition", "targetPressureMpa", "holdMinutes"],
+    "qualityChecks": [
+      "冷热水接口锚点应连接到真实管线端口，不能悬空。",
+      "压力表应有可读位置，软管不应穿越主体构件。",
+      "目标压力和保压时间只是数据事实，不代表自动验收通过。"
+    ],
+    "commonVariants": ["冷热水双接口打压", "单接口压力测试", "消防支管试压", "教学版打压流程演示"]
+  },
+  "guide": {
+    "problem": "水电课件里的打压装置包含水桶、泵、软管、压力表和接口，AI 每次临时拼装容易漏锚点或比例不稳定。",
+    "result": "返回可编辑 CompositionSpec、hot/cold port 锚点、gauge-read 锚点和 hoseLength 等结构化指标。",
+    "steps": [
+      "输入冷热水接口点和设备位置。",
+      "设置目标压力和保压时间。",
+      "调用 CLI：agentscene mep pressure-test-loop。",
+      "把返回 composition 合并到水电模型，或在编辑器中单独查看。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "mep-pressure-test-loop-example",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          { "id": "bucket", "semanticType": "equipment.water-bucket", "geometry": { "type": "cylinder", "radius": 0.52, "height": 0.86, "radialSegments": 32 }, "transform": { "position": [1.7, 0.43, -0.8] }, "appearance": { "color": "#59646b", "opacity": 1 } },
+          { "id": "pump", "semanticType": "equipment.pressure-pump", "geometry": { "type": "box", "size": [0.9, 0.32, 0.58] }, "transform": { "position": [0.65, 0.2, -0.65] }, "appearance": { "color": "#d6a83e", "opacity": 1 } },
+          { "id": "cold-hose", "semanticType": "mep.pressure-test.hose.cold", "geometry": { "type": "tube-along", "points": [[1.7, 0.88, -0.8], [1.25, 0.65, -0.7], [0.65, 0.42, -0.65], [-1.6, 0.78, -1]], "radius": 0.03 }, "appearance": { "color": "#54a8ff", "opacity": 1 } },
+          { "id": "hot-hose", "semanticType": "mep.pressure-test.hose.hot", "geometry": { "type": "tube-along", "points": [[0.65, 0.42, -0.65], [-0.2, 0.64, -0.8], [-1.6, 0.78, -0.35]], "radius": 0.026 }, "appearance": { "color": "#ff746c", "opacity": 1 } },
+          { "id": "gauge-face", "semanticType": "instrument.pressure-gauge", "geometry": { "type": "cylinder", "radius": 0.25, "height": 0.06, "radialSegments": 40 }, "transform": { "position": [0.65, 0.82, -0.27], "rotation": [1.5708, 0, 0] }, "appearance": { "color": "#e8edf0", "opacity": 1 } },
+          { "id": "gauge-rim", "semanticType": "instrument.pressure-gauge.rim", "geometry": { "type": "torus", "majorRadius": 0.25, "tubeRadius": 0.025 }, "transform": { "position": [0.65, 0.82, -0.23], "rotation": [1.5708, 0, 0] }, "appearance": { "color": "#8d9ba3", "opacity": 1 } }
+        ],
+        "anchors": {
+          "cold-port": { "node": "cold-hose", "position": [-1.6, 0.78, -1], "direction": [-1, 0, 0], "kind": "pipe-port" },
+          "hot-port": { "node": "hot-hose", "position": [-1.6, 0.78, -0.35], "direction": [-1, 0, 0], "kind": "pipe-port" },
+          "gauge-read": { "node": "gauge-face", "position": [0.65, 0.82, -0.27], "direction": [0, 0, 1], "kind": "inspection-point" }
+        }
+      }
+    }
+  },
+  "example": "examples/digital-modeling/mep/pressure-test-loop.json"
+}

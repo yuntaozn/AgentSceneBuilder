@@ -1,0 +1,18 @@
+{
+  "kind": "capability",
+  "id": "scene.validate-structure",
+  "version": "0.1.0",
+  "title": "Validate structured scene facts",
+  "description": "Check the current experimental Scene Document for malformed transforms, duplicate IDs, missing references, and empty scene conditions without rewriting it.",
+  "goals": ["validate a scene", "find broken references", "check scene structure"],
+  "inputs": ["Scene Document JSON"],
+  "outputs": ["JSON validation evidence"],
+  "sideEffects": "none",
+  "command": "python scripts/agentscene.py scene validate <path>",
+  "limitations": [
+    "Structural validity does not prove that a scene is visually correct.",
+    "The current Scene Document remains experimental and extensible."
+  ],
+  "tags": ["scene", "validation", "references", "read-only", "evidence"]
+}
+

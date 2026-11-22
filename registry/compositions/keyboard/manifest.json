@@ -1,0 +1,1142 @@
+{
+  "schemaVersion": "0.1",
+  "id": "electronics.keyboard",
+  "version": "0.3.1",
+  "kind": "composition",
+  "title": "桌面键盘",
+  "summary": "完全由参数化几何组成的桌面键盘模型，表达外壳底座、主键区阵列、功能键、数字键区、方向键、空格键、指示灯和连接线。",
+  "license": "Apache-2.0",
+  "semanticType": "electronics.input.keyboard",
+  "capabilities": [
+    "inspect-layout",
+    "edit-repetition",
+    "key-grid",
+    "anchors",
+    "material",
+    "no-glb"
+  ],
+  "tags": [
+    "电子设备",
+    "键盘",
+    "输入设备",
+    "键帽阵列",
+    "参数化模型",
+    "无GLB"
+  ],
+  "ai": {
+    "intent": "提供一个按实际键盘分区组织的可编辑键盘结构参考，重点表达键区、行错位、宽键和重复键帽关系。",
+    "useWhen": [
+      "需要桌面外设、办公设备或人机交互场景中的键盘对象。",
+      "需要参考如何用 repetition 和少量特殊键表达键盘布局。"
+    ],
+    "avoidWhen": [
+      "需要真实键帽文字、机械轴结构或特定品牌键盘外观。",
+      "需要 ISO/JIS 等精确物理键位标准。"
+    ],
+    "editableParts": [
+      "main-key",
+      "home-row-key",
+      "bottom-letter-key",
+      "number-row-key",
+      "spacebar",
+      "numeric-key",
+      "arrow-key"
+    ],
+    "qualityChecks": [
+      "最后一排键不得越过键盘底座。",
+      "非装饰性键帽之间不得发生平面重叠。",
+      "主键区、导航区和数字小键盘之间应保留明显分区间距。"
+    ],
+    "commonVariants": [
+      "紧凑键盘：删除 numeric-key、numpad-zero-key、numpad-plus-key 和 numpad-enter-key。",
+      "无线键盘：删除 cable-grommet、usb-cable 和 usb-plug。"
+    ]
+  },
+  "parameters": {
+    "mainKeyRows": {
+      "type": "integer",
+      "default": 4
+    },
+    "mainKeyColumns": {
+      "type": "integer",
+      "default": 12
+    },
+    "numericKeyColumns": {
+      "type": "integer",
+      "default": 4
+    }
+  },
+  "dependencies": [
+    "primitive.box@0.1.0",
+    "primitive.sphere@0.1.0",
+    "spatial.grid-repeat@0.1.0",
+    "spatial.linear-repeat@0.1.0"
+  ],
+  "editor": {
+    "document": {
+      "id": "keyboard",
+      "title": "桌面键盘",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "keyboard",
+            "semanticType": "electronics.keyboard.root",
+            "transform": {
+              "position": [
+                0,
+                0,
+                0
+              ]
+            }
+          },
+          {
+            "id": "keyboard-base",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.base",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.43,
+                0.012,
+                0.108
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.006,
+                0
+              ],
+              "rotation": [
+                -0.035,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#20262c",
+              "opacity": 1,
+              "metalness": 0.25
+            }
+          },
+          {
+            "id": "top-plate",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.top-plate",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.412,
+                0.0035,
+                0.092
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.0135,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#303842",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "front-lip",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.case-lip.front",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.418,
+                0.0045,
+                0.0035
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.016,
+                0.051
+              ]
+            },
+            "appearance": {
+              "color": "#11171d",
+              "opacity": 1,
+              "metalness": 0.2
+            }
+          },
+          {
+            "id": "rear-lip",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.case-lip.rear",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.418,
+                0.0045,
+                0.0035
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.0158,
+                -0.05
+              ]
+            },
+            "appearance": {
+              "color": "#151b22",
+              "opacity": 1,
+              "metalness": 0.25
+            }
+          },
+          {
+            "id": "zone-gap",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.zone-gap",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.0025,
+                0.002,
+                0.078
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [
+                0.08,
+                0.0185,
+                0.004
+              ],
+              "step": [
+                0.055,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#080c10",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "main-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.main.qwerty-row",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.015,
+                0.0055,
+                0.013
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 10,
+              "start": [
+                -0.158,
+                0.0205,
+                -0.008
+              ],
+              "step": [
+                0.018,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#101419",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "home-row-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.main.home-row",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.015,
+                0.0055,
+                0.013
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 9,
+              "start": [
+                -0.148,
+                0.0205,
+                0.008
+              ],
+              "step": [
+                0.018,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#101419",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "bottom-letter-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.main.bottom-row",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.015,
+                0.0055,
+                0.013
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 7,
+              "start": [
+                -0.128,
+                0.0205,
+                0.024
+              ],
+              "step": [
+                0.018,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#101419",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "number-row-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.number-row",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.015,
+                0.0052,
+                0.012
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 13,
+              "start": [
+                -0.174,
+                0.0207,
+                -0.026
+              ],
+              "step": [
+                0.018,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#12171d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "function-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.function",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.014,
+                0.0047,
+                0.009
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 12,
+              "start": [
+                -0.163,
+                0.0205,
+                -0.044
+              ],
+              "step": [
+                0.018,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#161b21",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "escape-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.escape",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.014,
+                0.0052,
+                0.009
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.195,
+                0.021,
+                -0.044
+              ]
+            },
+            "appearance": {
+              "color": "#1e252d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "tab-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.tab",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.022,
+                0.0055,
+                0.013
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.195,
+                0.0212,
+                -0.008
+              ]
+            },
+            "appearance": {
+              "color": "#11171d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "caps-lock-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.caps-lock",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.025,
+                0.0055,
+                0.013
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.195,
+                0.0212,
+                0.008
+              ]
+            },
+            "appearance": {
+              "color": "#11171d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "backspace-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.backspace",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.026,
+                0.0055,
+                0.012
+              ]
+            },
+            "transform": {
+              "position": [
+                0.068,
+                0.0212,
+                -0.026
+              ]
+            },
+            "appearance": {
+              "color": "#11171d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "numeric-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.numeric",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.015,
+                0.0055,
+                0.013
+              ]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [
+                3,
+                1,
+                4
+              ],
+              "start": [
+                0.145,
+                0.0205,
+                -0.026
+              ],
+              "stepX": [
+                0.018,
+                0,
+                0
+              ],
+              "stepY": [
+                0,
+                0,
+                0
+              ],
+              "stepZ": [
+                0,
+                0,
+                0.016
+              ]
+            },
+            "appearance": {
+              "color": "#101419",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "arrow-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.arrow",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.014,
+                0.0055,
+                0.012
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [
+                0.088,
+                0.021,
+                0.04
+              ],
+              "step": [
+                0.017,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#151a20",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "arrow-up-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.arrow-up",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.014,
+                0.0055,
+                0.012
+              ]
+            },
+            "transform": {
+              "position": [
+                0.105,
+                0.0212,
+                0.024
+              ]
+            },
+            "appearance": {
+              "color": "#151a20",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "nav-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.navigation",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.013,
+                0.0052,
+                0.011
+              ]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [
+                3,
+                1,
+                2
+              ],
+              "start": [
+                0.088,
+                0.0208,
+                -0.026
+              ],
+              "stepX": [
+                0.017,
+                0,
+                0
+              ],
+              "stepY": [
+                0,
+                0,
+                0
+              ],
+              "stepZ": [
+                0,
+                0,
+                0.016
+              ]
+            },
+            "appearance": {
+              "color": "#121820",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "spacebar",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.spacebar",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.096,
+                0.0055,
+                0.013
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.073,
+                0.0212,
+                0.042
+              ]
+            },
+            "appearance": {
+              "color": "#0f1318",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "enter-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.enter",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.023,
+                0.0058,
+                0.024
+              ]
+            },
+            "transform": {
+              "position": [
+                0.054,
+                0.0215,
+                0.004
+              ]
+            },
+            "appearance": {
+              "color": "#141a20",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "shift-key-left",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.shift",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.034,
+                0.0055,
+                0.013
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.194,
+                0.0214,
+                0.024
+              ]
+            },
+            "appearance": {
+              "color": "#12171d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "shift-key-right",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.shift.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.036,
+                0.0055,
+                0.013
+              ]
+            },
+            "transform": {
+              "position": [
+                0.055,
+                0.0214,
+                0.024
+              ]
+            },
+            "appearance": {
+              "color": "#12171d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "modifier-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.modifier",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.015,
+                0.0052,
+                0.012
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [
+                -0.175,
+                0.0213,
+                0.042
+              ],
+              "step": [
+                0.022,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#0d1217",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "right-modifier-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.modifier.right",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.015,
+                0.0052,
+                0.012
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [
+                -0.013,
+                0.0213,
+                0.042
+              ],
+              "step": [
+                0.022,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#0d1217",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "numpad-zero-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.numpad-zero",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.033,
+                0.0055,
+                0.013
+              ]
+            },
+            "transform": {
+              "position": [
+                0.154,
+                0.0213,
+                0.042
+              ]
+            },
+            "appearance": {
+              "color": "#0f1318",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "numpad-decimal-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.numpad-decimal",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.015,
+                0.0055,
+                0.013
+              ]
+            },
+            "transform": {
+              "position": [
+                0.181,
+                0.0213,
+                0.042
+              ]
+            },
+            "appearance": {
+              "color": "#0f1318",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "numpad-plus-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.numpad-plus",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.015,
+                0.0055,
+                0.024
+              ]
+            },
+            "transform": {
+              "position": [
+                0.2,
+                0.0214,
+                0.004
+              ]
+            },
+            "appearance": {
+              "color": "#12171d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "numpad-enter-key",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.numpad-enter",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.015,
+                0.0055,
+                0.029
+              ]
+            },
+            "transform": {
+              "position": [
+                0.2,
+                0.0214,
+                0.034
+              ]
+            },
+            "appearance": {
+              "color": "#12171d",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "indicator-led",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.indicator-led",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0018,
+              "segments": 12
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [
+                0.162,
+                0.0218,
+                -0.044
+              ],
+              "step": [
+                0.009,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#6df36d",
+              "opacity": 1,
+              "emissive": "#6df36d",
+              "glow": 7
+            }
+          },
+          {
+            "id": "cable-grommet",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.cable-grommet",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.018,
+                0.006,
+                0.005
+              ]
+            },
+            "transform": {
+              "position": [
+                0,
+                0.012,
+                -0.057
+              ]
+            },
+            "appearance": {
+              "color": "#0e1215",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "usb-cable",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.usb-cable",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [
+                  0,
+                  0.012,
+                  -0.058
+                ],
+                [
+                  0.006,
+                  0.012,
+                  -0.078
+                ],
+                [
+                  -0.01,
+                  0.01,
+                  -0.102
+                ]
+              ],
+              "radius": 0.0016,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#111519",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "usb-plug",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.usb-plug",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.016,
+                0.0055,
+                0.012
+              ]
+            },
+            "transform": {
+              "position": [
+                -0.01,
+                0.01,
+                -0.11
+              ]
+            },
+            "appearance": {
+              "color": "#333b45",
+              "opacity": 1,
+              "metalness": 0.7
+            }
+          },
+          {
+            "id": "keycap-highlight",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.keycap.top-highlight",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.005,
+                0.0006,
+                0.0006
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 10,
+              "start": [
+                -0.158,
+                0.0238,
+                -0.0115
+              ],
+              "step": [
+                0.018,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#28313a",
+              "opacity": 0.18
+            }
+          },
+          {
+            "id": "rear-foot",
+            "parent": "keyboard",
+            "semanticType": "electronics.keyboard.rear-foot",
+            "geometry": {
+              "type": "box",
+              "size": [
+                0.028,
+                0.008,
+                0.009
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [
+                -0.155,
+                0.002,
+                -0.042
+              ],
+              "step": [
+                0.31,
+                0,
+                0
+              ]
+            },
+            "appearance": {
+              "color": "#101419",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "key-grid-center": {
+            "node": "home-row-key",
+            "occurrence": {
+              "index": 4
+            },
+            "position": [
+              0,
+              0.003,
+              0
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "kind": "typing-area"
+          },
+          "usb-exit": {
+            "node": "cable-grommet",
+            "position": [
+              0,
+              0,
+              -0.0025
+            ],
+            "direction": [
+              0,
+              0,
+              -1
+            ],
+            "kind": "cable-port"
+          },
+          "spacebar-center": {
+            "node": "spacebar",
+            "position": [
+              0,
+              0.003,
+              0
+            ],
+            "direction": [
+              0,
+              1,
+              0
+            ],
+            "kind": "large-key"
+          }
+        },
+        "animations": [
+          {
+            "id": "spacebar-press",
+            "target": "spacebar",
+            "property": "position",
+            "from": [
+              0,
+              0.02,
+              0
+            ],
+            "to": [
+              0,
+              -0.015,
+              0
+            ],
+            "duration": 0.5,
+            "loop": true
+          }
+        ],
+        "annotations": [
+          {
+            "id": "keyboard-grid-note",
+            "text": "主键区与数字键区由网格重复生成",
+            "position": [
+              0.155,
+              0.035,
+              0.005
+            ],
+            "color": "#ffd36b"
+          },
+          {
+            "id": "keyboard-cable-note",
+            "text": "线缆出口和桌面接触脚",
+            "position": [
+              0.045,
+              0.024,
+              -0.09
+            ],
+            "color": "#eaf3cf"
+          }
+        ]
+      }
+    }
+  }
+}

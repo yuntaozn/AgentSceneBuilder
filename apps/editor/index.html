@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgentSceneBuilder Editor</title>
+  <meta name="description" content="查看和编辑 AgentSceneBuilder 参数化数字模型">
+  <link rel="stylesheet" href="./styles.css?v=0.7.3">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark">AS</span><div><strong>AgentSceneBuilder</strong><small>数字建模工作台</small></div></div>
+    <div class="document-state"><span class="status-dot"></span><span id="documentName">未命名组合</span><span id="specVersion" class="chip">CompositionSpec 0.3</span></div>
+    <div class="actions">
+      <button id="newButton" class="button secondary">新建</button>
+      <button id="addComponentButton" class="button secondary">添加构件</button>
+      <button id="openLibraryButton" class="button secondary">模型库</button>
+      <button id="addTextButton" class="button secondary">添加文本</button>
+      <button id="undoButton" class="button secondary" disabled>撤销</button>
+      <button id="redoButton" class="button secondary" disabled>重做</button>
+      <label class="button secondary">导入 JSON<input id="fileInput" type="file" accept="application/json,.json"></label>
+      <button id="downloadButton" class="button secondary">导出</button>
+      <button id="compileButton" class="button primary">重新构建</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="panel tree-panel">
+      <div class="panel-heading"><div><span class="eyebrow">STRUCTURE</span><h2>组件结构</h2></div><span id="nodeCount" class="count">0</span></div>
+      <div class="search-wrap"><input id="searchInput" type="search" placeholder="搜索 ID 或语义类型" aria-label="搜索节点"></div>
+      <div id="tree" class="tree" role="tree"></div>
+    </aside>
+
+    <section class="viewport-shell">
+      <div class="viewport-toolbar">
+        <div class="segmented" aria-label="视图模式"><button data-view="iso" class="active">透视</button><button data-view="top">顶视</button><button data-view="front">前视</button></div>
+        <div class="viewport-tools"><button id="rendererModeButton" class="active" title="切换 GPU 正式渲染与 Canvas 轻量渲染">GPU</button><button id="lightingButton" class="active" title="开关 GPU 场景灯光">灯光</button><button id="moveModeButton">移动</button><button id="rotateModeButton">旋转</button><select id="spatialAxis" title="空间操作轴"><option value="x">X 轴</option><option value="y">Y 轴</option><option value="z">Z 轴</option></select><button id="alignButton">对齐</button><button id="distributeButton">分布</button><button id="fitButton">适应窗口</button><button id="clearIsolationButton" class="isolation-action" hidden>退出隔离</button><button id="gridButton" class="active">网格</button><button id="xrayButton">透视</button></div>
+        <div class="viewport-hint">拖动旋转 · 滚轮缩放 · 点击选择</div>
+      </div>
+      <canvas id="viewport" class="scene-viewport canvas-viewport" aria-label="数字模型轻量预览"></canvas>
+      <canvas id="threeViewport" class="scene-viewport gpu-viewport" aria-label="数字模型 GPU 预览"></canvas>
+      <div class="axis"><i class="x"></i><span>X</span><i class="y"></i><span>Y</span><i class="z"></i><span>Z</span></div>
+      <div id="emptyState" class="empty-state" hidden><strong>无法构建模型</strong><span>请查看右侧诊断信息</span></div>
+      <div class="model-summary"><div><span>包围尺寸</span><strong id="boundsValue">—</strong></div><div><span>展开节点</span><strong id="expandedValue">0</strong></div><div><span>重复系统</span><strong id="repeatValue">0</strong></div></div>
+      <div id="statusBar" class="status-bar">就绪</div>
+      <div class="animation-deck"><button id="playAnimationButton">▶ 预览动画</button><select id="animationSelect" aria-label="动画"></select><span id="animationTime">0.00s</span></div>
+    </section>
+
+    <aside class="panel inspector-panel">
+      <div class="tabs"><button class="active" data-tab="inspect">属性</button><button data-tab="animations">动画</button><button data-tab="annotations">文本</button><button data-tab="changes">变更 <span id="changeBadge"></span></button><button data-tab="source">JSON</button><button data-tab="diagnostics">诊断 <span id="issueBadge"></span></button></div>
+      <div id="inspectTab" class="tab-content"></div>
+      <div id="animationsTab" class="tab-content" hidden></div>
+      <div id="annotationsTab" class="tab-content" hidden></div>
+      <div id="changesTab" class="tab-content" hidden></div>
+      <div id="sourceTab" class="tab-content source-tab" hidden><textarea id="sourceEditor" spellcheck="false" aria-label="模型 JSON"></textarea></div>
+      <div id="diagnosticsTab" class="tab-content" hidden></div>
+    </aside>
+  </main>
+  <dialog id="componentDialog" class="component-dialog">
+    <div class="dialog-head"><div><span class="eyebrow">CREATE</span><h2>选择基础构件</h2></div><button id="closeComponentDialog" aria-label="关闭">×</button></div>
+    <div class="component-grid">
+      <button data-template="box"><strong>盒体</strong><span>通用实体、设备、块体</span></button>
+      <button data-template="slab"><strong>板</strong><span>楼板、底板、墙面基层</span></button>
+      <button data-template="column"><strong>柱</strong><span>竖向杆件和支撑</span></button>
+      <button data-template="sphere"><strong>球体</strong><span>球形设备、节点和装饰构件</span></button>
+      <button data-template="cylinder"><strong>圆柱体</strong><span>立柱、罐体和轴类构件</span></button>
+      <button data-template="cone"><strong>圆锥体</strong><span>锥形设备、漏斗和指示体</span></button>
+      <button data-template="torus"><strong>圆环</strong><span>环件、密封圈和管状圆环</span></button>
+      <button data-template="pipe"><strong>管线</strong><span>两点管段和路径基础</span></button>
+      <button data-template="grid"><strong>网格阵列</strong><span>重复基础构件</span></button>
+      <button data-template="group"><strong>空组</strong><span>组织父子关系和 pivot</span></button>
+      <button data-light-template="point"><strong>点光源</strong><span>从一个位置向四周发光</span></button>
+      <button data-light-template="directional"><strong>方向光</strong><span>用组件旋转决定照射方向</span></button>
+      <button data-light-template="spot"><strong>聚光灯</strong><span>可调角度和边缘柔化的锥形光</span></button>
+    </div>
+  </dialog>
+  <dialog id="libraryDialog" class="library-dialog">
+    <div class="dialog-head"><div><span class="eyebrow">OPEN REGISTRY</span><h2>数字模型库</h2></div><div class="library-dialog-actions"><span id="libraryCount" class="count">0</span><button id="closeLibraryDialog" aria-label="关闭">×</button></div></div>
+    <div class="library-toolbar"><input id="librarySearch" type="search" placeholder="搜索名称、语义或能力"><select id="libraryKind"><option value="all">全部条目</option><option value="component">参数化构件</option><option value="method">空间方法</option><option value="composition">组合方案</option></select></div>
+    <div id="libraryEntries" class="library-entries"></div>
+    <div class="library-note">内容来自仓库中的开放 registry；条目通过 Pull Request、协议校验和测试持续积累。</div>
+  </dialog>
+  <script type="module" src="./app.bundle.js?v=0.9.25"></script>
+</body>
+</html>

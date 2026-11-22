@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.fire-extinguisher",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "手提式灭火器",
+  "summary": "完全由参数化几何组成的手提式灭火器模型，表达瓶体、底座、阀体、提把、压把、压力表、保险销、软管、喷嘴和标签面板等关键构件。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.fire-safety.extinguisher",
+  "capabilities": ["inspect-structure", "anchors", "material", "hose-path", "label-edit", "animate", "no-glb"],
+  "tags": ["消防", "灭火器", "手提式灭火器", "参数化模型", "软管路径", "无GLB"],
+  "parameters": {
+    "height": { "type": "number", "unit": "m", "default": 1.25 },
+    "bodyRadius": { "type": "number", "unit": "m", "default": 0.22 },
+    "hoseRadius": { "type": "number", "unit": "m", "default": 0.018 },
+    "labelSize": { "type": "vec2", "unit": "m", "default": [0.32, 0.42] }
+  },
+  "dependencies": [
+    "primitive.cylinder@0.1.0",
+    "primitive.sphere@0.1.0",
+    "primitive.torus@0.1.0",
+    "primitive.box@0.1.0"
+  ],
+  "editor": {
+    "document": {
+      "id": "fire-extinguisher",
+      "title": "手提式灭火器",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          { "id": "extinguisher", "semanticType": "equipment.fire.extinguisher.root", "transform": { "position": [0, 0, 0] } },
+          { "id": "base-foot", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.base-foot", "geometry": { "type": "cylinder", "radius": 0.245, "height": 0.08, "radialSegments": 48 }, "transform": { "position": [0, 0.04, 0] }, "appearance": { "color": "#2b2f33", "opacity": 1, "metalness": 0.6 } },
+          { "id": "body-cylinder", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.pressure-vessel", "geometry": { "type": "cylinder", "radius": 0.22, "height": 0.86, "radialSegments": 56 }, "transform": { "position": [0, 0.55, 0] }, "appearance": { "color": "#d83030", "opacity": 1, "metalness": 0.38, "roughness": 0.36 } },
+          { "id": "bottom-dome", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.bottom-dome", "geometry": { "type": "sphere", "radius": 0.22, "segments": 32 }, "transform": { "position": [0, 0.16, 0], "scale": [1, 0.38, 1] }, "appearance": { "color": "#c52828", "opacity": 1, "metalness": 0.38 } },
+          { "id": "shoulder-dome", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.shoulder", "geometry": { "type": "sphere", "radius": 0.22, "segments": 32 }, "transform": { "position": [0, 0.98, 0], "scale": [1, 0.42, 1] }, "appearance": { "color": "#d83030", "opacity": 1, "metalness": 0.38 } },
+          { "id": "neck", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.neck", "geometry": { "type": "cylinder", "radius": 0.075, "height": 0.16, "radialSegments": 32 }, "transform": { "position": [0, 1.12, 0] }, "appearance": { "color": "#c8a453", "opacity": 1, "metalness": 0.85 } },
+          { "id": "valve-body", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.valve", "geometry": { "type": "box", "size": [0.24, 0.12, 0.16] }, "transform": { "position": [0, 1.24, 0] }, "appearance": { "color": "#c8a453", "opacity": 1, "metalness": 0.85 } },
+          { "id": "carry-handle", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.carry-handle", "geometry": { "type": "torus", "majorRadius": 0.18, "tubeRadius": 0.022, "radialSegments": 36, "tubularSegments": 8 }, "transform": { "position": [0, 1.33, -0.02], "rotation": [1.5708, 0, 0] }, "appearance": { "color": "#2b2f33", "opacity": 1, "metalness": 0.65 } },
+          { "id": "squeeze-lever", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.squeeze-lever", "geometry": { "type": "box", "size": [0.46, 0.045, 0.08] }, "transform": { "position": [0.08, 1.38, 0.02], "rotation": [0, 0, -0.12] }, "appearance": { "color": "#2b2f33", "opacity": 1, "metalness": 0.7 } },
+          { "id": "pressure-gauge", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.pressure-gauge", "geometry": { "type": "cylinder", "radius": 0.075, "height": 0.035, "radialSegments": 32 }, "transform": { "position": [0.16, 1.22, 0.12], "rotation": [1.5708, 0, 0] }, "appearance": { "color": "#e9eef0", "opacity": 1, "metalness": 0.2 } },
+          { "id": "gauge-rim", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.gauge-rim", "geometry": { "type": "torus", "majorRadius": 0.075, "tubeRadius": 0.008, "radialSegments": 32, "tubularSegments": 8 }, "transform": { "position": [0.16, 1.22, 0.145], "rotation": [1.5708, 0, 0] }, "appearance": { "color": "#2b2f33", "opacity": 1 } },
+          { "id": "pressure-needle", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.gauge-needle", "geometry": { "type": "box", "size": [0.07, 0.006, 0.006] }, "transform": { "position": [0.18, 1.22, 0.168], "rotation": [0, 0, 0.45] }, "appearance": { "color": "#2c7c3f", "opacity": 1, "emissive": "#3fd767", "glow": 3 } },
+          { "id": "safety-pin-ring", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.safety-pin-ring", "geometry": { "type": "torus", "majorRadius": 0.052, "tubeRadius": 0.007, "radialSegments": 24, "tubularSegments": 6 }, "transform": { "position": [-0.16, 1.21, 0.03], "rotation": [1.5708, 0, 0] }, "appearance": { "color": "#d6dce0", "opacity": 1, "metalness": 0.9 } },
+          { "id": "safety-pin", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.safety-pin", "geometry": { "type": "cylinder", "radius": 0.012, "height": 0.18, "radialSegments": 12 }, "transform": { "position": [-0.08, 1.21, 0.03], "rotation": [0, 0, 1.5708] }, "appearance": { "color": "#d6dce0", "opacity": 1, "metalness": 0.9 } },
+          { "id": "hose", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.discharge-hose", "geometry": { "type": "tube-along", "points": [[0.05, 1.21, 0.02], [0.34, 1.16, 0.09], [0.42, 0.92, 0.11], [0.3, 0.75, 0.13]], "radius": 0.018, "radialSegments": 10 }, "appearance": { "color": "#24292d", "opacity": 1, "metalness": 0.35 } },
+          { "id": "nozzle", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.nozzle", "geometry": { "type": "cylinder-between", "start": [0.3, 0.75, 0.13], "end": [0.52, 0.71, 0.13], "radius": 0.026, "radialSegments": 16 }, "appearance": { "color": "#2b2f33", "opacity": 1, "metalness": 0.75 } },
+          { "id": "label-panel", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.label-panel", "geometry": { "type": "box", "size": [0.34, 0.43, 0.018] }, "transform": { "position": [0, 0.58, 0.225] }, "appearance": { "color": "#f4efe4", "opacity": 0.96 } },
+          { "id": "label-band-red", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.label-band", "geometry": { "type": "box", "size": [0.28, 0.045, 0.02] }, "transform": { "position": [0, 0.72, 0.239] }, "appearance": { "color": "#c92424", "opacity": 1 } },
+          { "id": "label-band-black", "parent": "extinguisher", "semanticType": "equipment.fire.extinguisher.label-band", "geometry": { "type": "box", "size": [0.24, 0.03, 0.021] }, "transform": { "position": [0, 0.55, 0.241] }, "appearance": { "color": "#303336", "opacity": 1 } }
+        ],
+        "anchors": {
+          "base-contact": { "node": "base-foot", "position": [0, -0.04, 0], "direction": [0, -1, 0], "kind": "ground-contact" },
+          "carry-point": { "node": "carry-handle", "position": [0, 0.12, 0], "direction": [0, 1, 0], "kind": "hand-grip" },
+          "nozzle-tip": { "node": "nozzle", "position": [0.52, 0.71, 0.13], "direction": [1, 0, 0], "kind": "discharge-end" },
+          "label-center": { "node": "label-panel", "position": [0, 0, 0.01], "direction": [0, 0, 1], "kind": "label-surface" }
+        },
+        "animations": [
+          { "id": "nozzle-check", "target": "nozzle", "property": "position", "from": [0, 0.04, 0], "to": [0, 0, 0], "duration": 1.2, "loop": true },
+          { "id": "gauge-needle-sweep", "target": "pressure-needle", "property": "rotation", "from": [0, 0, -0.35], "to": [0, 0, 0.55], "duration": 1.8, "loop": true, "space": "local" }
+        ],
+        "annotations": [
+          { "id": "extinguisher-hose-note", "text": "软管路径与喷嘴端点", "position": [0.7, 0.9, 0.2], "color": "#ffd36b" },
+          { "id": "extinguisher-gauge-note", "text": "压力表、保险销、压把", "position": [0.55, 1.27, 0.08], "color": "#eaf3cf" }
+        ]
+      }
+    }
+  }
+}
