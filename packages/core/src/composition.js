@@ -1,4 +1,4 @@
-import { box, cone, cylinder, cylinderBetween, loftedSurface, sphere, taperedCylinderBetween, torus, tubeAlong } from "./geometry.js";
+import { box, cone, cylinder, cylinderBetween, loftedSurface, sphere, sweep, taperedCylinderBetween, torus, tubeAlong } from "./geometry.js";
 import {
   add,
   alignVectorMatrix,
@@ -7,13 +7,16 @@ import {
   identityMatrix,
   multiplyMatrices,
   scale,
-  subtract,
   transformMatrix,
   transformDirectionMatrix,
   transformPointMatrix,
+  transformVectorMatrix,
   translationMatrix,
 } from "./math.js";
 import { samplePath } from "./path.js";
+import { resolveMepRouteBindings } from "./mep-route-bindings.js";
+import { checkLocalAttachments } from "./connection-check.js";
+import { worldAnchorDefinition } from "./component.js";
 
 export const COMPOSITION_SPEC_VERSION = "0.3";
 
@@ -22,10 +25,11 @@ function requiredString(value, name) {
   return value;
 }
 
-function compileGeometry(node, id, matrix) {
+export function compileGeometry(node, id, matrix) {
   const geometry = node.geometry;
   if (!geometry || typeof geometry !== "object") throw new TypeError(`${node.id}.geometry must be an object`);
   const common = { id, material: node.material, appearance: node.appearance, semanticType: node.semanticType, metadata: node.metadata };
+  if (geometry.type === "sweep") return sweep({ ...geometry, ...common, matrix });
   if (geometry.type === "box") {
     return box({ ...common, size: geometry.size, position: transformPointMatrix([0, 0, 0], matrix), matrix });
   }
@@ -36,8 +40,8 @@ function compileGeometry(node, id, matrix) {
   if (geometry.type === "cylinder-between") {
     return cylinderBetween({
       ...common,
-      start: transformPointMatrix(geometry.start, matrix),
-      end: transformPointMatrix(geometry.end, matrix),
+      start: transformPointMatrix(geometry.start, matrix, "start"),
+      end: transformPointMatrix(geometry.end, matrix, "end"),
       radius: geometry.radius,
       radialSegments: geometry.radialSegments,
     });
@@ -45,25 +49,26 @@ function compileGeometry(node, id, matrix) {
   if (geometry.type === "tapered-cylinder-between") {
     return taperedCylinderBetween({
       ...common,
-      start: transformPointMatrix(geometry.start, matrix),
-      end: transformPointMatrix(geometry.end, matrix),
+      start: transformPointMatrix(geometry.start, matrix, "start"),
+      end: transformPointMatrix(geometry.end, matrix, "end"),
       startRadius: geometry.startRadius,
       endRadius: geometry.endRadius,
       radialSegments: geometry.radialSegments,
     });
   }
   if (geometry.type === "lofted-surface") {
+    if (!Array.isArray(geometry.sections)) throw Object.assign(new TypeError("Expected an array of loft sections"), { field: "sections" });
     return loftedSurface({
       ...common,
-      sections: geometry.sections.map((section) => {
-        const center = transformPointMatrix(section.center, matrix);
+      sections: geometry.sections.map((section, i) => {
+        const center = transformPointMatrix(section?.center, matrix, `sections[${i}].center`);
         const axisX = section.axisX ?? [section.radiusX, 0, 0];
         const axisZ = section.axisZ ?? [0, 0, section.radiusZ];
         return {
           ...section,
           center,
-          axisX: subtract(transformPointMatrix(add(section.center, axisX), matrix), center),
-          axisZ: subtract(transformPointMatrix(add(section.center, axisZ), matrix), center),
+          axisX: transformVectorMatrix(axisX, matrix),
+          axisZ: transformVectorMatrix(axisZ, matrix),
         };
       }),
       radialSegments: geometry.radialSegments,
@@ -72,14 +77,15 @@ function compileGeometry(node, id, matrix) {
     });
   }
   if (geometry.type === "tube-along") {
+    if (!Array.isArray(geometry.points)) throw Object.assign(new TypeError("Expected an array of tube points"), { field: "points" });
     return tubeAlong({
       ...common,
-      points: geometry.points.map((point) => transformPointMatrix(point, matrix)),
+      points: geometry.points.map((point, i) => transformPointMatrix(point, matrix, `points[${i}]`)),
       radius: geometry.radius,
       radialSegments: geometry.radialSegments,
     });
   }
-  throw new Error(`Unsupported composition geometry type: ${geometry.type}`);
+  throw Object.assign(new Error(`Unsupported composition geometry type: ${geometry.type}`), { field: "type" });
 }
 
 export function linearRepetition({ count, step, start = [0, 0, 0] }) {
@@ -131,17 +137,17 @@ export function pathRepetition({ points, spacing, startOffset = 0, endOffset = 0
   }));
 }
 
-function occurrences(repetition) {
+export function occurrences(repetition) {
   if (repetition === undefined) return [{ index: null, offset: [0, 0, 0] }];
   if (!repetition || typeof repetition !== "object") throw new TypeError("repetition must be an object");
   if (repetition.type === "linear") return linearRepetition(repetition);
   if (repetition.type === "grid") return gridRepetition(repetition);
   if (repetition.type === "radial") return radialRepetition(repetition);
   if (repetition.type === "path") return pathRepetition(repetition);
-  throw new Error(`Unsupported repetition type: ${repetition.type}`);
+  throw Object.assign(new Error(`Unsupported repetition type: ${repetition.type}`), { field: "type" });
 }
 
-function orientationMatrix(orientation, occurrence) {
+export function orientationMatrix(orientation, occurrence) {
   if (!orientation || orientation.mode === "fixed") return identityMatrix();
   const localAxis = orientation.localAxis ?? [0, 1, 0];
   if (orientation.mode === "tangent") {
@@ -163,7 +169,7 @@ function occurrenceId(instanceId, nodeId, index, count) {
   return `${base}.${String(index).padStart(width, "0")}`;
 }
 
-function selectOccurrence(nodeId, placements, selector) {
+export function selectOccurrence(nodeId, placements, selector) {
   const normalized = typeof selector === "number" ? { index: selector } : selector;
   if (!normalized || typeof normalized !== "object") throw new TypeError(`Anchor on repeated node ${nodeId} requires an occurrence selector`);
   let found;
@@ -178,24 +184,60 @@ function selectOccurrence(nodeId, placements, selector) {
   return found;
 }
 
-function validateHierarchy(nodesById) {
-  for (const node of nodesById.values()) {
-    if (node.parent && !nodesById.has(node.parent)) throw new Error(`Parent node does not exist: ${node.parent}`);
-    if (node.parent && nodesById.get(node.parent).repetition) throw new Error(`Repeated node cannot be a parent in CompositionSpec 0.2: ${node.parent}`);
+export function* hierarchyIssues(nodes, nodesById, ambiguous = new Set()) {
+  for (const node of nodes) {
+    if (!node.parent) continue;
+    if (ambiguous.has(node.parent)) yield [node, "PARENT_AMBIGUOUS", `Parent ID is duplicated: ${node.parent}`];
+    else if (!nodesById.has(node.parent)) yield [node, "PARENT_MISSING", `Parent node does not exist: ${node.parent}`];
+    else if (nodesById.get(node.parent).repetition) yield [node, "PARENT_REPEATED", `Repeated node cannot be a parent: ${node.parent}`];
   }
-  const visiting = new Set(); const visited = new Set();
-  function visit(id) {
-    if (visiting.has(id)) throw new Error(`Composition hierarchy contains a cycle at: ${id}`);
-    if (visited.has(id)) return;
-    visiting.add(id);
-    const parent = nodesById.get(id).parent;
-    if (parent) visit(parent);
-    visiting.delete(id); visited.add(id);
+  const visited = new Set();
+  for (const id of nodesById.keys()) {
+    const chain = new Set();
+    let current = id;
+    while (nodesById.has(current) && !ambiguous.has(current) && !visited.has(current)) {
+      if (chain.has(current)) {
+        const members = [...chain];
+        const cycle = members.slice(members.indexOf(current));
+        const reason = `Composition hierarchy contains a cycle: ${[...cycle, current].join(" -> ")}`;
+        for (const member of cycle) yield [nodesById.get(member), "PARENT_CYCLE", reason];
+        break;
+      }
+      chain.add(current);
+      current = nodesById.get(current).parent;
+    }
+    for (const member of chain) visited.add(member);
   }
-  for (const id of nodesById.keys()) visit(id);
 }
 
-export function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
+export function validateLight(light) {
+  if (!["point", "directional", "spot"].includes(light.type)) throw new Error(`Unsupported light type: ${light.type}`);
+}
+
+export function compileCompositionSpec(spec, { instanceId = spec?.id, transform, includeSource = false } = {}) {
+  spec = resolveMepRouteBindings(spec);
+  const result = compile(spec, instanceId);
+  if (includeSource) result.parameters = spec;
+  if (spec.attachments !== undefined) {
+    const warnings = [];
+    checkLocalAttachments(spec, "", name => {
+      const anchor = result.anchors[name];
+      return worldAnchorDefinition(Array.isArray(anchor) ? { position: anchor } : anchor, transform);
+    }, (code, path, message, context) => {
+      if (context?.level !== "warning") throw Object.assign(new Error(`${path}: ${message}`), { code, path, ...context });
+      warnings.push({ code, path, message, ...context });
+    });
+    if (warnings.length) result.warnings = [...result.warnings, ...warnings];
+  }
+  return result;
+}
+
+// The checker needs successful outputs for final ID, bounds and world-anchor validation.
+export function compileForDiagnostics(spec, instanceId, onIssue) {
+  return compile(spec, instanceId, onIssue);
+}
+
+function compile(spec, instanceId, onIssue) {
   if (!spec || typeof spec !== "object") throw new TypeError("composition spec must be an object");
   requiredString(instanceId, "composition instanceId");
   if (!Array.isArray(spec.nodes)) throw new TypeError("composition spec nodes must be an array");
@@ -206,7 +248,8 @@ export function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
     if (nodesById.has(node.id)) throw new Error(`Duplicate composition node id: ${node.id}`);
     nodesById.set(node.id, node);
   }
-  validateHierarchy(nodesById);
+  const hierarchyError = hierarchyIssues(nodesById.values(), nodesById).next();
+  if (!hierarchyError.done) throw new Error(hierarchyError.value[2]);
 
   const logicalMatrices = new Map();
   function logicalMatrix(node) {
@@ -219,7 +262,7 @@ export function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
   }
 
   const nodes = []; const repetitions = []; const occurrencePlacements = new Map();
-  for (const node of spec.nodes) {
+  for (const [nodeIndex, node] of spec.nodes.entries()) {
     const expanded = occurrences(node.repetition);
     if (node.repetition) repetitions.push({ prototypeId: node.id, ...node.repetition, orientation: node.orientation ?? { mode: "fixed" }, occurrenceCount: expanded.length });
     const placements = expanded.map((occurrence) => ({
@@ -231,7 +274,7 @@ export function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
     }));
     occurrencePlacements.set(node.id, placements);
     if (node.light) {
-      if (!["point", "directional", "spot"].includes(node.light.type)) throw new Error(`Unsupported light type: ${node.light.type}`);
+      validateLight(node.light);
       for (const { occurrence, matrix } of placements) {
         nodes.push({
           id: occurrenceId(instanceId, node.id, occurrence.index, expanded.length),
@@ -249,7 +292,14 @@ export function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
     }
     if (!node.geometry) continue;
     for (const { occurrence, matrix } of placements) {
-      const compiled = compileGeometry(node, occurrenceId(instanceId, node.id, occurrence.index, expanded.length), matrix);
+      let compiled;
+      try {
+        compiled = compileGeometry(node, occurrenceId(instanceId, node.id, occurrence.index, expanded.length), matrix);
+      } catch (error) {
+        if (!onIssue) throw error;
+        onIssue("GEOMETRY_INVALID", ["nodes", nodeIndex, "geometry"], error.message, node.id);
+        break;
+      }
       compiled.parent = node.parent ?? null;
       compiled.pivot = node.pivot ?? [0, 0, 0];
       compiled.metadata = {
@@ -275,13 +325,22 @@ export function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
       ? selectOccurrence(owner.id, occurrencePlacements.get(owner.id), definition.occurrence)
       : occurrencePlacements.get(owner.id)[0];
     const ownerMatrix = selected.matrix;
+    let position, direction;
+    try {
+      position = transformPointMatrix(definition.position, ownerMatrix);
+      if (definition.direction) direction = transformDirectionMatrix(definition.direction, ownerMatrix);
+    } catch (error) {
+      if (!onIssue) throw error;
+      onIssue("ANCHOR_TRANSFORM_INVALID", ["anchors", id, position ? "direction" : "position"], error.message, owner.id);
+      return null;
+    }
     return [id, {
       ...definition,
-      position: transformPointMatrix(definition.position, ownerMatrix),
-      ...(definition.direction ? { direction: transformDirectionMatrix(definition.direction, ownerMatrix) } : {}),
+      position,
+      ...(direction ? { direction } : {}),
       ...(owner.repetition ? { occurrenceRef: `${owner.id}[${selected.occurrence.index}]` } : {}),
     }];
-  }));
+  }).filter(entry => entry !== null));
 
   return {
     contractVersion: COMPOSITION_SPEC_VERSION,

@@ -9,10 +9,10 @@ export const compositionComponent = {
   parameters: {
     nodes: { type: "array", required: true },
     anchors: { type: "object", required: false },
+    routeBindings: { type: "array", required: false },
     attachments: { type: "array", required: false },
   },
-  build({ instanceId, parameters }) {
-    const result = compileCompositionSpec(parameters, { instanceId });
-    return { ...result, parameters };
+  build({ instanceId, parameters, transform }) {
+    return compileCompositionSpec(parameters, { instanceId, transform, includeSource: true });
   },
 };

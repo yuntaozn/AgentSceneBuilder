@@ -1,10 +1,4 @@
-export function isPublicRegistryEntry(entry) {
-  return entry?.visibility !== "internal";
-}
-
-export function publicRegistryEntries(registry) {
-  return (registry?.entries ?? []).filter(isPublicRegistryEntry);
-}
+export { isPublicRegistryEntry, publicRegistryEntries } from "../../registry/catalog.js";
 
 export function publicRegistryCounts(entries) {
   const visibleEntries = entries ?? [];

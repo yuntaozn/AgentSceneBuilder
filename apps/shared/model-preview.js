@@ -70,9 +70,17 @@ function profileSample(profile, index, segments) {
   return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
 }
 
+export function sweepWireLines({ rings, closedProfile }) {
+  if (!rings?.length) return [];
+  const outlines = closedProfile ? rings.map(ring => [...ring, ring[0]]) : rings;
+  const rails = rings[0].map((_, i) => rings.map(ring => ring[i]));
+  return [...outlines, ...rails];
+}
+
 function geometryLines(node) {
   const geometry = node?.geometry;
   if (!geometry) return [];
+  if (geometry.type === "sweep") return sweepWireLines(geometry);
   const circle = (radius, y, count = 32) => Array.from({ length: count + 1 }, (_, index) => {
     const angle = index / count * Math.PI * 2;
     return [radius * Math.cos(angle), y, radius * Math.sin(angle)];

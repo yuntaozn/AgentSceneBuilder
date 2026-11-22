@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import fs from "node:fs";
-import { pathToFileURL } from "node:url";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import { searchPublicRegistry } from "../../../registry/catalog.js";
+import { describeJsonSyntax, duplicateJsonKeyDiagnostics, indexJsonSource, jsonRangeLocator } from "../../core/src/json-source.js";
 import {
   analyzeSceneSpatial,
   analyzeHumanPoseRig,
@@ -11,6 +13,9 @@ import {
   applyCompositionChangesetProposal,
   applyChangesetProposal,
   composeScene,
+  checkComposition,
+  isCompositionManifest,
+  checkScene,
   createDefaultRegistry,
   createHumanSurfaceProfile,
   generateMepPressureTestLoop,
@@ -32,9 +37,11 @@ import {
 } from "../../core/src/index.js";
 
 const supportedCommands = [
+  "registry search <query>",
   "component list",
   "component describe <id>",
-  "component build <instance.json>",
+  "component build <instance.json|manifest.json>",
+  "composition check <composition.json|manifest.json|-> [--source-ranges] [--reject-duplicate-keys]",
   "reference analyze-glb <model.glb> [options.json|json]",
   "human-geometry profile [request.json|json]",
   "human-geometry generate-part [request.json|json]",
@@ -49,6 +56,7 @@ const supportedCommands = [
   "composition propose-human-reach <composition.json|manifest.json> <request.json|json>",
   "composition propose-human-ik-reach <composition.json|manifest.json> <request.json|json>",
   "composition apply-proposal <composition.json|manifest.json> <proposal.json|json>",
+  "scene check <scene.json|-> [--source-ranges] [--reject-duplicate-keys]",
   "scene build <scene.json>",
   "scene query <scene.json> [query.json|json]",
   "scene analyze-spatial <scene.json>",
@@ -58,7 +66,7 @@ const supportedCommands = [
   "path analyze <request.json|json>",
   "path orthogonal-candidates <request.json|json>",
   "path sample <request.json|json>",
-  "mep route-with-clips [request.json|json]",
+  "mep route-with-clips [request.json|json|-]",
   "mep drain-slope-check <request.json|json>",
   "mep pressure-test-loop [request.json|json]",
 ];
@@ -81,6 +89,34 @@ function readJsonArgument(value, label) {
 function readCompositionDocument(path) {
   const value = readJsonFile(path);
   return value.editor?.document ?? value;
+}
+
+function withCheckSourceRanges(result, text, locate) {
+  if (!result.issues.length) return result;
+  let source;
+  try {
+    source = indexJsonSource(text);
+  } catch (error) {
+    // The source parser can exhaust the JS stack on deeply nested documents accepted by JSON.parse.
+    if (error instanceof RangeError) return result;
+    throw error;
+  }
+  const [first] = result.issues;
+  if (first.code === "JSON_INVALID") {
+    const issues = describeJsonSyntax(text, source.syntaxErrors).map(({ offset, length, ...diagnostic }) => ({
+      ...first, ...diagnostic, sourceRange: locate({ offset, length }),
+    }));
+    return issues.length ? { ...result, issues } : result;
+  }
+  const locateIssue = location => {
+    const range = source.rangeForPointer(location.path);
+    return range ? { ...location, sourceRange: locate(range) } : location;
+  };
+  const issues = result.issues.map(issue => {
+    const located = locateIssue(issue);
+    return issue.relatedLocations ? { ...located, relatedLocations: issue.relatedLocations.map(locateIssue) } : located;
+  });
+  return { ...result, issues };
 }
 
 function helpPayload() {
@@ -127,7 +163,8 @@ export function run(argv = process.argv.slice(2), io = {}) {
     }
 
     if (group === "mep" && action === "route-with-clips") {
-      const request = args[0] ? readJsonArgument(args[0], "MEP route request") : {};
+      let request = {};
+      if (args[0]) request = args[0] === "-" ? readJsonFile(0) : readJsonArgument(args[0], "MEP route request");
       writeJson(stdout, { ok: true, result: generateMepRouteWithClips(request) });
       return 0;
     }
@@ -144,6 +181,18 @@ export function run(argv = process.argv.slice(2), io = {}) {
       return 0;
     }
 
+    if (group === "registry" && action === "search") {
+      const query = args.join(" ").trim();
+      if (!query) throw new Error("registry search requires a search term");
+      const root = new URL("../../../", import.meta.url);
+      const catalog = readJsonFile(new URL("registry/registry.json", root));
+      const results = searchPublicRegistry(catalog, query).map(({ id, kind, title, summary, source }) => ({
+        id, kind, title, summary, manifestPath: fileURLToPath(new URL(source, root)),
+      }));
+      writeJson(stdout, { ok: true, count: results.length, results });
+      return 0;
+    }
+
     if (group === "component" && action === "list") {
       writeJson(stdout, { ok: true, components: registry.list() });
       return 0;
@@ -157,7 +206,9 @@ export function run(argv = process.argv.slice(2), io = {}) {
 
     if (group === "component" && action === "build") {
       if (!args[0]) throw new Error("component build requires an instance JSON file");
-      writeJson(stdout, { ok: true, build: registry.build(readJsonFile(args[0])) });
+      const input = readJsonFile(args[0]);
+      const instance = isCompositionManifest(input) ? input.editor?.document ?? input : input;
+      writeJson(stdout, { ok: true, build: registry.build(instance) });
       return 0;
     }
 
@@ -191,6 +242,36 @@ export function run(argv = process.argv.slice(2), io = {}) {
       const request = args[1] ? readJsonArgument(args[1], "human surface refinement request") : {};
       writeJson(stdout, { ok: true, proposal: proposeHumanSurfaceRefinement(readCompositionDocument(args[0]), request) });
       return 0;
+    }
+
+    if ((group === "composition" || group === "scene") && action === "check") {
+      const level = group === "scene" ? { level: "error" } : {};
+      const withRanges = args.includes("--source-ranges");
+      const rejectDuplicates = args.includes("--reject-duplicate-keys");
+      const sourcePath = args.find(arg => arg !== "--source-ranges" && arg !== "--reject-duplicate-keys");
+      if (!sourcePath) {
+        writeJson(stdout, { ok: false, issues: [{ code: "INPUT_REQUIRED", path: "", message: "Expected a JSON file or - for stdin", ...level }] });
+        return 2;
+      }
+      let text, input;
+      try {
+        text = fs.readFileSync(sourcePath === "-" ? 0 : sourcePath, "utf8");
+        input = JSON.parse(text);
+      } catch (error) {
+        const code = error instanceof SyntaxError ? "JSON_INVALID" : "FILE_UNREADABLE";
+        const result = { ok: false, issues: [{ code, path: "", message: error.message, ...level }] };
+        writeJson(stdout, withRanges && code === "JSON_INVALID" ? withCheckSourceRanges(result, text, jsonRangeLocator(text)) : result);
+        return 2;
+      }
+      let result = group === "scene" ? checkScene(input, registry) : checkComposition(input);
+      const locate = withRanges ? jsonRangeLocator(text) : undefined;
+      if (locate) result = withCheckSourceRanges(result, text, locate);
+      if (rejectDuplicates) {
+        const issues = duplicateJsonKeyDiagnostics(text, { level: level.level, locate });
+        if (issues.length) result = { ...result, ok: false, issues: [...issues, ...result.issues] };
+      }
+      writeJson(stdout, result);
+      return result.ok ? 0 : 2;
     }
 
     if (group === "composition" && action === "analyze-human-quality") {
@@ -274,7 +355,7 @@ export function run(argv = process.argv.slice(2), io = {}) {
       if (!args[0] || !args[1]) throw new Error("scene propose-align requires scene and request JSON files");
       const document = readJsonFile(args[0]);
       const request = readJsonArgument(args[1], "alignment request");
-      writeJson(stdout, { ok: true, proposal: proposeAnchorAlignment(composeScene(document, registry), request) });
+      writeJson(stdout, { ok: true, proposal: proposeAnchorAlignment(composeScene(document, registry), request, registry) });
       return 0;
     }
 
@@ -282,7 +363,7 @@ export function run(argv = process.argv.slice(2), io = {}) {
       if (!args[0] || !args[1]) throw new Error("scene propose-distribute requires scene and request JSON files");
       const document = readJsonFile(args[0]);
       const request = readJsonArgument(args[1], "distribution request");
-      writeJson(stdout, { ok: true, proposal: proposeLinearDistribution(composeScene(document, registry), request) });
+      writeJson(stdout, { ok: true, proposal: proposeLinearDistribution(composeScene(document, registry), request, registry) });
       return 0;
     }
 
@@ -290,17 +371,26 @@ export function run(argv = process.argv.slice(2), io = {}) {
       if (!args[0] || !args[1]) throw new Error("scene apply-proposal requires scene and proposal JSON files");
       const document = readJsonFile(args[0]);
       const proposalEnvelope = readJsonArgument(args[1], "proposal");
-      const proposal = proposalEnvelope.proposal ?? proposalEnvelope;
-      writeJson(stdout, { ok: true, scene: applyChangesetProposal(document, proposal) });
+      const proposal = proposalEnvelope != null && Object.hasOwn(proposalEnvelope, "proposal") ? proposalEnvelope.proposal : proposalEnvelope;
+      writeJson(stdout, { ok: true, scene: applyChangesetProposal(document, proposal, registry) });
       return 0;
     }
 
     throw new Error(`Unsupported command: ${[group, action].filter(Boolean).join(" ")}`);
   } catch (error) {
+    let details = { code: "AGENTSCENE_CLI_ERROR" };
+    if (error.code === "MEP_ROUTE_INVALID") details = { code: error.code, ...error.details };
+    if (error.code === "SCENE_PROPOSAL_CONFLICT") details = { code: error.code, conflicts: error.conflicts };
+    if (["SCENE_ALIGNMENT_TARGET_MISSED", "SCENE_DISTRIBUTION_TARGET_MISSED", "SCENE_CONNECTION_MEASUREMENT_INVALID"].includes(error.code)) {
+      details = { code: error.code };
+    }
+    if (error.code === "SCENE_BOUNDS_MISSING") details = { code: error.code, instanceIds: error.instanceIds };
     writeJson(stdout, {
       ok: false,
+      ...(error.code === "MEP_ROUTE_INVALID" ? { issues: error.issues } : {}),
       error: {
-        code: "AGENTSCENE_CLI_ERROR",
+        ...details,
+        ...(error.measurement ? { measurement: error.measurement } : {}),
         message: error instanceof Error ? error.message : String(error),
       },
     });

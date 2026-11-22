@@ -5,7 +5,7 @@ var registry_default = {
   counts: {
     component: 9,
     method: 13,
-    composition: 27
+    composition: 28
   },
   entries: [
     {
@@ -10623,6 +10623,131 @@ var registry_default = {
         }
       },
       source: "registry/compositions/bond-strength-test/manifest.json"
+    },
+    {
+      schemaVersion: "0.1",
+      id: "mep.cable-tray-elbow",
+      version: "0.1.0",
+      kind: "composition",
+      title: "U \u5F62\u7535\u7F06\u6865\u67B6 \xB7 \u6C34\u5E73\u5F2F\u5934",
+      summary: "\u6CBF\u76F4\u89D2\u6298\u7EBF\u659C\u63A5\u7684\u91D1\u5C5E\u6865\u67B6\uFF0C\u5916\u5BBD 300 mm\u3001\u5916\u9AD8 100 mm\u3001\u58C1\u539A 2 mm\u3002\u53EF\u7F16\u8F91\u622A\u9762\u8F6E\u5ED3\u548C\u4E2D\u5FC3\u7EBF\u3002",
+      license: "Apache-2.0",
+      semanticType: "mep.cable-tray",
+      capabilities: [
+        "path-edit",
+        "resize",
+        "inspect-structure"
+      ],
+      tags: [
+        "MEP",
+        "\u6865\u67B6",
+        "\u622A\u9762\u626B\u63A0",
+        "\u7535\u6C14"
+      ],
+      editor: {
+        document: {
+          id: "cable-tray-elbow",
+          component: "core.composition",
+          parameters: {
+            nodes: [
+              {
+                id: "tray",
+                semanticType: "mep.cable-tray",
+                material: "galvanized-steel",
+                appearance: {
+                  color: "#8ea2b5",
+                  roughness: 0.55,
+                  metalness: 0.45
+                },
+                geometry: {
+                  type: "sweep",
+                  points: [
+                    [
+                      0,
+                      0,
+                      0
+                    ],
+                    [
+                      0,
+                      0,
+                      1.2
+                    ],
+                    [
+                      1,
+                      0,
+                      1.2
+                    ]
+                  ],
+                  up: [
+                    0,
+                    1,
+                    0
+                  ],
+                  closedProfile: true,
+                  profile: [
+                    [
+                      -0.15,
+                      0
+                    ],
+                    [
+                      0.15,
+                      0
+                    ],
+                    [
+                      0.15,
+                      0.1
+                    ],
+                    [
+                      0.148,
+                      0.1
+                    ],
+                    [
+                      0.148,
+                      2e-3
+                    ],
+                    [
+                      -0.148,
+                      2e-3
+                    ],
+                    [
+                      -0.148,
+                      0.1
+                    ],
+                    [
+                      -0.15,
+                      0.1
+                    ]
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      },
+      agent: {
+        intent: "\u6CBF\u76F4\u89D2\u6298\u7EBF\u659C\u63A5\u7684\u91D1\u5C5E\u6865\u67B6\uFF0C\u5916\u5BBD 300 mm\u3001\u5916\u9AD8 100 mm\u3001\u58C1\u539A 2 mm\u3002\u53EF\u7F16\u8F91\u622A\u9762\u8F6E\u5ED3\u548C\u4E2D\u5FC3\u7EBF\u3002",
+        useWhen: [
+          "\u9700\u8981\u53C2\u8003\u4E00\u4E2A\u53EF\u7F16\u8F91\u7684\u5B8C\u6574\u5BF9\u8C61\u7ED3\u6784\uFF0C\u800C\u4E0D\u662F\u5BFC\u5165\u56FA\u5B9A\u7F51\u683C\u6A21\u578B\u65F6\u4F7F\u7528\u3002"
+        ],
+        avoidWhen: [],
+        editableParts: [],
+        qualityChecks: [
+          "\u786E\u8BA4\u6A21\u578B\u53EA\u8868\u8FBE\u5BF9\u8C61\u672C\u8EAB\uFF0C\u6784\u4EF6\u6CA1\u6709\u8FDC\u79BB\u4E3B\u4F53\uFF0C\u63CF\u8FF0\u4E0E\u5B9E\u9645\u8282\u70B9\u4E00\u81F4\u3002"
+        ],
+        commonVariants: [],
+        structure: {
+          kind: "composition",
+          semanticType: "mep.cable-tray",
+          parameters: [],
+          anchors: [],
+          nodeCount: 1,
+          geometryTypes: [
+            "sweep"
+          ],
+          repetitionPrototypes: []
+        }
+      },
+      source: "registry/compositions/cable-tray-elbow/manifest.json"
     },
     {
       schemaVersion: "0.1",
@@ -30927,21 +31052,45 @@ var registry_default = {
   ]
 };
 
+// registry/catalog.js
+function isPublicRegistryEntry(entry) {
+  return entry?.visibility !== "internal";
+}
+function publicRegistryEntries(registry) {
+  return (registry?.entries ?? []).filter(isPublicRegistryEntry);
+}
+function searchPublicRegistry(registry, query, kind2 = "all") {
+  const words = query.toLowerCase().trim().split(/\s+/).filter(Boolean);
+  return publicRegistryEntries(registry).filter((entry) => {
+    if (kind2 !== "all" && entry.kind !== kind2) return false;
+    const fields = [
+      entry.id,
+      entry.title,
+      entry.summary,
+      entry.semanticType,
+      ...entry.tags ?? [],
+      ...entry.capabilities ?? []
+    ];
+    const text = fields.join(" ").toLowerCase();
+    return words.every((word) => text.includes(word));
+  });
+}
+
 // packages/core/src/math.js
 var EPSILON = 1e-9;
 function assertFiniteNumber(value, name, { min = -Infinity, exclusiveMin = false } = {}) {
   if (typeof value !== "number" || !Number.isFinite(value)) {
-    throw new TypeError(`${name} must be a finite number`);
+    throw Object.assign(new TypeError(`${name} must be a finite number`), { field: name });
   }
   if (exclusiveMin ? value <= min : value < min) {
     const operator = exclusiveMin ? ">" : ">=";
-    throw new RangeError(`${name} must be ${operator} ${min}`);
+    throw Object.assign(new RangeError(`${name} must be ${operator} ${min}`), { field: name });
   }
   return value;
 }
 function assertVec3(value, name) {
   if (!Array.isArray(value) || value.length !== 3) {
-    throw new TypeError(`${name} must contain exactly three numbers`);
+    throw Object.assign(new TypeError(`${name} must contain exactly three numbers`), { field: name });
   }
   return value.map((item, index) => assertFiniteNumber(item, `${name}[${index}]`));
 }
@@ -30960,10 +31109,18 @@ function length(vector) {
 function dot(a, b) {
   return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 }
+function cross(a, b) {
+  return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+}
 function normalizeVector(value, name = "vector") {
   const vector = assertVec3(value, name);
   const magnitude = length(vector);
   if (magnitude === 0) throw new RangeError(`${name} must not be zero`);
+  if (!Number.isFinite(magnitude) || magnitude < 2 ** -1022) {
+    const largest = Math.max(...vector.map(Math.abs));
+    const scaled = vector.map((component) => component / largest);
+    return scale(scaled, 1 / length(scaled));
+  }
   return scale(vector, 1 / magnitude);
 }
 function midpoint(a, b) {
@@ -31037,9 +31194,8 @@ function transformPoint(point, transformValue = {}) {
   return [x + position[0], y + position[1], z + position[2]];
 }
 function transformDirection(direction, transformValue = {}) {
-  const origin = transformPoint([0, 0, 0], transformValue);
-  const endpoint = transformPoint(direction, transformValue);
-  return normalizeVector(subtract(endpoint, origin), "direction");
+  const { rotation, scale: scale3 } = transformValue;
+  return normalizeVector(transformPoint(direction, { rotation, scale: scale3 }), "direction");
 }
 function transformBounds(bounds, transformValue = {}) {
   if (!bounds) return null;
@@ -31089,21 +31245,24 @@ function transformMatrix(value = {}, pivotValue = [0, 0, 0]) {
   matrix = multiplyMatrices(translationMatrix(pivot), multiplyMatrices(matrix, translationMatrix(scale(pivot, -1))));
   return multiplyMatrices(translationMatrix(position), matrix);
 }
-function transformPointMatrix(pointValue, matrix) {
-  const [x, y, z] = assertVec3(pointValue, "point");
+function transformPointMatrix(pointValue, matrix, name = "point") {
+  const [x, y, z] = assertVec3(pointValue, name);
   return [
     matrix[0][0] * x + matrix[0][1] * y + matrix[0][2] * z + matrix[0][3],
     matrix[1][0] * x + matrix[1][1] * y + matrix[1][2] * z + matrix[1][3],
     matrix[2][0] * x + matrix[2][1] * y + matrix[2][2] * z + matrix[2][3]
   ];
 }
-function transformDirectionMatrix(directionValue, matrix) {
-  const [x, y, z] = assertVec3(directionValue, "direction");
-  return normalizeVector([
+function transformVectorMatrix(vector, matrix, name = "vector") {
+  const [x, y, z] = assertVec3(vector, name);
+  return [
     matrix[0][0] * x + matrix[0][1] * y + matrix[0][2] * z,
     matrix[1][0] * x + matrix[1][1] * y + matrix[1][2] * z,
     matrix[2][0] * x + matrix[2][1] * y + matrix[2][2] * z
-  ], "direction");
+  ];
+}
+function transformDirectionMatrix(directionValue, matrix) {
+  return normalizeVector(transformVectorMatrix(directionValue, matrix, "direction"), "direction");
 }
 function transformBoundsMatrix(bounds, matrix) {
   const corners = [];
@@ -31133,7 +31292,79 @@ function alignVectorMatrix(fromValue, toValue) {
   ];
 }
 
+// packages/core/src/sweep.js
+function turn(a, b, c) {
+  return (b[0] - a[0]) * (c[1] - a[1]) - (b[1] - a[1]) * (c[0] - a[0]);
+}
+function intersects(a, b, c, d) {
+  const overlaps = [0, 1].every((axis) => Math.max(a[axis], b[axis]) >= Math.min(c[axis], d[axis]) && Math.max(c[axis], d[axis]) >= Math.min(a[axis], b[axis]));
+  return overlaps && turn(a, b, c) * turn(a, b, d) <= 0 && turn(c, d, a) * turn(c, d, b) <= 0;
+}
+function sectionPoints(profile, closed) {
+  if (typeof closed !== "boolean") throw new TypeError("closedProfile must be boolean");
+  if (!Array.isArray(profile) || profile.length < (closed ? 3 : 2)) {
+    throw new RangeError("sweep profile needs at least two points (three for a closed profile)");
+  }
+  const points = profile.map((point, i) => {
+    if (!Array.isArray(point) || point.length !== 2) throw new TypeError(`profile[${i}] must be [u,v]`);
+    return point.map((n, j) => assertFiniteNumber(n, `profile[${i}][${j}]`));
+  });
+  const count = points.length;
+  const edges = closed ? count : count - 1;
+  for (let i = 0; i < edges; i++) {
+    const a = points[i], b = points[(i + 1) % count];
+    if (a[0] === b[0] && a[1] === b[1]) throw new RangeError(`zero-length profile edge at ${i}`);
+    if (closed || i + 1 < edges) {
+      const c = points[(i + 2) % count];
+      if (turn(a, b, c) === 0 && (a[0] - b[0]) * (c[0] - b[0]) + (a[1] - b[1]) * (c[1] - b[1]) > 0) {
+        throw new RangeError("sweep profile folds back on itself");
+      }
+    }
+    for (let j = i + 2; j < edges; j++) {
+      if (closed && i === 0 && j === edges - 1) continue;
+      if (intersects(a, b, points[j], points[(j + 1) % count])) throw new RangeError("sweep profile intersects itself");
+    }
+  }
+  const area2 = points.reduce((area, p, i) => area + turn(points[0], p, points[(i + 1) % count]), 0);
+  return closed && area2 < 0 ? points.reverse() : points;
+}
+function sweepGeometry({ profile, points, up, closedProfile = false }) {
+  const section = sectionPoints(profile, closedProfile);
+  if (!Array.isArray(points) || points.length < 2) throw new RangeError("sweep points must contain at least two positions");
+  const path = points.map((p, i) => assertVec3(p, `points[${i}]`));
+  if (length(subtract(path[0], path.at(-1))) === 0) throw new RangeError("sweep requires an open path");
+  const segments = path.slice(1).map((point, i) => normalizeVector(subtract(point, path[i]), `path segment ${i}`));
+  const first = segments[0];
+  const initialUp = up === void 0 ? Math.abs(first[1]) < 1 - 1e-10 ? [0, 1, 0] : [0, 0, 1] : normalizeVector(up, "up");
+  let width = cross(initialUp, first);
+  if (length(width) < 1e-10) throw new RangeError("sweep up must not be parallel to the first path segment");
+  width = normalizeVector(width);
+  let height = cross(first, width);
+  const rings = path.map((point, i) => {
+    const incoming = segments[Math.max(0, i - 1)];
+    const outgoing = segments[Math.min(i, segments.length - 1)];
+    const sum = add(incoming, outgoing);
+    const denominator = 1 + dot(incoming, outgoing);
+    if (denominator < 1e-10) throw new RangeError(`sweep path reverses at points[${i}]`);
+    const railShift = (axis) => dot(axis, outgoing) / denominator;
+    const du = railShift(width), dv = railShift(height);
+    const jointWidth = subtract(width, scale(incoming, du));
+    const jointHeight = subtract(height, scale(incoming, dv));
+    width = subtract(width, scale(sum, du));
+    height = subtract(height, scale(sum, dv));
+    return section.map(([u, v]) => add(point, add(scale(jointWidth, u), scale(jointHeight, v))));
+  });
+  for (let i = 0; i < segments.length; i++) {
+    if (rings[i].some((p, j) => dot(subtract(rings[i + 1][j], p), segments[i]) <= 0)) {
+      throw new RangeError(`sweep section is too large for the bend at segment ${i}`);
+    }
+  }
+  return { type: "sweep", profile: section, points: path, closedProfile, up: initialUp, rings };
+}
+
 // packages/core/src/geometry.js
+var nodeSpaceTypes = /* @__PURE__ */ new Set(["box", "cylinder", "cone", "sphere", "torus", "sweep"]);
+var roundPaths = /* @__PURE__ */ new Set(["cylinder-between", "tapered-cylinder-between", "tube-along"]);
 function transform(position = [0, 0, 0], rotation = [0, 0, 0], scale3 = [1, 1, 1]) {
   return {
     position: assertVec3(position, "position"),
@@ -31298,41 +31529,120 @@ function tubeAlong({ id, points, radius, radialSegments = 12, material, appearan
     metadata
   });
 }
+function sweep({ id, profile, points, up, closedProfile, position, rotation, scale: scale3, matrix, material, appearance, semanticType, metadata }) {
+  return geometryNode({
+    id,
+    material,
+    appearance,
+    semanticType,
+    metadata,
+    position,
+    rotation,
+    scale: scale3,
+    matrix: matrix ?? transformMatrix({ position, rotation, scale: scale3 }),
+    geometry: sweepGeometry({ profile, points, up, closedProfile })
+  });
+}
 function geometryBounds(node) {
   const geometry = node.geometry;
-  if (geometry.type === "box") {
-    if (node.matrix) return transformBoundsMatrix(boxBounds([0, 0, 0], geometry.size), node.matrix);
-    return boxBounds(node.transform.position, geometry.size);
-  }
-  if (["sphere", "cylinder", "cone", "torus"].includes(geometry.type)) {
-    const size = geometry.type === "sphere" ? [geometry.radius * 2, geometry.radius * 2, geometry.radius * 2] : geometry.type === "torus" ? [(geometry.majorRadius + geometry.tubeRadius) * 2, geometry.tubeRadius * 2, (geometry.majorRadius + geometry.tubeRadius) * 2] : [geometry.radius * 2, geometry.height, geometry.radius * 2];
-    if (node.matrix) return transformBoundsMatrix(boxBounds([0, 0, 0], size), node.matrix);
-    return boxBounds(node.transform.position, size);
-  }
-  if (geometry.type === "cylinder-between") return pointsBounds([geometry.start, geometry.end], geometry.radius);
-  if (geometry.type === "tapered-cylinder-between") return pointsBounds([geometry.start, geometry.end], Math.max(geometry.startRadius, geometry.endRadius));
-  if (geometry.type === "lofted-surface") {
-    const points = geometry.sections.flatMap((section) => {
-      const axisX = section.axisX ?? [section.radiusX, 0, 0];
-      const axisZ = section.axisZ ?? [0, 0, section.radiusZ];
-      if (Array.isArray(section.profile)) {
-        return section.profile.map(([x, z]) => [
-          section.center[0] + axisX[0] * x + axisZ[0] * z,
-          section.center[1] + axisX[1] * x + axisZ[1] * z,
-          section.center[2] + axisX[2] * x + axisZ[2] * z
-        ]);
-      }
-      return [
-        [section.center[0] + axisX[0], section.center[1] + axisX[1], section.center[2] + axisX[2]],
-        [section.center[0] - axisX[0], section.center[1] - axisX[1], section.center[2] - axisX[2]],
-        [section.center[0] + axisZ[0], section.center[1] + axisZ[1], section.center[2] + axisZ[2]],
-        [section.center[0] - axisZ[0], section.center[1] - axisZ[1], section.center[2] - axisZ[2]]
-      ];
-    });
-    return pointsBounds(points, 0);
-  }
-  if (geometry.type === "tube-along") return pointsBounds(geometry.points, geometry.radius);
+  if (nodeSpaceTypes.has(geometry.type)) return nodeSpaceBounds(node);
+  if (roundPaths.has(geometry.type)) return roundPathBounds(geometry);
+  if (geometry.type === "lofted-surface") return loftBounds(geometry);
   throw new Error(`Unsupported geometry type for bounds: ${geometry.type}`);
+}
+function nodeSpaceBounds(node, instanceMatrix) {
+  const geometry = node.geometry;
+  const nodeMatrix = node.matrix ?? transformMatrix(node.transform);
+  const matrix = instanceMatrix ? multiplyMatrices(instanceMatrix, nodeMatrix) : nodeMatrix;
+  if (geometry.type === "box") return transformBoundsMatrix(boxBounds([0, 0, 0], geometry.size), matrix);
+  if (geometry.type === "sweep") {
+    return pointsBounds(geometry.rings.flatMap((ring) => ring.map((point) => transformPointMatrix(point, matrix))));
+  }
+  if (geometry.type === "sphere" || geometry.type === "torus") {
+    const isRing = geometry.type === "torus";
+    const radius = isRing ? geometry.tubeRadius : geometry.radius;
+    const axes = matrix.slice(0, 3);
+    const center = axes.map((row) => row[3]);
+    const extent = axes.map(([x, y, z]) => {
+      const centerline = isRing ? Math.hypot(geometry.majorRadius * x, geometry.majorRadius * z) : 0;
+      return centerline + Math.hypot(radius * x, radius * y, radius * z);
+    });
+    return createBounds(subtract(center, extent), add(center, extent));
+  }
+  const halfHeight = geometry.height / 2;
+  return flatEndedBounds(
+    [[0, -halfHeight, 0], [0, halfHeight, 0]],
+    geometry.radius,
+    geometry.type === "cone" ? 0 : geometry.radius,
+    matrix
+  );
+}
+function roundPathBounds(geometry, matrix) {
+  return flatEndedBounds(
+    geometry.points ?? [geometry.start, geometry.end],
+    geometry.startRadius ?? geometry.radius,
+    geometry.endRadius ?? geometry.radius,
+    matrix
+  );
+}
+function flatEndedBounds(points, startRadius, endRadius, matrix) {
+  const rows = matrix ?? identityMatrix();
+  const min = [Infinity, Infinity, Infinity], max = [-Infinity, -Infinity, -Infinity];
+  function includeSegment(start, end, normal) {
+    const a = matrix ? transformPointMatrix(start, matrix) : start;
+    const b = matrix ? transformPointMatrix(end, matrix) : end;
+    for (let axis = 0; axis < 3; axis++) {
+      const projection = length(cross(rows[axis], normal));
+      const extentA = startRadius * projection, extentB = endRadius * projection;
+      min[axis] = Math.min(min[axis], a[axis] - extentA, b[axis] - extentB);
+      max[axis] = Math.max(max[axis], a[axis] + extentA, b[axis] + extentB);
+    }
+  }
+  let hasSegment = false;
+  for (let i = 1; i < points.length; i++) {
+    const start = points[i - 1], end = points[i];
+    let delta = subtract(end, start);
+    if (!delta.every(Number.isFinite)) delta = end.map((value, axis) => value / 2 - start[axis] / 2);
+    const largest = Math.max(Math.abs(delta[0]), Math.abs(delta[1]), Math.abs(delta[2]));
+    if (largest === 0) continue;
+    const direction = delta.map((value) => value / largest);
+    const magnitude = length(direction);
+    includeSegment(start, end, direction.map((value) => value / magnitude));
+    hasSegment = true;
+  }
+  if (!hasSegment) includeSegment(points[0], points[0], [0, 1, 0]);
+  return createBounds(min, max);
+}
+function loftBounds(geometry, matrix) {
+  const points = geometry.sections.flatMap((section, index) => {
+    let { center, axisX = [section.radiusX, 0, 0], axisZ = [0, 0, section.radiusZ] } = section;
+    if (matrix) {
+      center = transformPointMatrix(center, matrix);
+      axisX = transformVectorMatrix(axisX, matrix);
+      axisZ = transformVectorMatrix(axisZ, matrix);
+    }
+    if (Array.isArray(section.profile)) {
+      const vertices = section.profile.map(([x, z]) => center.map((c, k) => c + axisX[k] * x + axisZ[k] * z));
+      if (index === 0 && geometry.capStart !== false || index === geometry.sections.length - 1 && geometry.capEnd !== false) vertices.push(center);
+      return vertices;
+    }
+    const extent = axisX.map((a, k) => Math.hypot(a, axisZ[k]));
+    return [center.map((c, k) => c - extent[k]), center.map((c, k) => c + extent[k])];
+  });
+  return pointsBounds(points);
+}
+function instanceGeometryBounds(entries, transform2) {
+  const localBounds = unionBounds(entries.map((entry) => entry.bounds));
+  if (!transform2?.rotation?.some((angle) => angle !== 0)) return { localBounds, bounds: transformBounds(localBounds, transform2) };
+  const matrix = transformMatrix(transform2);
+  const worldBounds = entries.map((entry) => {
+    if (entry.node && nodeSpaceTypes.has(entry.node.geometry.type)) return nodeSpaceBounds(entry.node, matrix);
+    const geometry = entry.node?.geometry ?? entry.geometry;
+    if (roundPaths.has(geometry.type)) return roundPathBounds(geometry, matrix);
+    if (geometry.type === "lofted-surface") return loftBounds(geometry, matrix);
+    return transformBoundsMatrix(entry.bounds, matrix);
+  });
+  return { localBounds, bounds: unionBounds(worldBounds) };
 }
 
 // packages/core/src/component.js
@@ -31376,18 +31686,33 @@ function validateDefinition(definition) {
   }
   if (typeof definition.build !== "function") throw new TypeError("component definition requires a build function");
 }
+function registerGeneratedId(ids, id, instanceId) {
+  if (!id.startsWith(`${instanceId}.`)) throw new Error(`Generated node id must be scoped by instance id: ${id}`);
+  if (ids.has(id)) throw new Error(`Duplicate generated node id: ${id}`);
+  ids.add(id);
+}
+function worldAnchorDefinition(definition, transform2) {
+  const world = { ...definition, position: transformPoint(definition.position, transform2) };
+  if (definition.direction) {
+    const collapsedTangent = definition.directionSource === "path" && definition.direction.every(
+      (value, axis) => value * (transform2?.scale?.[axis] ?? 1) === 0
+    );
+    world.direction = collapsedTangent ? null : transformDirection(definition.direction, transform2);
+  }
+  return world;
+}
+function componentGeometryBounds(nodes, transform2) {
+  const entries = nodes.filter((node) => node.kind === "geometry").map((node) => ({ node, bounds: geometryBounds(node) }));
+  return instanceGeometryBounds(entries, transform2);
+}
 function finalizeBuild(definition, instance, result) {
   if (!result || !Array.isArray(result.nodes)) throw new TypeError(`${definition.id} build must return nodes`);
   const ids = /* @__PURE__ */ new Set();
   for (const node of result.nodes) {
-    if (!node.id.startsWith(`${instance.id}.`)) {
-      throw new Error(`Generated node id must be scoped by instance id: ${node.id}`);
-    }
-    if (ids.has(node.id)) throw new Error(`Duplicate generated node id: ${node.id}`);
-    ids.add(node.id);
+    registerGeneratedId(ids, node.id, instance.id);
   }
   const instanceTransform = normalizeTransform(instance.transform);
-  const localBounds = unionBounds(result.nodes.filter((node) => node.kind === "geometry").map(geometryBounds));
+  const { localBounds, bounds } = componentGeometryBounds(result.nodes, instanceTransform);
   const anchorDefinitions = Object.fromEntries(Object.entries(result.anchors ?? {}).map(([id, value]) => {
     const definition2 = Array.isArray(value) ? { position: value } : value;
     if (!definition2 || typeof definition2 !== "object") throw new TypeError(`anchor ${id} must be a vec3 or descriptor`);
@@ -31396,14 +31721,8 @@ function finalizeBuild(definition, instance, result) {
   const localAnchors = Object.fromEntries(
     Object.entries(anchorDefinitions).map(([id, definition2]) => [id, definition2.position])
   );
-  const worldAnchors = Object.fromEntries(
-    Object.entries(localAnchors).map(([id, point]) => [id, transformPoint(point, instanceTransform)])
-  );
-  const worldAnchorDefinitions = Object.fromEntries(Object.entries(anchorDefinitions).map(([id, definition2]) => [id, {
-    ...definition2,
-    position: worldAnchors[id],
-    ...definition2.direction ? { direction: transformDirection(definition2.direction, instanceTransform) } : {}
-  }]));
+  const worldAnchorDefinitions = Object.fromEntries(Object.entries(anchorDefinitions).map(([id, definition2]) => [id, worldAnchorDefinition(definition2, instanceTransform)]));
+  const worldAnchors = Object.fromEntries(Object.entries(worldAnchorDefinitions).map(([id, definition2]) => [id, definition2.position]));
   return {
     contractVersion: COMPONENT_CONTRACT_VERSION,
     instance: {
@@ -31415,7 +31734,7 @@ function finalizeBuild(definition, instance, result) {
     },
     nodes: result.nodes,
     localBounds,
-    bounds: transformBounds(localBounds, instanceTransform),
+    bounds,
     anchors: {
       local: localAnchors,
       world: worldAnchors,
@@ -31430,6 +31749,167 @@ function finalizeBuild(definition, instance, result) {
     annotations: result.annotations ?? [],
     warnings: result.warnings ?? []
   };
+}
+
+// packages/core/src/scene.js
+function isConnectionType(type) {
+  return type === "connects" || type === "attachment";
+}
+function readConnectionContract(relation, invalid) {
+  let input = relation.contract ?? {};
+  if (typeof input !== "object" || Array.isArray(input)) {
+    invalid("contract", "Expected a connection contract object");
+    input = {};
+  }
+  function value(key, fallback, valid, reason, legacyKey) {
+    const legacy = legacyKey && input[key] == null && relation[legacyKey] != null;
+    const candidate = (legacy ? relation[legacyKey] : input[key]) ?? fallback;
+    if (valid(candidate)) return candidate;
+    invalid(legacy ? legacyKey : "contract/" + key, reason);
+    return fallback;
+  }
+  const nonnegative = (number) => Number.isFinite(number) && number >= 0;
+  const contract = {
+    contact: input.contact ?? "point",
+    gapTolerance: value("gapTolerance", 1e-6, nonnegative, "Expected a finite non-negative gap tolerance", "tolerance"),
+    embed: value("embed", 0, nonnegative, "Expected a finite non-negative embed distance"),
+    required: value("required", true, (v) => typeof v === "boolean", "Expected a boolean", "required"),
+    direction: value("direction", "any", (v) => ["any", "aligned", "opposed"].includes(v), "Expected any, aligned or opposed"),
+    angularTolerance: value("angularTolerance", Math.PI / 18, (v) => nonnegative(v) && v <= Math.PI, "Expected radians between 0 and PI")
+  };
+  const diameterMode = value("outsideDiameter", "any", (v) => ["any", "equal"].includes(v), "Expected any or equal");
+  const diameterTolerance = value("diameterTolerance", 1e-6, nonnegative, "Expected a finite non-negative diameter tolerance");
+  if (diameterMode === "equal") Object.assign(contract, { outsideDiameter: diameterMode, diameterTolerance });
+  return contract;
+}
+function decimalParts(value) {
+  const [mantissa, exponent] = value.toExponential().split("e");
+  const places = mantissa.split(".")[1]?.length ?? 0;
+  return { digits: BigInt(mantissa.replace(".", "")), exponent: Number(exponent) - places };
+}
+function decimalSpan(a, b) {
+  const span = Math.abs(a - b);
+  if (a === b || Number.isInteger(a) && Number.isInteger(b) || span >= Math.max(Math.abs(a), Math.abs(b)) / 2 || !Number.isFinite(span)) return span;
+  const left = decimalParts(a), right = decimalParts(b);
+  const exponent = Math.min(left.exponent, right.exponent);
+  const leftDigits = left.digits * 10n ** BigInt(left.exponent - exponent);
+  const rightDigits = right.digits * 10n ** BigInt(right.exponent - exponent);
+  const digits = leftDigits - rightDigits;
+  return Math.abs(Number(`${digits}e${exponent}`));
+}
+function withinDistance(measured, limit) {
+  return Number.isFinite(measured) && measured - limit <= 4 * Number.EPSILON * limit;
+}
+function withinAngle(measured, limit) {
+  return measured !== null && measured <= limit + 4 * Number.EPSILON;
+}
+function anchorGap(fromPoint, toPoint) {
+  return length(fromPoint.map((value, axis) => decimalSpan(value, toPoint[axis])));
+}
+function effectiveConnectionGap(gap, embed) {
+  return gap > embed ? decimalSpan(gap, embed) : 0;
+}
+function connectionGapFits(gap, { embed, gapTolerance }) {
+  return withinDistance(gap, embed + gapTolerance);
+}
+function measureConnectionDirection(fromDirection, toDirection, { direction, angularTolerance }) {
+  const directionsAvailable = Boolean(fromDirection && toDirection);
+  let directionDot = null, directionAngle = null, directionDeviation = null;
+  if (directionsAvailable) {
+    directionDot = Math.max(-1, Math.min(1, dot(fromDirection, toDirection)));
+    const sine = length(cross(fromDirection, toDirection));
+    directionAngle = Math.atan2(sine, directionDot);
+    if (direction === "opposed") directionDeviation = Math.atan2(sine, -directionDot);
+    if (direction === "aligned") directionDeviation = directionAngle;
+  }
+  const directionCompatible = direction === "any" || withinAngle(directionDeviation, angularTolerance);
+  return { directionsAvailable, fromDirection, toDirection, directionDot, directionAngle, directionDeviation, directionCompatible };
+}
+function measureConnectionDiameter(from, to, diameterTolerance) {
+  const difference = from !== null && to !== null ? decimalSpan(from, to) : null;
+  const compatible = difference !== null && withinDistance(difference, diameterTolerance);
+  return { from, to, difference, unit: "meter", compatible };
+}
+function diameterIssueCode(check) {
+  if (check.compatible) return null;
+  return check.difference === null ? "SCENE_CONNECTION_DIAMETER_UNAVAILABLE" : "SCENE_CONNECTION_DIAMETER_MISMATCH";
+}
+function evaluateConnection(relation, fromDefinition, toDefinition, contract) {
+  const fromPoint = fromDefinition.position, toPoint = toDefinition.position;
+  const gap = anchorGap(fromPoint, toPoint);
+  const effectiveGap = effectiveConnectionGap(gap, contract.embed);
+  const positionCompatible = connectionGapFits(gap, contract);
+  const orientation = measureConnectionDirection(fromDefinition.direction ?? null, toDefinition.direction ?? null, contract);
+  const outsideDiameterCheck = contract.outsideDiameter === "equal" ? measureConnectionDiameter(declaredDiameter(fromDefinition), declaredDiameter(toDefinition), contract.diameterTolerance) : void 0;
+  return {
+    ...relation,
+    contract,
+    fromPoint,
+    toPoint,
+    gap,
+    effectiveGap,
+    positionCompatible,
+    ...orientation,
+    ...outsideDiameterCheck ? { outsideDiameterCheck } : {},
+    connected: positionCompatible && orientation.directionCompatible && (outsideDiameterCheck?.compatible ?? true)
+  };
+}
+function declaredDiameter(anchor) {
+  return Number.isFinite(anchor.outsideDiameter) && anchor.outsideDiameter > 0 ? anchor.outsideDiameter : null;
+}
+function connectionIssues(connection, location2) {
+  const issues = [];
+  function add3(code, reason, measurement) {
+    issues.push({
+      level: connection.contract.required ? "error" : "warning",
+      code,
+      message: `Connection ${connection.from} -> ${connection.to} failed: ${reason}`,
+      location: location2,
+      measurement
+    });
+  }
+  if (!connection.positionCompatible) {
+    add3("SCENE_CONNECTION_GAP", `effective gap ${connection.effectiveGap} exceeds ${connection.contract.gapTolerance}`, {
+      space: "world",
+      unit: "meter",
+      fromPoint: connection.fromPoint,
+      toPoint: connection.toPoint,
+      gap: connection.gap,
+      embed: connection.contract.embed,
+      effectiveGap: connection.effectiveGap,
+      gapTolerance: connection.contract.gapTolerance
+    });
+  }
+  if (!connection.directionCompatible) {
+    add3("SCENE_CONNECTION_DIRECTION", connection.directionsAvailable ? `anchor directions do not satisfy ${connection.contract.direction}` : "anchor directions are missing", {
+      space: "world",
+      unit: "radian",
+      fromDirection: connection.fromDirection,
+      toDirection: connection.toDirection,
+      direction: connection.contract.direction,
+      angle: connection.directionAngle,
+      deviation: connection.directionDeviation,
+      angularTolerance: connection.contract.angularTolerance
+    });
+  }
+  const diameter = connection.outsideDiameterCheck;
+  if (diameter && !diameter.compatible) {
+    const measurement = {
+      unit: diameter.unit,
+      from: diameter.from,
+      to: diameter.to,
+      difference: diameter.difference,
+      diameterTolerance: connection.contract.diameterTolerance
+    };
+    const code = diameterIssueCode(diameter);
+    if (diameter.difference === null) {
+      const missing = [diameter.from === null && connection.from, diameter.to === null && connection.to].filter(Boolean);
+      add3(code, `positive outside diameter in metres required at ${missing.join(", ")}`, measurement);
+    } else {
+      add3(code, `outside diameters ${diameter.from} m and ${diameter.to} m differ by ${diameter.difference} m`, measurement);
+    }
+  }
+  return issues;
 }
 
 // packages/core/src/path.js
@@ -31500,15 +31980,26 @@ function analyzePath(points, { tolerance = 1e-9 } = {}) {
     end: path.at(-1)
   };
 }
+function pathSamplingEnd(length2, startOffset, endOffset) {
+  assertFiniteNumber(length2, "path length", { min: 0 });
+  const end = length2 - endOffset;
+  if (startOffset - end > Number.EPSILON * Math.max(length2, startOffset, endOffset) * 2) {
+    throw Object.assign(new RangeError(`path offsets leave no available sampling length (length ${length2}, startOffset ${startOffset}, endOffset ${endOffset})`), { field: "endOffset" });
+  }
+  return Math.max(startOffset, end);
+}
 function samplePath(points, { spacing, startOffset = 0, endOffset = 0, includeEnd = false } = {}) {
   const analysis = analyzePath(points);
   const safeSpacing = assertFiniteNumber(spacing, "spacing", { min: 0, exclusiveMin: true });
   const safeStart = assertFiniteNumber(startOffset, "startOffset", { min: 0 });
   const safeEnd = assertFiniteNumber(endOffset, "endOffset", { min: 0 });
-  const availableEnd = analysis.totalLength - safeEnd;
-  if (safeStart > availableEnd) throw new RangeError("path offsets leave no available sampling length");
+  const availableEnd = pathSamplingEnd(analysis.totalLength, safeStart, safeEnd);
   const distances = [];
-  for (let distance = safeStart; distance <= availableEnd + 1e-9; distance += safeSpacing) distances.push(Math.min(distance, availableEnd));
+  for (let distance = safeStart; distance <= availableEnd + 1e-9; distance += safeSpacing) {
+    distances.push(Math.min(distance, availableEnd));
+    if (distance >= availableEnd) break;
+    if (distance + safeSpacing === distance) throw new RangeError("spacing is too small for this path");
+  }
   if (includeEnd && Math.abs(distances.at(-1) - availableEnd) > 1e-9) distances.push(availableEnd);
   const samples = distances.map((distance, sampleIndex) => {
     let traversed = 0;
@@ -31538,6 +32029,235 @@ function samplePath(points, { spacing, startOffset = 0, endOffset = 0, includeEn
   };
 }
 
+// packages/core/src/pipe-ports.js
+function pipePorts(points, segments, outsideDiameter) {
+  const first = segments[0];
+  return {
+    start: { position: points[0], direction: normalizeVector(subtract(first.start, first.end)), directionSource: "path", kind: "pipe-port", outsideDiameter },
+    end: { position: points.at(-1), direction: normalizeVector(segments.at(-1).delta), directionSource: "path", kind: "pipe-port", outsideDiameter }
+  };
+}
+
+// packages/core/src/mep-route-bindings.js
+var method = "mep.route-with-clips";
+var rounded = (length2) => Number(length2.toFixed(4));
+function legacyBindings(spec) {
+  if (spec.metrics?.method !== method) return;
+  const generated = spec.nodes.filter((node) => node?.metadata?.generatedBy === method);
+  const clips = new Map(generated.filter((node) => node.repetition?.type === "path").map((node) => [node.metadata.supportsRoute, node]));
+  const pipes = generated.filter((node) => node.geometry?.type === "tube-along");
+  if (!pipes.length) return;
+  return pipes.map((node) => {
+    const clip = clips.get(node.id);
+    const start = spec.anchors?.[`${node.id}-start`];
+    if (clip && !clip.parent && start?.node === node.id && start.kind === "route-start" && Array.isArray(start.position) && Array.isArray(clip.repetition.points?.[0])) {
+      return { node: node.id, clip: clip.id, clipOffset: subtract(clip.repetition.points[0], start.position) };
+    }
+    return { node: node.id };
+  });
+}
+function throwIssue(path, message, nodeId) {
+  throw Object.assign(new Error(`${path}: ${message}`), { code: "ROUTE_BINDING_INVALID", path, nodeId });
+}
+function resolveMepRouteBindings(spec, report = throwIssue) {
+  if (!Array.isArray(spec?.nodes)) return spec;
+  const legacy = spec.routeBindings === void 0;
+  const bindings = legacy ? legacyBindings(spec) : spec.routeBindings;
+  if (bindings === void 0) return spec;
+  if (!Array.isArray(bindings)) {
+    report("/routeBindings", "Expected an array of route bindings");
+    return spec;
+  }
+  const nodes = [...spec.nodes];
+  const indices = new Map(nodes.map((node, i) => [node?.id, i]));
+  const routes = /* @__PURE__ */ new Map(), clipIds = /* @__PURE__ */ new Set();
+  let length2 = 0;
+  for (const [i, binding] of bindings.entries()) {
+    const path = "/routeBindings/" + i;
+    const id = binding?.node;
+    const index = indices.get(id);
+    const pipe = nodes[index];
+    if (typeof id !== "string" || pipe?.geometry?.type !== "tube-along" || pipe.repetition || routes.has(id)) {
+      report(path + "/node", "Expected a unique, non-repeated tube-along node", id);
+      continue;
+    }
+    let analysis, ports;
+    try {
+      analysis = analyzePath(pipe.geometry.points);
+      assertFiniteNumber(analysis.totalLength, "centerline length");
+    } catch (error) {
+      report(`/nodes/${index}/geometry/points`, error.message, id);
+      continue;
+    }
+    try {
+      const radius = assertFiniteNumber(pipe.geometry.radius, "radius", { min: 0, exclusiveMin: true });
+      ports = pipePorts(analysis.points, analysis.segments, assertFiniteNumber(radius * 2, "outside diameter"));
+    } catch (error) {
+      report(`/nodes/${index}/geometry/radius`, error.message, id);
+      continue;
+    }
+    routes.set(id, ports);
+    length2 += analysis.totalLength;
+    nodes[index] = { ...pipe, metadata: { ...pipe.metadata, centerlineLength: rounded(analysis.totalLength) } };
+    if (binding.clip === void 0) continue;
+    const clipIndex = indices.get(binding.clip);
+    const clip = nodes[clipIndex];
+    if (typeof binding.clip !== "string" || clip?.repetition?.type !== "path" || clipIds.has(clip.id) || clip.parent !== id && !(legacy && !clip.parent)) {
+      report(path + "/clip", "Expected a distinct path repetition parented to the route node", id);
+      continue;
+    }
+    clipIds.add(clip.id);
+    try {
+      const offset = assertVec3(binding.clipOffset, "clipOffset");
+      nodes[clipIndex] = {
+        ...clip,
+        parent: id,
+        repetition: { ...clip.repetition, points: analysis.points.map((point) => add(point, offset)) },
+        metadata: { ...clip.metadata, supportsRoute: id, clipSpacing: clip.repetition.spacing }
+      };
+    } catch (error) {
+      report(path + "/clipOffset", error.message, id);
+    }
+  }
+  const anchors = spec.anchors && !Array.isArray(spec.anchors) && typeof spec.anchors === "object" ? Object.fromEntries(Object.entries(spec.anchors).map(([name, anchor]) => {
+    const ports = routes.get(anchor?.node);
+    const port = anchor?.kind === "route-start" ? ports?.start : anchor?.kind === "route-end" ? ports?.end : void 0;
+    return [name, port ? { ...anchor, ...port, kind: anchor.kind } : anchor];
+  })) : spec.anchors;
+  return {
+    ...spec,
+    routeBindings: bindings,
+    nodes,
+    anchors,
+    metrics: { ...spec.metrics, routeCount: routes.size, totalPipeLength: { ...spec.metrics?.totalPipeLength, value: rounded(length2), unit: "m" } }
+  };
+}
+
+// packages/core/src/reference-suggestions.js
+function editDistance(left, right, limit) {
+  const outside = limit + 1;
+  if (Math.abs(left.length - right.length) > limit) return outside;
+  let previous = /* @__PURE__ */ new Map();
+  let twoRowsBack;
+  for (let column = 0; column <= Math.min(right.length, limit); column++) previous.set(column, column);
+  for (let row = 1; row <= left.length; row++) {
+    const current = /* @__PURE__ */ new Map();
+    if (row <= limit) current.set(0, row);
+    for (let column = Math.max(1, row - limit); column <= Math.min(right.length, row + limit); column++) {
+      const cost = left[row - 1] === right[column - 1] ? 0 : 1;
+      let distance = Math.min(
+        (current.get(column - 1) ?? outside) + 1,
+        (previous.get(column) ?? outside) + 1,
+        (previous.get(column - 1) ?? outside) + cost
+      );
+      if (row > 1 && column > 1 && left[row - 1] === right[column - 2] && left[row - 2] === right[column - 1]) {
+        distance = Math.min(distance, (twoRowsBack.get(column - 2) ?? outside) + 1);
+      }
+      current.set(column, distance);
+    }
+    twoRowsBack = previous;
+    previous = current;
+  }
+  return previous.get(right.length) ?? outside;
+}
+function referenceSuggestions(value, candidates, isUsable) {
+  if (typeof value !== "string" || !value) return [];
+  const name = Array.from(value.toLowerCase());
+  let bestDistance = name.length <= 2 ? 0 : name.length <= 6 ? 1 : 2;
+  const matches = /* @__PURE__ */ new Set();
+  for (const candidate of candidates) {
+    if (!candidate || candidate === value) continue;
+    const distance = editDistance(name, Array.from(candidate.toLowerCase()), bestDistance);
+    if (distance > bestDistance || isUsable && !isUsable(candidate)) continue;
+    if (distance < bestDistance) matches.clear();
+    bestDistance = distance;
+    matches.add(candidate);
+  }
+  return [...matches].sort().slice(0, 3);
+}
+
+// packages/core/src/connection-check.js
+var object = (value) => value !== null && typeof value === "object" && !Array.isArray(value);
+var named = (value) => typeof value === "string" && value.length > 0;
+function checkConnectionList(entries, base, { attachmentsOnly, endpoint, report }) {
+  if (entries === void 0) return;
+  if (!Array.isArray(entries)) {
+    report("SCENE_RELATIONS_INVALID", base, "Expected an array");
+    return;
+  }
+  for (const [index, relation] of entries.entries()) {
+    const path = `${base}/${index}`;
+    if (!object(relation)) {
+      report("SCENE_RELATION_INVALID", path, "Expected a relation object");
+      continue;
+    }
+    const context = named(relation.id) ? { relationId: relation.id } : {};
+    if (attachmentsOnly) {
+      if (relation.type !== void 0 && !isConnectionType(relation.type)) {
+        report("ATTACHMENT_TYPE_INVALID", path + "/type", "Expected attachment or connects", context);
+      }
+    } else if (!isConnectionType(relation.type)) {
+      if (!named(relation.type)) report("SCENE_RELATION_INVALID", path + "/type", "Expected a non-empty relation type", context);
+      continue;
+    }
+    const from = endpoint(relation.from, path + "/from", context);
+    const to = endpoint(relation.to, path + "/to", context);
+    const invalid = /* @__PURE__ */ new Set();
+    const contract = readConnectionContract(relation, (field, message) => {
+      invalid.add(field);
+      report("SCENE_CONTRACT_INVALID", path + "/" + field, message, context);
+    });
+    if (!from || !to || invalid.has("contract")) continue;
+    const connection = evaluateConnection(relation, from.definition, to.definition, contract);
+    for (const { code, message, level, measurement } of connectionIssues(connection, path)) {
+      let field;
+      if (code === "SCENE_CONNECTION_GAP") {
+        if (invalid.has("contract/gapTolerance") || invalid.has("contract/embed") || invalid.has("tolerance")) continue;
+        field = relation.contract?.gapTolerance != null ? "contract/gapTolerance" : relation.tolerance != null ? "tolerance" : "to";
+      } else if (code === "SCENE_CONNECTION_DIRECTION") {
+        if (invalid.has("contract/angularTolerance")) continue;
+        field = "contract/direction";
+      } else {
+        if (invalid.has("contract/diameterTolerance")) continue;
+        field = "contract/outsideDiameter";
+      }
+      report(code, path + "/" + field, message, {
+        ...context,
+        level,
+        measurement,
+        from: relation.from,
+        to: relation.to,
+        ...from.instanceId ? { instanceIds: [.../* @__PURE__ */ new Set([from.instanceId, to.instanceId])] } : {}
+      });
+    }
+  }
+}
+function checkLocalAttachments(spec, base, lookup, report) {
+  let anchorNames;
+  function endpoint(name, path, context) {
+    if (!named(name)) {
+      report("ATTACHMENT_REFERENCE_INVALID", path, "Expected a local anchor name", context);
+    } else if (!Object.hasOwn(spec.anchors ?? {}, name)) {
+      anchorNames ??= object(spec.anchors) ? Object.keys(spec.anchors) : [];
+      const suggestedValues = referenceSuggestions(name, anchorNames, (candidate) => {
+        try {
+          return Boolean(lookup(candidate));
+        } catch {
+          return false;
+        }
+      });
+      report("ATTACHMENT_ANCHOR_MISSING", path, `Unknown local anchor: ${name}`, {
+        ...context,
+        ...suggestedValues.length ? { suggestedValues } : {}
+      });
+    } else {
+      const definition = lookup(name);
+      if (definition) return { definition };
+    }
+  }
+  checkConnectionList(spec.attachments, base + "/attachments", { attachmentsOnly: true, endpoint, report });
+}
+
 // packages/core/src/composition.js
 var COMPOSITION_SPEC_VERSION = "0.3";
 function requiredString(value, name) {
@@ -31548,6 +32268,7 @@ function compileGeometry(node, id, matrix) {
   const geometry = node.geometry;
   if (!geometry || typeof geometry !== "object") throw new TypeError(`${node.id}.geometry must be an object`);
   const common = { id, material: node.material, appearance: node.appearance, semanticType: node.semanticType, metadata: node.metadata };
+  if (geometry.type === "sweep") return sweep({ ...geometry, ...common, matrix });
   if (geometry.type === "box") {
     return box({ ...common, size: geometry.size, position: transformPointMatrix([0, 0, 0], matrix), matrix });
   }
@@ -31558,8 +32279,8 @@ function compileGeometry(node, id, matrix) {
   if (geometry.type === "cylinder-between") {
     return cylinderBetween({
       ...common,
-      start: transformPointMatrix(geometry.start, matrix),
-      end: transformPointMatrix(geometry.end, matrix),
+      start: transformPointMatrix(geometry.start, matrix, "start"),
+      end: transformPointMatrix(geometry.end, matrix, "end"),
       radius: geometry.radius,
       radialSegments: geometry.radialSegments
     });
@@ -31567,25 +32288,26 @@ function compileGeometry(node, id, matrix) {
   if (geometry.type === "tapered-cylinder-between") {
     return taperedCylinderBetween({
       ...common,
-      start: transformPointMatrix(geometry.start, matrix),
-      end: transformPointMatrix(geometry.end, matrix),
+      start: transformPointMatrix(geometry.start, matrix, "start"),
+      end: transformPointMatrix(geometry.end, matrix, "end"),
       startRadius: geometry.startRadius,
       endRadius: geometry.endRadius,
       radialSegments: geometry.radialSegments
     });
   }
   if (geometry.type === "lofted-surface") {
+    if (!Array.isArray(geometry.sections)) throw Object.assign(new TypeError("Expected an array of loft sections"), { field: "sections" });
     return loftedSurface({
       ...common,
-      sections: geometry.sections.map((section) => {
-        const center = transformPointMatrix(section.center, matrix);
+      sections: geometry.sections.map((section, i) => {
+        const center = transformPointMatrix(section?.center, matrix, `sections[${i}].center`);
         const axisX = section.axisX ?? [section.radiusX, 0, 0];
         const axisZ = section.axisZ ?? [0, 0, section.radiusZ];
         return {
           ...section,
           center,
-          axisX: subtract(transformPointMatrix(add(section.center, axisX), matrix), center),
-          axisZ: subtract(transformPointMatrix(add(section.center, axisZ), matrix), center)
+          axisX: transformVectorMatrix(axisX, matrix),
+          axisZ: transformVectorMatrix(axisZ, matrix)
         };
       }),
       radialSegments: geometry.radialSegments,
@@ -31594,14 +32316,15 @@ function compileGeometry(node, id, matrix) {
     });
   }
   if (geometry.type === "tube-along") {
+    if (!Array.isArray(geometry.points)) throw Object.assign(new TypeError("Expected an array of tube points"), { field: "points" });
     return tubeAlong({
       ...common,
-      points: geometry.points.map((point) => transformPointMatrix(point, matrix)),
+      points: geometry.points.map((point, i) => transformPointMatrix(point, matrix, `points[${i}]`)),
       radius: geometry.radius,
       radialSegments: geometry.radialSegments
     });
   }
-  throw new Error(`Unsupported composition geometry type: ${geometry.type}`);
+  throw Object.assign(new Error(`Unsupported composition geometry type: ${geometry.type}`), { field: "type" });
 }
 function linearRepetition({ count, step, start = [0, 0, 0] }) {
   const safeCount = assertFiniteNumber(count, "repetition.count", { min: 1 });
@@ -31655,7 +32378,7 @@ function occurrences(repetition) {
   if (repetition.type === "grid") return gridRepetition(repetition);
   if (repetition.type === "radial") return radialRepetition(repetition);
   if (repetition.type === "path") return pathRepetition(repetition);
-  throw new Error(`Unsupported repetition type: ${repetition.type}`);
+  throw Object.assign(new Error(`Unsupported repetition type: ${repetition.type}`), { field: "type" });
 }
 function orientationMatrix(orientation, occurrence) {
   if (!orientation || orientation.mode === "fixed") return identityMatrix();
@@ -31690,25 +32413,52 @@ function selectOccurrence(nodeId, placements, selector) {
   if (!found) throw new Error(`Occurrence does not exist for node ${nodeId}: ${JSON.stringify(selector)}`);
   return found;
 }
-function validateHierarchy(nodesById) {
-  for (const node of nodesById.values()) {
-    if (node.parent && !nodesById.has(node.parent)) throw new Error(`Parent node does not exist: ${node.parent}`);
-    if (node.parent && nodesById.get(node.parent).repetition) throw new Error(`Repeated node cannot be a parent in CompositionSpec 0.2: ${node.parent}`);
+function* hierarchyIssues(nodes, nodesById, ambiguous = /* @__PURE__ */ new Set()) {
+  for (const node of nodes) {
+    if (!node.parent) continue;
+    if (ambiguous.has(node.parent)) yield [node, "PARENT_AMBIGUOUS", `Parent ID is duplicated: ${node.parent}`];
+    else if (!nodesById.has(node.parent)) yield [node, "PARENT_MISSING", `Parent node does not exist: ${node.parent}`];
+    else if (nodesById.get(node.parent).repetition) yield [node, "PARENT_REPEATED", `Repeated node cannot be a parent: ${node.parent}`];
   }
-  const visiting = /* @__PURE__ */ new Set();
   const visited = /* @__PURE__ */ new Set();
-  function visit(id) {
-    if (visiting.has(id)) throw new Error(`Composition hierarchy contains a cycle at: ${id}`);
-    if (visited.has(id)) return;
-    visiting.add(id);
-    const parent = nodesById.get(id).parent;
-    if (parent) visit(parent);
-    visiting.delete(id);
-    visited.add(id);
+  for (const id of nodesById.keys()) {
+    const chain = /* @__PURE__ */ new Set();
+    let current = id;
+    while (nodesById.has(current) && !ambiguous.has(current) && !visited.has(current)) {
+      if (chain.has(current)) {
+        const members = [...chain];
+        const cycle = members.slice(members.indexOf(current));
+        const reason = `Composition hierarchy contains a cycle: ${[...cycle, current].join(" -> ")}`;
+        for (const member of cycle) yield [nodesById.get(member), "PARENT_CYCLE", reason];
+        break;
+      }
+      chain.add(current);
+      current = nodesById.get(current).parent;
+    }
+    for (const member of chain) visited.add(member);
   }
-  for (const id of nodesById.keys()) visit(id);
 }
-function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
+function validateLight(light) {
+  if (!["point", "directional", "spot"].includes(light.type)) throw new Error(`Unsupported light type: ${light.type}`);
+}
+function compileCompositionSpec(spec, { instanceId = spec?.id, transform: transform2, includeSource = false } = {}) {
+  spec = resolveMepRouteBindings(spec);
+  const result = compile(spec, instanceId);
+  if (includeSource) result.parameters = spec;
+  if (spec.attachments !== void 0) {
+    const warnings = [];
+    checkLocalAttachments(spec, "", (name) => {
+      const anchor = result.anchors[name];
+      return worldAnchorDefinition(Array.isArray(anchor) ? { position: anchor } : anchor, transform2);
+    }, (code, path, message, context) => {
+      if (context?.level !== "warning") throw Object.assign(new Error(`${path}: ${message}`), { code, path, ...context });
+      warnings.push({ code, path, message, ...context });
+    });
+    if (warnings.length) result.warnings = [...result.warnings, ...warnings];
+  }
+  return result;
+}
+function compile(spec, instanceId, onIssue) {
   if (!spec || typeof spec !== "object") throw new TypeError("composition spec must be an object");
   requiredString(instanceId, "composition instanceId");
   if (!Array.isArray(spec.nodes)) throw new TypeError("composition spec nodes must be an array");
@@ -31719,7 +32469,8 @@ function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
     if (nodesById.has(node.id)) throw new Error(`Duplicate composition node id: ${node.id}`);
     nodesById.set(node.id, node);
   }
-  validateHierarchy(nodesById);
+  const hierarchyError = hierarchyIssues(nodesById.values(), nodesById).next();
+  if (!hierarchyError.done) throw new Error(hierarchyError.value[2]);
   const logicalMatrices = /* @__PURE__ */ new Map();
   function logicalMatrix(node) {
     if (logicalMatrices.has(node.id)) return logicalMatrices.get(node.id);
@@ -31732,7 +32483,7 @@ function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
   const nodes = [];
   const repetitions = [];
   const occurrencePlacements = /* @__PURE__ */ new Map();
-  for (const node of spec.nodes) {
+  for (const [nodeIndex, node] of spec.nodes.entries()) {
     const expanded = occurrences(node.repetition);
     if (node.repetition) repetitions.push({ prototypeId: node.id, ...node.repetition, orientation: node.orientation ?? { mode: "fixed" }, occurrenceCount: expanded.length });
     const placements = expanded.map((occurrence) => ({
@@ -31744,7 +32495,7 @@ function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
     }));
     occurrencePlacements.set(node.id, placements);
     if (node.light) {
-      if (!["point", "directional", "spot"].includes(node.light.type)) throw new Error(`Unsupported light type: ${node.light.type}`);
+      validateLight(node.light);
       for (const { occurrence, matrix } of placements) {
         nodes.push({
           id: occurrenceId(instanceId, node.id, occurrence.index, expanded.length),
@@ -31762,7 +32513,14 @@ function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
     }
     if (!node.geometry) continue;
     for (const { occurrence, matrix } of placements) {
-      const compiled = compileGeometry(node, occurrenceId(instanceId, node.id, occurrence.index, expanded.length), matrix);
+      let compiled;
+      try {
+        compiled = compileGeometry(node, occurrenceId(instanceId, node.id, occurrence.index, expanded.length), matrix);
+      } catch (error) {
+        if (!onIssue) throw error;
+        onIssue("GEOMETRY_INVALID", ["nodes", nodeIndex, "geometry"], error.message, node.id);
+        break;
+      }
       compiled.parent = node.parent ?? null;
       compiled.pivot = node.pivot ?? [0, 0, 0];
       compiled.metadata = {
@@ -31785,13 +32543,22 @@ function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
     if (!owner) throw new Error(`Anchor ${id} refers to unknown node: ${definition.node}`);
     const selected = owner.repetition ? selectOccurrence(owner.id, occurrencePlacements.get(owner.id), definition.occurrence) : occurrencePlacements.get(owner.id)[0];
     const ownerMatrix = selected.matrix;
+    let position, direction;
+    try {
+      position = transformPointMatrix(definition.position, ownerMatrix);
+      if (definition.direction) direction = transformDirectionMatrix(definition.direction, ownerMatrix);
+    } catch (error) {
+      if (!onIssue) throw error;
+      onIssue("ANCHOR_TRANSFORM_INVALID", ["anchors", id, position ? "direction" : "position"], error.message, owner.id);
+      return null;
+    }
     return [id, {
       ...definition,
-      position: transformPointMatrix(definition.position, ownerMatrix),
-      ...definition.direction ? { direction: transformDirectionMatrix(definition.direction, ownerMatrix) } : {},
+      position,
+      ...direction ? { direction } : {},
       ...owner.repetition ? { occurrenceRef: `${owner.id}[${selected.occurrence.index}]` } : {}
     }];
-  }));
+  }).filter((entry) => entry !== null));
   return {
     contractVersion: COMPOSITION_SPEC_VERSION,
     parameters: spec.parameters ?? {},
@@ -31807,13 +32574,28 @@ function compileCompositionSpec(spec, { instanceId = spec?.id } = {}) {
   };
 }
 
+// packages/core/src/component-parameters.js
+function readComponentParameters(parse) {
+  const errors = [];
+  function invalid(field, error) {
+    errors.push({ error, field: error.field ?? field });
+  }
+  function read(field, evaluate) {
+    try {
+      return evaluate();
+    } catch (error) {
+      invalid(field, error);
+    }
+  }
+  const value = parse(read, invalid);
+  if (errors.length) {
+    const parameterIssues = errors.map(({ field, error }) => ({ field, message: error.message }));
+    throw Object.assign(errors[0].error, { parameterIssues });
+  }
+  return value;
+}
+
 // packages/core/src/components/independent-foundation.js
-function positive(value, fallback, name) {
-  return assertFiniteNumber(value ?? fallback, name, { min: 0, exclusiveMin: true });
-}
-function nonNegative(value, fallback, name) {
-  return assertFiniteNumber(value ?? fallback, name, { min: 0 });
-}
 function positionsAcross(span, cover, spacing) {
   const usable = span - cover * 2;
   if (usable < 0) throw new RangeError("cover cannot exceed half of the foundation dimension");
@@ -31828,35 +32610,35 @@ var independentFoundation = {
   description: "Build a dimensioned pad foundation, optional blinding layer, column starter, and bottom reinforcement grid.",
   tags: ["construction", "foundation", "concrete", "rebar", "parametric"],
   parameters: {
-    width: { type: "number", unit: "meter", default: 4 },
-    depth: { type: "number", unit: "meter", default: 4 },
-    height: { type: "number", unit: "meter", default: 0.8 },
-    columnWidth: { type: "number", unit: "meter", default: 0.8 },
-    columnDepth: { type: "number", unit: "meter", default: 0.8 },
-    columnHeight: { type: "number", unit: "meter", default: 1.5 },
-    blindingThickness: { type: "number", unit: "meter", default: 0.1 },
-    blindingExtension: { type: "number", unit: "meter", default: 0.1 },
-    rebarDiameter: { type: "number", unit: "meter", default: 0.016 },
-    rebarSpacing: { type: "number", unit: "meter", default: 0.2 },
-    concreteCover: { type: "number", unit: "meter", default: 0.05 }
+    width: { type: "number", unit: "meter", default: 4, exclusiveMinimum: 0 },
+    depth: { type: "number", unit: "meter", default: 4, exclusiveMinimum: 0 },
+    height: { type: "number", unit: "meter", default: 0.8, exclusiveMinimum: 0 },
+    columnWidth: { type: "number", unit: "meter", default: 0.8, exclusiveMinimum: 0 },
+    columnDepth: { type: "number", unit: "meter", default: 0.8, exclusiveMinimum: 0 },
+    columnHeight: { type: "number", unit: "meter", default: 1.5, exclusiveMinimum: 0 },
+    blindingThickness: { type: "number", unit: "meter", default: 0.1, minimum: 0 },
+    blindingExtension: { type: "number", unit: "meter", default: 0.1, minimum: 0 },
+    rebarDiameter: { type: "number", unit: "meter", default: 0.016, exclusiveMinimum: 0 },
+    rebarSpacing: { type: "number", unit: "meter", default: 0.2, exclusiveMinimum: 0 },
+    concreteCover: { type: "number", unit: "meter", default: 0.05, minimum: 0 }
   },
   build({ instanceId, parameters: input }) {
-    const parameters = {
-      width: positive(input.width, 4, "width"),
-      depth: positive(input.depth, 4, "depth"),
-      height: positive(input.height, 0.8, "height"),
-      columnWidth: positive(input.columnWidth, 0.8, "columnWidth"),
-      columnDepth: positive(input.columnDepth, 0.8, "columnDepth"),
-      columnHeight: positive(input.columnHeight, 1.5, "columnHeight"),
-      blindingThickness: nonNegative(input.blindingThickness, 0.1, "blindingThickness"),
-      blindingExtension: nonNegative(input.blindingExtension, 0.1, "blindingExtension"),
-      rebarDiameter: positive(input.rebarDiameter, 0.016, "rebarDiameter"),
-      rebarSpacing: positive(input.rebarSpacing, 0.2, "rebarSpacing"),
-      concreteCover: nonNegative(input.concreteCover, 0.05, "concreteCover")
-    };
-    if (parameters.columnWidth > parameters.width || parameters.columnDepth > parameters.depth) {
-      throw new RangeError("column dimensions cannot exceed foundation dimensions");
-    }
+    const parameters = readComponentParameters((read, invalid) => {
+      const values = {};
+      for (const [key, spec] of Object.entries(independentFoundation.parameters)) {
+        values[key] = read(key, () => assertFiniteNumber(input[key] ?? spec.default, key, {
+          min: spec.minimum ?? spec.exclusiveMinimum,
+          exclusiveMin: spec.exclusiveMinimum !== void 0
+        }));
+      }
+      for (const [column, span] of [["columnWidth", "width"], ["columnDepth", "depth"]]) {
+        if (values[column] > values[span]) invalid(column, new RangeError(`${column} cannot exceed foundation ${span}`));
+      }
+      if (values.concreteCover * 2 >= values.width || values.concreteCover * 2 >= values.depth) {
+        invalid("concreteCover", new RangeError("cover must leave room for the reinforcement in both foundation dimensions"));
+      }
+      return values;
+    });
     const nodes = [];
     if (parameters.blindingThickness > 0) {
       nodes.push(box({
@@ -31973,14 +32755,19 @@ var pipeRun = {
     material: { type: "string", default: "pipe.generic" }
   },
   build({ instanceId, parameters: input }) {
-    if (!Array.isArray(input.path) || input.path.length < 2) throw new TypeError("path must contain at least two vec3 points");
-    const path = input.path.map((point, index) => assertVec3(point, `path[${index}]`));
-    const diameter = assertFiniteNumber(input.diameter, "diameter", { min: 0, exclusiveMin: true });
+    const { path, diameter, pathAnalysis } = readComponentParameters((read) => {
+      const path2 = read("path", () => {
+        if (!Array.isArray(input.path) || input.path.length < 2) throw new TypeError("path must contain at least two vec3 points");
+        return input.path.map((point, i) => read(`path[${i}]`, () => assertVec3(point, `path[${i}]`)));
+      });
+      const diameter2 = read("diameter", () => assertFiniteNumber(input.diameter, "diameter", { min: 0, exclusiveMin: true }));
+      const pathAnalysis2 = path2?.every(Boolean) ? read("path", () => analyzePath(path2)) : void 0;
+      return { path: path2, diameter: diameter2, pathAnalysis: pathAnalysis2 };
+    });
     const system = typeof input.system === "string" && input.system ? input.system : "generic";
     const material = typeof input.material === "string" && input.material ? input.material : `pipe.${system}`;
     const parameters = { path, diameter, system, material };
     const nodeId = `${instanceId}.body`;
-    const pathAnalysis = analyzePath(path);
     const routeLength = pathAnalysis.totalLength;
     return {
       parameters,
@@ -31992,10 +32779,7 @@ var pipeRun = {
         semanticType: "mep.pipe",
         metadata: { system }
       })],
-      anchors: {
-        start: path[0],
-        end: path[path.length - 1]
-      },
+      anchors: pipePorts(path, pathAnalysis.segments, diameter),
       metrics: {
         centerlineLength: { value: routeLength, unit: "meter" },
         outsideDiameter: { value: diameter, unit: "meter" },
@@ -32022,15 +32806,15 @@ var compositionComponent = {
   parameters: {
     nodes: { type: "array", required: true },
     anchors: { type: "object", required: false },
+    routeBindings: { type: "array", required: false },
     attachments: { type: "array", required: false }
   },
-  build({ instanceId, parameters }) {
-    const result = compileCompositionSpec(parameters, { instanceId });
-    return { ...result, parameters };
+  build({ instanceId, parameters, transform: transform2 }) {
+    return compileCompositionSpec(parameters, { instanceId, transform: transform2, includeSource: true });
   }
 };
 
-// packages/core/src/index.js
+// packages/core/src/default-registry.js
 function createDefaultRegistry() {
   return new ComponentRegistry().register(compositionComponent).register(independentFoundation).register(pipeRun);
 }
@@ -32100,9 +32884,16 @@ function profileSample(profile, index, segments) {
   const b = profile[next];
   return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
 }
+function sweepWireLines({ rings, closedProfile }) {
+  if (!rings?.length) return [];
+  const outlines = closedProfile ? rings.map((ring) => [...ring, ring[0]]) : rings;
+  const rails = rings[0].map((_, i) => rings.map((ring) => ring[i]));
+  return [...outlines, ...rails];
+}
 function geometryLines(node) {
   const geometry = node?.geometry;
   if (!geometry) return [];
+  if (geometry.type === "sweep") return sweepWireLines(geometry);
   const circle = (radius, y, count = 32) => Array.from({ length: count + 1 }, (_, index) => {
     const angle = index / count * Math.PI * 2;
     return [radius * Math.cos(angle), y, radius * Math.sin(angle)];
@@ -32366,12 +33157,6 @@ function drawModelPreview(canvas, nodes, options = {}) {
 }
 
 // apps/shared/registry-visibility.js
-function isPublicRegistryEntry(entry) {
-  return entry?.visibility !== "internal";
-}
-function publicRegistryEntries(registry) {
-  return (registry?.entries ?? []).filter(isPublicRegistryEntry);
-}
 function publicRegistryCounts(entries) {
   const visibleEntries = entries ?? [];
   return Object.fromEntries(
@@ -32397,8 +33182,7 @@ function documentFor(entry) {
   return modelDocumentFor(entry);
 }
 function render() {
-  const query = $("#search").value.trim().toLowerCase();
-  const entries = publicEntries.filter((item) => (kind === "all" || item.kind === kind) && (!query || [item.id, item.title, item.summary, item.semanticType ?? "", ...item.tags ?? [], ...item.capabilities ?? []].join(" ").toLowerCase().includes(query)));
+  const entries = searchPublicRegistry(registry_default, $("#search").value, kind);
   $("#resultsMeta").textContent = `\u663E\u793A ${entries.length} \u4E2A\u6761\u76EE \xB7 Registry Protocol ${registry_default.schemaVersion}`;
   $("#entries").innerHTML = entries.map((item) => `<article data-entry="${escape(item.id)}" tabindex="0"><div class="card-preview"><canvas data-preview="${escape(item.id)}"></canvas><span>${item.editor?.node || item.editor?.document ? "\u53EF\u7F16\u8F91\u6570\u5B57\u6A21\u578B" : "\u65B9\u6CD5\u5B9A\u4E49"}</span></div><div class="card-content"><div class="card-top"><span class="kind ${item.kind}">${labels[item.kind] ?? item.kind}</span><code>${escape(item.id)}@${escape(item.version)}</code></div><h2>${escape(item.title)}</h2><p>${escape(item.summary)}</p>${item.semanticType ? `<div class="semantic">${escape(item.semanticType)}</div>` : ""}<div class="capabilities">${(item.capabilities ?? []).map((capability) => `<span>${escape(capability)}</span>`).join("")}</div><div class="card-bottom"><small>${escape(item.license ?? item.source ?? "registry")}</small><button data-open="${escape(item.id)}">\u67E5\u770B\u6A21\u578B\u4E0E\u4EE3\u7801 \u2192</button></div></div></article>`).join("") || `<div class="empty">\u6CA1\u6709\u5339\u914D\u6761\u76EE</div>`;
   $("#entries").querySelectorAll("[data-open]").forEach((button) => button.addEventListener("click", (event) => {

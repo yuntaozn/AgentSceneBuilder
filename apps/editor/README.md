@@ -7,10 +7,10 @@ Editor 是自包含的纯浏览器应用，没有 Node.js 运行时依赖，也�
 可任选一种本地服务器：
 
 ```powershell
-# 在 apps/editor 目录中任选一种服务器
+# 在仓库根目录启动附带的服务器
 node apps/editor/server.mjs
 
-# 或
+# 或在 apps/editor 目录中使用静态服务器
 python -m http.server 4173
 
 # 或
@@ -19,11 +19,11 @@ live-server
 # 或 Nginx、IIS、Caddy、VS Code Live Server 等
 ```
 
-然后访问对应地址。附带启动器默认使用 `http://127.0.0.1:4173/`。
+附带启动器默认在 `http://127.0.0.1:4173/` 打开编辑器。同一服务器上的 `/apps/library/` 可打开模型库并把模型带入编辑器。
 
 直接双击 `index.html` 仍不推荐，因为不同浏览器对本地 ES module 有安全限制。
 
-修改 Editor 或 Core 源码后，开发者需执行 `npm run build` 重新生成 `app.bundle.js`；普通使用者不需要构建环境。
+修改 Editor 或 Core 源码后，在仓库根目录执行 `npm run build:editor` 重新生成 `app.bundle.js` 和渲染分块。在 `apps/editor` 中执行 `npm run build` 会调用同一构建命令。普通使用者可以直接使用发布版静态文件。
 
 ## 当前功能
 
@@ -40,7 +40,9 @@ live-server
 - 编辑 ID、旋转、缩放、盒体尺寸和管状几何半径；
 - anchor 在模型视图中可视化；
 - 查看和编辑 CompositionSpec JSON；
-- 浏览器内重新构建与诊断；
+- 在 JSON 页点击「检查草稿」，可查看当前的语法错误和模型问题，预览保留上次构建的结果。点击行列或字段路径可选中原文。重复声明、歧义引用和父子循环可跳到关联字段，拼错的引用会显示候选值。草稿更改后可重新检查以更新定位。
+- 同一对象中重复的 JSON 键会阻止构建。诊断提供重复键及首次声明的位置，也会列出独立的模型问题。处理完诊断后点击「重新构建」可更新预览。
+- 「应用标点修复」可一次补齐能确定的逗号和冒号，并移除尾逗号。编辑器会立即检查修复后的草稿，点击「重新构建」可更新预览。草稿仍是修复后的内容时，可以点击「还原本次修复」。
 - 导入和导出 JSON。
 
 Editor 不是另一套建模数据。Agent、CLI 和 Editor 共同使用 CompositionSpec 与 Core 构建结果。

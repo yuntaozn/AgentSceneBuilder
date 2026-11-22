@@ -1,4 +1,5 @@
 import registry from "../../registry/registry.json";
+import { searchPublicRegistry } from "../../registry/catalog.js";
 import { createDefaultRegistry } from "../../packages/core/src/index.js";
 import { drawModelPreview, modelDocumentFor, modelPreviewNodes } from "../shared/model-preview.js";
 import { publicRegistryCounts, publicRegistryEntries } from "../shared/registry-visibility.js";
@@ -14,8 +15,7 @@ const publicCounts=publicRegistryCounts(publicEntries);
 function documentFor(entry){return modelDocumentFor(entry)}
 
 function render(){
-  const query=$("#search").value.trim().toLowerCase();
-  const entries=publicEntries.filter(item=>(kind==="all"||item.kind===kind)&&(!query||[item.id,item.title,item.summary,item.semanticType??"",...(item.tags??[]),...(item.capabilities??[])].join(" ").toLowerCase().includes(query)));
+  const entries=searchPublicRegistry(registry,$("#search").value,kind);
   $("#resultsMeta").textContent=`显示 ${entries.length} 个条目 · Registry Protocol ${registry.schemaVersion}`;
   $("#entries").innerHTML=entries.map(item=>`<article data-entry="${escape(item.id)}" tabindex="0"><div class="card-preview"><canvas data-preview="${escape(item.id)}"></canvas><span>${item.editor?.node||item.editor?.document?"可编辑数字模型":"方法定义"}</span></div><div class="card-content"><div class="card-top"><span class="kind ${item.kind}">${labels[item.kind]??item.kind}</span><code>${escape(item.id)}@${escape(item.version)}</code></div><h2>${escape(item.title)}</h2><p>${escape(item.summary)}</p>${item.semanticType?`<div class="semantic">${escape(item.semanticType)}</div>`:""}<div class="capabilities">${(item.capabilities??[]).map(capability=>`<span>${escape(capability)}</span>`).join("")}</div><div class="card-bottom"><small>${escape(item.license??item.source??"registry")}</small><button data-open="${escape(item.id)}">查看模型与代码 →</button></div></div></article>`).join("")||`<div class="empty">没有匹配条目</div>`;
   $("#entries").querySelectorAll("[data-open]").forEach(button=>button.addEventListener("click",event=>{event.stopPropagation();openDetail(button.dataset.open)}));

@@ -39,3 +39,12 @@ jobs:
 
       - name: Build editor
         run: npm run build:editor
+
+      - name: Verify bundled web assets
+        shell: pwsh
+        run: |
+          $assets = @('apps/editor/app.bundle.js', 'apps/editor/chunks', 'apps/library/app.bundle.js')
+          git diff --exit-code -- $assets
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $untracked = git ls-files --others --exclude-standard -- $assets
+          if ($untracked) { throw "Commit the generated assets: $untracked" }

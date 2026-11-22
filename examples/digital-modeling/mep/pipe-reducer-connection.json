@@ -1,0 +1,30 @@
+{
+  "metadata": { "title": "25 mm 至 50 mm 管道变径连接", "units": "meter" },
+  "instances": [
+    {
+      "id": "small-pipe", "component": "mep.pipe-run",
+      "parameters": { "path": [[0,0,0], [1,0,0]], "diameter": 0.025, "system": "cold-water" }
+    },
+    {
+      "id": "reducer", "component": "core.composition", "transform": { "position": [1,0,0] },
+      "parameters": {
+        "nodes": [{ "id": "body", "semanticType": "mep.pipe-reducer", "geometry": {
+          "type": "tapered-cylinder-between", "start": [0,0,0], "end": [0.1,0,0],
+          "startRadius": 0.0125, "endRadius": 0.025
+        } }],
+        "anchors": {
+          "inlet": { "node": "body", "kind": "pipe-port", "position": [0,0,0], "direction": [-1,0,0], "outsideDiameter": 0.025 },
+          "outlet": { "node": "body", "kind": "pipe-port", "position": [0.1,0,0], "direction": [1,0,0], "outsideDiameter": 0.05 }
+        }
+      }
+    },
+    {
+      "id": "large-pipe", "component": "mep.pipe-run",
+      "parameters": { "path": [[1.1,0,0], [2.1,0,0]], "diameter": 0.05, "system": "cold-water" }
+    }
+  ],
+  "attachments": [
+    { "from": "small-pipe#end", "to": "reducer#inlet", "contract": { "direction": "opposed", "outsideDiameter": "equal" } },
+    { "from": "reducer#outlet", "to": "large-pipe#start", "contract": { "direction": "opposed", "outsideDiameter": "equal" } }
+  ]
+}

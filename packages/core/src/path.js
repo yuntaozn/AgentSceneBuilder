@@ -123,15 +123,28 @@ export function orthogonalPathCandidates(startValue, endValue, { preferredOrders
   };
 }
 
+export function pathSamplingEnd(length, startOffset, endOffset) {
+  assertFiniteNumber(length, "path length", { min: 0 });
+  const end = length - endOffset;
+  // A decimal interval such as 0.1 + 0.2 may exactly fill a 0.3 m path.
+  if (startOffset - end > Number.EPSILON * Math.max(length, startOffset, endOffset) * 2) {
+    throw Object.assign(new RangeError(`path offsets leave no available sampling length (length ${length}, startOffset ${startOffset}, endOffset ${endOffset})`), { field: "endOffset" });
+  }
+  return Math.max(startOffset, end);
+}
+
 export function samplePath(points, { spacing, startOffset = 0, endOffset = 0, includeEnd = false } = {}) {
   const analysis = analyzePath(points);
   const safeSpacing = assertFiniteNumber(spacing, "spacing", { min: 0, exclusiveMin: true });
   const safeStart = assertFiniteNumber(startOffset, "startOffset", { min: 0 });
   const safeEnd = assertFiniteNumber(endOffset, "endOffset", { min: 0 });
-  const availableEnd = analysis.totalLength - safeEnd;
-  if (safeStart > availableEnd) throw new RangeError("path offsets leave no available sampling length");
+  const availableEnd = pathSamplingEnd(analysis.totalLength, safeStart, safeEnd);
   const distances = [];
-  for (let distance = safeStart; distance <= availableEnd + 1e-9; distance += safeSpacing) distances.push(Math.min(distance, availableEnd));
+  for (let distance = safeStart; distance <= availableEnd + 1e-9; distance += safeSpacing) {
+    distances.push(Math.min(distance, availableEnd));
+    if (distance >= availableEnd) break;
+    if (distance + safeSpacing === distance) throw new RangeError("spacing is too small for this path");
+  }
   if (includeEnd && Math.abs(distances.at(-1) - availableEnd) > 1e-9) distances.push(availableEnd);
 
   const samples = distances.map((distance, sampleIndex) => {

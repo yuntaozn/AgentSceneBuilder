@@ -172,7 +172,9 @@ h2 { margin: 4px 0 0; font-size: 14px; }
 .tabs button.active { color: var(--text); border-color: var(--accent); }
 .tab-content { flex:1 1 auto; min-height:0; height:auto; overflow: auto; overscroll-behavior:contain; padding: 15px 15px 32px; scrollbar-color: #34414c transparent; }
 .source-tab { padding: 0; }
-.source-tab textarea { width: 100%; height: 100%; resize: none; border: 0; outline: none; padding: 15px; background: #0b1015; color: #cbd6df; font: 10px/1.65 var(--mono); }
+.source-tab:not([hidden]) { display: flex; flex-direction: column; }
+.source-toolbar { display: flex; justify-content: flex-end; padding: 7px 15px; border-bottom: 1px solid var(--line); }
+.source-tab textarea { flex: 1; width: 100%; min-height: 0; resize: none; border: 0; outline: none; padding: 15px; background: #0b1015; color: #cbd6df; font: 10px/1.65 var(--mono); }
 .section { margin-bottom: 21px; }
 .section-title { margin-bottom: 9px; padding-bottom: 7px; border-bottom: 1px solid var(--line-soft); color: var(--muted); font: 8px var(--mono); letter-spacing: .16em; }
 .property { display: grid; grid-template-columns: 90px 1fr; gap: 8px; padding: 7px 0; border-bottom: 1px solid var(--line-soft); font-size: 10px; }
@@ -194,6 +196,14 @@ h2 { margin: 4px 0 0; font-size: 14px; }
 .inspector-actions .apply { grid-column: 1 / -1; border-color: var(--accent); background: var(--accent); color: #111609; font-weight: 750; }
 .diagnostic { margin-bottom: 8px; padding: 11px; border: 1px solid var(--line); border-left: 3px solid var(--danger); background: var(--surface-raised); font-size: 10px; line-height: 1.55; }
 .diagnostic.ok { border-left-color: var(--accent); }
+.diagnostic [data-issue-index] { display: block; margin-top: 6px; max-width: 100%; text-align: left; white-space: normal; overflow-wrap: anywhere; font-family: var(--mono); }
+.diagnostic [data-issue-index]:disabled { opacity: .55; cursor: default; }
+.diagnostic .diagnostic-related { padding: 4px 7px; border: 1px solid var(--line); border-radius: 3px; background: var(--surface); }
+.diagnostic-related span, .diagnostic-suggestions span { display: block; color: var(--text-soft); font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif; }
+.diagnostic-suggestions { margin-top: 6px; }
+.diagnostic-suggestions code { display: inline-block; margin: 3px 5px 0 0; max-width: 100%; overflow-wrap: anywhere; color: var(--cyan); font-family: var(--mono); }
+.diagnostic-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.diagnostics-stale { margin: 0 0 8px; color: var(--text-soft); font-size: 11px; }
 #issueBadge { color: var(--danger); }
 
 @media (max-width: 1280px) { .workspace { grid-template-columns: 230px minmax(0,1fr) 300px; } .topbar { grid-template-columns: 220px minmax(120px,1fr) minmax(0,auto); gap:10px; } .viewport-toolbar { grid-template-columns:auto minmax(0,1fr); } .viewport-tools { width:auto; max-width:100%; justify-self:stretch; justify-content:flex-end; flex-wrap:wrap; } .viewport-hint { display:none; } .button { padding:0 8px; white-space:nowrap; } }

@@ -1,13 +1,27 @@
 import {
+  add,
   assertFiniteNumber,
   assertVec3,
   boxBounds,
+  createBounds,
+  cross,
+  identityMatrix,
   length,
   midpoint,
+  multiplyMatrices,
   pointsBounds,
   subtract,
+  transformBounds,
   transformBoundsMatrix,
+  transformMatrix,
+  transformPointMatrix,
+  transformVectorMatrix,
+  unionBounds,
 } from "./math.js";
+import { sweepGeometry } from "./sweep.js";
+
+const nodeSpaceTypes = new Set(["box", "cylinder", "cone", "sphere", "torus", "sweep"]);
+const roundPaths = new Set(["cylinder-between", "tapered-cylinder-between", "tube-along"]);
 
 function transform(position = [0, 0, 0], rotation = [0, 0, 0], scale = [1, 1, 1]) {
   return {
@@ -187,39 +201,118 @@ export function tubeAlong({ id, points, radius, radialSegments = 12, material, a
   });
 }
 
+export function sweep({ id, profile, points, up, closedProfile, position, rotation, scale, matrix, material, appearance, semanticType, metadata }) {
+  return geometryNode({
+    id, material, appearance, semanticType, metadata, position, rotation, scale,
+    matrix: matrix ?? transformMatrix({ position, rotation, scale }),
+    geometry: sweepGeometry({ profile, points, up, closedProfile }),
+  });
+}
+
 export function geometryBounds(node) {
   const geometry = node.geometry;
-  if (geometry.type === "box") {
-    if (node.matrix) return transformBoundsMatrix(boxBounds([0, 0, 0], geometry.size), node.matrix);
-    return boxBounds(node.transform.position, geometry.size);
-  }
-  if (["sphere", "cylinder", "cone", "torus"].includes(geometry.type)) {
-    const size=geometry.type==="sphere"?[geometry.radius*2,geometry.radius*2,geometry.radius*2]:geometry.type==="torus"?[(geometry.majorRadius+geometry.tubeRadius)*2,geometry.tubeRadius*2,(geometry.majorRadius+geometry.tubeRadius)*2]:[geometry.radius*2,geometry.height,geometry.radius*2];
-    if(node.matrix)return transformBoundsMatrix(boxBounds([0,0,0],size),node.matrix);
-    return boxBounds(node.transform.position,size);
-  }
-  if (geometry.type === "cylinder-between") return pointsBounds([geometry.start, geometry.end], geometry.radius);
-  if (geometry.type === "tapered-cylinder-between") return pointsBounds([geometry.start, geometry.end], Math.max(geometry.startRadius, geometry.endRadius));
-  if (geometry.type === "lofted-surface") {
-    const points = geometry.sections.flatMap((section) => {
-      const axisX = section.axisX ?? [section.radiusX, 0, 0];
-      const axisZ = section.axisZ ?? [0, 0, section.radiusZ];
-      if (Array.isArray(section.profile)) {
-        return section.profile.map(([x, z]) => [
-          section.center[0] + axisX[0] * x + axisZ[0] * z,
-          section.center[1] + axisX[1] * x + axisZ[1] * z,
-          section.center[2] + axisX[2] * x + axisZ[2] * z,
-        ]);
-      }
-      return [
-        [section.center[0] + axisX[0], section.center[1] + axisX[1], section.center[2] + axisX[2]],
-        [section.center[0] - axisX[0], section.center[1] - axisX[1], section.center[2] - axisX[2]],
-        [section.center[0] + axisZ[0], section.center[1] + axisZ[1], section.center[2] + axisZ[2]],
-        [section.center[0] - axisZ[0], section.center[1] - axisZ[1], section.center[2] - axisZ[2]],
-      ];
-    });
-    return pointsBounds(points, 0);
-  }
-  if (geometry.type === "tube-along") return pointsBounds(geometry.points, geometry.radius);
+  if (nodeSpaceTypes.has(geometry.type)) return nodeSpaceBounds(node);
+  if (roundPaths.has(geometry.type)) return roundPathBounds(geometry);
+  if (geometry.type === "lofted-surface") return loftBounds(geometry);
   throw new Error(`Unsupported geometry type for bounds: ${geometry.type}`);
+}
+
+function nodeSpaceBounds(node, instanceMatrix) {
+  const geometry = node.geometry;
+  const nodeMatrix = node.matrix ?? transformMatrix(node.transform);
+  const matrix = instanceMatrix ? multiplyMatrices(instanceMatrix, nodeMatrix) : nodeMatrix;
+  if (geometry.type === "box") return transformBoundsMatrix(boxBounds([0, 0, 0], geometry.size), matrix);
+  if (geometry.type === "sweep") {
+    return pointsBounds(geometry.rings.flatMap(ring => ring.map(point => transformPointMatrix(point, matrix))));
+  }
+  if (geometry.type === "sphere" || geometry.type === "torus") {
+    const isRing = geometry.type === "torus";
+    const radius = isRing ? geometry.tubeRadius : geometry.radius;
+    const axes = matrix.slice(0, 3);
+    const center = axes.map(row => row[3]);
+    const extent = axes.map(([x, y, z]) => {
+      // A torus adds the projection of its XZ centerline circle to that of its round tube.
+      const centerline = isRing ? Math.hypot(geometry.majorRadius * x, geometry.majorRadius * z) : 0;
+      return centerline + Math.hypot(radius * x, radius * y, radius * z);
+    });
+    return createBounds(subtract(center, extent), add(center, extent));
+  }
+  const halfHeight = geometry.height / 2;
+  return flatEndedBounds([[0, -halfHeight, 0], [0, halfHeight, 0]], geometry.radius,
+    geometry.type === "cone" ? 0 : geometry.radius, matrix);
+}
+
+function roundPathBounds(geometry, matrix) {
+  return flatEndedBounds(geometry.points ?? [geometry.start, geometry.end],
+    geometry.startRadius ?? geometry.radius, geometry.endRadius ?? geometry.radius, matrix);
+}
+
+function flatEndedBounds(points, startRadius, endRadius, matrix) {
+  const rows = matrix ?? identityMatrix();
+  const min = [Infinity, Infinity, Infinity], max = [-Infinity, -Infinity, -Infinity];
+  function includeSegment(start, end, normal) {
+    const a = matrix ? transformPointMatrix(start, matrix) : start;
+    const b = matrix ? transformPointMatrix(end, matrix) : end;
+    for (let axis = 0; axis < 3; axis++) {
+      // The support of a unit end disk along this matrix row is |row × normal|.
+      const projection = length(cross(rows[axis], normal));
+      const extentA = startRadius * projection, extentB = endRadius * projection;
+      min[axis] = Math.min(min[axis], a[axis] - extentA, b[axis] - extentB);
+      max[axis] = Math.max(max[axis], a[axis] + extentA, b[axis] + extentB);
+    }
+  }
+  let hasSegment = false;
+  for (let i = 1; i < points.length; i++) {
+    const start = points[i - 1], end = points[i];
+    let delta = subtract(end, start);
+    // Keep the normal well-defined for very short segments or widely separated endpoints.
+    if (!delta.every(Number.isFinite)) delta = end.map((value, axis) => value / 2 - start[axis] / 2);
+    const largest = Math.max(Math.abs(delta[0]), Math.abs(delta[1]), Math.abs(delta[2]));
+    if (largest === 0) continue;
+    const direction = delta.map(value => value / largest);
+    const magnitude = length(direction);
+    includeSegment(start, end, direction.map(value => value / magnitude));
+    hasSegment = true;
+  }
+  // A fully collapsed tube is rendered as a zero-height Y-axis cylinder.
+  if (!hasSegment) includeSegment(points[0], points[0], [0, 1, 0]);
+  return createBounds(min, max);
+}
+
+function loftBounds(geometry, matrix) {
+  const points = geometry.sections.flatMap((section, index) => {
+    let { center, axisX = [section.radiusX, 0, 0], axisZ = [0, 0, section.radiusZ] } = section;
+    if (matrix) {
+      center = transformPointMatrix(center, matrix);
+      axisX = transformVectorMatrix(axisX, matrix);
+      axisZ = transformVectorMatrix(axisZ, matrix);
+    }
+    if (Array.isArray(section.profile)) {
+      const vertices = section.profile.map(([x, z]) =>
+        center.map((c, k) => c + axisX[k] * x + axisZ[k] * z));
+      if ((index === 0 && geometry.capStart !== false) ||
+          (index === geometry.sections.length - 1 && geometry.capEnd !== false)) vertices.push(center);
+      return vertices;
+    }
+    // Along each coordinate, a*cos(t) + b*sin(t) attains ±hypot(a,b).
+    const extent = axisX.map((a, k) => Math.hypot(a, axisZ[k]));
+    return [center.map((c, k) => c - extent[k]), center.map((c, k) => c + extent[k])];
+  });
+  return pointsBounds(points);
+}
+
+export function instanceGeometryBounds(entries, transform) {
+  const localBounds = unionBounds(entries.map(entry => entry.bounds));
+  // Translation and axis-aligned scale preserve the extrema of the local union.
+  if (!transform?.rotation?.some(angle => angle !== 0)) return { localBounds, bounds: transformBounds(localBounds, transform) };
+
+  const matrix = transformMatrix(transform);
+  const worldBounds = entries.map(entry => {
+    if (entry.node && nodeSpaceTypes.has(entry.node.geometry.type)) return nodeSpaceBounds(entry.node, matrix);
+    const geometry = entry.node?.geometry ?? entry.geometry; // Also accept older { geometry, bounds } entries.
+    if (roundPaths.has(geometry.type)) return roundPathBounds(geometry, matrix);
+    if (geometry.type === "lofted-surface") return loftBounds(geometry, matrix);
+    return transformBoundsMatrix(entry.bounds, matrix);
+  });
+  return { localBounds, bounds: unionBounds(worldBounds) };
 }

@@ -1,5 +1,5 @@
-import { geometryBounds } from "./geometry.js";
-import { normalizeTransform, transformBounds, transformDirection, transformPoint, unionBounds } from "./math.js";
+import { geometryBounds, instanceGeometryBounds } from "./geometry.js";
+import { normalizeTransform, transformDirection, transformPoint } from "./math.js";
 
 export const COMPONENT_CONTRACT_VERSION = "0.1";
 
@@ -48,18 +48,36 @@ function validateDefinition(definition) {
   if (typeof definition.build !== "function") throw new TypeError("component definition requires a build function");
 }
 
+export function registerGeneratedId(ids, id, instanceId) {
+  if (!id.startsWith(`${instanceId}.`)) throw new Error(`Generated node id must be scoped by instance id: ${id}`);
+  if (ids.has(id)) throw new Error(`Duplicate generated node id: ${id}`);
+  ids.add(id);
+}
+
+export function worldAnchorDefinition(definition, transform) {
+  const world = { ...definition, position: transformPoint(definition.position, transform) };
+  if (definition.direction) {
+    const collapsedTangent = definition.directionSource === "path" && definition.direction.every(
+      (value, axis) => value * (transform?.scale?.[axis] ?? 1) === 0,
+    );
+    world.direction = collapsedTangent ? null : transformDirection(definition.direction, transform);
+  }
+  return world;
+}
+
+export function componentGeometryBounds(nodes, transform) {
+  const entries = nodes.filter(node => node.kind === "geometry").map(node => ({ node, bounds: geometryBounds(node) }));
+  return instanceGeometryBounds(entries, transform);
+}
+
 function finalizeBuild(definition, instance, result) {
   if (!result || !Array.isArray(result.nodes)) throw new TypeError(`${definition.id} build must return nodes`);
   const ids = new Set();
   for (const node of result.nodes) {
-    if (!node.id.startsWith(`${instance.id}.`)) {
-      throw new Error(`Generated node id must be scoped by instance id: ${node.id}`);
-    }
-    if (ids.has(node.id)) throw new Error(`Duplicate generated node id: ${node.id}`);
-    ids.add(node.id);
+    registerGeneratedId(ids, node.id, instance.id);
   }
   const instanceTransform = normalizeTransform(instance.transform);
-  const localBounds = unionBounds(result.nodes.filter(node=>node.kind==="geometry").map(geometryBounds));
+  const { localBounds, bounds } = componentGeometryBounds(result.nodes, instanceTransform);
   const anchorDefinitions = Object.fromEntries(Object.entries(result.anchors ?? {}).map(([id, value]) => {
     const definition = Array.isArray(value) ? { position: value } : value;
     if (!definition || typeof definition !== "object") throw new TypeError(`anchor ${id} must be a vec3 or descriptor`);
@@ -68,14 +86,9 @@ function finalizeBuild(definition, instance, result) {
   const localAnchors = Object.fromEntries(
     Object.entries(anchorDefinitions).map(([id, definition]) => [id, definition.position]),
   );
-  const worldAnchors = Object.fromEntries(
-    Object.entries(localAnchors).map(([id, point]) => [id, transformPoint(point, instanceTransform)]),
-  );
-  const worldAnchorDefinitions = Object.fromEntries(Object.entries(anchorDefinitions).map(([id, definition]) => [id, {
-    ...definition,
-    position: worldAnchors[id],
-    ...(definition.direction ? { direction: transformDirection(definition.direction, instanceTransform) } : {}),
-  }]));
+  const worldAnchorDefinitions = Object.fromEntries(Object.entries(anchorDefinitions).map(([id, definition]) =>
+    [id, worldAnchorDefinition(definition, instanceTransform)]));
+  const worldAnchors = Object.fromEntries(Object.entries(worldAnchorDefinitions).map(([id, definition]) => [id, definition.position]));
   return {
     contractVersion: COMPONENT_CONTRACT_VERSION,
     instance: {
@@ -87,7 +100,7 @@ function finalizeBuild(definition, instance, result) {
     },
     nodes: result.nodes,
     localBounds,
-    bounds: transformBounds(localBounds, instanceTransform),
+    bounds,
     anchors: {
       local: localAnchors,
       world: worldAnchors,

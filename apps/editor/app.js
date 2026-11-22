@@ -1,6 +1,8 @@
-import { createDefaultRegistry } from "../../packages/core/src/index.js";
+import { checkComposition, createDefaultRegistry, isCompositionManifest } from "../../packages/core/src/index.js";
+import { applySyntaxFixes, checkSourceDraft, diagnosticRange } from "./diagnostic-range.js";
+import { sweepGeometry } from "../../packages/core/src/sweep.js";
 import modelLibrary from "../../registry/registry.json";
-import { drawModelPreview, modelPreviewNodes } from "../shared/model-preview.js";
+import { drawModelPreview, modelPreviewNodes, sweepWireLines } from "../shared/model-preview.js";
 import { publicRegistryEntries } from "../shared/registry-visibility.js";
 
 const registry = createDefaultRegistry();
@@ -73,6 +75,9 @@ let build = null;
 let selectedId = null;
 let selectedOccurrenceExplicit = false;
 let diagnostics = [];
+let diagnosticsSource;
+let sourceDraftPending = false;
+let lastSyntaxRepair;
 let view = { yaw: -0.72, pitch: 0.52, zoom: 84, panX: 0, panY: 20 };
 let projectedNodes = [];
 let hiddenPrototypes = new Set();
@@ -222,6 +227,7 @@ function loftedSurfaceWireLines(node) {
 
 function pathGeometryLines(node) {
   const type = node.geometry?.type;
+  if (type === "sweep") return sweepWireLines(node.geometry).map(line => line.map(point => animatedWorldPoint(node, point)));
   if (type === "tube-along") return [animatedPolyline(node, node.geometry.points)].filter(line => line.length >= 2);
   if (type === "cylinder-between" || type === "tapered-cylinder-between") return [animatedPolyline(node, [node.geometry.start, node.geometry.end])].filter(line => line.length >= 2);
   if (type === "lofted-surface") return loftedSurfaceWireLines(node);
@@ -384,7 +390,7 @@ function sourceWorldPoint(source, point) {
   return result;
 }
 function sourceControlKind(source) {
-  if (source?.geometry?.type === "tube-along") return "tube-point";
+  if (["tube-along", "sweep"].includes(source?.geometry?.type)) return "tube-point";
   if (source?.geometry?.type === "lofted-surface") return "loft-section";
   if (source?.repetition?.type === "path") return "path-point";
   return null;
@@ -404,7 +410,11 @@ function writeSourceControlPoint(source, kind, index, point) {
   else sourceControlPoints(source, kind)[index] = point;
 }
 function drawPathControls(){
-  pathHitAreas=[];if(!activePrototype)return;const source=documentValue.parameters.nodes.find(n=>n.id===activePrototype);const kind=sourceControlKind(source),points=kind?sourceControlPoints(source,kind):null;if(!points?.length)return;
+  pathHitAreas=[];
+  if(!activePrototype)return;
+  const pipeId = clipBinding(activePrototype)?.node;
+  const source = documentValue.parameters.nodes.find(n => n.id === (pipeId ?? activePrototype));
+  const kind=sourceControlKind(source),points=kind?sourceControlPoints(source,kind):null;if(!points?.length)return;
   context.save();context.strokeStyle=kind==="loft-section"?"#72f2ffaa":"#d9ff57aa";context.setLineDash([3,3]);context.beginPath();points.forEach((point,index)=>{const p=project(sourceWorldPoint(source,point));index?context.lineTo(p[0],p[1]):context.moveTo(p[0],p[1]);pathHitAreas.push({source,kind,index,x:p[0],y:p[1]})});context.stroke();context.setLineDash([]);for(const hit of pathHitAreas){context.fillStyle="#10151a";context.strokeStyle=hit.kind==="loft-section"?"#72f2ff":"#d9ff57";context.lineWidth=2;context.fillRect(hit.x-4,hit.y-4,8,8);context.strokeRect(hit.x-4,hit.y-4,8,8)}context.restore();
 }
 function activeOrigin(){const node=build?.nodes.find(n=>n.metadata?.compositionNodeId===activePrototype);return node?.matrix?[node.matrix[0][3],node.matrix[1][3],node.matrix[2][3]]:null}
@@ -461,6 +471,23 @@ function applySceneProperties() {
   setStatus(`已更新场景：${sceneDisplayName()}`);
 }
 
+function sectionExtent(profile, axis) {
+  let min = Infinity, max = -Infinity;
+  for (const point of profile) {
+    min = Math.min(min, point[axis]);
+    max = Math.max(max, point[axis]);
+  }
+  return max - min;
+}
+
+function sweepSizeFields(geometry) {
+  if (geometry?.type !== "sweep") return "";
+  return ["截面宽度（米）", "截面高度（米）"].map((label, axis) => {
+    const value = sectionExtent(geometry.profile, axis);
+    return value > 0 ? `<label class="edit-field">${label}<input id="sweepSize${axis}" type="number" min="0" step="any" value="${value}"></label>` : "";
+  }).join("");
+}
+
 function renderInspector() {
   const sourceNode=documentValue.parameters?.nodes?.find(item=>item.id===activePrototype);
   const outputs=build?.nodes?.filter(item=>item.metadata?.compositionNodeId===activePrototype)??[];
@@ -473,9 +500,13 @@ function renderInspector() {
   const transform=sourceNode?.transform??{};const position=transform.position??sourceNode?.position??[0,0,0];const rotation=transform.rotation??[0,0,0];const nodeScale=transform.scale??[1,1,1];const size=sourceNode?.geometry?.size;
   const parentOptions=[`<option value="">无父节点</option>`,...documentValue.parameters.nodes.filter(item=>item.id!==sourceNode.id&&!item.repetition).map(item=>`<option value="${escapeHtml(item.id)}" ${sourceNode.parent===item.id?"selected":""}>${escapeHtml(item.id)}</option>`)].join("");
   const selectionDescription=selectedOccurrenceExplicit&&node?node.metadata?.occurrenceRef??node.id:outputs.length>1?`组件原型（包含 ${outputs.length} 个展开实例）`:outputs.length===1?"组件原型（1 个实例）":"仅组织层级的空组件";
-  const geometryHtml=sourceNode.geometry?`<div class="section"><div class="section-title">几何 · ${escapeHtml(sourceNode.geometry.type)}</div>${size?`<div class="edit-field"><label>尺寸 X / Y / Z</label>${vectorInputs("editSize",size,.1)}</div>`:""}${sourceNode.geometry.radius!==undefined?`<div class="edit-field"><label>半径</label><input id="editRadius" type="number" min="0.001" step="0.01" value="${sourceNode.geometry.radius}"></div>`:""}${sourceNode.geometry.height!==undefined?`<div class="edit-field"><label>高度</label><input id="editHeight" type="number" min="0.001" step="0.1" value="${sourceNode.geometry.height}"></div>`:""}${sourceNode.geometry.majorRadius!==undefined?`<div class="edit-field"><label>圆环主半径</label><input id="editMajorRadius" type="number" min="0.001" step="0.1" value="${sourceNode.geometry.majorRadius}"></div><div class="edit-field"><label>圆管半径</label><input id="editTubeRadius" type="number" min="0.001" step="0.01" value="${sourceNode.geometry.tubeRadius}"></div>`:""}</div>`:`<div class="section"><div class="section-title">几何</div><div class="concept-note"><strong>空组件</strong><span>这个组件只用于组织父子关系和变换，本身没有可绘制几何。</span></div></div>`;
+  const geometryHtml=sourceNode.geometry?`<div class="section"><div class="section-title">几何 · ${escapeHtml(sourceNode.geometry.type)}</div>${sweepSizeFields(sourceNode.geometry)}${size?`<div class="edit-field"><label>尺寸 X / Y / Z</label>${vectorInputs("editSize",size,.1)}</div>`:""}${sourceNode.geometry.radius!==undefined?`<div class="edit-field"><label>半径</label><input id="editRadius" type="number" min="0.001" step="0.01" value="${sourceNode.geometry.radius}"></div>`:""}${sourceNode.geometry.height!==undefined?`<div class="edit-field"><label>高度</label><input id="editHeight" type="number" min="0.001" step="0.1" value="${sourceNode.geometry.height}"></div>`:""}${sourceNode.geometry.majorRadius!==undefined?`<div class="edit-field"><label>圆环主半径</label><input id="editMajorRadius" type="number" min="0.001" step="0.1" value="${sourceNode.geometry.majorRadius}"></div><div class="edit-field"><label>圆管半径</label><input id="editTubeRadius" type="number" min="0.001" step="0.01" value="${sourceNode.geometry.tubeRadius}"></div>`:""}</div>`:`<div class="section"><div class="section-title">几何</div><div class="concept-note"><strong>空组件</strong><span>这个组件只用于组织父子关系和变换，本身没有可绘制几何。</span></div></div>`;
   $("#inspectTab").innerHTML = `<div class="selection-context"><span>当前选择</span><strong>${escapeHtml(sourceNode.id)}</strong><small>${escapeHtml(selectionDescription)}</small></div><div class="section"><div class="section-title">组件身份与层级</div><div class="edit-field"><label>组件 ID <span class="field-key">id / 原型 ID</span></label><small class="field-help">模型中的唯一名称。父子关系、动画和连接会通过它引用这个组件。</small><input id="editId" value="${escapeHtml(sourceNode.id)}"></div><div class="edit-field"><label>父组件 <span class="field-key">parent</span></label><small class="field-help">决定组件跟随谁移动、旋转和缩放。</small><select id="editParent">${parentOptions}</select></div><div class="edit-field"><label>用途分类 <span class="field-key">semanticType / 语义类型</span></label><small class="field-help">告诉 Agent 这是什么，例如 structure.column 表示结构柱；不决定几何外形。</small><input id="editSemantic" value="${escapeHtml(sourceNode.semanticType??"")}"></div>${property(selectedOccurrenceExplicit?"当前实例":"选择范围",selectionDescription)}</div><div class="section"><div class="section-title">外观与材质</div><div class="edit-field"><label>材质名称 <span class="field-key">material / 材质标识</span></label><small class="field-help">可复用的材质类别名称，例如 steel、concrete、water；颜色可在下方单独覆盖。</small><input id="editMaterial" value="${escapeHtml(sourceNode.material??"")}"></div><div class="edit-field"><label>颜色与不透明度</label><div class="color-row"><input id="editColor" type="color" value="${escapeHtml(sourceNode.appearance?.color??(node?colorFor(node):palette.default))}"><input id="editOpacity" type="number" min="0" max="1" step="0.05" value="${sourceNode.appearance?.opacity??1}"></div></div></div><div class="section"><div class="section-title">位置与姿态</div><div class="edit-field"><label>位置 X / Y / Z</label>${vectorInputs("editPosition",position,.1)}</div><div class="edit-field"><label>旋转 X / Y / Z（弧度）</label>${vectorInputs("editRotation",rotation,.1)}</div><div class="edit-field"><label>缩放 X / Y / Z</label>${vectorInputs("editScale",nodeScale,.1)}</div></div>${geometryHtml}<div class="section"><div class="inspector-actions"><button id="focusSelected">聚焦</button><button id="isolateSelected">${isolatedPrototype?"退出隔离":"隔离查看"}</button><button id="duplicateSelected">复制</button><button id="deleteSelected">删除</button>${sourceNode.geometry?`<button id="addMoveAnimation">＋ 移动动画</button><button id="addRotateAnimation">＋ 旋转动画</button>`:""}<button id="applyProperties" class="apply">应用全部修改</button></div></div>`;
   $("#applyProperties").addEventListener("click",()=>applyProperties(sourceNode));
+  if (clipBinding(sourceNode.id)) {
+    $("#editParent").disabled = true;
+    $("#editParent").title = "管卡随所属管线移动。可在源 JSON 的 routeBindings 中调整绑定。";
+  }
   $("#focusSelected").addEventListener("click",fitView);
   $("#isolateSelected").addEventListener("click",()=>{isolatedPrototype=isolatedPrototype?null:sourceNode.id;setStatus(isolatedPrototype?`正在隔离查看 ${sourceNode.id}；点击“退出隔离”或按 Esc 恢复全部`:`已退出隔离，恢复显示全部组件`);renderTree();renderInspector();draw()});
   $("#duplicateSelected").addEventListener("click",()=>duplicateNode(sourceNode.id));
@@ -501,7 +532,7 @@ function enhanceLightInspector(sourceNode){
   const help=$("#inspectTab .field-help");if(help)help.textContent=type==="directional"?"矩形标记是灯光位置；平行线从标记出发，末端三角箭头所指就是实际照射方向。":type==="spot"?"选中灯光后，画布会显示完整锥体；锥体从灯光位置向实际照射方向展开。":"点光源向四周发光，旋转不会改变效果。";
 }
 
-function previewLightProperties(sourceNode){const color=$("#editLightColor"),intensity=$("#editLightIntensity"),enabled=$("#editLightEnabled");if(!color||!intensity||!enabled)return;sourceNode.light.enabled=enabled.checked;sourceNode.light.color=color.value;sourceNode.light.intensity=Math.max(0,Number(intensity.value)||0);if($("#editLightDistance"))sourceNode.light.distance=Math.max(0,Number($("#editLightDistance").value)||0);if($("#editLightAngle"))sourceNode.light.angle=Math.max(1,Math.min(179,Number($("#editLightAngle").value)||36))*Math.PI/180;if($("#editLightPenumbra"))sourceNode.light.penumbra=Math.max(0,Math.min(1,Number($("#editLightPenumbra").value)||0));sourceNode.transform={...(sourceNode.transform??{}),position:readVector(".editLightPosition"),rotation:readVector(".editLightRotation"),scale:[1,1,1]};try{build=registry.build(documentValue);diagnostics=[]}catch(error){diagnostics=[{message:error.message}]}threeNeedsRebuild=true;$("#sourceEditor").value=JSON.stringify(documentValue,null,2);draw();setStatus(`正在实时预览灯光 ${sourceNode.id}`)}
+function previewLightProperties(sourceNode){const color=$("#editLightColor"),intensity=$("#editLightIntensity"),enabled=$("#editLightEnabled");if(!color||!intensity||!enabled)return;sourceNode.light.enabled=enabled.checked;sourceNode.light.color=color.value;sourceNode.light.intensity=Math.max(0,Number(intensity.value)||0);if($("#editLightDistance"))sourceNode.light.distance=Math.max(0,Number($("#editLightDistance").value)||0);if($("#editLightAngle"))sourceNode.light.angle=Math.max(1,Math.min(179,Number($("#editLightAngle").value)||36))*Math.PI/180;if($("#editLightPenumbra"))sourceNode.light.penumbra=Math.max(0,Math.min(1,Number($("#editLightPenumbra").value)||0));sourceNode.transform={...(sourceNode.transform??{}),position:readVector(".editLightPosition"),rotation:readVector(".editLightRotation"),scale:[1,1,1]};try{build=registry.build(documentValue);diagnostics=[]}catch(error){diagnostics=[{message:error.message}]}threeNeedsRebuild=true;syncSourceEditor();draw();setStatus(`正在实时预览灯光 ${sourceNode.id}`)}
 
 function bindLightLivePreview(sourceNode){const panel=$("#inspectTab"),controls=panel.querySelectorAll("#editLightEnabled,#editLightColor,#editLightIntensity,#editLightDistance,#editLightAngle,#editLightPenumbra,.editLightPosition,.editLightRotation");let undoCaptured=false;const preview=()=>{if(!undoCaptured){pushUndo(`调整灯光 ${sourceNode.id}`);undoCaptured=true}previewLightProperties(sourceNode)};controls.forEach(control=>{control.addEventListener("input",preview);control.addEventListener("change",preview)});const type=$("#editLightType");if(type)type.addEventListener("change",()=>{if(!undoCaptured)pushUndo(`调整灯光 ${sourceNode.id}`);sourceNode.light.type=type.value;sourceNode.semanticType=`scene.light.${type.value}`;threeNeedsRebuild=true;compile(undefined,{preserveSource:true});setStatus(`已切换为${type.value==="point"?"点光源":type.value==="spot"?"聚光灯":"方向光"}，参数会实时预览`)})}
 
@@ -531,6 +562,11 @@ function markTreeDropTarget(row, position) {
   row.dataset.dropPosition = position;
 }
 
+function clipBinding(id) {
+  const bindings = documentValue.parameters?.routeBindings;
+  return Array.isArray(bindings) ? bindings.find(binding => binding?.clip === id) : undefined;
+}
+
 function canDropPrototype(sourceId, targetId, position) {
   if (!sourceId || !targetId) return { ok: false, reason: "请先拖动一个组件" };
   if (sourceId === targetId) return { ok: false, reason: "不能把组件移动到自身" };
@@ -539,6 +575,10 @@ function canDropPrototype(sourceId, targetId, position) {
   if (!source || !target) return { ok: false, reason: "组件不存在，已取消结构调整" };
   if (descendantNodeIds(sourceId).has(targetId)) return { ok: false, reason: "不能把父组件移动到自己的子组件下方" };
   if (position === "inside" && target.repetition) return { ok: false, reason: "带重复系统的组件暂不作为父组件使用" };
+  const pipeId = clipBinding(sourceId)?.node;
+  if (pipeId && pipeId !== (position === "inside" ? targetId : target.parent)) {
+    return { ok: false, reason: `该管卡绑定在管线 ${pipeId} 下` };
+  }
   return { ok: true };
 }
 
@@ -576,6 +616,8 @@ function movePrototypeInTree(sourceId, targetId, position) {
 }
 
 function movePrototypeToRootEnd(sourceId) {
+  const pipeId = clipBinding(sourceId)?.node;
+  if (pipeId) { setStatus(`该管卡绑定在管线 ${pipeId} 下`); return; }
   const nodes = documentValue.parameters.nodes;
   const sourceIndex = nodes.findIndex(node => node.id === sourceId);
   if (sourceIndex < 0) return;
@@ -730,10 +772,129 @@ function renderTree() {
 function updateIsolationUI(){const button=$("#clearIsolationButton");button.hidden=!isolatedPrototype;if(isolatedPrototype)button.textContent=`退出隔离 · ${isolatedPrototype}`}
 function clearIsolation(){if(!isolatedPrototype)return;isolatedPrototype=null;updateIsolationUI();renderTree();renderInspector();draw();setStatus("已退出隔离，恢复显示全部组件")}
 
-function renderDiagnostics() {
-  $("#issueBadge").textContent = diagnostics.length ? diagnostics.length : "";
-  $("#diagnosticsTab").innerHTML = diagnostics.length ? diagnostics.map((item)=>`<div class="diagnostic"><strong>${escapeHtml(item.code??"MODEL_ERROR")}</strong><br>${escapeHtml(item.message)}</div>`).join("") : `<div class="diagnostic ok"><strong>模型状态正常</strong><br>结构已构建，当前没有诊断问题。</div>`;
+const relatedLocationLabels = {
+  "first-declaration": "首次声明",
+  "candidate-declaration": "候选声明",
+  "cycle-edge": "下一条父引用",
+};
+
+function diagnosticLocationLabel({ path, sourceRange }) {
+  if (!sourceRange) return path || "定位 JSON";
+  const { line, column } = sourceRange;
+  return `${path ? path + " · " : ""}第 ${line} 行，第 ${column} 列`;
 }
+
+function updateDiagnosticActions() {
+  const panel = $("#diagnosticsTab");
+  const source = $("#sourceEditor").value;
+  const links = panel.querySelectorAll("[data-issue-index]");
+  const stale = diagnosticsSource !== source;
+  const passed = panel.querySelector("[data-draft-check]");
+  const note = panel.querySelector(".diagnostics-stale");
+  if (note) note.hidden = !(stale && (links.length || passed));
+  if (passed) passed.hidden = stale;
+  links.forEach(link => { link.disabled = stale; });
+  const repair = panel.querySelector('[data-diagnostic-action="repair"]');
+  const restore = panel.querySelector('[data-diagnostic-action="restore"]');
+  if (repair) repair.disabled = stale;
+  if (restore) restore.disabled = !sourceDraftPending || lastSyntaxRepair?.after !== source;
+}
+
+function renderDiagnostics({ checkedDraft = false } = {}) {
+  const panel = $("#diagnosticsTab");
+  $("#issueBadge").textContent = diagnostics.length ? diagnostics.length : "";
+  const fixCount = diagnostics.filter(issue => issue.fix).length;
+  const repair = fixCount ? `<button type="button" class="button primary" data-diagnostic-action="repair">应用 ${fixCount} 处标点修复</button>` : "";
+  const restore = lastSyntaxRepair ? '<button type="button" class="button" data-diagnostic-action="restore">还原本次修复</button>' : "";
+  const actions = repair || restore ? `<div class="diagnostic-actions">${repair}${restore}</div>` : "";
+  const currentStatus = checkedDraft
+    ? `<div class="diagnostic ok" data-draft-check><strong>JSON 草稿通过检查</strong>${sourceDraftPending ? "<br>重新构建可更新预览。" : ""}</div>`
+    : '<div class="diagnostic ok"><strong>模型状态正常</strong><br>结构已构建，当前没有诊断问题。</div>';
+  const entries = diagnostics.length ? diagnostics.map((item, index) => {
+    const link = typeof item.path === "string"
+      ? `<button type="button" data-issue-index="${index}">${escapeHtml(diagnosticLocationLabel(item))}</button>`
+      : "";
+    const related = (item.relatedLocations ?? []).map((location, relatedIndex) =>
+      `<button class="diagnostic-related" type="button" data-issue-index="${index}" data-related-index="${relatedIndex}"><span>${escapeHtml(relatedLocationLabels[location.kind] ?? "关联位置")}</span>${escapeHtml(diagnosticLocationLabel(location))}</button>`).join("");
+    const suggested = item.suggestedValues?.length
+      ? `<div class="diagnostic-suggestions"><span>候选值</span>${item.suggestedValues.map(value => `<code>${escapeHtml(JSON.stringify(value))}</code>`).join("")}</div>`
+      : "";
+    return `<div class="diagnostic"><strong>${escapeHtml(item.syntaxCode ?? item.code ?? "MODEL_ERROR")}</strong><br>${escapeHtml(item.message)}${link}${related}${suggested}</div>`;
+  }).join("") : currentStatus;
+  panel.innerHTML = `<p class="diagnostics-stale" hidden>JSON 草稿已更改，可以在 JSON 页重新检查。</p>${actions}${entries}`;
+  updateDiagnosticActions();
+}
+
+function refreshDraftDiagnostics() {
+  diagnosticsSource = $("#sourceEditor").value;
+  diagnostics = checkSourceDraft(diagnosticsSource).issues;
+  renderDiagnostics({ checkedDraft: true });
+}
+
+function replaceCheckedDraft(text) {
+  $("#sourceEditor").value = text;
+  sourceDraftPending = true;
+  refreshDraftDiagnostics();
+}
+
+$("#checkSourceButton").addEventListener("click", () => {
+  refreshDraftDiagnostics();
+  activateTab("diagnostics");
+  setStatus(diagnostics.length ? `草稿检查完成 · ${diagnostics.length} 项诊断` : "JSON 草稿通过检查");
+  $('[data-tab="diagnostics"]').focus();
+});
+
+$("#diagnosticsTab").addEventListener("click", event => {
+  const editor = $("#sourceEditor");
+  const action = event.target.closest("[data-diagnostic-action]")?.dataset.diagnosticAction;
+  if (action === "repair") {
+    if (diagnosticsSource !== editor.value) return;
+    const result = applySyntaxFixes(editor.value, diagnostics);
+    if (!result) return;
+    lastSyntaxRepair = { before: editor.value, after: result.text };
+    replaceCheckedDraft(result.text);
+    setStatus(`已应用 ${result.count} 处标点修复${diagnostics.length ? ` · 还有 ${diagnostics.length} 项诊断` : " · 草稿通过检查"}`);
+    $('[data-diagnostic-action="restore"]').focus();
+    return;
+  }
+  if (action === "restore") {
+    if (!sourceDraftPending || lastSyntaxRepair?.after !== editor.value) return;
+    const { before } = lastSyntaxRepair;
+    lastSyntaxRepair = undefined;
+    replaceCheckedDraft(before);
+    setStatus("已还原修复前的 JSON 草稿");
+    $('[data-diagnostic-action="repair"]')?.focus();
+    return;
+  }
+  const button = event.target.closest("[data-issue-index]");
+  if (!button) return;
+  if (diagnosticsSource !== editor.value) {
+    updateDiagnosticActions();
+    return;
+  }
+  const issue = diagnostics[Number(button.dataset.issueIndex)];
+  const location = button.dataset.relatedIndex === undefined ? issue : issue.relatedLocations[Number(button.dataset.relatedIndex)];
+  const { offset, length } = diagnosticRange(editor.value, location);
+  activateTab("source");
+  editor.focus();
+  editor.setSelectionRange(offset, offset + length);
+  // Selection alone doesn't scroll a textarea. Measure the prefix at the same
+  // wrap width so a field in minified JSON is reachable as well.
+  const measure = editor.cloneNode(false);
+  measure.removeAttribute("id");
+  measure.setAttribute("aria-hidden", "true");
+  measure.tabIndex = -1;
+  Object.assign(measure.style, {
+    position: "absolute", visibility: "hidden", overflow: "hidden", boxSizing: "border-box",
+    height: "1px", minHeight: "0", width: `${editor.clientWidth}px`,
+  });
+  measure.value = editor.value.slice(0, offset);
+  editor.after(measure);
+  editor.scrollTop = Math.max(0, measure.scrollHeight - editor.clientHeight / 2);
+  measure.remove();
+});
+
+$("#sourceEditor").addEventListener("input", () => { sourceDraftPending = true; });
 
 function updateSummary() {
   const size = build?.bounds?.size; $("#boundsValue").textContent = size ? size.map(v=>v.toFixed(2)).join(" × ") : "—";
@@ -760,12 +921,38 @@ function readVector(selector) { return [...document.querySelectorAll(selector)].
 
 function applyProperties(sourceNode) {
   if (!sourceNode) return;
+  let nextProfile;
+  if (sourceNode.geometry?.type === "sweep") {
+    const geometry = sourceNode.geometry;
+    try {
+      const factors = [0, 1].map(axis => {
+        const input = $(`#sweepSize${axis}`);
+        if (!input) return 1;
+        const size = input.valueAsNumber;
+        if (!Number.isFinite(size) || size <= 0) throw new Error("截面尺寸必须大于 0");
+        return size / sectionExtent(geometry.profile, axis);
+      });
+      nextProfile = geometry.profile.map(([u, v]) => [u * factors[0], v * factors[1]]);
+      sweepGeometry({ ...geometry, profile: nextProfile });
+    } catch (error) {
+      diagnostics = [{ message: error.message }];
+      renderDiagnostics();
+      return;
+    }
+  }
   pushUndo();
   const oldId=sourceNode.id;const nextId=$("#editId").value.trim();
   if(!nextId) { diagnostics=[{message:"原型 ID 不能为空"}];renderDiagnostics();return; }
   if(nextId!==oldId&&documentValue.parameters.nodes.some(item=>item.id===nextId)){diagnostics=[{message:`原型 ID 已存在：${nextId}`}];renderDiagnostics();return;}
   sourceNode.id=nextId;
-  if(nextId!==oldId){for(const item of documentValue.parameters.nodes){if(item.parent===oldId)item.parent=nextId}for(const anchor of Object.values(documentValue.parameters.anchors??{})){if(anchor.node===oldId)anchor.node=nextId}}
+  if (nextId !== oldId) {
+    for (const item of documentValue.parameters.nodes) if (item.parent === oldId) item.parent = nextId;
+    for (const anchor of Object.values(documentValue.parameters.anchors ?? {})) if (anchor.node === oldId) anchor.node = nextId;
+    for (const binding of documentValue.parameters.routeBindings ?? []) {
+      if (binding.node === oldId) binding.node = nextId;
+      if (binding.clip === oldId) binding.clip = nextId;
+    }
+  }
   sourceNode.semanticType = $("#editSemantic").value.trim() || undefined;
   sourceNode.material = $("#editMaterial").value.trim() || undefined;
   sourceNode.parent=$("#editParent").value||undefined;
@@ -776,8 +963,9 @@ function applyProperties(sourceNode) {
   const sizeInputs=document.querySelectorAll(".editSize");if(sizeInputs.length){const size=readVector(".editSize");if(size.some(value=>!Number.isFinite(value)||value<=0)){diagnostics=[{message:"几何尺寸必须大于 0"}];renderDiagnostics();return;}sourceNode.geometry.size=size}
   const radiusInput=$("#editRadius");if(radiusInput){const radius=Number(radiusInput.value);if(!Number.isFinite(radius)||radius<=0){diagnostics=[{message:"半径必须大于 0"}];renderDiagnostics();return;}sourceNode.geometry.radius=radius}
   for(const [selector,key,label] of [["#editHeight","height","高度"],["#editMajorRadius","majorRadius","圆环主半径"],["#editTubeRadius","tubeRadius","圆管半径"]]){const input=$(selector);if(input){const value=Number(input.value);if(!Number.isFinite(value)||value<=0){diagnostics=[{message:`${label}必须大于 0`}];renderDiagnostics();return}sourceNode.geometry[key]=value}}
+  if (nextProfile) sourceNode.geometry.profile = nextProfile;
   delete sourceNode.position;
-  $("#sourceEditor").value=JSON.stringify(documentValue,null,2);
+  syncSourceEditor();
   compile(undefined,{preserveSource:true});
   activePrototype=nextId;selectedPrototypes=new Set([nextId]);selectedOccurrenceExplicit=false;selectedId=build.nodes.find(item=>item.metadata?.compositionNodeId===nextId)?.id??null;renderTree();renderInspector();draw();setStatus(`已更新组件 ${sourceNode.id}`);
 }
@@ -889,6 +1077,7 @@ function renderModelLibrary(filter="all",query=""){
     if(item.editor.template){addComponent(item.editor.template);return}
     pushUndo(`从模型库使用 ${item.id}`);
     if(item.editor.document){
+      sourceDraftPending=false;
       documentValue=withDefaultSceneLighting(item.editor.document);
       hiddenPrototypes.clear();isolatedPrototype=null;selectedId=null;activePrototype=null;selectedOccurrenceExplicit=false;selectedAnnotationId=null;selectedPrototypes.clear();
       threeNeedsRebuild=true;
@@ -924,6 +1113,12 @@ function deleteNode(id){
   if(descendantCount&&!window.confirm(`删除 ${id} 会同时删除其下 ${descendantCount} 个子组件，是否继续？`)){setStatus(`已取消删除 ${id}`);return}
   pushUndo(`删除组件 ${id}${descendantCount?` 及 ${descendantCount} 个子组件`:""}`);
   documentValue.parameters.nodes=documentValue.parameters.nodes.filter(item=>!ids.has(item.id));
+  if (documentValue.parameters.routeBindings) {
+    documentValue.parameters.routeBindings = documentValue.parameters.routeBindings.filter(binding => !ids.has(binding.node));
+    for (const binding of documentValue.parameters.routeBindings) {
+      if (ids.has(binding.clip)) { delete binding.clip; delete binding.clipOffset; }
+    }
+  }
   for(const [key,anchor] of Object.entries(documentValue.parameters.anchors??{})){if(ids.has(anchor.node))delete documentValue.parameters.anchors[key]}
   documentValue.parameters.animations=(documentValue.parameters.animations??[]).filter(item=>!ids.has(item.target));
   for(const removedId of ids){hiddenPrototypes.delete(removedId);collapsedPrototypes.delete(removedId)}
@@ -957,6 +1152,7 @@ function renderSelectedAnimations(){
 function activateTab(name){
   document.querySelectorAll("[data-tab]").forEach(button=>button.classList.toggle("active",button.dataset.tab===name));
   ["inspect","animations","annotations","changes","source","diagnostics"].forEach(tab=>$("#"+tab+"Tab").hidden=tab!==name);
+  if (name === "diagnostics") updateDiagnosticActions();
 }
 function uniqueAnnotationId(base="label"){
   const ids=new Set((documentValue.parameters?.annotations??[]).map(item=>item.id));
@@ -1004,14 +1200,90 @@ function fitView() {
 
 function renderEnvironmentLighting(){const config=lightingConfig();$("#lightingButton").classList.toggle("active",config.enabled!==false);$("#lightingTab").innerHTML=`<div class="section"><div class="section-title">ENVIRONMENT LIGHTING</div><div class="concept-note"><strong>环境照明</strong><span>这里只管理整个场景的基础可见性。点光源、方向光和聚光灯已纳入“组件结构”，可像其他组件一样选择、移动、复制和删除。</span></div><div class="edit-field"><label><input id="lightingEnabled" type="checkbox" ${config.enabled!==false?"checked":""}> 启用所有场景照明</label></div><div class="edit-field"><label>环境预设</label><select id="lightingPreset"><option value="studio" ${config.preset==="studio"?"selected":""}>工作室</option><option value="bright" ${config.preset==="bright"?"selected":""}>明亮检查</option><option value="outdoor" ${config.preset==="outdoor"?"selected":""}>室外日光</option><option value="neutral" ${config.preset==="neutral"?"selected":""}>中性均匀</option></select></div><div class="edit-field"><label>环境光强度</label><input id="ambientIntensity" type="number" min="0" max="10" step=".05" value="${config.ambientIntensity??.55}"></div><div class="inspector-actions"><button id="saveEnvironmentLighting" class="apply">应用环境照明</button></div></div><div class="concept-note"><strong>添加具体灯光</strong><span>使用顶部“添加构件”，选择点光源、方向光或聚光灯。</span></div>`;$("#saveEnvironmentLighting").addEventListener("click",()=>{pushUndo("更新环境照明");const value=editableLighting();value.enabled=$("#lightingEnabled").checked;value.preset=$("#lightingPreset").value;value.ambientIntensity=Math.max(0,Number($("#ambientIntensity").value)||0);delete value.lights;threeNeedsRebuild=true;compile(undefined,{preserveSource:true});setStatus("已应用环境照明")})}
 
-function migrateLegacyLights(){const legacy=documentValue.parameters?.lighting?.lights;if(!Array.isArray(legacy)||!legacy.length)return;for(const item of legacy){const id=uniqueNodeId(item.id??`${item.type??"point"}-light`);documentValue.parameters.nodes.push({id,kind:"light",semanticType:`scene.light.${item.type??"point"}`,light:{type:item.type??"point",color:item.color??"#ffffff",intensity:item.intensity??1,...(item.distance===undefined?{}:{distance:item.distance})},transform:{position:item.position??[3,4,3],rotation:[0,0,0],scale:[1,1,1]}})}delete documentValue.parameters.lighting.lights}
+function migrateLegacyLights(candidate) {
+  const legacy = candidate.parameters?.lighting?.lights;
+  if (!Array.isArray(legacy) || !legacy.length) return;
+  const ids = new Set(candidate.parameters.nodes.map(node => node.id));
+  for (const item of legacy) {
+    const type = item.type ?? "point";
+    const id = uniqueDocumentNodeId(item.id ?? `${type}-light`, ids);
+    candidate.parameters.nodes.push({
+      id, kind: "light", semanticType: `scene.light.${type}`,
+      light: { type, color: item.color ?? "#ffffff", intensity: item.intensity ?? 1, ...(item.distance === undefined ? {} : { distance: item.distance }) },
+      transform: { position: item.position ?? [3,4,3], rotation: [0,0,0], scale: [1,1,1] },
+    });
+  }
+  delete candidate.parameters.lighting.lights;
+}
+
+function syncSourceEditor() {
+  if (!sourceDraftPending) {
+    lastSyntaxRepair = undefined;
+    $("#sourceEditor").value = JSON.stringify(documentValue, null, 2);
+  }
+}
 
 function compile(source, { preserveSource = false } = {}) {
-  diagnostics=[];
-  try { if(!preserveSource) documentValue=JSON.parse(source ?? $("#sourceEditor").value);migrateLegacyLights(); build=registry.build(documentValue);if(activePrototype&&!documentValue.parameters?.nodes?.some(node=>node.id===activePrototype)){activePrototype=null;selectedPrototypes.clear();selectedOccurrenceExplicit=false}if(selectedAnnotationId&&!(documentValue.parameters?.annotations??[]).some(item=>item.id===selectedAnnotationId))selectedAnnotationId=null;selectedId=selectedOccurrenceExplicit&&build.nodes.some(n=>n.id===selectedId)?selectedId:activePrototype?build.nodes.find(n=>n.metadata?.compositionNodeId===activePrototype)?.id??null:null; }
-  catch(error){build=null;diagnostics.push({message:error.message});}
-  $("#sourceEditor").value=JSON.stringify(documentValue,null,2); renderTree();renderInspector();renderSelectedAnimations();renderAnnotations();renderChanges();renderDiagnostics();refreshAnimationSelect();updateSummary();draw();
-  setStatus(build?`构建完成 · ${build.nodes.length} 个展开节点`:`构建失败 · ${diagnostics[0]?.message??"未知错误"}`);
+  const editor = $("#sourceEditor");
+  let candidate = documentValue;
+  let input;
+  diagnostics = [];
+  diagnosticsSource = undefined;
+  const hasErrors = () => diagnostics.some(issue => issue.level !== "warning");
+  if (!preserveSource) {
+    if (source !== undefined) editor.value = source;
+    if (lastSyntaxRepair?.after !== editor.value) lastSyntaxRepair = undefined;
+    sourceDraftPending = true;
+    diagnosticsSource = editor.value;
+    ({ input, issues: diagnostics } = checkSourceDraft(diagnosticsSource));
+    if (!hasErrors()) {
+      const doc = isCompositionManifest(input) ? input.editor.document : input;
+      candidate = doc.component ? doc : { id: doc.id, component: "core.composition", parameters: doc };
+    }
+  }
+  if (!hasErrors()) {
+    try {
+      migrateLegacyLights(candidate);
+      build = registry.build(candidate);
+      const resolved = build.instance.parameters;
+      if (resolved !== candidate.parameters) {
+        // Active canvas drags retain their source node between pointer events.
+        const nodes = candidate.parameters.nodes;
+        resolved.nodes.forEach((node, i) => Object.assign(nodes[i], node));
+        candidate.parameters = { ...resolved, nodes };
+      }
+      documentValue = candidate;
+      diagnostics = build.warnings.filter(issue => issue?.level === "warning" && typeof issue.path === "string" && issue.path.startsWith("/attachments/"))
+        .map(issue => ({ ...issue, path: "/parameters" + issue.path }));
+    } catch (error) {
+      diagnostics = checkComposition(input ?? candidate).issues;
+      if (!hasErrors()) diagnostics.push({ code: "COMPILE_FAILED", path: "", message: error.message });
+    }
+  }
+  if (hasErrors()) {
+    if (preserveSource && !sourceDraftPending) {
+      syncSourceEditor();
+      diagnosticsSource = editor.value;
+    }
+    renderDiagnostics();
+    activateTab("diagnostics");
+    setStatus(`构建失败 · ${diagnostics.length} 项问题${build ? " · 视图保留上次构建" : ""}`);
+    return;
+  }
+  if (!preserveSource) sourceDraftPending = false;
+  syncSourceEditor();
+  if (!sourceDraftPending) diagnosticsSource = editor.value;
+  if (activePrototype && !documentValue.parameters.nodes.some(node => node.id === activePrototype)) {
+    activePrototype = null;
+    selectedPrototypes.clear();
+    selectedOccurrenceExplicit = false;
+  }
+  if (selectedAnnotationId && !documentValue.parameters.annotations?.some(item => item.id === selectedAnnotationId)) selectedAnnotationId = null;
+  selectedId = selectedOccurrenceExplicit && build.nodes.some(node => node.id === selectedId)
+    ? selectedId : build.nodes.find(node => node.metadata?.compositionNodeId === activePrototype)?.id ?? null;
+  renderTree(); renderInspector(); renderSelectedAnimations(); renderAnnotations(); renderChanges();
+  renderDiagnostics(); refreshAnimationSelect(); updateSummary(); draw();
+  setStatus(`构建完成 · ${build.nodes.length} 个展开节点${diagnostics.length ? ` · ${diagnostics.length} 条警告` : ""}`);
 }
 
 function selectPrototype(id,additive=false){selectedAnnotationId=null;if(additive){selectedPrototypes.has(id)?selectedPrototypes.delete(id):selectedPrototypes.add(id);activePrototype=selectedPrototypes.has(id)?id:[...selectedPrototypes].at(-1)??null}else{selectedPrototypes=new Set([id]);activePrototype=id}selectedOccurrenceExplicit=false;selectedId=activePrototype?build?.nodes.find(item=>item.metadata?.compositionNodeId===activePrototype)?.id??null:null;renderTree();renderInspector();renderSelectedAnimations();renderAnnotations();draw();setStatus(activePrototype?`已选择组件 ${activePrototype}${selectedPrototypes.size>1?`（共 ${selectedPrototypes.size} 个）`:""}`:"已取消选择")}
@@ -1024,7 +1296,7 @@ function distributeSelected(){const nodes=selectedSources(),axis=$("#spatialAxis
 
 $("#compileButton").addEventListener("click",()=>compile());
 $("#documentName").addEventListener("click",()=>{selectedId=null;activePrototype=null;selectedOccurrenceExplicit=false;selectedAnnotationId=null;selectedPrototypes.clear();renderTree();renderInspector();renderSelectedAnimations();renderAnnotations();activateTab("inspect");draw();setStatus("已切换到场景属性，可修改场景名称")});
-$("#newButton").addEventListener("click",()=>{pushUndo();documentValue=structuredClone(defaultDocument);hiddenPrototypes.clear();isolatedPrototype=null;selectedId=null;activePrototype=null;selectedOccurrenceExplicit=false;selectedAnnotationId=null;selectedPrototypes.clear();compile(undefined,{preserveSource:true});fitView();setStatus("已创建基础场景：立方体与默认灯光")});
+$("#newButton").addEventListener("click",()=>{pushUndo();sourceDraftPending=false;documentValue=structuredClone(defaultDocument);hiddenPrototypes.clear();isolatedPrototype=null;selectedId=null;activePrototype=null;selectedOccurrenceExplicit=false;selectedAnnotationId=null;selectedPrototypes.clear();compile(undefined,{preserveSource:true});fitView();setStatus("已创建基础场景：立方体与默认灯光")});
 $("#addComponentButton").addEventListener("click",()=>$("#componentDialog").showModal());
 $("#openLibraryButton").addEventListener("click",()=>{$("#libraryDialog").showModal();renderModelLibrary($("#libraryKind").value,$("#librarySearch").value)});
 $("#closeLibraryDialog").addEventListener("click",()=>$("#libraryDialog").close());
@@ -1044,7 +1316,7 @@ function setEditMode(mode,{toggle=true}={}){editMode=toggle&&editMode===mode?"or
 $("#moveModeButton").addEventListener("click",()=>setEditMode("move"));
 $("#rotateModeButton").addEventListener("click",()=>setEditMode("rotate"));
 $("#rendererModeButton").addEventListener("click",()=>setRenderMode(requestedRenderMode==="three"?"canvas":"three"));
-$("#lightingButton").addEventListener("click",event=>{pushUndo("切换场景灯光");const config=editableLighting();config.enabled=config.enabled===false;event.currentTarget.classList.toggle("active",config.enabled);threeNeedsRebuild=true;$("#sourceEditor").value=JSON.stringify(documentValue,null,2);draw();setStatus(config.enabled?"已开启全部照明":"已关闭全部照明")});
+$("#lightingButton").addEventListener("click",event=>{pushUndo("切换场景灯光");const config=editableLighting();config.enabled=config.enabled===false;event.currentTarget.classList.toggle("active",config.enabled);threeNeedsRebuild=true;syncSourceEditor();draw();setStatus(config.enabled?"已开启全部照明":"已关闭全部照明")});
 $("#alignButton").addEventListener("click",alignSelected);
 $("#distributeButton").addEventListener("click",distributeSelected);
 $("#gridButton").addEventListener("click",event=>{showGrid=!showGrid;event.currentTarget.classList.toggle("active",showGrid);draw();setStatus(showGrid?"已显示辅助网格":"已隐藏辅助网格")});
@@ -1064,7 +1336,7 @@ $("#tree").addEventListener("drop",event=>{
   movePrototypeToRootEnd(draggedPrototype);
   draggedPrototype=null;
 });
-$("#fileInput").addEventListener("change",async(event)=>{const file=event.target.files[0];if(file){$("#sourceEditor").value=await file.text();compile();}});
+$("#fileInput").addEventListener("change",async(event)=>{const file=event.target.files[0];if(file){const text=await file.text();lastSyntaxRepair=undefined;compile(text);}});
 $("#downloadButton").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(documentValue,null,2)],{type:"application/json"});const link=document.createElement("a");link.href=URL.createObjectURL(blob);link.download=`${documentValue.id??"composition"}.json`;link.click();URL.revokeObjectURL(link.href)});$("#playAnimationButton").addEventListener("click",playAnimation);
 document.querySelectorAll("[data-tab]").forEach((button)=>button.addEventListener("click",()=>activateTab(button.dataset.tab)));
 document.querySelectorAll("[data-view]").forEach((button)=>button.addEventListener("click",()=>{document.querySelectorAll("[data-view]").forEach(b=>b.classList.toggle("active",b===button));view=button.dataset.view==="top"?{...view,yaw:0,pitch:Math.PI/2}:button.dataset.view==="front"?{...view,yaw:0,pitch:0}:{...view,yaw:-.72,pitch:.52};draw()}));
@@ -1080,8 +1352,8 @@ function hitGizmo(x,y){let best=null;for(const area of gizmoHitAreas){if(area.ty
 function hitAnnotation(x,y){return annotationHitAreas.filter(area=>x>=area.minX-5&&x<=area.maxX+5&&y>=area.minY-5&&y<=area.maxY+5).sort((a,b)=>b.depth-a.depth)[0]??null}
 canvas.addEventListener("pointermove",event=>{if(!drag)return;const dx=event.clientX-drag.x,dy=event.clientY-drag.y;drag.moved ||= Math.abs(dx)+Math.abs(dy)>4;if(drag.mode==="annotation"){const delta=screenDeltaToWorld(dx,dy);drag.source.position=drag.start.map((value,index)=>value+delta[index]);compile(undefined,{preserveSource:true});activateTab("annotations");setStatus(`移动画布标签 ${drag.source.id} · ${drag.source.position.map(v=>v.toFixed(2)).join(", ")}`)}else if(drag.mode==="move"){const index={x:0,y:1,z:2}[drag.axis],screen=[drag.hit.b[0]-drag.hit.a[0],drag.hit.b[1]-drag.hit.a[1]],length=Math.hypot(...screen)||1,amount=(dx*screen[0]/length+dy*screen[1]/length)/view.zoom,p=[...drag.start];p[index]+=amount;setNodePosition(drag.source,p);compile(undefined,{preserveSource:true});setStatus(`移动 ${drag.source.id} · ${drag.axis.toUpperCase()} ${p[index].toFixed(2)}`)}else if(drag.mode==="rotate"){const index={x:0,y:1,z:2}[drag.axis],rotation=[...drag.start],amount=(dx*drag.tangent[0]+dy*drag.tangent[1])*.012;rotation[index]+=amount;drag.source.transform={...(drag.source.transform??{}),rotation};compile(undefined,{preserveSource:true});setStatus(`旋转 ${drag.source.id} · ${drag.axis.toUpperCase()} ${(rotation[index]*180/Math.PI).toFixed(1)}° · 沿箭头为正方向`)}else if(drag.mode==="path"){const p=[...drag.start];p[0]+=dx/view.zoom;if(Math.abs(view.pitch)>1.2)p[2]+=dy/view.zoom;else p[1]-=dy/view.zoom;writeSourceControlPoint(drag.source,drag.kind,drag.index,p);compile(undefined,{preserveSource:true});setStatus(`${drag.kind==="loft-section"?"截面中心":"路径点"} ${drag.index+1} · ${p.map(v=>v.toFixed(2)).join(", ")}`)}else{view.yaw=drag.yaw+dx*.008;view.pitch=Math.max(-1.45,Math.min(1.45,drag.pitch+dy*.008));draw()}});
 canvas.addEventListener("pointerup",event=>{if(drag&&!drag.moved&&drag.mode==="orbit"){const rect=canvas.getBoundingClientRect(),x=event.clientX-rect.left,y=event.clientY-rect.top,label=hitAnnotation(x,y);if(label){selectAnnotation(label.id);drag=null;return}if(renderMode==="three"&&threeRenderer){const id=threeRenderer.pick(x,y);if(id)selectNode(id)}else{const hit=projectedNodes.filter(p=>x>=p.minX-5&&x<=p.maxX+5&&y>=p.minY-5&&y<=p.maxY+5).sort((a,b)=>b.depth-a.depth)[0];if(hit)selectNode(hit.id)}}drag=null});
-canvas.addEventListener("wheel",event=>{event.preventDefault();view.zoom=Math.max(20,Math.min(2600,view.zoom*Math.exp(-event.deltaY*.001)));draw()},{passive:false});window.addEventListener("resize",draw);window.addEventListener("keydown",event=>{if(event.key==="Escape"&&isolatedPrototype){clearIsolation();return}if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==="z"){event.preventDefault();$(event.shiftKey?"#redoButton":"#undoButton").click()}if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==="s"){event.preventDefault();$("#downloadButton").click()}if(event.key==="Delete"&&selectedId){const node=build?.nodes.find(item=>item.id===selectedId);if(node)deleteNode(node.metadata.compositionNodeId)}});
+canvas.addEventListener("wheel",event=>{event.preventDefault();view.zoom=Math.max(20,Math.min(2600,view.zoom*Math.exp(-event.deltaY*.001)));draw()},{passive:false});window.addEventListener("resize",draw);window.addEventListener("keydown",event=>{if(event.key==="Escape"&&isolatedPrototype){clearIsolation();return}if(event.target===$("#sourceEditor") && !(event.key.toLowerCase()==="s" && (event.ctrlKey||event.metaKey)))return;if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==="z"){event.preventDefault();$(event.shiftKey?"#redoButton":"#undoButton").click()}if((event.ctrlKey||event.metaKey)&&event.key.toLowerCase()==="s"){event.preventDefault();$("#downloadButton").click()}if(event.key==="Delete"&&selectedId){const node=build?.nodes.find(item=>item.id===selectedId);if(node)deleteNode(node.metadata.compositionNodeId)}});
 
 const pendingLibraryImport=localStorage.getItem("agentscene.library-import");
 if(pendingLibraryImport){try{const payload=JSON.parse(pendingLibraryImport);if(payload?.document?.component==="core.composition"&&Array.isArray(payload.document.parameters?.nodes)){documentValue=withDefaultSceneLighting(payload.document);threeNeedsRebuild=true;localStorage.removeItem("agentscene.library-import");setTimeout(()=>setStatus(`已从模型库载入 ${payload.source??documentValue.id}，并确认默认灯光；可继续调整参数、材质和结构`),0)}}catch{localStorage.removeItem("agentscene.library-import")}}
-$("#sourceEditor").value=JSON.stringify(documentValue,null,2);compile();fitView();setRenderMode(requestedRenderMode,{announce:false});
+syncSourceEditor();compile();fitView();setRenderMode(requestedRenderMode,{announce:false});

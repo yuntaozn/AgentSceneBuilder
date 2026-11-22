@@ -1,6 +1,8 @@
 import { tubeAlong } from "../geometry.js";
 import { assertFiniteNumber, assertVec3 } from "../math.js";
 import { analyzePath } from "../path.js";
+import { pipePorts } from "../pipe-ports.js";
+import { readComponentParameters } from "../component-parameters.js";
 
 export const pipeRun = {
   id: "mep.pipe-run",
@@ -15,14 +17,19 @@ export const pipeRun = {
     material: { type: "string", default: "pipe.generic" }
   },
   build({ instanceId, parameters: input }) {
-    if (!Array.isArray(input.path) || input.path.length < 2) throw new TypeError("path must contain at least two vec3 points");
-    const path = input.path.map((point, index) => assertVec3(point, `path[${index}]`));
-    const diameter = assertFiniteNumber(input.diameter, "diameter", { min: 0, exclusiveMin: true });
+    const { path, diameter, pathAnalysis } = readComponentParameters(read => {
+      const path = read("path", () => {
+        if (!Array.isArray(input.path) || input.path.length < 2) throw new TypeError("path must contain at least two vec3 points");
+        return input.path.map((point, i) => read(`path[${i}]`, () => assertVec3(point, `path[${i}]`)));
+      });
+      const diameter = read("diameter", () => assertFiniteNumber(input.diameter, "diameter", { min: 0, exclusiveMin: true }));
+      const pathAnalysis = path?.every(Boolean) ? read("path", () => analyzePath(path)) : undefined;
+      return { path, diameter, pathAnalysis };
+    });
     const system = typeof input.system === "string" && input.system ? input.system : "generic";
     const material = typeof input.material === "string" && input.material ? input.material : `pipe.${system}`;
     const parameters = { path, diameter, system, material };
     const nodeId = `${instanceId}.body`;
-    const pathAnalysis = analyzePath(path);
     const routeLength = pathAnalysis.totalLength;
     return {
       parameters,
@@ -34,10 +41,7 @@ export const pipeRun = {
         semanticType: "mep.pipe",
         metadata: { system },
       })],
-      anchors: {
-        start: path[0],
-        end: path[path.length - 1],
-      },
+      anchors: pipePorts(path, pathAnalysis.segments, diameter),
       metrics: {
         centerlineLength: { value: routeLength, unit: "meter" },
         outsideDiameter: { value: diameter, unit: "meter" },

@@ -1,6 +1,6 @@
 # 模型库静态网站
 
-该站点直接消费 `registry/registry.json`，不需要账号、数据库或专用后端。先运行 `npm run registry:build`，再用任意静态服务器从仓库根目录提供文件并访问 `/apps/library/`。
+该站点使用 `registry/registry.json`，可直接从发布版的静态文件运行。在仓库根目录执行 `node apps/editor/server.mjs`，然后访问 `http://127.0.0.1:4173/apps/library/`。也可以用其他静态服务器提供仓库根目录。
 
 构件与组合条目提供交互式模型预览、CompositionSpec 代码查看和复制。点击“在编辑器中打开并继续编辑”会通过同源浏览器存储传递完整文档，编辑器载入后仍可修改结构、路径、材质、动画和参数。
 

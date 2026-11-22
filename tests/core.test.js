@@ -119,7 +119,7 @@ test("builds sphere, cylinder, cone, torus, tapered segment, and lofted surface 
   assert.deepEqual(result.nodes.map(node=>node.geometry.type),["sphere","cylinder","cone","torus","tapered-cylinder-between","lofted-surface"]);
   assert.deepEqual(geometryBounds(result.nodes[0]).size,[2,2,2]);
   assert.deepEqual(geometryBounds(result.nodes[3]).size.map(value=>Number(value.toFixed(3))),[2.4,.4,2.4]);
-  assert.deepEqual(geometryBounds(result.nodes[4]).size.map(value=>Number(value.toFixed(3))),[.32,1.32,.32]);
+  assert.deepEqual(geometryBounds(result.nodes[4]).size.map(value=>Number(value.toFixed(3))),[.32,1,.32]);
   assert.equal(result.nodes[5].geometry.sections[0].profile.length,4);
   assert.deepEqual(geometryBounds(result.nodes[5]).size.map(value=>Number(value.toFixed(3))),[.48,1,.17]);
 });
@@ -472,7 +472,8 @@ test("builds a pipe run with length, anchors, and bounds", () => {
   assert.equal(result.metrics.centerlineLength.value, 7);
   assert.deepEqual(result.anchors.local.start, [0, 0, 0]);
   assert.deepEqual(result.anchors.local.end, [4, 3, 0]);
-  assert.deepEqual(result.bounds.size, [4.1, 3.0999999999999996, 0.1]);
+  assert.deepEqual(result.bounds.min, [-0.05, 0, -0.05]);
+  assert.deepEqual(result.bounds.max, [4, 3.05, 0.05]);
 });
 
 test("rejects invalid component parameters", () => {
@@ -495,7 +496,7 @@ test("applies instance transforms to world anchors and bounds", () => {
   assert.deepEqual(result.anchors.world.start, [1, 2, 3]);
   assert.ok(nearlyEqual(result.anchors.world.end[0], 1));
   assert.ok(nearlyEqual(result.anchors.world.end[2], 2));
-  assert.ok(nearlyEqual(result.bounds.size[2], 1.1));
+  assert.ok(nearlyEqual(result.bounds.size[2], 1));
 });
 
 test("composes components, resolves connections, and queries semantic nodes", () => {
@@ -623,7 +624,7 @@ test("proposes deterministic linear distribution", () => {
   const proposal = proposeLinearDistribution(scene, { instanceIds: ["a", "b"], axis: "x", start: 0, gap: 0.5 });
   assert.equal(proposal.changes.length, 2);
   assert.ok(nearlyEqual(proposal.facts.placements[0].proposedMin, 0));
-  assert.ok(nearlyEqual(proposal.facts.placements[1].proposedMin, 1.6));
+  assert.ok(nearlyEqual(proposal.facts.placements[1].proposedMin, 1.5));
 });
 
 test("analyzes all scene instance pairs", () => {

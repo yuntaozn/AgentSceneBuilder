@@ -1,6 +1,9 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { spawn } from "node:child_process";
+import { once } from "node:events";
 import { access, readFile } from "node:fs/promises";
+import { fileURLToPath } from "node:url";
 
 const readJson = async path => JSON.parse(await readFile(new URL(path, import.meta.url), "utf8"));
 const readText = async path => readFile(new URL(path, import.meta.url), "utf8");
@@ -36,6 +39,12 @@ test("workspace package metadata uses Apache-2.0 consistently before GitHub rele
     assert.equal(pkg.license, "Apache-2.0");
   }
   assert.equal(root.private, true, "workspace root should stay private for npm publishing");
+  const lock = await readJson("../package-lock.json");
+  for (const version of [core.version, cli.version, cli.dependencies[core.name], plugin.version,
+    lock.version, lock.packages[""].version, lock.packages["packages/core"].version,
+    lock.packages["packages/cli"].version, lock.packages["packages/cli"].dependencies[core.name]]) {
+    assert.equal(version, root.version);
+  }
 });
 
 test("open source release plan preserves current product boundary", async () => {
@@ -51,4 +60,25 @@ test("open source release plan preserves current product boundary", async () => 
   assert.ok(gitignore.includes(".yarn/"));
   assert.ok(ci.includes("npm run registry:check"));
   assert.ok(ci.includes("node --test tests/*.test.js"));
+});
+
+test("the included server opens the library and editor from one origin", async t => {
+  const entry = fileURLToPath(new URL("../apps/editor/server.mjs", import.meta.url));
+  const child = spawn(process.execPath, [entry], { env: { ...process.env, PORT: "0" }, stdio: ["ignore", "pipe", "inherit"] });
+  t.after(() => child.kill());
+  const [line] = await once(child.stdout, "data", { signal: AbortSignal.timeout(5000) });
+  const origin = line.toString().trim().split(" ").at(-1);
+
+  for (const [route, location] of [["/", "/apps/editor/"], ["/apps/library?example=1", "/apps/library/?example=1"]]) {
+    const response = await fetch(origin + route, { redirect: "manual" });
+    assert.equal(response.status, 302);
+    assert.equal(response.headers.get("location"), location);
+    await response.body.cancel();
+  }
+
+  for (const [route, marker] of [["/apps/editor/", "sourceEditor"], ["/apps/library/", "useInEditor"]]) {
+    const response = await fetch(origin + route);
+    assert.equal(response.status, 200);
+    assert.ok((await response.text()).includes(marker));
+  }
 });

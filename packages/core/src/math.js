@@ -2,18 +2,18 @@ const EPSILON = 1e-9;
 
 export function assertFiniteNumber(value, name, { min = -Infinity, exclusiveMin = false } = {}) {
   if (typeof value !== "number" || !Number.isFinite(value)) {
-    throw new TypeError(`${name} must be a finite number`);
+    throw Object.assign(new TypeError(`${name} must be a finite number`), { field: name });
   }
   if (exclusiveMin ? value <= min : value < min) {
     const operator = exclusiveMin ? ">" : ">=";
-    throw new RangeError(`${name} must be ${operator} ${min}`);
+    throw Object.assign(new RangeError(`${name} must be ${operator} ${min}`), { field: name });
   }
   return value;
 }
 
 export function assertVec3(value, name) {
   if (!Array.isArray(value) || value.length !== 3) {
-    throw new TypeError(`${name} must contain exactly three numbers`);
+    throw Object.assign(new TypeError(`${name} must contain exactly three numbers`), { field: name });
   }
   return value.map((item, index) => assertFiniteNumber(item, `${name}[${index}]`));
 }
@@ -38,10 +38,20 @@ export function dot(a, b) {
   return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
 }
 
+export function cross(a, b) {
+  return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+}
+
 export function normalizeVector(value, name = "vector") {
   const vector = assertVec3(value, name);
   const magnitude = length(vector);
   if (magnitude === 0) throw new RangeError(`${name} must not be zero`);
+  // Rescale when the norm overflows or is subnormal and has lost relative precision.
+  if (!Number.isFinite(magnitude) || magnitude < 2 ** -1022) {
+    const largest = Math.max(...vector.map(Math.abs));
+    const scaled = vector.map(component => component / largest);
+    return scale(scaled, 1 / length(scaled));
+  }
   return scale(vector, 1 / magnitude);
 }
 
@@ -134,9 +144,8 @@ export function transformPoint(point, transformValue = {}) {
 }
 
 export function transformDirection(direction, transformValue = {}) {
-  const origin = transformPoint([0, 0, 0], transformValue);
-  const endpoint = transformPoint(direction, transformValue);
-  return normalizeVector(subtract(endpoint, origin), "direction");
+  const { rotation, scale } = transformValue;
+  return normalizeVector(transformPoint(direction, { rotation, scale }), "direction");
 }
 
 export function transformBounds(bounds, transformValue = {}) {
@@ -190,8 +199,8 @@ export function transformMatrix(value = {}, pivotValue = [0, 0, 0]) {
   return multiplyMatrices(translationMatrix(position), matrix);
 }
 
-export function transformPointMatrix(pointValue, matrix) {
-  const [x, y, z] = assertVec3(pointValue, "point");
+export function transformPointMatrix(pointValue, matrix, name = "point") {
+  const [x, y, z] = assertVec3(pointValue, name);
   return [
     matrix[0][0] * x + matrix[0][1] * y + matrix[0][2] * z + matrix[0][3],
     matrix[1][0] * x + matrix[1][1] * y + matrix[1][2] * z + matrix[1][3],
@@ -199,13 +208,17 @@ export function transformPointMatrix(pointValue, matrix) {
   ];
 }
 
-export function transformDirectionMatrix(directionValue, matrix) {
-  const [x, y, z] = assertVec3(directionValue, "direction");
-  return normalizeVector([
+export function transformVectorMatrix(vector, matrix, name = "vector") {
+  const [x, y, z] = assertVec3(vector, name);
+  return [
     matrix[0][0] * x + matrix[0][1] * y + matrix[0][2] * z,
     matrix[1][0] * x + matrix[1][1] * y + matrix[1][2] * z,
     matrix[2][0] * x + matrix[2][1] * y + matrix[2][2] * z,
-  ], "direction");
+  ];
+}
+
+export function transformDirectionMatrix(directionValue, matrix) {
+  return normalizeVector(transformVectorMatrix(directionValue, matrix, "direction"), "direction");
 }
 
 export function transformBoundsMatrix(bounds, matrix) {

@@ -1,14 +1,7 @@
 import { box } from "../geometry.js";
 import { assertFiniteNumber } from "../math.js";
 import { compileCompositionSpec } from "../composition.js";
-
-function positive(value, fallback, name) {
-  return assertFiniteNumber(value ?? fallback, name, { min: 0, exclusiveMin: true });
-}
-
-function nonNegative(value, fallback, name) {
-  return assertFiniteNumber(value ?? fallback, name, { min: 0 });
-}
+import { readComponentParameters } from "../component-parameters.js";
 
 function positionsAcross(span, cover, spacing) {
   const usable = span - cover * 2;
@@ -25,35 +18,34 @@ export const independentFoundation = {
   description: "Build a dimensioned pad foundation, optional blinding layer, column starter, and bottom reinforcement grid.",
   tags: ["construction", "foundation", "concrete", "rebar", "parametric"],
   parameters: {
-    width: { type: "number", unit: "meter", default: 4 },
-    depth: { type: "number", unit: "meter", default: 4 },
-    height: { type: "number", unit: "meter", default: 0.8 },
-    columnWidth: { type: "number", unit: "meter", default: 0.8 },
-    columnDepth: { type: "number", unit: "meter", default: 0.8 },
-    columnHeight: { type: "number", unit: "meter", default: 1.5 },
-    blindingThickness: { type: "number", unit: "meter", default: 0.1 },
-    blindingExtension: { type: "number", unit: "meter", default: 0.1 },
-    rebarDiameter: { type: "number", unit: "meter", default: 0.016 },
-    rebarSpacing: { type: "number", unit: "meter", default: 0.2 },
-    concreteCover: { type: "number", unit: "meter", default: 0.05 }
+    width: { type: "number", unit: "meter", default: 4, exclusiveMinimum: 0 },
+    depth: { type: "number", unit: "meter", default: 4, exclusiveMinimum: 0 },
+    height: { type: "number", unit: "meter", default: 0.8, exclusiveMinimum: 0 },
+    columnWidth: { type: "number", unit: "meter", default: 0.8, exclusiveMinimum: 0 },
+    columnDepth: { type: "number", unit: "meter", default: 0.8, exclusiveMinimum: 0 },
+    columnHeight: { type: "number", unit: "meter", default: 1.5, exclusiveMinimum: 0 },
+    blindingThickness: { type: "number", unit: "meter", default: 0.1, minimum: 0 },
+    blindingExtension: { type: "number", unit: "meter", default: 0.1, minimum: 0 },
+    rebarDiameter: { type: "number", unit: "meter", default: 0.016, exclusiveMinimum: 0 },
+    rebarSpacing: { type: "number", unit: "meter", default: 0.2, exclusiveMinimum: 0 },
+    concreteCover: { type: "number", unit: "meter", default: 0.05, minimum: 0 }
   },
   build({ instanceId, parameters: input }) {
-    const parameters = {
-      width: positive(input.width, 4, "width"),
-      depth: positive(input.depth, 4, "depth"),
-      height: positive(input.height, 0.8, "height"),
-      columnWidth: positive(input.columnWidth, 0.8, "columnWidth"),
-      columnDepth: positive(input.columnDepth, 0.8, "columnDepth"),
-      columnHeight: positive(input.columnHeight, 1.5, "columnHeight"),
-      blindingThickness: nonNegative(input.blindingThickness, 0.1, "blindingThickness"),
-      blindingExtension: nonNegative(input.blindingExtension, 0.1, "blindingExtension"),
-      rebarDiameter: positive(input.rebarDiameter, 0.016, "rebarDiameter"),
-      rebarSpacing: positive(input.rebarSpacing, 0.2, "rebarSpacing"),
-      concreteCover: nonNegative(input.concreteCover, 0.05, "concreteCover"),
-    };
-    if (parameters.columnWidth > parameters.width || parameters.columnDepth > parameters.depth) {
-      throw new RangeError("column dimensions cannot exceed foundation dimensions");
-    }
+    const parameters = readComponentParameters((read, invalid) => {
+      const values = {};
+      for (const [key, spec] of Object.entries(independentFoundation.parameters)) {
+        values[key] = read(key, () => assertFiniteNumber(input[key] ?? spec.default, key, {
+          min: spec.minimum ?? spec.exclusiveMinimum, exclusiveMin: spec.exclusiveMinimum !== undefined,
+        }));
+      }
+      for (const [column, span] of [["columnWidth", "width"], ["columnDepth", "depth"]]) {
+        if (values[column] > values[span]) invalid(column, new RangeError(`${column} cannot exceed foundation ${span}`));
+      }
+      if (values.concreteCover * 2 >= values.width || values.concreteCover * 2 >= values.depth) {
+        invalid("concreteCover", new RangeError("cover must leave room for the reinforcement in both foundation dimensions"));
+      }
+      return values;
+    });
 
     const nodes = [];
     if (parameters.blindingThickness > 0) {

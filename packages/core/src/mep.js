@@ -1,5 +1,6 @@
 import { add, assertFiniteNumber, assertVec3 } from "./math.js";
-import { analyzePath } from "./path.js";
+import { analyzePath, pathSamplingEnd } from "./path.js";
+import { resolveMepRouteBindings } from "./mep-route-bindings.js";
 
 const DEFAULT_ROUTE_COLORS = {
   "cold-water": "#54a8ff",
@@ -28,11 +29,6 @@ function routeSystem(route) {
   return typeof route.system === "string" && route.system ? route.system : "conduit";
 }
 
-function routeRadius(route) {
-  const system = routeSystem(route);
-  return assertFiniteNumber(route.radius ?? DEFAULT_ROUTE_RADII[system] ?? 0.045, `${route.id ?? "route"}.radius`, { min: 0, exclusiveMin: true });
-}
-
 function routeColor(route) {
   return route.color ?? DEFAULT_ROUTE_COLORS[routeSystem(route)] ?? "#c8f24d";
 }
@@ -47,18 +43,75 @@ function routeSemanticType(route) {
   return "mep.conduit";
 }
 
-function normalizeRoute(route, index) {
-  if (!route || typeof route !== "object") throw new TypeError(`routes[${index}] must be an object`);
-  const id = stableId(route.id, `route-${index + 1}`);
-  const analysis = analyzePath(route.points);
+function routeIssue(path, message, routeId, details) {
   return {
-    ...route,
-    id,
-    points: analysis.points,
-    analysis,
-    system: routeSystem(route),
-    radius: routeRadius({ ...route, id }),
+    code: "MEP_ROUTE_INVALID", path, message: routeId ? `${routeId}: ${message}` : message,
+    ...(routeId ? { routeId } : {}), ...details,
   };
+}
+
+function routeFieldReader(issues, base, id) {
+  return (field, validate, details) => {
+    try { return validate(); }
+    catch (error) { issues.push(routeIssue(base + "/" + field, error.message, id, details)); }
+  };
+}
+
+function readRouteVector(read, field, value, limits) {
+  const label = field.replace(/\/(\d+)/g, "[$1]");
+  if (!Array.isArray(value) || value.length !== 3) return read(field, () => assertVec3(value, label));
+  const vector = Array.from(value, (coordinate, axis) =>
+    read(field + "/" + axis, () => assertFiniteNumber(coordinate, `${label}[${axis}]`, limits)));
+  if (!vector.includes(undefined)) return vector;
+}
+
+function readCenterline(read, points) {
+  if (!Array.isArray(points) || points.length < 2) {
+    read("points", () => analyzePath(points));
+    if (!Array.isArray(points)) return;
+  }
+  const checked = Array.from(points, (point, index) => readRouteVector(read, "points/" + index, point));
+  if (checked.length < 2 || checked.includes(undefined)) return;
+  return read("points", () => {
+    const analysis = analyzePath(checked);
+    assertFiniteNumber(analysis.totalLength, "centerline length");
+    return analysis;
+  });
+}
+
+function readRouteClip(route, read, analysis, radius) {
+  const startOffset = read("clipStartOffset", () => assertFiniteNumber(route.clipStartOffset ?? 0.16, "clipStartOffset", { min: 0 }));
+  const endOffset = read("clipEndOffset", () => assertFiniteNumber(route.clipEndOffset ?? 0.16, "clipEndOffset", { min: 0 }));
+  let samplingEnd;
+  if (analysis && startOffset !== undefined && endOffset !== undefined) {
+    const length = analysis.totalLength;
+    samplingEnd = read("clipEndOffset", () => pathSamplingEnd(length, startOffset, endOffset), { length, startOffset, endOffset });
+  }
+
+  let offset, size;
+  if (route.clipOffset != null || radius !== undefined) {
+    offset = readRouteVector(read, "clipOffset", route.clipOffset ?? [0, Math.max(radius + 0.035, 0.08), 0]);
+  }
+  if (analysis && offset) {
+    // Translation can round distinct centerline points to the same coordinate.
+    read("clipOffset", () => {
+      const shifted = analyzePath(analysis.points.map(point => add(point, offset)));
+      if (samplingEnd !== undefined) pathSamplingEnd(shifted.totalLength, startOffset, endOffset);
+    });
+  }
+  if (route.clipSize != null || radius !== undefined) {
+    size = readRouteVector(read, "clipSize", route.clipSize ?? [
+      Math.max(radius * 3.2, 0.12), Math.max(radius * 1.2, 0.045), Math.max(radius * 4.6, 0.16),
+    ], { min: 0, exclusiveMin: true });
+  }
+  return { startOffset, endOffset, offset, size };
+}
+
+function allocateId(base, used) {
+  let id = base;
+  for (let suffix = 2; used.has(id); suffix++) id = `${base}-${suffix}`;
+  used.add(id);
+  return id;
 }
 
 function defaultRoughInRoutes() {
@@ -97,49 +150,103 @@ function defaultRoughInRoutes() {
   ];
 }
 
+function readRouteRequest(request, issues) {
+  if (!request || typeof request !== "object" || Array.isArray(request)) {
+    issues.push(routeIssue("", "Expected a route request object"));
+    return;
+  }
+  const readRoot = routeFieldReader(issues, "");
+  const defaultClipSpacing = readRoot("defaultClipSpacing", () =>
+    assertFiniteNumber(request.defaultClipSpacing ?? 0.7, "defaultClipSpacing", { min: 0, exclusiveMin: true }));
+  const routes = request.routes ?? defaultRoughInRoutes();
+  if (!Array.isArray(routes)) {
+    issues.push(routeIssue("/routes", "Expected an array of routes"));
+    return;
+  }
+  const explicitIds = new Map();
+  const ids = Array.from(routes, (route, index) => {
+    if (!route || typeof route !== "object" || Array.isArray(route)) {
+      issues.push(routeIssue(`/routes/${index}`, "Expected a route object"));
+      return null;
+    }
+    const id = stableId(route.id);
+    if (id && explicitIds.has(id)) {
+      const firstPath = `/routes/${explicitIds.get(id)}/id`;
+      issues.push(routeIssue(`/routes/${index}/id`, `Duplicate route ID, first used at ${firstPath}`, id, { firstPath }));
+    } else if (id) explicitIds.set(id, index);
+    return id;
+  });
+  const reserved = new Set(explicitIds.keys());
+  return ids.map((id, index) => {
+    if (id === null) return;
+    id ??= allocateId(`route-${index + 1}`, reserved);
+    const input = routes[index];
+    const route = { ...input, id, system: routeSystem(input) };
+    const read = routeFieldReader(issues, `/routes/${index}`, id);
+    const analysis = readCenterline(read, route.points);
+    const radius = read("radius", () => {
+      const value = assertFiniteNumber(route.radius ?? DEFAULT_ROUTE_RADII[route.system] ?? 0.045, "radius", { min: 0, exclusiveMin: true });
+      assertFiniteNumber(value * 2, "outside diameter");
+      return value;
+    });
+    const radialSegments = read("radialSegments", () => {
+      const count = assertFiniteNumber(route.radialSegments ?? 28, "radialSegments", { min: 3 });
+      if (!Number.isInteger(count)) throw new RangeError("radialSegments must be an integer");
+      return count;
+    });
+    const clipSpacing = route.clipSpacing == null ? defaultClipSpacing : read("clipSpacing", () =>
+      assertFiniteNumber(route.clipSpacing, "clipSpacing", { min: 0, exclusiveMin: true }));
+    const clip = route.generateClips === false ? null : readRouteClip(route, read, analysis, radius);
+    return { ...route, analysis, radius, radialSegments, clipSpacing, clip };
+  });
+}
+
 export function generateMepRouteWithClips(request = {}) {
+  const issues = [];
+  const routes = readRouteRequest(request, issues);
+  if (issues.length) {
+    const { code, message, ...details } = issues[0];
+    throw Object.assign(new Error(message), { code, details, issues });
+  }
   const id = stableId(request.id, "mep-route-with-clips");
-  const defaultClipSpacing = assertFiniteNumber(request.defaultClipSpacing ?? 0.7, "defaultClipSpacing", { min: 0, exclusiveMin: true });
-  const routes = (request.routes ?? defaultRoughInRoutes()).map(normalizeRoute);
+  const reserved = new Set(routes.map(route => route.id));
+  // Repetitions emit <prototype>.<zero-padded index>. Reserve those namespaces
+  // even if the current path is too short to reach a particular index yet.
+  for (const { id } of routes) if (/\.\d{3,}$/.test(id)) reserved.add(id.slice(0, id.lastIndexOf(".")));
   const nodes = [];
   const anchors = {};
+  const routeBindings = [];
   const routeFacts = [];
 
   for (const route of routes) {
-    const clipSpacing = assertFiniteNumber(route.clipSpacing ?? defaultClipSpacing, `${route.id}.clipSpacing`, { min: 0, exclusiveMin: true });
-    const clipStartOffset = assertFiniteNumber(route.clipStartOffset ?? 0.16, `${route.id}.clipStartOffset`, { min: 0 });
-    const clipEndOffset = assertFiniteNumber(route.clipEndOffset ?? 0.16, `${route.id}.clipEndOffset`, { min: 0 });
-    const clipOffset = assertVec3(route.clipOffset ?? [0, Math.max(route.radius + 0.035, 0.08), 0], `${route.id}.clipOffset`);
-    const clipPath = route.points.map(point => add(point, clipOffset));
-    const clipSize = route.clipSize ?? [
-      Math.max(route.radius * 3.2, 0.12),
-      Math.max(route.radius * 1.2, 0.045),
-      Math.max(route.radius * 4.6, 0.16),
-    ];
+    const { analysis, radialSegments, clipSpacing, clip } = route;
+    const binding = { node: route.id };
+    routeBindings.push(binding);
 
     nodes.push({
       id: route.id,
       semanticType: routeSemanticType(route),
-      geometry: { type: "tube-along", points: route.points, radius: route.radius, radialSegments: route.radialSegments ?? 28 },
+      geometry: { type: "tube-along", points: analysis.points, radius: route.radius, radialSegments },
       appearance: { color: routeColor(route), opacity: route.opacity ?? 1 },
       metadata: {
         system: route.system,
         generatedBy: "mep.route-with-clips",
-        centerlineLength: Number(route.analysis.totalLength.toFixed(4)),
       },
     });
 
-    if (route.generateClips !== false) {
+    if (clip) {
+      binding.clip = allocateId(`${route.id}-clip`, reserved);
+      binding.clipOffset = clip.offset;
       nodes.push({
-        id: `${route.id}-clip`,
+        id: binding.clip,
+        parent: route.id,
         semanticType: "mep.pipe-clip",
-        geometry: { type: "box", size: clipSize },
+        geometry: { type: "box", size: clip.size },
         repetition: {
           type: "path",
-          points: clipPath,
           spacing: clipSpacing,
-          startOffset: clipStartOffset,
-          endOffset: clipEndOffset,
+          startOffset: clip.startOffset,
+          endOffset: clip.endOffset,
           includeEnd: route.includeClipEnd ?? true,
         },
         orientation: { mode: "tangent", localAxis: [1, 0, 0] },
@@ -153,15 +260,15 @@ export function generateMepRouteWithClips(request = {}) {
       });
     }
 
-    anchors[`${route.id}-start`] = { node: route.id, position: route.points[0], direction: [0, 0, -1], kind: "route-start" };
-    anchors[`${route.id}-end`] = { node: route.id, position: route.points.at(-1), direction: [0, 0, 1], kind: "route-end" };
+    anchors[`${route.id}-start`] = { node: route.id, kind: "route-start" };
+    anchors[`${route.id}-end`] = { node: route.id, kind: "route-end" };
     routeFacts.push({
       id: route.id,
       system: route.system,
-      length: route.analysis.totalLength,
-      bendCount: route.analysis.bendCount,
+      length: analysis.totalLength,
+      bendCount: analysis.bendCount,
       clipSpacing,
-      clipPrototypeId: route.generateClips === false ? null : `${route.id}-clip`,
+      clipPrototypeId: binding.clip ?? null,
     });
   }
 
@@ -175,16 +282,13 @@ export function generateMepRouteWithClips(request = {}) {
     composition: {
       id,
       component: "core.composition",
-      parameters: {
-        nodes,
-        anchors,
+      parameters: resolveMepRouteBindings({
+        nodes, anchors, routeBindings,
         metrics: {
           method: "mep.route-with-clips",
-          routeCount: routes.length,
-          totalPipeLength: { value: Number(totalLength.toFixed(4)), unit: "m" },
           clipPolicy: "path repetition is preserved so agents can edit a route without losing the support rule",
         },
-      },
+      }),
     },
   };
 }

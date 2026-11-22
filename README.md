@@ -70,9 +70,18 @@ List available core components:
 npm run agentscene -- component list
 ```
 
-Build a CompositionSpec example:
+Find a public model, check it for errors and build the cable tray example.
 
 ```powershell
+npm run agentscene -- registry search 桥架
+npm run agentscene -- composition check registry/compositions/cable-tray-elbow/manifest.json
+npm run agentscene -- component build registry/compositions/cable-tray-elbow/manifest.json
+```
+
+Check an assembly, then build the scene.
+
+```powershell
+npm run agentscene -- scene check examples/digital-modeling/composed-scene.json
 npm run agentscene -- scene build examples/digital-modeling/composed-scene.json
 ```
 
