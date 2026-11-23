@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.rollable-pedestrian-chain-gate-with-side-catch",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "临时慢行链门与滚轮接头",
+  "summary": "可摆动横框下有托轮，与独立侧接点一起用于场地围栏示意。",
+  "license": "Apache-2.0",
+  "semanticType": "site.parking.pedestrian-pivoted-chain-gate",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "停车与慢行",
+    "围栏",
+    "慢行",
+    "门框"
+  ],
+  "anchors": [
+    "origin",
+    "catch"
+  ],
+  "ai": {
+    "intent": "可摆动横框下有托轮，与独立侧接点一起用于场地围栏示意。",
+    "editableParts": [
+      "可分别编辑 swing-joint、gate-frame、sagging-middle-wire、free-caster、post-anchor。"
+    ],
+    "qualityChecks": [
+      "门框可绕竖直轴打开，托轮随框移动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rollable-pedestrian-chain-gate-with-side-catch",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "swing-joint",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "gate-frame",
+            "semanticType": "site.parking.chain-gate.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0.022,0],
+                [0,0.709,0],
+                [0.811,0.709,0],
+                [0.811,0.036,0],
+                [0,0.036,0]
+              ],
+              "radius": 0.02
+            },
+            "parent": "swing-joint"
+          },
+          {
+            "id": "sagging-middle-wire",
+            "semanticType": "site.parking.chain-gate.chain",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d636a"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.034,0.55,0],
+                [0.266,0.471,0],
+                [0.525,0.474,0],
+                [0.79,0.548,0]
+              ],
+              "radius": 0.008
+            },
+            "parent": "swing-joint"
+          },
+          {
+            "id": "free-caster",
+            "semanticType": "site.parking.chain-gate.caster",
+            "material": "rubber",
+            "appearance": {
+              "color": "#59686a"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.81,0.039,-0.018],
+              "end": [0.81,0.039,0.018],
+              "radius": 0.032,
+              "radialSegments": 24
+            },
+            "parent": "swing-joint"
+          },
+          {
+            "id": "post-anchor",
+            "semanticType": "site.parking.outdoor.post",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.035,0,0],
+              "end": [-0.035,0.749,0],
+              "radius": 0.025,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "origin": {
+            "position": [-0.035,0,0],
+            "direction": [0,-1,0]
+          },
+          "catch": {
+            "position": [0.814,0.55,0],
+            "direction": [1,0,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "swing-chain-frame",
+            "target": "swing-joint",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.19,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.tactile-guide-paver",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "条纹导向铺装块",
+  "summary": "无缝对排的正方形铺装模块，四条平行凸带沿长度连续。",
+  "license": "Apache-2.0",
+  "semanticType": "site.paving.tactile.guidance",
+  "capabilities": [
+    "attach",
+    "repeat"
+  ],
+  "tags": [
+    "建筑",
+    "室外",
+    "基础构件",
+    "铺装"
+  ],
+  "anchors": [
+    "west",
+    "east",
+    "north",
+    "south"
+  ],
+  "ai": {
+    "intent": "表达有方向的步行导向铺装。",
+    "editableParts": [
+      "调整凸带截面、宽度及间距"
+    ],
+    "qualityChecks": [
+      "默认凸带沿 X 排布。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "tactile-guide-paver",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tile",
+            "semanticType": "site.paving.tactile.base",
+            "material": "concrete",
+            "appearance": {
+              "color": "#cfa344"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.3,0.035,0.3]
+            },
+            "transform": {
+              "position": [0,-0.0175,0]
+            }
+          },
+          {
+            "id": "rib",
+            "semanticType": "site.paving.tactile.rib",
+            "material": "concrete",
+            "appearance": {
+              "color": "#ebbf54"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.3,0.006,0.019]
+            },
+            "transform": {
+              "position": [0,0.003,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [0,0,-0.084],
+              "step": [0,0,0.056]
+            }
+          }
+        ],
+        "anchors": {
+          "west": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0.5,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "east": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0.5,0]
+            },
+            "direction": [1,0,0]
+          },
+          "north": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,-0.5]
+            },
+            "direction": [0,0,-1]
+          },
+          "south": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0.5]
+            },
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

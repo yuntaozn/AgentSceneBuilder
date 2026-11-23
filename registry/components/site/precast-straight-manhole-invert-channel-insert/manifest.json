@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.precast-straight-manhole-invert-channel-insert",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "预制检查井直通半圆流槽",
+  "summary": "沿轴线可看到半槽形过水面，两侧留踏面边，可拼在独立井壳内。",
+  "license": "Apache-2.0",
+  "semanticType": "site.utility.invert-channel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "地下管网",
+    "检查井",
+    "流槽",
+    "半圆槽"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "base"
+  ],
+  "ai": {
+    "intent": "沿轴线可看到半槽形过水面，两侧留踏面边，可拼在独立井壳内。",
+    "editableParts": [
+      "独立编辑 invert-trough、edge-ledge-1、edge-ledge-2 的尺寸与位置。"
+    ],
+    "qualityChecks": [
+      "半圆排水槽的过水面在两端均敞开。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "precast-straight-manhole-invert-channel-insert",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "invert-trough",
+            "semanticType": "site.utility.invert.channel",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a39e91"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.448,0,0],
+                [0.448,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.123,-0.095],
+                [0.123,-0.095],
+                [0.123,0.028],
+                [0.09,0.028],
+                [0.077,-0.004],
+                [0.051,-0.035],
+                [0.019,-0.052],
+                [-0.019,-0.052],
+                [-0.051,-0.035],
+                [-0.077,-0.004],
+                [-0.09,0.028],
+                [-0.123,0.028]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "edge-ledge-1",
+            "semanticType": "site.utility.invert.ledge",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a39d8e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.786,0.046,0.051]
+            },
+            "transform": {
+              "position": [0,-0.018,-0.139]
+            }
+          },
+          {
+            "id": "edge-ledge-2",
+            "semanticType": "site.utility.invert.ledge",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a39d8e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.786,0.046,0.051]
+            },
+            "transform": {
+              "position": [0,-0.018,0.139]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [-0.448,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.448,0,0],
+            "direction": [1,0,0]
+          },
+          "base": {
+            "position": [0,-0.095,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

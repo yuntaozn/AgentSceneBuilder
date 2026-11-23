@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.gable-timber-truss",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双坡木屋架",
+  "summary": "一对坡向椽、一条下弦、中竖杆与斜腹杆组成，带两个支承脚及两侧屋面支撑位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.timber-truss",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "anchors": [
+    "front-foot",
+    "rear-foot",
+    "front-slope-seat",
+    "rear-slope-seat",
+    "ridge-datum"
+  ],
+  "ai": {
+    "intent": "作为可沿建筑长度重复排布的单榀双坡屋架。",
+    "editableParts": [
+      "逐个编辑椽、下弦、竖杆和斜杆。"
+    ],
+    "qualityChecks": [
+      "默认屋面半跨 2.4 m，基层法向厚度 60 mm。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "gable-timber-truss",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front-rafter",
+            "semanticType": "construction.roof.timber-truss.rafter",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.2,0],
+                [0,1.4,2.4]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.043,-0.22],
+                [0.043,-0.22],
+                [0.043,-0.06],
+                [-0.043,-0.06]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "back-rafter",
+            "semanticType": "construction.roof.timber-truss.rafter",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.2,4.8],
+                [0,1.4,2.4]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.043,-0.22],
+                [0.043,-0.22],
+                [0.043,-0.06],
+                [-0.043,-0.06]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tie",
+            "semanticType": "construction.roof.timber-truss.tie",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.092,0.14,4.8]
+            },
+            "transform": {
+              "position": [0,0.07,2.4]
+            }
+          },
+          {
+            "id": "center-post",
+            "semanticType": "construction.roof.timber-truss.king-post",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.084,1.12,0.12]
+            },
+            "transform": {
+              "position": [0,0.7,2.4]
+            }
+          },
+          {
+            "id": "front-strut",
+            "semanticType": "construction.roof.timber-truss.web",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.16,2.26],
+                [0,0.685,1.2]
+              ],
+              "up": [1,0,0],
+              "profile": [
+                [-0.036,-0.036],
+                [0.036,-0.036],
+                [0.036,0.036],
+                [-0.036,0.036]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "rear-strut",
+            "semanticType": "construction.roof.timber-truss.web",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.16,2.54],
+                [0,0.685,3.6]
+              ],
+              "up": [1,0,0],
+              "profile": [
+                [-0.036,-0.036],
+                [0.036,-0.036],
+                [0.036,0.036],
+                [-0.036,0.036]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "front-foot": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "rear-foot": {
+            "position": [0,0,4.8],
+            "direction": [0,-1,0]
+          },
+          "front-slope-seat": {
+            "position": [0,0.7463343685400051,1.2268328157299975],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          },
+          "rear-slope-seat": {
+            "position": [0,0.7463343685400051,3.5731671842700026],
+            "direction": [0,0.8944271909999159,0.4472135954999579]
+          },
+          "ridge-datum": {
+            "position": [0,1.4,2.4],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

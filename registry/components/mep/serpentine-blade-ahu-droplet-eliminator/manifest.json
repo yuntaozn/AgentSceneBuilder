@@ -1,0 +1,517 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.serpentine-blade-ahu-droplet-eliminator",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "折流挡水片机组段",
+  "summary": "独立机壳和多道折弯挡片，中间保留连续空气缝。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.serpentine-ahu-eliminator",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "挡水",
+    "折流",
+    "机组"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "base"
+  ],
+  "ai": {
+    "intent": "用独立折片预览挡水段的安装与通道。",
+    "editableParts": [
+      "机壳",
+      "折弯片",
+      "开缝"
+    ],
+    "qualityChecks": [
+      "多片之间保持连续缝。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "serpentine-blade-ahu-droplet-eliminator",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "section-shell",
+            "semanticType": "mep.ahu.droplet-eliminator.case",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.014,0.31,0],
+                [0.224,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.38,-0.29],
+                [0.38,-0.29],
+                [0.38,0.29],
+                [-0.38,0.29]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.356,-0.26599999999999996],
+                  [0.356,-0.26599999999999996],
+                  [0.356,0.26599999999999996],
+                  [-0.356,0.26599999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "inlet",
+            "semanticType": "mep.ahu.droplet-eliminator.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.31,0],
+                [0.014,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "outlet",
+            "semanticType": "mep.ahu.droplet-eliminator.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.224,0.31,0],
+                [0.239,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "bent-blade-0",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,-0.308]
+            }
+          },
+          {
+            "id": "bent-blade-1",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,-0.252]
+            }
+          },
+          {
+            "id": "bent-blade-2",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,-0.196]
+            }
+          },
+          {
+            "id": "bent-blade-3",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,-0.13999999999999999]
+            }
+          },
+          {
+            "id": "bent-blade-4",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,-0.08399999999999999]
+            }
+          },
+          {
+            "id": "bent-blade-5",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,-0.02799999999999997]
+            }
+          },
+          {
+            "id": "bent-blade-6",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,0.028000000000000025]
+            }
+          },
+          {
+            "id": "bent-blade-7",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,0.08400000000000002]
+            }
+          },
+          {
+            "id": "bent-blade-8",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,0.14]
+            }
+          },
+          {
+            "id": "bent-blade-9",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,0.196]
+            }
+          },
+          {
+            "id": "bent-blade-10",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,0.25200000000000006]
+            }
+          },
+          {
+            "id": "bent-blade-11",
+            "semanticType": "mep.ahu.droplet-eliminator.chevron",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.068,0],
+                [0,0.552,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.053,0],
+                [-0.019,0.017],
+                [0.018,-0.012],
+                [0.053,0.011],
+                [0.053,0.016],
+                [0.018,-0.007],
+                [-0.019,0.022],
+                [-0.053,0.005]
+              ],
+              "closedProfile": true
+            },
+            "transform": {
+              "position": [0.122,0,0.308]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0.31,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.239,0.31,0],
+            "direction": [1,0,0]
+          },
+          "base": {
+            "position": [0.1195,0.02,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

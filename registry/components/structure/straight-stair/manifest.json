@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.straight-stair",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "直跑楼梯",
+  "summary": "以连续阶梯截面生成的直跑梯段，支持修改踏步数、级高、踏面深度及梯段宽度。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.stair",
+  "capabilities": ["resize", "material", "attach"],
+  "tags": ["结构", "楼梯", "踏步", "基础构件"],
+  "parameters": {
+    "stepCount": { "type": "integer", "default": 8, "minimum": 1, "maximum": 128 },
+    "riserHeight": { "type": "number", "unit": "m", "default": 0.17 },
+    "treadDepth": { "type": "number", "unit": "m", "default": 0.28 },
+    "width": { "type": "number", "unit": "m", "default": 1.2 }
+  },
+  "anchors": ["lower-landing", "upper-landing"],
+  "ai": {
+    "intent": "用一个有连续实体轮廓的直跑梯段表达上下楼层的几何过渡。",
+    "editableParts": ["stair.geometry.stepCount", "stair.geometry.riserHeight", "stair.geometry.treadDepth", "stair.geometry.width"],
+    "qualityChecks": ["踏步数与级高的乘积等于总高，与踏面深度的乘积等于总进深。", "上下接续点应与目标楼层的位置和朝向匹配。"]
+  },
+  "editor": {
+    "document": {
+      "id": "straight-stair", "component": "core.composition",
+      "parameters": {
+        "nodes": [{
+          "id": "stair", "semanticType": "structure.stair", "material": "concrete",
+          "appearance": { "color": "#a7afb4" },
+          "geometry": { "type": "straight-stair", "stepCount": 8, "riserHeight": 0.17, "treadDepth": 0.28, "width": 1.2 }
+        }],
+        "anchors": {
+          "lower-landing": { "node": "stair", "onGeometry": { "type": "feature", "name": "lower-landing" } },
+          "upper-landing": { "node": "stair", "onGeometry": { "type": "feature", "name": "upper-landing" } }
+        }
+      }
+    }
+  }
+}

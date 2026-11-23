@@ -1,0 +1,182 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.phase-busbar-standoff-comb-with-insulating-partitions",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "三相母排绝缘隔板支架",
+  "summary": "并列母排穿过独立支架孔，安装底板和绝缘隔栏可分别查看。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.panelboard.phase-busbar-comb",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电气配电",
+    "母排",
+    "隔栏",
+    "绝缘支架"
+  ],
+  "anchors": [
+    "back",
+    "phaseA",
+    "phaseB",
+    "phaseC"
+  ],
+  "ai": {
+    "intent": "并列母排穿过独立支架孔，安装底板和绝缘隔栏可分别查看。",
+    "editableParts": [
+      "可分别编辑 three-slot-isolation-block、slotted-mounting-backplate、front-creepage-wall-1、front-creepage-wall-2。"
+    ],
+    "qualityChecks": [
+      "三条独立矩形开口贯通，隔板位于相邻相位之间。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "phase-busbar-standoff-comb-with-insulating-partitions",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "three-slot-isolation-block",
+            "semanticType": "mep.panelboard.busbar-comb.insulator",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c5c9bc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.015],
+                [0,0,0.046]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.113,-0.0545],
+                [0.113,-0.0545],
+                [0.113,0.0545],
+                [-0.113,0.0545]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.075,-0.019999999999999997],
+                  [-0.049,-0.019999999999999997],
+                  [-0.049,0.04],
+                  [-0.075,0.04]
+                ],
+                [
+                  [-0.013,-0.019999999999999997],
+                  [0.013,-0.019999999999999997],
+                  [0.013,0.04],
+                  [-0.013,0.04]
+                ],
+                [
+                  [0.049,-0.019999999999999997],
+                  [0.075,-0.019999999999999997],
+                  [0.075,0.04],
+                  [0.049,0.04]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "slotted-mounting-backplate",
+            "semanticType": "mep.panelboard.busbar-comb.back",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.016]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.127,-0.063],
+                [0.127,-0.063],
+                [0.127,0.063],
+                [-0.127,0.063]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.075,-0.019999999999999997],
+                  [-0.049,-0.019999999999999997],
+                  [-0.049,0.04],
+                  [-0.075,0.04]
+                ],
+                [
+                  [-0.013,-0.019999999999999997],
+                  [0.013,-0.019999999999999997],
+                  [0.013,0.04],
+                  [-0.013,0.04]
+                ],
+                [
+                  [0.049,-0.019999999999999997],
+                  [0.075,-0.019999999999999997],
+                  [0.075,0.04],
+                  [0.049,0.04]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "front-creepage-wall-1",
+            "semanticType": "mep.panelboard.busbar-comb.separator",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c5c9bc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.096,0.063]
+            },
+            "transform": {
+              "position": [-0.032,0.008,0.056]
+            }
+          },
+          {
+            "id": "front-creepage-wall-2",
+            "semanticType": "mep.panelboard.busbar-comb.separator",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c5c9bc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.096,0.063]
+            },
+            "transform": {
+              "position": [0.032,0.008,0.056]
+            }
+          }
+        ],
+        "anchors": {
+          "back": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "phaseA": {
+            "position": [-0.062,0.01,0.046],
+            "direction": [0,0,1]
+          },
+          "phaseB": {
+            "position": [0,0.01,0.046],
+            "direction": [0,0,1]
+          },
+          "phaseC": {
+            "position": [0.062,0.01,0.046],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

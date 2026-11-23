@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.ribbed-slip-resistant-stair-nosing",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带防滑肋的踏步包边",
+  "summary": "薄金属 L 型护角和多条凸起防滑条分开建模，适合包覆踏步前缘。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.circulation.ribbed-stair-nosing",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "交通",
+    "楼梯",
+    "防滑",
+    "收边"
+  ],
+  "anchors": [
+    "step",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "把防滑肋、包边与实体踏步分开复用。",
+    "editableParts": [
+      "修改长度、护边和凸肋间距。"
+    ],
+    "qualityChecks": [
+      "较亮防滑条位于踏面一侧。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ribbed-slip-resistant-stair-nosing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "edge-angle",
+            "semanticType": "construction.circulation.stair-nosing.angle",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.525,0,0],
+                [0.525,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,-0.032],
+                [-0.003,-0.032],
+                [-0.003,0],
+                [-0.071,0],
+                [-0.071,0.004],
+                [0.003,0.004],
+                [0.003,-0.032]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "anti-slip",
+            "semanticType": "construction.circulation.stair-nosing.rib",
+            "material": "rubber",
+            "appearance": {
+              "color": "#c6a465"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.045,0.0038,0.0075]
+            },
+            "transform": {
+              "position": [0,0.0059,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [0,0,0.016],
+              "step": [0,0,0.014]
+            }
+          }
+        ],
+        "anchors": {
+          "step": {
+            "position": [0,0,0.034],
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "position": [-0.525,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.525,0,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.corner-return-floor-coving-junction-block-for-wet-pod",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "整体底盘圆弧踢脚转角拼块",
+  "summary": "圆弧在墙角连续转弯，两端外伸边与直段收口。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.wet-room.wet-room-coving-curve-junction",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式湿区",
+    "圆弧转角",
+    "踢脚",
+    "整体底盘"
+  ],
+  "anchors": [
+    "base",
+    "first",
+    "second"
+  ],
+  "ai": {
+    "intent": "圆弧在墙角连续转弯，两端外伸边与直段收口。",
+    "editableParts": [
+      "可分别编辑 coving-return-shell、offset-snap-base。"
+    ],
+    "qualityChecks": [
+      "两个端面沿互相垂直方向，转角弧面保留连续截面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "corner-return-floor-coving-junction-block-for-wet-pod",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "coving-return-shell",
+            "semanticType": "prefab.wet-room.floor-corner.turn",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c4c8bd"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 16,
+              "capStart": false,
+              "capEnd": false,
+              "sections": [
+                {
+                  "center": [0.055,0.018,0],
+                  "axisX": [0.013,0,0],
+                  "axisZ": [0,0.019,0]
+                },
+                {
+                  "center": [0.053125920445898756,0.018,0.01423504748063864],
+                  "axisX": [0.012557035741757887,0,0.0033646475863327694],
+                  "axisZ": [0,0.019,0]
+                },
+                {
+                  "center": [0.047631397208144126,0.018,0.027499999999999997],
+                  "axisX": [0.011258330249197703,0,0.006499999999999999],
+                  "axisZ": [0,0.019,0]
+                },
+                {
+                  "center": [0.038890872965260115,0.018,0.03889087296526011],
+                  "axisX": [0.009192388155425118,0,0.009192388155425116],
+                  "axisZ": [0,0.019,0]
+                },
+                {
+                  "center": [0.027500000000000007,0.018,0.047631397208144126],
+                  "axisX": [0.0065000000000000014,0,0.011258330249197701],
+                  "axisZ": [0,0.019,0]
+                },
+                {
+                  "center": [0.01423504748063864,0.018,0.053125920445898756],
+                  "axisX": [0.0033646475863327694,0,0.012557035741757887],
+                  "axisZ": [0,0.019,0]
+                },
+                {
+                  "center": [3.367778697655221e-18,0.018,0.055],
+                  "axisX": [7.960204194457796e-19,0,0.013],
+                  "axisZ": [0,0.019,0]
+                }
+              ]
+            }
+          },
+          {
+            "id": "offset-snap-base",
+            "semanticType": "prefab.wet-room.floor-corner.locating-pad",
+            "material": "plastic",
+            "appearance": {
+              "color": "#abb9ab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.011,0.077]
+            },
+            "transform": {
+              "position": [0.033,0.001,0.033]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0.032,-0.0045,0.032],
+            "direction": [0,-1,0]
+          },
+          "first": {
+            "position": [0.055,0.018,0],
+            "direction": [0,0,-1]
+          },
+          "second": {
+            "position": [0,0.018,0.055],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

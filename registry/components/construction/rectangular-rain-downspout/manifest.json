@@ -1,0 +1,79 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.rectangular-rain-downspout",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形直雨落管",
+  "summary": "墙外竖向矩形落水管，真实中空截面，两端方向可接集水斗和弯段。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.rectangular-downspout",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "resize"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "围护",
+    "屋面排水"
+  ],
+  "anchors": [
+    "inlet",
+    "outlet"
+  ],
+  "ai": {
+    "intent": "沿外墙布置独立的矩形雨落管段。",
+    "editableParts": [
+      "编辑路径点、矩形截面和壁厚。"
+    ],
+    "qualityChecks": [
+      "端点方向随相邻路径段变化。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rectangular-rain-downspout",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "downpipe",
+            "semanticType": "roof.rectangular-downspout",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,0,0],
+                [0,-0.8,0]
+              ],
+              "sectionWidth": 0.17,
+              "sectionHeight": 0.12,
+              "thickness": 0.008,
+              "up": [0,0,1]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "downpipe",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "downpipe",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,241 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.concealed-wall-wc-carrier-and-cistern-frame",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "隐藏水箱与壁挂便器钢支架",
+  "summary": "带底脚的金属架、薄型水箱、面板窗口和大口径出墙管，可独立定位。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.public-washroom.concealed-wc-carrier-frame",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "水箱",
+    "钢支架",
+    "洁具"
+  ],
+  "anchors": [
+    "base",
+    "soil",
+    "front",
+    "button-plate"
+  ],
+  "ai": {
+    "intent": "将便器和墙内支架的挂装面、排水口分别检查。",
+    "editableParts": [
+      "竖框",
+      "水箱外壳",
+      "冲水面板窗口",
+      "后排接管"
+    ],
+    "qualityChecks": [
+      "便器挂点与排污接口分别可选。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "concealed-wall-wc-carrier-and-cistern-frame",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "upright-0",
+            "semanticType": "mep.public-washroom.concealed-wc-carrier.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#718c85"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.04,1.115,0.041]
+            },
+            "transform": {
+              "position": [-0.231,0.566,-0.169]
+            }
+          },
+          {
+            "id": "bearing-foot-0",
+            "semanticType": "mep.public-washroom.concealed-wc-carrier.foot",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.076,0.016,0.108]
+            },
+            "transform": {
+              "position": [-0.231,0.008,-0.171]
+            }
+          },
+          {
+            "id": "upright-1",
+            "semanticType": "mep.public-washroom.concealed-wc-carrier.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#718c85"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.04,1.115,0.041]
+            },
+            "transform": {
+              "position": [0.231,0.566,-0.169]
+            }
+          },
+          {
+            "id": "bearing-foot-1",
+            "semanticType": "mep.public-washroom.concealed-wc-carrier.foot",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.076,0.016,0.108]
+            },
+            "transform": {
+              "position": [0.231,0.008,-0.171]
+            }
+          },
+          {
+            "id": "crossbar",
+            "semanticType": "mep.public-washroom.concealed-wc-carrier.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#718c85"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.473,0.062,0.045]
+            },
+            "transform": {
+              "position": [0,0.398,-0.168]
+            }
+          },
+          {
+            "id": "covered-cistern",
+            "semanticType": "mep.public-washroom.concealed-wc-carrier.tank",
+            "material": "polymer",
+            "appearance": {
+              "color": "#dedbcf"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.421,0.443,0.133]
+            },
+            "transform": {
+              "position": [0,0.787,-0.152]
+            }
+          },
+          {
+            "id": "service-box-mouth",
+            "semanticType": "mep.public-washroom.concealed-wc-carrier.tile-interface",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.839,-0.101],
+                [0,0.839,-0.043]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.121,-0.077],
+                [0.121,-0.077],
+                [0.121,0.077],
+                [-0.121,0.077]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1095,-0.0605],
+                  [0.1095,-0.0605],
+                  [0.1095,0.0605],
+                  [-0.1095,0.0605]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "front-soil-spool",
+            "semanticType": "mep.public-washroom.concealed-wc-carrier.soil",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0.16,-0.196],
+                [0,0.16,0]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.102,
+              "thickness": 0.008
+            }
+          },
+          {
+            "id": "pan-hanger-0",
+            "semanticType": "mep.public-washroom.concealed-wc-carrier.thread-stud",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.102,0.29,-0.181],
+              "end": [-0.102,0.29,0],
+              "radius": 0.0075,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "pan-hanger-1",
+            "semanticType": "mep.public-washroom.concealed-wc-carrier.thread-stud",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.102,0.29,-0.181],
+              "end": [0.102,0.29,0],
+              "radius": 0.0075,
+              "radialSegments": 22
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,-0.17],
+            "direction": [0,-1,0]
+          },
+          "soil": {
+            "position": [0,0.16,0],
+            "direction": [0,0,1],
+            "outsideDiameter": 0.102,
+            "kind": "pipe-port"
+          },
+          "front": {
+            "position": [0,0.32,0],
+            "direction": [0,0,1]
+          },
+          "button-plate": {
+            "position": [0,0.839,-0.043],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

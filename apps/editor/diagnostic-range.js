@@ -1,5 +1,6 @@
 import { checkComposition } from "../../packages/core/src/composition-check.js";
 import { describeJsonSyntax, duplicateJsonKeyDiagnostics, indexJsonSource, jsonRangeLocator } from "../../packages/core/src/json-source.js";
+import { checkEditableScene, isSceneDocument } from "./scene-import.js";
 
 function readSourceIndex(text) {
   try {
@@ -20,7 +21,7 @@ export function syntaxDiagnostics(text, message) {
   }));
 }
 
-export function checkSourceDraft(text) {
+export function checkSourceDraft(text, { registry } = {}) {
   let input;
   try {
     input = JSON.parse(text);
@@ -33,7 +34,8 @@ export function checkSourceDraft(text) {
     ...issue, relatedLocations: [{ kind: "first-declaration", sourceRange: firstSourceRange }],
   }));
   try {
-    return { input, issues: [...issues, ...checkComposition(input).issues] };
+    const result = isSceneDocument(input) ? checkEditableScene(input, registry) : checkComposition(input);
+    return { input, issues: [...issues, ...result.issues] };
   } catch (error) {
     issues.push({ code: "COMPILE_FAILED", path: "", message: error.message });
     return { input, issues };

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.round-manhole-cover",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "圆形防滑井盖",
+  "summary": "圆盖板带短条防滑纹，底面可与内凹圆井盖座配合。",
+  "license": "Apache-2.0",
+  "semanticType": "site.drainage.manhole-cover",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "室外",
+    "基础构件",
+    "排水"
+  ],
+  "anchors": [
+    "underside",
+    "lifting-axis"
+  ],
+  "ai": {
+    "intent": "覆盖独立井座并保留可移动盖体。",
+    "editableParts": [
+      "调整圆盖板尺寸、防滑纹位置和间距"
+    ],
+    "qualityChecks": [
+      "底面和座圈面完全贴合，顶面与座圈齐平。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "round-manhole-cover",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cover",
+            "semanticType": "site.drainage.manhole-cover",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.355,
+              "height": 0.035,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,-0.0175,0]
+            }
+          },
+          {
+            "id": "tread",
+            "semanticType": "site.drainage.manhole-cover.tread",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#6b757d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.41,0.006,0.017]
+            },
+            "transform": {
+              "position": [0,0.003,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "start": [0,0,-0.18],
+              "step": [0,0,0.09]
+            }
+          }
+        ],
+        "anchors": {
+          "underside": {
+            "position": [0,-0.035,0],
+            "direction": [0,-1,0]
+          },
+          "lifting-axis": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.overflow-notch-swale-check-dam",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "植草沟带溢流口拦水坎",
+  "summary": "底边吻合梯形沟断面，中部凹口与两侧定位板独立。",
+  "license": "Apache-2.0",
+  "semanticType": "site.landscape.landscape-swale-overflow-dam",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "园林",
+    "景观",
+    "浅沟",
+    "拦水坎",
+    "溢流"
+  ],
+  "anchors": [
+    "seat",
+    "spill",
+    "upstream"
+  ],
+  "ai": {
+    "intent": "用独立拦水坎把连续绿化沟分成两段并保留溢流开口。",
+    "editableParts": [
+      "坎身",
+      "侧固定片",
+      "溢口尺寸"
+    ],
+    "qualityChecks": [
+      "底对齐沟底，凹口位于坎顶中间。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "overflow-notch-swale-check-dam",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "dam-profile",
+            "semanticType": "site.landscape.trapezoid-check-dam.weir-body",
+            "material": "stone",
+            "appearance": {
+              "color": "#a49d8a"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.051,0,0],
+                [0.051,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.425,0.11],
+                [-0.19,0],
+                [0.19,0],
+                [0.425,0.11],
+                [0.425,0.189],
+                [0.131,0.189],
+                [0.103,0.087],
+                [-0.103,0.087],
+                [-0.131,0.189],
+                [-0.425,0.189]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "retained-side-plate-0",
+            "semanticType": "site.landscape.trapezoid-check-dam.side-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.17,0.071,0.064]
+            },
+            "transform": {
+              "position": [0,0.128,-0.36]
+            }
+          },
+          {
+            "id": "retained-side-plate-1",
+            "semanticType": "site.landscape.trapezoid-check-dam.side-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.17,0.071,0.064]
+            },
+            "transform": {
+              "position": [0,0.128,0.36]
+            }
+          }
+        ],
+        "anchors": {
+          "seat": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "spill": {
+            "position": [0,0.087,0],
+            "direction": [0,1,0]
+          },
+          "upstream": {
+            "position": [-0.051,0.087,0],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

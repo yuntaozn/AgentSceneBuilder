@@ -1,0 +1,149 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.switchable-magnetic-base",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可切换磁性固定座",
+  "summary": "分开的磁座本体、旋转开关、安装螺柱，可用小型传感器地面或外壳定位。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.switchable-magnetic-base",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "基础构件",
+    "实训",
+    "测量支架"
+  ],
+  "anchors": [
+    "mount",
+    "top-stud"
+  ],
+  "ai": {
+    "intent": "作为附着在钢面上的安装附件。",
+    "editableParts": [
+      "编辑底座、螺柱或开关旋转演示。"
+    ],
+    "qualityChecks": [
+      "保持磁座底面与宿主表面同面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "switchable-magnetic-base",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "block",
+            "semanticType": "instrument.mount.magnetic-base.magnet",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.049,0.061]
+            },
+            "transform": {
+              "position": [0,0.0245,0]
+            }
+          },
+          {
+            "id": "shoe",
+            "semanticType": "instrument.mount.magnetic-base.polished-shoe",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cacb4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.005,0.059]
+            },
+            "transform": {
+              "position": [0,0.0025,0]
+            }
+          },
+          {
+            "id": "stud",
+            "semanticType": "instrument.mount.magnetic-base.stud",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.049,0],
+              "end": [0,0.074,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "lever-pivot",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.023,0.032]
+            }
+          },
+          {
+            "id": "dial",
+            "semanticType": "instrument.mount.magnetic-base.dial",
+            "material": "steel",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0,0.008],
+              "radius": 0.015,
+              "radialSegments": 24
+            },
+            "parent": "lever-pivot"
+          },
+          {
+            "id": "lever",
+            "semanticType": "instrument.mount.magnetic-base.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.003,0,0.009],
+              "end": [0.026,0,0.009],
+              "radius": 0.004,
+              "radialSegments": 24
+            },
+            "parent": "lever-pivot"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top-stud": {
+            "position": [0,0.074,0],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "switch-magnet",
+            "target": "lever-pivot",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0,1.5707963267948966],
+            "duration": 0.8,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

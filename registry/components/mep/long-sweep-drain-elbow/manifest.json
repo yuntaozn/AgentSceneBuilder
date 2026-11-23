@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.long-sweep-drain-elbow",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "大弧度排水弯头",
+  "summary": "中空弯头带两个相互垂直的直端，弯曲路径与管口尺寸可编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.drain.long-elbow",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "resize"
+  ],
+  "tags": [
+    "基础构件",
+    "MEP",
+    "给排水",
+    "排水"
+  ],
+  "parameters": {
+    "outsideDiameter": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.11
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.005
+    }
+  },
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "复用排水转弯位置并保留口径。",
+    "editableParts": [
+      "编辑弯头中心线与厚度。"
+    ],
+    "qualityChecks": [
+      "两个端口分别沿各自直段向外。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "long-sweep-drain-elbow",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "pipe",
+            "semanticType": "mep.drain.long-elbow",
+            "material": "pvc",
+            "appearance": {
+              "color": "#b7c0bd"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0.08000000000000002,0,0],
+                [0.10088419075520827,0,0.0013688221801903266],
+                [0.12141104721640332,0,0.005451867793749066],
+                [0.14122934917841437,0,0.012179274798194112],
+                [0.15999999999999998,0,0.02143593539448982],
+                [0.1774018286413953,0,0.033063465553402366],
+                [0.1931370849898476,0,0.04686291501015241],
+                [0.20693653444659765,0,0.0625981713586047],
+                [0.2185640646055102,0,0.08],
+                [0.2278207252018059,0,0.09877065082158563],
+                [0.23454813220625093,0,0.11858895278359669],
+                [0.2386311778198097,0,0.13911580924479175],
+                [0.24,0,0.16],
+                [0.24,0,0.24]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.11,
+              "thickness": 0.005
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "pipe",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "pipe",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

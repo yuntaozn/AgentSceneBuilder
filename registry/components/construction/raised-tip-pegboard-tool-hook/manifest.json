@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.raised-tip-pegboard-tool-hook",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带翘头的洞洞板挂钩",
+  "summary": "插脚、背撑靠面和向上翘起的钩身，可直接插入单个挂孔。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.education.pegboard-tool-hook",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "教室",
+    "实训室",
+    "室内家具",
+    "挂钩",
+    "洞洞板",
+    "工具"
+  ],
+  "anchors": [
+    "peg",
+    "tip"
+  ],
+  "ai": {
+    "intent": "复用插入洞洞板的独立挂钩。",
+    "editableParts": [
+      "插杆",
+      "侧向挡片",
+      "挂物端"
+    ],
+    "qualityChecks": [
+      "后脚向板内，翘头朝向室内。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "raised-tip-pegboard-tool-hook",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bent-hook",
+            "semanticType": "construction.education.pegboard-hook.steel-hook",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0.019,-0.022],
+                [0,0.012,-0.016],
+                [0,0,-0.011],
+                [0,0,0.003],
+                [0,-0.013,0.016],
+                [0,-0.013,0.079],
+                [0,0.013,0.096]
+              ],
+              "radius": 0.0048
+            }
+          },
+          {
+            "id": "stabilizing-pad",
+            "semanticType": "construction.education.pegboard-hook.rest",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.045,0.007]
+            },
+            "transform": {
+              "position": [0,-0.019,0.008]
+            }
+          }
+        ],
+        "anchors": {
+          "peg": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "tip": {
+            "position": [0,0.013,0.096],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,608 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.cross-flow-plate-air-recovery-core-module",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "交叉流板式热回收芯段",
+  "summary": "可编辑方形铝框和相间薄片，两对独立端口展示横纵布置。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.cross-flow-plate-recovery-core",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "热回收",
+    "芯体"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "base",
+    "side-in",
+    "side-out"
+  ],
+  "ai": {
+    "intent": "把保温外框、芯体叠片及其侧面口分别查看。",
+    "editableParts": [
+      "交叉壳口",
+      "叠片",
+      "两轴端面"
+    ],
+    "qualityChecks": [
+      "两个气路方向互相垂直的定位面可选。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "cross-flow-plate-air-recovery-core-module",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "face-frame-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.axial-frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.31,0],
+                [0.017,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "face-frame-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.axial-frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.403,0.31,0],
+                [0.421,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "level-edge-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.case-band",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.4,0.026,0.739]
+            },
+            "transform": {
+              "position": [0.211,0.031,0]
+            }
+          },
+          {
+            "id": "level-edge-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.case-band",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.4,0.026,0.739]
+            },
+            "transform": {
+              "position": [0.211,0.587,0]
+            }
+          },
+          {
+            "id": "cross-flow-plate-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.cross-frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.211,0.31,-0.38],
+                [0.211,0.31,-0.364]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.1965,-0.2715],
+                [0.1965,-0.2715],
+                [0.1965,0.2715],
+                [-0.1965,0.2715]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1765,-0.2375],
+                  [0.1765,-0.2375],
+                  [0.1765,0.2375],
+                  [-0.1765,0.2375]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "cross-flow-plate-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.cross-frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.211,0.31,0.364],
+                [0.211,0.31,0.38]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.1965,-0.2715],
+                [0.1965,-0.2715],
+                [0.1965,0.2715],
+                [-0.1965,0.2715]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1765,-0.2375],
+                  [0.1765,-0.2375],
+                  [0.1765,0.2375],
+                  [-0.1765,0.2375]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "stacked-transfer-plate",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#95a7a9"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.005,0.627]
+            },
+            "transform": {
+              "position": [0.209,0,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 13,
+              "start": [0,0.078,0],
+              "step": [0,0.038,0]
+            }
+          },
+          {
+            "id": "blocked-side-edge-0-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.097,-0.312]
+            }
+          },
+          {
+            "id": "blocked-side-edge-0-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.097,0.312]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-1-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.026,0.135,0]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-1-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.392,0.135,0]
+            }
+          },
+          {
+            "id": "blocked-side-edge-2-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.173,-0.312]
+            }
+          },
+          {
+            "id": "blocked-side-edge-2-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.173,0.312]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-3-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.026,0.21100000000000002,0]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-3-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.392,0.21100000000000002,0]
+            }
+          },
+          {
+            "id": "blocked-side-edge-4-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.249,-0.312]
+            }
+          },
+          {
+            "id": "blocked-side-edge-4-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.249,0.312]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-5-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.026,0.287,0]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-5-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.392,0.287,0]
+            }
+          },
+          {
+            "id": "blocked-side-edge-6-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.325,-0.312]
+            }
+          },
+          {
+            "id": "blocked-side-edge-6-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.325,0.312]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-7-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.026,0.363,0]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-7-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.392,0.363,0]
+            }
+          },
+          {
+            "id": "blocked-side-edge-8-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.401,-0.312]
+            }
+          },
+          {
+            "id": "blocked-side-edge-8-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.401,0.312]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-9-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.026,0.439,0]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-9-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.392,0.439,0]
+            }
+          },
+          {
+            "id": "blocked-side-edge-10-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.477,-0.312]
+            }
+          },
+          {
+            "id": "blocked-side-edge-10-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.034,0.005]
+            },
+            "transform": {
+              "position": [0.209,0.477,0.312]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-11-0",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.026,0.515,0]
+            }
+          },
+          {
+            "id": "blocked-axial-edge-11-1",
+            "semanticType": "mep.ahu.cross-flow-plate-heat-exchanger.edge-seal",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.034,0.627]
+            },
+            "transform": {
+              "position": [0.392,0.515,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0.31,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.421,0.31,0],
+            "direction": [1,0,0]
+          },
+          "base": {
+            "position": [0.2105,0.02,0],
+            "direction": [0,-1,0]
+          },
+          "side-in": {
+            "position": [0.211,0.31,-0.38],
+            "direction": [0,0,-1]
+          },
+          "side-out": {
+            "position": [0.211,0.31,0.38],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.intact-bonded-facade-finish-cutaway-coupon",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "外墙饰面正常粘结层剖片",
+  "summary": "墙体、找平层、连续粘结层和饰面四层可以分别选取，露出清楚的台阶边。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.building-inspection.intact-bonded-facade-coupon",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "质量检测",
+    "巡检",
+    "外墙",
+    "粘结",
+    "剖面"
+  ],
+  "anchors": [
+    "base",
+    "face"
+  ],
+  "ai": {
+    "intent": "作为空鼓示意件的正常粘结对照剖片。",
+    "editableParts": [
+      "墙基",
+      "找平层",
+      "粘结层",
+      "饰面"
+    ],
+    "qualityChecks": [
+      "四层连续贴合，露出一侧台阶。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "intact-bonded-facade-finish-cutaway-coupon",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "substrate",
+            "semanticType": "construction.building-inspection.sound-facade-coupon.core",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b0aa9d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.476,0.44,0.099]
+            },
+            "transform": {
+              "position": [0,0.22,0.0495]
+            }
+          },
+          {
+            "id": "levelcoat",
+            "semanticType": "construction.building-inspection.sound-facade-coupon.mortar",
+            "material": "mortar",
+            "appearance": {
+              "color": "#a29887"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.443,0.416,0.021]
+            },
+            "transform": {
+              "position": [0.0165,0.231,0.1095]
+            }
+          },
+          {
+            "id": "bond-coat",
+            "semanticType": "construction.building-inspection.sound-facade-coupon.adhesive",
+            "material": "adhesive",
+            "appearance": {
+              "color": "#b39366"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.412,0.394,0.009]
+            },
+            "transform": {
+              "position": [0.031,0.242,0.1245]
+            }
+          },
+          {
+            "id": "outer-ceramic",
+            "semanticType": "construction.building-inspection.sound-facade-coupon.tile",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#ddd7c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.367,0.364,0.014]
+            },
+            "transform": {
+              "position": [0.054,0.255,0.136]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0.0495],
+            "direction": [0,-1,0]
+          },
+          "face": {
+            "position": [0.054,0.255,0.143],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

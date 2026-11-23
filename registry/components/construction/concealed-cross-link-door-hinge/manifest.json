@@ -1,0 +1,180 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.concealed-cross-link-door-hinge",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "暗装交叉臂合页",
+  "summary": "门框槽盒与活动门扇槽盒由两根交叉臂连接，保留固定座和旋转端。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.opening.concealed-cross-link-hinge",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门窗",
+    "五金"
+  ],
+  "anchors": [
+    "frame",
+    "leaf",
+    "hidden-axis"
+  ],
+  "ai": {
+    "intent": "在洞口侧表示嵌入式隐藏合页及其交叉臂。",
+    "editableParts": [
+      "编辑两座盒腔与连臂位置。"
+    ],
+    "qualityChecks": [
+      "盒腔与外部安装面分别可查看。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "concealed-cross-link-door-hinge",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame-pocket",
+            "semanticType": "construction.opening.concealed-door-hinge.pocket",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.059,0,0],
+                [-0.017,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0205,-0.0695],
+                [0.0205,-0.0695],
+                [0.0205,0.0695],
+                [-0.0205,0.0695]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0145,-0.0545],
+                  [0.0145,-0.0545],
+                  [0.0145,0.0545],
+                  [-0.0145,0.0545]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "leaf-pocket",
+            "semanticType": "construction.opening.concealed-door-hinge.pocket",
+            "material": "steel",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.018,0,0],
+                [0.06,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0205,-0.0695],
+                [0.0205,-0.0695],
+                [0.0205,0.0695],
+                [-0.0205,0.0695]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0145,-0.0545],
+                  [0.0145,-0.0545],
+                  [0.0145,0.0545],
+                  [-0.0145,0.0545]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "link-0",
+            "semanticType": "construction.opening.concealed-door-hinge.cross",
+            "material": "steel",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.025,-0.052,-0.022],
+              "end": [0.029,0.034,0.022],
+              "radius": 0.008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "link-1",
+            "semanticType": "construction.opening.concealed-door-hinge.cross",
+            "material": "steel",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.025,0.033,0.022],
+              "end": [0.029,-0.053,-0.022],
+              "radius": 0.008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pin-0",
+            "semanticType": "construction.opening.concealed-door-hinge.axis",
+            "material": "steel",
+            "appearance": {
+              "color": "#c79259"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.021,-0.048,-0.025],
+              "end": [-0.021,-0.048,0.025],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pin-1",
+            "semanticType": "construction.opening.concealed-door-hinge.axis",
+            "material": "steel",
+            "appearance": {
+              "color": "#c79259"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.022,-0.048,-0.025],
+              "end": [0.022,-0.048,0.025],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "frame": {
+            "position": [-0.059,0,0],
+            "direction": [-1,0,0]
+          },
+          "leaf": {
+            "position": [0.06,0,0],
+            "direction": [1,0,0]
+          },
+          "hidden-axis": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

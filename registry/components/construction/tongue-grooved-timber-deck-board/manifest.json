@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.tongue-grooved-timber-deck-board",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带防滑沟的企口木平台板",
+  "summary": "两侧具有可互相套叠的舌槽，板面同时有连续排水浅沟。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.timber.grooved-terrace-deck-board",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "tongue-side",
+    "groove-side",
+    "bottom"
+  ],
+  "ai": {
+    "intent": "连续铺装户外或木平台的独立板材。",
+    "editableParts": [
+      "调整板长、两侧企口和顶部沟槽。"
+    ],
+    "qualityChecks": [
+      "两侧定位处于标称板宽边界。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "tongue-grooved-timber-deck-board",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "deck-board",
+            "semanticType": "construction.timber.grooved-terrace-deck-board",
+            "material": "timber",
+            "appearance": {
+              "color": "#bb986f"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [2.4,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0675,0],
+                [0.0675,0],
+                [0.0675,0.012],
+                [0.0598,0.012],
+                [0.0598,0.021],
+                [0.0675,0.021],
+                [0.0675,0.032],
+                [0.044,0.032],
+                [0.044,0.028],
+                [0.037,0.028],
+                [0.037,0.032],
+                [0.0035,0.032],
+                [0.0035,0.028],
+                [-0.0035,0.028],
+                [-0.0035,0.032],
+                [-0.037,0.032],
+                [-0.037,0.028],
+                [-0.044,0.028],
+                [-0.044,0.032],
+                [-0.0675,0.032],
+                [-0.0675,0.02],
+                [-0.0745,0.02],
+                [-0.0745,0.013],
+                [-0.0675,0.013]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "deck-board",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "deck-board",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "tongue-side": {
+            "position": [1.2,0.017,0.0675],
+            "direction": [0,0,1]
+          },
+          "groove-side": {
+            "position": [1.2,0.017,-0.0675],
+            "direction": [0,0,-1]
+          },
+          "bottom": {
+            "position": [1.2,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

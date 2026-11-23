@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.damper-operation-envelope",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "风阀手柄操作包络",
+  "summary": "沿手柄轴放置的半透明占位体，可按项目要求修改半径和轴向深度。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.clearance.damper-operation",
+  "capabilities": ["resize", "attach", "clearance"],
+  "tags": ["机电", "风阀", "净距", "操作空间", "基础构件"],
+  "anchors": ["mount"],
+  "ai": {
+    "intent": "在风阀手柄外侧标注需要留空的几何范围，供场景干涉分析或课件示意。",
+    "editableParts": ["envelope.geometry.radius 控制径向范围", "envelope.geometry.end 控制轴向深度"],
+    "qualityChecks": ["将 mount 与风阀 handle-axis 对齐。", "按项目需要设置包络尺寸并检查邻近桥架或管线是否进入。"]
+  },
+  "editor": { "document": {
+    "id": "damper-operation-envelope", "component": "core.composition",
+    "parameters": {
+      "nodes": [{ "id": "envelope", "semanticType": "mep.clearance.damper-operation",
+        "appearance": { "color": "#f3a94c", "opacity": 0.22 },
+        "geometry": { "type": "cylinder-between", "start": [-0.02,0,0], "end": [0.18,0,0], "radius": 0.19 } }],
+      "anchors": { "mount": { "node": "envelope", "position": [0,0,0], "direction": [-1,0,0] } }
+    }
+  } }
+}

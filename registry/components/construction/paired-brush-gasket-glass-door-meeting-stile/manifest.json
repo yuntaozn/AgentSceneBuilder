@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.paired-brush-gasket-glass-door-meeting-stile",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双刷条玻璃滑门合缝边条",
+  "summary": "边条夹在玻璃立边，两根独立密封刷向开口侧填补门缝。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.envelope-entry.brush-meeting-stile",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "建筑入口",
+    "合缝",
+    "毛刷条",
+    "自动门"
+  ],
+  "anchors": [
+    "glass",
+    "meeting"
+  ],
+  "ai": {
+    "intent": "边条夹在玻璃立边，两根独立密封刷向开口侧填补门缝。",
+    "editableParts": [
+      "可分别编辑 vertical-seal-carrier、brush-seal-1、brush-seal-2。"
+    ],
+    "qualityChecks": [
+      "玻璃照 13 mm 厚度插入槽，刷部面向另一门扇。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "paired-brush-gasket-glass-door-meeting-stile",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "vertical-seal-carrier",
+            "semanticType": "construction.envelope-entry.meeting-stile.carrier",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.997,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.022,-0.016],
+                [0.02,-0.016],
+                [0.02,-0.007],
+                [-0.011,-0.007],
+                [-0.011,0.007],
+                [0.02,0.007],
+                [0.02,0.016],
+                [-0.022,0.016]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "brush-seal-1",
+            "semanticType": "construction.envelope-entry.meeting-stile.brush",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.014,1.995,0.006]
+            },
+            "transform": {
+              "position": [0.024,0.9975,-0.009]
+            }
+          },
+          {
+            "id": "brush-seal-2",
+            "semanticType": "construction.envelope-entry.meeting-stile.brush",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.014,1.995,0.006]
+            },
+            "transform": {
+              "position": [0.024,0.9975,0.009]
+            }
+          }
+        ],
+        "anchors": {
+          "glass": {
+            "position": [0,1.001,0],
+            "direction": [-1,0,0]
+          },
+          "meeting": {
+            "position": [0.031,1.001,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

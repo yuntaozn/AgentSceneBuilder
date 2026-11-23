@@ -1,0 +1,272 @@
+{
+  "metadata": {
+    "title": "矩形风管、手动调节阀与操作包络",
+    "units": "meter"
+  },
+  "instances": [
+    {
+      "id": "straight",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "duct",
+            "semanticType": "mep.duct",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98a8b5",
+              "metalness": 0.35,
+              "roughness": 0.55
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,0,0],
+                [0,0,1.5]
+              ],
+              "up": [0,1,0],
+              "sectionWidth": 0.6,
+              "sectionHeight": 0.35,
+              "thickness": 0.004
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "duct",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "duct",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "damper",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "housing",
+            "semanticType": "mep.duct.damper-housing",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98a8b5",
+              "metalness": 0.35,
+              "roughness": 0.55
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,0,0],
+                [0,0,0.22]
+              ],
+              "up": [0,1,0],
+              "sectionWidth": 0.6,
+              "sectionHeight": 0.35,
+              "thickness": 0.004
+            }
+          },
+          {
+            "id": "hinge",
+            "semanticType": "mep.duct.damper-axis",
+            "transform": {
+              "position": [0,0,0.11],
+              "rotation": [0.45,0,0]
+            }
+          },
+          {
+            "id": "blade",
+            "parent": "hinge",
+            "semanticType": "mep.duct.damper-blade",
+            "material": "steel",
+            "appearance": {
+              "color": "#8795a0"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.582,0.332,0.008]
+            }
+          },
+          {
+            "id": "shaft",
+            "parent": "hinge",
+            "semanticType": "mep.duct.damper-shaft",
+            "material": "steel",
+            "appearance": {
+              "color": "#687980"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.32,0,0],
+              "end": [0.38,0,0],
+              "radius": 0.012
+            }
+          },
+          {
+            "id": "handle",
+            "parent": "hinge",
+            "semanticType": "mep.duct.damper-handle",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#e9a84e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.38,0,0],
+              "end": [0.38,0.16,0],
+              "radius": 0.016
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "housing",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "housing",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "handle-axis": {
+            "node": "hinge",
+            "position": [0.38,0,0],
+            "direction": [1,0,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "damper-swing",
+            "target": "hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0.65,0,0],
+            "duration": 2,
+            "loop": false
+          }
+        ]
+      },
+      "transform": {
+        "position": [0,0,1.5]
+      }
+    },
+    {
+      "id": "elbow",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "duct",
+            "semanticType": "mep.duct.elbow",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98a8b5",
+              "metalness": 0.35,
+              "roughness": 0.55
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,0,0],
+                [0,0,1.2],
+                [1.1,0,1.2]
+              ],
+              "up": [0,1,0],
+              "sectionWidth": 0.6,
+              "sectionHeight": 0.35,
+              "thickness": 0.004
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "duct",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "duct",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,1.72]
+      }
+    },
+    {
+      "id": "operation-space",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "envelope",
+            "semanticType": "mep.clearance.damper-operation",
+            "appearance": {
+              "color": "#f3a94c",
+              "opacity": 0.22
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.02,0,0],
+              "end": [0.18,0,0],
+              "radius": 0.19
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "envelope",
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.38,0,1.61]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "straight#end",
+      "to": "damper#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "damper#end",
+      "to": "elbow#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "damper#handle-axis",
+      "to": "operation-space#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

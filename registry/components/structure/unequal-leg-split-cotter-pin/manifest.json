@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.unequal-leg-split-cotter-pin",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "长短脚开口销",
+  "summary": "头部环和长短两支脚相互分开，尾端获得清晰张口。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.fastener.split-cotter-pin",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "五金",
+    "紧固件",
+    "开口销",
+    "销轴",
+    "双脚"
+  ],
+  "anchors": [
+    "pin",
+    "entry"
+  ],
+  "ai": {
+    "intent": "在交叉销孔中插入可选的长短脚开口销。",
+    "editableParts": [
+      "环头",
+      "两条脚",
+      "尾部张角"
+    ],
+    "qualityChecks": [
+      "钢脚从横孔两侧伸出。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "unequal-leg-split-cotter-pin",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "eye",
+            "semanticType": "structure.fastener.split-cotter-pin.eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#82959a"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,-0.0065],
+                [0.0042,0,-0.0083],
+                [0.0062,0,-0.0124],
+                [0.0038,0,-0.0164],
+                [0,0,-0.0175],
+                [-0.0038,0,-0.0164],
+                [-0.0062,0,-0.0124],
+                [-0.0042,0,-0.0083],
+                [0,0,-0.0065]
+              ],
+              "radius": 0.00115
+            }
+          },
+          {
+            "id": "short-leg",
+            "semanticType": "structure.fastener.split-cotter-pin.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#82959a"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.0011,0,-0.007],
+                [0.0011,0,0.011],
+                [0.0028,0,0.018],
+                [0.0051,0,0.022]
+              ],
+              "radius": 0.00115
+            }
+          },
+          {
+            "id": "long-leg",
+            "semanticType": "structure.fastener.split-cotter-pin.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#82959a"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.0011,0,-0.007],
+                [-0.0011,0,0.012],
+                [-0.0028,0,0.021],
+                [-0.0056,0,0.029]
+              ],
+              "radius": 0.00115
+            }
+          }
+        ],
+        "anchors": {
+          "pin": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "entry": {
+            "position": [0,0,-0.016],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

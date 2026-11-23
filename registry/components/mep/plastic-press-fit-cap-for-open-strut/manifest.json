@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.plastic-press-fit-cap-for-open-strut",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "槽钢开口压入端盖",
+  "summary": "外板封护槽钢端面，两条卡舌伸入槽腔，端盖可整体拆出。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.service-support.strut-end-cap",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "机电安装",
+    "槽钢",
+    "封头",
+    "端盖"
+  ],
+  "anchors": [
+    "strut"
+  ],
+  "ai": {
+    "intent": "外板封护槽钢端面，两条卡舌伸入槽腔，端盖可整体拆出。",
+    "editableParts": [
+      "分别编辑 cap-face、press-tab-1、press-tab-2 的形状、尺寸或位置。"
+    ],
+    "qualityChecks": [
+      "弹性插片投影落在槽钢内腔，遮护面在轨端外侧。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "plastic-press-fit-cap-for-open-strut",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cap-face",
+            "semanticType": "mep.support.cap.face",
+            "material": "plastic",
+            "appearance": {
+              "color": "#434e54"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.041,0.043]
+            },
+            "transform": {
+              "position": [0.0035,0,0]
+            }
+          },
+          {
+            "id": "press-tab-1",
+            "semanticType": "mep.support.cap.tab",
+            "material": "plastic",
+            "appearance": {
+              "color": "#434e54"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.029,0.026,0.005]
+            },
+            "transform": {
+              "position": [-0.0145,-0.002,-0.012]
+            }
+          },
+          {
+            "id": "press-tab-2",
+            "semanticType": "mep.support.cap.tab",
+            "material": "plastic",
+            "appearance": {
+              "color": "#434e54"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.029,0.026,0.005]
+            },
+            "transform": {
+              "position": [-0.0145,-0.002,0.012]
+            }
+          }
+        ],
+        "anchors": {
+          "strut": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.slotted-ceiling-lighting-track",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "开槽式顶装灯具轨道",
+  "summary": "槽口朝下的轨道与内侧两导条，中段和端部留有三处设备插座及两只端点。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.lighting.slotted-ceiling-track",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "水电",
+    "照明",
+    "基础构件",
+    "轨道灯",
+    "灯轨"
+  ],
+  "anchors": [
+    "mount",
+    "start",
+    "end",
+    "left-fixture",
+    "middle",
+    "right-fixture"
+  ],
+  "ai": {
+    "intent": "组合发光轨道、转角和灯体适配器。",
+    "editableParts": [
+      "槽口型材",
+      "侧导条",
+      "灯体位置"
+    ],
+    "qualityChecks": [
+      "槽口对着下方，接头保持轨道同高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "slotted-ceiling-lighting-track",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slotted-extrusion",
+            "semanticType": "mep.lighting.slotted-ceiling-track.shell",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.59,0,0],
+                [0.59,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.022,0],
+                [0.022,0],
+                [0.022,-0.026],
+                [0.008,-0.026],
+                [0.008,-0.022],
+                [0.017,-0.022],
+                [0.017,-0.004],
+                [-0.017,-0.004],
+                [-0.017,-0.022],
+                [-0.008,-0.022],
+                [-0.008,-0.026],
+                [-0.022,-0.026]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "conductor-0",
+            "semanticType": "mep.lighting.slotted-ceiling-track.conductor",
+            "material": "copper",
+            "appearance": {
+              "color": "#b39663"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.165,0.0032,0.0031]
+            },
+            "transform": {
+              "position": [0,-0.011,-0.014]
+            }
+          },
+          {
+            "id": "conductor-1",
+            "semanticType": "mep.lighting.slotted-ceiling-track.conductor",
+            "material": "copper",
+            "appearance": {
+              "color": "#b39663"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.165,0.0032,0.0031]
+            },
+            "transform": {
+              "position": [0,-0.011,0.014]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "start": {
+            "position": [-0.59,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.59,0,0],
+            "direction": [1,0,0]
+          },
+          "left-fixture": {
+            "position": [-0.3,-0.026,0],
+            "direction": [0,-1,0]
+          },
+          "middle": {
+            "position": [0,-0.026,0],
+            "direction": [0,-1,0]
+          },
+          "right-fixture": {
+            "position": [0.3,-0.026,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

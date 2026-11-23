@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.rectangular-rain-downspout-offset",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形双弯雨落偏移段",
+  "summary": "两段竖向直端间保留横向错台，可绕开檐口或墙面突出部。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.rectangular-downspout.offset",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "resize"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "围护",
+    "屋面排水"
+  ],
+  "anchors": [
+    "inlet",
+    "outlet"
+  ],
+  "ai": {
+    "intent": "沿外墙布置独立的矩形雨落管段。",
+    "editableParts": [
+      "编辑路径点、矩形截面和壁厚。"
+    ],
+    "qualityChecks": [
+      "端点方向随相邻路径段变化。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rectangular-rain-downspout-offset",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "downpipe",
+            "semanticType": "roof.rectangular-downspout.offset",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,0,0],
+                [0,-0.16,0],
+                [0,-0.41,0.18],
+                [0,-0.58,0.18]
+              ],
+              "sectionWidth": 0.17,
+              "sectionHeight": 0.12,
+              "thickness": 0.008,
+              "up": [0,0,1]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "downpipe",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "downpipe",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

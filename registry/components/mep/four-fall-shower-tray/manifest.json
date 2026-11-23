@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.four-fall-shower-tray",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "四面找坡淋浴底盘",
+  "summary": "四块连续坡面汇向方孔，带沿边和支承面可独立定位。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.sanitary.shower-tray",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "卫生间",
+    "给排水"
+  ],
+  "anchors": [
+    "foundation",
+    "drain-grade",
+    "glass-seat",
+    "back-rim"
+  ],
+  "ai": {
+    "intent": "在可拼装卫浴模型中体现淋浴区找坡与中心地漏。",
+    "editableParts": [
+      "编辑内外坡面层与方孔。"
+    ],
+    "qualityChecks": [
+      "方孔贯通并与独立地漏对齐。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "four-fall-shower-tray",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "perimeter",
+            "semanticType": "mep.sanitary.shower-tray.rim",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#e4edf0"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.061,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.5,-0.466],
+                [0.5,-0.466],
+                [0.5,0.466],
+                [-0.5,0.466]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.477,-0.444],
+                  [0.477,-0.444],
+                  [0.477,0.444],
+                  [-0.477,0.444]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "slope",
+            "semanticType": "mep.sanitary.shower-tray.fall",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#e4edf0"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "capStart": false,
+              "capEnd": false,
+              "radialSegments": 4,
+              "sections": [
+                {
+                  "center": [0,0,0],
+                  "radiusX": 0.478,
+                  "radiusZ": 0.445,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0,-0.038,0],
+                  "radiusX": 0.099,
+                  "radiusZ": 0.099,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "underside",
+            "semanticType": "mep.sanitary.shower-tray.underside",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#c9d9df"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "capStart": false,
+              "capEnd": false,
+              "radialSegments": 4,
+              "sections": [
+                {
+                  "center": [0,-0.018,0],
+                  "radiusX": 0.478,
+                  "radiusZ": 0.445,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0,-0.056,0],
+                  "radiusX": 0.099,
+                  "radiusZ": 0.099,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "drain-collar",
+            "semanticType": "mep.sanitary.shower-tray.collar",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#c9d9df"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.056,0],
+                [0,-0.038,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.121,-0.121],
+                [0.121,-0.121],
+                [0.121,0.121],
+                [-0.121,0.121]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.099,-0.099],
+                  [0.099,-0.099],
+                  [0.099,0.099],
+                  [-0.099,0.099]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "foundation": {
+            "position": [0,-0.061,0],
+            "direction": [0,-1,0]
+          },
+          "drain-grade": {
+            "position": [0,-0.038,0],
+            "direction": [0,1,0]
+          },
+          "glass-seat": {
+            "position": [0.483,0,0],
+            "direction": [0,1,0]
+          },
+          "back-rim": {
+            "position": [0,0,-0.466],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

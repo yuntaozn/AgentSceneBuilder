@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.sloped-steel-stair-stringer",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "槽形钢梯斜梁",
+  "summary": "一根开口槽形斜梁，坡脚与上端位置从路径计算，可用于两侧支撑。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.circulation.steel-stair-stringer",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "交通",
+    "楼梯"
+  ],
+  "anchors": [
+    "bottom",
+    "top"
+  ],
+  "ai": {
+    "intent": "复用独立楼梯斜梁，并可组成一对侧梁。",
+    "editableParts": [
+      "编辑斜向路径和截面。"
+    ],
+    "qualityChecks": [
+      "两端定位沿斜梁向外。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "sloped-steel-stair-stringer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stringer",
+            "semanticType": "construction.circulation.steel-stair-stringer",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.02,1.68]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.04,-0.094],
+                [0.04,-0.094],
+                [0.04,-0.087],
+                [-0.033,-0.087],
+                [-0.033,0.087],
+                [0.04,0.087],
+                [0.04,0.094],
+                [-0.04,0.094]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "stringer",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "top": {
+            "node": "stringer",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

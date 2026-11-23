@@ -1,0 +1,2894 @@
+{
+  "schemaVersion": "0.1",
+  "id": "roadside-crossing-retaining-stormwater",
+  "title": "道路过渡、挡墙与雨水检查井",
+  "instances": [
+    {
+      "id": "road-west",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.road.crowned-layer",
+            "material": "asphalt",
+            "appearance": {
+              "color": "#586569"
+            },
+            "geometry": {
+              "type": "crowned-road-surface",
+              "length": 4.8,
+              "width": 5.8,
+              "thickness": 0.17,
+              "crownHeight": 0.065
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "crown": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "crown"
+            }
+          },
+          "edge-negative-z": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "edge-negative-z"
+            }
+          },
+          "edge-positive-z": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "edge-positive-z"
+            }
+          },
+          "edge-west-gutter": {
+            "position": [1.2,0,2.9],
+            "direction": [0,0,1]
+          },
+          "edge-east-gutter": {
+            "position": [3.6,0,2.9],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "road-east",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.road.crowned-layer",
+            "material": "asphalt",
+            "appearance": {
+              "color": "#586569"
+            },
+            "geometry": {
+              "type": "crowned-road-surface",
+              "length": 4.8,
+              "width": 5.8,
+              "thickness": 0.17,
+              "crownHeight": 0.065
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "crown": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "crown"
+            }
+          },
+          "edge-negative-z": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "edge-negative-z"
+            }
+          },
+          "edge-positive-z": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "edge-positive-z"
+            }
+          },
+          "parking-seat": {
+            "position": [3.2,0.065,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [4.8,0,0]
+      }
+    },
+    {
+      "id": "gutter-west",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "channel",
+            "semanticType": "site.road.shallow-v-gutter",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [2.4,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.285,0],
+                [0,-0.054],
+                [0.285,0],
+                [0.285,-0.09],
+                [0,-0.144],
+                [-0.285,-0.09]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,-0.054,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [2.4,-0.054,0],
+            "direction": [1,0,0]
+          },
+          "edge-in": {
+            "position": [1.2,0,-0.285],
+            "direction": [0,0,-1]
+          },
+          "edge-out": {
+            "position": [1.2,0,0.285],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,3.185]
+      }
+    },
+    {
+      "id": "gutter-east",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "channel",
+            "semanticType": "site.road.shallow-v-gutter",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [2.4,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.285,0],
+                [0,-0.054],
+                [0.285,0],
+                [0.285,-0.09],
+                [0,-0.144],
+                [-0.285,-0.09]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,-0.054,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [2.4,-0.054,0],
+            "direction": [1,0,0]
+          },
+          "edge-in": {
+            "position": [1.2,0,-0.285],
+            "direction": [0,0,-1]
+          },
+          "edge-out": {
+            "position": [1.2,0,0.285],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [2.4,0,3.185]
+      }
+    },
+    {
+      "id": "curb-east",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.paving.curb",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "bevelled-curb",
+              "length": 0.75,
+              "width": 0.18,
+              "height": 0.25,
+              "bevel": 0.045
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "paving-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "paving-edge"
+            }
+          },
+          "road-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "road-edge"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [4.5,0,3.56],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "crossing-curb",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "curb",
+            "semanticType": "site.road.dropped-curb",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 20,
+              "capStart": true,
+              "capEnd": true,
+              "sections": [
+                {
+                  "center": [0,0.125,0],
+                  "axisX": [0,0,-0.09],
+                  "axisZ": [0,0.125,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-0.52,1],
+                    [-1,0.64]
+                  ]
+                },
+                {
+                  "center": [0.72,0.0225,0],
+                  "axisX": [0,0,-0.09],
+                  "axisZ": [0,0.0225,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-0.52,1],
+                    [-1,0.64]
+                  ]
+                },
+                {
+                  "center": [2.28,0.0225,0],
+                  "axisX": [0,0,-0.09],
+                  "axisZ": [0,0.0225,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-0.52,1],
+                    [-1,0.64]
+                  ]
+                },
+                {
+                  "center": [3,0.125,0],
+                  "axisX": [0,0,-0.09],
+                  "axisZ": [0,0.125,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-0.52,1],
+                    [-1,0.64]
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [3,0,0],
+            "direction": [1,0,0]
+          },
+          "crossing-center": {
+            "position": [1.5,0.045,0],
+            "direction": [0,1,0]
+          },
+          "ramp-seat": {
+            "position": [1.5,0.045,-0.09],
+            "direction": [0,0,-1]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.75,0,3.56],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "curb-west",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.paving.curb",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "bevelled-curb",
+              "length": 0.75,
+              "width": 0.18,
+              "height": 0.25,
+              "bevel": 0.045
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "paving-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "paving-edge"
+            }
+          },
+          "road-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "road-edge"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.75,0,3.56],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "crossing-ramp",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "middle",
+            "semanticType": "site.road.flared-curb-ramp.ramp",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.62,0,0],
+                [0.62,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0],
+                [-1.15,0.16],
+                [-1.15,0.095],
+                [0,-0.065]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "left-wing",
+            "semanticType": "site.road.flared-curb-ramp.flare",
+            "material": "concrete",
+            "appearance": {
+              "color": "#8c9b9d"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 4,
+              "capStart": true,
+              "capEnd": true,
+              "sections": [
+                {
+                  "center": [0,0,0],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [-1.02,-0.065],
+                    [-0.62,-0.065],
+                    [-0.62,0],
+                    [-1.02,0.16]
+                  ]
+                },
+                {
+                  "center": [0,0,1.15],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [-1.02,0.095],
+                    [-0.62,0.095],
+                    [-0.62,0.16],
+                    [-1.02,0.16]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "right-wing",
+            "semanticType": "site.road.flared-curb-ramp.flare",
+            "material": "concrete",
+            "appearance": {
+              "color": "#8c9b9d"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 4,
+              "capStart": true,
+              "capEnd": true,
+              "sections": [
+                {
+                  "center": [0,0,0],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [1.02,-0.065],
+                    [0.62,-0.065],
+                    [0.62,0],
+                    [1.02,0.16]
+                  ]
+                },
+                {
+                  "center": [0,0,1.15],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [1.02,0.095],
+                    [0.62,0.095],
+                    [0.62,0.16],
+                    [1.02,0.16]
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "road-entry": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "sidewalk-entry": {
+            "position": [0,0.16,1.15],
+            "direction": [0,0,1]
+          },
+          "warning-seat": {
+            "position": [0,0.16,1.15],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [2.25,0.045,3.65]
+      }
+    },
+    {
+      "id": "sidewalk",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [2.04,0.14,1.2]
+            },
+            "transform": {
+              "position": [0,0.07,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "crossing-seat": {
+            "position": [0,0.14,-0.6],
+            "direction": [0,0,-1]
+          }
+        }
+      },
+      "transform": {
+        "position": [2.25,0.065,5.4]
+      }
+    },
+    {
+      "id": "warning-paver",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tile",
+            "semanticType": "site.paving.tactile.base",
+            "material": "concrete",
+            "appearance": {
+              "color": "#cfa344"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.3,0.035,0.3]
+            },
+            "transform": {
+              "position": [0,-0.0175,0]
+            }
+          },
+          {
+            "id": "stud",
+            "semanticType": "site.paving.tactile.stud",
+            "material": "concrete",
+            "appearance": {
+              "color": "#ebbf54"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.012,
+              "height": 0.006,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,0.003,0]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [5,1,5],
+              "start": [-0.104,0,-0.104],
+              "stepX": [0.052,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.052]
+            }
+          }
+        ],
+        "anchors": {
+          "west": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0.5,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "east": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0.5,0]
+            },
+            "direction": [1,0,0]
+          },
+          "north": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,-0.5]
+            },
+            "direction": [0,0,-1]
+          },
+          "south": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0.5]
+            },
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [2.25,0.205,4.95]
+      }
+    },
+    {
+      "id": "retaining-west",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.retaining.l-cantilever-wall",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "l-retaining-wall",
+              "length": 2.4,
+              "wallHeight": 1.45,
+              "wallThickness": 0.23,
+              "capThickness": 0.17,
+              "toeDepth": 0.49,
+              "heelDepth": 0.84,
+              "footingThickness": 0.22
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "wall-top": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-top"
+            }
+          },
+          "base-center": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "base-center"
+            }
+          },
+          "heel-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "heel-seat"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0.17,6.18]
+      }
+    },
+    {
+      "id": "retaining-east",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.retaining.l-cantilever-wall",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "l-retaining-wall",
+              "length": 2.4,
+              "wallHeight": 1.45,
+              "wallThickness": 0.23,
+              "capThickness": 0.17,
+              "toeDepth": 0.49,
+              "heelDepth": 0.84,
+              "footingThickness": 0.22
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "wall-top": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-top"
+            }
+          },
+          "base-center": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "base-center"
+            }
+          },
+          "heel-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "heel-seat"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [2.4,0.17,6.18]
+      }
+    },
+    {
+      "id": "cutout-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 1.85,
+              "wallHeight": 1.05,
+              "thickness": 0.22,
+              "openingWidth": 0.09,
+              "openingHeight": 0.1,
+              "openingOffset": 0.25,
+              "sillHeight": 0.097
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "opening-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "opening-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-top"
+            }
+          },
+          "opening-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-left"
+            }
+          },
+          "opening-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-right"
+            }
+          },
+          "opening-exterior-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-exterior-base"
+            }
+          },
+          "weep-seat": {
+            "position": [0.25,0.145,-0.11],
+            "direction": [0,0,-1]
+          }
+        }
+      },
+      "transform": {
+        "position": [6.2,0,4.64]
+      }
+    },
+    {
+      "id": "weep-detail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "drain",
+            "semanticType": "site.retaining.weep-drain",
+            "material": "pvc",
+            "appearance": {
+              "color": "#688693"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0,0.015,0.45]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.082,
+              "thickness": 0.004
+            }
+          },
+          {
+            "id": "filter-sleeve",
+            "semanticType": "site.retaining.weep-drain.filter",
+            "material": "geotextile",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.012,0.35],
+                [0,0.017,0.485]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.071,0],
+                [0.06963575490862936,0.013851412863145104],
+                [0.06559544680830136,0.027170523697921372],
+                [0.05903434247348071,0.03944548654439175],
+                [0.05020458146424487,0.05020458146424486],
+                [0.039445486544391756,0.05903434247348071],
+                [0.027170523697921375,0.06559544680830136],
+                [0.01385141286314511,0.06963575490862936],
+                [4.3474961369731035e-18,0.071],
+                [-0.013851412863145101,0.06963575490862936],
+                [-0.02717052369792137,0.06559544680830136],
+                [-0.039445486544391735,0.059034342473480717],
+                [-0.05020458146424486,0.05020458146424487],
+                [-0.059034342473480717,0.03944548654439175],
+                [-0.06559544680830136,0.02717052369792138],
+                [-0.06963575490862936,0.01385141286314513],
+                [-0.071,8.694992273946207e-18],
+                [-0.06963575490862936,-0.013851412863145113],
+                [-0.06559544680830136,-0.027170523697921365],
+                [-0.05903434247348072,-0.039445486544391735],
+                [-0.050204581464244884,-0.05020458146424486],
+                [-0.03944548654439175,-0.05903434247348071],
+                [-0.02717052369792141,-0.06559544680830133],
+                [-0.013851412863145134,-0.06963575490862935],
+                [-1.3042488410919309e-17,-0.071],
+                [0.013851412863145108,-0.06963575490862936],
+                [0.02717052369792139,-0.06559544680830134],
+                [0.03944548654439173,-0.05903434247348072],
+                [0.050204581464244856,-0.050204581464244884],
+                [0.05903434247348071,-0.03944548654439175],
+                [0.06559544680830133,-0.027170523697921417],
+                [0.06963575490862935,-0.013851412863145137]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.041,0],
+                  [0.04021219649653245,0.007998703202661259],
+                  [0.03787906083296276,0.015690020726968682],
+                  [0.034090254104404354,0.022778379553803692],
+                  [0.028991378028648453,0.028991378028648446],
+                  [0.022778379553803695,0.034090254104404354],
+                  [0.015690020726968686,0.03787906083296276],
+                  [0.007998703202661262,0.04021219649653245],
+                  [2.5105259382520743e-18,0.041],
+                  [-0.007998703202661257,0.04021219649653245],
+                  [-0.01569002072696868,0.03787906083296276],
+                  [-0.02277837955380368,0.03409025410440436],
+                  [-0.028991378028648446,0.028991378028648453],
+                  [-0.03409025410440436,0.022778379553803692],
+                  [-0.03787906083296276,0.015690020726968686],
+                  [-0.04021219649653245,0.007998703202661273],
+                  [-0.041,5.0210518765041486e-18],
+                  [-0.04021219649653245,-0.007998703202661264],
+                  [-0.03787906083296276,-0.01569002072696868],
+                  [-0.03409025410440437,-0.02277837955380368],
+                  [-0.028991378028648457,-0.028991378028648446],
+                  [-0.022778379553803692,-0.034090254104404354],
+                  [-0.015690020726968703,-0.037879060832962747],
+                  [-0.007998703202661276,-0.040212196496532446],
+                  [-7.531577814756222e-18,-0.041],
+                  [0.00799870320266126,-0.04021219649653245],
+                  [0.015690020726968693,-0.03787906083296275],
+                  [0.022778379553803678,-0.03409025410440437],
+                  [0.028991378028648443,-0.028991378028648457],
+                  [0.034090254104404354,-0.022778379553803692],
+                  [0.037879060832962747,-0.015690020726968706],
+                  [0.040212196496532446,-0.007998703202661278]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "rim",
+            "semanticType": "site.retaining.weep-drain.guard",
+            "material": "steel",
+            "appearance": {
+              "color": "#4e6873"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.006],
+                [0,0,0.01]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.065,0],
+                [0.06375104322620997,0.012680870931048336],
+                [0.06005216961323364,0.024874423103730836],
+                [0.05404552479966544,0.036112065146274144],
+                [0.04596194077712559,0.045961940777125586],
+                [0.03611206514627415,0.05404552479966544],
+                [0.02487442310373084,0.06005216961323364],
+                [0.012680870931048341,0.06375104322620997],
+                [3.980102097228898e-18,0.065],
+                [-0.012680870931048333,0.06375104322620997],
+                [-0.024874423103730833,0.06005216961323364],
+                [-0.03611206514627413,0.05404552479966545],
+                [-0.045961940777125586,0.04596194077712559],
+                [-0.05404552479966545,0.036112065146274144],
+                [-0.06005216961323364,0.024874423103730843],
+                [-0.06375104322620997,0.01268087093104836],
+                [-0.065,7.960204194457797e-18],
+                [-0.06375104322620997,-0.012680870931048343],
+                [-0.06005216961323365,-0.02487442310373083],
+                [-0.054045524799665456,-0.03611206514627413],
+                [-0.0459619407771256,-0.045961940777125586],
+                [-0.036112065146274144,-0.05404552479966544],
+                [-0.024874423103730874,-0.060052169613233626],
+                [-0.012680870931048364,-0.06375104322620997],
+                [-1.1940306291686694e-17,-0.065],
+                [0.01268087093104834,-0.06375104322620997],
+                [0.02487442310373085,-0.06005216961323363],
+                [0.036112065146274124,-0.054045524799665456],
+                [0.04596194077712558,-0.0459619407771256],
+                [0.05404552479966544,-0.036112065146274144],
+                [0.060052169613233626,-0.024874423103730878],
+                [0.06375104322620997,-0.012680870931048367]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.037,0],
+                  [0.03628905537491953,0.007218341914596745],
+                  [0.03418354270291761,0.01415928699750832],
+                  [0.030764375655194173,0.02055609862172528],
+                  [0.02616295090390226,0.026162950903902256],
+                  [0.020556098621725284,0.030764375655194173],
+                  [0.014159286997508323,0.03418354270291761],
+                  [0.007218341914596748,0.03628905537491953],
+                  [2.2655965784226034e-18,0.037],
+                  [-0.007218341914596743,0.03628905537491953],
+                  [-0.014159286997508319,0.03418354270291761],
+                  [-0.02055609862172527,0.030764375655194177],
+                  [-0.026162950903902256,0.02616295090390226],
+                  [-0.030764375655194177,0.02055609862172528],
+                  [-0.03418354270291761,0.014159286997508326],
+                  [-0.03628905537491953,0.007218341914596758],
+                  [-0.037,4.531193156845207e-18],
+                  [-0.03628905537491953,-0.007218341914596749],
+                  [-0.03418354270291761,-0.014159286997508317],
+                  [-0.03076437565519418,-0.02055609862172527],
+                  [-0.026162950903902263,-0.026162950903902256],
+                  [-0.02055609862172528,-0.030764375655194173],
+                  [-0.014159286997508342,-0.034183542702917596],
+                  [-0.00721834191459676,-0.03628905537491952],
+                  [-6.79678973526781e-18,-0.037],
+                  [0.007218341914596747,-0.03628905537491953],
+                  [0.01415928699750833,-0.0341835427029176],
+                  [0.020556098621725267,-0.03076437565519418],
+                  [0.02616295090390225,-0.026162950903902263],
+                  [0.030764375655194173,-0.02055609862172528],
+                  [0.034183542702917596,-0.014159286997508343],
+                  [0.03628905537491952,-0.0072183419145967626]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "outlet": {
+            "node": "drain",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "soil-side": {
+            "node": "drain",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [6.45,0.145,4.53]
+      }
+    },
+    {
+      "id": "small-retaining-block-a",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "main",
+            "semanticType": "site.retaining.interlock-segment.block",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.195,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,-0.14],
+                [-0.4,-0.14],
+                [-0.4,0.104],
+                [-0.31,0.154],
+                [-0.09,0.154],
+                [0,0.104]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3125,-0.059],
+                  [-0.08750000000000001,-0.059],
+                  [-0.08750000000000001,0.051000000000000004],
+                  [-0.3125,0.051000000000000004]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "rear-key",
+            "semanticType": "site.retaining.interlock-segment.key",
+            "material": "concrete",
+            "appearance": {
+              "color": "#8c9b9d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.238,0.029,0.054]
+            },
+            "transform": {
+              "position": [0.2,0.192,0.153]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.4,0,0],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0.2,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0.2,0.195,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5.25,0,5.14]
+      }
+    },
+    {
+      "id": "small-retaining-block-b",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "main",
+            "semanticType": "site.retaining.interlock-segment.block",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.195,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,-0.14],
+                [-0.4,-0.14],
+                [-0.4,0.104],
+                [-0.31,0.154],
+                [-0.09,0.154],
+                [0,0.104]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3125,-0.059],
+                  [-0.08750000000000001,-0.059],
+                  [-0.08750000000000001,0.051000000000000004],
+                  [-0.3125,0.051000000000000004]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "rear-key",
+            "semanticType": "site.retaining.interlock-segment.key",
+            "material": "concrete",
+            "appearance": {
+              "color": "#8c9b9d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.238,0.029,0.054]
+            },
+            "transform": {
+              "position": [0.2,0.192,0.153]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.4,0,0],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0.2,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0.2,0.195,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5.65,0,5.14]
+      }
+    },
+    {
+      "id": "manhole-cone",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "outer",
+            "semanticType": "site.drainage.concentric-manhole-cone.shell",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 32,
+              "capStart": false,
+              "capEnd": false,
+              "sections": [
+                {
+                  "center": [0,0.018,0],
+                  "radiusX": 0.5,
+                  "radiusZ": 0.5
+                },
+                {
+                  "center": [0,0.41,0],
+                  "radiusX": 0.39,
+                  "radiusZ": 0.39
+                }
+              ]
+            }
+          },
+          {
+            "id": "inner",
+            "semanticType": "site.drainage.concentric-manhole-cone.shell",
+            "material": "concrete",
+            "appearance": {
+              "color": "#8c9b9d"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 32,
+              "capStart": false,
+              "capEnd": false,
+              "sections": [
+                {
+                  "center": [0,0.018,0],
+                  "radiusX": 0.418,
+                  "radiusZ": 0.418
+                },
+                {
+                  "center": [0,0.41,0],
+                  "radiusX": 0.313,
+                  "radiusZ": 0.313
+                }
+              ]
+            }
+          },
+          {
+            "id": "lower-joint",
+            "semanticType": "site.drainage.concentric-manhole-cone.lower-rim",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.02,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.5,0],
+                [0.4903926402016152,0.09754516100806412],
+                [0.46193976625564337,0.1913417161825449],
+                [0.4157348061512726,0.2777851165098011],
+                [0.3535533905932738,0.35355339059327373],
+                [0.27778511650980114,0.4157348061512726],
+                [0.19134171618254492,0.46193976625564337],
+                [0.09754516100806417,0.4903926402016152],
+                [3.061616997868383e-17,0.5],
+                [-0.0975451610080641,0.4903926402016152],
+                [-0.19134171618254486,0.46193976625564337],
+                [-0.277785116509801,0.4157348061512727],
+                [-0.35355339059327373,0.3535533905932738],
+                [-0.4157348061512727,0.2777851165098011],
+                [-0.46193976625564337,0.19134171618254495],
+                [-0.4903926402016152,0.0975451610080643],
+                [-0.5,6.123233995736766e-17],
+                [-0.4903926402016152,-0.09754516100806418],
+                [-0.4619397662556434,-0.19134171618254484],
+                [-0.41573480615127273,-0.277785116509801],
+                [-0.35355339059327384,-0.35355339059327373],
+                [-0.2777851165098011,-0.4157348061512726],
+                [-0.19134171618254517,-0.46193976625564326],
+                [-0.09754516100806433,-0.49039264020161516],
+                [-9.184850993605148e-17,-0.5],
+                [0.09754516100806415,-0.4903926402016152],
+                [0.191341716182545,-0.4619397662556433],
+                [0.2777851165098009,-0.41573480615127273],
+                [0.3535533905932737,-0.35355339059327384],
+                [0.4157348061512726,-0.2777851165098011],
+                [0.46193976625564326,-0.1913417161825452],
+                [0.49039264020161516,-0.09754516100806436]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.418,0],
+                  [0.4099682472085503,0.0815477546027416],
+                  [0.3861816445897178,0.15996167472860753],
+                  [0.3475542979424639,0.2322283574021937],
+                  [0.2955706345359769,0.2955706345359768],
+                  [0.23222835740219375,0.3475542979424639],
+                  [0.15996167472860753,0.3861816445897178],
+                  [0.08154775460274163,0.4099682472085503],
+                  [2.559511810217968e-17,0.418],
+                  [-0.08154775460274158,0.4099682472085503],
+                  [-0.1599616747286075,0.3861816445897178],
+                  [-0.2322283574021936,0.34755429794246395],
+                  [-0.2955706345359768,0.2955706345359769],
+                  [-0.34755429794246395,0.2322283574021937],
+                  [-0.3861816445897178,0.15996167472860756],
+                  [-0.4099682472085503,0.08154775460274176],
+                  [-0.418,5.119023620435936e-17],
+                  [-0.4099682472085503,-0.08154775460274165],
+                  [-0.3861816445897179,-0.15996167472860748],
+                  [-0.347554297942464,-0.2322283574021936],
+                  [-0.29557063453597693,-0.2955706345359768],
+                  [-0.2322283574021937,-0.3475542979424639],
+                  [-0.15996167472860776,-0.38618164458971777],
+                  [-0.08154775460274177,-0.40996824720855024],
+                  [-7.678535430653904e-17,-0.418],
+                  [0.08154775460274163,-0.4099682472085503],
+                  [0.15996167472860762,-0.3861816445897178],
+                  [0.23222835740219355,-0.347554297942464],
+                  [0.29557063453597676,-0.29557063453597693],
+                  [0.3475542979424639,-0.2322283574021937],
+                  [0.38618164458971777,-0.15996167472860778],
+                  [0.40996824720855024,-0.0815477546027418]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "upper-joint",
+            "semanticType": "site.drainage.concentric-manhole-cone.upper-rim",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.409,0],
+                [0,0.43,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.39,0],
+                [0.3825062593572599,0.07608522558629002],
+                [0.3603130176794018,0.14924653862238502],
+                [0.3242731487979926,0.21667239087764487],
+                [0.27577164466275356,0.2757716446627535],
+                [0.2166723908776449,0.3242731487979926],
+                [0.14924653862238504,0.3603130176794018],
+                [0.07608522558629005,0.3825062593572599],
+                [2.3880612583373387e-17,0.39],
+                [-0.07608522558629,0.3825062593572599],
+                [-0.149246538622385,0.3603130176794018],
+                [-0.21667239087764478,0.3242731487979927],
+                [-0.2757716446627535,0.27577164466275356],
+                [-0.3242731487979927,0.21667239087764487],
+                [-0.3603130176794018,0.14924653862238507],
+                [-0.3825062593572599,0.07608522558629016],
+                [-0.39,4.7761225166746774e-17],
+                [-0.3825062593572599,-0.07608522558629006],
+                [-0.3603130176794019,-0.149246538622385],
+                [-0.32427314879799274,-0.21667239087764478],
+                [-0.2757716446627536,-0.2757716446627535],
+                [-0.21667239087764487,-0.3242731487979926],
+                [-0.14924653862238524,-0.36031301767940177],
+                [-0.07608522558629018,-0.38250625935725985],
+                [-7.164183775012016e-17,-0.39],
+                [0.07608522558629004,-0.3825062593572599],
+                [0.1492465386223851,-0.36031301767940177],
+                [0.21667239087764473,-0.32427314879799274],
+                [0.2757716446627535,-0.2757716446627536],
+                [0.3242731487979926,-0.21667239087764487],
+                [0.36031301767940177,-0.14924653862238527],
+                [0.38250625935725985,-0.0760852255862902]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.313,0],
+                  [0.30698579276621113,0.06106327079104814],
+                  [0.28917429367603276,0.1197799143302731],
+                  [0.26024998865069665,0.17389348293513548],
+                  [0.2213244225113894,0.22132442251138937],
+                  [0.1738934829351355,0.26024998865069665],
+                  [0.11977991433027312,0.28917429367603276],
+                  [0.06106327079104817,0.30698579276621113],
+                  [1.9165722406656078e-17,0.313],
+                  [-0.061063270791048126,0.30698579276621113],
+                  [-0.11977991433027309,0.28917429367603276],
+                  [-0.1738934829351354,0.2602499886506967],
+                  [-0.22132442251138937,0.2213244225113894],
+                  [-0.2602499886506967,0.17389348293513548],
+                  [-0.28917429367603276,0.11977991433027314],
+                  [-0.30698579276621113,0.06106327079104826],
+                  [-0.313,3.8331444813312157e-17],
+                  [-0.30698579276621113,-0.061063270791048174],
+                  [-0.2891742936760328,-0.11977991433027307],
+                  [-0.2602499886506967,-0.1738934829351354],
+                  [-0.22132442251138942,-0.22132442251138937],
+                  [-0.17389348293513548,-0.26024998865069665],
+                  [-0.11977991433027328,-0.2891742936760327],
+                  [-0.06106327079104827,-0.3069857927662111],
+                  [-5.749716721996824e-17,-0.313],
+                  [0.06106327079104816,-0.30698579276621113],
+                  [0.11977991433027317,-0.2891742936760327],
+                  [0.17389348293513537,-0.2602499886506967],
+                  [0.2213244225113893,-0.22132442251138942],
+                  [0.26024998865069665,-0.17389348293513548],
+                  [0.2891742936760327,-0.1197799143302733],
+                  [0.3069857927662111,-0.06106327079104829]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "lower": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "upper": {
+            "position": [0,0.43,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5.65,-1.32,2.28]
+      }
+    },
+    {
+      "id": "manhole-shaft",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "shaft",
+            "semanticType": "site.drainage.manhole-shaft",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.72,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.39,0],
+                [0.3825062593572599,0.07608522558629002],
+                [0.3603130176794018,0.14924653862238502],
+                [0.3242731487979926,0.21667239087764487],
+                [0.27577164466275356,0.2757716446627535],
+                [0.2166723908776449,0.3242731487979926],
+                [0.14924653862238504,0.3603130176794018],
+                [0.07608522558629005,0.3825062593572599],
+                [2.3880612583373387e-17,0.39],
+                [-0.07608522558629,0.3825062593572599],
+                [-0.149246538622385,0.3603130176794018],
+                [-0.21667239087764478,0.3242731487979927],
+                [-0.2757716446627535,0.27577164466275356],
+                [-0.3242731487979927,0.21667239087764487],
+                [-0.3603130176794018,0.14924653862238507],
+                [-0.3825062593572599,0.07608522558629016],
+                [-0.39,4.7761225166746774e-17],
+                [-0.3825062593572599,-0.07608522558629006],
+                [-0.3603130176794019,-0.149246538622385],
+                [-0.32427314879799274,-0.21667239087764478],
+                [-0.2757716446627536,-0.2757716446627535],
+                [-0.21667239087764487,-0.3242731487979926],
+                [-0.14924653862238524,-0.36031301767940177],
+                [-0.07608522558629018,-0.38250625935725985],
+                [-7.164183775012016e-17,-0.39],
+                [0.07608522558629004,-0.3825062593572599],
+                [0.1492465386223851,-0.36031301767940177],
+                [0.21667239087764473,-0.32427314879799274],
+                [0.2757716446627535,-0.2757716446627536],
+                [0.3242731487979926,-0.21667239087764487],
+                [0.36031301767940177,-0.14924653862238527],
+                [0.38250625935725985,-0.0760852255862902]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.313,0],
+                  [0.30698579276621113,0.06106327079104814],
+                  [0.28917429367603276,0.1197799143302731],
+                  [0.26024998865069665,0.17389348293513548],
+                  [0.2213244225113894,0.22132442251138937],
+                  [0.1738934829351355,0.26024998865069665],
+                  [0.11977991433027312,0.28917429367603276],
+                  [0.06106327079104817,0.30698579276621113],
+                  [1.9165722406656078e-17,0.313],
+                  [-0.061063270791048126,0.30698579276621113],
+                  [-0.11977991433027309,0.28917429367603276],
+                  [-0.1738934829351354,0.2602499886506967],
+                  [-0.22132442251138937,0.2213244225113894],
+                  [-0.2602499886506967,0.17389348293513548],
+                  [-0.28917429367603276,0.11977991433027314],
+                  [-0.30698579276621113,0.06106327079104826],
+                  [-0.313,3.8331444813312157e-17],
+                  [-0.30698579276621113,-0.061063270791048174],
+                  [-0.2891742936760328,-0.11977991433027307],
+                  [-0.2602499886506967,-0.1738934829351354],
+                  [-0.22132442251138942,-0.22132442251138937],
+                  [-0.17389348293513548,-0.26024998865069665],
+                  [-0.11977991433027328,-0.2891742936760327],
+                  [-0.06106327079104827,-0.3069857927662111],
+                  [-5.749716721996824e-17,-0.313],
+                  [0.06106327079104816,-0.30698579276621113],
+                  [0.11977991433027317,-0.2891742936760327],
+                  [0.17389348293513537,-0.2602499886506967],
+                  [0.2213244225113893,-0.22132442251138942],
+                  [0.26024998865069665,-0.17389348293513548],
+                  [0.2891742936760327,-0.1197799143302733],
+                  [0.3069857927662111,-0.06106327079104829]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "outer-key",
+            "semanticType": "site.drainage.manhole-shaft.joint-ring",
+            "material": "concrete",
+            "appearance": {
+              "color": "#8c9b9d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.031,0],
+                [0,0.055,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.412,0],
+                [0.4040835355261309,0.08037721267064483],
+                [0.3806383673946501,0.15766557413441698],
+                [0.34256548026864864,0.2288949360040761],
+                [0.2913279938488576,0.29132799384885755],
+                [0.22889493600407612,0.34256548026864864],
+                [0.157665574134417,0.3806383673946501],
+                [0.08037721267064486,0.4040835355261309],
+                [2.5227724062435476e-17,0.412],
+                [-0.08037721267064481,0.4040835355261309],
+                [-0.15766557413441695,0.3806383673946501],
+                [-0.22889493600407598,0.34256548026864864],
+                [-0.29132799384885755,0.2913279938488576],
+                [-0.34256548026864864,0.2288949360040761],
+                [-0.3806383673946501,0.15766557413441704],
+                [-0.4040835355261309,0.08037721267064499],
+                [-0.412,5.045544812487095e-17],
+                [-0.4040835355261309,-0.08037721267064488],
+                [-0.3806383673946502,-0.15766557413441692],
+                [-0.3425654802686487,-0.22889493600407598],
+                [-0.2913279938488576,-0.29132799384885755],
+                [-0.2288949360040761,-0.34256548026864864],
+                [-0.1576655741344172,-0.38063836739465],
+                [-0.080377212670645,-0.40408353552613085],
+                [-7.568317218730642e-17,-0.412],
+                [0.08037721267064486,-0.4040835355261309],
+                [0.15766557413441706,-0.38063836739465007],
+                [0.22889493600407596,-0.3425654802686487],
+                [0.2913279938488575,-0.2913279938488576],
+                [0.34256548026864864,-0.2288949360040761],
+                [0.38063836739465,-0.15766557413441723],
+                [0.40408353552613085,-0.08037721267064503]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.39,0],
+                  [0.3825062593572599,0.07608522558629002],
+                  [0.3603130176794018,0.14924653862238502],
+                  [0.3242731487979926,0.21667239087764487],
+                  [0.27577164466275356,0.2757716446627535],
+                  [0.2166723908776449,0.3242731487979926],
+                  [0.14924653862238504,0.3603130176794018],
+                  [0.07608522558629005,0.3825062593572599],
+                  [2.3880612583373387e-17,0.39],
+                  [-0.07608522558629,0.3825062593572599],
+                  [-0.149246538622385,0.3603130176794018],
+                  [-0.21667239087764478,0.3242731487979927],
+                  [-0.2757716446627535,0.27577164466275356],
+                  [-0.3242731487979927,0.21667239087764487],
+                  [-0.3603130176794018,0.14924653862238507],
+                  [-0.3825062593572599,0.07608522558629016],
+                  [-0.39,4.7761225166746774e-17],
+                  [-0.3825062593572599,-0.07608522558629006],
+                  [-0.3603130176794019,-0.149246538622385],
+                  [-0.32427314879799274,-0.21667239087764478],
+                  [-0.2757716446627536,-0.2757716446627535],
+                  [-0.21667239087764487,-0.3242731487979926],
+                  [-0.14924653862238524,-0.36031301767940177],
+                  [-0.07608522558629018,-0.38250625935725985],
+                  [-7.164183775012016e-17,-0.39],
+                  [0.07608522558629004,-0.3825062593572599],
+                  [0.1492465386223851,-0.36031301767940177],
+                  [0.21667239087764473,-0.32427314879799274],
+                  [0.2757716446627535,-0.2757716446627536],
+                  [0.3242731487979926,-0.21667239087764487],
+                  [0.36031301767940177,-0.14924653862238527],
+                  [0.38250625935725985,-0.0760852255862902]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,0.72,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5.65,-0.89,2.28]
+      }
+    },
+    {
+      "id": "manhole-seat",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "seat-ring",
+            "semanticType": "site.drainage.manhole-frame",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "outerDiameter": 0.78,
+              "length": 0.135,
+              "thickness": 0.08
+            },
+            "transform": {
+              "position": [0,-0.17,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "top-ring",
+            "semanticType": "site.drainage.manhole-frame",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "outerDiameter": 0.78,
+              "length": 0.035,
+              "thickness": 0.03
+            },
+            "transform": {
+              "position": [0,-0.035,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          }
+        ],
+        "anchors": {
+          "cover-seat": {
+            "position": [0,-0.035,0],
+            "direction": [0,1,0]
+          },
+          "shaft-mouth": {
+            "position": [0,-0.17,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5.65,0,2.28]
+      }
+    },
+    {
+      "id": "manhole-cap",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cover",
+            "semanticType": "site.drainage.manhole-cover",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.355,
+              "height": 0.035,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,-0.0175,0]
+            }
+          },
+          {
+            "id": "tread",
+            "semanticType": "site.drainage.manhole-cover.tread",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#6b757d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.41,0.006,0.017]
+            },
+            "transform": {
+              "position": [0,0.003,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "start": [0,0,-0.18],
+              "step": [0,0,0.09]
+            }
+          }
+        ],
+        "anchors": {
+          "underside": {
+            "position": [0,-0.035,0],
+            "direction": [0,-1,0]
+          },
+          "lifting-axis": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5.65,0,2.28]
+      }
+    },
+    {
+      "id": "soakaway-a",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.62,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [0,0,0.237]
+            }
+          },
+          {
+            "id": "back",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.62,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [0,0,-0.237]
+            }
+          },
+          {
+            "id": "left",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.46,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [-0.304,0,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "right",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.46,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [0.304,0,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "grate-0",
+            "semanticType": "site.drainage.perforated-soakaway.lattice",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4e6873"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 0.594,
+              "width": 0.458,
+              "thickness": 0.021,
+              "frameWidth": 0.022,
+              "barWidth": 0.012,
+              "slotCount": 9
+            },
+            "transform": {
+              "position": [-0.297,0.021,0]
+            }
+          },
+          {
+            "id": "grate-1",
+            "semanticType": "site.drainage.perforated-soakaway.lattice",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4e6873"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 0.594,
+              "width": 0.458,
+              "thickness": 0.021,
+              "frameWidth": 0.022,
+              "barWidth": 0.012,
+              "slotCount": 9
+            },
+            "transform": {
+              "position": [-0.297,0.41300000000000003,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.311,0.21,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.311,0.21,0],
+            "direction": [1,0,0]
+          },
+          "front": {
+            "position": [0,0.21,0.245],
+            "direction": [0,0,1]
+          },
+          "back": {
+            "position": [0,0.21,-0.245],
+            "direction": [0,0,-1]
+          },
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [6.83,-0.43,3.37]
+      }
+    },
+    {
+      "id": "soakaway-b",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.62,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [0,0,0.237]
+            }
+          },
+          {
+            "id": "back",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.62,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [0,0,-0.237]
+            }
+          },
+          {
+            "id": "left",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.46,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [-0.304,0,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "right",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.46,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [0.304,0,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "grate-0",
+            "semanticType": "site.drainage.perforated-soakaway.lattice",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4e6873"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 0.594,
+              "width": 0.458,
+              "thickness": 0.021,
+              "frameWidth": 0.022,
+              "barWidth": 0.012,
+              "slotCount": 9
+            },
+            "transform": {
+              "position": [-0.297,0.021,0]
+            }
+          },
+          {
+            "id": "grate-1",
+            "semanticType": "site.drainage.perforated-soakaway.lattice",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4e6873"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 0.594,
+              "width": 0.458,
+              "thickness": 0.021,
+              "frameWidth": 0.022,
+              "barWidth": 0.012,
+              "slotCount": 9
+            },
+            "transform": {
+              "position": [-0.297,0.41300000000000003,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.311,0.21,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.311,0.21,0],
+            "direction": [1,0,0]
+          },
+          "front": {
+            "position": [0,0.21,0.245],
+            "direction": [0,0,1]
+          },
+          "back": {
+            "position": [0,0.21,-0.245],
+            "direction": [0,0,-1]
+          },
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [7.452,-0.43,3.37]
+      }
+    },
+    {
+      "id": "hex-paver-a",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tile",
+            "semanticType": "site.paving.hexagonal-permeable-unit",
+            "material": "porous-concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.076,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.123,0],
+                [-0.06150000000000001,0.10652112466548594],
+                [0.06149999999999997,0.10652112466548595],
+                [0.123,1.5063155629512445e-17],
+                [0.061500000000000055,-0.10652112466548594],
+                [-0.06150000000000001,-0.10652112466548594]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "edge-1": {
+            "position": [0.09346243556529822,0,0.05396056233274297],
+            "direction": [0.8660254037844387,0,0.49999999999999994]
+          },
+          "edge-2": {
+            "position": [6.608262994098492e-18,0,0.10792112466548595],
+            "direction": [6.123233995736766e-17,0,1]
+          },
+          "edge-3": {
+            "position": [-0.0934624355652982,0,0.05396056233274301],
+            "direction": [-0.8660254037844385,0,0.5000000000000003]
+          },
+          "edge-4": {
+            "position": [-0.09346243556529824,0,-0.05396056233274295],
+            "direction": [-0.8660254037844388,0,-0.4999999999999997]
+          },
+          "edge-5": {
+            "position": [-1.9824788982295475e-17,0,-0.10792112466548595],
+            "direction": [-1.8369701987210297e-16,0,-1]
+          },
+          "edge-6": {
+            "position": [0.09346243556529824,0,-0.05396056233274294],
+            "direction": [0.8660254037844388,0,-0.49999999999999967]
+          }
+        }
+      },
+      "transform": {
+        "position": [6.7,0.17,5.87]
+      }
+    },
+    {
+      "id": "hex-paver-b",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tile",
+            "semanticType": "site.paving.hexagonal-permeable-unit",
+            "material": "porous-concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.076,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.123,0],
+                [-0.06150000000000001,0.10652112466548594],
+                [0.06149999999999997,0.10652112466548595],
+                [0.123,1.5063155629512445e-17],
+                [0.061500000000000055,-0.10652112466548594],
+                [-0.06150000000000001,-0.10652112466548594]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "edge-1": {
+            "position": [0.09346243556529822,0,0.05396056233274297],
+            "direction": [0.8660254037844387,0,0.49999999999999994]
+          },
+          "edge-2": {
+            "position": [6.608262994098492e-18,0,0.10792112466548595],
+            "direction": [6.123233995736766e-17,0,1]
+          },
+          "edge-3": {
+            "position": [-0.0934624355652982,0,0.05396056233274301],
+            "direction": [-0.8660254037844385,0,0.5000000000000003]
+          },
+          "edge-4": {
+            "position": [-0.09346243556529824,0,-0.05396056233274295],
+            "direction": [-0.8660254037844388,0,-0.4999999999999997]
+          },
+          "edge-5": {
+            "position": [-1.9824788982295475e-17,0,-0.10792112466548595],
+            "direction": [-1.8369701987210297e-16,0,-1]
+          },
+          "edge-6": {
+            "position": [0.09346243556529824,0,-0.05396056233274294],
+            "direction": [0.8660254037844388,0,-0.49999999999999967]
+          }
+        }
+      },
+      "transform": {
+        "position": [6.886924871130597,0.17,5.977921124665486]
+      }
+    },
+    {
+      "id": "gravel-grid",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "grid",
+            "semanticType": "site.paving.open-cell-gravel-grid",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.028,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.3205,-0.2295],
+                [0.3205,-0.2295],
+                [0.3205,0.2295],
+                [-0.3205,0.2295]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3065,-0.2155],
+                  [-0.23950000000000002,-0.2155],
+                  [-0.23950000000000002,-0.1485],
+                  [-0.3065,-0.1485]
+                ],
+                [
+                  [-0.3065,-0.1245],
+                  [-0.23950000000000002,-0.1245],
+                  [-0.23950000000000002,-0.057499999999999996],
+                  [-0.3065,-0.057499999999999996]
+                ],
+                [
+                  [-0.3065,-0.0335],
+                  [-0.23950000000000002,-0.0335],
+                  [-0.23950000000000002,0.0335],
+                  [-0.3065,0.0335]
+                ],
+                [
+                  [-0.3065,0.05750000000000002],
+                  [-0.23950000000000002,0.05750000000000002],
+                  [-0.23950000000000002,0.12450000000000003],
+                  [-0.3065,0.12450000000000003]
+                ],
+                [
+                  [-0.3065,0.1485],
+                  [-0.23950000000000002,0.1485],
+                  [-0.23950000000000002,0.2155],
+                  [-0.3065,0.2155]
+                ],
+                [
+                  [-0.21550000000000002,-0.2155],
+                  [-0.14850000000000002,-0.2155],
+                  [-0.14850000000000002,-0.1485],
+                  [-0.21550000000000002,-0.1485]
+                ],
+                [
+                  [-0.21550000000000002,-0.1245],
+                  [-0.14850000000000002,-0.1245],
+                  [-0.14850000000000002,-0.057499999999999996],
+                  [-0.21550000000000002,-0.057499999999999996]
+                ],
+                [
+                  [-0.21550000000000002,-0.0335],
+                  [-0.14850000000000002,-0.0335],
+                  [-0.14850000000000002,0.0335],
+                  [-0.21550000000000002,0.0335]
+                ],
+                [
+                  [-0.21550000000000002,0.05750000000000002],
+                  [-0.14850000000000002,0.05750000000000002],
+                  [-0.14850000000000002,0.12450000000000003],
+                  [-0.21550000000000002,0.12450000000000003]
+                ],
+                [
+                  [-0.21550000000000002,0.1485],
+                  [-0.14850000000000002,0.1485],
+                  [-0.14850000000000002,0.2155],
+                  [-0.21550000000000002,0.2155]
+                ],
+                [
+                  [-0.12450000000000003,-0.2155],
+                  [-0.05750000000000002,-0.2155],
+                  [-0.05750000000000002,-0.1485],
+                  [-0.12450000000000003,-0.1485]
+                ],
+                [
+                  [-0.12450000000000003,-0.1245],
+                  [-0.05750000000000002,-0.1245],
+                  [-0.05750000000000002,-0.057499999999999996],
+                  [-0.12450000000000003,-0.057499999999999996]
+                ],
+                [
+                  [-0.12450000000000003,-0.0335],
+                  [-0.05750000000000002,-0.0335],
+                  [-0.05750000000000002,0.0335],
+                  [-0.12450000000000003,0.0335]
+                ],
+                [
+                  [-0.12450000000000003,0.05750000000000002],
+                  [-0.05750000000000002,0.05750000000000002],
+                  [-0.05750000000000002,0.12450000000000003],
+                  [-0.12450000000000003,0.12450000000000003]
+                ],
+                [
+                  [-0.12450000000000003,0.1485],
+                  [-0.05750000000000002,0.1485],
+                  [-0.05750000000000002,0.2155],
+                  [-0.12450000000000003,0.2155]
+                ],
+                [
+                  [-0.0335,-0.2155],
+                  [0.0335,-0.2155],
+                  [0.0335,-0.1485],
+                  [-0.0335,-0.1485]
+                ],
+                [
+                  [-0.0335,-0.1245],
+                  [0.0335,-0.1245],
+                  [0.0335,-0.057499999999999996],
+                  [-0.0335,-0.057499999999999996]
+                ],
+                [
+                  [-0.0335,-0.0335],
+                  [0.0335,-0.0335],
+                  [0.0335,0.0335],
+                  [-0.0335,0.0335]
+                ],
+                [
+                  [-0.0335,0.05750000000000002],
+                  [0.0335,0.05750000000000002],
+                  [0.0335,0.12450000000000003],
+                  [-0.0335,0.12450000000000003]
+                ],
+                [
+                  [-0.0335,0.1485],
+                  [0.0335,0.1485],
+                  [0.0335,0.2155],
+                  [-0.0335,0.2155]
+                ],
+                [
+                  [0.05749999999999997,-0.2155],
+                  [0.12449999999999997,-0.2155],
+                  [0.12449999999999997,-0.1485],
+                  [0.05749999999999997,-0.1485]
+                ],
+                [
+                  [0.05749999999999997,-0.1245],
+                  [0.12449999999999997,-0.1245],
+                  [0.12449999999999997,-0.057499999999999996],
+                  [0.05749999999999997,-0.057499999999999996]
+                ],
+                [
+                  [0.05749999999999997,-0.0335],
+                  [0.12449999999999997,-0.0335],
+                  [0.12449999999999997,0.0335],
+                  [0.05749999999999997,0.0335]
+                ],
+                [
+                  [0.05749999999999997,0.05750000000000002],
+                  [0.12449999999999997,0.05750000000000002],
+                  [0.12449999999999997,0.12450000000000003],
+                  [0.05749999999999997,0.12450000000000003]
+                ],
+                [
+                  [0.05749999999999997,0.1485],
+                  [0.12449999999999997,0.1485],
+                  [0.12449999999999997,0.2155],
+                  [0.05749999999999997,0.2155]
+                ],
+                [
+                  [0.14849999999999994,-0.2155],
+                  [0.21549999999999994,-0.2155],
+                  [0.21549999999999994,-0.1485],
+                  [0.14849999999999994,-0.1485]
+                ],
+                [
+                  [0.14849999999999994,-0.1245],
+                  [0.21549999999999994,-0.1245],
+                  [0.21549999999999994,-0.057499999999999996],
+                  [0.14849999999999994,-0.057499999999999996]
+                ],
+                [
+                  [0.14849999999999994,-0.0335],
+                  [0.21549999999999994,-0.0335],
+                  [0.21549999999999994,0.0335],
+                  [0.14849999999999994,0.0335]
+                ],
+                [
+                  [0.14849999999999994,0.05750000000000002],
+                  [0.21549999999999994,0.05750000000000002],
+                  [0.21549999999999994,0.12450000000000003],
+                  [0.14849999999999994,0.12450000000000003]
+                ],
+                [
+                  [0.14849999999999994,0.1485],
+                  [0.21549999999999994,0.1485],
+                  [0.21549999999999994,0.2155],
+                  [0.14849999999999994,0.2155]
+                ],
+                [
+                  [0.23950000000000002,-0.2155],
+                  [0.3065,-0.2155],
+                  [0.3065,-0.1485],
+                  [0.23950000000000002,-0.1485]
+                ],
+                [
+                  [0.23950000000000002,-0.1245],
+                  [0.3065,-0.1245],
+                  [0.3065,-0.057499999999999996],
+                  [0.23950000000000002,-0.057499999999999996]
+                ],
+                [
+                  [0.23950000000000002,-0.0335],
+                  [0.3065,-0.0335],
+                  [0.3065,0.0335],
+                  [0.23950000000000002,0.0335]
+                ],
+                [
+                  [0.23950000000000002,0.05750000000000002],
+                  [0.3065,0.05750000000000002],
+                  [0.3065,0.12450000000000003],
+                  [0.23950000000000002,0.12450000000000003]
+                ],
+                [
+                  [0.23950000000000002,0.1485],
+                  [0.3065,0.1485],
+                  [0.3065,0.2155],
+                  [0.23950000000000002,0.2155]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.3205,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.3205,0,0],
+            "direction": [1,0,0]
+          },
+          "near": {
+            "position": [0,0,-0.2295],
+            "direction": [0,0,-1]
+          },
+          "far": {
+            "position": [0,0,0.2295],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [7.4,0.17,5.76]
+      }
+    },
+    {
+      "id": "parking-stop",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stop",
+            "semanticType": "site.traffic.parking-wheel-stop",
+            "material": "concrete",
+            "appearance": {
+              "color": "#586569"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.79,0,0],
+                [0.79,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.107,0],
+                [0.107,0],
+                [0.064,0.085],
+                [0.039,0.103],
+                [-0.039,0.103],
+                [-0.064,0.085]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "stripe",
+            "semanticType": "site.traffic.parking-wheel-stop.stripe",
+            "material": "polymer",
+            "appearance": {
+              "color": "#bf9d61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.225,0.004,0.066]
+            },
+            "transform": {
+              "position": [0,0.105,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [-0.525,0,0],
+              "step": [0.525,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "position": [-0.79,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.79,0,0],
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [8,0.065,0]
+      }
+    },
+    {
+      "id": "earthwork",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "soil",
+            "semanticType": "site.grading.sloped-trench",
+            "material": "soil",
+            "appearance": {
+              "color": "#927c64"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [3.8,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-2.42,0],
+                [-1.63,0],
+                [-0.86,-1.19],
+                [0.86,-1.19],
+                [1.63,0],
+                [2.42,0],
+                [2.42,-1.58],
+                [-2.42,-1.58]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,-1.19,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [3.8,-1.19,0],
+            "direction": [1,0,0]
+          },
+          "trench-base": {
+            "position": [1.9,-1.19,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.5,0,-6.55]
+      }
+    },
+    {
+      "id": "illustrative-footing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "footing",
+            "semanticType": "structure.foundation.tapered-isolated-footing",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a9b1b3"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 4,
+              "capStart": true,
+              "capEnd": true,
+              "sections": [
+                {
+                  "center": [0,0,0],
+                  "radiusX": 1.05,
+                  "radiusZ": 0.9,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0,0.22,0],
+                  "radiusX": 1.05,
+                  "radiusZ": 0.9,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0,0.68,0],
+                  "radiusX": 0.4,
+                  "radiusZ": 0.37,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "column-seat": {
+            "position": [0,0.68,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [2.4,-1.19,-6.55]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "road-west#end",
+      "to": "road-east#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "road-west#edge-west-gutter",
+      "to": "gutter-west#edge-in",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "road-west#edge-east-gutter",
+      "to": "gutter-east#edge-in",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "gutter-west#end",
+      "to": "gutter-east#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "curb-east#end",
+      "to": "crossing-curb#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "crossing-curb#end",
+      "to": "curb-west#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "crossing-curb#ramp-seat",
+      "to": "crossing-ramp#road-entry",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "crossing-ramp#sidewalk-entry",
+      "to": "sidewalk#crossing-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "crossing-ramp#sidewalk-entry",
+      "to": "warning-paver#north",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "retaining-west#end",
+      "to": "retaining-east#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "cutout-wall#weep-seat",
+      "to": "weep-detail#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "small-retaining-block-a#end",
+      "to": "small-retaining-block-b#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "manhole-cone#upper",
+      "to": "manhole-shaft#base",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "manhole-shaft#top",
+      "to": "manhole-seat#shaft-mouth",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "manhole-seat#cover-seat",
+      "to": "manhole-cap#underside",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "soakaway-a#right",
+      "to": "soakaway-b#left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "hex-paver-a#edge-1",
+      "to": "hex-paver-b#edge-4",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "road-east#parking-seat",
+      "to": "parking-stop#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "earthwork#trench-base",
+      "to": "illustrative-footing#bottom",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.radial-revolving-door-glass-wing-with-brush-edge",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带尾刷径向旋转玻璃翼扇",
+  "summary": "从中心轴座伸向围屏的玻璃翼扇，框、玻璃、尾刷可独立编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.envelope-entry.revolving-door-wing",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "建筑入口",
+    "旋转门",
+    "玻璃翼扇",
+    "尾刷"
+  ],
+  "anchors": [
+    "hub",
+    "edge"
+  ],
+  "ai": {
+    "intent": "从中心轴座伸向围屏的玻璃翼扇，框、玻璃、尾刷可独立编辑。",
+    "editableParts": [
+      "可分别编辑 radial-lite、horizontal-frame-1、horizontal-frame-2、side-frame-1、side-frame-2、replaceable-tip-brush。"
+    ],
+    "qualityChecks": [
+      "刷端伸向 1 m 半径的围屏，内框固定到中心轮毂。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "radial-revolving-door-glass-wing-with-brush-edge",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "radial-lite",
+            "semanticType": "construction.envelope-entry.rotor-wing.lite",
+            "material": "glass",
+            "appearance": {
+              "color": "#8eafb2",
+              "opacity": 0.39
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.813,1.944,0.013]
+            },
+            "transform": {
+              "position": [0.525,1.094,0]
+            }
+          },
+          {
+            "id": "horizontal-frame-1",
+            "semanticType": "construction.envelope-entry.rotor-wing.rail",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.846,0.043,0.037]
+            },
+            "transform": {
+              "position": [0.523,0.1100000000000001,0]
+            }
+          },
+          {
+            "id": "horizontal-frame-2",
+            "semanticType": "construction.envelope-entry.rotor-wing.rail",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.846,0.043,0.037]
+            },
+            "transform": {
+              "position": [0.523,2.0780000000000003,0]
+            }
+          },
+          {
+            "id": "side-frame-1",
+            "semanticType": "construction.envelope-entry.rotor-wing.stile",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.034,1.94,0.036]
+            },
+            "transform": {
+              "position": [0.11,1.094,0]
+            }
+          },
+          {
+            "id": "side-frame-2",
+            "semanticType": "construction.envelope-entry.rotor-wing.stile",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.034,1.94,0.036]
+            },
+            "transform": {
+              "position": [0.94,1.094,0]
+            }
+          },
+          {
+            "id": "replaceable-tip-brush",
+            "semanticType": "construction.envelope-entry.rotor-wing.outer-brush",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.029,1.95,0.019]
+            },
+            "transform": {
+              "position": [0.971,1.094,0]
+            }
+          }
+        ],
+        "anchors": {
+          "hub": {
+            "position": [0.11,0.151,0],
+            "direction": [-1,0,0]
+          },
+          "edge": {
+            "position": [0.9855,1.094,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

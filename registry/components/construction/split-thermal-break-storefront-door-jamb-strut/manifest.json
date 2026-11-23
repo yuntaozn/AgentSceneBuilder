@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.split-thermal-break-storefront-door-jamb-strut",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "内外双腔隔热门框立柱",
+  "summary": "内外两段铝型材之间由两条隔热筋连接，门止口与定位面可分别编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.envelope-entry.thermally-broken-jamb",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "建筑入口",
+    "隔热断桥",
+    "门框",
+    "型材"
+  ],
+  "anchors": [
+    "floor",
+    "head",
+    "leaf"
+  ],
+  "ai": {
+    "intent": "内外两段铝型材之间由两条隔热筋连接，门止口与定位面可分别编辑。",
+    "editableParts": [
+      "可分别编辑 extrusion-1、extrusion-2、thermal-strip-1、thermal-strip-2、leaf-stop、stop-bulb。"
+    ],
+    "qualityChecks": [
+      "内外金属腔相隔 6 mm，只通过隔热筋连接。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "split-thermal-break-storefront-door-jamb-strut",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "extrusion-1",
+            "semanticType": "construction.envelope-entry.thermal-jamb.extrusion",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6c8387"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.023,0,0],
+                [-0.023,2.17,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.02,-0.047],
+                [0.02,-0.047],
+                [0.02,0.047],
+                [-0.02,0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.013,-0.0395],
+                  [0.013,-0.0395],
+                  [0.013,0.0395],
+                  [-0.013,0.0395]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "extrusion-2",
+            "semanticType": "construction.envelope-entry.thermal-jamb.extrusion",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.023,0,0],
+                [0.023,2.17,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.02,-0.047],
+                [0.02,-0.047],
+                [0.02,0.047],
+                [-0.02,0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.013,-0.0395],
+                  [0.013,-0.0395],
+                  [0.013,0.0395],
+                  [-0.013,0.0395]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "thermal-strip-1",
+            "semanticType": "construction.envelope-entry.thermal-jamb.polyamide",
+            "material": "plastic",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.008,2.167,0.012]
+            },
+            "transform": {
+              "position": [0,1.084,-0.032]
+            }
+          },
+          {
+            "id": "thermal-strip-2",
+            "semanticType": "construction.envelope-entry.thermal-jamb.polyamide",
+            "material": "plastic",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.008,2.167,0.012]
+            },
+            "transform": {
+              "position": [0,1.084,0.032]
+            }
+          },
+          {
+            "id": "leaf-stop",
+            "semanticType": "construction.envelope-entry.thermal-jamb.door-stop",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,2.17,0.011]
+            },
+            "transform": {
+              "position": [0.05,1.085,-0.031]
+            }
+          },
+          {
+            "id": "stop-bulb",
+            "semanticType": "construction.envelope-entry.thermal-jamb.door-gasket",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.01,2.151,0.008]
+            },
+            "transform": {
+              "position": [0.061,1.085,-0.031]
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "head": {
+            "position": [0,2.17,0],
+            "direction": [0,1,0]
+          },
+          "leaf": {
+            "position": [0.066,1.075,-0.031],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

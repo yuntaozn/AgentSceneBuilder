@@ -1,0 +1,56 @@
+{
+  "metadata": { "title": "梁柱板开间", "units": "meter" },
+  "instances": [
+    {
+      "id": "left-column", "component": "core.composition",
+      "parameters": {
+        "nodes": [{ "id": "column", "semanticType": "structure.column", "geometry": { "type": "box", "size": [0.4,3,0.4] }, "transform": { "position": [0,1.5,0] }, "appearance": { "color": "#89969c", "opacity": 1 } }],
+        "anchors": {
+          "base-center": { "node": "column", "onGeometry": { "type": "box", "fraction": [0,-0.5,0] }, "direction": [0,-1,0] },
+          "top-center": { "node": "column", "onGeometry": { "type": "box", "fraction": [0,0.5,0] }, "direction": [0,1,0] },
+          "axis-center": { "node": "column", "onGeometry": { "type": "box", "fraction": [0,0,0] } }
+        }
+      }
+    },
+    {
+      "id": "right-column", "component": "core.composition", "transform": { "position": [4,0,0] },
+      "parameters": {
+        "nodes": [{ "id": "column", "semanticType": "structure.column", "geometry": { "type": "box", "size": [0.4,3,0.4] }, "transform": { "position": [0,1.5,0] }, "appearance": { "color": "#89969c", "opacity": 1 } }],
+        "anchors": {
+          "base-center": { "node": "column", "onGeometry": { "type": "box", "fraction": [0,-0.5,0] }, "direction": [0,-1,0] },
+          "top-center": { "node": "column", "onGeometry": { "type": "box", "fraction": [0,0.5,0] }, "direction": [0,1,0] },
+          "axis-center": { "node": "column", "onGeometry": { "type": "box", "fraction": [0,0,0] } }
+        }
+      }
+    },
+    {
+      "id": "beam", "component": "core.composition", "transform": { "position": [2,3,0] },
+      "parameters": {
+        "nodes": [{ "id": "beam", "semanticType": "structure.beam", "material": "concrete", "geometry": { "type": "box", "size": [4,0.4,0.3] }, "transform": { "position": [0,0.2,0] }, "appearance": { "color": "#9ba6aa" } }],
+        "anchors": {
+          "start": { "node": "beam", "onGeometry": { "type": "box", "fraction": [-0.5,0,0] }, "direction": [-1,0,0] },
+          "end": { "node": "beam", "onGeometry": { "type": "box", "fraction": [0.5,0,0] }, "direction": [1,0,0] },
+          "start-bearing": { "node": "beam", "onGeometry": { "type": "box", "fraction": [-0.5,-0.5,0] }, "direction": [0,-1,0] },
+          "end-bearing": { "node": "beam", "onGeometry": { "type": "box", "fraction": [0.5,-0.5,0] }, "direction": [0,-1,0] },
+          "top-center": { "node": "beam", "onGeometry": { "type": "box", "fraction": [0,0.5,0] }, "direction": [0,1,0] }
+        }
+      }
+    },
+    {
+      "id": "slab", "component": "core.composition", "transform": { "position": [2,3.4,0] },
+      "parameters": {
+        "nodes": [{ "id": "slab", "semanticType": "structure.slab", "geometry": { "type": "box", "size": [4,0.2,3] }, "transform": { "position": [0,0.1,0] }, "appearance": { "color": "#7f8b91", "opacity": 1 } }],
+        "anchors": {
+          "center": { "node": "slab", "onGeometry": { "type": "box", "fraction": [0,0,0] } },
+          "top-center": { "node": "slab", "onGeometry": { "type": "box", "fraction": [0,0.5,0] }, "direction": [0,1,0] },
+          "bottom-center": { "node": "slab", "onGeometry": { "type": "box", "fraction": [0,-0.5,0] }, "direction": [0,-1,0] }
+        }
+      }
+    }
+  ],
+  "attachments": [
+    { "from": "left-column#top-center", "to": "beam#start-bearing", "contract": { "direction": "opposed" } },
+    { "from": "right-column#top-center", "to": "beam#end-bearing", "contract": { "direction": "opposed" } },
+    { "from": "beam#top-center", "to": "slab#bottom-center", "contract": { "direction": "opposed" } }
+  ]
+}

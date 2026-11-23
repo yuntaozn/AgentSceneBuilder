@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.double-sided-clip-cover-ground-glazing-channel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双扣盖玻璃落地 U 槽",
+  "summary": "承托槽、两侧扣盖和橡胶压条独立，保留玻璃和垫块的安装空间。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.envelope-entry.glazing-floor-channel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "建筑入口",
+    "玻璃地槽",
+    "U 槽",
+    "扣盖"
+  ],
+  "anchors": [
+    "base",
+    "glass",
+    "end"
+  ],
+  "ai": {
+    "intent": "承托槽、两侧扣盖和橡胶压条独立，保留玻璃和垫块的安装空间。",
+    "editableParts": [
+      "可分别编辑 bearing-profile、snap-cover-1、captive-gasket-1、snap-cover-2、captive-gasket-2。"
+    ],
+    "qualityChecks": [
+      "内槽承面距地 12 mm，胶条对向卡住玻璃。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-sided-clip-cover-ground-glazing-channel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bearing-profile",
+            "semanticType": "construction.envelope-entry.glazing-channel.carrier",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.347,0,0],
+                [0.347,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.06,0],
+                [0.06,0],
+                [0.06,0.07],
+                [0.026,0.07],
+                [0.026,0.012],
+                [-0.026,0.012],
+                [-0.026,0.07],
+                [-0.06,0.07]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "snap-cover-1",
+            "semanticType": "construction.envelope-entry.glazing-channel.cover",
+            "material": "steel",
+            "appearance": {
+              "color": "#b0b8b1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.702,0.062,0.009]
+            },
+            "transform": {
+              "position": [0,0.037,-0.064]
+            }
+          },
+          {
+            "id": "captive-gasket-1",
+            "semanticType": "construction.envelope-entry.glazing-channel.gasket",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.678,0.021,0.017]
+            },
+            "transform": {
+              "position": [0,0.061,-0.017]
+            }
+          },
+          {
+            "id": "snap-cover-2",
+            "semanticType": "construction.envelope-entry.glazing-channel.cover",
+            "material": "steel",
+            "appearance": {
+              "color": "#b0b8b1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.702,0.062,0.009]
+            },
+            "transform": {
+              "position": [0,0.037,0.064]
+            }
+          },
+          {
+            "id": "captive-gasket-2",
+            "semanticType": "construction.envelope-entry.glazing-channel.gasket",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.678,0.021,0.017]
+            },
+            "transform": {
+              "position": [0,0.061,0.017]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "glass": {
+            "position": [0,0.012,0],
+            "direction": [0,1,0]
+          },
+          "end": {
+            "position": [0.347,0.035,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

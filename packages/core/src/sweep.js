@@ -43,8 +43,41 @@ function sectionPoints(profile, closed) {
   return closed && area2 < 0 ? points.reverse() : points;
 }
 
-export function sweepGeometry({ profile, points, up, closedProfile = false }) {
+function insideContour([u, v], contour) {
+  let inside = false;
+  for (let i = 0; i < contour.length; i++) {
+    const [x, y] = contour[i], [nextX, nextY] = contour[(i + 1) % contour.length];
+    if ((y > v) !== (nextY > v) && u < x + (nextX - x) * (v - y) / (nextY - y)) inside = !inside;
+  }
+  return inside;
+}
+
+function contoursIntersect(a, b) {
+  return a.some((point, i) => b.some((other, j) =>
+    intersects(point, a[(i + 1) % a.length], other, b[(j + 1) % b.length])));
+}
+
+function sectionHoles(section, holes, closed) {
+  if (!Array.isArray(holes)) throw new TypeError("sweep holes must be an array of contours");
+  if (holes.length && !closed) throw new Error("sweep holes require a closed profile");
+  const inner = [];
+  for (const hole of holes) {
+    const contour = sectionPoints(hole, true).reverse();
+    if (!insideContour(contour[0], section) || contoursIntersect(section, contour)) {
+      throw new Error("Each sweep hole must stay strictly inside the outer contour");
+    }
+    if (inner.some(other => contoursIntersect(other, contour) || insideContour(contour[0], other) || insideContour(other[0], contour))) {
+      throw new Error("Sweep holes must not overlap or contain one another");
+    }
+    inner.push(contour);
+  }
+  return inner;
+}
+
+export function sweepGeometry({ profile, holes = [], points, up, closedProfile = false }) {
   const section = sectionPoints(profile, closedProfile);
+  const inner = sectionHoles(section, holes, closedProfile);
+  const vertices = section.concat(...inner);
   if (!Array.isArray(points) || points.length < 2) throw new RangeError("sweep points must contain at least two positions");
   const path = points.map((p, i) => assertVec3(p, `points[${i}]`));
   if (length(subtract(path[0], path.at(-1))) === 0) throw new RangeError("sweep requires an open path");
@@ -70,12 +103,12 @@ export function sweepGeometry({ profile, points, up, closedProfile = false }) {
     const jointHeight = subtract(height, scale(incoming, dv));
     width = subtract(width, scale(sum, du));
     height = subtract(height, scale(sum, dv));
-    return section.map(([u, v]) => add(point, add(scale(jointWidth, u), scale(jointHeight, v))));
+    return vertices.map(([u, v]) => add(point, add(scale(jointWidth, u), scale(jointHeight, v))));
   });
   for (let i = 0; i < segments.length; i++) {
     if (rings[i].some((p, j) => dot(subtract(rings[i + 1][j], p), segments[i]) <= 0)) {
       throw new RangeError(`sweep section is too large for the bend at segment ${i}`);
     }
   }
-  return { type: "sweep", profile: section, points: path, closedProfile, up: initialUp, rings };
+  return { type: "sweep", profile: section, ...(inner.length ? { holes: inner } : {}), points: path, closedProfile, up: initialUp, rings };
 }

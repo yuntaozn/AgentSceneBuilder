@@ -1,0 +1,269 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.telescoping-reference-stand",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可调位移参考支架",
+  "summary": "三点底撑、两段同心立杆和独立托台组成稳定测量参考，带地面与仪器锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.telescoping-reference-stand",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "基础构件",
+    "实训",
+    "测量支架"
+  ],
+  "anchors": [
+    "floor",
+    "instrument-seat"
+  ],
+  "ai": {
+    "intent": "用独立地面基准支撑接触式位移计。",
+    "editableParts": [
+      "编辑套杆高度、腿位置和托板尺寸。"
+    ],
+    "qualityChecks": [
+      "托板顶面为独立参考位置。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "telescoping-reference-stand",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "outrigger-0",
+            "semanticType": "instrument.mount.reference-stand.outrigger",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [0.31,0.025,0],
+              "radius": 0.018,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pad-0",
+            "semanticType": "instrument.mount.reference-stand.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.31,0,0],
+              "end": [0.31,0.027,0],
+              "radius": 0.042,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "outrigger-1",
+            "semanticType": "instrument.mount.reference-stand.outrigger",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [-0.15499999999999994,0.025,0.268467875173176],
+              "radius": 0.018,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pad-1",
+            "semanticType": "instrument.mount.reference-stand.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.15499999999999994,0,0.268467875173176],
+              "end": [-0.15499999999999994,0.027,0.268467875173176],
+              "radius": 0.042,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "outrigger-2",
+            "semanticType": "instrument.mount.reference-stand.outrigger",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [-0.15500000000000014,0.025,-0.26846787517317594],
+              "radius": 0.018,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pad-2",
+            "semanticType": "instrument.mount.reference-stand.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.15500000000000014,0,-0.26846787517317594],
+              "end": [-0.15500000000000014,0.027,-0.26846787517317594],
+              "radius": 0.042,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "lower-mast",
+            "semanticType": "instrument.mount.reference-stand.mast",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.1,0],
+                [0,1.25,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.035,0],
+                [0.033286978070330375,0.01081559480312316],
+                [0.028315594803123165,0.020572483830236563],
+                [0.020572483830236563,0.028315594803123165],
+                [0.010815594803123161,0.033286978070330375],
+                [2.1431318985078684e-18,0.035],
+                [-0.010815594803123158,0.03328697807033038],
+                [-0.02057248383023656,0.028315594803123165],
+                [-0.02831559480312316,0.020572483830236566],
+                [-0.033286978070330375,0.010815594803123163],
+                [-0.035,4.286263797015737e-18],
+                [-0.03328697807033038,-0.010815594803123142],
+                [-0.028315594803123165,-0.02057248383023656],
+                [-0.020572483830236566,-0.02831559480312316],
+                [-0.010815594803123166,-0.033286978070330375],
+                [-6.429395695523605e-18,-0.035],
+                [0.010815594803123154,-0.03328697807033038],
+                [0.020572483830236556,-0.028315594803123168],
+                [0.02831559480312316,-0.02057248383023657],
+                [0.033286978070330375,-0.010815594803123168]
+              ],
+              "holes": [
+                [
+                  [0.027,0],
+                  [0.025678525939969145,0.00834345884812358],
+                  [0.02184345884812358,0.015870201811896776],
+                  [0.015870201811896776,0.02184345884812358],
+                  [0.008343458848123582,0.025678525939969145],
+                  [1.6532731788489268e-18,0.027],
+                  [-0.008343458848123578,0.02567852593996915],
+                  [-0.015870201811896772,0.02184345884812358],
+                  [-0.021843458848123578,0.015870201811896776],
+                  [-0.025678525939969145,0.008343458848123583],
+                  [-0.027,3.3065463576978537e-18],
+                  [-0.025678525939969152,-0.008343458848123566],
+                  [-0.02184345884812358,-0.015870201811896772],
+                  [-0.015870201811896776,-0.021843458848123578],
+                  [-0.008343458848123583,-0.025678525939969145],
+                  [-4.95981953654678e-18,-0.027],
+                  [0.008343458848123575,-0.02567852593996915],
+                  [0.01587020181189677,-0.021843458848123585],
+                  [0.021843458848123578,-0.01587020181189678],
+                  [0.025678525939969145,-0.008343458848123585]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "extension",
+            "semanticType": "instrument.mount.reference-stand.extension",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.93,0],
+              "end": [0,1.925,0],
+              "radius": 0.023,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "lock-collar",
+            "semanticType": "instrument.mount.reference-stand.lock",
+            "material": "steel",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,1.19,0],
+              "end": [0,1.26,0],
+              "radius": 0.043,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "knob",
+            "semanticType": "instrument.mount.reference-stand.knob",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.04,1.23,0],
+              "end": [0.087,1.23,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "top-plate",
+            "semanticType": "instrument.mount.reference-stand.plate",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.02,0.14]
+            },
+            "transform": {
+              "position": [0,1.935,0]
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "instrument-seat": {
+            "node": "top-plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

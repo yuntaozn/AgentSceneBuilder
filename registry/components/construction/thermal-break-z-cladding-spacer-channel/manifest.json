@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.thermal-break-z-cladding-spacer-channel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带隔热层 Z 形墙板架空条",
+  "summary": "两道错开的翼缘、立腹和独立低导热垫，背面与墙板端分别定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.industrial.thermal-break-cladding-z-spacer",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "钢结构",
+    "厂房",
+    "隔热",
+    "架空条",
+    "Z形"
+  ],
+  "anchors": [
+    "back",
+    "outer",
+    "base"
+  ],
+  "ai": {
+    "intent": "把隔热垫、钢架空条和覆面板作为三层装配。",
+    "editableParts": [
+      "金属截面",
+      "隔热垫",
+      "覆面侧定位"
+    ],
+    "qualityChecks": [
+      "两翼分别接到背面和覆面端。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "thermal-break-z-cladding-spacer-channel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "z-section",
+            "semanticType": "construction.industrial.z-thermal-spacer.profile",
+            "material": "steel",
+            "appearance": {
+              "color": "#85999e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.2,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.055,0],
+                [0.006,0],
+                [0.006,0.062],
+                [0.048,0.062],
+                [0.048,0.069],
+                [0,0.069],
+                [0,0.007],
+                [-0.055,0.007]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "isolation-strip",
+            "semanticType": "construction.industrial.z-thermal-spacer.thermal-pad",
+            "material": "polymer",
+            "appearance": {
+              "color": "#899a90"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.053,1.2,0.007]
+            },
+            "transform": {
+              "position": [0.0265,0.6,-0.0035]
+            }
+          }
+        ],
+        "anchors": {
+          "back": {
+            "position": [0.025,0.6,-0.007],
+            "direction": [0,0,-1]
+          },
+          "outer": {
+            "position": [-0.027,0.6,0.069],
+            "direction": [0,0,1]
+          },
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

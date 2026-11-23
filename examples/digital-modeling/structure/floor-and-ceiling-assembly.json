@@ -1,0 +1,541 @@
+{
+  "metadata": {
+    "title": "楼层、坡道、转角墙与明架吊顶",
+    "units": "meter"
+  },
+  "instances": [
+    {
+      "id": "stair",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stair",
+            "semanticType": "structure.stair",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a7afb4"
+            },
+            "geometry": {
+              "type": "straight-stair",
+              "stepCount": 8,
+              "riserHeight": 0.17,
+              "treadDepth": 0.28,
+              "width": 1.2
+            }
+          }
+        ],
+        "anchors": {
+          "lower-landing": {
+            "node": "stair",
+            "onGeometry": {
+              "type": "feature",
+              "name": "lower-landing"
+            }
+          },
+          "upper-landing": {
+            "node": "stair",
+            "onGeometry": {
+              "type": "feature",
+              "name": "upper-landing"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,-0.84]
+      }
+    },
+    {
+      "id": "opening-slab",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "material": "concrete",
+            "appearance": {
+              "color": "#8c979d"
+            },
+            "geometry": {
+              "type": "floor-opening-slab",
+              "slabWidth": 4.8,
+              "slabDepth": 4.2,
+              "thickness": 0.2,
+              "openingWidth": 1.4,
+              "openingDepth": 2.6,
+              "openingOffsetX": 0,
+              "openingOffsetZ": 0.1
+            }
+          }
+        ],
+        "anchors": {
+          "opening-near": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-near"
+            }
+          },
+          "opening-far": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-far"
+            }
+          },
+          "slab-near": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slab-near"
+            }
+          },
+          "slab-far": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slab-far"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,1.36,0]
+      }
+    },
+    {
+      "id": "ramp",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "ramp",
+            "semanticType": "construction.ramp",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a2a7a6"
+            },
+            "geometry": {
+              "type": "straight-ramp",
+              "run": 3,
+              "rise": 0.45,
+              "rampWidth": 1.2,
+              "deckThickness": 0.12
+            }
+          }
+        ],
+        "anchors": {
+          "lower-landing": {
+            "node": "ramp",
+            "onGeometry": {
+              "type": "feature",
+              "name": "lower-landing"
+            }
+          },
+          "upper-landing": {
+            "node": "ramp",
+            "onGeometry": {
+              "type": "feature",
+              "name": "upper-landing"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [4.5,0,-1.8]
+      }
+    },
+    {
+      "id": "ramp-landing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [4,0.2,3]
+            },
+            "transform": {
+              "position": [0,0.1,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "ramp-entry": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,-0.5]
+            },
+            "direction": [0,0,-1]
+          }
+        }
+      },
+      "transform": {
+        "position": [4.5,0.25,2.7]
+      }
+    },
+    {
+      "id": "corner",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall.corner",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "l-corner-wall",
+              "lengthX": 2.4,
+              "lengthZ": 1.8,
+              "wallHeight": 2.8,
+              "thickness": 0.15
+            }
+          }
+        ],
+        "anchors": {
+          "x-end": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "x-end"
+            }
+          },
+          "z-end": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "z-end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [2.6,0,4.2]
+      }
+    },
+    {
+      "id": "partition",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "partition-wall",
+              "wallWidth": 2.4,
+              "wallHeight": 2.8,
+              "thickness": 0.15
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [6.2,0,4.275]
+      }
+    },
+    {
+      "id": "ceiling",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "main-runner",
+            "semanticType": "construction.ceiling.main-runner",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#81929a"
+            },
+            "transform": {
+              "position": [0,0.02,0]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.03,0.04,1.83]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "start": [-1.2,0,0],
+              "step": [0.6,0,0]
+            }
+          },
+          {
+            "id": "cross-runner",
+            "semanticType": "construction.ceiling.cross-runner",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#81929a"
+            },
+            "transform": {
+              "position": [0,0.02,0]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.57,0.04,0.03]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [4,1,4],
+              "start": [-0.9,0,-0.9],
+              "stepX": [0.6,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.6]
+            }
+          },
+          {
+            "id": "hanger",
+            "semanticType": "construction.ceiling.hanger",
+            "material": "steel",
+            "appearance": {
+              "color": "#647781"
+            },
+            "transform": {
+              "position": [0,0.19,0]
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.008,
+              "height": 0.3
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [3,1,2],
+              "start": [-0.6,0,-0.3],
+              "stepX": [0.6,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.6]
+            }
+          }
+        ],
+        "anchors": {
+          "first-cell": {
+            "position": [-0.9,0,-0.6],
+            "direction": [0,-1,0]
+          },
+          "last-cell": {
+            "position": [0.9,0,0.6],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [4.3,2.35,3.2]
+      }
+    },
+    {
+      "id": "panel-first",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.ceiling.panel",
+            "material": "ceiling-board",
+            "appearance": {
+              "color": "#dcdacf"
+            },
+            "transform": {
+              "position": [0,0.01,0]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.57,0.02,0.57]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.4,2.35,2.6]
+      }
+    },
+    {
+      "id": "panel-last",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.ceiling.panel",
+            "material": "ceiling-board",
+            "appearance": {
+              "color": "#dcdacf"
+            },
+            "transform": {
+              "position": [0,0.01,0]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.57,0.02,0.57]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5.2,2.35,3.8]
+      }
+    },
+    {
+      "id": "railing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "construction.railing",
+            "material": "painted-steel",
+            "appearance": {
+              "color": "#647781"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 2,
+              "railHeight": 1,
+              "thickness": 0.05,
+              "memberWidth": 0.045,
+              "bayCount": 8
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-1,1.36,2.1]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "stair#upper-landing",
+      "to": "opening-slab#opening-far",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "ramp#upper-landing",
+      "to": "ramp-landing#ramp-entry",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "corner#x-end",
+      "to": "partition#wall-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "ceiling#first-cell",
+      "to": "panel-first#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "ceiling#last-cell",
+      "to": "panel-last#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "opening-slab#slab-far",
+      "to": "railing#end",
+      "contract": {
+        "direction": "any"
+      }
+    }
+  ]
+}

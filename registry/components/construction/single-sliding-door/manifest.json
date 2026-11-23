@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.single-sliding-door",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "单扇墙外推拉门",
+  "summary": "门扇沿墙外导轨滑移，带独立门框、导轨、门扇和拉手。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.door.sliding",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "推拉门",
+    "门洞",
+    "导轨"
+  ],
+  "anchors": [
+    "fit-base",
+    "fit-top",
+    "fit-left",
+    "fit-right"
+  ],
+  "ai": {
+    "intent": "布置侧向开启的墙外推拉门，并以平移动画观察通道。",
+    "qualityChecks": [
+      "侧边保留门扇运动所需空间。",
+      "导轨与滑移动画沿局部 X。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "single-sliding-door",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.opening.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#766257"
+            },
+            "geometry": {
+              "type": "door-opening-wall",
+              "wallWidth": 1.2,
+              "wallHeight": 2.1,
+              "thickness": 0.13,
+              "openingWidth": 1.12,
+              "openingHeight": 2.06,
+              "openingOffset": 0
+            }
+          },
+          {
+            "id": "guide",
+            "semanticType": "construction.door.guide",
+            "material": "steel",
+            "appearance": {
+              "color": "#82909a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.42,0.035,0.045]
+            },
+            "transform": {
+              "position": [0.59,2.11,0.105]
+            }
+          },
+          {
+            "id": "slider",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "leaf",
+            "semanticType": "construction.door.leaf",
+            "material": "timber",
+            "appearance": {
+              "color": "#aa784f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.14,2.066,0.042]
+            },
+            "transform": {
+              "position": [0,1.047,0.106]
+            },
+            "parent": "slider"
+          },
+          {
+            "id": "pull",
+            "semanticType": "construction.door.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#82909a"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.42,0.91,0.13],
+              "end": [0.42,1.08,0.13],
+              "radius": 0.012
+            },
+            "parent": "slider"
+          }
+        ],
+        "anchors": {
+          "fit-base": {
+            "node": "frame",
+            "position": [0,0,0]
+          },
+          "fit-top": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "fit-left": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "fit-right": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        },
+        "animations": [
+          {
+            "id": "slide-open",
+            "target": "slider",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [1.19,0,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

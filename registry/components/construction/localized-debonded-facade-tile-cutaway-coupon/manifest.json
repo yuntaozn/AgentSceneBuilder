@@ -1,0 +1,172 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.localized-debonded-facade-tile-cutaway-coupon",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "局部空鼓外墙饰面剖片",
+  "summary": "墙体和找平面上方的薄粘结层挖去一处椭圆区，完整碎片和开窗饰面分别表达。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.building-inspection.localized-debonded-facade-coupon",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "质量检测",
+    "巡检",
+    "空鼓",
+    "外墙",
+    "缺陷剖面"
+  ],
+  "anchors": [
+    "base",
+    "air-gap"
+  ],
+  "ai": {
+    "intent": "通过饰面剖开显示薄粘结层中的局部空腔。",
+    "editableParts": [
+      "基墙",
+      "开窗粘结层",
+      "两片饰面"
+    ],
+    "qualityChecks": [
+      "空洞只位于指定的层间界面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "localized-debonded-facade-tile-cutaway-coupon",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "substrate",
+            "semanticType": "construction.building-inspection.facade-bond-void.core",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b0aa9d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.476,0.44,0.099]
+            },
+            "transform": {
+              "position": [0,0.22,0.0495]
+            }
+          },
+          {
+            "id": "levelcoat",
+            "semanticType": "construction.building-inspection.facade-bond-void.mortar",
+            "material": "mortar",
+            "appearance": {
+              "color": "#a29887"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.443,0.416,0.021]
+            },
+            "transform": {
+              "position": [0.0165,0.231,0.1095]
+            }
+          },
+          {
+            "id": "adhesive-with-internal-gap",
+            "semanticType": "construction.building-inspection.facade-bond-void.local-void",
+            "material": "adhesive",
+            "appearance": {
+              "color": "#b39366"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.12],
+                [0,0,0.13]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.175,0.044999999999999984],
+                [0.237,0.044999999999999984],
+                [0.237,0.439],
+                [-0.175,0.439]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.177,0.28],
+                  [0.17357113445627415,0.2972307278287042],
+                  [0.16348381102707876,0.31346006838715135],
+                  [0.14732426828418993,0.32774483139333727],
+                  [0.1260316401142764,0.3392548383443433],
+                  [0.1008433766710192,0.3473211694733499],
+                  [0.07322332827012812,0.35147503893505994],
+                  [0.044776671729871896,0.35147503893505994],
+                  [0.017156623328980818,0.3473211694733499],
+                  [-0.008031640114276373,0.3392548383443433],
+                  [-0.029324268284189936,0.32774483139333727],
+                  [-0.04548381102707873,0.3134600683871514],
+                  [-0.05557113445627414,0.2972307278287042],
+                  [-0.059,0.28],
+                  [-0.05557113445627415,0.26276927217129586],
+                  [-0.045483811027078797,0.24653993161284873],
+                  [-0.02932426828418995,0.2322551686066628],
+                  [-0.0080316401142764,0.22074516165565677],
+                  [0.017156623328980762,0.21267883052665015],
+                  [0.04477667172987182,0.20852496106494015],
+                  [0.07322332827012813,0.20852496106494015],
+                  [0.1008433766710192,0.21267883052665015],
+                  [0.12603164011427626,0.22074516165565672],
+                  [0.14732426828418987,0.23225516860666276],
+                  [0.16348381102707876,0.2465399316128487],
+                  [0.17357113445627415,0.26276927217129586]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "exposed-right-tile",
+            "semanticType": "construction.building-inspection.facade-bond-void.finish",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#ddd7c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.169,0.36,0.014]
+            },
+            "transform": {
+              "position": [0.153,0.255,0.137]
+            }
+          },
+          {
+            "id": "upper-tile-strip",
+            "semanticType": "construction.building-inspection.facade-bond-void.finish",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#ddd7c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.08,0.014]
+            },
+            "transform": {
+              "position": [-0.026,0.39,0.137]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0.0495],
+            "direction": [0,-1,0]
+          },
+          "air-gap": {
+            "position": [-0.025,0.28,0.125],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

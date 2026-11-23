@@ -1,0 +1,216 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.floor-flush-drained-threshold-sill-for-modular-bathroom-pod",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "整体卫浴齐平缓坡防水门槛",
+  "summary": "跨门槛的两片坡面与中间排水槽形成凹口，槽顶保留多个小孔。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.wet-room.modular-drained-threshold",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式湿区",
+    "门槛",
+    "湿区底盘",
+    "排水槽"
+  ],
+  "anchors": [
+    "tray",
+    "outside",
+    "inside"
+  ],
+  "ai": {
+    "intent": "跨门槛的两片坡面与中间排水槽形成凹口，槽顶保留多个小孔。",
+    "editableParts": [
+      "可分别编辑 threshold-top-with-weep-holes、threshold-slope-1、threshold-slope-2、threshold-catch-channel、lateral-seal-bar-1、lateral-seal-bar-2。"
+    ],
+    "qualityChecks": [
+      "中间孔贯通顶面，左右坡翼标高统一。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "floor-flush-drained-threshold-sill-for-modular-bathroom-pod",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "threshold-top-with-weep-holes",
+            "semanticType": "prefab.wet-room.threshold.top",
+            "material": "steel",
+            "appearance": {
+              "color": "#869b9d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.011,0],
+                [0,0.018,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.3455,-0.057],
+                [0.3455,-0.057],
+                [0.3455,0.057],
+                [-0.3455,0.057]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.262,-0.0045],
+                  [0.226,-0.0045],
+                  [0.226,0.0045],
+                  [0.262,0.0045]
+                ],
+                [
+                  [0.13999999999999999,-0.0045],
+                  [0.104,-0.0045],
+                  [0.104,0.0045],
+                  [0.13999999999999999,0.0045]
+                ],
+                [
+                  [0.018,-0.0045],
+                  [-0.018,-0.0045],
+                  [-0.018,0.0045],
+                  [0.018,0.0045]
+                ],
+                [
+                  [-0.104,-0.0045],
+                  [-0.13999999999999999,-0.0045],
+                  [-0.13999999999999999,0.0045],
+                  [-0.104,0.0045]
+                ],
+                [
+                  [-0.226,-0.0045],
+                  [-0.262,-0.0045],
+                  [-0.262,0.0045],
+                  [-0.226,0.0045]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "threshold-slope-1",
+            "semanticType": "prefab.wet-room.threshold.ramp",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#869b9d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.345,0,0],
+                [0.345,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.058,0],
+                [-0.095,0],
+                [-0.095,0.005],
+                [-0.058,0.019]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "threshold-slope-2",
+            "semanticType": "prefab.wet-room.threshold.ramp",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#869b9d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.345,0,0],
+                [0.345,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.058,0],
+                [0.095,0],
+                [0.095,0.005],
+                [0.058,0.019]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "threshold-catch-channel",
+            "semanticType": "prefab.wet-room.threshold.gutter",
+            "material": "plastic",
+            "appearance": {
+              "color": "#526569"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.017,0],
+                [0,-0.007,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.3415,-0.0415],
+                [0.3415,-0.0415],
+                [0.3415,0.0415],
+                [-0.3415,0.0415]
+              ],
+              "closedProfile": true,
+              "holes": []
+            }
+          },
+          {
+            "id": "lateral-seal-bar-1",
+            "semanticType": "prefab.wet-room.threshold.edge",
+            "material": "rubber",
+            "appearance": {
+              "color": "#526569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.682,0.016,0.009]
+            },
+            "transform": {
+              "position": [0,0,-0.047]
+            }
+          },
+          {
+            "id": "lateral-seal-bar-2",
+            "semanticType": "prefab.wet-room.threshold.edge",
+            "material": "rubber",
+            "appearance": {
+              "color": "#526569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.682,0.016,0.009]
+            },
+            "transform": {
+              "position": [0,0,0.047]
+            }
+          }
+        ],
+        "anchors": {
+          "tray": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "outside": {
+            "position": [0,0.004,0.095],
+            "direction": [0,0,1]
+          },
+          "inside": {
+            "position": [0,0.004,-0.095],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

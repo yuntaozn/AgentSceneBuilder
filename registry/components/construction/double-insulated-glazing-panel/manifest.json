@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.double-insulated-glazing-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双层中空玻璃单元",
+  "summary": "两片独立透明玻璃之间留有可见空腔，四边间隔条分别定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.insulated-glazing",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "bottom",
+    "top"
+  ],
+  "ai": {
+    "intent": "在一个幕墙格口复用分层中空板，便于观察两层之间的间隙。",
+    "editableParts": [
+      "分别修改玻璃和四边垫框。"
+    ],
+    "qualityChecks": [
+      "玻璃外缘与垫框共面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-insulated-glazing-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "glass-out",
+            "semanticType": "construction.facade.insulated-glazing.pane",
+            "material": "glass",
+            "appearance": {
+              "color": "#99c7d5",
+              "opacity": 0.42
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.132,1.532,0.0063]
+            },
+            "transform": {
+              "position": [0,0.766,0.01085]
+            }
+          },
+          {
+            "id": "glass-in",
+            "semanticType": "construction.facade.insulated-glazing.pane",
+            "material": "glass",
+            "appearance": {
+              "color": "#99c7d5",
+              "opacity": 0.42
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.132,1.532,0.0063]
+            },
+            "transform": {
+              "position": [0,0.766,-0.01085]
+            }
+          },
+          {
+            "id": "end-spacer-0",
+            "semanticType": "construction.facade.insulated-glazing.spacer",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.132,0.018,0.0155]
+            },
+            "transform": {
+              "position": [0,0.009,0]
+            }
+          },
+          {
+            "id": "end-spacer-1",
+            "semanticType": "construction.facade.insulated-glazing.spacer",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.132,0.018,0.0155]
+            },
+            "transform": {
+              "position": [0,1.5230000000000001,0]
+            }
+          },
+          {
+            "id": "side-spacer-0",
+            "semanticType": "construction.facade.insulated-glazing.spacer",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,1.496,0.0155]
+            },
+            "transform": {
+              "position": [-0.5569999999999999,0.766,0]
+            }
+          },
+          {
+            "id": "side-spacer-1",
+            "semanticType": "construction.facade.insulated-glazing.spacer",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,1.496,0.0155]
+            },
+            "transform": {
+              "position": [0.5569999999999999,0.766,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.566,0.766,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.566,0.766,0],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,1.532,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

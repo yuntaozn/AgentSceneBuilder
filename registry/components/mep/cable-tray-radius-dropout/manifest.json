@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.cable-tray-radius-dropout",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "桥架弧形落线护口",
+  "summary": "起始宽度接桥架底面，出口逐步转向下行，边挡与弧形面连续。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.cable-tray.bent-dropout",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "电气",
+    "桥架"
+  ],
+  "anchors": [
+    "inlet",
+    "outlet"
+  ],
+  "ai": {
+    "intent": "在桥架末端或分支处表现线缆下落保护。",
+    "editableParts": [
+      "编辑侧翼和圆弧近似路径。"
+    ],
+    "qualityChecks": [
+      "出口方向朝下。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "cable-tray-radius-dropout",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "waterfall",
+            "semanticType": "cable-tray.bent-dropout",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.095],
+                [0,-0.018,0.155],
+                [0,-0.055,0.195],
+                [0,-0.102,0.22],
+                [0,-0.184,0.22]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.148,0],
+                [0.148,0],
+                [0.148,0.024],
+                [0.144,0.024],
+                [0.144,0.004],
+                [-0.144,0.004],
+                [-0.144,0.024],
+                [-0.148,0.024]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "waterfall",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "waterfall",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

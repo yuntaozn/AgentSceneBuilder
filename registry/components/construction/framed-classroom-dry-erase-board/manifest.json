@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.framed-classroom-dry-erase-board",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带铝框的教室白板",
+  "summary": "轻型金属边框、独立书写面板和背挂座，底沿用于连接笔槽。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.education.classroom-dry-erase-board",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "教室",
+    "实训室",
+    "室内家具",
+    "白板",
+    "黑板",
+    "书写面"
+  ],
+  "anchors": [
+    "wall-left",
+    "wall-right",
+    "tray",
+    "face"
+  ],
+  "ai": {
+    "intent": "把白板以两个固定座挂在教室墙上，再挂接独立笔槽。",
+    "editableParts": [
+      "板面",
+      "横竖边框",
+      "背挂座"
+    ],
+    "qualityChecks": [
+      "书写面朝室内，背挂座处在同一平面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "framed-classroom-dry-erase-board",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rear-sheet",
+            "semanticType": "construction.education.dry-erase-marker-board.rear",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.82,0.894,0.015]
+            },
+            "transform": {
+              "position": [0,0,0.014]
+            }
+          },
+          {
+            "id": "write-surface",
+            "semanticType": "construction.education.dry-erase-marker-board.whiteboard",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#ded9c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.783,0.856,0.012]
+            },
+            "transform": {
+              "position": [0,0,0.027]
+            }
+          },
+          {
+            "id": "horizontal-trim-0",
+            "semanticType": "construction.education.dry-erase-marker-board.border",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a0a9a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.82,0.026,0.045]
+            },
+            "transform": {
+              "position": [0,-0.445,0.027]
+            }
+          },
+          {
+            "id": "horizontal-trim-1",
+            "semanticType": "construction.education.dry-erase-marker-board.border",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a0a9a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.82,0.026,0.045]
+            },
+            "transform": {
+              "position": [0,0.445,0.027]
+            }
+          },
+          {
+            "id": "vertical-trim-0",
+            "semanticType": "construction.education.dry-erase-marker-board.border",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a0a9a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.884,0.045]
+            },
+            "transform": {
+              "position": [-0.903,0,0.027]
+            }
+          },
+          {
+            "id": "vertical-trim-1",
+            "semanticType": "construction.education.dry-erase-marker-board.border",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a0a9a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.884,0.045]
+            },
+            "transform": {
+              "position": [0.903,0,0.027]
+            }
+          },
+          {
+            "id": "rear-fixing-0",
+            "semanticType": "construction.education.dry-erase-marker-board.mount",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.094,0.08,0.015]
+            },
+            "transform": {
+              "position": [-0.645,0.275,0.0075]
+            }
+          },
+          {
+            "id": "rear-fixing-1",
+            "semanticType": "construction.education.dry-erase-marker-board.mount",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.094,0.08,0.015]
+            },
+            "transform": {
+              "position": [0.645,0.275,0.0075]
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "position": [-0.645,0.275,0],
+            "direction": [0,0,-1]
+          },
+          "wall-right": {
+            "position": [0.645,0.275,0],
+            "direction": [0,0,-1]
+          },
+          "tray": {
+            "position": [0,-0.435,0.0495],
+            "direction": [0,0,1]
+          },
+          "face": {
+            "position": [0,0,0.033],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

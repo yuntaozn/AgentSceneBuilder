@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.compacted-granular-pipe-trench-bed-with-shaped-cradle",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "管沟分层砂石底托剖面",
+  "summary": "开挖土槽两侧留坡面，中间砂垫层带浅弧托面，能与直管轴线对准。",
+  "license": "Apache-2.0",
+  "semanticType": "site.utility.pipe-trench-bedding",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "地下管网",
+    "管沟",
+    "砂垫层",
+    "回填剖面"
+  ],
+  "anchors": [
+    "base",
+    "pipe",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "开挖土槽两侧留坡面，中间砂垫层带浅弧托面，能与直管轴线对准。",
+    "editableParts": [
+      "独立编辑 soil-cut、shaped-bedding 的尺寸与位置。"
+    ],
+    "qualityChecks": [
+      "沿 X 方向铺设，弧托底与 160 mm 管的下切点贴合。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "compacted-granular-pipe-trench-bed-with-shaped-cradle",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "soil-cut",
+            "semanticType": "site.utility.trench.soil",
+            "material": "earth",
+            "appearance": {
+              "color": "#a79172"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.375,0,0],
+                [0.375,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.435,0],
+                [-0.435,-0.303],
+                [0.435,-0.303],
+                [0.435,0],
+                [0.342,0],
+                [0.242,-0.194],
+                [-0.242,-0.194],
+                [-0.342,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "shaped-bedding",
+            "semanticType": "site.utility.trench.granular-bedding",
+            "material": "gravel",
+            "appearance": {
+              "color": "#b5a484"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.375,0,0],
+                [0.375,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.24,-0.194],
+                [0.24,-0.194],
+                [0.218,-0.119],
+                [0.083,-0.119],
+                [0.067,-0.129],
+                [0.044,-0.143],
+                [0.019,-0.15],
+                [-0.019,-0.15],
+                [-0.044,-0.143],
+                [-0.067,-0.129],
+                [-0.083,-0.119],
+                [-0.218,-0.119]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,-0.303,0],
+            "direction": [0,-1,0]
+          },
+          "pipe": {
+            "position": [0,-0.07,0],
+            "direction": [0,1,0]
+          },
+          "start": {
+            "position": [-0.375,-0.194,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.375,-0.194,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

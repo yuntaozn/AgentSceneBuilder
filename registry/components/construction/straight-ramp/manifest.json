@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "0.1", "id": "construction.straight-ramp", "version": "0.1.0", "kind": "component",
+  "title": "直线坡道", "summary": "沿局部 +Z 抬升的直线坡板，水平投影、高差、宽度和坡板厚度可分别修改。",
+  "license": "Apache-2.0", "semanticType": "construction.ramp",
+  "capabilities": ["resize", "attach", "material"], "tags": ["建筑", "坡道", "高差", "平台", "基础构件"],
+  "parameters": {
+    "run": { "type": "number", "unit": "m", "default": 3 },
+    "rise": { "type": "number", "unit": "m", "default": 0.45 },
+    "rampWidth": { "type": "number", "unit": "m", "default": 1.2 },
+    "deckThickness": { "type": "number", "unit": "m", "default": 0.12 }
+  },
+  "anchors": ["lower-landing", "upper-landing"],
+  "ai": {
+    "intent": "用稳定的上下接续点表达两个标高之间的斜面。",
+    "qualityChecks": ["确认坡道上表面两端与平台标高一致。", "高差与水平投影应使用项目提供的数值。"]
+  },
+  "editor": { "document": { "id": "straight-ramp", "component": "core.composition", "parameters": {
+    "nodes": [{ "id": "ramp", "semanticType": "construction.ramp", "material": "concrete", "appearance": { "color": "#a2a7a6" },
+      "geometry": { "type": "straight-ramp", "run": 3, "rise": 0.45, "rampWidth": 1.2, "deckThickness": 0.12 } }],
+    "anchors": {
+      "lower-landing": { "node": "ramp", "onGeometry": { "type": "feature", "name": "lower-landing" } },
+      "upper-landing": { "node": "ramp", "onGeometry": { "type": "feature", "name": "upper-landing" } }
+    }
+  } } }
+}

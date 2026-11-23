@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.annular-cut-floor-adhesion-test-coupon",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带环切隔离缝的地坪试样",
+  "summary": "地坪基层、表面试样和真实环形切缝，中心与外围表面独立。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.building-inspection.annular-cut-adhesion-test-coupon",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "质量检测",
+    "巡检",
+    "地坪",
+    "环切",
+    "拉拔试样"
+  ],
+  "anchors": [
+    "base",
+    "test",
+    "reaction",
+    "reaction-center"
+  ],
+  "ai": {
+    "intent": "在地坪粘结课件中观察环切后的独立中心块。",
+    "editableParts": [
+      "基层",
+      "环缝",
+      "中心试件"
+    ],
+    "qualityChecks": [
+      "试样顶面与外围齐，环形间隙可观察。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "annular-cut-floor-adhesion-test-coupon",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "support-slab",
+            "semanticType": "instrument.building-inspection.floor-adhesion-coupon.substrate",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b0aa9d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.406,0.067,0.386]
+            },
+            "transform": {
+              "position": [0,0.0335,0]
+            }
+          },
+          {
+            "id": "surface-with-isolated-field",
+            "semanticType": "instrument.building-inspection.floor-adhesion-coupon.field",
+            "material": "mortar",
+            "appearance": {
+              "color": "#a29887"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.067,0],
+                [0,0.093,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.203,-0.193],
+                [0.203,-0.193],
+                [0.203,0.193],
+                [-0.203,0.193]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.047,0],
+                  [0.04539851383558621,0.012164495119818475],
+                  [0.04070319397786862,0.023499999999999997],
+                  [0.033234018715767734,0.033234018715767734],
+                  [0.023500000000000007,0.04070319397786861],
+                  [0.012164495119818475,0.04539851383558621],
+                  [2.8779199779962802e-18,0.047],
+                  [-0.01216449511981847,0.04539851383558621],
+                  [-0.02349999999999999,0.04070319397786862],
+                  [-0.033234018715767734,0.033234018715767734],
+                  [-0.04070319397786862,0.023499999999999997],
+                  [-0.045398513835586206,0.012164495119818488],
+                  [-0.047,5.7558399559925604e-18],
+                  [-0.04539851383558621,-0.012164495119818477],
+                  [-0.040703193977868625,-0.023499999999999986],
+                  [-0.033234018715767755,-0.03323401871576771],
+                  [-0.02350000000000002,-0.04070319397786861],
+                  [-0.01216449511981847,-0.04539851383558621],
+                  [-8.63375993398884e-18,-0.047],
+                  [0.012164495119818455,-0.04539851383558621],
+                  [0.023500000000000007,-0.04070319397786861],
+                  [0.03323401871576773,-0.03323401871576774],
+                  [0.040703193977868604,-0.02350000000000002],
+                  [0.0453985138355862,-0.012164495119818514]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "central-test-coupon",
+            "semanticType": "instrument.building-inspection.floor-adhesion-coupon.core",
+            "material": "mortar",
+            "appearance": {
+              "color": "#ddd7c7"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.064,0],
+              "end": [0,0.093,0],
+              "radius": 0.04,
+              "radialSegments": 22
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "test": {
+            "position": [0,0.093,0],
+            "direction": [0,1,0]
+          },
+          "reaction": {
+            "position": [0.12,0.093,0],
+            "direction": [0,1,0]
+          },
+          "reaction-center": {
+            "position": [0,0.093,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

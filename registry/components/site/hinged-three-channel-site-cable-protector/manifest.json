@@ -1,0 +1,215 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.hinged-three-channel-site-cable-protector",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带翻盖施工三槽过线板",
+  "summary": "两侧斜坡、三个独立走线槽和可掀式上盖，端面通道保持可观察。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-site.hinged-three-channel-cable-protector",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "临电",
+    "电缆",
+    "过线板"
+  ],
+  "anchors": [
+    "floor",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "在临时走线与通行面相交时显示独立可动盖板和三槽。",
+    "editableParts": [
+      "底胶条",
+      "三槽",
+      "活动盖"
+    ],
+    "qualityChecks": [
+      "槽口连续，盖片能转离。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-three-channel-site-cable-protector",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rubber-base",
+            "semanticType": "site.inspection-site.hinged-cable-ramp.profile",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4c5960"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.49,0,0],
+                [0.49,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.227,0],
+                [0.227,0],
+                [0.227,0.006],
+                [0.119,0.056],
+                [0.097,0.056],
+                [0.097,0.013],
+                [0.055,0.013],
+                [0.055,0.056],
+                [0.034,0.056],
+                [0.034,0.013],
+                [-0.014,0.013],
+                [-0.014,0.056],
+                [-0.034,0.056],
+                [-0.034,0.013],
+                [-0.085,0.013],
+                [-0.085,0.056],
+                [-0.119,0.056],
+                [-0.227,0.006]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "cover-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.056,0.096]
+            }
+          },
+          {
+            "id": "upper-lid",
+            "semanticType": "site.inspection-site.hinged-cable-ramp.lid",
+            "material": "polymer",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.981,0.012,0.194]
+            },
+            "transform": {
+              "position": [0,0.006,-0.096]
+            },
+            "parent": "cover-axis"
+          },
+          {
+            "id": "lid-tread-0",
+            "semanticType": "site.inspection-site.hinged-cable-ramp.tread",
+            "material": "polymer",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.938,0.003,0.008]
+            },
+            "transform": {
+              "position": [0,0.012,-0.174]
+            },
+            "parent": "cover-axis"
+          },
+          {
+            "id": "lid-tread-1",
+            "semanticType": "site.inspection-site.hinged-cable-ramp.tread",
+            "material": "polymer",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.938,0.003,0.008]
+            },
+            "transform": {
+              "position": [0,0.012,-0.134]
+            },
+            "parent": "cover-axis"
+          },
+          {
+            "id": "lid-tread-2",
+            "semanticType": "site.inspection-site.hinged-cable-ramp.tread",
+            "material": "polymer",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.938,0.003,0.008]
+            },
+            "transform": {
+              "position": [0,0.012,-0.094]
+            },
+            "parent": "cover-axis"
+          },
+          {
+            "id": "lid-tread-3",
+            "semanticType": "site.inspection-site.hinged-cable-ramp.tread",
+            "material": "polymer",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.938,0.003,0.008]
+            },
+            "transform": {
+              "position": [0,0.012,-0.054]
+            },
+            "parent": "cover-axis"
+          },
+          {
+            "id": "lid-tread-4",
+            "semanticType": "site.inspection-site.hinged-cable-ramp.tread",
+            "material": "polymer",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.938,0.003,0.008]
+            },
+            "transform": {
+              "position": [0,0.012,-0.013999999999999999]
+            },
+            "parent": "cover-axis"
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "position": [-0.49,0.03,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.49,0.03,0],
+            "direction": [1,0,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "open-cable-ramp-cover",
+            "target": "cover-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [1.44,0,0],
+            "duration": 0.8,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

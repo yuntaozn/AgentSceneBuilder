@@ -1,0 +1,233 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.dual-head-tripod-portable-site-work-light",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双灯头三脚架施工工作灯",
+  "summary": "三脚架、配套横杆、灯壳及两个可编辑聚光源，可作为临时设施投光外形。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.inspection-site.site-tripod-work-light",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "临时照明",
+    "工作灯",
+    "三脚架"
+  ],
+  "anchors": [
+    "floor",
+    "beam"
+  ],
+  "ai": {
+    "intent": "在棚架、材料区或局部视图展示三脚架移动照明。",
+    "editableParts": [
+      "三腿",
+      "横梁",
+      "灯壳",
+      "两只光源"
+    ],
+    "qualityChecks": [
+      "光源位置贴合灯罩，朝前下方。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "dual-head-tripod-portable-site-work-light",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "center-span",
+            "semanticType": "mep.inspection-site.tripod-work-light.mast",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.239,0],
+              "end": [0,1.48,0],
+              "radius": 0.022,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "stand-leg-0",
+            "semanticType": "mep.inspection-site.tripod-work-light.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.391,0.015,0],
+              "end": [0,0.544,0],
+              "radius": 0.018,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "stand-leg-1",
+            "semanticType": "mep.inspection-site.tripod-work-light.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.19536619677867426,0.015,0.33869314896560326],
+              "end": [0,0.544,0],
+              "radius": 0.018,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "stand-leg-2",
+            "semanticType": "mep.inspection-site.tripod-work-light.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.19576751486565894,0.015,-0.3384613421401682],
+              "end": [0,0.544,0],
+              "radius": 0.018,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "bar",
+            "semanticType": "mep.inspection-site.tripod-work-light.horizontal-support",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.289,1.452,0],
+              "end": [0.289,1.452,0],
+              "radius": 0.014,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "lamp-shell-0",
+            "semanticType": "mep.inspection-site.tripod-work-light.case",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.214,0.142,0.055]
+            },
+            "transform": {
+              "position": [-0.171,1.53,0]
+            }
+          },
+          {
+            "id": "lens-0",
+            "semanticType": "mep.inspection-site.tripod-work-light.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#ece0bd",
+              "emissive": "#fbe5b6"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.188,0.113,0.019]
+            },
+            "transform": {
+              "position": [-0.171,1.53,0.035]
+            }
+          },
+          {
+            "id": "beam-0",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [-0.171,1.53,0.06],
+              "rotation": [-0.124,3.141592653589793,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#ffe1ac",
+              "intensity": 42,
+              "angle": 0.65,
+              "penumbra": 0.4,
+              "distance": 7,
+              "helperLength": 0.7
+            }
+          },
+          {
+            "id": "lamp-shell-1",
+            "semanticType": "mep.inspection-site.tripod-work-light.case",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.214,0.142,0.055]
+            },
+            "transform": {
+              "position": [0.171,1.53,0]
+            }
+          },
+          {
+            "id": "lens-1",
+            "semanticType": "mep.inspection-site.tripod-work-light.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#ece0bd",
+              "emissive": "#fbe5b6"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.188,0.113,0.019]
+            },
+            "transform": {
+              "position": [0.171,1.53,0.035]
+            }
+          },
+          {
+            "id": "beam-1",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [0.171,1.53,0.06],
+              "rotation": [-0.124,3.141592653589793,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#ffe1ac",
+              "intensity": 42,
+              "angle": 0.65,
+              "penumbra": 0.4,
+              "distance": 7,
+              "helperLength": 0.7
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "beam": {
+            "position": [0,1.53,0.046],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

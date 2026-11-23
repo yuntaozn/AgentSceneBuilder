@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.bonded-foil-strain-gauge",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "表贴电阻应变片",
+  "summary": "贴片基底上有重复栅线、回线和两个接线焊盘，带安装面与应变轴定位。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.bonded-foil-strain-gauge",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "基础构件",
+    "实训",
+    "应变监测"
+  ],
+  "anchors": [
+    "mount",
+    "measure-axis",
+    "terminal-1",
+    "terminal-2"
+  ],
+  "ai": {
+    "intent": "表达构件表面轴向应变测点。",
+    "editableParts": [
+      "编辑贴片、栅线阵列和测轴方向。"
+    ],
+    "qualityChecks": [
+      "应变轴与目标构件方向平行。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "bonded-foil-strain-gauge",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "carrier",
+            "semanticType": "instrument.strain.foil.carrier",
+            "material": "polyimide",
+            "appearance": {
+              "color": "#dcd3a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.0018,0.044]
+            },
+            "transform": {
+              "position": [0,0.0009,0]
+            }
+          },
+          {
+            "id": "trace",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.0003,0.001]
+            },
+            "transform": {
+              "position": [0,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 10,
+              "start": [0,0,-0.0135],
+              "step": [0,0,0.003]
+            }
+          },
+          {
+            "id": "return-left",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.001,0.0003,0.004]
+            },
+            "transform": {
+              "position": [0,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "start": [-0.026,0,-0.012],
+              "step": [0,0,0.006]
+            }
+          },
+          {
+            "id": "return-right",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.001,0.0003,0.004]
+            },
+            "transform": {
+              "position": [0,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [0.026,0,-0.009],
+              "step": [0,0,0.006]
+            }
+          },
+          {
+            "id": "pad",
+            "semanticType": "instrument.strain.foil.solder-pad",
+            "material": "alloy",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.0008,0.006]
+            },
+            "transform": {
+              "position": [0.032,0.0022,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0,-0.0135],
+              "step": [0,0,0.027]
+            }
+          },
+          {
+            "id": "pad-trace",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0003,0.001]
+            },
+            "transform": {
+              "position": [0.029,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0,-0.0135],
+              "step": [0,0,0.027]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "measure-axis": {
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "measurement-axis"
+          },
+          "terminal-1": {
+            "position": [0.0375,0.0022,-0.0135],
+            "direction": [1,0,0]
+          },
+          "terminal-2": {
+            "position": [0.0375,0.0022,0.0135],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

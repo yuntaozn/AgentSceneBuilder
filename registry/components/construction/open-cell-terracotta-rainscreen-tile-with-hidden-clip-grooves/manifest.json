@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.open-cell-terracotta-rainscreen-tile-with-hidden-clip-grooves",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "四腔干挂陶板与背部卡槽",
+  "summary": "陶板沿横向开四条空腔，背面有上下卡口，端头能看到独立腔壁。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.rainscreen.hollow-terracotta-rainscreen-tile",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "干挂外墙",
+    "陶板",
+    "通风幕墙",
+    "空腔"
+  ],
+  "anchors": [
+    "rear",
+    "hanger-top",
+    "hanger-bottom",
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "陶板沿横向开四条空腔，背面有上下卡口，端头能看到独立腔壁。",
+    "editableParts": [
+      "可分别编辑 constant-hollow-tile-profile、rear-lock-mark-1、rear-lock-mark-2。"
+    ],
+    "qualityChecks": [
+      "四腔沿 X 贯通，背侧两个翻口不穿进空腔。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "open-cell-terracotta-rainscreen-tile-with-hidden-clip-grooves",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "constant-hollow-tile-profile",
+            "semanticType": "construction.rainscreen.terra-tile.hollow",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#ae7d63"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.442,0,0],
+                [0.442,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.047,-0.18],
+                [0.004,-0.18],
+                [0.004,-0.155],
+                [-0.006,-0.155],
+                [-0.006,-0.139],
+                [0.004,-0.139],
+                [0.004,0.139],
+                [-0.006,0.139],
+                [-0.006,0.155],
+                [0.004,0.155],
+                [0.004,0.18],
+                [-0.047,0.18]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.038,-0.1395],
+                  [-0.008,-0.1395],
+                  [-0.008,-0.0845],
+                  [-0.038,-0.0845]
+                ],
+                [
+                  [-0.038,-0.0655],
+                  [-0.008,-0.0655],
+                  [-0.008,-0.010499999999999999],
+                  [-0.038,-0.010499999999999999]
+                ],
+                [
+                  [-0.038,0.010499999999999999],
+                  [-0.008,0.010499999999999999],
+                  [-0.008,0.0655],
+                  [-0.038,0.0655]
+                ],
+                [
+                  [-0.038,0.0845],
+                  [-0.008,0.0845],
+                  [-0.008,0.1395],
+                  [-0.038,0.1395]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "rear-lock-mark-1",
+            "semanticType": "construction.rainscreen.terra-tile.rear-key",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#ae7d63"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.883,0.02,0.007]
+            },
+            "transform": {
+              "position": [0,-0.147,-0.002]
+            }
+          },
+          {
+            "id": "rear-lock-mark-2",
+            "semanticType": "construction.rainscreen.terra-tile.rear-key",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#ae7d63"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.883,0.02,0.007]
+            },
+            "transform": {
+              "position": [0,0.147,-0.002]
+            }
+          }
+        ],
+        "anchors": {
+          "rear": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "hanger-top": {
+            "position": [0,0.149,0],
+            "direction": [0,0,-1]
+          },
+          "hanger-bottom": {
+            "position": [0,-0.149,0],
+            "direction": [0,0,-1]
+          },
+          "left": {
+            "position": [-0.442,0,0.023],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.442,0,0.023],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

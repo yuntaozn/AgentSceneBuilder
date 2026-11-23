@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.roof-gutter",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "开口直线檐沟",
+  "summary": "有底板和两侧壁的开口檐沟，路径与截面可编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.gutter",
+  "capabilities": [
+    "resize",
+    "path-edit",
+    "attach"
+  ],
+  "tags": [
+    "建筑",
+    "屋面",
+    "排水",
+    "檐沟",
+    "基础构件"
+  ],
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "作为屋面或雨棚边缘的连续开口排水槽。",
+    "editableParts": [
+      "gutter.geometry.points 控制长度、方向和落差",
+      "gutter.geometry.profile 控制截面和壁厚"
+    ],
+    "qualityChecks": [
+      "保持顶面开口。",
+      "端点方向沿路径向外。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "roof-gutter",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "gutter",
+            "semanticType": "construction.roof.gutter",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#708894"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.2,0,0],
+                [1.2,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.12,0],
+                [0.12,0],
+                [0.12,0.115],
+                [0.116,0.115],
+                [0.116,0.004],
+                [-0.116,0.004],
+                [-0.116,0.115],
+                [-0.12,0.115]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "gutter",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "gutter",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

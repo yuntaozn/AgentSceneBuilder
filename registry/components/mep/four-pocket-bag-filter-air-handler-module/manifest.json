@@ -1,0 +1,477 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.four-pocket-bag-filter-air-handler-module",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "四袋式机组深层过滤段",
+  "summary": "固定矩形箱体、四个袋口和独立的袋体，可在气流轴上组合。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.deep-bag-filter-bank",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "袋式过滤",
+    "中效过滤",
+    "机组"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "base"
+  ],
+  "ai": {
+    "intent": "在同一截面设备中独立查看第二级滤袋。",
+    "editableParts": [
+      "四入口框",
+      "袋形折深",
+      "箱体"
+    ],
+    "qualityChecks": [
+      "袋口朝向入口，滤袋分开。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "four-pocket-bag-filter-air-handler-module",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "housing",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.case",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.02,0.31,0],
+                [0.502,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.38,-0.29],
+                [0.38,-0.29],
+                [0.38,0.29],
+                [-0.38,0.29]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.356,-0.26599999999999996],
+                  [0.356,-0.26599999999999996],
+                  [0.356,0.26599999999999996],
+                  [-0.356,0.26599999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "left-end",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.31,0],
+                [0.02,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "right-end",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.502,0.31,0],
+                [0.522,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "bag-mouth-0",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.open-mouth",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.102,0.31,-0.237],
+                [0.13,0.31,-0.237]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0725,-0.244],
+                [0.0725,-0.244],
+                [0.0725,0.244],
+                [-0.0725,0.244]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0605,-0.222],
+                  [0.0605,-0.222],
+                  [0.0605,0.222],
+                  [-0.0605,0.222]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "deep-pocket-0",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.bag",
+            "material": "fabric",
+            "appearance": {
+              "color": "#b6b2a1"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "capStart": false,
+              "capEnd": true,
+              "radialSegments": 4,
+              "sections": [
+                {
+                  "center": [0.127,0.31,-0.237],
+                  "axisX": [0,0,0.059],
+                  "axisZ": [0,0.218,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0.375,0.31,-0.237],
+                  "axisX": [0,0,0.036],
+                  "axisZ": [0,0.177,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0.445,0.31,-0.237],
+                  "axisX": [0,0,0.024],
+                  "axisZ": [0,0.106,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "bag-mouth-1",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.open-mouth",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.102,0.31,-0.078],
+                [0.13,0.31,-0.078]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0725,-0.244],
+                [0.0725,-0.244],
+                [0.0725,0.244],
+                [-0.0725,0.244]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0605,-0.222],
+                  [0.0605,-0.222],
+                  [0.0605,0.222],
+                  [-0.0605,0.222]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "deep-pocket-1",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.bag",
+            "material": "fabric",
+            "appearance": {
+              "color": "#b6b2a1"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "capStart": false,
+              "capEnd": true,
+              "radialSegments": 4,
+              "sections": [
+                {
+                  "center": [0.127,0.31,-0.078],
+                  "axisX": [0,0,0.059],
+                  "axisZ": [0,0.218,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0.375,0.31,-0.078],
+                  "axisX": [0,0,0.036],
+                  "axisZ": [0,0.177,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0.445,0.31,-0.078],
+                  "axisX": [0,0,0.024],
+                  "axisZ": [0,0.106,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "bag-mouth-2",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.open-mouth",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.102,0.31,0.081],
+                [0.13,0.31,0.081]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0725,-0.244],
+                [0.0725,-0.244],
+                [0.0725,0.244],
+                [-0.0725,0.244]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0605,-0.222],
+                  [0.0605,-0.222],
+                  [0.0605,0.222],
+                  [-0.0605,0.222]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "deep-pocket-2",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.bag",
+            "material": "fabric",
+            "appearance": {
+              "color": "#b6b2a1"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "capStart": false,
+              "capEnd": true,
+              "radialSegments": 4,
+              "sections": [
+                {
+                  "center": [0.127,0.31,0.081],
+                  "axisX": [0,0,0.059],
+                  "axisZ": [0,0.218,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0.375,0.31,0.081],
+                  "axisX": [0,0,0.036],
+                  "axisZ": [0,0.177,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0.445,0.31,0.081],
+                  "axisX": [0,0,0.024],
+                  "axisZ": [0,0.106,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "bag-mouth-3",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.open-mouth",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.102,0.31,0.24],
+                [0.13,0.31,0.24]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0725,-0.244],
+                [0.0725,-0.244],
+                [0.0725,0.244],
+                [-0.0725,0.244]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0605,-0.222],
+                  [0.0605,-0.222],
+                  [0.0605,0.222],
+                  [-0.0605,0.222]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "deep-pocket-3",
+            "semanticType": "mep.ahu.deep-pocket-filter-module.bag",
+            "material": "fabric",
+            "appearance": {
+              "color": "#b6b2a1"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "capStart": false,
+              "capEnd": true,
+              "radialSegments": 4,
+              "sections": [
+                {
+                  "center": [0.127,0.31,0.24],
+                  "axisX": [0,0,0.059],
+                  "axisZ": [0,0.218,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0.375,0.31,0.24],
+                  "axisX": [0,0,0.036],
+                  "axisZ": [0,0.177,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0.445,0.31,0.24],
+                  "axisX": [0,0,0.024],
+                  "axisZ": [0,0.106,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0.31,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.522,0.31,0],
+            "direction": [1,0,0]
+          },
+          "base": {
+            "position": [0.261,0.02,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

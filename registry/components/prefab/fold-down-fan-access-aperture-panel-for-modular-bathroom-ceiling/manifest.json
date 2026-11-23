@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.fold-down-fan-access-aperture-panel-for-modular-bathroom-ceiling",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "湿区吊顶换气检修翻板",
+  "summary": "铰链盖中保留圆形换气孔，翻下时孔缘随盖板，固定框不动。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.wet-room.folding-wet-ceiling-inspection-panel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式湿区",
+    "吊顶检修",
+    "翻板",
+    "换气孔"
+  ],
+  "anchors": [
+    "ceiling",
+    "air"
+  ],
+  "ai": {
+    "intent": "铰链盖中保留圆形换气孔，翻下时孔缘随盖板，固定框不动。",
+    "editableParts": [
+      "可分别编辑 fixed-ceiling-access-ring、hinged-ceiling-plate、downfold-vent-panel、cover-hinge-pin、simple-pull-knob。"
+    ],
+    "qualityChecks": [
+      "翻板上的圆孔随轴移动，边框和吊点保持不动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "fold-down-fan-access-aperture-panel-for-modular-bathroom-ceiling",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fixed-ceiling-access-ring",
+            "semanticType": "prefab.wet-room.service-ceiling.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#869b9d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.017,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.193,-0.169],
+                [0.193,-0.169],
+                [0.193,0.169],
+                [-0.193,0.169]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.1665,-0.1415],
+                  [-0.1665,-0.1415],
+                  [-0.1665,0.1415],
+                  [0.1665,0.1415]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "hinged-ceiling-plate",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,-0.138]
+            }
+          },
+          {
+            "id": "downfold-vent-panel",
+            "semanticType": "prefab.wet-room.service-ceiling.leaf",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c4c8bd"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.006,0.144],
+                [0,0,0.144]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.1715,-0.149],
+                [0.1715,-0.149],
+                [0.1715,0.149],
+                [-0.1715,0.149]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.053,0.01],
+                  [-0.05119406879332062,0.023717409390433597],
+                  [-0.04589934640057525,0.0365],
+                  [-0.03747665940288702,0.04747665940288702],
+                  [-0.026500000000000006,0.05589934640057525],
+                  [-0.013717409390433598,0.06119406879332062],
+                  [-3.2453140177404857e-18,0.063],
+                  [0.013717409390433593,0.06119406879332062],
+                  [0.02649999999999999,0.05589934640057525],
+                  [0.03747665940288702,0.04747665940288702],
+                  [0.04589934640057525,0.0365],
+                  [0.05119406879332061,0.023717409390433614],
+                  [0.053,0.010000000000000007],
+                  [0.05119406879332062,-0.0037174093904336018],
+                  [0.045899346400575254,-0.016499999999999987],
+                  [0.03747665940288704,-0.027476659402886995],
+                  [0.026500000000000024,-0.03589934640057524],
+                  [0.013717409390433593,-0.04119406879332062],
+                  [9.735942053221456e-18,-0.043],
+                  [-0.013717409390433576,-0.041194068793320625],
+                  [-0.026500000000000006,-0.035899346400575245],
+                  [-0.03747665940288701,-0.027476659402887023],
+                  [-0.04589934640057523,-0.01650000000000002],
+                  [-0.051194068793320606,-0.0037174093904336434]
+                ]
+              ]
+            },
+            "parent": "hinged-ceiling-plate"
+          },
+          {
+            "id": "cover-hinge-pin",
+            "semanticType": "prefab.wet-room.service-ceiling.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#869b9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.161,-0.004,-0.138],
+              "end": [0.161,-0.004,-0.138],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "simple-pull-knob",
+            "semanticType": "prefab.wet-room.service-ceiling.pull",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4c6970"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.04,0.013,0.018]
+            },
+            "transform": {
+              "position": [0,-0.014,0.266]
+            },
+            "parent": "hinged-ceiling-plate"
+          }
+        ],
+        "anchors": {
+          "ceiling": {
+            "position": [0,0.017,0],
+            "direction": [0,1,0]
+          },
+          "air": {
+            "position": [0,0,0.016],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "open-ceiling-hatch",
+            "target": "hinged-ceiling-plate",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [1.22,0,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

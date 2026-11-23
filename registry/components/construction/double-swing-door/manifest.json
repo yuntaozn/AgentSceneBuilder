@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.double-swing-door",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双扇平开门",
+  "summary": "带三边门框和左右独立铰轴的双扇门，两扇门可分别预览开启。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.door.double-swing",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "双扇门",
+    "门洞"
+  ],
+  "anchors": [
+    "fit-base",
+    "fit-top",
+    "fit-left",
+    "fit-right"
+  ],
+  "ai": {
+    "intent": "表达较宽洞口内的双扇门和各自开启方向。",
+    "editableParts": [
+      "left-hinge 和 right-hinge 的局部 Y 转角",
+      "打开动画各自绑定一扇门"
+    ],
+    "qualityChecks": [
+      "四个 fit-* 点应与目标洞口重合。",
+      "闭合时检查中缝和门框间距。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-swing-door",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.opening.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#786052"
+            },
+            "geometry": {
+              "type": "door-opening-wall",
+              "wallWidth": 1.6,
+              "wallHeight": 2.15,
+              "thickness": 0.13,
+              "openingWidth": 1.48,
+              "openingHeight": 2.09,
+              "openingOffset": 0
+            }
+          },
+          {
+            "id": "left-hinge",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-0.735,0,0.0175],
+              "rotation": [0,-0.36,0]
+            }
+          },
+          {
+            "id": "left-leaf",
+            "semanticType": "construction.door.leaf",
+            "material": "timber",
+            "appearance": {
+              "color": "#aa784f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.728,2.05,0.035]
+            },
+            "transform": {
+              "position": [0.364,1.043,-0.0175]
+            },
+            "parent": "left-hinge"
+          },
+          {
+            "id": "left-handle",
+            "semanticType": "construction.door.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#82909a"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.67,1,0],
+              "end": [0.67,1,0.06],
+              "radius": 0.013
+            },
+            "parent": "left-hinge"
+          },
+          {
+            "id": "right-hinge",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0.735,0,0.0175],
+              "rotation": [0,0.36,0]
+            }
+          },
+          {
+            "id": "right-leaf",
+            "semanticType": "construction.door.leaf",
+            "material": "timber",
+            "appearance": {
+              "color": "#aa784f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.728,2.05,0.035]
+            },
+            "transform": {
+              "position": [-0.364,1.043,-0.0175]
+            },
+            "parent": "right-hinge"
+          },
+          {
+            "id": "right-handle",
+            "semanticType": "construction.door.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#82909a"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.67,1,0],
+              "end": [-0.67,1,0.06],
+              "radius": 0.013
+            },
+            "parent": "right-hinge"
+          }
+        ],
+        "anchors": {
+          "fit-base": {
+            "node": "frame",
+            "position": [0,0,0]
+          },
+          "fit-top": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "fit-left": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "fit-right": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        },
+        "animations": [
+          {
+            "id": "open-left",
+            "target": "left-hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.5707963267948966,0],
+            "duration": 1.6,
+            "loop": false
+          },
+          {
+            "id": "open-right",
+            "target": "right-hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,1.5707963267948966,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

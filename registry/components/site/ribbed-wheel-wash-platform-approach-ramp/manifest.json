@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.ribbed-wheel-wash-platform-approach-ramp",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "冲洗格台带筋引坡",
+  "summary": "低进坡、上承托面和间隔布置的防滑钢筋，适合接格台两端。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-site.vehicle-wash-approach-ramp",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "车辆冲洗",
+    "引坡",
+    "入口"
+  ],
+  "anchors": [
+    "floor",
+    "high",
+    "low"
+  ],
+  "ai": {
+    "intent": "把轮道高面接到同标高引坡，供入口模型连续。",
+    "editableParts": [
+      "楔形板",
+      "多道防滑线",
+      "坡下基准"
+    ],
+    "qualityChecks": [
+      "高低两端独立且防滑条贴面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ribbed-wheel-wash-platform-approach-ramp",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tapered-approach-ramp",
+            "semanticType": "site.inspection-site.wheel-wash-approach.wedge",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.703,0,0],
+                [0.703,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.43,0],
+                [0,0],
+                [0,0.08],
+                [-0.43,0.008]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tread-0",
+            "semanticType": "site.inspection-site.wheel-wash-approach.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.691,0.0666046511627907,0.08],
+              "end": [0.691,0.0666046511627907,0.08],
+              "radius": 0.0035,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "tread-1",
+            "semanticType": "site.inspection-site.wheel-wash-approach.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.691,0.05622325581395349,0.142],
+              "end": [0.691,0.05622325581395349,0.142],
+              "radius": 0.0035,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "tread-2",
+            "semanticType": "site.inspection-site.wheel-wash-approach.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.691,0.045841860465116284,0.204],
+              "end": [0.691,0.045841860465116284,0.204],
+              "radius": 0.0035,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "tread-3",
+            "semanticType": "site.inspection-site.wheel-wash-approach.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.691,0.03546046511627907,0.266],
+              "end": [0.691,0.03546046511627907,0.266],
+              "radius": 0.0035,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "tread-4",
+            "semanticType": "site.inspection-site.wheel-wash-approach.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.691,0.025079069767441863,0.328],
+              "end": [0.691,0.025079069767441863,0.328],
+              "radius": 0.0035,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "tread-5",
+            "semanticType": "site.inspection-site.wheel-wash-approach.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.691,0.014697674418604659,0.39],
+              "end": [0.691,0.014697674418604659,0.39],
+              "radius": 0.0035,
+              "radialSegments": 20
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0.21],
+            "direction": [0,-1,0]
+          },
+          "high": {
+            "position": [0,0.08,0],
+            "direction": [0,0,-1]
+          },
+          "low": {
+            "position": [0,0.008,0.43],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.double-pocket-interior-corner-trim-for-wet-room-panels",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "湿区双槽内阴角包边",
+  "summary": "两条互相垂直的插口接到墙板，内圆角饰面及密封胶条独立。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.wet-room.wet-room-inside-corner",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式湿区",
+    "阴角",
+    "湿区墙板",
+    "密封条"
+  ],
+  "anchors": [
+    "base",
+    "first",
+    "second"
+  ],
+  "ai": {
+    "intent": "两条互相垂直的插口接到墙板，内圆角饰面及密封胶条独立。",
+    "editableParts": [
+      "可分别编辑 inner-corner-pocket、waterproof-interior-cove、soft-seal-1、soft-seal-2。"
+    ],
+    "qualityChecks": [
+      "两条插口垂直，外露侧为圆角面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-pocket-interior-corner-trim-for-wet-room-panels",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inner-corner-pocket",
+            "semanticType": "prefab.wet-room.corner.profile",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#869b9d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.087,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.003,-0.003],
+                [0.061,-0.003],
+                [0.061,0.008],
+                [0.009,0.008],
+                [0.009,0.061],
+                [-0.003,0.061]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "waterproof-interior-cove",
+            "semanticType": "prefab.wet-room.corner.cove",
+            "material": "plastic",
+            "appearance": {
+              "color": "#abb9ab"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.004,0],
+                [0,2.078,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.01,0.01],
+                [0.047,0.01],
+                [0.036,0.015],
+                [0.026,0.023],
+                [0.019,0.031],
+                [0.014,0.044],
+                [0.01,0.049]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "soft-seal-1",
+            "semanticType": "prefab.wet-room.corner.gasket",
+            "material": "rubber",
+            "appearance": {
+              "color": "#526569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.009,2.07,0.009]
+            },
+            "transform": {
+              "position": [-0.044,1.035,0]
+            }
+          },
+          {
+            "id": "soft-seal-2",
+            "semanticType": "prefab.wet-room.corner.gasket",
+            "material": "rubber",
+            "appearance": {
+              "color": "#526569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.009,2.07,0.009]
+            },
+            "transform": {
+              "position": [0,1.035,0.044]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "first": {
+            "position": [-0.06,1.024,0],
+            "direction": [-1,0,0]
+          },
+          "second": {
+            "position": [0,1.024,0.06],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

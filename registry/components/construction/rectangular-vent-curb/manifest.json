@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.rectangular-vent-curb",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形屋面风口基座",
+  "summary": "高出屋面的矩形洞口围座，四周连续围合，中心净口贯通。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.vent-curb",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "anchors": [
+    "mount",
+    "hood-seat",
+    "inside-front",
+    "inside-back"
+  ],
+  "ai": {
+    "intent": "为风帽、通风口和矩形洞口保留独立抬高围边。",
+    "editableParts": [
+      "编辑开口、围座尺寸及高度。"
+    ],
+    "qualityChecks": [
+      "中心净口贯通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rectangular-vent-curb",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "curb",
+            "semanticType": "construction.roof.vent-curb",
+            "material": "metal",
+            "appearance": {
+              "color": "#a1b0b6"
+            },
+            "geometry": {
+              "type": "floor-opening-slab",
+              "slabWidth": 0.72,
+              "slabDepth": 0.57,
+              "thickness": 0.18,
+              "openingWidth": 0.5,
+              "openingDepth": 0.35,
+              "openingOffsetX": 0,
+              "openingOffsetZ": 0
+            },
+            "transform": {
+              "position": [0,0.18,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "hood-seat": {
+            "position": [0,0.18,0],
+            "direction": [0,1,0]
+          },
+          "inside-front": {
+            "node": "curb",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-near"
+            }
+          },
+          "inside-back": {
+            "node": "curb",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-far"
+            }
+          }
+        }
+      }
+    }
+  }
+}

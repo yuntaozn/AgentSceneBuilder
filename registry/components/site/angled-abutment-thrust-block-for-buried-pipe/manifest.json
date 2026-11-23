@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.angled-abutment-thrust-block-for-buried-pipe",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "埋地管弯头混凝土止推块",
+  "summary": "混凝土背托带弧形接触面和加宽止推背壁，便于展示管件与回填土之间的承力件。",
+  "license": "Apache-2.0",
+  "semanticType": "site.utility.pipe-thrust-abutment",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "地下管网",
+    "止推墩",
+    "弯头",
+    "混凝土"
+  ],
+  "anchors": [
+    "base",
+    "abutment"
+  ],
+  "ai": {
+    "intent": "混凝土背托带弧形接触面和加宽止推背壁，便于展示管件与回填土之间的承力件。",
+    "editableParts": [
+      "独立编辑 concrete-body、rear-bearing-face 的尺寸与位置。"
+    ],
+    "qualityChecks": [
+      "外侧背面加宽，弧托局部让出转弯管件。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "angled-abutment-thrust-block-for-buried-pipe",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "concrete-body",
+            "semanticType": "site.utility.thrust.cast-mass",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a39e91"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.127,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.183,-0.121],
+                [0.183,-0.121],
+                [0.15,0.12],
+                [0.079,0.124],
+                [0.068,0.101],
+                [0.029,0.073],
+                [-0.024,0.073],
+                [-0.065,0.1],
+                [-0.077,0.124],
+                [-0.15,0.12]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "rear-bearing-face",
+            "semanticType": "site.utility.thrust.behind",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a79172"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.358,0.107,0.089]
+            },
+            "transform": {
+              "position": [0,0.051,-0.129]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "abutment": {
+            "position": [0,0.064,0.073],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

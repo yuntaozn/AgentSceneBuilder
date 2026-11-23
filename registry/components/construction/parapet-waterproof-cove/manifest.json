@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.parapet-waterproof-cove",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "女儿墙根圆弧基层",
+  "summary": "墙根与水平面之间的凹圆弧过渡条，墙边和地面标高分别可校核。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.waterproof.parapet-cove",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "围护",
+    "防水"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "wall-seat",
+    "deck-seat"
+  ],
+  "ai": {
+    "intent": "在屋面和墙根内角处表达卷材下的圆弧基层。",
+    "editableParts": [
+      "编辑圆弧截面或拼接长度。"
+    ],
+    "qualityChecks": [
+      "圆弧底部及竖向边均贴住宿主面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "parapet-waterproof-cove",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mortar-cove",
+            "semanticType": "waterproof.parapet-cove",
+            "material": "mortar",
+            "appearance": {
+              "color": "#a5afb2"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.6,0,0],
+                [0.6,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0,0],
+                [-0.065,0],
+                [-0.05862888587857858,0.0003129927663071963],
+                [-0.05231912906895164,0.0012489567737900276],
+                [-0.04613149597845995,0.0027988781774064275],
+                [-0.040125576896269124,0.004947830386766376],
+                [-0.03435921210631014,0.007675117817356927],
+                [-0.028887934853725858,0.01095447520033456],
+                [-0.02376443652936302,0.014754320531422116],
+                [-0.019038059222874402,0.019038059222874416],
+                [-0.014754320531422088,0.02376443652936306],
+                [-0.010954475200334546,0.028887934853725872],
+                [-0.00767511781735692,0.034359212106310155],
+                [-0.004947830386766355,0.04012557689626917],
+                [-0.0027988781774064206,0.04613149597845996],
+                [-0.0012489567737900276,0.052319129068951656],
+                [-0.0003129927663071963,0.05862888587857856],
+                [0,0.06500000000000002]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "mortar-cove",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "mortar-cove",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "wall-seat": {
+            "position": [0,0.0325,0],
+            "direction": [0,0,-1]
+          },
+          "deck-seat": {
+            "position": [0,0,0.0325],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

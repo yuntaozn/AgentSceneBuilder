@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.multi-groove-flush-guide-threshold-for-operable-partition",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "活动隔墙内平多槽低门槛",
+  "summary": "同一水平板上排布导槽和密封边，端部带接口供延长拼接。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.operable-partition.flush-guide-threshold",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内隔断",
+    "低门槛",
+    "导槽",
+    "隔断"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "guide",
+    "base"
+  ],
+  "ai": {
+    "intent": "同一水平板上排布导槽和密封边，端部带接口供延长拼接。",
+    "editableParts": [
+      "可分别编辑 grooved-aluminum-body、seal-insert-1、seal-insert-2。"
+    ],
+    "qualityChecks": [
+      "中心导槽比两侧密封槽深，槽全长可沿导向销滑动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "multi-groove-flush-guide-threshold-for-operable-partition",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "grooved-aluminum-body",
+            "semanticType": "construction.operable-partition.threshold.guide-profile",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.4,0,0],
+                [0.4,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.089,-0.013],
+                [0.089,-0.013],
+                [0.089,0],
+                [0.039,0],
+                [0.039,-0.006],
+                [0.027,-0.006],
+                [0.027,0],
+                [0.01,0],
+                [0.01,-0.01],
+                [-0.01,-0.01],
+                [-0.01,0],
+                [-0.027,0],
+                [-0.027,-0.006],
+                [-0.039,-0.006],
+                [-0.039,0],
+                [-0.089,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "seal-insert-1",
+            "semanticType": "construction.operable-partition.threshold.seal",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.798,0.004,0.009]
+            },
+            "transform": {
+              "position": [0,-0.003,-0.033]
+            }
+          },
+          {
+            "id": "seal-insert-2",
+            "semanticType": "construction.operable-partition.threshold.seal",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.798,0.004,0.009]
+            },
+            "transform": {
+              "position": [0,-0.003,0.033]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [-0.4,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.4,0,0],
+            "direction": [1,0,0]
+          },
+          "guide": {
+            "position": [0,-0.01,0],
+            "direction": [0,1,0]
+          },
+          "base": {
+            "position": [0,-0.013,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

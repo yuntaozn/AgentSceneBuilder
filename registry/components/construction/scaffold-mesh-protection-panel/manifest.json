@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.scaffold-mesh-protection-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "挂扣式脚手架防护网",
+  "summary": "边框围合纵横细杆与四个挂扣，网格之间保留空隙。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.scaffold.scaffold-mesh-protection-panel",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工",
+    "脚手架",
+    "临建"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "base"
+  ],
+  "ai": {
+    "intent": "可单独显隐防护网，不影响主架杆件。",
+    "editableParts": [
+      "调整网格间距、边框与固定扣。"
+    ],
+    "qualityChecks": [
+      "默认四点扣在边上。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "scaffold-mesh-protection-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "border",
+            "semanticType": "construction.scaffold.detachable-mesh-net.border",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.9,0.37,-0.009],
+                [0.9,0.37,0.009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.895,-0.37],
+                [0.895,-0.37],
+                [0.895,0.37],
+                [-0.895,0.37]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.8655,-0.3375],
+                  [0.8655,-0.3375],
+                  [0.8655,0.3375],
+                  [-0.8655,0.3375]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "vertical",
+            "semanticType": "construction.scaffold.detachable-mesh-net.wire",
+            "material": "polymer",
+            "appearance": {
+              "color": "#619080"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.676,0.006]
+            },
+            "transform": {
+              "position": [0,0.37,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 24,
+              "start": [0.072,0,0],
+              "step": [0.072,0,0]
+            }
+          },
+          {
+            "id": "horizontal",
+            "semanticType": "construction.scaffold.detachable-mesh-net.wire",
+            "material": "polymer",
+            "appearance": {
+              "color": "#619080"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.732,0.008,0.006]
+            },
+            "transform": {
+              "position": [0.9,0,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 9,
+              "start": [0,0.079,0],
+              "step": [0,0.073,0]
+            }
+          },
+          {
+            "id": "clip-0-0",
+            "semanticType": "construction.scaffold.detachable-mesh-net.clip",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.038,0.036]
+            },
+            "transform": {
+              "position": [0.05,0.065,-0.016]
+            }
+          },
+          {
+            "id": "clip-0-1",
+            "semanticType": "construction.scaffold.detachable-mesh-net.clip",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.038,0.036]
+            },
+            "transform": {
+              "position": [0.05,0.675,-0.016]
+            }
+          },
+          {
+            "id": "clip-1-0",
+            "semanticType": "construction.scaffold.detachable-mesh-net.clip",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.038,0.036]
+            },
+            "transform": {
+              "position": [1.75,0.065,-0.016]
+            }
+          },
+          {
+            "id": "clip-1-1",
+            "semanticType": "construction.scaffold.detachable-mesh-net.clip",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.038,0.036]
+            },
+            "transform": {
+              "position": [1.75,0.675,-0.016]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [0,0.37,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [1.8,0.37,0],
+            "direction": [1,0,0]
+          },
+          "base": {
+            "position": [0.9,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

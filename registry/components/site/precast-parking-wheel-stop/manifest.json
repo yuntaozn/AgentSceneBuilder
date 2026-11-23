@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.precast-parking-wheel-stop",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带色带预制车轮挡",
+  "summary": "斜坡型挡块和三条反光色带单独编辑，底部可对齐车位地面。",
+  "license": "Apache-2.0",
+  "semanticType": "site.traffic.wheel-stop",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "室外",
+    "道路",
+    "停车"
+  ],
+  "anchors": [
+    "mount",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "在停车区独立表现车轮限位件。",
+    "editableParts": [
+      "编辑断面、长度和色带间距。"
+    ],
+    "qualityChecks": [
+      "底定位在地面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "precast-parking-wheel-stop",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stop",
+            "semanticType": "site.traffic.parking-wheel-stop",
+            "material": "concrete",
+            "appearance": {
+              "color": "#586569"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.79,0,0],
+                [0.79,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.107,0],
+                [0.107,0],
+                [0.064,0.085],
+                [0.039,0.103],
+                [-0.039,0.103],
+                [-0.064,0.085]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "stripe",
+            "semanticType": "site.traffic.parking-wheel-stop.stripe",
+            "material": "polymer",
+            "appearance": {
+              "color": "#bf9d61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.225,0.004,0.066]
+            },
+            "transform": {
+              "position": [0,0.105,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [-0.525,0,0],
+              "step": [0.525,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "position": [-0.79,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.79,0,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

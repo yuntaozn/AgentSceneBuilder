@@ -1,0 +1,604 @@
+{
+  "metadata": {
+    "title": "建筑开间的墙、门窗、楼梯与栏杆",
+    "units": "meter"
+  },
+  "instances": [
+    {
+      "id": "plain-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "partition-wall",
+              "wallWidth": 2.4,
+              "wallHeight": 2.8,
+              "thickness": 0.15
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": "door-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "door-opening-wall",
+              "wallWidth": 3.6,
+              "wallHeight": 2.8,
+              "thickness": 0.15,
+              "openingWidth": 0.9,
+              "openingHeight": 2.1,
+              "openingOffset": 0.25
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "opening-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "opening-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-top"
+            }
+          },
+          "opening-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-left"
+            }
+          },
+          "opening-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3,0,0]
+      }
+    },
+    {
+      "id": "door",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.door.frame",
+            "material": "timber",
+            "appearance": {
+              "color": "#675143"
+            },
+            "geometry": {
+              "type": "door-opening-wall",
+              "wallWidth": 0.9,
+              "wallHeight": 2.1,
+              "thickness": 0.12,
+              "openingWidth": 0.82,
+              "openingHeight": 2.06,
+              "openingOffset": 0
+            }
+          },
+          {
+            "id": "hinge",
+            "semanticType": "construction.door.hinge",
+            "transform": {
+              "position": [-0.404,0,0.02],
+              "rotation": [0,-0.6,0]
+            }
+          },
+          {
+            "id": "leaf",
+            "parent": "hinge",
+            "semanticType": "construction.door.leaf",
+            "material": "timber",
+            "appearance": {
+              "color": "#aa764b"
+            },
+            "transform": {
+              "position": [0.404,1.0325,-0.02]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.808,2.035,0.04]
+            }
+          },
+          {
+            "id": "handle",
+            "parent": "hinge",
+            "semanticType": "construction.door.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#aebbc0"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.74,1,0],
+              "end": [0.74,1,0.06],
+              "radius": 0.014
+            }
+          }
+        ],
+        "anchors": {
+          "fit-base": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "fit-top": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "fit-left": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "fit-right": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        },
+        "animations": [
+          {
+            "id": "door-open",
+            "target": "hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.5707963267948966,0],
+            "duration": 1.5,
+            "loop": false
+          }
+        ]
+      },
+      "transform": {
+        "position": [3.25,0,0]
+      }
+    },
+    {
+      "id": "window-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 3.6,
+              "wallHeight": 2.8,
+              "thickness": 0.15,
+              "openingWidth": 1.2,
+              "openingHeight": 1.2,
+              "openingOffset": 0.35,
+              "sillHeight": 0.9
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "opening-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "opening-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-top"
+            }
+          },
+          "opening-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-left"
+            }
+          },
+          "opening-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-right"
+            }
+          },
+          "opening-exterior-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-exterior-base"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [6.6,0,0]
+      }
+    },
+    {
+      "id": "window",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.window.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#566470"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 1.2,
+              "wallHeight": 1.2,
+              "thickness": 0.1,
+              "openingWidth": 1.08,
+              "openingHeight": 1.08,
+              "openingOffset": 0,
+              "sillHeight": 0.06
+            }
+          },
+          {
+            "id": "glass",
+            "semanticType": "construction.window.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#8fc7dc",
+              "opacity": 0.32
+            },
+            "transform": {
+              "position": [0,0.6,0]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.08,1.08,0.012]
+            }
+          }
+        ],
+        "anchors": {
+          "fit-base": {
+            "node": "frame",
+            "position": [0,0,0]
+          },
+          "fit-top": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "fit-left": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "fit-right": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [6.95,0.9,0]
+      }
+    },
+    {
+      "id": "stairs",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stair",
+            "semanticType": "structure.stair",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a7afb4"
+            },
+            "geometry": {
+              "type": "straight-stair",
+              "stepCount": 8,
+              "riserHeight": 0.17,
+              "treadDepth": 0.28,
+              "width": 1.2
+            }
+          }
+        ],
+        "anchors": {
+          "lower-landing": {
+            "node": "stair",
+            "onGeometry": {
+              "type": "feature",
+              "name": "lower-landing"
+            }
+          },
+          "upper-landing": {
+            "node": "stair",
+            "onGeometry": {
+              "type": "feature",
+              "name": "upper-landing"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [5,0,1.2]
+      }
+    },
+    {
+      "id": "landing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [4,0.2,3]
+            },
+            "transform": {
+              "position": [0,0.1,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "stair-entry": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,-0.5]
+            },
+            "direction": [0,0,-1]
+          },
+          "railing-mount": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0.5,0.5]
+            },
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5,1.16,4.94]
+      }
+    },
+    {
+      "id": "railing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "construction.railing",
+            "material": "painted-steel",
+            "appearance": {
+              "color": "#647781"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 2,
+              "railHeight": 1,
+              "thickness": 0.05,
+              "memberWidth": 0.045,
+              "bayCount": 8
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [4,1.36,6.44]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "plain-wall#wall-right",
+      "to": "door-wall#wall-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "door-wall#wall-right",
+      "to": "window-wall#wall-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "door-wall#opening-base",
+      "to": "door#fit-base"
+    },
+    {
+      "from": "door-wall#opening-top",
+      "to": "door#fit-top"
+    },
+    {
+      "from": "door-wall#opening-left",
+      "to": "door#fit-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "door-wall#opening-right",
+      "to": "door#fit-right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "window-wall#opening-base",
+      "to": "window#fit-base"
+    },
+    {
+      "from": "window-wall#opening-top",
+      "to": "window#fit-top"
+    },
+    {
+      "from": "window-wall#opening-left",
+      "to": "window#fit-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "window-wall#opening-right",
+      "to": "window#fit-right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "stairs#upper-landing",
+      "to": "landing#stair-entry",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "landing#railing-mount",
+      "to": "railing#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

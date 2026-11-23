@@ -1,0 +1,233 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.hinged-rectangular-duct-access-module",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带翻盖的矩形风管检修段",
+  "summary": "箱体设置真实顶面检修口和可翻转盖板，两端仍保持贯通。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.hvac.duct-access-module",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "通风",
+    "风管"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "inspection"
+  ],
+  "ai": {
+    "intent": "在风管上独立表达检修开口与操作状态。",
+    "editableParts": [
+      "调整洞口与翻盖铰轴。"
+    ],
+    "qualityChecks": [
+      "打开盖后通道仍贯通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-rectangular-duct-access-module",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bottom",
+            "semanticType": "mep.hvac.duct-access-module.bottom",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.54,0.004,0.42]
+            },
+            "transform": {
+              "position": [0.27,-0.118,0]
+            }
+          },
+          {
+            "id": "side-0",
+            "semanticType": "mep.hvac.duct-access-module.wall",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.54,0.232,0.004]
+            },
+            "transform": {
+              "position": [0.27,0,-0.208]
+            }
+          },
+          {
+            "id": "side-1",
+            "semanticType": "mep.hvac.duct-access-module.wall",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.54,0.232,0.004]
+            },
+            "transform": {
+              "position": [0.27,0,0.208]
+            }
+          },
+          {
+            "id": "roof",
+            "semanticType": "mep.hvac.duct-access-module.hole-cover",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.27,0.116,0],
+                [0.27,0.12,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.27,-0.21],
+                [0.27,-0.21],
+                [0.27,0.21],
+                [-0.27,0.21]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.146,-0.13],
+                  [0.146,-0.13],
+                  [0.146,0.13],
+                  [-0.146,0.13]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "hatch-rim",
+            "semanticType": "mep.hvac.duct-access-module.rim",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#5b7381"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.27,0.12,0],
+                [0.27,0.131,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.1635,-0.147],
+                [0.1635,-0.147],
+                [0.1635,0.147],
+                [-0.1635,0.147]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.146,-0.13],
+                  [0.146,-0.13],
+                  [0.146,0.13],
+                  [-0.146,0.13]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lid-hinge",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0.27,0.132,-0.143]
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "mep.hvac.duct-access-module.lid",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#bdcad0"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.32,0.009,0.287]
+            },
+            "transform": {
+              "position": [0,0.005,0.143]
+            },
+            "parent": "lid-hinge"
+          },
+          {
+            "id": "hinge-pin",
+            "semanticType": "mep.hvac.duct-access-module.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#638095"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.1,0.133,-0.143],
+              "end": [0.44,0.133,-0.143],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pull",
+            "semanticType": "mep.hvac.duct-access-module.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#c58a54"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.074,0.016,0.022]
+            },
+            "transform": {
+              "position": [0,0.016,0.247]
+            },
+            "parent": "lid-hinge"
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.54,0,0],
+            "direction": [1,0,0]
+          },
+          "inspection": {
+            "position": [0.27,0.12,0],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "open-access",
+            "target": "lid-hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [-1.42,0,0],
+            "duration": 1.2,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.rectangular-duct-damper",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形风管 · 手动调节阀",
+  "summary": "具有阀壳、可转动阀片、贯通转轴和外侧手柄的风管调节阀示意构件。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.duct.damper",
+  "capabilities": ["attach", "inspect-structure", "animate"],
+  "tags": ["机电", "风管", "风阀", "手柄", "基础构件"],
+  "anchors": ["start", "end", "handle-axis"],
+  "ai": {
+    "intent": "表达风管阀体与外侧手柄的联动，提供可被检修空间或操作包络引用的轴点。",
+    "editableParts": ["hinge.transform.rotation[0] 调整阀片与手柄的预览角度", "damper-swing 动画演示杠杆和阀片共同转动"],
+    "qualityChecks": ["风管接口的默认外宽与外高应对应相邻管段。", "检查实际项目要求的手柄操作范围和外侧留空。"]
+  },
+  "editor": { "document": {
+    "id": "rectangular-duct-damper", "component": "core.composition",
+    "parameters": {
+      "nodes": [
+        { "id": "housing", "semanticType": "mep.duct.damper-housing", "material": "galvanized-steel",
+          "appearance": { "color": "#98a8b5", "metalness": 0.35, "roughness": 0.55 },
+          "geometry": { "type": "rectangular-duct", "points": [[0,0,0],[0,0,0.22]], "up": [0,1,0],
+            "sectionWidth": 0.6, "sectionHeight": 0.35, "thickness": 0.004 } },
+        { "id": "hinge", "semanticType": "mep.duct.damper-axis", "transform": { "position": [0,0,0.11], "rotation": [0.45,0,0] } },
+        { "id": "blade", "parent": "hinge", "semanticType": "mep.duct.damper-blade", "material": "steel",
+          "appearance": { "color": "#8795a0" }, "geometry": { "type": "box", "size": [0.582,0.332,0.008] } },
+        { "id": "shaft", "parent": "hinge", "semanticType": "mep.duct.damper-shaft", "material": "steel",
+          "appearance": { "color": "#687980" }, "geometry": { "type": "cylinder-between", "start": [-0.32,0,0], "end": [0.38,0,0], "radius": 0.012 } },
+        { "id": "handle", "parent": "hinge", "semanticType": "mep.duct.damper-handle", "material": "coated-steel",
+          "appearance": { "color": "#e9a84e" }, "geometry": { "type": "cylinder-between", "start": [0.38,0,0], "end": [0.38,0.16,0], "radius": 0.016 } }
+      ],
+      "anchors": {
+        "start": { "node": "housing", "onGeometry": { "type": "sweep-end", "end": "start" } },
+        "end": { "node": "housing", "onGeometry": { "type": "sweep-end", "end": "end" } },
+        "handle-axis": { "node": "hinge", "position": [0.38,0,0], "direction": [1,0,0] }
+      },
+      "animations": [{ "id": "damper-swing", "target": "hinge", "property": "rotation", "from": [0,0,0], "to": [0.65,0,0], "duration": 2, "loop": false }]
+    }
+  } }
+}

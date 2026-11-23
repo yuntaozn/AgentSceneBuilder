@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.removable-crank-key-for-operable-acoustic-partition",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "活动隔墙压条可拔曲柄",
+  "summary": "端部六角短杆插入操作座，外端卷柄用另一种材质标出。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.operable-partition.seal-crank-key",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内隔断",
+    "六角曲柄",
+    "操作杆",
+    "压条"
+  ],
+  "anchors": [
+    "key",
+    "handle"
+  ],
+  "ai": {
+    "intent": "端部六角短杆插入操作座，外端卷柄用另一种材质标出。",
+    "editableParts": [
+      "可分别编辑 hex-drive-tip、curved-shank、ergonomic-handle。"
+    ],
+    "qualityChecks": [
+      "六角轴端与独立操作座同轴。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "removable-crank-key-for-operable-acoustic-partition",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "hex-drive-tip",
+            "semanticType": "construction.operable-partition.key.tip",
+            "material": "steel",
+            "appearance": {
+              "color": "#b28b66"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.023]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.01,0],
+                [0.005000000000000001,0.008660254037844387],
+                [-0.0049999999999999975,0.008660254037844387],
+                [-0.01,1.2246467991473532e-18],
+                [-0.0050000000000000044,-0.008660254037844385],
+                [0.005000000000000001,-0.008660254037844387]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "curved-shank",
+            "semanticType": "construction.operable-partition.key.shank",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,0],
+                [0,0,0.106],
+                [0.026,0,0.142],
+                [0.092,0,0.142]
+              ],
+              "radius": 0.008
+            }
+          },
+          {
+            "id": "ergonomic-handle",
+            "semanticType": "construction.operable-partition.key.handle",
+            "material": "plastic",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.057,0,0.142],
+              "end": [0.105,0,0.142],
+              "radius": 0.014,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "key": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "handle": {
+            "position": [0.105,0,0.142],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

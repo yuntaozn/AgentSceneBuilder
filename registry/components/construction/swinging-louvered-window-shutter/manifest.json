@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.swinging-louvered-window-shutter",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可转百叶外窗护扇",
+  "summary": "带真实开格的外窗百叶扇连独立墙侧铰轴，可在洞口前模拟打开。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.opening.swinging-window-shutter",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门窗",
+    "五金"
+  ],
+  "anchors": [
+    "wall",
+    "hinge-axis",
+    "latch-point"
+  ],
+  "ai": {
+    "intent": "为墙面窗户添加可单独开启的遮挡扇。",
+    "editableParts": [
+      "编辑百叶开格、靠墙铰座和手柄。"
+    ],
+    "qualityChecks": [
+      "铰座保持位置，不随护扇转动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "swinging-louvered-window-shutter",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-hinge-0",
+            "semanticType": "construction.opening.swinging-exterior-shutter.mount",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.074,0.055,0.033]
+            },
+            "transform": {
+              "position": [-0.042,0.19,0.014]
+            }
+          },
+          {
+            "id": "wall-hinge-1",
+            "semanticType": "construction.opening.swinging-exterior-shutter.mount",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.074,0.055,0.033]
+            },
+            "transform": {
+              "position": [-0.042,1.22,0.014]
+            }
+          },
+          {
+            "id": "shutter-pivot",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0.026]
+            }
+          },
+          {
+            "id": "leaf",
+            "semanticType": "construction.opening.swinging-exterior-shutter.louver",
+            "material": "wood",
+            "appearance": {
+              "color": "#b2916d"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 1.37,
+              "railHeight": 0.54,
+              "thickness": 0.043,
+              "memberWidth": 0.038,
+              "bayCount": 12
+            },
+            "parent": "shutter-pivot",
+            "transform": {
+              "position": [0.54,0.706,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "lever",
+            "semanticType": "construction.opening.swinging-exterior-shutter.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.063,0.024,0.044]
+            },
+            "transform": {
+              "position": [0.485,0.723,0.025]
+            },
+            "parent": "shutter-pivot"
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [-0.044,0.704,0],
+            "direction": [0,0,-1]
+          },
+          "hinge-axis": {
+            "position": [0,0.704,0.026],
+            "direction": [0,1,0]
+          },
+          "latch-point": {
+            "node": "shutter-pivot",
+            "position": [0.54,0.723,0.026],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "swing-shutter",
+            "target": "shutter-pivot",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.42,0],
+            "duration": 1.2,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

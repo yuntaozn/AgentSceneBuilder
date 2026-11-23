@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.lined-elevator-sliding-guide-shoe",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带可换衬块的滑动导靴",
+  "summary": "U 形钢壳与三块内衬，保留导轨通过的直槽和独立轿架安装背面。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.lined-sliding-guide-shoe",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "导靴",
+    "滑动",
+    "衬块"
+  ],
+  "anchors": [
+    "rail",
+    "frame"
+  ],
+  "ai": {
+    "intent": "用带内衬的独立导靴表达滑动导向。",
+    "editableParts": [
+      "开槽壳体",
+      "左右衬片",
+      "端部衬片"
+    ],
+    "qualityChecks": [
+      "内衬之间保留轨刃厚度，背板维持平面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "lined-elevator-sliding-guide-shoe",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "guide-shoe-shell",
+            "semanticType": "mep.elevator.sliding-guide-shoe.shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.081,0],
+                [0,0.081,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.057,-0.042],
+                [-0.038,-0.042],
+                [-0.038,0.052],
+                [0.038,0.052],
+                [0.038,-0.042],
+                [0.057,-0.042],
+                [0.057,0.072],
+                [-0.057,0.072]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "side-liner-0",
+            "semanticType": "mep.elevator.sliding-guide-shoe.liner",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e4ddbd"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.02,0.143,0.035]
+            },
+            "transform": {
+              "position": [-0.02,0,-0.019]
+            }
+          },
+          {
+            "id": "side-liner-1",
+            "semanticType": "mep.elevator.sliding-guide-shoe.liner",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e4ddbd"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.02,0.143,0.035]
+            },
+            "transform": {
+              "position": [0.02,0,-0.019]
+            }
+          },
+          {
+            "id": "tip-liner",
+            "semanticType": "mep.elevator.sliding-guide-shoe.liner",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e4ddbd"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.057,0.143,0.013]
+            },
+            "transform": {
+              "position": [0,0,0.0065]
+            }
+          },
+          {
+            "id": "frame-bracket",
+            "semanticType": "mep.elevator.sliding-guide-shoe.mount",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.138,0.081,0.018]
+            },
+            "transform": {
+              "position": [0,0,0.079]
+            }
+          }
+        ],
+        "anchors": {
+          "rail": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "frame": {
+            "position": [0,0,0.088],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,157 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.dogleg-stair",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双跑折返楼梯",
+  "summary": "由上下两段楼梯与中部休息平台组成，整体带上下楼层定位点。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.stair.dogleg",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "楼梯",
+    "休息平台",
+    "折返"
+  ],
+  "anchors": [
+    "lower-landing",
+    "upper-landing",
+    "lower-run-end",
+    "upper-run-start",
+    "lower-side",
+    "upper-side"
+  ],
+  "ai": {
+    "intent": "在开间内整体定位带休息平台的两段折返楼梯。",
+    "editableParts": [
+      "分别编辑两段楼梯和中间平台",
+      "调整级高或踏步数后同步移动平台和第二段楼梯"
+    ],
+    "qualityChecks": [
+      "使用内部连接检查平台与两跑对齐。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "dogleg-stair",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lower-run",
+            "semanticType": "structure.stair.flight",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a7afb4"
+            },
+            "geometry": {
+              "type": "straight-stair",
+              "stepCount": 8,
+              "riserHeight": 0.17,
+              "treadDepth": 0.28,
+              "width": 1.1
+            },
+            "transform": {
+              "position": [-0.65,0,0]
+            }
+          },
+          {
+            "id": "middle-landing",
+            "semanticType": "structure.stair.landing",
+            "material": "concrete",
+            "appearance": {
+              "color": "#9fa9ad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.4,0.18,1.1]
+            },
+            "transform": {
+              "position": [0,1.27,2.79]
+            }
+          },
+          {
+            "id": "upper-run",
+            "semanticType": "structure.stair.flight",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a7afb4"
+            },
+            "geometry": {
+              "type": "straight-stair",
+              "stepCount": 8,
+              "riserHeight": 0.17,
+              "treadDepth": 0.28,
+              "width": 1.1
+            },
+            "transform": {
+              "position": [0.65,1.36,2.24],
+              "rotation": [0,3.141592653589793,0]
+            }
+          }
+        ],
+        "anchors": {
+          "lower-landing": {
+            "node": "lower-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "lower-landing"
+            }
+          },
+          "upper-landing": {
+            "node": "upper-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "upper-landing"
+            }
+          },
+          "lower-run-end": {
+            "node": "lower-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "upper-landing"
+            }
+          },
+          "upper-run-start": {
+            "node": "upper-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "lower-landing"
+            }
+          },
+          "lower-side": {
+            "node": "middle-landing",
+            "position": [-0.65,0.09,-0.55],
+            "direction": [0,0,-1]
+          },
+          "upper-side": {
+            "node": "middle-landing",
+            "position": [0.65,0.09,-0.55],
+            "direction": [0,0,-1]
+          }
+        },
+        "attachments": [
+          {
+            "from": "lower-run-end",
+            "to": "lower-side",
+            "contract": {
+              "direction": "opposed"
+            }
+          },
+          {
+            "from": "upper-run-start",
+            "to": "upper-side",
+            "contract": {
+              "direction": "opposed"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

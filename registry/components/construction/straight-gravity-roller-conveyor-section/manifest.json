@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.straight-gravity-roller-conveyor-section",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "直线重力辊道段",
+  "summary": "两侧槽梁、重复辊子和下装横梁，首尾可以连续接另外的辊道。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.warehouse.straight-gravity-roller-conveyor",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "仓储",
+    "物流",
+    "辊道",
+    "输送",
+    "滚筒"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "left-stand",
+    "right-stand",
+    "top"
+  ],
+  "ai": {
+    "intent": "按同一运输面标高连续拼接直线滚筒段。",
+    "editableParts": [
+      "旁梁",
+      "滚筒阵列",
+      "底托"
+    ],
+    "qualityChecks": [
+      "端点方向沿输送轴，辊面水平。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "straight-gravity-roller-conveyor-section",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "side-rail-0",
+            "semanticType": "construction.warehouse.straight-gravity-roller.side-rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.28,0.058,0.037]
+            },
+            "transform": {
+              "position": [0,0.029,-0.289]
+            }
+          },
+          {
+            "id": "side-rail-1",
+            "semanticType": "construction.warehouse.straight-gravity-roller.side-rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.28,0.058,0.037]
+            },
+            "transform": {
+              "position": [0,0.029,0.289]
+            }
+          },
+          {
+            "id": "stainless-roller",
+            "semanticType": "construction.warehouse.straight-gravity-roller.roller",
+            "material": "steel",
+            "appearance": {
+              "color": "#a1afad"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.048,-0.27],
+              "end": [0,0.048,0.27],
+              "radius": 0.023,
+              "radialSegments": 20
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 13,
+              "start": [-0.596,0,0],
+              "step": [0.0993,0,0]
+            }
+          },
+          {
+            "id": "under-crossbar-0",
+            "semanticType": "construction.warehouse.straight-gravity-roller.support-tie",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.048,0.029,0.601]
+            },
+            "transform": {
+              "position": [-0.458,0.0145,0]
+            }
+          },
+          {
+            "id": "under-crossbar-1",
+            "semanticType": "construction.warehouse.straight-gravity-roller.support-tie",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.048,0.029,0.601]
+            },
+            "transform": {
+              "position": [0.458,0.0145,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [-0.64,0.071,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.64,0.071,0],
+            "direction": [1,0,0]
+          },
+          "left-stand": {
+            "position": [-0.458,0,0],
+            "direction": [0,-1,0]
+          },
+          "right-stand": {
+            "position": [0.458,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,0.071,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

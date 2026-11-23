@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.hollow-core-longitudinal-shear-key-grout",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "空心板纵缝灌浆键",
+  "summary": "灌浆截面中间变宽并进入两侧侧键，施工样例可独立显示纵缝。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.floor.hollow-core-shear-key-grout",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "灌浆",
+    "剪力键",
+    "板缝"
+  ],
+  "anchors": [
+    "key-near",
+    "key-far",
+    "top"
+  ],
+  "ai": {
+    "intent": "填充相邻空心板的纵向剪力键，保留材质和几何检查。",
+    "editableParts": [
+      "两侧键形",
+      "接缝宽度",
+      "顶部标高"
+    ],
+    "qualityChecks": [
+      "边缘凸形同时吻合两块板的凹口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hollow-core-longitudinal-shear-key-grout",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "longitudinal-grout",
+            "semanticType": "prefab.floor.hollow-key-grout.body",
+            "material": "grout",
+            "appearance": {
+              "color": "#b2a593"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [2.6,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.006,0.051],
+                [0.006,0.051],
+                [0.017,0.0666],
+                [0.017,0.1184],
+                [0.006,0.134],
+                [0.006,0.185],
+                [-0.006,0.185],
+                [-0.006,0.134],
+                [-0.017,0.1184],
+                [-0.017,0.0666]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "key-near": {
+            "position": [1.3,0.0925,0.006],
+            "direction": [0,0,1]
+          },
+          "key-far": {
+            "position": [1.3,0.0925,-0.006],
+            "direction": [0,0,-1]
+          },
+          "top": {
+            "position": [1.3,0.185,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

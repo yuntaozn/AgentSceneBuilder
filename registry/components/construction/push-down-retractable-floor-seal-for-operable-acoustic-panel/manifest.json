@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.push-down-retractable-floor-seal-for-operable-acoustic-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "活动隔墙可下压伸缩密封条",
+  "summary": "铝槽固定在隔墙底边，内部橡胶唇随伸缩鞋下降贴地。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.operable-partition.retractable-floor-seal",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内隔断",
+    "伸缩密封",
+    "隔墙",
+    "地封"
+  ],
+  "anchors": [
+    "panel",
+    "rest-seal"
+  ],
+  "ai": {
+    "intent": "铝槽固定在隔墙底边，内部橡胶唇随伸缩鞋下降贴地。",
+    "editableParts": [
+      "可分别编辑 carrier、seal-slider、expanding-shoe、soft-lip-1、soft-lip-2。"
+    ],
+    "qualityChecks": [
+      "默认可回缩，压下行程为 30 mm，固定槽保持在门板底面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "push-down-retractable-floor-seal-for-operable-acoustic-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "carrier",
+            "semanticType": "construction.operable-partition.floor-seal.outer-carrier",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.384,0,0],
+                [0.384,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.042,0],
+                [0.042,0],
+                [0.042,-0.049],
+                [0.032,-0.049],
+                [0.032,-0.01],
+                [-0.032,-0.01],
+                [-0.032,-0.049],
+                [-0.042,-0.049]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "seal-slider",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "expanding-shoe",
+            "semanticType": "construction.operable-partition.floor-seal.inner-shoe",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.756,0.025,0.056]
+            },
+            "transform": {
+              "position": [0,-0.028,0]
+            },
+            "parent": "seal-slider"
+          },
+          {
+            "id": "soft-lip-1",
+            "semanticType": "construction.operable-partition.floor-seal.rubber",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.76,0.017,0.01]
+            },
+            "transform": {
+              "position": [0,-0.045,-0.023]
+            },
+            "parent": "seal-slider"
+          },
+          {
+            "id": "soft-lip-2",
+            "semanticType": "construction.operable-partition.floor-seal.rubber",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.76,0.017,0.01]
+            },
+            "transform": {
+              "position": [0,-0.045,0.023]
+            },
+            "parent": "seal-slider"
+          }
+        ],
+        "anchors": {
+          "panel": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "rest-seal": {
+            "position": [0,-0.0535,0],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "lower-floor-seal",
+            "target": "seal-slider",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,-0.03,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

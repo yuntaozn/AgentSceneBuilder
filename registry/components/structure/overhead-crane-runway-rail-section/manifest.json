@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.overhead-crane-runway-rail-section",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带倒角轨头的行车轨道段",
+  "summary": "实体轨头、轨腰和轨底截面，轨头、轨底两翼与两端点可随尺寸调整。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.crane.crane-runway-rail",
+  "capabilities": [
+    "resize",
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "行车",
+    "吊装",
+    "轨道",
+    "轨头",
+    "跨度"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.14
+    },
+    "headWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.056
+    },
+    "footWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.112
+    },
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.092
+    },
+    "headThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.025
+    },
+    "footThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.014
+    },
+    "webThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.02
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "bed",
+    "running-head",
+    "foot-near",
+    "foot-far"
+  ],
+  "ai": {
+    "intent": "在厂房行车通道中拼接独立轨段，保留轮面和扣件锚点。",
+    "editableParts": [
+      "轨长",
+      "轨头宽",
+      "轨腰厚",
+      "轨底厚"
+    ],
+    "qualityChecks": [
+      "轮面部位和轨脚可分别检查。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "overhead-crane-runway-rail-section",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "structure.crane.runway-rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#849da3"
+            },
+            "geometry": {
+              "type": "overhead-crane-runway-rail",
+              "length": 2.14,
+              "headWidth": 0.056,
+              "footWidth": 0.112,
+              "height": 0.092,
+              "headThickness": 0.025,
+              "footThickness": 0.014,
+              "webThickness": 0.02
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "bed": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bed"
+            }
+          },
+          "running-head": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "running-head"
+            }
+          },
+          "foot-near": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "foot-near"
+            }
+          },
+          "foot-far": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "foot-far"
+            }
+          }
+        }
+      }
+    }
+  }
+}

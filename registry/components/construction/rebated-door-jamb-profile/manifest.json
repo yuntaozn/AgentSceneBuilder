@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.rebated-door-jamb-profile",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带门止口的木门框型材",
+  "summary": "连续阶边留出门扇贴边与门止口，可单独做竖框或上框。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.opening.rebated-door-jamb",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门窗",
+    "五金"
+  ],
+  "anchors": [
+    "lower",
+    "upper",
+    "door-seat",
+    "jamb-inside"
+  ],
+  "ai": {
+    "intent": "可独立旋转门框截面从洞口中拼装。",
+    "editableParts": [
+      "编辑阶边、胶条截面和长度。"
+    ],
+    "qualityChecks": [
+      "门扇靠门止口侧。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rebated-door-jamb-profile",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "jamb",
+            "semanticType": "construction.opening.rebated-door-jamb",
+            "material": "timber",
+            "appearance": {
+              "color": "#b2916d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.11,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.042,-0.055],
+                [0.034,-0.055],
+                [0.034,0.044],
+                [-0.014,0.044],
+                [-0.014,0.009],
+                [-0.042,0.009]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "seal",
+            "semanticType": "construction.opening.rebated-door-jamb.seal",
+            "material": "rubber",
+            "appearance": {
+              "color": "#475960"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.11,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.011,0.018],
+                [-0.003,0.018],
+                [-0.003,0.028],
+                [-0.011,0.028]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "lower": {
+            "node": "jamb",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "upper": {
+            "node": "jamb",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "door-seat": {
+            "position": [0.041,1.055,0.009],
+            "direction": [0,0,1]
+          },
+          "jamb-inside": {
+            "position": [0.042,1.055,-0.016],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.curb-corner",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "转角路缘石",
+  "summary": "通过 90 度转角过渡两段直路缘石，外缘保持连续倒角。",
+  "license": "Apache-2.0",
+  "semanticType": "site.paving.curb-corner",
+  "capabilities": [
+    "path-edit",
+    "attach"
+  ],
+  "tags": [
+    "建筑",
+    "室外",
+    "基础构件",
+    "铺装"
+  ],
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "连接人行铺装与车道路缘的正交转角。",
+    "editableParts": [
+      "编辑两段路径和截面坐标"
+    ],
+    "qualityChecks": [
+      "与默认直路缘石拼装时保持相同截面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "curb-corner",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "corner",
+            "semanticType": "site.paving.curb-corner",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.5,0,0],
+                [0.5,0,0.5]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.09,0],
+                [0.09,0],
+                [0.09,0.25],
+                [-0.045,0.25],
+                [-0.09,0.205]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "corner",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "corner",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.guardrail-toe-board",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "栏杆踢脚挡板",
+  "summary": "立板、外折边和重复固定夹组成，沿平台边缘衔接。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.circulation.guardrail-toe-board",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "交通",
+    "楼梯",
+    "栏杆"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "mount"
+  ],
+  "ai": {
+    "intent": "作为料台、钢楼梯或护栏边缘的独立挡板。",
+    "editableParts": [
+      "编辑折边和夹件排布。"
+    ],
+    "qualityChecks": [
+      "起终点可沿平台边连续拼接。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "guardrail-toe-board",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "toe-plate",
+            "semanticType": "construction.circulation.toe-board.body",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.2,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.004,0],
+                [0.022,0],
+                [0.022,0.006],
+                [0.002,0.006],
+                [0.002,0.111],
+                [-0.024,0.111],
+                [-0.024,0.105],
+                [-0.004,0.105]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "cleat",
+            "semanticType": "construction.circulation.toe-board.bracket",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.025,0.034]
+            },
+            "transform": {
+              "position": [0,0.0125,-0.01]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [0.119,0,0],
+              "step": [0.481,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "toe-plate",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "toe-plate",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "mount": {
+            "position": [0.6,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

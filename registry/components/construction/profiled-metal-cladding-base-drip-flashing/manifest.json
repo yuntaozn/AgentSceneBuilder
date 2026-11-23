@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.profiled-metal-cladding-base-drip-flashing",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "压型外墙底口斜坡滴水收边",
+  "summary": "后立边、斜向外挑坡和折回滴口的实体薄片，带独立墙板和底台座。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.industrial.cladding-base-drip-flashing",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "钢结构",
+    "厂房",
+    "滴水",
+    "底口",
+    "外墙"
+  ],
+  "anchors": [
+    "back",
+    "panel",
+    "drip",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "将连续外墙底口与底部外排水滴口独立建模。",
+    "editableParts": [
+      "背部竖边",
+      "排水坡",
+      "外折滴口"
+    ],
+    "qualityChecks": [
+      "外端低于墙板座，坡面朝外。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "profiled-metal-cladding-base-drip-flashing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base-drip-extrusion",
+            "semanticType": "construction.industrial.cladding-base-drip-flash.flashing",
+            "material": "steel",
+            "appearance": {
+              "color": "#85999e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.63,0,0],
+                [0.63,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.009,0.083],
+                [0.009,0.01],
+                [-0.117,-0.019],
+                [-0.125,-0.041],
+                [-0.118,-0.044],
+                [-0.111,-0.025],
+                [0.015,0.005],
+                [0.015,0.083]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "back": {
+            "position": [0,0.042,-0.015],
+            "direction": [0,0,-1]
+          },
+          "panel": {
+            "position": [0,0.009,0],
+            "direction": [0,1,0]
+          },
+          "drip": {
+            "position": [0,-0.044,0.118],
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "position": [-0.63,0.01,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.63,0.01,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

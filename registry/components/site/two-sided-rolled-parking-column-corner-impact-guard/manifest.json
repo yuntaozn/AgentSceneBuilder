@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.two-sided-rolled-parking-column-corner-impact-guard",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "停车柱转角双翼防撞护套",
+  "summary": "两片弹性护面包住柱角，反光条和底座压片独立。",
+  "license": "Apache-2.0",
+  "semanticType": "site.parking.parking-column-corner-guard",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "停车与慢行",
+    "防撞护角",
+    "停车柱",
+    "反光"
+  ],
+  "anchors": [
+    "face-x",
+    "face-z",
+    "base"
+  ],
+  "ai": {
+    "intent": "两片弹性护面包住柱角，反光条和底座压片独立。",
+    "editableParts": [
+      "可分别编辑 soft-l-section、first-wing-reflector-1、other-wing-reflector-1、first-wing-reflector-2、other-wing-reflector-2。"
+    ],
+    "qualityChecks": [
+      "护套保持直角断面，与两柱面分别对接。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-sided-rolled-parking-column-corner-impact-guard",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "soft-l-section",
+            "semanticType": "site.parking.column-guard.cover",
+            "material": "rubber",
+            "appearance": {
+              "color": "#59686a"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.681,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [0.129,0],
+                [0.129,0.019],
+                [0.024,0.019],
+                [0.019,0.03],
+                [0.019,0.128],
+                [0,0.128]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "first-wing-reflector-1",
+            "semanticType": "site.parking.column-guard.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c09555"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.087,0.004]
+            },
+            "transform": {
+              "position": [-0.071,0.154,0.021]
+            }
+          },
+          {
+            "id": "other-wing-reflector-1",
+            "semanticType": "site.parking.column-guard.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c09555"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.087,0.084]
+            },
+            "transform": {
+              "position": [-0.021,0.154,0.072]
+            }
+          },
+          {
+            "id": "first-wing-reflector-2",
+            "semanticType": "site.parking.column-guard.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c09555"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.087,0.004]
+            },
+            "transform": {
+              "position": [-0.071,0.421,0.021]
+            }
+          },
+          {
+            "id": "other-wing-reflector-2",
+            "semanticType": "site.parking.column-guard.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c09555"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.087,0.084]
+            },
+            "transform": {
+              "position": [-0.021,0.421,0.072]
+            }
+          }
+        ],
+        "anchors": {
+          "face-x": {
+            "position": [0,0.34,0.073],
+            "direction": [1,0,0]
+          },
+          "face-z": {
+            "position": [-0.073,0.34,0],
+            "direction": [0,0,-1]
+          },
+          "base": {
+            "position": [-0.013,0,0.013],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

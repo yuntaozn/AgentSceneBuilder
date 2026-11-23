@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.roof-verge-flashing",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "山墙斜边收边",
+  "summary": "沿坡的上压翼和山墙侧下折边组成薄壁收边。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.verge-flashing",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "在山墙侧封住斜面板材的边缝。",
+    "editableParts": [
+      "修改沿坡路径与侧翻边。"
+    ],
+    "qualityChecks": [
+      "朝外的一侧应保持折边向下。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "roof-verge-flashing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "edge",
+            "semanticType": "construction.roof.verge-flashing",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.2,2.4]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.14,0],
+                [0.008,0],
+                [0.008,-0.085],
+                [-0.025,-0.104],
+                [-0.03,-0.096],
+                [0,-0.079],
+                [0,-0.008],
+                [-0.14,-0.008]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

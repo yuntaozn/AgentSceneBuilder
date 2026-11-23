@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.integral-radius-wall-to-tray-coving-strip",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "湿区墙地一体圆弧踢脚",
+  "summary": "圆弧把底盘与墙板连起来，背部密封边和底部定位片可编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.wet-room.wet-room-rounded-coving",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式湿区",
+    "圆弧踢脚",
+    "墙地交界",
+    "整体卫浴"
+  ],
+  "anchors": [
+    "tray",
+    "wall",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "圆弧把底盘与墙板连起来，背部密封边和底部定位片可编辑。",
+    "editableParts": [
+      "可分别编辑 sanitary-radius-coving、underfoot-seal。"
+    ],
+    "qualityChecks": [
+      "朝向湿区的弧线连续，胶边独立于装饰面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "integral-radius-wall-to-tray-coving-strip",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sanitary-radius-coving",
+            "semanticType": "prefab.wet-room.coving.curve",
+            "material": "plastic",
+            "appearance": {
+              "color": "#abb9ab"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.465,0,0],
+                [0.465,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.006,-0.007],
+                [0.054,-0.007],
+                [0.054,-0.003],
+                [0.041,0],
+                [0.03564842611897789,0.0003507606836737759],
+                [0.030388419150796653,0.001397041122148196],
+                [0.02530997927303132,0.0031209391670372413],
+                [0.020500000000000004,0.005492958444838013],
+                [0.016040781410642455,0.008472513048059356],
+                [0.012008621971351555,0.012008621971351548],
+                [0.008472513048059356,0.016040781410642455],
+                [0.00549295844483802,0.020499999999999997],
+                [0.0031209391670372413,0.025309979273031316],
+                [0.001397041122148196,0.030388419150796653],
+                [0.0003507606836737759,0.03564842611897788],
+                [0,0.041],
+                [0,0.061],
+                [-0.006,0.061]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "underfoot-seal",
+            "semanticType": "prefab.wet-room.coving.flex",
+            "material": "rubber",
+            "appearance": {
+              "color": "#526569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.924,0.006,0.03]
+            },
+            "transform": {
+              "position": [0,0,-0.024]
+            }
+          }
+        ],
+        "anchors": {
+          "tray": {
+            "position": [0,-0.003,-0.024],
+            "direction": [0,-1,0]
+          },
+          "wall": {
+            "position": [0,0.052,0.006],
+            "direction": [0,0,1]
+          },
+          "start": {
+            "position": [-0.465,0.003,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.465,0.003,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

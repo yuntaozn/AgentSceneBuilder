@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.wall-spaced-elevator-pit-access-ladder",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "电梯底坑壁装直梯",
+  "summary": "壁座、两条梯架和防滑横档分开建模，梯宽和踏点可在示意模型中编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.wall-spaced-pit-ladder",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "底坑",
+    "检修梯",
+    "壁装"
+  ],
+  "anchors": [
+    "wall-low",
+    "wall-high",
+    "base"
+  ],
+  "ai": {
+    "intent": "将直梯的双壁座接到井道内侧。",
+    "editableParts": [
+      "悬离墙面的支座",
+      "立杆",
+      "横档阵列"
+    ],
+    "qualityChecks": [
+      "横档在同一竖面，支座朝墙。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "wall-spaced-elevator-pit-access-ladder",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stile-0",
+            "semanticType": "mep.elevator.pit-access-ladder.upright",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.032,1.36,0.035]
+            },
+            "transform": {
+              "position": [-0.172,0.682,0.156]
+            }
+          },
+          {
+            "id": "wall-pad-0-0",
+            "semanticType": "mep.elevator.pit-access-ladder.wall-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.066,0.012]
+            },
+            "transform": {
+              "position": [-0.172,0.115,0.006]
+            }
+          },
+          {
+            "id": "spacer-0-0",
+            "semanticType": "mep.elevator.pit-access-ladder.spacer",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.172,0.115,0.01],
+              "end": [-0.172,0.115,0.156],
+              "radius": 0.014,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "wall-pad-0-1",
+            "semanticType": "mep.elevator.pit-access-ladder.wall-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.066,0.012]
+            },
+            "transform": {
+              "position": [-0.172,1.248,0.006]
+            }
+          },
+          {
+            "id": "spacer-0-1",
+            "semanticType": "mep.elevator.pit-access-ladder.spacer",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.172,1.248,0.01],
+              "end": [-0.172,1.248,0.156],
+              "radius": 0.014,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "stile-1",
+            "semanticType": "mep.elevator.pit-access-ladder.upright",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.032,1.36,0.035]
+            },
+            "transform": {
+              "position": [0.172,0.682,0.156]
+            }
+          },
+          {
+            "id": "wall-pad-1-0",
+            "semanticType": "mep.elevator.pit-access-ladder.wall-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.066,0.012]
+            },
+            "transform": {
+              "position": [0.172,0.115,0.006]
+            }
+          },
+          {
+            "id": "spacer-1-0",
+            "semanticType": "mep.elevator.pit-access-ladder.spacer",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.172,0.115,0.01],
+              "end": [0.172,0.115,0.156],
+              "radius": 0.014,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "wall-pad-1-1",
+            "semanticType": "mep.elevator.pit-access-ladder.wall-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.066,0.012]
+            },
+            "transform": {
+              "position": [0.172,1.248,0.006]
+            }
+          },
+          {
+            "id": "spacer-1-1",
+            "semanticType": "mep.elevator.pit-access-ladder.spacer",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.172,1.248,0.01],
+              "end": [0.172,1.248,0.156],
+              "radius": 0.014,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "rung",
+            "semanticType": "mep.elevator.pit-access-ladder.rung",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.162,0.138,0.156],
+              "end": [0.162,0.138,0.156],
+              "radius": 0.015,
+              "radialSegments": 18
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [0,0,0],
+              "step": [0,0.212,0]
+            }
+          }
+        ],
+        "anchors": {
+          "wall-low": {
+            "position": [0,0.115,0],
+            "direction": [0,0,-1]
+          },
+          "wall-high": {
+            "position": [0,1.248,0],
+            "direction": [0,0,-1]
+          },
+          "base": {
+            "position": [0,0,0.156],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

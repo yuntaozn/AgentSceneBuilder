@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.strip-footing",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带基础墙条形基础",
+  "summary": "由连续底座和居中基础墙构成的 T 形条基，长度、两级宽度和高度可调。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.strip-footing",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础",
+    "条形基础",
+    "结构",
+    "基础构件"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 3.6
+    },
+    "footingWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.8
+    },
+    "footingThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.25
+    },
+    "stemWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.3
+    },
+    "stemHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.4
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "top-center"
+  ],
+  "editor": {
+    "document": {
+      "id": "strip-footing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.strip-footing",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "strip-footing",
+              "length": 3.6,
+              "footingWidth": 0.8,
+              "footingThickness": 0.25,
+              "stemWidth": 0.3,
+              "stemHeight": 0.4
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "top-center": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top-center"
+            }
+          }
+        }
+      }
+    }
+  }
+}

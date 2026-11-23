@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.horizontal-egress-door-push-bar",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "门扇横置推杆外壳",
+  "summary": "两端固定罩与一条独立推杆，推杆具有局部按压行程。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.opening.horizontal-push-bar",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门窗",
+    "五金"
+  ],
+  "anchors": [
+    "mount",
+    "press"
+  ],
+  "ai": {
+    "intent": "以可见推杆表示门扇外部操作方式。",
+    "editableParts": [
+      "编辑两罩、推面长度与预览行程。"
+    ],
+    "qualityChecks": [
+      "推杆运动不改变两端底座。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "horizontal-egress-door-push-bar",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "end-0",
+            "semanticType": "construction.opening.panic-push-bar.shoe",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.113,0.083,0.053]
+            },
+            "transform": {
+              "position": [-0.3,0,0.0265]
+            }
+          },
+          {
+            "id": "end-1",
+            "semanticType": "construction.opening.panic-push-bar.shoe",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.113,0.083,0.053]
+            },
+            "transform": {
+              "position": [0.3,0,0.0265]
+            }
+          },
+          {
+            "id": "pusher",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0.071]
+            }
+          },
+          {
+            "id": "bar",
+            "semanticType": "construction.opening.panic-push-bar.push",
+            "material": "steel",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.64,0.055,0.037]
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "pusher"
+          },
+          {
+            "id": "strip",
+            "semanticType": "construction.opening.panic-push-bar.trim",
+            "material": "polymer",
+            "appearance": {
+              "color": "#475960"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.537,0.016,0.004]
+            },
+            "transform": {
+              "position": [0,0,0.019]
+            },
+            "parent": "pusher"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "press": {
+            "node": "pusher",
+            "position": [0,0,0.021],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "press-bar",
+            "target": "pusher",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0,-0.018],
+            "duration": 0.28,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

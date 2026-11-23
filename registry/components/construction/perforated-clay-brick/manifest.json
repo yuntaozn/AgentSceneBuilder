@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.perforated-clay-brick",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "多孔烧结砖",
+  "summary": "成行成列的圆形贯通孔，孔径与行列数可独立调节。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.masonry.perforated-brick",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "砌体",
+    "墙体"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.24
+    },
+    "width": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.115
+    },
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.09
+    },
+    "holeDiameter": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.027
+    },
+    "columnCount": {
+      "type": "number",
+      "default": 5
+    },
+    "rowCount": {
+      "type": "number",
+      "default": 2
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "bottom",
+    "top",
+    "outer-face"
+  ],
+  "ai": {
+    "intent": "表达粘土砖与空心砌块不同的网状孔廓。",
+    "editableParts": [
+      "修改孔径和整数行列数。"
+    ],
+    "qualityChecks": [
+      "孔组应保持孔壁完整。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "perforated-clay-brick",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "block",
+            "semanticType": "construction.masonry.perforated-brick",
+            "material": "fired-clay",
+            "appearance": {
+              "color": "#ad7966"
+            },
+            "geometry": {
+              "type": "perforated-clay-brick",
+              "length": 0.24,
+              "width": 0.115,
+              "height": 0.09,
+              "holeDiameter": 0.027,
+              "columnCount": 5,
+              "rowCount": 2
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "bottom": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bottom"
+            }
+          },
+          "top": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top"
+            }
+          },
+          "outer-face": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "outer-face"
+            }
+          }
+        }
+      }
+    }
+  }
+}

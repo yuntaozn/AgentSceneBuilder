@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.dropped-curb-crossing-transition",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "路缘降坡过渡段",
+  "summary": "从高路缘逐渐降到通行段再回升，两端保留标准路缘接续位置。",
+  "license": "Apache-2.0",
+  "semanticType": "site.road.dropped-curb",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "室外",
+    "道路",
+    "铺装"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "crossing-center"
+  ],
+  "ai": {
+    "intent": "在步行道过街处展示路缘高度渐变。",
+    "editableParts": [
+      "分别编辑整段和低位通行区。"
+    ],
+    "qualityChecks": [
+      "两端基准保留高路缘石的底部定位。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "dropped-curb-crossing-transition",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "curb",
+            "semanticType": "site.road.dropped-curb",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 20,
+              "capStart": true,
+              "capEnd": true,
+              "sections": [
+                {
+                  "center": [0,0.125,0],
+                  "axisX": [0,0,-0.09],
+                  "axisZ": [0,0.125,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-0.52,1],
+                    [-1,0.64]
+                  ]
+                },
+                {
+                  "center": [0.72,0.0225,0],
+                  "axisX": [0,0,-0.09],
+                  "axisZ": [0,0.0225,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-0.52,1],
+                    [-1,0.64]
+                  ]
+                },
+                {
+                  "center": [2.28,0.0225,0],
+                  "axisX": [0,0,-0.09],
+                  "axisZ": [0,0.0225,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-0.52,1],
+                    [-1,0.64]
+                  ]
+                },
+                {
+                  "center": [3,0.125,0],
+                  "axisX": [0,0,-0.09],
+                  "axisZ": [0,0.125,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-0.52,1],
+                    [-1,0.64]
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [3,0,0],
+            "direction": [1,0,0]
+          },
+          "crossing-center": {
+            "position": [1.5,0.045,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

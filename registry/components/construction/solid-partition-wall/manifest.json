@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "0.1", "id": "construction.solid-partition-wall", "version": "0.1.0", "kind": "component",
+  "title": "实心直线隔墙", "summary": "底边固定在局部 Y=0 的直墙段，支持改墙宽、墙高和墙厚，两端带拼接点。",
+  "license": "Apache-2.0", "semanticType": "construction.partition-wall",
+  "capabilities": ["resize", "material", "attach"], "tags": ["建筑", "隔墙", "墙体", "基础构件"],
+  "parameters": {
+    "wallWidth": { "type": "number", "unit": "m", "default": 2.4 },
+    "wallHeight": { "type": "number", "unit": "m", "default": 2.8 },
+    "thickness": { "type": "number", "unit": "m", "default": 0.15 }
+  },
+  "anchors": ["wall-left", "wall-right"],
+  "editor": { "document": { "id": "solid-partition-wall", "component": "core.composition", "parameters": {
+    "nodes": [{ "id": "wall", "semanticType": "construction.partition-wall", "material": "plaster",
+      "appearance": { "color": "#c2b8a6" }, "geometry": { "type": "partition-wall", "wallWidth": 2.4, "wallHeight": 2.8, "thickness": 0.15 } }],
+    "anchors": {
+      "wall-left": { "node": "wall", "onGeometry": { "type": "feature", "name": "wall-left" } },
+      "wall-right": { "node": "wall", "onGeometry": { "type": "feature", "name": "wall-right" } }
+    }
+  } } }
+}

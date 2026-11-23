@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.double-sided-door-lever-handle",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双面执手与方轴",
+  "summary": "两侧玫瑰盖、曲柄执手和一根方轴可作为可拆五金，执手随轴转动。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.opening.lever-spindle-handle",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门窗",
+    "五金"
+  ],
+  "anchors": [
+    "door-back",
+    "door-front",
+    "axis"
+  ],
+  "ai": {
+    "intent": "表示可独立摆放的门扇操作手柄。",
+    "editableParts": [
+      "分别修改两端执手与中心方轴。"
+    ],
+    "qualityChecks": [
+      "安装点位于门扇两侧。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-sided-door-lever-handle",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rosette-0",
+            "semanticType": "construction.opening.lever-spindle-handle.trim",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.028],
+              "end": [0,0,-0.018],
+              "radius": 0.027,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "rosette-1",
+            "semanticType": "construction.opening.lever-spindle-handle.trim",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.018],
+              "end": [0,0,0.028],
+              "radius": 0.027,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "spindle-joint",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "spindle",
+            "semanticType": "construction.opening.lever-spindle-handle.axis",
+            "material": "steel",
+            "appearance": {
+              "color": "#c79259"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.008,0.068]
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "spindle-joint"
+          },
+          {
+            "id": "neck-0",
+            "semanticType": "construction.opening.lever-spindle-handle.neck",
+            "material": "steel",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.026],
+              "end": [0,0,-0.067],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "parent": "spindle-joint"
+          },
+          {
+            "id": "grip-0",
+            "semanticType": "construction.opening.lever-spindle-handle.grip",
+            "material": "steel",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.066],
+              "end": [-0.122,0.005,-0.064],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "parent": "spindle-joint"
+          },
+          {
+            "id": "neck-1",
+            "semanticType": "construction.opening.lever-spindle-handle.neck",
+            "material": "steel",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.026],
+              "end": [0,0,0.067],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "parent": "spindle-joint"
+          },
+          {
+            "id": "grip-1",
+            "semanticType": "construction.opening.lever-spindle-handle.grip",
+            "material": "steel",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.066],
+              "end": [0.122,0.005,0.064],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "parent": "spindle-joint"
+          }
+        ],
+        "anchors": {
+          "door-back": {
+            "position": [0,0,-0.023],
+            "direction": [0,0,1]
+          },
+          "door-front": {
+            "position": [0,0,0.023],
+            "direction": [0,0,-1]
+          },
+          "axis": {
+            "position": [0,0,0],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "turn-lever",
+            "target": "spindle-joint",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0,-0.37],
+            "duration": 0.42,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

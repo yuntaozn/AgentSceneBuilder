@@ -1,0 +1,331 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.top-branch-air-handling-mixing-chamber",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带顶部支口的空气混合段",
+  "summary": "两端开口、中间混合腔和可见顶部开口分别建模，便于对齐新风与回风。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.ahu-mixing-chamber",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "混合段",
+    "新风",
+    "回风"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "base",
+    "top-air"
+  ],
+  "ai": {
+    "intent": "把机组轴向端口与顶部空气支口分别插入。",
+    "editableParts": [
+      "两端框",
+      "混合空间",
+      "顶部支口"
+    ],
+    "qualityChecks": [
+      "顶腔与主管通透。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "top-branch-air-handling-mixing-chamber",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inlet-frame",
+            "semanticType": "mep.ahu.mixed-air-chamber.end-frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.31,0],
+                [0.022,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "outlet-frame",
+            "semanticType": "mep.ahu.mixed-air-chamber.end-frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.672,0.31,0],
+                [0.693,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "front-band",
+            "semanticType": "mep.ahu.mixed-air-chamber.shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.022,0.31,0],
+                [0.212,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.38,-0.29],
+                [0.38,-0.29],
+                [0.38,0.29],
+                [-0.38,0.29]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.356,-0.26599999999999996],
+                  [0.356,-0.26599999999999996],
+                  [0.356,0.26599999999999996],
+                  [-0.356,0.26599999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "rear-band",
+            "semanticType": "mep.ahu.mixed-air-chamber.shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.493,0.31,0],
+                [0.672,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.38,-0.29],
+                [0.38,-0.29],
+                [0.38,0.29],
+                [-0.38,0.29]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.356,-0.26599999999999996],
+                  [0.356,-0.26599999999999996],
+                  [0.356,0.26599999999999996],
+                  [-0.356,0.26599999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "center-side-0",
+            "semanticType": "mep.ahu.mixed-air-chamber.wall",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.281,0.58,0.026]
+            },
+            "transform": {
+              "position": [0.3525,0.31,-0.367]
+            }
+          },
+          {
+            "id": "center-side-1",
+            "semanticType": "mep.ahu.mixed-air-chamber.wall",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.281,0.58,0.026]
+            },
+            "transform": {
+              "position": [0.3525,0.31,0.367]
+            }
+          },
+          {
+            "id": "center-bottom",
+            "semanticType": "mep.ahu.mixed-air-chamber.floor",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.281,0.024,0.713]
+            },
+            "transform": {
+              "position": [0.3525,0.032,0]
+            }
+          },
+          {
+            "id": "cutout-roof",
+            "semanticType": "mep.ahu.mixed-air-chamber.open-top",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.3525,0.577,0],
+                [0.3525,0.6,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.1405,-0.357],
+                [0.1405,-0.357],
+                [0.1405,0.357],
+                [-0.1405,0.357]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.122,-0.205],
+                  [0.122,-0.205],
+                  [0.122,0.205],
+                  [-0.122,0.205]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "top-feed-neck",
+            "semanticType": "mep.ahu.mixed-air-chamber.fresh-air-throat",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.3525,0.6,0],
+                [0.3525,0.724,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.128,-0.2125],
+                [0.128,-0.2125],
+                [0.128,0.2125],
+                [-0.128,0.2125]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1145,-0.201],
+                  [0.1145,-0.201],
+                  [0.1145,0.201],
+                  [-0.1145,0.201]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "top-flange",
+            "semanticType": "mep.ahu.mixed-air-chamber.fresh-air-flange",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.3525,0.706,0],
+                [0.3525,0.724,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.1485,-0.231],
+                [0.1485,-0.231],
+                [0.1485,0.231],
+                [-0.1485,0.231]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.116,-0.201],
+                  [0.116,-0.201],
+                  [0.116,0.201],
+                  [-0.116,0.201]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0.31,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.693,0.31,0],
+            "direction": [1,0,0]
+          },
+          "base": {
+            "position": [0.3465,0.02,0],
+            "direction": [0,-1,0]
+          },
+          "top-air": {
+            "position": [0.3525,0.724,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

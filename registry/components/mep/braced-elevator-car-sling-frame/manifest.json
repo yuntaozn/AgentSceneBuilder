@@ -1,0 +1,299 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.braced-elevator-car-sling-frame",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带斜撑电梯轿架",
+  "summary": "上下横梁、两侧立柱、斜撑与导靴挂点，轿厢和缓冲碰板可分开装配。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.braced-car-sling-frame",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "轿架",
+    "导靴",
+    "轿厢"
+  ],
+  "anchors": [
+    "cabin",
+    "hoist",
+    "buffer",
+    "lower-left",
+    "lower-right",
+    "upper-left",
+    "upper-right"
+  ],
+  "ai": {
+    "intent": "把电梯轿厢与导靴分别装到轿架上。",
+    "editableParts": [
+      "上下横梁",
+      "两侧立柱",
+      "斜撑",
+      "四处导靴垫板"
+    ],
+    "qualityChecks": [
+      "上下导靴垫面沿同一竖线，缓冲碰板位于横梁正下方。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "braced-elevator-car-sling-frame",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lower-crosshead",
+            "semanticType": "mep.elevator.car-sling.lower-crosshead",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.59,0.098,0.173]
+            },
+            "transform": {
+              "position": [0,0.078,0]
+            }
+          },
+          {
+            "id": "upper-crosshead",
+            "semanticType": "mep.elevator.car-sling.upper-crosshead",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.61,0.092,0.128]
+            },
+            "transform": {
+              "position": [0,2.27,0]
+            }
+          },
+          {
+            "id": "side-upright-0",
+            "semanticType": "mep.elevator.car-sling.stile",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,2.147,0.095]
+            },
+            "transform": {
+              "position": [-0.765,1.177,0]
+            }
+          },
+          {
+            "id": "lower-brace-0",
+            "semanticType": "mep.elevator.car-sling.brace",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.37,0.119,0],
+                [-0.744,0.609,0]
+              ],
+              "radius": 0.021
+            }
+          },
+          {
+            "id": "upper-brace-0",
+            "semanticType": "mep.elevator.car-sling.brace",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.375,2.229,0],
+                [-0.744,1.79,0]
+              ],
+              "radius": 0.021
+            }
+          },
+          {
+            "id": "guide-pad-0-0",
+            "semanticType": "mep.elevator.car-sling.guide-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.047,0.148,0.172]
+            },
+            "transform": {
+              "position": [-0.8085,0.18,0]
+            }
+          },
+          {
+            "id": "guide-pad-0-1",
+            "semanticType": "mep.elevator.car-sling.guide-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.047,0.148,0.172]
+            },
+            "transform": {
+              "position": [-0.8085,2.16,0]
+            }
+          },
+          {
+            "id": "side-upright-1",
+            "semanticType": "mep.elevator.car-sling.stile",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,2.147,0.095]
+            },
+            "transform": {
+              "position": [0.765,1.177,0]
+            }
+          },
+          {
+            "id": "lower-brace-1",
+            "semanticType": "mep.elevator.car-sling.brace",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.37,0.119,0],
+                [0.744,0.609,0]
+              ],
+              "radius": 0.021
+            }
+          },
+          {
+            "id": "upper-brace-1",
+            "semanticType": "mep.elevator.car-sling.brace",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.375,2.229,0],
+                [0.744,1.79,0]
+              ],
+              "radius": 0.021
+            }
+          },
+          {
+            "id": "guide-pad-1-0",
+            "semanticType": "mep.elevator.car-sling.guide-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.047,0.148,0.172]
+            },
+            "transform": {
+              "position": [0.8085,0.18,0]
+            }
+          },
+          {
+            "id": "guide-pad-1-1",
+            "semanticType": "mep.elevator.car-sling.guide-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.047,0.148,0.172]
+            },
+            "transform": {
+              "position": [0.8085,2.16,0]
+            }
+          },
+          {
+            "id": "car-support",
+            "semanticType": "mep.elevator.car-sling.floor-tray",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.46,0.045,0.86]
+            },
+            "transform": {
+              "position": [0,0.163,0]
+            }
+          },
+          {
+            "id": "buffer-striker",
+            "semanticType": "mep.elevator.car-sling.striker",
+            "material": "steel",
+            "appearance": {
+              "color": "#c4a55f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.165,0.033,0.153]
+            },
+            "transform": {
+              "position": [0,0.0135,0]
+            }
+          }
+        ],
+        "anchors": {
+          "cabin": {
+            "position": [0,0.1855,0],
+            "direction": [0,1,0]
+          },
+          "hoist": {
+            "position": [0,2.316,0],
+            "direction": [0,1,0]
+          },
+          "buffer": {
+            "position": [0,-0.003,0],
+            "direction": [0,-1,0]
+          },
+          "lower-left": {
+            "position": [-0.832,0.18,0],
+            "direction": [-1,0,0]
+          },
+          "lower-right": {
+            "position": [0.832,0.18,0],
+            "direction": [1,0,0]
+          },
+          "upper-left": {
+            "position": [-0.832,2.16,0],
+            "direction": [-1,0,0]
+          },
+          "upper-right": {
+            "position": [0.832,2.16,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

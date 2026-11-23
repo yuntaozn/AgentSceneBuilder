@@ -1,0 +1,270 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.sloped-air-handler-condensate-drain-pan",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "空气处理凝结水斜底盘",
+  "summary": "两边侧沿、坡底槽、两个支脚和低位排水短节。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.sloped-ahu-condensate-pan",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "凝结水",
+    "集水盘",
+    "排水"
+  ],
+  "anchors": [
+    "mount",
+    "drain"
+  ],
+  "ai": {
+    "intent": "在盘管或加湿段旁分开表达低点集水与接管。",
+    "editableParts": [
+      "坡底",
+      "侧挡",
+      "排水短管"
+    ],
+    "qualityChecks": [
+      "底斜坡朝出水侧。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "sloped-air-handler-condensate-drain-pan",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "pan-left",
+            "semanticType": "mep.ahu.sloped-condensate-collection-pan.pan",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.32,0,0],
+                [-0.051,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.351,0],
+                [0.351,0],
+                [0.351,0.098],
+                [0.34,0.098],
+                [0.34,0.055],
+                [-0.34,0.031],
+                [-0.34,0.098],
+                [-0.351,0.098]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "pan-right",
+            "semanticType": "mep.ahu.sloped-condensate-collection-pan.pan",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.051,0,0],
+                [0.32,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.351,0],
+                [0.351,0],
+                [0.351,0.098],
+                [0.34,0.098],
+                [0.34,0.055],
+                [-0.34,0.031],
+                [-0.34,0.098],
+                [-0.351,0.098]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "sloped-open-center",
+            "semanticType": "mep.ahu.sloped-condensate-collection-pan.pan",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.051,0,0],
+                [0.051,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.351,0],
+                [0.351,0],
+                [0.351,0.098],
+                [0.34,0.098],
+                [0.34,0.055],
+                [-0.34,0.031],
+                [-0.351,0.031]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "pan-wall-with-drain-bore",
+            "semanticType": "mep.ahu.sloped-condensate-collection-pan.pan",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "material": "steel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.049,0.32499999999999996],
+                [0,0.049,0.351]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.051,-0.049],
+                [0.051,-0.049],
+                [0.051,0.049],
+                [-0.051,0.049]
+              ],
+              "holes": [
+                [
+                  [0.0205,-0.007],
+                  [0.019801479438925903,-0.0016942095753983248],
+                  [0.017753520777580994,0.0032499999999999985],
+                  [0.014495689014324227,0.007495689014324223],
+                  [0.010250000000000002,0.010753520777580992],
+                  [0.005305790424601675,0.012801479438925904],
+                  [1.2552629691260371e-18,0.013500000000000002],
+                  [-0.005305790424601673,0.012801479438925904],
+                  [-0.010249999999999995,0.010753520777580995],
+                  [-0.014495689014324223,0.0074956890143242265],
+                  [-0.017753520777580994,0.0032499999999999985],
+                  [-0.0198014794389259,-0.0016942095753983187],
+                  [-0.0205,-0.0069999999999999975],
+                  [-0.019801479438925903,-0.012305790424601677],
+                  [-0.017753520777580998,-0.017249999999999995],
+                  [-0.014495689014324232,-0.021495689014324217],
+                  [-0.010250000000000009,-0.02475352077758099],
+                  [-0.005305790424601673,-0.026801479438925902],
+                  [-3.765788907378111e-18,-0.0275],
+                  [0.005305790424601667,-0.026801479438925902],
+                  [0.010250000000000002,-0.02475352077758099],
+                  [0.014495689014324221,-0.021495689014324228],
+                  [0.017753520777580988,-0.01725000000000001],
+                  [0.019801479438925896,-0.012305790424601693]
+                ]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "end-dam-0",
+            "semanticType": "mep.ahu.sloped-condensate-collection-pan.end-closure",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.091,0.698]
+            },
+            "transform": {
+              "position": [-0.32,0.049,0]
+            }
+          },
+          {
+            "id": "end-dam-1",
+            "semanticType": "mep.ahu.sloped-condensate-collection-pan.end-closure",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.091,0.698]
+            },
+            "transform": {
+              "position": [0.32,0.049,0]
+            }
+          },
+          {
+            "id": "drain-stub",
+            "semanticType": "mep.ahu.sloped-condensate-collection-pan.drain-port",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0.042,0.319],
+                [0,0.042,0.414]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.04,
+              "thickness": 0.004
+            }
+          },
+          {
+            "id": "bottom-foot-0",
+            "semanticType": "mep.ahu.sloped-condensate-collection-pan.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.05,0.017,0.588]
+            },
+            "transform": {
+              "position": [-0.23,-0.0085,0]
+            }
+          },
+          {
+            "id": "bottom-foot-1",
+            "semanticType": "mep.ahu.sloped-condensate-collection-pan.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.05,0.017,0.588]
+            },
+            "transform": {
+              "position": [0.23,-0.0085,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,-0.017,0],
+            "direction": [0,-1,0]
+          },
+          "drain": {
+            "position": [0,0.042,0.414],
+            "direction": [0,0,1],
+            "outsideDiameter": 0.04,
+            "kind": "pipe-port"
+          }
+        }
+      }
+    }
+  }
+}

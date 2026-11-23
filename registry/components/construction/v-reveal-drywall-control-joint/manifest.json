@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.v-reveal-drywall-control-joint",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "V 形石膏板伸缩分缝条",
+  "summary": "两翼压条与中央 V 形凹缝形成统一收口，面板可分别接左右边。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.interior.drywall-control-joint",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内构造",
+    "收边",
+    "隔墙"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "bottom",
+    "top"
+  ],
+  "ai": {
+    "intent": "在连续石膏板面表达独立分缝线。",
+    "editableParts": [
+      "编辑压条宽度、长度和中心凹槽。"
+    ],
+    "qualityChecks": [
+      "中心折槽可沿 Y 连续排列。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "v-reveal-drywall-control-joint",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "left-strip",
+            "semanticType": "construction.interior.plaster-reveal.flange",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.044,2.6,0.002]
+            },
+            "transform": {
+              "position": [-0.025,1.3,0]
+            }
+          },
+          {
+            "id": "right-strip",
+            "semanticType": "construction.interior.plaster-reveal.flange",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.044,2.6,0.002]
+            },
+            "transform": {
+              "position": [0.025,1.3,0]
+            }
+          },
+          {
+            "id": "v-fold",
+            "semanticType": "construction.interior.plaster-reveal.fold",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.6,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.007,0],
+                [0,-0.011],
+                [0.007,0],
+                [0.007,0.002],
+                [0,-0.008],
+                [-0.007,0.002]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.047,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.047,0,0],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,2.6,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

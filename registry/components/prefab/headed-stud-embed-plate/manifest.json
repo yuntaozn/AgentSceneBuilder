@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.headed-stud-embed-plate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "四栓钉预埋钢板",
+  "summary": "外露钢板下方有规则排布的四根带头栓钉，可用表面锚点与连接构件定位。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.headed-stud-embed-plate",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式",
+    "预埋件"
+  ],
+  "anchors": [
+    "face",
+    "underside"
+  ],
+  "ai": {
+    "intent": "区分外露可连接的钢板和埋入混凝土的栓钉。",
+    "editableParts": [
+      "分别编辑钢板、栓杆和栓头阵列"
+    ],
+    "qualityChecks": [
+      "连接面位于局部 Y=0。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "headed-stud-embed-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "prefab.connection.studded-embed",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.22,0.012,0.16]
+            },
+            "transform": {
+              "position": [0,-0.006,0]
+            }
+          },
+          {
+            "id": "shaft",
+            "semanticType": "prefab.connection.studded-embed.stud",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,-0.134,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [2,1,2],
+              "start": [-0.07,0,-0.045],
+              "stepX": [0.14,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.09]
+            }
+          },
+          {
+            "id": "head",
+            "semanticType": "prefab.connection.studded-embed.stud-head",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.134,0],
+              "end": [0,-0.145,0],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [2,1,2],
+              "start": [-0.07,0,-0.045],
+              "stepX": [0.14,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.09]
+            }
+          }
+        ],
+        "anchors": {
+          "face": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "underside": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

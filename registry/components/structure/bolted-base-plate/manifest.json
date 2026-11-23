@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.bolted-base-plate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "四孔柱脚底板",
+  "summary": "矩形柱脚底板带四个实际贯通孔，板厚、孔距和孔径可编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.bolted-base-plate",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "结构",
+    "柱脚",
+    "底板",
+    "基础构件"
+  ],
+  "parameters": {
+    "plateWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.38
+    },
+    "plateDepth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.36
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.02
+    },
+    "holeDiameter": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.03
+    },
+    "boltPitchX": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.3
+    },
+    "boltPitchZ": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.28
+    }
+  },
+  "anchors": [
+    "mount",
+    "column-seat",
+    "bolt-front-left",
+    "bolt-front-right",
+    "bolt-back-left",
+    "bolt-back-right"
+  ],
+  "ai": {
+    "intent": "连接基础承台、钢柱和四根锚栓。",
+    "qualityChecks": [
+      "底板孔位应与锚栓轴线重合。",
+      "柱脚锚点应落在底板上表面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "bolted-base-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.bolted-base-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "bolted-base-plate",
+              "plateWidth": 0.38,
+              "plateDepth": 0.36,
+              "thickness": 0.02,
+              "holeDiameter": 0.03,
+              "boltPitchX": 0.3,
+              "boltPitchZ": 0.28
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "column-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "column-seat"
+            }
+          },
+          "bolt-front-left": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-front-left"
+            }
+          },
+          "bolt-front-right": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-front-right"
+            }
+          },
+          "bolt-back-left": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-back-left"
+            }
+          },
+          "bolt-back-right": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-back-right"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.gasketed-curtain-wall-transom",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带承压条幕墙横梁",
+  "summary": "独立横梁、密封条和盖板沿 X 轴连续，可分别支承上下玻璃。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.horizontal-transom",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "glazing-up",
+    "glazing-down"
+  ],
+  "ai": {
+    "intent": "组合立柱形成一格横向承托，同时可用上下口做铺排。",
+    "editableParts": [
+      "修改空腔、横梁长度和两道密封条。"
+    ],
+    "qualityChecks": [
+      "横梁两端进入柱的侧面定位。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "gasketed-curtain-wall-transom",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "beam",
+            "semanticType": "construction.facade.horizontal-transom.profile",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8aa3b1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.132,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.059,-0.034],
+                [0.059,-0.034],
+                [0.059,0.034],
+                [-0.059,0.034]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0535,-0.0285],
+                  [0.0535,-0.0285],
+                  [0.0535,0.0285],
+                  [-0.0535,0.0285]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "screw-boss",
+            "semanticType": "construction.facade.horizontal-transom.seat",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.132,0.028,0.035]
+            },
+            "transform": {
+              "position": [0.566,0,0.076]
+            }
+          },
+          {
+            "id": "inner-strip-0",
+            "semanticType": "construction.facade.horizontal-transom.inside",
+            "material": "rubber",
+            "appearance": {
+              "color": "#465963"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.132,0.012,0.009]
+            },
+            "transform": {
+              "position": [0.566,-0.025,0.069]
+            }
+          },
+          {
+            "id": "outer-strip-0",
+            "semanticType": "construction.facade.horizontal-transom.outside",
+            "material": "rubber",
+            "appearance": {
+              "color": "#465963"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.132,0.012,0.007]
+            },
+            "transform": {
+              "position": [0.566,-0.025,0.102]
+            }
+          },
+          {
+            "id": "inner-strip-1",
+            "semanticType": "construction.facade.horizontal-transom.inside",
+            "material": "rubber",
+            "appearance": {
+              "color": "#465963"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.132,0.012,0.009]
+            },
+            "transform": {
+              "position": [0.566,0.025,0.069]
+            }
+          },
+          {
+            "id": "outer-strip-1",
+            "semanticType": "construction.facade.horizontal-transom.outside",
+            "material": "rubber",
+            "appearance": {
+              "color": "#465963"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.132,0.012,0.007]
+            },
+            "transform": {
+              "position": [0.566,0.025,0.102]
+            }
+          },
+          {
+            "id": "outer-cap",
+            "semanticType": "construction.facade.horizontal-transom.cap",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b1c3ca"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.132,0.08,0.017]
+            },
+            "transform": {
+              "position": [0.566,0,0.1235]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [1.132,0,0],
+            "direction": [1,0,0]
+          },
+          "glazing-up": {
+            "position": [0.566,0.034,0.086],
+            "direction": [0,1,0]
+          },
+          "glazing-down": {
+            "position": [0.566,-0.034,0.086],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

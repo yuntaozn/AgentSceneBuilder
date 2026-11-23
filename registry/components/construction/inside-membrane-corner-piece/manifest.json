@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.inside-membrane-corner-piece",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "三面阴角防水补片",
+  "summary": "地面与两片竖向返边组成预制阴角补片，保留三个安装基准。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.waterproof.inside-corner-sheet",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "围护",
+    "防水"
+  ],
+  "anchors": [
+    "floor",
+    "wall-x",
+    "wall-z"
+  ],
+  "ai": {
+    "intent": "在两面互相垂直的墙与楼板交点补强卷材阴角。",
+    "editableParts": [
+      "修改地面尺寸、立面高度和叠边。"
+    ],
+    "qualityChecks": [
+      "三个基准为互相垂直的施工面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "inside-membrane-corner-piece",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "waterproof.inside-corner-sheet.floor",
+            "material": "membrane",
+            "appearance": {
+              "color": "#5d8396"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.26,0.007,0.26]
+            },
+            "transform": {
+              "position": [0.13,0.0035,0.13]
+            }
+          },
+          {
+            "id": "upstand-x",
+            "semanticType": "waterproof.inside-corner-sheet.upstand",
+            "material": "membrane",
+            "appearance": {
+              "color": "#5d8396"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.16,0.26]
+            },
+            "transform": {
+              "position": [0.0035,0.08,0.13]
+            }
+          },
+          {
+            "id": "upstand-z",
+            "semanticType": "waterproof.inside-corner-sheet.upstand",
+            "material": "membrane",
+            "appearance": {
+              "color": "#5d8396"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.253,0.16,0.007]
+            },
+            "transform": {
+              "position": [0.1335,0.08,0.0035]
+            }
+          },
+          {
+            "id": "fold-x",
+            "semanticType": "waterproof.inside-corner-sheet.overlap",
+            "material": "membrane",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.008,0.25]
+            },
+            "transform": {
+              "position": [0.009,0.007,0.13]
+            }
+          },
+          {
+            "id": "fold-z",
+            "semanticType": "waterproof.inside-corner-sheet.overlap",
+            "material": "membrane",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.25,0.008,0.012]
+            },
+            "transform": {
+              "position": [0.13,0.007,0.008]
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0.13,0,0.13],
+            "direction": [0,-1,0]
+          },
+          "wall-x": {
+            "position": [0,0.08,0.13],
+            "direction": [-1,0,0]
+          },
+          "wall-z": {
+            "position": [0.13,0.08,0],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

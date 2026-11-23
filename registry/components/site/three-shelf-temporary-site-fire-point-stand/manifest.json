@@ -1,0 +1,213 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.three-shelf-temporary-site-fire-point-stand",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "临时消防器材点框架",
+  "summary": "独立立架、配重脚、两挂位和下托盘，现场器材可按锚点放置。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-site.portable-fire-point-stand",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "消防点",
+    "器材架"
+  ],
+  "anchors": [
+    "floor",
+    "lower",
+    "middle",
+    "hook-a",
+    "hook-b"
+  ],
+  "ai": {
+    "intent": "在施工教学里先定位器材架，再替换挂件和托盘载物。",
+    "editableParts": [
+      "配重脚",
+      "立杆",
+      "两处挂点",
+      "下托盘"
+    ],
+    "qualityChecks": [
+      "架内空间可分别插入物件。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "three-shelf-temporary-site-fire-point-stand",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "foot-0",
+            "semanticType": "site.inspection-site.fire-point-stand.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.121,0.051,0.388]
+            },
+            "transform": {
+              "position": [-0.419,0.0255,0]
+            }
+          },
+          {
+            "id": "vertical-rail-0",
+            "semanticType": "site.inspection-site.fire-point-stand.post",
+            "material": "steel",
+            "appearance": {
+              "color": "#b17e62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.043,1.38,0.054]
+            },
+            "transform": {
+              "position": [-0.419,0.732,0]
+            }
+          },
+          {
+            "id": "foot-1",
+            "semanticType": "site.inspection-site.fire-point-stand.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.121,0.051,0.388]
+            },
+            "transform": {
+              "position": [0.419,0.0255,0]
+            }
+          },
+          {
+            "id": "vertical-rail-1",
+            "semanticType": "site.inspection-site.fire-point-stand.post",
+            "material": "steel",
+            "appearance": {
+              "color": "#b17e62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.043,1.38,0.054]
+            },
+            "transform": {
+              "position": [0.419,0.732,0]
+            }
+          },
+          {
+            "id": "upper-rail",
+            "semanticType": "site.inspection-site.fire-point-stand.crossbar",
+            "material": "steel",
+            "appearance": {
+              "color": "#b17e62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.863,0.034,0.042]
+            },
+            "transform": {
+              "position": [0,1.34,0]
+            }
+          },
+          {
+            "id": "middle-shelf",
+            "semanticType": "site.inspection-site.fire-point-stand.tray",
+            "material": "steel",
+            "appearance": {
+              "color": "#b17e62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.799,0.025,0.28]
+            },
+            "transform": {
+              "position": [0,0.449,0.112]
+            }
+          },
+          {
+            "id": "low-shelf",
+            "semanticType": "site.inspection-site.fire-point-stand.tray",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.817,0.025,0.311]
+            },
+            "transform": {
+              "position": [0,0.177,0.119]
+            }
+          },
+          {
+            "id": "hanging-hook-0",
+            "semanticType": "site.inspection-site.fire-point-stand.hook",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.229,1.03,0.006],
+                [-0.229,1.03,0.098],
+                [-0.229,1.071,0.129]
+              ],
+              "radius": 0.008
+            }
+          },
+          {
+            "id": "hanging-hook-1",
+            "semanticType": "site.inspection-site.fire-point-stand.hook",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.229,1.03,0.006],
+                [0.229,1.03,0.098],
+                [0.229,1.071,0.129]
+              ],
+              "radius": 0.008
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "lower": {
+            "position": [0,0.1895,0.119],
+            "direction": [0,1,0]
+          },
+          "middle": {
+            "position": [0,0.4615,0.112],
+            "direction": [0,1,0]
+          },
+          "hook-a": {
+            "position": [-0.229,1.071,0.129],
+            "direction": [0,1,0]
+          },
+          "hook-b": {
+            "position": [0.229,1.071,0.129],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

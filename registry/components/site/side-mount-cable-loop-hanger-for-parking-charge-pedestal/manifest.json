@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.side-mount-cable-loop-hanger-for-parking-charge-pedestal",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "充电立柱侧挂绕线架",
+  "summary": "上钩和下托留存电缆圈，安装背板开有一对可调长孔。",
+  "license": "Apache-2.0",
+  "semanticType": "site.parking.ev-cable-hook-bracket",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "停车与慢行",
+    "充电线",
+    "绕线架",
+    "立柱附件"
+  ],
+  "anchors": [
+    "mount",
+    "hook"
+  ],
+  "ai": {
+    "intent": "上钩和下托留存电缆圈，安装背板开有一对可调长孔。",
+    "editableParts": [
+      "可分别编辑 slotted-backing、curved-cable-rest、retained-lower-ledge。"
+    ],
+    "qualityChecks": [
+      "两个长孔贯通，上钩向上回弯以承托盘线。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "side-mount-cable-loop-hanger-for-parking-charge-pedestal",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slotted-backing",
+            "semanticType": "site.parking.ev-hook.mount",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.006,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0455,-0.071],
+                [0.0455,-0.071],
+                [0.0455,0.071],
+                [-0.0455,0.071]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.007,-0.055],
+                  [0.007,-0.055],
+                  [0.007,-0.025],
+                  [-0.007,-0.025]
+                ],
+                [
+                  [-0.007,0.025],
+                  [0.007,0.025],
+                  [0.007,0.055],
+                  [-0.007,0.055]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "curved-cable-rest",
+            "semanticType": "site.parking.ev-hook.upper",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d636a"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.006,-0.011,0],
+                [0.035,-0.011,0],
+                [0.067,-0.013,0],
+                [0.086,0.013,0],
+                [0.086,0.045,0]
+              ],
+              "radius": 0.01
+            }
+          },
+          {
+            "id": "retained-lower-ledge",
+            "semanticType": "site.parking.ev-hook.lower",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.017,0.084]
+            },
+            "transform": {
+              "position": [0.036,-0.048,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "hook": {
+            "position": [0.065,0.005,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

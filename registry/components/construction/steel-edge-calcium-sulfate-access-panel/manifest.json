@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.steel-edge-calcium-sulfate-access-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "钢包边硫酸钙架空地板",
+  "summary": "独立硫酸钙芯、底面钢片、四边包框及贴面，可挂接架空横梁。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.flooring.calcium-sulfate-access-floor-panel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室内装修",
+    "地坪",
+    "基础构件"
+  ],
+  "anchors": [
+    "bottom",
+    "face",
+    "near-bearing",
+    "far-bearing",
+    "left-bearing",
+    "right-bearing"
+  ],
+  "ai": {
+    "intent": "将常规架空地板面板放到横梁或支座上，并保留可编辑的分层表达。",
+    "editableParts": [
+      "围边",
+      "芯板",
+      "上下贴层"
+    ],
+    "qualityChecks": [
+      "四个独立承压面基准在底面同一标高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "steel-edge-calcium-sulfate-access-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bottom-sheet",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.steel-base",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.596,0.002,0.596]
+            },
+            "transform": {
+              "position": [0,0.001,0]
+            }
+          },
+          {
+            "id": "core",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.calcium-sulfate-core",
+            "material": "mineral",
+            "appearance": {
+              "color": "#bab6a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.576,0.029,0.576]
+            },
+            "transform": {
+              "position": [0,0.0165,0]
+            }
+          },
+          {
+            "id": "frame-left",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.031,0.596]
+            },
+            "transform": {
+              "position": [-0.293,0.0155,0]
+            }
+          },
+          {
+            "id": "frame-right",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.031,0.596]
+            },
+            "transform": {
+              "position": [0.293,0.0155,0]
+            }
+          },
+          {
+            "id": "frame-near",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.576,0.031,0.01]
+            },
+            "transform": {
+              "position": [0,0.0155,0.293]
+            }
+          },
+          {
+            "id": "frame-far",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.576,0.031,0.01]
+            },
+            "transform": {
+              "position": [0,0.0155,-0.293]
+            }
+          },
+          {
+            "id": "wear-layer",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.wear-layer",
+            "material": "laminate",
+            "appearance": {
+              "color": "#989c94"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.596,0.003,0.596]
+            },
+            "transform": {
+              "position": [0,0.0325,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "face": {
+            "position": [0,0.034,0],
+            "direction": [0,1,0]
+          },
+          "near-bearing": {
+            "position": [0,0,0.285],
+            "direction": [0,-1,0]
+          },
+          "far-bearing": {
+            "position": [0,0,-0.285],
+            "direction": [0,-1,0]
+          },
+          "left-bearing": {
+            "position": [-0.285,0,0],
+            "direction": [0,-1,0]
+          },
+          "right-bearing": {
+            "position": [0.285,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

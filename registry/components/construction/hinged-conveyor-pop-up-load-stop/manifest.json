@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.hinged-conveyor-pop-up-load-stop",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "辊道可翻起载物挡板",
+  "summary": "下装底座、独立轴和翻板，挡板可以从辊道下方翻起。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.warehouse.hinged-conveyor-load-stop",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "仓储",
+    "物流",
+    "辊道",
+    "挡板",
+    "翻转"
+  ],
+  "anchors": [
+    "seat"
+  ],
+  "ai": {
+    "intent": "用独立翻板表示运输线的可收起挡料端。",
+    "editableParts": [
+      "底托",
+      "转轴",
+      "带橡胶垫挡板"
+    ],
+    "qualityChecks": [
+      "翻板转动时底座固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-conveyor-pop-up-load-stop",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mounting-bracket",
+            "semanticType": "construction.warehouse.foldaway-conveyor-stopper.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.131,0.029,0.343]
+            },
+            "transform": {
+              "position": [0,-0.016,0]
+            }
+          },
+          {
+            "id": "pivot-bar",
+            "semanticType": "construction.warehouse.foldaway-conveyor-stopper.pivot",
+            "material": "steel",
+            "appearance": {
+              "color": "#7f969c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.014,-0.152],
+              "end": [0,0.014,0.152],
+              "radius": 0.009,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "pivot",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.014,0]
+            }
+          },
+          {
+            "id": "stop-panel",
+            "semanticType": "construction.warehouse.foldaway-conveyor-stopper.flip-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a468"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.092,0.013,0.278]
+            },
+            "transform": {
+              "position": [0.04,0.003,0]
+            },
+            "parent": "pivot"
+          },
+          {
+            "id": "contact-pad-0",
+            "semanticType": "construction.warehouse.foldaway-conveyor-stopper.rubber-inset",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4e5c61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.006,0.041]
+            },
+            "transform": {
+              "position": [0.068,0.011,-0.084]
+            },
+            "parent": "pivot"
+          },
+          {
+            "id": "contact-pad-1",
+            "semanticType": "construction.warehouse.foldaway-conveyor-stopper.rubber-inset",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4e5c61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.006,0.041]
+            },
+            "transform": {
+              "position": [0.068,0.011,0.084]
+            },
+            "parent": "pivot"
+          }
+        ],
+        "anchors": {
+          "seat": {
+            "position": [0,-0.0305,0],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "raise-roll-stop",
+            "target": "pivot",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0,1.45],
+            "duration": 0.65,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

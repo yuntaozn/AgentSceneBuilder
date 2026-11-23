@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.retracting-classroom-projection-screen-cassette",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带展开幕布的教室卷幕盒",
+  "summary": "长幕盒、两只顶托、独立幕布和加重底边，可分别编辑展开位置。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.education.retractable-projection-screen",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "教室",
+    "实训室",
+    "室内家具",
+    "投影幕",
+    "卷幕",
+    "投影"
+  ],
+  "anchors": [
+    "left-ceiling",
+    "right-ceiling",
+    "face"
+  ],
+  "ai": {
+    "intent": "在教室前端表达已展开的幕面和幕盒的固定关系。",
+    "editableParts": [
+      "幕盒",
+      "两挂点",
+      "幕布",
+      "坠杆"
+    ],
+    "qualityChecks": [
+      "幕布上边进入幕盒，下端加重边保持水平。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "retracting-classroom-projection-screen-cassette",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "roller-shell",
+            "semanticType": "construction.education.retractable-projection-screen.headbox",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.93,0.073,0.087]
+            },
+            "transform": {
+              "position": [0,-0.047,0]
+            }
+          },
+          {
+            "id": "ceiling-clip-0",
+            "semanticType": "construction.education.retractable-projection-screen.clip",
+            "material": "steel",
+            "appearance": {
+              "color": "#a0a9a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.081,0.014,0.068]
+            },
+            "transform": {
+              "position": [-0.673,-0.007,0]
+            }
+          },
+          {
+            "id": "ceiling-clip-1",
+            "semanticType": "construction.education.retractable-projection-screen.clip",
+            "material": "steel",
+            "appearance": {
+              "color": "#a0a9a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.081,0.014,0.068]
+            },
+            "transform": {
+              "position": [0.673,-0.007,0]
+            }
+          },
+          {
+            "id": "screen-carriage",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.078,0.013]
+            }
+          },
+          {
+            "id": "projection-sheet",
+            "semanticType": "construction.education.retractable-projection-screen.sheet",
+            "material": "film",
+            "appearance": {
+              "color": "#ded9c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.772,0.894,0.006]
+            },
+            "transform": {
+              "position": [0,-0.447,0]
+            },
+            "parent": "screen-carriage"
+          },
+          {
+            "id": "bottom-batten",
+            "semanticType": "construction.education.retractable-projection-screen.bottom-batten",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.822,0.023,0.021]
+            },
+            "transform": {
+              "position": [0,-0.897,0]
+            },
+            "parent": "screen-carriage"
+          }
+        ],
+        "anchors": {
+          "left-ceiling": {
+            "position": [-0.673,0,0],
+            "direction": [0,1,0]
+          },
+          "right-ceiling": {
+            "position": [0.673,0,0],
+            "direction": [0,1,0]
+          },
+          "face": {
+            "position": [0,-0.072,0.045],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

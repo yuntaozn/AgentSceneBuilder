@@ -1,0 +1,105 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.roof-ridge-cap",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双坡屋脊盖板",
+  "summary": "双翼沿两侧坡面落下，两端可连续拼接。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.ridge-cap",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 4.8
+    },
+    "legWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.24
+    },
+    "fall": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.12
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.014
+    }
+  },
+  "anchors": [
+    "crest",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "覆盖两侧坡面交线并表达屋脊压盖。",
+    "editableParts": [
+      "设置段长、单侧水平投影和落差。"
+    ],
+    "qualityChecks": [
+      "盖板双坡应与屋面坡度协调。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "roof-ridge-cap",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.ridge-cap",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "roof-ridge-cap",
+              "length": 4.8,
+              "legWidth": 0.24,
+              "fall": 0.12,
+              "thickness": 0.014
+            }
+          }
+        ],
+        "anchors": {
+          "crest": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "crest"
+            }
+          },
+          "start": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

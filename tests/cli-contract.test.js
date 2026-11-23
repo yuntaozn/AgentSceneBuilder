@@ -100,6 +100,18 @@ test("registry search hides internal entries and distinguishes empty results fro
   assert.equal(missing.json.ok, false);
 });
 
+test("registry search supports a domain, kind, or a filtered inventory without a query", () => {
+  const matches = runNode(cliPath, ["registry", "search", "管鞋", "--domain", "mep", "--kind=component"]);
+  assert.equal(matches.status, 0);
+  assert.ok(matches.json.results.some(item => item.id === "mep.low-friction-sliding-pipe-shoe"));
+  assert.ok(matches.json.results.every(item => item.id.startsWith("mep.") && item.kind === "component"));
+  const inventory = runNode(cliPath, ["registry", "search", "--domain", "prefab", "--kind", "component"]);
+  assert.equal(inventory.status, 0);
+  assert.ok(inventory.json.results.some(item => item.id === "prefab.off-centre-drain-sloped-prefabricated-wet-room-floor-tray"));
+  assert.equal(runNode(cliPath, ["registry", "search", "--domain", "character"]).status, 2);
+  assert.equal(runNode(cliPath, ["registry", "search", "--kind", "models"]).status, 2);
+});
+
 test("legacy model script delegates to the package CLI", () => {
   const result = runNode(legacyPath, ["component", "describe", "core.composition"]);
   assert.equal(result.status, 0);

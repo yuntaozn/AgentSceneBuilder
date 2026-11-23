@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.cable-tray-snap-cover",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "U 形电缆桥架扣盖",
+  "summary": "双边下折的薄盖覆盖 300 mm 开口桥架，两端可沿桥架方向连排。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.cable-tray.snap-cover",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "电气",
+    "桥架"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "tray-seat"
+  ],
+  "ai": {
+    "intent": "与开口槽式桥架按需盖合。",
+    "editableParts": [
+      "可修改盖段长度和折边。"
+    ],
+    "qualityChecks": [
+      "盖板两侧折边包在桥架外侧。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "cable-tray-snap-cover",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cover",
+            "semanticType": "cable-tray.snap-cover",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,1.5]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.155,-0.02],
+                [-0.151,-0.02],
+                [-0.151,0],
+                [0.151,0],
+                [0.151,-0.02],
+                [0.155,-0.02],
+                [0.155,0.004],
+                [-0.155,0.004]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "cover",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "cover",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "tray-seat": {
+            "position": [0,0,0.75],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

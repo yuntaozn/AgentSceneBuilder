@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.masonry-lintel-rebar-cage",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "砌体槽块过梁钢筋笼",
+  "summary": "四根纵筋与三个轻型箍筋原型组成，可放入独立 U 形槽块。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.masonry.lintel-cage",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "砌体",
+    "墙体"
+  ],
+  "anchors": [
+    "bottom",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "与独立槽块组合表示可见配筋位置。",
+    "editableParts": [
+      "调整纵筋、箍筋几何与间距。"
+    ],
+    "qualityChecks": [
+      "默认定位靠槽底。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "masonry-lintel-rebar-cage",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "longitudinal-0-0",
+            "semanticType": "construction.masonry.lintel-reinforcement-cage.bar",
+            "material": "steel",
+            "appearance": {
+              "color": "#ac7e56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.019,-0.044],
+              "end": [0.4,0.019,-0.044],
+              "radius": 0.006,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "longitudinal-0-1",
+            "semanticType": "construction.masonry.lintel-reinforcement-cage.bar",
+            "material": "steel",
+            "appearance": {
+              "color": "#ac7e56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.019,0.044],
+              "end": [0.4,0.019,0.044],
+              "radius": 0.006,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "longitudinal-1-0",
+            "semanticType": "construction.masonry.lintel-reinforcement-cage.bar",
+            "material": "steel",
+            "appearance": {
+              "color": "#ac7e56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.121,-0.044],
+              "end": [0.4,0.121,-0.044],
+              "radius": 0.006,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "longitudinal-1-1",
+            "semanticType": "construction.masonry.lintel-reinforcement-cage.bar",
+            "material": "steel",
+            "appearance": {
+              "color": "#ac7e56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.121,0.044],
+              "end": [0.4,0.121,0.044],
+              "radius": 0.006,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "stirrup",
+            "semanticType": "construction.masonry.lintel-reinforcement-cage.stirrup",
+            "material": "steel",
+            "appearance": {
+              "color": "#ac7e56"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0.133,0.034],
+                [0,0.133,-0.052],
+                [0,0.009,-0.052],
+                [0,0.009,0.052],
+                [0,0.133,0.052],
+                [0,0.133,0.046]
+              ],
+              "radius": 0.0037
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [0.055,0,0],
+              "step": [0.145,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "position": [0.2,0,0],
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "position": [0,0.07,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.4,0.07,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

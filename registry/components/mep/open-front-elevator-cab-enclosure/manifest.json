@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.open-front-elevator-cab-enclosure",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "开口电梯轿厢内胆",
+  "summary": "有独立底板、侧板、后壁、顶板和通风条，可与轿架、门面或门槛分开拼装。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.open-front-car-cab",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "轿厢",
+    "井道",
+    "内胆"
+  ],
+  "anchors": [
+    "base",
+    "opening",
+    "floor",
+    "roof"
+  ],
+  "ai": {
+    "intent": "把独立轿厢落到轿架托板并对齐净开口。",
+    "editableParts": [
+      "轿厢底板",
+      "侧背板",
+      "通风顶板",
+      "扶手"
+    ],
+    "qualityChecks": [
+      "开口与地板前边同向，顶板水平。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "open-front-elevator-cab-enclosure",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "floor-tray",
+            "semanticType": "mep.elevator.car-cabin.subfloor",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.495,0.054,1.24]
+            },
+            "transform": {
+              "position": [0,0.027,0]
+            }
+          },
+          {
+            "id": "floor-finish",
+            "semanticType": "mep.elevator.car-cabin.floor-finish",
+            "material": "stone",
+            "appearance": {
+              "color": "#aea89c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.455,0.02,1.205]
+            },
+            "transform": {
+              "position": [0,0.064,0]
+            }
+          },
+          {
+            "id": "side-shell-0",
+            "semanticType": "mep.elevator.car-cabin.inner-panel",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.022,1.986,1.23]
+            },
+            "transform": {
+              "position": [-0.735,1.067,0]
+            }
+          },
+          {
+            "id": "side-shell-1",
+            "semanticType": "mep.elevator.car-cabin.inner-panel",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.022,1.986,1.23]
+            },
+            "transform": {
+              "position": [0.735,1.067,0]
+            }
+          },
+          {
+            "id": "rear-shell",
+            "semanticType": "mep.elevator.car-cabin.rear-panel",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.472,1.986,0.029]
+            },
+            "transform": {
+              "position": [0,1.067,-0.6055]
+            }
+          },
+          {
+            "id": "ceiling-header",
+            "semanticType": "mep.elevator.car-cabin.upper-fascia",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.5,0.121,0.071]
+            },
+            "transform": {
+              "position": [0,2.071,0.583]
+            }
+          },
+          {
+            "id": "roof",
+            "semanticType": "mep.elevator.car-cabin.perforated-roof",
+            "material": "steel",
+            "appearance": {
+              "color": "#7b9191"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,2.06,0],
+                [0,2.087,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.7475,-0.5905],
+                [0.7475,-0.5905],
+                [0.7475,0.5905],
+                [-0.7475,0.5905]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.47150000000000003,-0.3895],
+                  [-0.36850000000000005,-0.3895],
+                  [-0.36850000000000005,-0.3605],
+                  [-0.47150000000000003,-0.3605]
+                ],
+                [
+                  [-0.3035,-0.3895],
+                  [-0.2005,-0.3895],
+                  [-0.2005,-0.3605],
+                  [-0.3035,-0.3605]
+                ],
+                [
+                  [-0.1355,-0.3895],
+                  [-0.03250000000000001,-0.3895],
+                  [-0.03250000000000001,-0.3605],
+                  [-0.1355,-0.3605]
+                ],
+                [
+                  [0.03250000000000001,-0.3895],
+                  [0.1355,-0.3895],
+                  [0.1355,-0.3605],
+                  [0.03250000000000001,-0.3605]
+                ],
+                [
+                  [0.2005,-0.3895],
+                  [0.3035,-0.3895],
+                  [0.3035,-0.3605],
+                  [0.2005,-0.3605]
+                ],
+                [
+                  [0.36850000000000005,-0.3895],
+                  [0.47150000000000003,-0.3895],
+                  [0.47150000000000003,-0.3605],
+                  [0.36850000000000005,-0.3605]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "ceiling-diffuser",
+            "semanticType": "mep.elevator.car-cabin.ceiling-diffuser",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e4ddbd"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.82,0.01,0.43]
+            },
+            "transform": {
+              "position": [0,2.052,0.084]
+            }
+          },
+          {
+            "id": "back-handrail-foot-0",
+            "semanticType": "mep.elevator.car-cabin.back-handrail-bracket",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.44,0.9,-0.588],
+              "end": [-0.44,0.9,-0.519],
+              "radius": 0.014,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "back-handrail-foot-1",
+            "semanticType": "mep.elevator.car-cabin.back-handrail-bracket",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.44,0.9,-0.588],
+              "end": [0.44,0.9,-0.519],
+              "radius": 0.014,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "back-handrail",
+            "semanticType": "mep.elevator.car-cabin.handrail",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.524,0.9,-0.518],
+              "end": [0.524,0.9,-0.518],
+              "radius": 0.021,
+              "radialSegments": 22
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "opening": {
+            "position": [0,0.074,0.62],
+            "direction": [0,0,1]
+          },
+          "floor": {
+            "position": [0,0.074,0],
+            "direction": [0,1,0]
+          },
+          "roof": {
+            "position": [0,2.087,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

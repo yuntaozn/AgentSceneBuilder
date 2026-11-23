@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.two-cell-hollow-masonry-block",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双孔混凝土砌块",
+  "summary": "垂直芯孔、横向肋和连续外壁，支持调整孔数和尺寸。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.masonry.hollow-block",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "砌体",
+    "墙体"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.4
+    },
+    "width": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.19
+    },
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.19
+    },
+    "webThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.032
+    },
+    "coreCount": {
+      "type": "number",
+      "default": 2
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "bottom",
+    "top",
+    "outer-face"
+  ],
+  "ai": {
+    "intent": "在墙体中连续拼装可调空心砌块。",
+    "editableParts": [
+      "调整高度、宽长、壁厚和芯孔数。"
+    ],
+    "qualityChecks": [
+      "芯孔在竖向贯穿。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-cell-hollow-masonry-block",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "block",
+            "semanticType": "construction.masonry.hollow-block",
+            "material": "concrete",
+            "appearance": {
+              "color": "#9aa7aa"
+            },
+            "geometry": {
+              "type": "hollow-masonry-block",
+              "length": 0.4,
+              "width": 0.19,
+              "height": 0.19,
+              "webThickness": 0.032,
+              "coreCount": 2
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "bottom": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bottom"
+            }
+          },
+          "top": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top"
+            }
+          },
+          "outer-face": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "outer-face"
+            }
+          }
+        }
+      }
+    }
+  }
+}

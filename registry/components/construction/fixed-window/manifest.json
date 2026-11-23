@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "0.1", "id": "construction.fixed-window", "version": "0.1.0", "kind": "component",
+  "title": "矩形固定窗", "summary": "带四边连续窗框和透明玻璃，默认外框 1.2 × 1.2 米，可安装到带窗洞隔墙。",
+  "license": "Apache-2.0", "semanticType": "construction.window",
+  "capabilities": ["attach", "material", "inspect-structure"], "tags": ["建筑", "固定窗", "玻璃", "窗框", "基础构件"],
+  "anchors": ["fit-base", "fit-top", "fit-left", "fit-right"],
+  "ai": {
+    "intent": "把窗框和玻璃作为可单独选择的部件安装到建筑窗洞。",
+    "editableParts": ["glass.appearance 控制透明度和颜色", "需要改变安装尺寸时调整整组缩放或协调窗框与玻璃尺寸"],
+    "qualityChecks": ["窗框的左右和顶部安装点应贴合目标洞口。", "玻璃尺寸和位置应与窗框净开口相符。"]
+  },
+  "editor": { "document": { "id": "fixed-window", "component": "core.composition", "parameters": {
+    "nodes": [
+      { "id": "frame", "semanticType": "construction.window.frame", "material": "aluminum", "appearance": { "color": "#566470" },
+        "geometry": { "type": "window-opening-wall", "wallWidth": 1.2, "wallHeight": 1.2, "thickness": 0.1,
+          "openingWidth": 1.08, "openingHeight": 1.08, "openingOffset": 0, "sillHeight": 0.06 } },
+      { "id": "glass", "semanticType": "construction.window.glass", "material": "glass", "appearance": { "color": "#8fc7dc", "opacity": 0.32 },
+        "transform": { "position": [0,0.6,0] }, "geometry": { "type": "box", "size": [1.08,1.08,0.012] } }
+    ],
+    "anchors": {
+      "fit-base": { "node": "frame", "position": [0,0,0] },
+      "fit-top": { "node": "frame", "onGeometry": { "type": "feature", "name": "panel-top" } },
+      "fit-left": { "node": "frame", "onGeometry": { "type": "feature", "name": "wall-left" } },
+      "fit-right": { "node": "frame", "onGeometry": { "type": "feature", "name": "wall-right" } }
+    }
+  } } }
+}

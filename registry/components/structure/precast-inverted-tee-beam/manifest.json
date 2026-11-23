@@ -1,0 +1,142 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.precast-inverted-tee-beam",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双座台预制倒 T 梁",
+  "summary": "下宽上窄的预制倒 T 截面，两侧各有单独的水平承压锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.floor.precast-inverted-tee-beam",
+  "capabilities": [
+    "resize",
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "倒T梁",
+    "座台",
+    "承台"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.05
+    },
+    "width": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.48
+    },
+    "depth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.3
+    },
+    "ledgeHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.19
+    },
+    "webWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.18
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "top",
+    "bottom",
+    "seat-near",
+    "seat-far"
+  ],
+  "ai": {
+    "intent": "对齐搁置在预制梁两侧座台上的楼板或承压垫。",
+    "editableParts": [
+      "跨度",
+      "腹板宽",
+      "座台高",
+      "梁总高"
+    ],
+    "qualityChecks": [
+      "两侧座台同高并伸出腹板。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "precast-inverted-tee-beam",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.floor.precast-inverted-tee-beam",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b4aca0"
+            },
+            "geometry": {
+              "type": "precast-inverted-tee-beam",
+              "length": 2.05,
+              "width": 0.48,
+              "depth": 0.3,
+              "ledgeHeight": 0.19,
+              "webWidth": 0.18
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "top": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top"
+            }
+          },
+          "bottom": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bottom"
+            }
+          },
+          "seat-near": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "seat-near"
+            }
+          },
+          "seat-far": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "seat-far"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.side-inlet-catch-basin",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "侧进水集水井",
+  "summary": "沟水经侧面开口进入带沉底的集水腔，顶部有独立格栅承台。",
+  "license": "Apache-2.0",
+  "semanticType": "site.drainage.catch-basin",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "室外",
+    "基础构件",
+    "排水"
+  ],
+  "anchors": [
+    "channel-in",
+    "grate-seat",
+    "sump-bottom"
+  ],
+  "ai": {
+    "intent": "把排水沟汇入沉底井，格栅作为独立构件覆盖。",
+    "editableParts": [
+      "分别编辑井壁、侧入口、底板和承台"
+    ],
+    "qualityChecks": [
+      "顶口净尺寸 0.48 m × 0.48 m。",
+      "侧口底边与默认排水沟沟底对齐。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "side-inlet-catch-basin",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inlet-wall",
+            "semanticType": "site.drainage.catch-basin.inlet",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 0.66,
+              "wallHeight": 0.8,
+              "thickness": 0.09,
+              "openingWidth": 0.36,
+              "openingHeight": 0.22,
+              "openingOffset": 0,
+              "sillHeight": 0.53
+            },
+            "transform": {
+              "position": [-0.285,-0.8,0],
+              "rotation": [0,-1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "far-wall",
+            "semanticType": "site.drainage.catch-basin.wall",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.48,0.8,0.09]
+            },
+            "transform": {
+              "position": [0,-0.4,-0.285]
+            }
+          },
+          {
+            "id": "near-wall",
+            "semanticType": "site.drainage.catch-basin.wall",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.48,0.8,0.09]
+            },
+            "transform": {
+              "position": [0,-0.4,0.285]
+            }
+          },
+          {
+            "id": "back-wall",
+            "semanticType": "site.drainage.catch-basin.wall",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.09,0.8,0.66]
+            },
+            "transform": {
+              "position": [0.285,-0.4,0]
+            }
+          },
+          {
+            "id": "bottom",
+            "semanticType": "site.drainage.catch-basin.base",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.48,0.08,0.48]
+            },
+            "transform": {
+              "position": [0,-0.76,0]
+            }
+          },
+          {
+            "id": "grate-ledge",
+            "semanticType": "site.drainage.catch-basin.ledge",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.48,0.045,0.04]
+            },
+            "transform": {
+              "position": [0,-0.0575,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0,-0.22],
+              "step": [0,0,0.44]
+            }
+          }
+        ],
+        "anchors": {
+          "channel-in": {
+            "node": "inlet-wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-exterior-base"
+            }
+          },
+          "grate-seat": {
+            "position": [0,-0.035,0],
+            "direction": [0,1,0]
+          },
+          "sump-bottom": {
+            "node": "bottom",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

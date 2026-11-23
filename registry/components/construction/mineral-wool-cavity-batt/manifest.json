@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.mineral-wool-cavity-batt",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "龙骨间矿棉填充板",
+  "summary": "矿棉板保留厚度和两侧面定位，可独立替换一格填充材料。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.interior.cavity-mineral-wool",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内构造",
+    "声学",
+    "隔墙"
+  ],
+  "anchors": [
+    "bottom",
+    "top",
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "在竖骨之间复用一片非承重填充。",
+    "editableParts": [
+      "编辑宽度、长度和厚度。"
+    ],
+    "qualityChecks": [
+      "对齐龙骨间距和背面空间。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "mineral-wool-cavity-batt",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "batt",
+            "semanticType": "construction.interior.cavity-mineral-wool",
+            "material": "mineral-wool",
+            "appearance": {
+              "color": "#b5a982"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.552,1.18,0.071]
+            },
+            "transform": {
+              "position": [0,0.59,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "left": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0,0]
+            },
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

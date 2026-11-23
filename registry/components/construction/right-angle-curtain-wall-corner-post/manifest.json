@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.right-angle-curtain-wall-corner-post",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "直角幕墙转角立柱",
+  "summary": "整体空腔外设置两组正交卡口和压边，可分别连接两向玻璃。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.right-angle-corner-post",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "base",
+    "head",
+    "east-glass",
+    "north-glass"
+  ],
+  "ai": {
+    "intent": "在两片正交玻璃幕墙的交点组织独立卡口。",
+    "editableParts": [
+      "修改槽体、胶条与各向定位。"
+    ],
+    "qualityChecks": [
+      "两处玻璃沿正交方向连接。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "right-angle-curtain-wall-corner-post",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "center-core",
+            "semanticType": "construction.facade.right-angle-glazing-post.profile",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8aa3b1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.6,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.048,-0.048],
+                [0.048,-0.048],
+                [0.048,0.048],
+                [-0.048,0.048]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0415,-0.0415],
+                  [0.0415,-0.0415],
+                  [0.0415,0.0415],
+                  [-0.0415,0.0415]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "x-clamp",
+            "semanticType": "construction.facade.right-angle-glazing-post.clamp",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b1c3ca"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.065,2.6,0.024]
+            },
+            "transform": {
+              "position": [0.075,1.3,0.064]
+            }
+          },
+          {
+            "id": "z-clamp",
+            "semanticType": "construction.facade.right-angle-glazing-post.clamp",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b1c3ca"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.024,2.6,0.065]
+            },
+            "transform": {
+              "position": [0.064,1.3,0.075]
+            }
+          },
+          {
+            "id": "inside-edge",
+            "semanticType": "construction.facade.right-angle-glazing-post.seal",
+            "material": "rubber",
+            "appearance": {
+              "color": "#384c5a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.022,2.6,0.022]
+            },
+            "transform": {
+              "position": [0.052,1.3,0.052]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "head": {
+            "position": [0,2.6,0],
+            "direction": [0,1,0]
+          },
+          "east-glass": {
+            "position": [0.1075,1.3,0.064],
+            "direction": [1,0,0]
+          },
+          "north-glass": {
+            "position": [0.064,1.3,0.1075],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

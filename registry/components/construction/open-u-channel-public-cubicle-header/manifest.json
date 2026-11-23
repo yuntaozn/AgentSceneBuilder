@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.open-u-channel-public-cubicle-header",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "开口式隔间板顶部横梁",
+  "summary": "空槽朝下罩住隔间上边，轴向两端和槽内承托独立。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.public-washroom.open-channel-cubicle-header",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "隔间",
+    "顶梁",
+    "U形槽"
+  ],
+  "anchors": [
+    "panel",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "把两边侧板上边包进独立顶部型材。",
+    "editableParts": [
+      "下开口",
+      "轴向端点",
+      "固定槽"
+    ],
+    "qualityChecks": [
+      "开槽朝下，两端形成连续路径。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "open-u-channel-public-cubicle-header",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cap-profile",
+            "semanticType": "construction.public-washroom.cubicle-head-channel.open-section",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.482,0,0],
+                [0.482,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.025,-0.021],
+                [-0.025,0.021],
+                [0.025,0.021],
+                [0.025,-0.021],
+                [0.018,-0.021],
+                [0.018,0.014],
+                [-0.018,0.014],
+                [-0.018,-0.021]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "panel": {
+            "position": [0,0.014,0],
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "position": [-0.482,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.482,0,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

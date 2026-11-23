@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.reflective-bollard",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "圆形反光防护柱",
+  "summary": "竖直柱身、圆形底盘及两道反光色带分别可编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "site.traffic.bollard",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "室外",
+    "基础构件",
+    "交通"
+  ],
+  "anchors": [
+    "mount",
+    "top"
+  ],
+  "ai": {
+    "intent": "标示室外步行区和车辆区的边界。",
+    "editableParts": [
+      "修改柱身、底盘以及色带的尺寸及排布"
+    ],
+    "qualityChecks": [
+      "底盘安装面保持在本地 Y=0。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "reflective-bollard",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "site.traffic.bollard.plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.11,
+              "height": 0.018,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,0.009,0]
+            }
+          },
+          {
+            "id": "stem",
+            "semanticType": "site.traffic.bollard.stem",
+            "material": "steel",
+            "appearance": {
+              "color": "#778791"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.055,
+              "height": 0.8,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,0.418,0]
+            }
+          },
+          {
+            "id": "cap",
+            "semanticType": "site.traffic.bollard.cap",
+            "material": "steel",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.059,
+              "height": 0.018,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,0.827,0]
+            }
+          },
+          {
+            "id": "reflector",
+            "semanticType": "site.traffic.bollard.reflector",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e5b849"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.057,
+              "height": 0.043,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0.68,0],
+              "step": [0,0.069,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,0.836,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.twin-channel-formwork-waler",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双槽钢模板背楞",
+  "summary": "两根槽钢之间保留对拉杆带，靠模侧和两端均有定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.formwork.twin-channel-waler",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "混凝土施工",
+    "模板"
+  ],
+  "anchors": [
+    "form-seat",
+    "left",
+    "right",
+    "rod-gap"
+  ],
+  "ai": {
+    "intent": "在模板木楞外提供连续背楞与穿杆空隙。",
+    "editableParts": [
+      "编辑槽钢截面、两杆间距与组长。"
+    ],
+    "qualityChecks": [
+      "默认不遮挡中心对拉杆排。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "twin-channel-formwork-waler",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "upper",
+            "semanticType": "construction.formwork.twin-channel-waler.channel",
+            "material": "steel",
+            "appearance": {
+              "color": "#4a7889"
+            },
+            "geometry": {
+              "type": "steel-channel-section",
+              "length": 1.8,
+              "sectionWidth": 0.046,
+              "sectionHeight": 0.052,
+              "webThickness": 0.006,
+              "flangeThickness": 0.006
+            },
+            "transform": {
+              "position": [-0.9,0.05,0.023]
+            }
+          },
+          {
+            "id": "lower",
+            "semanticType": "construction.formwork.twin-channel-waler.channel",
+            "material": "steel",
+            "appearance": {
+              "color": "#4a7889"
+            },
+            "geometry": {
+              "type": "steel-channel-section",
+              "length": 1.8,
+              "sectionWidth": 0.046,
+              "sectionHeight": 0.052,
+              "webThickness": 0.006,
+              "flangeThickness": 0.006
+            },
+            "transform": {
+              "position": [-0.9,-0.05,0.023]
+            }
+          }
+        ],
+        "anchors": {
+          "form-seat": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "left": {
+            "position": [-0.9,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.9,0,0],
+            "direction": [1,0,0]
+          },
+          "rod-gap": {
+            "position": [0,0,0.046],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.open-curve-industrial-sectional-door-track",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "工业提升门弯道滚轮轨",
+  "summary": "连续开口导轨从竖直经过弯道转向上横段，端点和墙座可独立选。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.warehouse.open-curve-sectional-door-track",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "仓储",
+    "物流",
+    "提升门",
+    "滚轮轨",
+    "弯道"
+  ],
+  "anchors": [
+    "floor",
+    "top",
+    "stack-wheel"
+  ],
+  "ai": {
+    "intent": "从门洞竖边把滚轮引向独立顶轨。",
+    "editableParts": [
+      "U 形槽",
+      "弯道路径",
+      "壁座"
+    ],
+    "qualityChecks": [
+      "槽口保持连续，路径无急回折。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "open-curve-industrial-sectional-door-track",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "u-formed-door-track",
+            "semanticType": "construction.warehouse.sectional-overhead-door-track.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#7f969c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.26,0],
+                [0,1.379,0],
+                [0,1.479,-0.026],
+                [0,1.565,-0.086],
+                [0,1.61,-0.172],
+                [0,1.622,-0.264],
+                [0,1.622,-0.86]
+              ],
+              "up": [1,0,0],
+              "profile": [
+                [-0.022,-0.026],
+                [0.02,-0.026],
+                [0.02,0.026],
+                [-0.022,0.026],
+                [-0.022,0.014],
+                [0.015,0.014],
+                [0.015,-0.014],
+                [-0.022,-0.014]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "mounting-tab-0",
+            "semanticType": "construction.warehouse.sectional-overhead-door-track.wall-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.078,0.059,0.011]
+            },
+            "transform": {
+              "position": [0,0.28,0.03]
+            }
+          },
+          {
+            "id": "mounting-tab-1",
+            "semanticType": "construction.warehouse.sectional-overhead-door-track.wall-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.078,0.059,0.011]
+            },
+            "transform": {
+              "position": [0,1.21,0.03]
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,1.622,-0.86],
+            "direction": [0,0,-1]
+          },
+          "stack-wheel": {
+            "position": [0,0.23,0],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

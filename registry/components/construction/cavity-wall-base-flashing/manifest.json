@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.cavity-wall-base-flashing",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "夹层墙根导水泛水板",
+  "summary": "墙根水平接水面连内侧上翻与外侧滴水折，中心预留泄水件定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.waterproof.base-cavity-tray",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "围护",
+    "墙根排水"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "weep-seat",
+    "outer-drip"
+  ],
+  "ai": {
+    "intent": "在墙体内外叶之间表达连续集水与排出路径。",
+    "editableParts": [
+      "调整上翻高度、横向范围和滴水折。"
+    ],
+    "qualityChecks": [
+      "泄水件靠近外侧，底面贴于接水面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "cavity-wall-base-flashing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tray",
+            "semanticType": "waterproof.base-cavity-tray",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.6,0,0],
+                [0.6,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.17,0.09],
+                [0.17,-0.003],
+                [-0.125,-0.003],
+                [-0.15,-0.024],
+                [-0.152,-0.02],
+                [-0.127,0],
+                [0.166,0],
+                [0.166,0.09]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "tray",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "tray",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "weep-seat": {
+            "position": [0,0,0.096],
+            "direction": [0,1,0]
+          },
+          "outer-drip": {
+            "position": [0,-0.024,0.15],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

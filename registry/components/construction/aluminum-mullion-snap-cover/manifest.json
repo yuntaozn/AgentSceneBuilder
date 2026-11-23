@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.aluminum-mullion-snap-cover",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "铝合金幕墙扣盖条",
+  "summary": "两侧反扣与外侧饰面形成 U 形空腔，适合独立替换颜色和长度。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.mullion-snap-cover",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "bottom",
+    "top",
+    "pressure-seat"
+  ],
+  "ai": {
+    "intent": "作为外盖检修或色彩变体的独立构件。",
+    "editableParts": [
+      "编辑连续轨迹、外表面与扣边截面。"
+    ],
+    "qualityChecks": [
+      "盖内保持可卡入的空槽。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "aluminum-mullion-snap-cover",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cap",
+            "semanticType": "construction.facade.mullion-snap-cover",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b1c3ca"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.6,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.041,0],
+                [-0.035,0],
+                [-0.035,0.012],
+                [0.035,0.012],
+                [0.035,0],
+                [0.041,0],
+                [0.041,0.017],
+                [-0.041,0.017]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "top": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "pressure-seat": {
+            "position": [0,1.3,0],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.hook-ended-steel-scaffold-walkboard",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双钩钢格栅脚手板",
+  "summary": "格栅踏面有实际通孔，底部边楞与两端挂钩可分别编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.scaffold.hooked-steel-walkboard",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工",
+    "脚手架",
+    "临建"
+  ],
+  "anchors": [
+    "near",
+    "far",
+    "top-center"
+  ],
+  "ai": {
+    "intent": "两端挂在相邻横梁或支架上，保留独立走面。",
+    "editableParts": [
+      "修改踏面格栅、加强楞和挂位。"
+    ],
+    "qualityChecks": [
+      "两端挂点在同一标高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hook-ended-steel-scaffold-walkboard",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "grate",
+            "semanticType": "construction.scaffold.steel-walkboard.grate",
+            "material": "steel",
+            "appearance": {
+              "color": "#a7b9bc"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 1.76,
+              "width": 0.288,
+              "thickness": 0.028,
+              "frameWidth": 0.017,
+              "barWidth": 0.014,
+              "slotCount": 24
+            },
+            "transform": {
+              "position": [0.02,0.044,0]
+            }
+          },
+          {
+            "id": "rail-0",
+            "semanticType": "construction.scaffold.steel-walkboard.stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.76,0.031,0.027]
+            },
+            "transform": {
+              "position": [0.9,0.0165,-0.128]
+            }
+          },
+          {
+            "id": "rail-1",
+            "semanticType": "construction.scaffold.steel-walkboard.stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.76,0.031,0.027]
+            },
+            "transform": {
+              "position": [0.9,0.0165,0.128]
+            }
+          },
+          {
+            "id": "hook-0",
+            "semanticType": "construction.scaffold.steel-walkboard.hook",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.022,0,0],
+                [0.022,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.109,-0.023],
+                [-0.109,0.021],
+                [0.109,0.021],
+                [0.109,-0.023],
+                [0.094,-0.023],
+                [0.094,0.005],
+                [-0.094,0.005],
+                [-0.094,-0.023]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "hook-1",
+            "semanticType": "construction.scaffold.steel-walkboard.hook",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [1.778,0,0],
+                [1.822,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.109,-0.023],
+                [-0.109,0.021],
+                [0.109,0.021],
+                [0.109,-0.023],
+                [0.094,-0.023],
+                [0.094,0.005],
+                [-0.094,0.005],
+                [-0.094,-0.023]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "near": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "far": {
+            "position": [1.8,0,0],
+            "direction": [0,-1,0]
+          },
+          "top-center": {
+            "position": [0.9,0.044,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

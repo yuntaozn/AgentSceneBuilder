@@ -1,0 +1,296 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.perforated-structural-soil-cell-module",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "树池架空结构土模块",
+  "summary": "上下开孔框、四支柱和侧撑，内部保持可见的土壤空间。",
+  "license": "Apache-2.0",
+  "semanticType": "site.landscape.perforated-structural-soil-cell",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "园林",
+    "景观",
+    "结构土",
+    "树池",
+    "模块"
+  ],
+  "anchors": [
+    "base",
+    "top",
+    "left",
+    "right",
+    "far",
+    "near"
+  ],
+  "ai": {
+    "intent": "在树池铺装下重复放置可通土的支承框。",
+    "editableParts": [
+      "上框",
+      "下框",
+      "角柱",
+      "敞开口"
+    ],
+    "qualityChecks": [
+      "顶底板均能透过开口看到下面的根区。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "perforated-structural-soil-cell-module",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "perforated-grid-0",
+            "semanticType": "site.landscape.structural-root-cell.open-grid",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.023,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.339,-0.2595],
+                [0.339,-0.2595],
+                [0.339,0.2595],
+                [-0.339,0.2595]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.302,-0.2225],
+                  [-0.128,-0.2225],
+                  [-0.128,-0.037500000000000006],
+                  [-0.302,-0.037500000000000006]
+                ],
+                [
+                  [-0.302,0.037500000000000006],
+                  [-0.128,0.037500000000000006],
+                  [-0.128,0.2225],
+                  [-0.302,0.2225]
+                ],
+                [
+                  [-0.087,-0.2225],
+                  [0.087,-0.2225],
+                  [0.087,-0.037500000000000006],
+                  [-0.087,-0.037500000000000006]
+                ],
+                [
+                  [-0.087,0.037500000000000006],
+                  [0.087,0.037500000000000006],
+                  [0.087,0.2225],
+                  [-0.087,0.2225]
+                ],
+                [
+                  [0.128,-0.2225],
+                  [0.302,-0.2225],
+                  [0.302,-0.037500000000000006],
+                  [0.128,-0.037500000000000006]
+                ],
+                [
+                  [0.128,0.037500000000000006],
+                  [0.302,0.037500000000000006],
+                  [0.302,0.2225],
+                  [0.128,0.2225]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "perforated-grid-1",
+            "semanticType": "site.landscape.structural-root-cell.open-grid",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.303,0],
+                [0,0.326,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.339,-0.2595],
+                [0.339,-0.2595],
+                [0.339,0.2595],
+                [-0.339,0.2595]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.302,-0.2225],
+                  [-0.128,-0.2225],
+                  [-0.128,-0.037500000000000006],
+                  [-0.302,-0.037500000000000006]
+                ],
+                [
+                  [-0.302,0.037500000000000006],
+                  [-0.128,0.037500000000000006],
+                  [-0.128,0.2225],
+                  [-0.302,0.2225]
+                ],
+                [
+                  [-0.087,-0.2225],
+                  [0.087,-0.2225],
+                  [0.087,-0.037500000000000006],
+                  [-0.087,-0.037500000000000006]
+                ],
+                [
+                  [-0.087,0.037500000000000006],
+                  [0.087,0.037500000000000006],
+                  [0.087,0.2225],
+                  [-0.087,0.2225]
+                ],
+                [
+                  [0.128,-0.2225],
+                  [0.302,-0.2225],
+                  [0.302,-0.037500000000000006],
+                  [0.128,-0.037500000000000006]
+                ],
+                [
+                  [0.128,0.037500000000000006],
+                  [0.302,0.037500000000000006],
+                  [0.302,0.2225],
+                  [0.128,0.2225]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "corner-pier-0-0",
+            "semanticType": "site.landscape.structural-root-cell.column",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.282,0.047]
+            },
+            "transform": {
+              "position": [-0.299,0.163,-0.22]
+            }
+          },
+          {
+            "id": "corner-pier-0-1",
+            "semanticType": "site.landscape.structural-root-cell.column",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.282,0.047]
+            },
+            "transform": {
+              "position": [-0.299,0.163,0.22]
+            }
+          },
+          {
+            "id": "corner-pier-1-0",
+            "semanticType": "site.landscape.structural-root-cell.column",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.282,0.047]
+            },
+            "transform": {
+              "position": [0.299,0.163,-0.22]
+            }
+          },
+          {
+            "id": "corner-pier-1-1",
+            "semanticType": "site.landscape.structural-root-cell.column",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.282,0.047]
+            },
+            "transform": {
+              "position": [0.299,0.163,0.22]
+            }
+          },
+          {
+            "id": "side-diagonal-0",
+            "semanticType": "site.landscape.structural-root-cell.brace",
+            "material": "polymer",
+            "appearance": {
+              "color": "#637a71"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.278,0.027,-0.218],
+                [0,0.175,-0.218],
+                [0.278,0.3,-0.218]
+              ],
+              "radius": 0.012
+            }
+          },
+          {
+            "id": "side-diagonal-1",
+            "semanticType": "site.landscape.structural-root-cell.brace",
+            "material": "polymer",
+            "appearance": {
+              "color": "#637a71"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.278,0.027,0.218],
+                [0,0.175,0.218],
+                [0.278,0.3,0.218]
+              ],
+              "radius": 0.012
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,0.326,0],
+            "direction": [0,1,0]
+          },
+          "left": {
+            "position": [-0.339,0.17,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.339,0.17,0],
+            "direction": [1,0,0]
+          },
+          "far": {
+            "position": [0,0.17,-0.2595],
+            "direction": [0,0,-1]
+          },
+          "near": {
+            "position": [0,0.17,0.2595],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

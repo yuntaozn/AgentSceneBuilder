@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.hinged-vented-classroom-locker-door",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带百叶槽储物柜门",
+  "summary": "两只铰座与带贯通槽的可开板件，面板预留名牌窗和转手柄。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.education.vented-locker-door",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "教室",
+    "实训室",
+    "室内家具",
+    "柜门",
+    "通风",
+    "铰链"
+  ],
+  "anchors": [
+    "mount"
+  ],
+  "ai": {
+    "intent": "让柜格的铰链和通风门叶可以独立移动。",
+    "editableParts": [
+      "门板",
+      "通风槽",
+      "铰轴",
+      "手柄"
+    ],
+    "qualityChecks": [
+      "转动后固定铰座不变。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-vented-classroom-locker-door",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "hinge-pin-0",
+            "semanticType": "construction.education.vented-locker-door.fixed-hinge",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.188,-0.244,0],
+              "end": [-0.188,-0.21000000000000002,0],
+              "radius": 0.008,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "hinge-pin-1",
+            "semanticType": "construction.education.vented-locker-door.fixed-hinge",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.188,0.21000000000000002,0],
+              "end": [-0.188,0.244,0],
+              "radius": 0.008,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "hinge-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-0.188,0,0]
+            }
+          },
+          {
+            "id": "vented-leaf",
+            "semanticType": "construction.education.vented-locker-door.leaf",
+            "material": "steel",
+            "appearance": {
+              "color": "#6c8786"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.188,0,0.001],
+                [0.188,0,0.016]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.1925,-0.3395],
+                [0.1925,-0.3395],
+                [0.1925,0.3395],
+                [-0.1925,0.3395]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.086,0.105],
+                  [0.086,0.105],
+                  [0.086,0.115],
+                  [-0.086,0.115]
+                ],
+                [
+                  [-0.086,0.132],
+                  [0.086,0.132],
+                  [0.086,0.14200000000000002],
+                  [-0.086,0.14200000000000002]
+                ],
+                [
+                  [-0.086,0.159],
+                  [0.086,0.159],
+                  [0.086,0.169],
+                  [-0.086,0.169]
+                ],
+                [
+                  [-0.086,0.186],
+                  [0.086,0.186],
+                  [0.086,0.196],
+                  [-0.086,0.196]
+                ],
+                [
+                  [-0.086,0.213],
+                  [0.086,0.213],
+                  [0.086,0.223],
+                  [-0.086,0.223]
+                ],
+                [
+                  [-0.086,0.24],
+                  [0.086,0.24],
+                  [0.086,0.25],
+                  [-0.086,0.25]
+                ],
+                [
+                  [-0.086,0.267],
+                  [0.086,0.267],
+                  [0.086,0.277],
+                  [-0.086,0.277]
+                ]
+              ]
+            },
+            "parent": "hinge-axis"
+          },
+          {
+            "id": "badge-window",
+            "semanticType": "construction.education.vented-locker-door.blank-label",
+            "material": "polymer",
+            "appearance": {
+              "color": "#ded9c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.069,0.031,0.005]
+            },
+            "transform": {
+              "position": [0.295,0.115,0.017]
+            },
+            "parent": "hinge-axis"
+          },
+          {
+            "id": "pull-handle",
+            "semanticType": "construction.education.vented-locker-door.handle",
+            "material": "polymer",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.077,0.025]
+            },
+            "transform": {
+              "position": [0.328,-0.012,0.028]
+            },
+            "parent": "hinge-axis"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          }
+        },
+        "animations": [
+          {
+            "id": "open-locker-door",
+            "target": "hinge-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.4,0],
+            "duration": 0.9,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

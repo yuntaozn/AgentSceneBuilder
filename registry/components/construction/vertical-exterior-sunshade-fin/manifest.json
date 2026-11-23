@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.vertical-exterior-sunshade-fin",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "竖向翼形遮阳板",
+  "summary": "翼形外缘配上、下固定块，可按幕墙分格独立旋转与阵列。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.vertical-sunshade-fin",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "lower-wall-seat",
+    "upper-wall-seat",
+    "top"
+  ],
+  "ai": {
+    "intent": "沿立面设置独立外挑遮阳翼。",
+    "editableParts": [
+      "编辑翼截面、长度和两端固定座。"
+    ],
+    "qualityChecks": [
+      "两个壁面座位于同一安装平面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "vertical-exterior-sunshade-fin",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fin",
+            "semanticType": "construction.facade.vertical-shade-fin.leaf",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8aa3b1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.075,0],
+                [0,2.525,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.014,0],
+                [-0.008,0.115],
+                [0,0.161],
+                [0.008,0.115],
+                [0.014,0],
+                [0.01,-0.089],
+                [0,-0.118],
+                [-0.01,-0.089]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "seat-0",
+            "semanticType": "construction.facade.vertical-shade-fin.seat",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#486775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.04,0.059,0.143]
+            },
+            "transform": {
+              "position": [0,0.046,-0.036]
+            }
+          },
+          {
+            "id": "seat-1",
+            "semanticType": "construction.facade.vertical-shade-fin.seat",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#486775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.04,0.059,0.143]
+            },
+            "transform": {
+              "position": [0,2.554,-0.036]
+            }
+          }
+        ],
+        "anchors": {
+          "lower-wall-seat": {
+            "position": [0,0.046,-0.1075],
+            "direction": [0,0,-1]
+          },
+          "upper-wall-seat": {
+            "position": [0,2.554,-0.1075],
+            "direction": [0,0,-1]
+          },
+          "top": {
+            "position": [0,2.5835,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

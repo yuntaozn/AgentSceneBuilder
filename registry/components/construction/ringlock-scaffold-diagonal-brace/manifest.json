@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.ringlock-scaffold-diagonal-brace",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "盘扣架斜向拉杆",
+  "summary": "斜钢管两端有独立楔头，默认跨不同盘扣高度的两个杆位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.scaffold.ringlock-diagonal-brace",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工",
+    "脚手架",
+    "临建"
+  ],
+  "anchors": [
+    "lower",
+    "upper"
+  ],
+  "ai": {
+    "intent": "在两根立杆之间独立布置斜向联系。",
+    "editableParts": [
+      "分别调整端头偏移及两侧高度。"
+    ],
+    "qualityChecks": [
+      "两端各取不同盘扣层。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ringlock-scaffold-diagonal-brace",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "diagonal",
+            "semanticType": "construction.scaffold.diagonal-spandrel.pipe",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0.064,0,0],
+                [1.736,1.5,0]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.041,
+              "thickness": 0.0032
+            }
+          },
+          {
+            "id": "near-shoe",
+            "semanticType": "construction.scaffold.diagonal-spandrel.head",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.083,0.038,0.064]
+            },
+            "transform": {
+              "position": [0.062,0,0]
+            }
+          },
+          {
+            "id": "near-pin",
+            "semanticType": "construction.scaffold.diagonal-spandrel.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#d39659"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.062,0,-0.006],
+                [0.062,0,0.006]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.012,-0.027],
+                [0.01,-0.027],
+                [0.014,0.038],
+                [-0.014,0.038]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "far-shoe",
+            "semanticType": "construction.scaffold.diagonal-spandrel.head",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.083,0.038,0.064]
+            },
+            "transform": {
+              "position": [1.738,1.5,0]
+            }
+          },
+          {
+            "id": "far-pin",
+            "semanticType": "construction.scaffold.diagonal-spandrel.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#d39659"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [1.738,1.5,-0.006],
+                [1.738,1.5,0.006]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.012,-0.027],
+                [0.01,-0.027],
+                [0.014,0.038],
+                [-0.014,0.038]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "lower": {
+            "position": [0.062,0,0],
+            "direction": [-1,0,0]
+          },
+          "upper": {
+            "position": [1.738,1.5,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

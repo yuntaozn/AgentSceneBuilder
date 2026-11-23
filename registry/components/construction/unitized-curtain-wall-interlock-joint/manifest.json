@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.unitized-curtain-wall-interlock-joint",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "单元式幕墙竖向插接缝",
+  "summary": "左侧插舌、右侧双唇槽和两道侧胶条组成有装配间隙的剖面。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.unitized-interlock",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "left-panel",
+    "right-panel",
+    "bottom",
+    "top"
+  ],
+  "ai": {
+    "intent": "表达相邻单元框的插接动作与收缝。",
+    "editableParts": [
+      "分别调整插舌、沟槽和胶条。"
+    ],
+    "qualityChecks": [
+      "输入侧与接收侧保留装配间隙。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "unitized-curtain-wall-interlock-joint",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "male-body",
+            "semanticType": "construction.facade.unitized-stack-joint.profile",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8aa3b1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.45,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.005999999999999998,-0.041],
+                [0.07999999999999999,-0.041],
+                [0.07999999999999999,0.041],
+                [0.005999999999999998,0.041]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.011999999999999997,-0.0355],
+                  [0.074,-0.0355],
+                  [0.074,0.0355],
+                  [0.011999999999999997,0.0355]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "male-tongue",
+            "semanticType": "construction.facade.unitized-stack-joint.tongue",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.055,1.45,0.021]
+            },
+            "transform": {
+              "position": [0.0165,0.725,0]
+            }
+          },
+          {
+            "id": "female-body",
+            "semanticType": "construction.facade.unitized-stack-joint.profile",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8aa3b1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.45,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.107,-0.041],
+                [-0.047,-0.041],
+                [-0.047,0.041],
+                [-0.107,0.041]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1015,-0.0345],
+                  [-0.0525,-0.0345],
+                  [-0.0525,0.0345],
+                  [-0.1015,0.0345]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "groove-lip-0",
+            "semanticType": "construction.facade.unitized-stack-joint.groove",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b1c3ca"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,1.45,0.014]
+            },
+            "transform": {
+              "position": [0.023,0.725,-0.021]
+            }
+          },
+          {
+            "id": "gasket-0",
+            "semanticType": "construction.facade.unitized-stack-joint.soft-seal",
+            "material": "rubber",
+            "appearance": {
+              "color": "#465963"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.034,1.45,0.004]
+            },
+            "transform": {
+              "position": [0.021,0.725,-0.01365]
+            }
+          },
+          {
+            "id": "groove-lip-1",
+            "semanticType": "construction.facade.unitized-stack-joint.groove",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b1c3ca"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,1.45,0.014]
+            },
+            "transform": {
+              "position": [0.023,0.725,0.021]
+            }
+          },
+          {
+            "id": "gasket-1",
+            "semanticType": "construction.facade.unitized-stack-joint.soft-seal",
+            "material": "rubber",
+            "appearance": {
+              "color": "#465963"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.034,1.45,0.004]
+            },
+            "transform": {
+              "position": [0.021,0.725,0.01365]
+            }
+          }
+        ],
+        "anchors": {
+          "left-panel": {
+            "position": [-0.08,0.725,0],
+            "direction": [-1,0,0]
+          },
+          "right-panel": {
+            "position": [0.107,0.725,0],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,1.45,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

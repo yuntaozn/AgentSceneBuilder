@@ -1,0 +1,2041 @@
+{
+  "schemaVersion": "0.1",
+  "id": "timber-gable-roof",
+  "title": "木屋架与直立锁边双坡屋面",
+  "instances": [
+    {
+      "id": "front-bearing-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "partition-wall",
+              "wallWidth": 4.8,
+              "wallHeight": 3,
+              "thickness": 0.19
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "panel-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "rear-bearing-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "partition-wall",
+              "wallWidth": 4.8,
+              "wallHeight": 3,
+              "thickness": 0.19
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "panel-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,4.8]
+      }
+    },
+    {
+      "id": "front-wall-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "construction.roof.wall-plate",
+            "material": "timber",
+            "appearance": {
+              "color": "#ae8c63"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [4.8,0.08,0.19]
+            },
+            "transform": {
+              "position": [0,0.04,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0,0]
+            },
+            "direction": [1,0,0]
+          },
+          "first-truss": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.3333333333333333,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "middle-truss": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "last-truss": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.3333333333333333,0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,3,0]
+      }
+    },
+    {
+      "id": "rear-wall-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "construction.roof.wall-plate",
+            "material": "timber",
+            "appearance": {
+              "color": "#ae8c63"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [4.8,0.08,0.19]
+            },
+            "transform": {
+              "position": [0,0.04,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0,0]
+            },
+            "direction": [1,0,0]
+          },
+          "first-truss": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.3333333333333333,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "middle-truss": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "last-truss": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.3333333333333333,0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,3,4.8]
+      }
+    },
+    {
+      "id": "first-truss",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front-rafter",
+            "semanticType": "construction.roof.timber-truss.rafter",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.2,0],
+                [0,1.4,2.4]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.043,-0.22],
+                [0.043,-0.22],
+                [0.043,-0.06],
+                [-0.043,-0.06]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "back-rafter",
+            "semanticType": "construction.roof.timber-truss.rafter",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.2,4.8],
+                [0,1.4,2.4]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.043,-0.22],
+                [0.043,-0.22],
+                [0.043,-0.06],
+                [-0.043,-0.06]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tie",
+            "semanticType": "construction.roof.timber-truss.tie",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.092,0.14,4.8]
+            },
+            "transform": {
+              "position": [0,0.07,2.4]
+            }
+          },
+          {
+            "id": "center-post",
+            "semanticType": "construction.roof.timber-truss.king-post",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.084,1.12,0.12]
+            },
+            "transform": {
+              "position": [0,0.7,2.4]
+            }
+          },
+          {
+            "id": "front-strut",
+            "semanticType": "construction.roof.timber-truss.web",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.16,2.26],
+                [0,0.685,1.2]
+              ],
+              "up": [1,0,0],
+              "profile": [
+                [-0.036,-0.036],
+                [0.036,-0.036],
+                [0.036,0.036],
+                [-0.036,0.036]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "rear-strut",
+            "semanticType": "construction.roof.timber-truss.web",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.16,2.54],
+                [0,0.685,3.6]
+              ],
+              "up": [1,0,0],
+              "profile": [
+                [-0.036,-0.036],
+                [0.036,-0.036],
+                [0.036,0.036],
+                [-0.036,0.036]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "front-foot": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "rear-foot": {
+            "position": [0,0,4.8],
+            "direction": [0,-1,0]
+          },
+          "front-slope-seat": {
+            "position": [0,0.7463343685400051,1.2268328157299975],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          },
+          "rear-slope-seat": {
+            "position": [0,0.7463343685400051,3.5731671842700026],
+            "direction": [0,0.8944271909999159,0.4472135954999579]
+          },
+          "ridge-datum": {
+            "position": [0,1.4,2.4],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [-1.6,3.08,0]
+      }
+    },
+    {
+      "id": "middle-truss",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front-rafter",
+            "semanticType": "construction.roof.timber-truss.rafter",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.2,0],
+                [0,1.4,2.4]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.043,-0.22],
+                [0.043,-0.22],
+                [0.043,-0.06],
+                [-0.043,-0.06]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "back-rafter",
+            "semanticType": "construction.roof.timber-truss.rafter",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.2,4.8],
+                [0,1.4,2.4]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.043,-0.22],
+                [0.043,-0.22],
+                [0.043,-0.06],
+                [-0.043,-0.06]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tie",
+            "semanticType": "construction.roof.timber-truss.tie",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.092,0.14,4.8]
+            },
+            "transform": {
+              "position": [0,0.07,2.4]
+            }
+          },
+          {
+            "id": "center-post",
+            "semanticType": "construction.roof.timber-truss.king-post",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.084,1.12,0.12]
+            },
+            "transform": {
+              "position": [0,0.7,2.4]
+            }
+          },
+          {
+            "id": "front-strut",
+            "semanticType": "construction.roof.timber-truss.web",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.16,2.26],
+                [0,0.685,1.2]
+              ],
+              "up": [1,0,0],
+              "profile": [
+                [-0.036,-0.036],
+                [0.036,-0.036],
+                [0.036,0.036],
+                [-0.036,0.036]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "rear-strut",
+            "semanticType": "construction.roof.timber-truss.web",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.16,2.54],
+                [0,0.685,3.6]
+              ],
+              "up": [1,0,0],
+              "profile": [
+                [-0.036,-0.036],
+                [0.036,-0.036],
+                [0.036,0.036],
+                [-0.036,0.036]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "front-foot": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "rear-foot": {
+            "position": [0,0,4.8],
+            "direction": [0,-1,0]
+          },
+          "front-slope-seat": {
+            "position": [0,0.7463343685400051,1.2268328157299975],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          },
+          "rear-slope-seat": {
+            "position": [0,0.7463343685400051,3.5731671842700026],
+            "direction": [0,0.8944271909999159,0.4472135954999579]
+          },
+          "ridge-datum": {
+            "position": [0,1.4,2.4],
+            "direction": [0,1,0]
+          },
+          "ridge-cap-seat": {
+            "position": [0,1.4581377674149936,2.4],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,3.08,0]
+      }
+    },
+    {
+      "id": "last-truss",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front-rafter",
+            "semanticType": "construction.roof.timber-truss.rafter",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.2,0],
+                [0,1.4,2.4]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.043,-0.22],
+                [0.043,-0.22],
+                [0.043,-0.06],
+                [-0.043,-0.06]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "back-rafter",
+            "semanticType": "construction.roof.timber-truss.rafter",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.2,4.8],
+                [0,1.4,2.4]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.043,-0.22],
+                [0.043,-0.22],
+                [0.043,-0.06],
+                [-0.043,-0.06]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tie",
+            "semanticType": "construction.roof.timber-truss.tie",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.092,0.14,4.8]
+            },
+            "transform": {
+              "position": [0,0.07,2.4]
+            }
+          },
+          {
+            "id": "center-post",
+            "semanticType": "construction.roof.timber-truss.king-post",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.084,1.12,0.12]
+            },
+            "transform": {
+              "position": [0,0.7,2.4]
+            }
+          },
+          {
+            "id": "front-strut",
+            "semanticType": "construction.roof.timber-truss.web",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.16,2.26],
+                [0,0.685,1.2]
+              ],
+              "up": [1,0,0],
+              "profile": [
+                [-0.036,-0.036],
+                [0.036,-0.036],
+                [0.036,0.036],
+                [-0.036,0.036]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "rear-strut",
+            "semanticType": "construction.roof.timber-truss.web",
+            "material": "timber",
+            "appearance": {
+              "color": "#af7952"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.16,2.54],
+                [0,0.685,3.6]
+              ],
+              "up": [1,0,0],
+              "profile": [
+                [-0.036,-0.036],
+                [0.036,-0.036],
+                [0.036,0.036],
+                [-0.036,0.036]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "front-foot": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "rear-foot": {
+            "position": [0,0,4.8],
+            "direction": [0,-1,0]
+          },
+          "front-slope-seat": {
+            "position": [0,0.7463343685400051,1.2268328157299975],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          },
+          "rear-slope-seat": {
+            "position": [0,0.7463343685400051,3.5731671842700026],
+            "direction": [0,0.8944271909999159,0.4472135954999579]
+          },
+          "ridge-datum": {
+            "position": [0,1.4,2.4],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.6,3.08,0]
+      }
+    },
+    {
+      "id": "front-deck",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.sloped-deck",
+            "material": "timber",
+            "appearance": {
+              "color": "#ae8c63"
+            },
+            "geometry": {
+              "type": "pitched-roof-deck",
+              "panelWidth": 4.8,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.06
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          },
+          "roof-panel-1": {
+            "position": [-1.8,0.6,1.2],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          },
+          "roof-panel-2": {
+            "position": [-0.6,0.6,1.2],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          },
+          "roof-panel-3": {
+            "position": [0.6,0.6,1.2],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          },
+          "roof-panel-4": {
+            "position": [1.8,0.6,1.2],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,3.28,0]
+      }
+    },
+    {
+      "id": "rear-deck",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.sloped-deck",
+            "material": "timber",
+            "appearance": {
+              "color": "#ae8c63"
+            },
+            "geometry": {
+              "type": "pitched-roof-deck",
+              "panelWidth": 4.8,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.06
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          },
+          "roof-panel-1": {
+            "position": [1.8,0.6,1.2],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          },
+          "roof-panel-2": {
+            "position": [0.6,0.6,1.2],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          },
+          "roof-panel-3": {
+            "position": [-0.6,0.6,1.2],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          },
+          "roof-panel-4": {
+            "position": [-1.8,0.6,1.2],
+            "direction": [0,0.8944271909999159,-0.4472135954999579]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,3.28,4.8],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "ridge-cover",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.ridge-cap",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "roof-ridge-cap",
+              "length": 4.8,
+              "legWidth": 0.24,
+              "fall": 0.12,
+              "thickness": 0.014
+            }
+          }
+        ],
+        "anchors": {
+          "crest": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "crest"
+            }
+          },
+          "start": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,4.538137767414994,2.4]
+      }
+    },
+    {
+      "id": "front-sheet-1",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.standing-seam-sheet",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "standing-seam-roof-panel",
+              "panelWidth": 1.2,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.008,
+              "seamHeight": 0.044
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-1.8,3.287155417527999,-0.0035777087639996636]
+      }
+    },
+    {
+      "id": "front-sheet-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.standing-seam-sheet",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "standing-seam-roof-panel",
+              "panelWidth": 1.2,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.008,
+              "seamHeight": 0.044
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.6,3.287155417527999,-0.0035777087639996636]
+      }
+    },
+    {
+      "id": "front-sheet-3",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.standing-seam-sheet",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "standing-seam-roof-panel",
+              "panelWidth": 1.2,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.008,
+              "seamHeight": 0.044
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.6,3.287155417527999,-0.0035777087639996636]
+      }
+    },
+    {
+      "id": "front-sheet-4",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.standing-seam-sheet",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "standing-seam-roof-panel",
+              "panelWidth": 1.2,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.008,
+              "seamHeight": 0.044
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8,3.287155417527999,-0.0035777087639996636]
+      }
+    },
+    {
+      "id": "rear-sheet-1",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.standing-seam-sheet",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "standing-seam-roof-panel",
+              "panelWidth": 1.2,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.008,
+              "seamHeight": 0.044
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-1.8,3.287155417527999,4.803577708763999],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "rear-sheet-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.standing-seam-sheet",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "standing-seam-roof-panel",
+              "panelWidth": 1.2,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.008,
+              "seamHeight": 0.044
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.6,3.287155417527999,4.803577708763999],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "rear-sheet-3",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.standing-seam-sheet",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "standing-seam-roof-panel",
+              "panelWidth": 1.2,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.008,
+              "seamHeight": 0.044
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.6,3.287155417527999,4.803577708763999],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "rear-sheet-4",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.standing-seam-sheet",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "standing-seam-roof-panel",
+              "panelWidth": 1.2,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.008,
+              "seamHeight": 0.044
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8,3.287155417527999,4.803577708763999],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "drip-west",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "edge",
+            "semanticType": "construction.roof.drip-edge",
+            "material": "metal",
+            "appearance": {
+              "color": "#a1b0b6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.2,0,0],
+                [1.2,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.045,0.01],
+                [0.077,0.01],
+                [0.077,0.003],
+                [-0.045,0.003],
+                [-0.045,-0.045],
+                [-0.068,-0.057],
+                [-0.071,-0.05],
+                [-0.052,-0.04],
+                [-0.052,0.01]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-1.2,3.28,0],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "drip-east",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "edge",
+            "semanticType": "construction.roof.drip-edge",
+            "material": "metal",
+            "appearance": {
+              "color": "#a1b0b6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.2,0,0],
+                [1.2,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.045,0.01],
+                [0.077,0.01],
+                [0.077,0.003],
+                [-0.045,0.003],
+                [-0.045,-0.045],
+                [-0.068,-0.057],
+                [-0.071,-0.05],
+                [-0.052,-0.04],
+                [-0.052,0.01]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [1.2,3.28,0],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "vent-curb-detail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "curb",
+            "semanticType": "construction.roof.vent-curb",
+            "material": "metal",
+            "appearance": {
+              "color": "#a1b0b6"
+            },
+            "geometry": {
+              "type": "floor-opening-slab",
+              "slabWidth": 0.72,
+              "slabDepth": 0.57,
+              "thickness": 0.18,
+              "openingWidth": 0.5,
+              "openingDepth": 0.35,
+              "openingOffsetX": 0,
+              "openingOffsetZ": 0
+            },
+            "transform": {
+              "position": [0,0.18,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "hood-seat": {
+            "position": [0,0.18,0],
+            "direction": [0,1,0]
+          },
+          "inside-front": {
+            "node": "curb",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-near"
+            }
+          },
+          "inside-back": {
+            "node": "curb",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-far"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.48,0,1.28]
+      }
+    },
+    {
+      "id": "vent-hood-detail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "construction.roof.weather-hood.open-base",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.16,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.34,-0.265],
+                [0.34,-0.265],
+                [0.34,0.265],
+                [-0.34,0.265]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.255,-0.18],
+                  [0.255,-0.18],
+                  [0.255,0.18],
+                  [-0.255,0.18]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "pier-0-0",
+            "semanticType": "construction.roof.weather-hood.pier",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.33599999999999997,0,0],
+                [-0.274,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.239,0.16],
+                [0.17099999999999999,0.16],
+                [0.17099999999999999,0.45225],
+                [0.239,0.43525]
+              ]
+            }
+          },
+          {
+            "id": "pier-0-1",
+            "semanticType": "construction.roof.weather-hood.pier",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.33599999999999997,0,0],
+                [-0.274,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.17099999999999999,0.16],
+                [-0.239,0.16],
+                [-0.239,0.43525],
+                [-0.17099999999999999,0.45225]
+              ]
+            }
+          },
+          {
+            "id": "pier-1-0",
+            "semanticType": "construction.roof.weather-hood.pier",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.274,0,0],
+                [0.33599999999999997,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.239,0.16],
+                [0.17099999999999999,0.16],
+                [0.17099999999999999,0.45225],
+                [0.239,0.43525]
+              ]
+            }
+          },
+          {
+            "id": "pier-1-1",
+            "semanticType": "construction.roof.weather-hood.pier",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.274,0,0],
+                [0.33599999999999997,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.17099999999999999,0.16],
+                [-0.239,0.16],
+                [-0.239,0.43525],
+                [-0.17099999999999999,0.45225]
+              ]
+            }
+          },
+          {
+            "id": "weather-cap",
+            "semanticType": "construction.roof.weather-hood.cover",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "roof-ridge-cap",
+              "length": 0.83,
+              "legWidth": 0.34,
+              "fall": 0.085,
+              "thickness": 0.02
+            },
+            "transform": {
+              "position": [0,0.495,0]
+            }
+          }
+        ],
+        "anchors": {
+          "curb-seat": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "throat": {
+            "position": [0,0.16,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.48,0.18,1.28]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "front-bearing-wall#panel-top",
+      "to": "front-wall-plate#bottom",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-bearing-wall#panel-top",
+      "to": "rear-wall-plate#bottom",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "front-wall-plate#first-truss",
+      "to": "first-truss#front-foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-wall-plate#first-truss",
+      "to": "first-truss#rear-foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "front-wall-plate#middle-truss",
+      "to": "middle-truss#front-foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-wall-plate#middle-truss",
+      "to": "middle-truss#rear-foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "front-wall-plate#last-truss",
+      "to": "last-truss#front-foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-wall-plate#last-truss",
+      "to": "last-truss#rear-foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "middle-truss#front-slope-seat",
+      "to": "front-deck#underside-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "middle-truss#rear-slope-seat",
+      "to": "rear-deck#underside-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "middle-truss#ridge-cap-seat",
+      "to": "ridge-cover#crest",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "front-deck#roof-panel-1",
+      "to": "front-sheet-1#underside-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "front-deck#roof-panel-2",
+      "to": "front-sheet-2#underside-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "front-deck#roof-panel-3",
+      "to": "front-sheet-3#underside-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "front-deck#roof-panel-4",
+      "to": "front-sheet-4#underside-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-deck#roof-panel-1",
+      "to": "rear-sheet-1#underside-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-deck#roof-panel-2",
+      "to": "rear-sheet-2#underside-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-deck#roof-panel-3",
+      "to": "rear-sheet-3#underside-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-deck#roof-panel-4",
+      "to": "rear-sheet-4#underside-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "front-sheet-1#right",
+      "to": "front-sheet-2#left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "front-sheet-2#right",
+      "to": "front-sheet-3#left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "front-sheet-3#right",
+      "to": "front-sheet-4#left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-sheet-1#left",
+      "to": "rear-sheet-2#right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-sheet-2#left",
+      "to": "rear-sheet-3#right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "rear-sheet-3#left",
+      "to": "rear-sheet-4#right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "drip-west#start",
+      "to": "drip-east#end",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "vent-curb-detail#hood-seat",
+      "to": "vent-hood-detail#curb-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

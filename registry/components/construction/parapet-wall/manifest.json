@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.parapet-wall",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "直线女儿墙",
+  "summary": "带两端拼接锚点和顶部压顶定位点的直线墙段，墙高和厚度可调。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.parapet",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "屋面",
+    "女儿墙",
+    "外立面",
+    "基础构件"
+  ],
+  "parameters": {
+    "wallWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.4
+    },
+    "wallHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.62
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.17
+    }
+  },
+  "anchors": [
+    "wall-left",
+    "wall-right",
+    "panel-top"
+  ],
+  "editor": {
+    "document": {
+      "id": "parapet-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "parapet",
+            "semanticType": "construction.roof.parapet",
+            "material": "masonry",
+            "appearance": {
+              "color": "#c1baaa"
+            },
+            "geometry": {
+              "type": "partition-wall",
+              "wallWidth": 2.4,
+              "wallHeight": 0.62,
+              "thickness": 0.17
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "panel-top": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          }
+        }
+      }
+    }
+  }
+}

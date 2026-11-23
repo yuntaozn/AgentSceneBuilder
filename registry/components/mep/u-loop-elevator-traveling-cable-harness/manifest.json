@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.u-loop-elevator-traveling-cable-harness",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "U 形电梯随行扁电缆",
+  "summary": "竖向引下段、下垂圆弧和两处独立夹座，带轿架侧和井道侧固定点。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.u-loop-traveling-cable",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "随行电缆",
+    "电缆夹座"
+  ],
+  "anchors": [
+    "shaft-end",
+    "car-end"
+  ],
+  "ai": {
+    "intent": "查看竖井固定端至随轿厢端的 U 形线束位置。",
+    "editableParts": [
+      "线束弯形",
+      "两处固定夹"
+    ],
+    "qualityChecks": [
+      "圆弧没有急回折，两端都能继续编辑。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "u-loop-elevator-traveling-cable-harness",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "flexible-cable",
+            "semanticType": "mep.elevator.traveling-cable.flat-cable",
+            "material": "rubber",
+            "appearance": {
+              "color": "#566775"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.09,-0.225],
+                [0,0.6,-0.225],
+                [0,0.3,-0.225],
+                [0,0.23000000000000004,-0.225],
+                [0,0.1861046775463711,-0.22067668809072685],
+                [0,0.14389622771785482,-0.20787289481503954],
+                [0,0.10499669757058958,-0.18708066276807273],
+                [0,0.07090097423302683,-0.15909902576697324],
+                [0,0.04291933723192734,-0.1250033024294105],
+                [0,0.022127105184960527,-0.08610377228214533],
+                [0,0.009323311909273185,-0.04389532245362895],
+                [0,0.0050000000000000044,-4.133182947122317e-17],
+                [0,0.009323311909273158,0.04389532245362887],
+                [0,0.022127105184960527,0.08610377228214525],
+                [0,0.042919337231927285,0.1250033024294104],
+                [0,0.07090097423302677,0.15909902576697316],
+                [0,0.10499669757058952,0.18708066276807267],
+                [0,0.14389622771785465,0.20787289481503948],
+                [0,0.18610467754637106,0.22067668809072682],
+                [0,0.22999999999999995,0.225],
+                [0,0.48,0.225],
+                [0,0.83,0.225]
+              ],
+              "up": [1,0,0],
+              "profile": [
+                [-0.007,-0.036],
+                [0.007,-0.036],
+                [0.007,0.036],
+                [-0.007,0.036]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "end-clamp-0",
+            "semanticType": "mep.elevator.traveling-cable.clamp",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.103,0.047,0.026]
+            },
+            "transform": {
+              "position": [0,1.09,-0.225]
+            }
+          },
+          {
+            "id": "end-clamp-1",
+            "semanticType": "mep.elevator.traveling-cable.clamp",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.103,0.047,0.026]
+            },
+            "transform": {
+              "position": [0,0.83,0.225]
+            }
+          }
+        ],
+        "anchors": {
+          "shaft-end": {
+            "position": [0,1.09,-0.225],
+            "direction": [0,1,0]
+          },
+          "car-end": {
+            "position": [0,0.83,0.225],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

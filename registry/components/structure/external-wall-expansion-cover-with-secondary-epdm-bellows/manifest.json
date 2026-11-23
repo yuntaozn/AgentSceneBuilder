@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.external-wall-expansion-cover-with-secondary-epdm-bellows",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "外墙变形缝双层伸缩罩",
+  "summary": "前侧两片滑盖由背后波形胶带补齐，固定托轨可分别连接两段外墙。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.movement-joint.facade-joint-cover",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "结构节点",
+    "外墙变形缝",
+    "伸缩罩",
+    "双层防水"
+  ],
+  "anchors": [
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "前侧两片滑盖由背后波形胶带补齐，固定托轨可分别连接两段外墙。",
+    "editableParts": [
+      "可分别编辑 folded-cover-side-1、folded-cover-side-2、inner-corrugated-seal、captured-grommet-1、captured-grommet-2。"
+    ],
+    "qualityChecks": [
+      "两侧固定条对称，外盖与背毡保持独立。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "external-wall-expansion-cover-with-secondary-epdm-bellows",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "folded-cover-side-1",
+            "semanticType": "structure.movement-joint.facade-joint.folded-cover",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.381],
+                [0,0,0.381]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.153,0],
+                [-0.128,0],
+                [-0.103,0.032],
+                [-0.008,0.032],
+                [-0.008,0.023],
+                [-0.096,0.023],
+                [-0.124,-0.009],
+                [-0.153,-0.009]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "folded-cover-side-2",
+            "semanticType": "structure.movement-joint.facade-joint.folded-cover",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.381],
+                [0,0,0.381]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.153,0],
+                [0.128,0],
+                [0.103,0.032],
+                [0.008,0.032],
+                [0.008,0.023],
+                [0.096,0.023],
+                [0.124,-0.009],
+                [0.153,-0.009]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "inner-corrugated-seal",
+            "semanticType": "structure.movement-joint.facade-joint.inner-bellows",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.38],
+                [0,0,0.38]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.122,-0.013],
+                [-0.066,-0.013],
+                [-0.039,-0.047],
+                [0,-0.052],
+                [0.039,-0.047],
+                [0.066,-0.013],
+                [0.122,-0.013],
+                [0.122,-0.022],
+                [0.071,-0.022],
+                [0.043,-0.055],
+                [0,-0.061],
+                [-0.043,-0.055],
+                [-0.071,-0.022],
+                [-0.122,-0.022]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "captured-grommet-1",
+            "semanticType": "structure.movement-joint.facade-joint.fixing-strip",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a8388"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.033,0.76]
+            },
+            "transform": {
+              "position": [-0.135,-0.0165,0]
+            }
+          },
+          {
+            "id": "captured-grommet-2",
+            "semanticType": "structure.movement-joint.facade-joint.fixing-strip",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a8388"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.033,0.76]
+            },
+            "transform": {
+              "position": [0.135,-0.0165,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.147,-0.033,0],
+            "direction": [0,-1,0]
+          },
+          "right": {
+            "position": [0.147,-0.033,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

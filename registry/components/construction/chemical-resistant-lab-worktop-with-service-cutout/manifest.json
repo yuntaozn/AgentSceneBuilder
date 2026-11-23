@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.chemical-resistant-lab-worktop-with-service-cutout",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带设备净口的实训台面",
+  "summary": "独立面板、两侧承压和矩形设备口，口周的金属包沿可任意拆分。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.education.lab-worktop-with-cutout",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "教室",
+    "实训室",
+    "室内家具",
+    "工作台",
+    "洞口",
+    "实验室"
+  ],
+  "anchors": [
+    "left-support",
+    "right-support",
+    "equipment-cutout",
+    "service-spine"
+  ],
+  "ai": {
+    "intent": "将工作台台面与柜座、设备开口和服务梁分别定位。",
+    "editableParts": [
+      "桌板",
+      "面层",
+      "开口围口"
+    ],
+    "qualityChecks": [
+      "净口贯通且两侧支承点水平。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "chemical-resistant-lab-worktop-with-service-cutout",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "resin-core",
+            "semanticType": "construction.education.lab-worktop.core",
+            "material": "resin",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.028,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.815,-0.349],
+                [0.815,-0.349],
+                [0.815,0.349],
+                [-0.815,0.349]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.6539999999999999,-0.0905],
+                  [-0.3,-0.0905],
+                  [-0.3,0.1465],
+                  [-0.6539999999999999,0.1465]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "laminate",
+            "semanticType": "construction.education.lab-worktop.top-layer",
+            "material": "laminate",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.028,0],
+                [0,0.034,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.8165,-0.351],
+                [0.8165,-0.351],
+                [0.8165,0.351],
+                [-0.8165,0.351]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.6539999999999999,-0.0905],
+                  [-0.3,-0.0905],
+                  [-0.3,0.1465],
+                  [-0.6539999999999999,0.1465]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "edge-rim",
+            "semanticType": "construction.education.lab-worktop.equipment-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#a0a9a4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.477,0.031,0.028],
+                [0.477,0.039,0.028]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.1935,-0.135],
+                [0.1935,-0.135],
+                [0.1935,0.135],
+                [-0.1935,0.135]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1705,-0.112],
+                  [0.1705,-0.112],
+                  [0.1705,0.112],
+                  [-0.1705,0.112]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "left-support": {
+            "position": [-0.51,0,0],
+            "direction": [0,-1,0]
+          },
+          "right-support": {
+            "position": [0.51,0,0],
+            "direction": [0,-1,0]
+          },
+          "equipment-cutout": {
+            "position": [0.477,0.039,0.028],
+            "direction": [0,1,0]
+          },
+          "service-spine": {
+            "position": [-0.14,0.034,-0.243],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

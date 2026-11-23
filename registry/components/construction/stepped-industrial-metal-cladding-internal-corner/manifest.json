@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.stepped-industrial-metal-cladding-internal-corner",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "阶形厂房内阴角收边",
+  "summary": "带中间退台的内阴角板，配套两只平面贴合边，内角截面独立。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.industrial.stepped-factory-internal-corner",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "钢结构",
+    "厂房",
+    "阴角",
+    "压条",
+    "收边"
+  ],
+  "anchors": [
+    "base",
+    "wall-1",
+    "wall-2"
+  ],
+  "ai": {
+    "intent": "在内向转角用阶形条保留两块板皮独立安装面。",
+    "editableParts": [
+      "阴角退台",
+      "两翼",
+      "底座位置"
+    ],
+    "qualityChecks": [
+      "贴合边与相邻墙板朝向一致。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "stepped-industrial-metal-cladding-internal-corner",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rebated-roller-profile",
+            "semanticType": "construction.industrial.factory-internal-corner-flash.inner-trim",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b1ad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.58,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.143,0],
+                [-0.015,0],
+                [-0.015,0.021],
+                [0.018,0.021],
+                [0.018,0.144],
+                [0.024,0.144],
+                [0.024,0.014],
+                [-0.009,0.014],
+                [-0.009,-0.006],
+                [-0.143,-0.006]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "wall-1": {
+            "position": [0.08,0.79,-0.006],
+            "direction": [0,0,-1]
+          },
+          "wall-2": {
+            "position": [-0.024,0.79,0.073],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

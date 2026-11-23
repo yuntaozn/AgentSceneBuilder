@@ -1,0 +1,251 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.hinged-tip-up-auditorium-seat-module",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "阶梯教室翻板座椅单元",
+  "summary": "固定侧架、靠背和活动坐板，与阶梯平台、扶手端面可单独连接。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.education.tip-up-auditorium-seat-module",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "教室",
+    "实训室",
+    "室内家具",
+    "阶梯教室",
+    "翻板座椅",
+    "扶手"
+  ],
+  "anchors": [
+    "floor",
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "在阶梯教室使用带翻起动画的独立座位。",
+    "editableParts": [
+      "地板脚座",
+      "固定靠背",
+      "转轴",
+      "坐板"
+    ],
+    "qualityChecks": [
+      "坐板上翻时脚座与靠背固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-tip-up-auditorium-seat-module",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "side-pedestal-0",
+            "semanticType": "construction.education.auditorium-tip-up-seat.stile",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.577,0.161]
+            },
+            "transform": {
+              "position": [-0.239,0.296,-0.077]
+            }
+          },
+          {
+            "id": "floor-plate-0",
+            "semanticType": "construction.education.auditorium-tip-up-seat.floor",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.106,0.013,0.212]
+            },
+            "transform": {
+              "position": [-0.239,0.0065,-0.081]
+            }
+          },
+          {
+            "id": "armrest-0",
+            "semanticType": "construction.education.auditorium-tip-up-seat.armrest",
+            "material": "polymer",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.065,0.031,0.321]
+            },
+            "transform": {
+              "position": [-0.239,0.581,0.039]
+            }
+          },
+          {
+            "id": "side-pedestal-1",
+            "semanticType": "construction.education.auditorium-tip-up-seat.stile",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.577,0.161]
+            },
+            "transform": {
+              "position": [0.239,0.296,-0.077]
+            }
+          },
+          {
+            "id": "floor-plate-1",
+            "semanticType": "construction.education.auditorium-tip-up-seat.floor",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.106,0.013,0.212]
+            },
+            "transform": {
+              "position": [0.239,0.0065,-0.081]
+            }
+          },
+          {
+            "id": "armrest-1",
+            "semanticType": "construction.education.auditorium-tip-up-seat.armrest",
+            "material": "polymer",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.065,0.031,0.321]
+            },
+            "transform": {
+              "position": [0.239,0.581,0.039]
+            }
+          },
+          {
+            "id": "backing",
+            "semanticType": "construction.education.auditorium-tip-up-seat.back-board",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.473,0.37,0.057]
+            },
+            "transform": {
+              "position": [0,0.669,-0.162]
+            }
+          },
+          {
+            "id": "back-pad",
+            "semanticType": "construction.education.auditorium-tip-up-seat.back-pad",
+            "material": "fabric",
+            "appearance": {
+              "color": "#a09886"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.439,0.329,0.051]
+            },
+            "transform": {
+              "position": [0,0.673,-0.123]
+            }
+          },
+          {
+            "id": "hinge-axle",
+            "semanticType": "construction.education.auditorium-tip-up-seat.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.242,0.399,-0.135],
+              "end": [0.242,0.399,-0.135],
+              "radius": 0.0105,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "tip-up-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.399,-0.135]
+            }
+          },
+          {
+            "id": "seat-pan",
+            "semanticType": "construction.education.auditorium-tip-up-seat.moving-pan",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.435,0.032,0.354]
+            },
+            "transform": {
+              "position": [0,0.012,0.155]
+            },
+            "parent": "tip-up-axis"
+          },
+          {
+            "id": "seat-cushion",
+            "semanticType": "construction.education.auditorium-tip-up-seat.cushion",
+            "material": "fabric",
+            "appearance": {
+              "color": "#a09886"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.429,0.039,0.347]
+            },
+            "transform": {
+              "position": [0,0.0455,0.154]
+            },
+            "parent": "tip-up-axis"
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,-0.081],
+            "direction": [0,-1,0]
+          },
+          "left": {
+            "position": [-0.27,0.581,0.039],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.27,0.581,0.039],
+            "direction": [1,0,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "lift-auditorium-seat",
+            "target": "tip-up-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [-1.22,0,0],
+            "duration": 0.85,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

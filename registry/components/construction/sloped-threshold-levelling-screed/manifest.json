@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.sloped-threshold-levelling-screed",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "标高过渡找平砂浆带",
+  "summary": "厚度沿进深线性变化的砂浆楔体，两端带有对应找平标高。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.flooring.sloped-levelling-screed",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室内装修",
+    "地坪",
+    "基础构件"
+  ],
+  "anchors": [
+    "base",
+    "low",
+    "high",
+    "slope"
+  ],
+  "ai": {
+    "intent": "在相邻地面标高之间表达实体有坡找平层。",
+    "editableParts": [
+      "高端边",
+      "低端边",
+      "进深"
+    ],
+    "qualityChecks": [
+      "校验坡向和上下游界面高度。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "sloped-threshold-levelling-screed",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "screed-body",
+            "semanticType": "construction.flooring.screed.body",
+            "material": "mortar",
+            "appearance": {
+              "color": "#cec0a6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.47,0,0],
+                [0.47,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.22,0],
+                [-0.22,0],
+                [-0.22,0.023],
+                [0.22,0.057]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "low": {
+            "position": [0,0.023,0.22],
+            "direction": [0,0,1]
+          },
+          "high": {
+            "position": [0,0.057,-0.22],
+            "direction": [0,0,-1]
+          },
+          "slope": {
+            "position": [0,0.04,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

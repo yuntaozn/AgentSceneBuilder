@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.twin-roller-anti-lift-automatic-door-carriage",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带防脱轮自动玻璃滑门吊车",
+  "summary": "两只承重滚轮在轨上滚动，轮下可见小防脱轮与玻璃夹接点。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.envelope-entry.door-carriage",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "建筑入口",
+    "吊轮",
+    "自动门",
+    "防脱轮"
+  ],
+  "anchors": [
+    "rail",
+    "leaf",
+    "tie"
+  ],
+  "ai": {
+    "intent": "两只承重滚轮在轨上滚动，轮下可见小防脱轮与玻璃夹接点。",
+    "editableParts": [
+      "可分别编辑 carrier-bridge、track-roller-1、coaxial-pin-1、track-roller-2、coaxial-pin-2、anti-lift-roller。"
+    ],
+    "qualityChecks": [
+      "滚轮平行，两个长孔给玻璃门夹留可调位置。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "twin-roller-anti-lift-automatic-door-carriage",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "carrier-bridge",
+            "semanticType": "construction.envelope-entry.door-carriage.bridge",
+            "material": "steel",
+            "appearance": {
+              "color": "#6c8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.152,0.031,0.026]
+            },
+            "transform": {
+              "position": [0,0.045,0]
+            }
+          },
+          {
+            "id": "track-roller-1",
+            "semanticType": "construction.envelope-entry.door-carriage.wheel",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.05,0.041,-0.012],
+              "end": [-0.05,0.041,0.01],
+              "radius": 0.021,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "coaxial-pin-1",
+            "semanticType": "construction.envelope-entry.door-carriage.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.05,0.041,-0.018],
+              "end": [-0.05,0.041,0.016],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "track-roller-2",
+            "semanticType": "construction.envelope-entry.door-carriage.wheel",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.05,0.041,-0.012],
+              "end": [0.05,0.041,0.01],
+              "radius": 0.021,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "coaxial-pin-2",
+            "semanticType": "construction.envelope-entry.door-carriage.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.05,0.041,-0.018],
+              "end": [0.05,0.041,0.016],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "anti-lift-roller",
+            "semanticType": "construction.envelope-entry.door-carriage.keep-wheel",
+            "material": "plastic",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.006,-0.013],
+              "end": [0,0.006,0.012],
+              "radius": 0.008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "clamp-plate",
+            "semanticType": "construction.envelope-entry.door-carriage.clamp",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.017,0],
+                [0,-0.011,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.064,-0.019],
+                [0.064,-0.019],
+                [0.064,0.019],
+                [-0.064,0.019]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.046,-0.005],
+                  [0.024000000000000004,-0.005],
+                  [0.024000000000000004,0.005],
+                  [0.046,0.005]
+                ],
+                [
+                  [-0.024000000000000004,-0.005],
+                  [-0.046,-0.005],
+                  [-0.046,0.005],
+                  [-0.024000000000000004,0.005]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "suspension-bracket",
+            "semanticType": "construction.envelope-entry.door-carriage.bridge-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.029,0.056,0.033]
+            },
+            "transform": {
+              "position": [0,0.013,0]
+            }
+          }
+        ],
+        "anchors": {
+          "rail": {
+            "position": [0,0.02,0],
+            "direction": [0,-1,0]
+          },
+          "leaf": {
+            "position": [0,-0.017,0],
+            "direction": [0,-1,0]
+          },
+          "tie": {
+            "position": [0,0.062,-0.048],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

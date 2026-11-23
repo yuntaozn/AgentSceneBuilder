@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.diamond-ventilation-screen-block",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "菱孔通风花格砖",
+  "summary": "四个菱形贯通孔形成可拼排的独立遮挡砖单元。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.masonry.breeze-block",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "砌体",
+    "墙体"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "bottom",
+    "top"
+  ],
+  "ai": {
+    "intent": "重复排布具开孔的屏风或高墙通风单元。",
+    "editableParts": [
+      "调整孔形、砖厚或拼排尺寸。"
+    ],
+    "qualityChecks": [
+      "四孔保持分离且贯通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "diamond-ventilation-screen-block",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lattice",
+            "semanticType": "construction.masonry.breeze-block",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b9c3c3"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.051],
+                [0,0,0.051]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0],
+                [0.295,0],
+                [0.295,0.295],
+                [0,0.295]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.027999999999999997,0.075],
+                  [0.075,0.027999999999999997],
+                  [0.122,0.075],
+                  [0.075,0.122]
+                ],
+                [
+                  [0.027999999999999997,0.22],
+                  [0.075,0.173],
+                  [0.122,0.22],
+                  [0.075,0.267]
+                ],
+                [
+                  [0.173,0.075],
+                  [0.22,0.027999999999999997],
+                  [0.267,0.075],
+                  [0.22,0.122]
+                ],
+                [
+                  [0.173,0.22],
+                  [0.22,0.173],
+                  [0.267,0.22],
+                  [0.22,0.267]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.295,0,0],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0.1475,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0.1475,0.295,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

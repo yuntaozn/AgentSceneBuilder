@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.hinged-scaffold-ladder-access-board",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带翻盖与爬梯的通行脚手板",
+  "summary": "板面真实开洞，盖板和可见垂梯独立；可绕边轴翻盖。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.scaffold.ladder-access-board",
+  "capabilities": [
+    "attach",
+    "animate",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工",
+    "脚手架",
+    "临建"
+  ],
+  "anchors": [
+    "near",
+    "far",
+    "hatch-center"
+  ],
+  "ai": {
+    "intent": "在独立平台区域表达爬梯、开口和盖板状态。",
+    "editableParts": [
+      "编辑开口、盖板铰点或梯级排布。"
+    ],
+    "qualityChecks": [
+      "开洞仍由脚手板外框围合。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-scaffold-ladder-access-board",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.scaffold.hatch-board.plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#a7b9bc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.9,0.002,0],
+                [0.9,0.032,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.899,-0.29],
+                [0.899,-0.29],
+                [0.899,0.29],
+                [-0.899,0.29]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.6,-0.225],
+                  [0.6,-0.225],
+                  [0.6,0.225],
+                  [-0.6,0.225]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "cover-hinge",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0.9,0.034,-0.219]
+            }
+          },
+          {
+            "id": "cover",
+            "semanticType": "construction.scaffold.hatch-board.lid",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.182,0.019,0.431]
+            },
+            "transform": {
+              "position": [0,0.008,0.217]
+            },
+            "parent": "cover-hinge"
+          },
+          {
+            "id": "handle",
+            "semanticType": "construction.scaffold.hatch-board.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#d39659"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.05,0.025,0.405],
+              "end": [0.05,0.025,0.405],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "parent": "cover-hinge"
+          },
+          {
+            "id": "ladder-side-0",
+            "semanticType": "construction.scaffold.hatch-board.ladder",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.36,-0.018,-0.173],
+              "end": [0.36,-1.67,-0.173],
+              "radius": 0.015,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "ladder-side-1",
+            "semanticType": "construction.scaffold.hatch-board.ladder",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.36,-0.018,0.173],
+              "end": [0.36,-1.67,0.173],
+              "radius": 0.015,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "rung",
+            "semanticType": "construction.scaffold.hatch-board.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#a7b9bc"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.36,0,-0.173],
+              "end": [0.36,0,0.173],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 7,
+              "start": [0,-1.53,0],
+              "step": [0,0.228,0]
+            }
+          }
+        ],
+        "anchors": {
+          "near": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "far": {
+            "position": [1.8,0,0],
+            "direction": [0,-1,0]
+          },
+          "hatch-center": {
+            "position": [0.9,0.032,0],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "lift-scaffold-hatch",
+            "target": "cover-hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [-1.62,0,0],
+            "duration": 1.1,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

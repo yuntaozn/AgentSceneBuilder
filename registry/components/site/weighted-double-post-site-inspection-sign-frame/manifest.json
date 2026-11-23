@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.weighted-double-post-site-inspection-sign-frame",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双柱配重施工巡检标识牌架",
+  "summary": "两组配重脚、薄钢边框和独立内芯，方便替换不同告示板。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-site.weighted-site-sign-frame",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "标识牌",
+    "警示",
+    "配重"
+  ],
+  "anchors": [
+    "floor",
+    "panel"
+  ],
+  "ai": {
+    "intent": "在入口或巡检位置放置可更换面芯的现场标识牌。",
+    "editableParts": [
+      "配重脚",
+      "框",
+      "独立面芯"
+    ],
+    "qualityChecks": [
+      "两脚平稳，告示内芯可单独替换。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "weighted-double-post-site-inspection-sign-frame",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "weighted-block-0",
+            "semanticType": "site.inspection-site.site-information-sign-frame.pedestal",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a49d8d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.209,0.105,0.301]
+            },
+            "transform": {
+              "position": [-0.376,0.0525,0]
+            }
+          },
+          {
+            "id": "post-0",
+            "semanticType": "site.inspection-site.site-information-sign-frame.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.042,1.445,0.048]
+            },
+            "transform": {
+              "position": [-0.376,0.815,0]
+            }
+          },
+          {
+            "id": "weighted-block-1",
+            "semanticType": "site.inspection-site.site-information-sign-frame.pedestal",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a49d8d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.209,0.105,0.301]
+            },
+            "transform": {
+              "position": [0.376,0.0525,0]
+            }
+          },
+          {
+            "id": "post-1",
+            "semanticType": "site.inspection-site.site-information-sign-frame.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.042,1.445,0.048]
+            },
+            "transform": {
+              "position": [0.376,0.815,0]
+            }
+          },
+          {
+            "id": "display-frame",
+            "semanticType": "site.inspection-site.site-information-sign-frame.sheet-frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.26,0.027],
+                [0,1.26,0.043]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.477,-0.2935],
+                [0.477,-0.2935],
+                [0.477,0.2935],
+                [-0.477,0.2935]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.4445,-0.2615],
+                  [0.4445,-0.2615],
+                  [0.4445,0.2615],
+                  [-0.4445,0.2615]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "replaceable-sign",
+            "semanticType": "site.inspection-site.site-information-sign-frame.interchangeable-panel",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a9aea3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.893,0.526,0.01]
+            },
+            "transform": {
+              "position": [0,1.26,0.037]
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "panel": {
+            "position": [0,1.26,0.042],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.side-pivot-tilting-washroom-mirror",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "两侧枢转式卫生间镜框",
+  "summary": "独立背座、可转镜框与镜片，镜面可上、下偏转。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.public-washroom.tilting-side-pivot-mirror",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "镜子",
+    "倾角"
+  ],
+  "anchors": [
+    "wall-left",
+    "wall-right"
+  ],
+  "ai": {
+    "intent": "将两只壁座同墙定位，再单独调整镜面。",
+    "editableParts": [
+      "墙柱",
+      "中轴",
+      "镜框",
+      "镜片"
+    ],
+    "qualityChecks": [
+      "镜框转过时壁座保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "side-pivot-tilting-washroom-mirror",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-base-0",
+            "semanticType": "mep.public-washroom.pivot-mirror.wall-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.069,0.142,0.071]
+            },
+            "transform": {
+              "position": [-0.281,0,0.0355]
+            }
+          },
+          {
+            "id": "wall-base-1",
+            "semanticType": "mep.public-washroom.pivot-mirror.wall-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.069,0.142,0.071]
+            },
+            "transform": {
+              "position": [0.281,0,0.0355]
+            }
+          },
+          {
+            "id": "pivot-tie",
+            "semanticType": "mep.public-washroom.pivot-mirror.shaft",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.277,0,0.066],
+              "end": [0.277,0,0.066],
+              "radius": 0.007,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "mirror-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0.066]
+            }
+          },
+          {
+            "id": "backing",
+            "semanticType": "mep.public-washroom.pivot-mirror.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.525,0.701,0.029]
+            },
+            "transform": {
+              "position": [0,0,0.008]
+            },
+            "parent": "mirror-axis"
+          },
+          {
+            "id": "mirror-glass",
+            "semanticType": "mep.public-washroom.pivot-mirror.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#a7b9b6",
+              "metalness": 0.53,
+              "roughness": 0.2
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.501,0.675,0.005]
+            },
+            "transform": {
+              "position": [0,0,0.025]
+            },
+            "parent": "mirror-axis"
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "position": [-0.281,0,0],
+            "direction": [0,0,-1]
+          },
+          "wall-right": {
+            "position": [0.281,0,0],
+            "direction": [0,0,-1]
+          }
+        },
+        "animations": [
+          {
+            "id": "tilt-mirror-down",
+            "target": "mirror-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0.24,0,0],
+            "duration": 0.8,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

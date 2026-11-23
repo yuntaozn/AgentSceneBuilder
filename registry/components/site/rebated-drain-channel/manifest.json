@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.rebated-drain-channel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带格栅支座排水沟",
+  "summary": "U 形排水沟带两侧下沉支座，可拼直线沟段并安装格栅。",
+  "license": "Apache-2.0",
+  "semanticType": "site.drainage.channel",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室外",
+    "基础构件",
+    "排水"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.2
+    },
+    "clearWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.36
+    },
+    "depth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.36
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.09
+    },
+    "seatWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.04
+    },
+    "seatDepth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.035
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "grate-seat"
+  ],
+  "ai": {
+    "intent": "铺设线性地面沟槽，默认与条缝格栅配合。",
+    "editableParts": [
+      "调整沟净宽、深度、壁厚和两侧支座"
+    ],
+    "qualityChecks": [
+      "端点位于沟底中心。",
+      "格栅厚度应与支座下沉匹配。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rebated-drain-channel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.drainage.channel",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "rebated-drain-channel",
+              "length": 1.2,
+              "clearWidth": 0.36,
+              "depth": 0.36,
+              "thickness": 0.09,
+              "seatWidth": 0.04,
+              "seatDepth": 0.035
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "grate-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "grate-seat"
+            }
+          }
+        }
+      }
+    }
+  }
+}

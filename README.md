@@ -74,6 +74,7 @@ Find a public model, check it for errors and build the cable tray example.
 
 ```powershell
 npm run agentscene -- registry search 桥架
+npm run agentscene -- registry search --domain mep --kind component 滑移
 npm run agentscene -- composition check registry/compositions/cable-tray-elbow/manifest.json
 npm run agentscene -- component build registry/compositions/cable-tray-elbow/manifest.json
 ```

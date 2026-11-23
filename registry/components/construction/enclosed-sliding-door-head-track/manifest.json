@@ -1,0 +1,195 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.enclosed-sliding-door-head-track",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "移门封闭式上轨",
+  "summary": "轨道有底部运行缝和两侧导面，内有两组独立吊轮。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.opening.enclosed-sliding-door-head-track",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门窗",
+    "五金"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "mount",
+    "leaf-first",
+    "leaf-second"
+  ],
+  "ai": {
+    "intent": "为推拉门保留可见上轨与内部吊轮。",
+    "editableParts": [
+      "编辑轨长、壳体截面和两个吊轮位置。"
+    ],
+    "qualityChecks": [
+      "吊点低于轨壳。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "enclosed-sliding-door-head-track",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "track",
+            "semanticType": "construction.opening.sliding-door-head-track.rail",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [2.2,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.052,0],
+                [0.052,0],
+                [0.052,-0.067],
+                [0.015,-0.067],
+                [0.015,-0.059],
+                [0.044,-0.059],
+                [0.044,-0.008],
+                [-0.044,-0.008],
+                [-0.044,-0.059],
+                [-0.015,-0.059],
+                [-0.015,-0.067],
+                [-0.052,-0.067]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "wheel-0-0",
+            "semanticType": "construction.opening.sliding-door-head-track.wheel",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.34,-0.039,-0.04],
+              "end": [0.34,-0.039,-0.019999999999999997],
+              "radius": 0.017,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "wheel-0-1",
+            "semanticType": "construction.opening.sliding-door-head-track.wheel",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.34,-0.039,0.019999999999999997],
+              "end": [0.34,-0.039,0.04],
+              "radius": 0.017,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "hanger-0",
+            "semanticType": "construction.opening.sliding-door-head-track.hanger",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.033,0.028,0.022]
+            },
+            "transform": {
+              "position": [0.34,-0.061,0]
+            }
+          },
+          {
+            "id": "wheel-1-0",
+            "semanticType": "construction.opening.sliding-door-head-track.wheel",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.94,-0.039,-0.04],
+              "end": [0.94,-0.039,-0.019999999999999997],
+              "radius": 0.017,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "wheel-1-1",
+            "semanticType": "construction.opening.sliding-door-head-track.wheel",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.94,-0.039,0.019999999999999997],
+              "end": [0.94,-0.039,0.04],
+              "radius": 0.017,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "hanger-1",
+            "semanticType": "construction.opening.sliding-door-head-track.hanger",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.033,0.028,0.022]
+            },
+            "transform": {
+              "position": [0.94,-0.061,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "track",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "track",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "mount": {
+            "position": [1.1,0,0],
+            "direction": [0,1,0]
+          },
+          "leaf-first": {
+            "position": [0.34,-0.075,0],
+            "direction": [0,-1,0]
+          },
+          "leaf-second": {
+            "position": [0.94,-0.075,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

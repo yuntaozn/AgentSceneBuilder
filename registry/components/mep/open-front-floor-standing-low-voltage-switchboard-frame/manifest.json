@@ -1,0 +1,383 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.open-front-floor-standing-low-voltage-switchboard-frame",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "落地低压柜空箱与进出线框",
+  "summary": "柜体分为立柱、背板、顶底孔板和安装横撑，正面保持开敞。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.panelboard.switchboard-frame",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电气配电",
+    "配电柜",
+    "控制柜",
+    "低压",
+    "柜体"
+  ],
+  "anchors": [
+    "base",
+    "top",
+    "row-a",
+    "row-b",
+    "row-c",
+    "row-d",
+    "door",
+    "floor-inlet",
+    "upper-gland"
+  ],
+  "ai": {
+    "intent": "柜体分为立柱、背板、顶底孔板和安装横撑，正面保持开敞。",
+    "editableParts": [
+      "可分别编辑 cabinet-back-panel、cabinet-side-1、front-stile-1、rear-stiffener-1、cabinet-side-2、front-stile-2。"
+    ],
+    "qualityChecks": [
+      "顶部与柜底都有实际进线孔，柜架正面可查看设备。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "open-front-floor-standing-low-voltage-switchboard-frame",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cabinet-back-panel",
+            "semanticType": "mep.panelboard.cabinet.back",
+            "material": "steel",
+            "appearance": {
+              "color": "#4a6068"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.752,1.631,0.014]
+            },
+            "transform": {
+              "position": [0,0.8275,-0.22]
+            }
+          },
+          {
+            "id": "cabinet-side-1",
+            "semanticType": "mep.panelboard.cabinet.side",
+            "material": "steel",
+            "appearance": {
+              "color": "#a5adab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.015,1.655,0.454]
+            },
+            "transform": {
+              "position": [-0.3685,0.8275,0]
+            }
+          },
+          {
+            "id": "front-stile-1",
+            "semanticType": "mep.panelboard.cabinet.front-column",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,1.655,0.045]
+            },
+            "transform": {
+              "position": [-0.352,0.8275,0.204]
+            }
+          },
+          {
+            "id": "rear-stiffener-1",
+            "semanticType": "mep.panelboard.cabinet.rear-column",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.044,1.655,0.068]
+            },
+            "transform": {
+              "position": [-0.321,0.8275,-0.159]
+            }
+          },
+          {
+            "id": "cabinet-side-2",
+            "semanticType": "mep.panelboard.cabinet.side",
+            "material": "steel",
+            "appearance": {
+              "color": "#a5adab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.015,1.655,0.454]
+            },
+            "transform": {
+              "position": [0.3685,0.8275,0]
+            }
+          },
+          {
+            "id": "front-stile-2",
+            "semanticType": "mep.panelboard.cabinet.front-column",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,1.655,0.045]
+            },
+            "transform": {
+              "position": [0.352,0.8275,0.204]
+            }
+          },
+          {
+            "id": "rear-stiffener-2",
+            "semanticType": "mep.panelboard.cabinet.rear-column",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.044,1.655,0.068]
+            },
+            "transform": {
+              "position": [0.321,0.8275,-0.159]
+            }
+          },
+          {
+            "id": "top-entry-plate",
+            "semanticType": "mep.panelboard.cabinet.top-entry",
+            "material": "steel",
+            "appearance": {
+              "color": "#a5adab"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.637,0],
+                [0,1.655,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.376,-0.227],
+                [0.376,-0.227],
+                [0.376,0.227],
+                [-0.376,0.227]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0755,-0.057999999999999996],
+                  [-0.14150000000000001,-0.057999999999999996],
+                  [-0.14150000000000001,0.032],
+                  [0.0755,0.032]
+                ],
+                [
+                  [0.302,-0.162],
+                  [0.30279224905678065,-0.15852893008705954],
+                  [0.30501208158513016,-0.15574534814025576],
+                  [0.3082198325283495,-0.15420057670254542],
+                  [0.3117801674716505,-0.15420057670254542],
+                  [0.31498791841486984,-0.15574534814025576],
+                  [0.31720775094321935,-0.15852893008705954],
+                  [0.318,-0.162],
+                  [0.31720775094321935,-0.16547106991294047],
+                  [0.3149879184148699,-0.16825465185974425],
+                  [0.3117801674716505,-0.1697994232974546],
+                  [0.3082198325283495,-0.1697994232974546],
+                  [0.30501208158513016,-0.16825465185974425],
+                  [0.30279224905678065,-0.16547106991294047]
+                ],
+                [
+                  [-0.318,-0.162],
+                  [-0.31720775094321935,-0.15852893008705954],
+                  [-0.31498791841486984,-0.15574534814025576],
+                  [-0.3117801674716505,-0.15420057670254542],
+                  [-0.3082198325283495,-0.15420057670254542],
+                  [-0.30501208158513016,-0.15574534814025576],
+                  [-0.30279224905678065,-0.15852893008705954],
+                  [-0.302,-0.162],
+                  [-0.30279224905678065,-0.16547106991294047],
+                  [-0.3050120815851301,-0.16825465185974425],
+                  [-0.3082198325283495,-0.1697994232974546],
+                  [-0.3117801674716505,-0.1697994232974546],
+                  [-0.31498791841486984,-0.16825465185974425],
+                  [-0.31720775094321935,-0.16547106991294047]
+                ],
+                [
+                  [0.302,0.162],
+                  [0.30279224905678065,0.16547106991294047],
+                  [0.30501208158513016,0.16825465185974425],
+                  [0.3082198325283495,0.1697994232974546],
+                  [0.3117801674716505,0.1697994232974546],
+                  [0.31498791841486984,0.16825465185974425],
+                  [0.31720775094321935,0.16547106991294047],
+                  [0.318,0.162],
+                  [0.31720775094321935,0.15852893008705954],
+                  [0.3149879184148699,0.15574534814025576],
+                  [0.3117801674716505,0.15420057670254542],
+                  [0.3082198325283495,0.15420057670254542],
+                  [0.30501208158513016,0.15574534814025576],
+                  [0.30279224905678065,0.15852893008705954]
+                ],
+                [
+                  [-0.318,0.162],
+                  [-0.31720775094321935,0.16547106991294047],
+                  [-0.31498791841486984,0.16825465185974425],
+                  [-0.3117801674716505,0.1697994232974546],
+                  [-0.3082198325283495,0.1697994232974546],
+                  [-0.30501208158513016,0.16825465185974425],
+                  [-0.30279224905678065,0.16547106991294047],
+                  [-0.302,0.162],
+                  [-0.30279224905678065,0.15852893008705954],
+                  [-0.3050120815851301,0.15574534814025576],
+                  [-0.3082198325283495,0.15420057670254542],
+                  [-0.3117801674716505,0.15420057670254542],
+                  [-0.31498791841486984,0.15574534814025576],
+                  [-0.31720775094321935,0.15852893008705954]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "cable-entry-floor",
+            "semanticType": "mep.panelboard.cabinet.bottom-entry",
+            "material": "steel",
+            "appearance": {
+              "color": "#a5adab"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.021,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.376,-0.227],
+                [0.376,-0.227],
+                [0.376,0.227],
+                [-0.376,0.227]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.1645,0.008500000000000008],
+                  [-0.1645,0.008500000000000008],
+                  [-0.1645,0.1275],
+                  [0.1645,0.1275]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "equipment-crossrail-1",
+            "semanticType": "mep.panelboard.cabinet.crossrail",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.668,0.057,0.023]
+            },
+            "transform": {
+              "position": [0,0.422,-0.153]
+            }
+          },
+          {
+            "id": "equipment-crossrail-2",
+            "semanticType": "mep.panelboard.cabinet.crossrail",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.668,0.057,0.023]
+            },
+            "transform": {
+              "position": [0,0.754,-0.153]
+            }
+          },
+          {
+            "id": "equipment-crossrail-3",
+            "semanticType": "mep.panelboard.cabinet.crossrail",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.668,0.057,0.023]
+            },
+            "transform": {
+              "position": [0,1.12,-0.153]
+            }
+          },
+          {
+            "id": "equipment-crossrail-4",
+            "semanticType": "mep.panelboard.cabinet.crossrail",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.668,0.057,0.023]
+            },
+            "transform": {
+              "position": [0,1.388,-0.153]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,1.655,0],
+            "direction": [0,1,0]
+          },
+          "row-a": {
+            "position": [0,0.422,-0.1415],
+            "direction": [0,0,1]
+          },
+          "row-b": {
+            "position": [0,0.754,-0.1415],
+            "direction": [0,0,1]
+          },
+          "row-c": {
+            "position": [0,1.12,-0.1415],
+            "direction": [0,0,1]
+          },
+          "row-d": {
+            "position": [0,1.388,-0.1415],
+            "direction": [0,0,1]
+          },
+          "door": {
+            "position": [-0.3515,0.807,0.228],
+            "direction": [0,0,1]
+          },
+          "floor-inlet": {
+            "position": [0,0.021,0.068],
+            "direction": [0,1,0]
+          },
+          "upper-gland": {
+            "position": [0.033,1.655,-0.013],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

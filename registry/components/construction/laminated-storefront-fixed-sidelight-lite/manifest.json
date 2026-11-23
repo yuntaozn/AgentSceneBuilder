@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.laminated-storefront-fixed-sidelight-lite",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "门厅双片夹胶固定侧玻璃",
+  "summary": "两片独立玻璃间有薄夹层，下落进地槽，上方由压片定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.envelope-entry.fixed-sidelight",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "建筑入口",
+    "侧窗",
+    "夹胶玻璃",
+    "店面"
+  ],
+  "anchors": [
+    "bottom",
+    "head",
+    "side"
+  ],
+  "ai": {
+    "intent": "两片独立玻璃间有薄夹层，下落进地槽，上方由压片定位。",
+    "editableParts": [
+      "可分别编辑 outer-lite、inner-lite、laminate、edge-spacer-1、edge-spacer-2。"
+    ],
+    "qualityChecks": [
+      "三层共边，总厚度 16 mm，底部垫块分开。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "laminated-storefront-fixed-sidelight-lite",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "outer-lite",
+            "semanticType": "construction.envelope-entry.sidelight.outer",
+            "material": "glass",
+            "appearance": {
+              "color": "#8eafb2",
+              "opacity": 0.39
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.63,2.045,0.007]
+            },
+            "transform": {
+              "position": [0,1.083,0.0045]
+            }
+          },
+          {
+            "id": "inner-lite",
+            "semanticType": "construction.envelope-entry.sidelight.inner",
+            "material": "glass",
+            "appearance": {
+              "color": "#8eafb2",
+              "opacity": 0.39
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.63,2.045,0.007]
+            },
+            "transform": {
+              "position": [0,1.083,-0.0045]
+            }
+          },
+          {
+            "id": "laminate",
+            "semanticType": "construction.envelope-entry.sidelight.interlayer",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a7c0bf",
+              "opacity": 0.28
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.63,2.045,0.002]
+            },
+            "transform": {
+              "position": [0,1.083,0]
+            }
+          },
+          {
+            "id": "edge-spacer-1",
+            "semanticType": "construction.envelope-entry.sidelight.block",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.035,0.01,0.018]
+            },
+            "transform": {
+              "position": [-0.205,0.056,0]
+            }
+          },
+          {
+            "id": "edge-spacer-2",
+            "semanticType": "construction.envelope-entry.sidelight.block",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.035,0.01,0.018]
+            },
+            "transform": {
+              "position": [0.205,0.056,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "position": [0,0.051,0],
+            "direction": [0,-1,0]
+          },
+          "head": {
+            "position": [0,2.105,0],
+            "direction": [0,1,0]
+          },
+          "side": {
+            "position": [-0.315,1.083,0],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

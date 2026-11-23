@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.folded-stainless-roof-movement-joint-weather-cap",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "屋面变形缝折板防雨盖",
+  "summary": "高低扣边下分左右基座，中央铰接压盖和防水层可分别显示。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.movement-joint.roof-rain-cover",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "结构节点",
+    "屋面变形缝",
+    "防雨盖",
+    "防水折边"
+  ],
+  "anchors": [
+    "left-curb",
+    "right-curb",
+    "top"
+  ],
+  "ai": {
+    "intent": "高低扣边下分左右基座，中央铰接压盖和防水层可分别显示。",
+    "editableParts": [
+      "可分别编辑 clipped-weather-cap、formed-curb-1、formed-curb-2、raised-epdm-saddle。"
+    ],
+    "qualityChecks": [
+      "外盖两端压过立边，独立防水鞍部向中间抬高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "folded-stainless-roof-movement-joint-weather-cap",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "clipped-weather-cap",
+            "semanticType": "structure.movement-joint.roof-joint.cover",
+            "material": "steel",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.482],
+                [0,0,0.482]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.155,0.121],
+                [-0.105,0.2],
+                [0.104,0.2],
+                [0.153,0.133],
+                [0.148,0.127],
+                [0.1,0.191],
+                [-0.1,0.191],
+                [-0.149,0.117]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "formed-curb-1",
+            "semanticType": "structure.movement-joint.roof-joint.curb",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a8388"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.481],
+                [0,0,0.481]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.21,0],
+                [-0.098,0],
+                [-0.098,0.137],
+                [-0.113,0.137],
+                [-0.113,0.012],
+                [-0.21,0.012]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "formed-curb-2",
+            "semanticType": "structure.movement-joint.roof-joint.curb",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a8388"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.481],
+                [0,0,0.481]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.21,0],
+                [0.098,0],
+                [0.098,0.137],
+                [0.113,0.137],
+                [0.113,0.012],
+                [0.21,0.012]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "raised-epdm-saddle",
+            "semanticType": "structure.movement-joint.roof-joint.membrane",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.477],
+                [0,0,0.477]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.114,0.113],
+                [-0.055,0.133],
+                [0,0.165],
+                [0.055,0.133],
+                [0.113,0.113],
+                [0.113,0.102],
+                [0.056,0.122],
+                [0,0.154],
+                [-0.056,0.122],
+                [-0.114,0.102]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "left-curb": {
+            "position": [-0.155,0,0],
+            "direction": [0,-1,0]
+          },
+          "right-curb": {
+            "position": [0.155,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,0.2,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

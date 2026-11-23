@@ -1,0 +1,322 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.sliding-dual-plate-crack-displacement-monitor",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双片裂缝位移观测贴片",
+  "summary": "左右底贴、网格标线和带透明交叠片的位移靶，移片可独立左右动。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.building-inspection.dual-plate-crack-monitor",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "质量检测",
+    "巡检",
+    "裂缝",
+    "位移",
+    "贴片"
+  ],
+  "anchors": [
+    "wall-left",
+    "wall-right"
+  ],
+  "ai": {
+    "intent": "把左右贴片分别贴在示意裂缝两侧，显示指示片相对位移。",
+    "editableParts": [
+      "固定格线",
+      "透明滑片",
+      "固定基准"
+    ],
+    "qualityChecks": [
+      "滑片与底片独立，透明窗仍对着刻线。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "sliding-dual-plate-crack-displacement-monitor",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fixed-tab",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.fixed-base",
+            "material": "polymer",
+            "appearance": {
+              "color": "#ddd7c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.085,0.055,0.007]
+            },
+            "transform": {
+              "position": [-0.045,0,0.0035]
+            }
+          },
+          {
+            "id": "fixed-grid-board",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.grid",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a9b2af"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.079,0.052,0.004]
+            },
+            "transform": {
+              "position": [-0.016,0,0.009]
+            }
+          },
+          {
+            "id": "v-mark-0",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.0009,0.036,0.001]
+            },
+            "transform": {
+              "position": [-0.033,0,0.0115]
+            }
+          },
+          {
+            "id": "v-mark-1",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.0009,0.036,0.001]
+            },
+            "transform": {
+              "position": [-0.022,0,0.0115]
+            }
+          },
+          {
+            "id": "v-mark-2",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.0009,0.036,0.001]
+            },
+            "transform": {
+              "position": [-0.011,0,0.0115]
+            }
+          },
+          {
+            "id": "v-mark-3",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.0009,0.036,0.001]
+            },
+            "transform": {
+              "position": [0,0,0.0115]
+            }
+          },
+          {
+            "id": "v-mark-4",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.0009,0.036,0.001]
+            },
+            "transform": {
+              "position": [0.011,0,0.0115]
+            }
+          },
+          {
+            "id": "v-mark-5",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.0009,0.036,0.001]
+            },
+            "transform": {
+              "position": [0.022,0,0.0115]
+            }
+          },
+          {
+            "id": "h-mark-0",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.001,0.001]
+            },
+            "transform": {
+              "position": [0,-0.016,0.0116]
+            }
+          },
+          {
+            "id": "h-mark-1",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.001,0.001]
+            },
+            "transform": {
+              "position": [0,-0.008,0.0116]
+            }
+          },
+          {
+            "id": "h-mark-2",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.001,0.001]
+            },
+            "transform": {
+              "position": [0,0,0.0116]
+            }
+          },
+          {
+            "id": "h-mark-3",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.001,0.001]
+            },
+            "transform": {
+              "position": [0,0.008,0.0116]
+            }
+          },
+          {
+            "id": "h-mark-4",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.scale",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.001,0.001]
+            },
+            "transform": {
+              "position": [0,0.016,0.0116]
+            }
+          },
+          {
+            "id": "sliding-tab",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "moving-adhesive-tab",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.right-base",
+            "material": "polymer",
+            "appearance": {
+              "color": "#ddd7c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.057,0.007]
+            },
+            "transform": {
+              "position": [0.063,0,0.0035]
+            },
+            "parent": "sliding-tab"
+          },
+          {
+            "id": "clear-index-overlay",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.moving-window",
+            "material": "polymer",
+            "appearance": {
+              "color": "#99b6b4",
+              "opacity": 0.46
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.047,0.005]
+            },
+            "transform": {
+              "position": [0.005,0,0.015]
+            },
+            "parent": "sliding-tab"
+          },
+          {
+            "id": "index-cross",
+            "semanticType": "instrument.building-inspection.dual-plate-crack-monitor.cursor",
+            "material": "polymer",
+            "appearance": {
+              "color": "#b39366"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.03,0.001]
+            },
+            "transform": {
+              "position": [0,0,0.018]
+            },
+            "parent": "sliding-tab"
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "position": [-0.046,0,0],
+            "direction": [0,0,-1]
+          },
+          "wall-right": {
+            "position": [0.063,0,0],
+            "direction": [0,0,-1],
+            "node": "sliding-tab"
+          }
+        },
+        "animations": [
+          {
+            "id": "shift-crack-indicator",
+            "target": "sliding-tab",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0.013,0,0],
+            "duration": 1,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

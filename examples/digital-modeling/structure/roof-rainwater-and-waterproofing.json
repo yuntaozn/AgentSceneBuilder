@@ -1,0 +1,2072 @@
+{
+  "schemaVersion": "0.1",
+  "id": "roof-rainwater-and-waterproofing",
+  "title": "女儿墙泄水、雨落管与防水节点",
+  "instances": [
+    {
+      "id": "base-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "partition-wall",
+              "wallWidth": 4.2,
+              "wallHeight": 3,
+              "thickness": 0.24
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "rain-band-seat": {
+            "position": [0,1.1,0.12],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "parapet",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 4.2,
+              "wallHeight": 0.9,
+              "thickness": 0.24,
+              "openingWidth": 0.228,
+              "openingHeight": 0.128,
+              "openingOffset": 0,
+              "sillHeight": 0.076
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "opening-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "opening-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-top"
+            }
+          },
+          "opening-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-left"
+            }
+          },
+          "opening-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-right"
+            }
+          },
+          "opening-exterior-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-exterior-base"
+            }
+          },
+          "scupper-face": {
+            "position": [0,0.14,-0.126],
+            "direction": [0,0,-1]
+          },
+          "cove-seat": {
+            "position": [1.35,0.0325,-0.12],
+            "direction": [0,0,-1]
+          },
+          "termination-seat": {
+            "position": [1.35,0.375,-0.12],
+            "direction": [0,0,-1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,3,0]
+      }
+    },
+    {
+      "id": "roof-slab",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "material": "concrete",
+            "appearance": {
+              "color": "#8c979d"
+            },
+            "geometry": {
+              "type": "floor-opening-slab",
+              "slabWidth": 4.2,
+              "slabDepth": 3.04,
+              "thickness": 0.2,
+              "openingWidth": 0.163,
+              "openingDepth": 0.123,
+              "openingOffsetX": 1.2,
+              "openingOffsetZ": 0.15
+            }
+          }
+        ],
+        "anchors": {
+          "opening-near": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-near"
+            }
+          },
+          "opening-far": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-far"
+            }
+          },
+          "slab-near": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slab-near"
+            }
+          },
+          "slab-far": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slab-far"
+            }
+          },
+          "roof-drain-seat": {
+            "position": [1.2,0,0.15],
+            "direction": [0,1,0]
+          },
+          "cove-floor": {
+            "position": [1.35,0,1.2475],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,3,-1.4]
+      }
+    },
+    {
+      "id": "scupper",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "spout",
+            "semanticType": "roof.parapet-scupper",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,0,0],
+                [0,0,0.446]
+              ],
+              "sectionWidth": 0.22,
+              "sectionHeight": 0.12,
+              "thickness": 0.004,
+              "up": [0,1,0]
+            }
+          },
+          {
+            "id": "flashing",
+            "semanticType": "roof.parapet-scupper.flange",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#aab8bb"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.008]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.18,-0.12],
+                [0.18,-0.12],
+                [0.18,0.12],
+                [-0.18,0.12]
+              ],
+              "holes": [
+                [
+                  [-0.106,-0.056],
+                  [0.106,-0.056],
+                  [0.106,0.056],
+                  [-0.106,0.056]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "spout",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "spout",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,3.14,-0.126]
+      }
+    },
+    {
+      "id": "hopper",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inlet-wall",
+            "semanticType": "roof.rainwater-hopper.hole-wall",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 0.4,
+              "wallHeight": 0.24,
+              "thickness": 0.018,
+              "openingWidth": 0.224,
+              "openingHeight": 0.126,
+              "openingOffset": 0,
+              "sillHeight": 0.091
+            },
+            "transform": {
+              "position": [0,-0.24,-0.141]
+            }
+          },
+          {
+            "id": "rear-wall",
+            "semanticType": "roof.rainwater-hopper.wall",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.4,0.24,0.018]
+            },
+            "transform": {
+              "position": [0,-0.12,0.141]
+            }
+          },
+          {
+            "id": "east-wall",
+            "semanticType": "roof.rainwater-hopper.wall",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.24,0.264]
+            },
+            "transform": {
+              "position": [0.191,-0.12,0]
+            }
+          },
+          {
+            "id": "west-wall",
+            "semanticType": "roof.rainwater-hopper.wall",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.24,0.264]
+            },
+            "transform": {
+              "position": [-0.191,-0.12,0]
+            }
+          },
+          {
+            "id": "outer-hopper",
+            "semanticType": "roof.rainwater-hopper.taper",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 4,
+              "capStart": false,
+              "capEnd": false,
+              "sections": [
+                {
+                  "center": [0,-0.46,0],
+                  "radiusX": 0.085,
+                  "radiusZ": 0.06,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0,-0.24,0],
+                  "radiusX": 0.2,
+                  "radiusZ": 0.15,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "inner-hopper",
+            "semanticType": "roof.rainwater-hopper.taper",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 4,
+              "capStart": false,
+              "capEnd": false,
+              "sections": [
+                {
+                  "center": [0,-0.46,0],
+                  "radiusX": 0.077,
+                  "radiusZ": 0.052,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0,-0.24,0],
+                  "radiusX": 0.182,
+                  "radiusZ": 0.132,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "wall-in": {
+            "position": [0,-0.086,-0.15],
+            "direction": [0,0,-1]
+          },
+          "outlet": {
+            "position": [0,-0.46,0],
+            "direction": [0,-1,0]
+          },
+          "top-inspection": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,3.226,0.47]
+      }
+    },
+    {
+      "id": "downspout-upper",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "downpipe",
+            "semanticType": "roof.rectangular-downspout",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,0,0],
+                [0,-0.8,0]
+              ],
+              "sectionWidth": 0.17,
+              "sectionHeight": 0.12,
+              "thickness": 0.008,
+              "up": [0,0,1]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "downpipe",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "downpipe",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.766,0.47]
+      }
+    },
+    {
+      "id": "downspout-offset",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "downpipe",
+            "semanticType": "roof.rectangular-downspout.offset",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,0,0],
+                [0,-0.16,0],
+                [0,-0.41,0.18],
+                [0,-0.58,0.18]
+              ],
+              "sectionWidth": 0.17,
+              "sectionHeight": 0.12,
+              "thickness": 0.008,
+              "up": [0,0,1]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "downpipe",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "downpipe",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,1.966,0.47],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "downspout-lower",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "downpipe",
+            "semanticType": "roof.rectangular-downspout",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,0,0],
+                [0,-1.2,0]
+              ],
+              "sectionWidth": 0.17,
+              "sectionHeight": 0.12,
+              "thickness": 0.008,
+              "up": [0,0,1]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "downpipe",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "downpipe",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "lower-band-axis": {
+            "position": [0,-0.286,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,1.386,0.29]
+      }
+    },
+    {
+      "id": "wall-band",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "pipe-band",
+            "semanticType": "roof.downspout-wall-band.ring",
+            "material": "steel",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.025,0],
+                [0,0.025,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.0995,-0.0755],
+                [0.0995,-0.0755],
+                [0.0995,0.0755],
+                [-0.0995,0.0755]
+              ],
+              "holes": [
+                [
+                  [-0.0865,-0.0615],
+                  [0.0865,-0.0615],
+                  [0.0865,0.0615],
+                  [-0.0865,0.0615]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "stem",
+            "semanticType": "roof.downspout-wall-band.spacer",
+            "material": "steel",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.065,0.057,0.092]
+            },
+            "transform": {
+              "position": [0,0,-0.119]
+            }
+          },
+          {
+            "id": "wall-plate",
+            "semanticType": "roof.downspout-wall-band.plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.17],
+                [0,0,-0.162]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.1075,-0.0375],
+                [0.1075,-0.0375],
+                [0.1075,0.0375],
+                [-0.1075,0.0375]
+              ],
+              "holes": [
+                [
+                  [-0.074,0],
+                  [-0.07420444504226559,0.0015529142706151246],
+                  [-0.07480384757729337,0.0029999999999999996],
+                  [-0.07575735931288072,0.004242640687119285],
+                  [-0.077,0.005196152422706632],
+                  [-0.07844708572938487,0.00579555495773441],
+                  [-0.08,0.006],
+                  [-0.08155291427061513,0.00579555495773441],
+                  [-0.083,0.005196152422706633],
+                  [-0.08424264068711929,0.004242640687119286],
+                  [-0.08519615242270663,0.0029999999999999996],
+                  [-0.08579555495773442,0.001552914270615126],
+                  [-0.08600000000000001,7.347880794884119e-19],
+                  [-0.08579555495773442,-0.0015529142706151248],
+                  [-0.08519615242270663,-0.0029999999999999983],
+                  [-0.08424264068711929,-0.004242640687119283],
+                  [-0.083,-0.005196152422706631],
+                  [-0.08155291427061513,-0.00579555495773441],
+                  [-0.08,-0.006],
+                  [-0.07844708572938489,-0.0057955549577344105],
+                  [-0.077,-0.005196152422706632],
+                  [-0.07575735931288072,-0.004242640687119287],
+                  [-0.07480384757729337,-0.0030000000000000027],
+                  [-0.07420444504226559,-0.0015529142706151296]
+                ],
+                [
+                  [0.08600000000000001,0],
+                  [0.08579555495773442,0.0015529142706151246],
+                  [0.08519615242270663,0.0029999999999999996],
+                  [0.08424264068711929,0.004242640687119285],
+                  [0.083,0.005196152422706632],
+                  [0.08155291427061513,0.00579555495773441],
+                  [0.08,0.006],
+                  [0.07844708572938487,0.00579555495773441],
+                  [0.077,0.005196152422706633],
+                  [0.07575735931288072,0.004242640687119286],
+                  [0.07480384757729337,0.0029999999999999996],
+                  [0.07420444504226559,0.001552914270615126],
+                  [0.074,7.347880794884119e-19],
+                  [0.07420444504226559,-0.0015529142706151248],
+                  [0.07480384757729337,-0.0029999999999999983],
+                  [0.07575735931288072,-0.004242640687119283],
+                  [0.077,-0.005196152422706631],
+                  [0.07844708572938487,-0.00579555495773441],
+                  [0.08,-0.006],
+                  [0.08155291427061512,-0.0057955549577344105],
+                  [0.083,-0.005196152422706632],
+                  [0.08424264068711929,-0.004242640687119287],
+                  [0.08519615242270663,-0.0030000000000000027],
+                  [0.08579555495773442,-0.0015529142706151296]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "pipe-axis": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "wall-seat": {
+            "position": [0,0,-0.17],
+            "direction": [0,0,-1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,1.1,0.29]
+      }
+    },
+    {
+      "id": "roof-drain",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "flange",
+            "semanticType": "construction.roof.drain-outlet",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#667983"
+            },
+            "geometry": {
+              "type": "floor-opening-slab",
+              "slabWidth": 0.3,
+              "slabDepth": 0.25,
+              "thickness": 0.01,
+              "openingWidth": 0.14,
+              "openingDepth": 0.1,
+              "openingOffsetX": 0,
+              "openingOffsetZ": 0
+            }
+          },
+          {
+            "id": "throat",
+            "semanticType": "construction.roof.drain-outlet",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#667983"
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,-0.01,0],
+                [0,-0.22,0]
+              ],
+              "up": [0,0,1],
+              "sectionWidth": 0.16,
+              "sectionHeight": 0.12,
+              "thickness": 0.01
+            }
+          }
+        ],
+        "anchors": {
+          "outlet": {
+            "node": "throat",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "inlet": {
+            "node": "flange",
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.2,3,-1.25]
+      }
+    },
+    {
+      "id": "leaf-guard",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "foot-ring",
+            "semanticType": "roof.leaf-guard.foot",
+            "material": "steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.012,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.115,-0.115],
+                [0.115,-0.115],
+                [0.115,0.115],
+                [-0.115,0.115]
+              ],
+              "holes": [
+                [
+                  [-0.081,-0.061],
+                  [0.081,-0.061],
+                  [0.081,0.061],
+                  [-0.081,0.061]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "front-wall",
+            "semanticType": "roof.leaf-guard.wall",
+            "material": "metal",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.215,
+              "railHeight": 0.145,
+              "thickness": 0.01,
+              "memberWidth": 0.016,
+              "bayCount": 4
+            },
+            "transform": {
+              "position": [0,0.012,0.1075]
+            }
+          },
+          {
+            "id": "rear-wall",
+            "semanticType": "roof.leaf-guard.wall",
+            "material": "metal",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.215,
+              "railHeight": 0.145,
+              "thickness": 0.01,
+              "memberWidth": 0.016,
+              "bayCount": 4
+            },
+            "transform": {
+              "position": [0,0.012,-0.1075]
+            }
+          },
+          {
+            "id": "side-wall-0",
+            "semanticType": "roof.leaf-guard.wall",
+            "material": "metal",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.205,
+              "railHeight": 0.145,
+              "thickness": 0.01,
+              "memberWidth": 0.016,
+              "bayCount": 4
+            },
+            "transform": {
+              "position": [-0.1075,0.012,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "side-wall-1",
+            "semanticType": "roof.leaf-guard.wall",
+            "material": "metal",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.205,
+              "railHeight": 0.145,
+              "thickness": 0.01,
+              "memberWidth": 0.016,
+              "bayCount": 4
+            },
+            "transform": {
+              "position": [0.1075,0.012,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "top-cap",
+            "semanticType": "roof.leaf-guard.cap",
+            "material": "steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.157,0],
+                [0,0.167,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.1125,-0.1125],
+                [0.1125,-0.1125],
+                [0.1125,0.1125],
+                [-0.1125,0.1125]
+              ],
+              "holes": [
+                [
+                  [-0.026,-0.044],
+                  [-0.02661333512679677,-0.03934125718815462],
+                  [-0.028411542731880103,-0.035],
+                  [-0.031272077938642145,-0.031272077938642145],
+                  [-0.034999999999999996,-0.028411542731880103],
+                  [-0.03934125718815462,-0.02661333512679677],
+                  [-0.044,-0.026],
+                  [-0.04865874281184537,-0.02661333512679677],
+                  [-0.05299999999999999,-0.028411542731880103],
+                  [-0.05672792206135785,-0.031272077938642145],
+                  [-0.05958845726811989,-0.035],
+                  [-0.061386664873203226,-0.03934125718815462],
+                  [-0.062,-0.044],
+                  [-0.061386664873203226,-0.048658742811845374],
+                  [-0.0595884572681199,-0.05299999999999999],
+                  [-0.056727922061357856,-0.05672792206135784],
+                  [-0.053000000000000005,-0.059588457268119885],
+                  [-0.04865874281184537,-0.061386664873203226],
+                  [-0.044,-0.062],
+                  [-0.039341257188154635,-0.061386664873203226],
+                  [-0.034999999999999996,-0.05958845726811989],
+                  [-0.031272077938642145,-0.056727922061357856],
+                  [-0.02841154273188011,-0.053000000000000005],
+                  [-0.026613335126796773,-0.04865874281184539]
+                ],
+                [
+                  [0.062,-0.044],
+                  [0.061386664873203226,-0.03934125718815462],
+                  [0.05958845726811989,-0.035],
+                  [0.05672792206135785,-0.031272077938642145],
+                  [0.053,-0.028411542731880103],
+                  [0.048658742811845374,-0.02661333512679677],
+                  [0.044,-0.026],
+                  [0.03934125718815463,-0.02661333512679677],
+                  [0.035,-0.028411542731880103],
+                  [0.031272077938642145,-0.031272077938642145],
+                  [0.028411542731880103,-0.035],
+                  [0.026613335126796773,-0.03934125718815462],
+                  [0.026,-0.044],
+                  [0.02661333512679677,-0.048658742811845374],
+                  [0.0284115427318801,-0.05299999999999999],
+                  [0.03127207793864214,-0.05672792206135784],
+                  [0.03499999999999999,-0.059588457268119885],
+                  [0.03934125718815463,-0.061386664873203226],
+                  [0.044,-0.062],
+                  [0.04865874281184536,-0.061386664873203226],
+                  [0.053,-0.05958845726811989],
+                  [0.05672792206135785,-0.056727922061357856],
+                  [0.059588457268119885,-0.053000000000000005],
+                  [0.061386664873203226,-0.04865874281184539]
+                ],
+                [
+                  [-0.026,0.044],
+                  [-0.02661333512679677,0.048658742811845374],
+                  [-0.028411542731880103,0.05299999999999999],
+                  [-0.031272077938642145,0.05672792206135785],
+                  [-0.034999999999999996,0.05958845726811989],
+                  [-0.03934125718815462,0.061386664873203226],
+                  [-0.044,0.062],
+                  [-0.04865874281184537,0.061386664873203226],
+                  [-0.05299999999999999,0.05958845726811989],
+                  [-0.05672792206135785,0.05672792206135785],
+                  [-0.05958845726811989,0.05299999999999999],
+                  [-0.061386664873203226,0.048658742811845374],
+                  [-0.062,0.044],
+                  [-0.061386664873203226,0.03934125718815462],
+                  [-0.0595884572681199,0.035],
+                  [-0.056727922061357856,0.03127207793864215],
+                  [-0.053000000000000005,0.028411542731880107],
+                  [-0.04865874281184537,0.02661333512679677],
+                  [-0.044,0.026],
+                  [-0.039341257188154635,0.026613335126796766],
+                  [-0.034999999999999996,0.028411542731880103],
+                  [-0.031272077938642145,0.03127207793864214],
+                  [-0.02841154273188011,0.03499999999999999],
+                  [-0.026613335126796773,0.03934125718815461]
+                ],
+                [
+                  [0.062,0.044],
+                  [0.061386664873203226,0.048658742811845374],
+                  [0.05958845726811989,0.05299999999999999],
+                  [0.05672792206135785,0.05672792206135785],
+                  [0.053,0.05958845726811989],
+                  [0.048658742811845374,0.061386664873203226],
+                  [0.044,0.062],
+                  [0.03934125718815463,0.061386664873203226],
+                  [0.035,0.05958845726811989],
+                  [0.031272077938642145,0.05672792206135785],
+                  [0.028411542731880103,0.05299999999999999],
+                  [0.026613335126796773,0.048658742811845374],
+                  [0.026,0.044],
+                  [0.02661333512679677,0.03934125718815462],
+                  [0.0284115427318801,0.035],
+                  [0.03127207793864214,0.03127207793864215],
+                  [0.03499999999999999,0.028411542731880107],
+                  [0.03934125718815463,0.02661333512679677],
+                  [0.044,0.026],
+                  [0.04865874281184536,0.026613335126796766],
+                  [0.053,0.028411542731880103],
+                  [0.05672792206135785,0.03127207793864214],
+                  [0.059588457268119885,0.03499999999999999],
+                  [0.061386664873203226,0.03934125718815461]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top-access": {
+            "position": [0,0.167,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.2,3,-1.25]
+      }
+    },
+    {
+      "id": "cove",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mortar-cove",
+            "semanticType": "waterproof.parapet-cove",
+            "material": "mortar",
+            "appearance": {
+              "color": "#a5afb2"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.6,0,0],
+                [0.6,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0,0],
+                [-0.065,0],
+                [-0.05862888587857858,0.0003129927663071963],
+                [-0.05231912906895164,0.0012489567737900276],
+                [-0.04613149597845995,0.0027988781774064275],
+                [-0.040125576896269124,0.004947830386766376],
+                [-0.03435921210631014,0.007675117817356927],
+                [-0.028887934853725858,0.01095447520033456],
+                [-0.02376443652936302,0.014754320531422116],
+                [-0.019038059222874402,0.019038059222874416],
+                [-0.014754320531422088,0.02376443652936306],
+                [-0.010954475200334546,0.028887934853725872],
+                [-0.00767511781735692,0.034359212106310155],
+                [-0.004947830386766355,0.04012557689626917],
+                [-0.0027988781774064206,0.04613149597845996],
+                [-0.0012489567737900276,0.052319129068951656],
+                [-0.0003129927663071963,0.05862888587857856],
+                [0,0.06500000000000002]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "mortar-cove",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "mortar-cove",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "wall-seat": {
+            "position": [0,0.0325,0],
+            "direction": [0,0,-1]
+          },
+          "deck-seat": {
+            "position": [0,0,0.0325],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.35,3,-0.12],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "termination",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "waterproof.termination-bar.plate",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.004]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.6,-0.0215],
+                [0.6,-0.0215],
+                [0.6,0.0215],
+                [-0.6,0.0215]
+              ],
+              "holes": [
+                [
+                  [-0.5355000000000001,0],
+                  [-0.5356533337816992,0.0011646857029613432],
+                  [-0.53610288568297,0.0022499999999999994],
+                  [-0.5368180194846606,0.0031819805153394634],
+                  [-0.5377500000000001,0.0038971143170299736],
+                  [-0.5388353142970387,0.004346666218300807],
+                  [-0.54,0.0045],
+                  [-0.5411646857029614,0.004346666218300807],
+                  [-0.54225,0.003897114317029974],
+                  [-0.5431819805153395,0.003181980515339464],
+                  [-0.54389711431703,0.0022499999999999994],
+                  [-0.5443466662183009,0.0011646857029613445],
+                  [-0.5445,5.510910596163089e-19],
+                  [-0.5443466662183009,-0.0011646857029613436],
+                  [-0.54389711431703,-0.0022499999999999985],
+                  [-0.5431819805153395,-0.0031819805153394617],
+                  [-0.54225,-0.0038971143170299727],
+                  [-0.5411646857029614,-0.004346666218300807],
+                  [-0.54,-0.0045],
+                  [-0.5388353142970387,-0.004346666218300808],
+                  [-0.5377500000000001,-0.0038971143170299736],
+                  [-0.5368180194846606,-0.0031819805153394643],
+                  [-0.53610288568297,-0.002250000000000002],
+                  [-0.5356533337816992,-0.001164685702961347]
+                ],
+                [
+                  [-0.35550000000000004,0],
+                  [-0.3556533337816992,0.0011646857029613432],
+                  [-0.35610288568297005,0.0022499999999999994],
+                  [-0.3568180194846606,0.0031819805153394634],
+                  [-0.35775000000000007,0.0038971143170299736],
+                  [-0.3588353142970387,0.004346666218300807],
+                  [-0.36000000000000004,0.0045],
+                  [-0.3611646857029614,0.004346666218300807],
+                  [-0.36225,0.003897114317029974],
+                  [-0.3631819805153395,0.003181980515339464],
+                  [-0.36389711431703003,0.0022499999999999994],
+                  [-0.36434666621830086,0.0011646857029613445],
+                  [-0.36450000000000005,5.510910596163089e-19],
+                  [-0.36434666621830086,-0.0011646857029613436],
+                  [-0.36389711431703003,-0.0022499999999999985],
+                  [-0.3631819805153395,-0.0031819805153394617],
+                  [-0.36225000000000007,-0.0038971143170299727],
+                  [-0.3611646857029614,-0.004346666218300807],
+                  [-0.36000000000000004,-0.0045],
+                  [-0.3588353142970387,-0.004346666218300808],
+                  [-0.35775000000000007,-0.0038971143170299736],
+                  [-0.3568180194846606,-0.0031819805153394643],
+                  [-0.35610288568297005,-0.002250000000000002],
+                  [-0.3556533337816992,-0.001164685702961347]
+                ],
+                [
+                  [-0.17550000000000004,0],
+                  [-0.17565333378169923,0.0011646857029613432],
+                  [-0.17610288568297008,0.0022499999999999994],
+                  [-0.17681801948466058,0.0031819805153394634],
+                  [-0.17775000000000005,0.0038971143170299736],
+                  [-0.1788353142970387,0.004346666218300807],
+                  [-0.18000000000000005,0.0045],
+                  [-0.1811646857029614,0.004346666218300807],
+                  [-0.18225000000000005,0.003897114317029974],
+                  [-0.18318198051533952,0.003181980515339464],
+                  [-0.18389711431703,0.0022499999999999994],
+                  [-0.18434666621830084,0.0011646857029613445],
+                  [-0.18450000000000005,5.510910596163089e-19],
+                  [-0.18434666621830087,-0.0011646857029613436],
+                  [-0.18389711431703,-0.0022499999999999985],
+                  [-0.18318198051533952,-0.0031819805153394617],
+                  [-0.18225000000000005,-0.0038971143170299727],
+                  [-0.1811646857029614,-0.004346666218300807],
+                  [-0.18000000000000005,-0.0045],
+                  [-0.1788353142970387,-0.004346666218300808],
+                  [-0.17775000000000005,-0.0038971143170299736],
+                  [-0.17681801948466058,-0.0031819805153394643],
+                  [-0.17610288568297008,-0.002250000000000002],
+                  [-0.17565333378169926,-0.001164685702961347]
+                ],
+                [
+                  [0.0045,0],
+                  [0.004346666218300807,0.0011646857029613432],
+                  [0.003897114317029974,0.0022499999999999994],
+                  [0.003181980515339464,0.0031819805153394634],
+                  [0.0022500000000000003,0.0038971143170299736],
+                  [0.0011646857029613432,0.004346666218300807],
+                  [2.7554552980815444e-19,0.0045],
+                  [-0.0011646857029613427,0.004346666218300807],
+                  [-0.002249999999999999,0.003897114317029974],
+                  [-0.0031819805153394634,0.003181980515339464],
+                  [-0.003897114317029974,0.0022499999999999994],
+                  [-0.004346666218300806,0.0011646857029613445],
+                  [-0.0045,5.510910596163089e-19],
+                  [-0.004346666218300807,-0.0011646857029613436],
+                  [-0.0038971143170299745,-0.0022499999999999985],
+                  [-0.003181980515339465,-0.0031819805153394617],
+                  [-0.002250000000000002,-0.0038971143170299727],
+                  [-0.0011646857029613427,-0.004346666218300807],
+                  [-8.266365894244633e-19,-0.0045],
+                  [0.0011646857029613412,-0.004346666218300808],
+                  [0.0022500000000000003,-0.0038971143170299736],
+                  [0.003181980515339463,-0.0031819805153394643],
+                  [0.0038971143170299723,-0.002250000000000002],
+                  [0.004346666218300806,-0.001164685702961347]
+                ],
+                [
+                  [0.18449999999999994,0],
+                  [0.18434666621830076,0.0011646857029613432],
+                  [0.1838971143170299,0.0022499999999999994],
+                  [0.1831819805153394,0.0031819805153394634],
+                  [0.18224999999999994,0.0038971143170299736],
+                  [0.1811646857029613,0.004346666218300807],
+                  [0.17999999999999994,0.0045],
+                  [0.17883531429703858,0.004346666218300807],
+                  [0.17774999999999994,0.003897114317029974],
+                  [0.17681801948466047,0.003181980515339464],
+                  [0.17610288568296997,0.0022499999999999994],
+                  [0.17565333378169914,0.0011646857029613445],
+                  [0.17549999999999993,5.510910596163089e-19],
+                  [0.17565333378169912,-0.0011646857029613436],
+                  [0.17610288568296997,-0.0022499999999999985],
+                  [0.17681801948466047,-0.0031819805153394617],
+                  [0.17774999999999994,-0.0038971143170299727],
+                  [0.17883531429703858,-0.004346666218300807],
+                  [0.17999999999999994,-0.0045],
+                  [0.1811646857029613,-0.004346666218300808],
+                  [0.18224999999999994,-0.0038971143170299736],
+                  [0.1831819805153394,-0.0031819805153394643],
+                  [0.1838971143170299,-0.002250000000000002],
+                  [0.18434666621830073,-0.001164685702961347]
+                ],
+                [
+                  [0.3644999999999999,0],
+                  [0.3643466662183007,0.0011646857029613432],
+                  [0.36389711431702987,0.0022499999999999994],
+                  [0.36318198051533934,0.0031819805153394634],
+                  [0.36224999999999985,0.0038971143170299736],
+                  [0.36116468570296123,0.004346666218300807],
+                  [0.3599999999999999,0.0045],
+                  [0.3588353142970385,0.004346666218300807],
+                  [0.3577499999999999,0.003897114317029974],
+                  [0.3568180194846604,0.003181980515339464],
+                  [0.3561028856829699,0.0022499999999999994],
+                  [0.35565333378169905,0.0011646857029613445],
+                  [0.35549999999999987,5.510910596163089e-19],
+                  [0.35565333378169905,-0.0011646857029613436],
+                  [0.3561028856829699,-0.0022499999999999985],
+                  [0.3568180194846604,-0.0031819805153394617],
+                  [0.3577499999999999,-0.0038971143170299727],
+                  [0.3588353142970385,-0.004346666218300807],
+                  [0.3599999999999999,-0.0045],
+                  [0.36116468570296123,-0.004346666218300808],
+                  [0.36224999999999985,-0.0038971143170299736],
+                  [0.36318198051533934,-0.0031819805153394643],
+                  [0.36389711431702987,-0.002250000000000002],
+                  [0.3643466662183007,-0.001164685702961347]
+                ],
+                [
+                  [0.5445,0],
+                  [0.5443466662183009,0.0011646857029613432],
+                  [0.54389711431703,0.0022499999999999994],
+                  [0.5431819805153395,0.0031819805153394634],
+                  [0.54225,0.0038971143170299736],
+                  [0.5411646857029614,0.004346666218300807],
+                  [0.54,0.0045],
+                  [0.5388353142970387,0.004346666218300807],
+                  [0.5377500000000001,0.003897114317029974],
+                  [0.5368180194846606,0.003181980515339464],
+                  [0.53610288568297,0.0022499999999999994],
+                  [0.5356533337816992,0.0011646857029613445],
+                  [0.5355000000000001,5.510910596163089e-19],
+                  [0.5356533337816992,-0.0011646857029613436],
+                  [0.53610288568297,-0.0022499999999999985],
+                  [0.5368180194846606,-0.0031819805153394617],
+                  [0.5377500000000001,-0.0038971143170299727],
+                  [0.5388353142970387,-0.004346666218300807],
+                  [0.54,-0.0045],
+                  [0.5411646857029614,-0.004346666218300808],
+                  [0.54225,-0.0038971143170299736],
+                  [0.5431819805153395,-0.0031819805153394643],
+                  [0.54389711431703,-0.002250000000000002],
+                  [0.5443466662183009,-0.001164685702961347]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "drip-hem",
+            "semanticType": "waterproof.termination-bar.hem",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.6,0,0],
+                [0.6,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0,0.02],
+                [-0.014,0.028],
+                [-0.018,0.024],
+                [-0.012,0.023],
+                [0,0.016]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "start": {
+            "position": [-0.6,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.6,0,0],
+            "direction": [1,0,0]
+          },
+          "fastener-1": {
+            "position": [-0.54,0,0.004],
+            "direction": [0,0,1]
+          },
+          "fastener-2": {
+            "position": [-0.36000000000000004,0,0.004],
+            "direction": [0,0,1]
+          },
+          "fastener-3": {
+            "position": [-0.18000000000000005,0,0.004],
+            "direction": [0,0,1]
+          },
+          "fastener-4": {
+            "position": [0,0,0.004],
+            "direction": [0,0,1]
+          },
+          "fastener-5": {
+            "position": [0.17999999999999994,0,0.004],
+            "direction": [0,0,1]
+          },
+          "fastener-6": {
+            "position": [0.3599999999999999,0,0.004],
+            "direction": [0,0,1]
+          },
+          "fastener-7": {
+            "position": [0.54,0,0.004],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.35,3.375,-0.12],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "joint-slab-near",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.15,0.68]
+            },
+            "transform": {
+              "position": [0,0.075,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "cover-seat": {
+            "position": [0,0.15,0.3045],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5,0,-0.3675]
+      }
+    },
+    {
+      "id": "joint-slab-far",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.15,0.68]
+            },
+            "transform": {
+              "position": [0,0.075,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "cover-seat": {
+            "position": [0,0.15,-0.3045],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5,0,0.3675]
+      }
+    },
+    {
+      "id": "joint-cover",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "left-flange",
+            "semanticType": "waterproof.floor-expansion-cover.retaining-edge",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.018,0.085]
+            },
+            "transform": {
+              "position": [0,-0.014,-0.063]
+            }
+          },
+          {
+            "id": "right-flange",
+            "semanticType": "waterproof.floor-expansion-cover.retaining-edge",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.018,0.085]
+            },
+            "transform": {
+              "position": [0,-0.014,0.063]
+            }
+          },
+          {
+            "id": "elastic-strip",
+            "semanticType": "waterproof.floor-expansion-cover.elastic",
+            "material": "rubber",
+            "appearance": {
+              "color": "#414f56"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.6,0,0],
+                [0.6,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.04,-0.004],
+                [-0.02,-0.004],
+                [-0.008,-0.045],
+                [0,-0.054],
+                [0.008,-0.045],
+                [0.02,-0.004],
+                [0.04,-0.004],
+                [0.04,0.004],
+                [0.015,0.004],
+                [0.002,-0.04],
+                [0,-0.043],
+                [-0.002,-0.04],
+                [-0.015,0.004],
+                [-0.04,0.004]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "elastic-strip",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "elastic-strip",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "bearing-near": {
+            "position": [0,-0.023,-0.063],
+            "direction": [0,-1,0]
+          },
+          "bearing-far": {
+            "position": [0,-0.023,0.063],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [5,0.173,0]
+      }
+    },
+    {
+      "id": "joint-waterstop",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "strip",
+            "semanticType": "waterproof.center-bulb-waterstop",
+            "material": "rubber",
+            "appearance": {
+              "color": "#556c91"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.6,0,0],
+                [0.6,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.18,0.006],
+                [-0.148,0.006],
+                [-0.146,0.011],
+                [-0.14200000000000002,0.011],
+                [-0.14,0.006],
+                [-0.11800000000000001,0.006],
+                [-0.116,0.011],
+                [-0.114,0.011],
+                [-0.112,0.006],
+                [-0.09,0.006],
+                [-0.088,0.011],
+                [-0.084,0.011],
+                [-0.082,0.006],
+                [-0.062,0.006],
+                [-0.06,0.011],
+                [-0.056,0.011],
+                [-0.054,0.006],
+                [-0.028,0.006],
+                [-0.026000000000000002,0.01284523],
+                [-0.024,0.01627882],
+                [-0.022,0.01889444],
+                [-0.02,0.021],
+                [-0.018000000000000002,0.02273763],
+                [-0.016,0.02418677],
+                [-0.014,0.02539685],
+                [-0.012,0.02640076],
+                [-0.01,0.02722132],
+                [-0.008,0.02787472],
+                [-0.006,0.02837252],
+                [-0.004,0.02872281],
+                [-0.002,0.02893095],
+                [0,0.029],
+                [0.002,0.02893095],
+                [0.004,0.02872281],
+                [0.006,0.02837252],
+                [0.008,0.02787472],
+                [0.01,0.02722132],
+                [0.012,0.02640076],
+                [0.014,0.02539685],
+                [0.016,0.02418677],
+                [0.018000000000000002,0.02273763],
+                [0.02,0.021],
+                [0.022,0.01889444],
+                [0.024,0.01627882],
+                [0.026000000000000002,0.01284523],
+                [0.028,0.006],
+                [0.054,0.006],
+                [0.056,0.011],
+                [0.06,0.011],
+                [0.062,0.006],
+                [0.082,0.006],
+                [0.084,0.011],
+                [0.088,0.011],
+                [0.09,0.006],
+                [0.112,0.006],
+                [0.114,0.011],
+                [0.116,0.011],
+                [0.11800000000000001,0.006],
+                [0.14,0.006],
+                [0.14200000000000002,0.011],
+                [0.146,0.011],
+                [0.148,0.006],
+                [0.18,0.006],
+                [0.18,-0.006],
+                [0.148,-0.006],
+                [0.146,-0.011],
+                [0.14200000000000002,-0.011],
+                [0.14,-0.006],
+                [0.11800000000000001,-0.006],
+                [0.116,-0.011],
+                [0.114,-0.011],
+                [0.112,-0.006],
+                [0.09,-0.006],
+                [0.088,-0.011],
+                [0.084,-0.011],
+                [0.082,-0.006],
+                [0.062,-0.006],
+                [0.06,-0.011],
+                [0.056,-0.011],
+                [0.054,-0.006],
+                [0.028,-0.006],
+                [0.026000000000000002,-0.01284523],
+                [0.024,-0.01627882],
+                [0.022,-0.01889444],
+                [0.02,-0.021],
+                [0.018000000000000002,-0.02273763],
+                [0.016,-0.02418677],
+                [0.014,-0.02539685],
+                [0.012,-0.02640076],
+                [0.01,-0.02722132],
+                [0.008,-0.02787472],
+                [0.006,-0.02837252],
+                [0.004,-0.02872281],
+                [0.002,-0.02893095],
+                [0,-0.029],
+                [-0.002,-0.02893095],
+                [-0.004,-0.02872281],
+                [-0.006,-0.02837252],
+                [-0.008,-0.02787472],
+                [-0.01,-0.02722132],
+                [-0.012,-0.02640076],
+                [-0.014,-0.02539685],
+                [-0.016,-0.02418677],
+                [-0.018000000000000002,-0.02273763],
+                [-0.02,-0.021],
+                [-0.022,-0.01889444],
+                [-0.024,-0.01627882],
+                [-0.026000000000000002,-0.01284523],
+                [-0.028,-0.006],
+                [-0.054,-0.006],
+                [-0.056,-0.011],
+                [-0.06,-0.011],
+                [-0.062,-0.006],
+                [-0.082,-0.006],
+                [-0.084,-0.011],
+                [-0.088,-0.011],
+                [-0.09,-0.006],
+                [-0.112,-0.006],
+                [-0.114,-0.011],
+                [-0.116,-0.011],
+                [-0.11800000000000001,-0.006],
+                [-0.14,-0.006],
+                [-0.14200000000000002,-0.011],
+                [-0.146,-0.011],
+                [-0.148,-0.006],
+                [-0.18,-0.006]
+              ],
+              "holes": [
+                [
+                  [0.016,0],
+                  [0.015454813220625094,0.004141104721640332],
+                  [0.013856406460551019,0.007999999999999998],
+                  [0.011313708498984762,0.01131370849898476],
+                  [0.008000000000000002,0.013856406460551017],
+                  [0.004141104721640332,0.015454813220625094],
+                  [9.797174393178825e-19,0.016],
+                  [-0.0041411047216403304,0.015454813220625094],
+                  [-0.007999999999999997,0.013856406460551019],
+                  [-0.01131370849898476,0.011313708498984762],
+                  [-0.013856406460551019,0.007999999999999998],
+                  [-0.015454813220625092,0.0041411047216403365],
+                  [-0.016,1.959434878635765e-18],
+                  [-0.015454813220625094,-0.004141104721640333],
+                  [-0.01385640646055102,-0.007999999999999995],
+                  [-0.011313708498984767,-0.011313708498984755],
+                  [-0.008000000000000007,-0.013856406460551016],
+                  [-0.0041411047216403304,-0.015454813220625094],
+                  [-2.9391523179536477e-18,-0.016],
+                  [0.004141104721640325,-0.015454813220625096],
+                  [0.008000000000000002,-0.013856406460551017],
+                  [0.011313708498984758,-0.011313708498984764],
+                  [0.013856406460551014,-0.008000000000000007],
+                  [0.015454813220625089,-0.004141104721640345]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "strip",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "strip",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "joint-axis": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "cast-near": {
+            "position": [0,0,-0.12],
+            "direction": [0,0,-1]
+          },
+          "cast-far": {
+            "position": [0,0,0.12],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [5,0.058,0]
+      }
+    },
+    {
+      "id": "base-cavity-tray",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tray",
+            "semanticType": "waterproof.base-cavity-tray",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.6,0,0],
+                [0.6,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.17,0.09],
+                [0.17,-0.003],
+                [-0.125,-0.003],
+                [-0.15,-0.024],
+                [-0.152,-0.02],
+                [-0.127,0],
+                [0.166,0],
+                [0.166,0.09]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "tray",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "tray",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "weep-seat": {
+            "position": [0,0,0.096],
+            "direction": [0,1,0]
+          },
+          "outer-drip": {
+            "position": [0,-0.024,0.15],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [5,0,1.23]
+      }
+    },
+    {
+      "id": "weep-vent",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "waterproof.wall-weep-vent.frame",
+            "material": "polymer",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 0.1,
+              "wallHeight": 0.036,
+              "thickness": 0.028,
+              "openingWidth": 0.082,
+              "openingHeight": 0.021,
+              "openingOffset": 0,
+              "sillHeight": 0.0075
+            }
+          },
+          {
+            "id": "rib",
+            "semanticType": "waterproof.wall-weep-vent.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.021,0.023]
+            },
+            "transform": {
+              "position": [0,0.018,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [-0.021,0,0],
+              "step": [0.021,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "weep-out": {
+            "position": [0,0.018,0.014],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [5,0,1.326]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "parapet#scupper-face",
+      "to": "scupper#inlet",
+      "contract": {
+        "direction": "aligned"
+      }
+    },
+    {
+      "from": "scupper#outlet",
+      "to": "hopper#wall-in",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "hopper#outlet",
+      "to": "downspout-upper#inlet",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "downspout-upper#outlet",
+      "to": "downspout-offset#inlet",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "downspout-offset#outlet",
+      "to": "downspout-lower#inlet",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "downspout-lower#lower-band-axis",
+      "to": "wall-band#pipe-axis",
+      "contract": {
+        "direction": "aligned"
+      }
+    },
+    {
+      "from": "base-wall#rain-band-seat",
+      "to": "wall-band#wall-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "roof-slab#roof-drain-seat",
+      "to": "roof-drain#inlet",
+      "contract": {
+        "direction": "aligned"
+      }
+    },
+    {
+      "from": "roof-drain#inlet",
+      "to": "leaf-guard#base",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "roof-slab#cove-floor",
+      "to": "cove#deck-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "parapet#cove-seat",
+      "to": "cove#wall-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "parapet#termination-seat",
+      "to": "termination#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "joint-slab-near#cover-seat",
+      "to": "joint-cover#bearing-near",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "joint-slab-far#cover-seat",
+      "to": "joint-cover#bearing-far",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "base-cavity-tray#weep-seat",
+      "to": "weep-vent#base",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

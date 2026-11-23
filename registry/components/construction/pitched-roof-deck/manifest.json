@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.pitched-roof-deck",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "坡屋面基层板",
+  "summary": "厚度沿坡面法向计量，坡脚、屋脊与上下表面具有可调几何定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.sloped-deck",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "parameters": {
+    "panelWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 4.8
+    },
+    "run": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.4
+    },
+    "rise": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.2
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.06
+    }
+  },
+  "anchors": [
+    "eave",
+    "ridge",
+    "left",
+    "right",
+    "surface-center",
+    "underside-center"
+  ],
+  "ai": {
+    "intent": "作为屋面饰层与支撑结构之间的连续基层。",
+    "editableParts": [
+      "调整板宽、水平进深、抬高和厚度。"
+    ],
+    "qualityChecks": [
+      "上下表面定位随坡度和厚度变化。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "pitched-roof-deck",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.sloped-deck",
+            "material": "timber",
+            "appearance": {
+              "color": "#ae8c63"
+            },
+            "geometry": {
+              "type": "pitched-roof-deck",
+              "panelWidth": 4.8,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.06
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.ribbed-tree-root-deflector-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带导根竖肋树池隔根板",
+  "summary": "竖肋隔根板、侧边卡舌和独立卡槽可以连续拼接，带上沿和左右端基准。",
+  "license": "Apache-2.0",
+  "semanticType": "site.landscape.ribbed-root-deflector",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "园林",
+    "景观",
+    "隔根",
+    "树池",
+    "导根板"
+  ],
+  "anchors": [
+    "base",
+    "head",
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "在树池或铺装边界用直线件隔出根区与硬质铺装。",
+    "editableParts": [
+      "隔根片",
+      "导向肋",
+      "两侧插接"
+    ],
+    "qualityChecks": [
+      "连续段定位在同一竖直平面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ribbed-tree-root-deflector-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "barrier-sheet",
+            "semanticType": "site.landscape.root-deflector.sheet",
+            "material": "polymer",
+            "appearance": {
+              "color": "#637a71"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.65,0.471,0.018]
+            },
+            "transform": {
+              "position": [0,0.2355,0]
+            }
+          },
+          {
+            "id": "root-rib",
+            "semanticType": "site.landscape.root-deflector.vertical-rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.448,0.031]
+            },
+            "transform": {
+              "position": [0,0.235,0.023]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [-0.255,0,0],
+              "step": [0.1,0,0]
+            }
+          },
+          {
+            "id": "female-lock",
+            "semanticType": "site.landscape.root-deflector.edge-pocket",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.325,0,0],
+                [-0.325,0.471,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.019,-0.018],
+                [0.019,-0.018],
+                [0.019,0.022],
+                [0.011,0.022],
+                [0.011,-0.009],
+                [-0.01,-0.009],
+                [-0.01,0.022],
+                [-0.019,0.022]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "male-lock",
+            "semanticType": "site.landscape.root-deflector.edge-tongue",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.468,0.012]
+            },
+            "transform": {
+              "position": [0.325,0.235,0]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "head": {
+            "position": [0,0.471,0],
+            "direction": [0,1,0]
+          },
+          "left": {
+            "position": [-0.325,0.235,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.325,0.235,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

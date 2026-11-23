@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.haunched-precast-column-corbel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "预制柱斜腋承托牛腿",
+  "summary": "竖向贴柱面、水平承压面和斜向加腋，设一处预埋钢垫。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.floor.haunched-column-corbel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "牛腿",
+    "梁柱节点"
+  ],
+  "anchors": [
+    "column",
+    "seat"
+  ],
+  "ai": {
+    "intent": "从柱侧伸出牛腿，并在顶钢垫上放置梁端承压垫。",
+    "editableParts": [
+      "斜腋实体",
+      "预埋杆",
+      "柱侧面和座台"
+    ],
+    "qualityChecks": [
+      "承压板保持水平，贴柱面位于梁端外部。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "haunched-precast-column-corbel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "corbel-body",
+            "semanticType": "prefab.floor.precast-corbel.body",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b4aca0"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.163],
+                [0,0,0.163]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.245,0],
+                [-0.159,0],
+                [0.107,0.165],
+                [0.107,0.263],
+                [-0.245,0.263]
+              ]
+            }
+          },
+          {
+            "id": "steel-bearing-face",
+            "semanticType": "prefab.floor.precast-corbel.bearing-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#576d78"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.155,0.011,0.17]
+            },
+            "transform": {
+              "position": [0.026,0.2685,0]
+            }
+          },
+          {
+            "id": "embed-0",
+            "semanticType": "prefab.floor.precast-corbel.dowel",
+            "material": "steel",
+            "appearance": {
+              "color": "#576d78"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.29,0.203,-0.106],
+              "end": [-0.156,0.203,-0.106],
+              "radius": 0.012,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "embed-1",
+            "semanticType": "prefab.floor.precast-corbel.dowel",
+            "material": "steel",
+            "appearance": {
+              "color": "#576d78"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.29,0.203,0.106],
+              "end": [-0.156,0.203,0.106],
+              "radius": 0.012,
+              "radialSegments": 22
+            }
+          }
+        ],
+        "anchors": {
+          "column": {
+            "position": [-0.245,0.13,0],
+            "direction": [-1,0,0]
+          },
+          "seat": {
+            "position": [0.026,0.274,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

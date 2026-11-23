@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.birdsmouth-notched-timber-rafter",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带鸟嘴座口木椽",
+  "summary": "长斜面下缘留有真实水平座口，可落在墙顶托木。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.timber.birdsmouth-rafter",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "eave",
+    "wall-plate-seat",
+    "ridge-end"
+  ],
+  "ai": {
+    "intent": "表达可检查屋架檐边座口的独立木椽。",
+    "editableParts": [
+      "调整檐口、座槽与高端。"
+    ],
+    "qualityChecks": [
+      "座口底面保持水平。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "birdsmouth-notched-timber-rafter",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rafter",
+            "semanticType": "structure.timber.birdsmouth-rafter",
+            "material": "timber",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.045,0,0],
+                [0.045,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0],
+                [-0.12,0.036],
+                [-0.27,0.036],
+                [-0.27,0.081],
+                [-2.4,0.72],
+                [-2.4,0.871],
+                [0,0.151]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "position": [0,0.075,0],
+            "direction": [0,0,-1]
+          },
+          "wall-plate-seat": {
+            "position": [0,0.036,0.195],
+            "direction": [0,-1,0]
+          },
+          "ridge-end": {
+            "position": [0,0.7955,2.4],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

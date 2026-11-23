@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.bevelled-threshold",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "斜边门槛条",
+  "summary": "具有两侧斜边和平顶的门槛收边，底面位于局部 Y=0。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.finish.threshold",
+  "capabilities": [
+    "resize",
+    "path-edit",
+    "attach"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门槛",
+    "收边"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "mount"
+  ],
+  "ai": {
+    "intent": "提供可沿局部 X 拼接的线性收边。",
+    "editableParts": [
+      "strip.geometry.points 控制长度与端点",
+      "strip.geometry.profile 控制可见截面"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "bevelled-threshold",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "strip",
+            "semanticType": "construction.finish.threshold",
+            "material": "stone",
+            "appearance": {
+              "color": "#a8a399"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.9,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.07,0],
+                [0.07,0],
+                [0.055,0.018],
+                [-0.055,0.018]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "strip",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "strip",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "mount": {
+            "node": "strip",
+            "position": [0,0,0]
+          }
+        }
+      }
+    }
+  }
+}

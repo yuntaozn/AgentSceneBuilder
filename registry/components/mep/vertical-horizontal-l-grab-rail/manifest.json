@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.vertical-horizontal-l-grab-rail",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "L 形墙面抓扶把",
+  "summary": "水平段与竖直段平滑过渡，三只壁座在同一安装面。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.public-washroom.l-fixed-support-rail",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "扶手",
+    "L形",
+    "无障碍"
+  ],
+  "anchors": [
+    "base-left",
+    "base-elbow",
+    "base-upper"
+  ],
+  "ai": {
+    "intent": "在卫生间墙上组合连续水平及竖向抓扶段。",
+    "editableParts": [
+      "弯管",
+      "三只墙座",
+      "退距"
+    ],
+    "qualityChecks": [
+      "三只安装面同一竖直面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "vertical-horizontal-l-grab-rail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-disc-0",
+            "semanticType": "mep.public-washroom.l-fixed-support-rail.wall-flange",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.271,0,0],
+              "end": [-0.271,0,0.012],
+              "radius": 0.034,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "return-post-0",
+            "semanticType": "mep.public-washroom.l-fixed-support-rail.standoff",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.271,0,0.012],
+              "end": [-0.271,0,0.073],
+              "radius": 0.0125,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "wall-disc-1",
+            "semanticType": "mep.public-washroom.l-fixed-support-rail.wall-flange",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.218,0.022,0],
+              "end": [0.218,0.022,0.012],
+              "radius": 0.034,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "return-post-1",
+            "semanticType": "mep.public-washroom.l-fixed-support-rail.standoff",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.218,0.022,0.012],
+              "end": [0.218,0.022,0.073],
+              "radius": 0.0125,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "wall-disc-2",
+            "semanticType": "mep.public-washroom.l-fixed-support-rail.wall-flange",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.218,0.461,0],
+              "end": [0.218,0.461,0.012],
+              "radius": 0.034,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "return-post-2",
+            "semanticType": "mep.public-washroom.l-fixed-support-rail.standoff",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.218,0.461,0.012],
+              "end": [0.218,0.461,0.073],
+              "radius": 0.0125,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "fixed-elbow-grip",
+            "semanticType": "mep.public-washroom.l-fixed-support-rail.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.271,0,0.076],
+                [0.142,0,0.076],
+                [0.186,0.013,0.076],
+                [0.209,0.033,0.076],
+                [0.218,0.068,0.076],
+                [0.218,0.461,0.076]
+              ],
+              "radius": 0.017
+            }
+          }
+        ],
+        "anchors": {
+          "base-left": {
+            "position": [-0.271,0,0],
+            "direction": [0,0,-1]
+          },
+          "base-elbow": {
+            "position": [0.218,0.022,0],
+            "direction": [0,0,-1]
+          },
+          "base-upper": {
+            "position": [0.218,0.461,0],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

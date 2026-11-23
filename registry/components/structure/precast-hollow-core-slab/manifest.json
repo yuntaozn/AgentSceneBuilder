@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.precast-hollow-core-slab",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带剪力键的预制空心板",
+  "summary": "四条贯通圆孔与双侧凹键组成可调预制板截面，可调整板长、孔数和支承距离。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.floor.precast-hollow-core-slab",
+  "capabilities": [
+    "resize",
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "空心板",
+    "剪力键",
+    "预应力"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.6
+    },
+    "width": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.72
+    },
+    "depth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.185
+    },
+    "voidCount": {
+      "type": "number",
+      "default": 4
+    },
+    "voidDiameter": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.115
+    },
+    "keyDepth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.011
+    },
+    "bearingInset": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.1
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "bearing-start",
+    "bearing-end",
+    "top",
+    "key-near",
+    "key-far",
+    "first-core-start",
+    "first-core-end"
+  ],
+  "ai": {
+    "intent": "铺设中空预制板并连接纵缝和端部支座。",
+    "editableParts": [
+      "板长",
+      "板总高",
+      "贯通孔列",
+      "边缘凹口"
+    ],
+    "qualityChecks": [
+      "孔间和翼缘保留实体，支承锚点随长度更新。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "precast-hollow-core-slab",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.floor.precast-hollow-core-slab",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b4aca0"
+            },
+            "geometry": {
+              "type": "precast-hollow-core-slab",
+              "length": 2.6,
+              "width": 0.72,
+              "depth": 0.185,
+              "voidCount": 4,
+              "voidDiameter": 0.115,
+              "keyDepth": 0.011,
+              "bearingInset": 0.1
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "bearing-start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-start"
+            }
+          },
+          "bearing-end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-end"
+            }
+          },
+          "top": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top"
+            }
+          },
+          "key-near": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "key-near"
+            }
+          },
+          "key-far": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "key-far"
+            }
+          },
+          "first-core-start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "first-core-start"
+            }
+          },
+          "first-core-end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "first-core-end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

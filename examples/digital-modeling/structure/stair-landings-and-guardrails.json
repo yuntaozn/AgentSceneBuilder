@@ -1,0 +1,2758 @@
+{
+  "schemaVersion": "0.1",
+  "id": "stair-landings-and-guardrails",
+  "title": "钢梯、转角踏步、平台与扶手收边",
+  "instances": [
+    {
+      "id": "steel-lower-deck",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [1.31,0.17,0.9]
+            },
+            "transform": {
+              "position": [0,0.085,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "stair-edge": {
+            "position": [0,0.17,0.45],
+            "direction": [0,0,1]
+          },
+          "guard-side-edge": {
+            "position": [0.53,0.17,0.45],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,-0.17,-0.45]
+      }
+    },
+    {
+      "id": "steel-upper-deck",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [1.31,0.17,1.2]
+            },
+            "transform": {
+              "position": [0,0.085,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "stair-edge": {
+            "position": [0,0.17,-0.5999999999999999],
+            "direction": [0,0,-1]
+          },
+          "rail-base": {
+            "position": [-0.54,0.17,-0.009999999999999787],
+            "direction": [0,1,0]
+          },
+          "toe-base": {
+            "position": [0.576,0.17,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0.85,2.28]
+      }
+    },
+    {
+      "id": "steel-flight",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "step",
+            "semanticType": "construction.circulation.grated-stair-flight.step",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 1.05,
+              "width": 0.26,
+              "thickness": 0.04,
+              "frameWidth": 0.023,
+              "barWidth": 0.015,
+              "slotCount": 9
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [-0.525,0.17,0.14],
+              "step": [0,0.17,0.28]
+            }
+          },
+          {
+            "id": "stringer-0",
+            "semanticType": "construction.circulation.grated-stair-flight.side",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.48,0,0.035],
+                [-0.48,1.02,1.715]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.04,-0.094],
+                [0.04,-0.094],
+                [0.04,-0.087],
+                [-0.033,-0.087],
+                [-0.033,0.087],
+                [0.04,0.087],
+                [0.04,0.094],
+                [-0.04,0.094]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "stringer-1",
+            "semanticType": "construction.circulation.grated-stair-flight.side",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.48,0,0.035],
+                [0.48,1.02,1.715]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.04,-0.094],
+                [0.04,-0.094],
+                [0.04,-0.087],
+                [-0.033,-0.087],
+                [-0.033,0.087],
+                [0.04,0.087],
+                [0.04,0.094],
+                [-0.04,0.094]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "base-0",
+            "semanticType": "construction.circulation.grated-stair-flight.shoe",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.115,0.017,0.18]
+            },
+            "transform": {
+              "position": [-0.48,0.0085,0.043]
+            }
+          },
+          {
+            "id": "base-1",
+            "semanticType": "construction.circulation.grated-stair-flight.shoe",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.115,0.017,0.18]
+            },
+            "transform": {
+              "position": [0.48,0.0085,0.043]
+            }
+          }
+        ],
+        "anchors": {
+          "lower-landing": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "upper-landing": {
+            "position": [0,1.02,1.68],
+            "direction": [0,0,1]
+          },
+          "first-tread-face": {
+            "position": [0,0.17,0.044],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "sloping-guard",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "construction.circulation.sloped-guardrail",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sloped-railing",
+              "railWidth": 1.68,
+              "railHeight": 0.86,
+              "thickness": 0.041,
+              "memberWidth": 0.042,
+              "bayCount": 8,
+              "rise": 1.02
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "handrail-start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "handrail-start"
+            }
+          },
+          "handrail-end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "handrail-end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.53,0,0.84],
+        "rotation": [0,-1.5707963267948966,0]
+      }
+    },
+    {
+      "id": "upper-guard",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "construction.railing",
+            "material": "painted-steel",
+            "appearance": {
+              "color": "#647781"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 1.2,
+              "railHeight": 0.86,
+              "thickness": 0.05,
+              "memberWidth": 0.045,
+              "bayCount": 8
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.53,1.02,2.28],
+        "rotation": [0,-1.5707963267948966,0]
+      }
+    },
+    {
+      "id": "deck-glass",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base-track",
+            "semanticType": "construction.circulation.glass-balustrade.shoe",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.59,0,0],
+                [0.59,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.053,0],
+                [0.053,0],
+                [0.053,0.089],
+                [0.021,0.089],
+                [0.021,0.023],
+                [-0.021,0.023],
+                [-0.021,0.089],
+                [-0.053,0.089]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "glass",
+            "semanticType": "construction.circulation.glass-balustrade.plate",
+            "material": "glass",
+            "appearance": {
+              "color": "#a6cdd9",
+              "opacity": 0.41
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.155,1.011,0.023]
+            },
+            "transform": {
+              "position": [0,0.5285,0]
+            }
+          },
+          {
+            "id": "top-cap",
+            "semanticType": "construction.circulation.glass-balustrade.cap",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.177,0.025,0.045]
+            },
+            "transform": {
+              "position": [0,1.044,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "left": {
+            "position": [-0.59,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.59,0,0],
+            "direction": [1,0,0]
+          },
+          "top-center": {
+            "position": [0,1.0565,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.54,1.02,2.27],
+        "rotation": [0,-1.5707963267948966,0]
+      }
+    },
+    {
+      "id": "toe-guard",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "toe-plate",
+            "semanticType": "construction.circulation.toe-board.body",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.2,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.004,0],
+                [0.022,0],
+                [0.022,0.006],
+                [0.002,0.006],
+                [0.002,0.111],
+                [-0.024,0.111],
+                [-0.024,0.105],
+                [-0.004,0.105]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "cleat",
+            "semanticType": "construction.circulation.toe-board.bracket",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.025,0.034]
+            },
+            "transform": {
+              "position": [0,0.0125,-0.01]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [0.119,0,0],
+              "step": [0.481,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "toe-plate",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "toe-plate",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "mount": {
+            "position": [0.6,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.576,1.02,1.68],
+        "rotation": [0,-1.5707963267948966,0]
+      }
+    },
+    {
+      "id": "first-nosing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "edge-angle",
+            "semanticType": "construction.circulation.stair-nosing.angle",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.525,0,0],
+                [0.525,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,-0.032],
+                [-0.003,-0.032],
+                [-0.003,0],
+                [-0.071,0],
+                [-0.071,0.004],
+                [0.003,0.004],
+                [0.003,-0.032]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "anti-slip",
+            "semanticType": "construction.circulation.stair-nosing.rib",
+            "material": "rubber",
+            "appearance": {
+              "color": "#c6a465"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.045,0.0038,0.0075]
+            },
+            "transform": {
+              "position": [0,0.0059,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [0,0,0.016],
+              "step": [0,0,0.014]
+            }
+          }
+        ],
+        "anchors": {
+          "step": {
+            "position": [0,0,0.034],
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "position": [-0.525,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.525,0,0],
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0.17,0.01]
+      }
+    },
+    {
+      "id": "handrail-deck",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [1.84,0.17,0.55]
+            },
+            "transform": {
+              "position": [0,0.085,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "post-base": {
+            "position": [-0.27999999999999997,0.17,-0.1499999999999999],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.73,0.85,3.15]
+      }
+    },
+    {
+      "id": "handrail-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "partition-wall",
+              "wallWidth": 2.25,
+              "wallHeight": 1.2,
+              "thickness": 0.12
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "hand-return": {
+            "position": [0.834,0.903,0.06],
+            "direction": [0,0,1]
+          },
+          "bracket-seat": {
+            "position": [-0.26,0.844,0.06],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.01,1.02,2.77]
+      }
+    },
+    {
+      "id": "straight-round-rail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "construction.railing.handrail",
+            "material": "steel",
+            "appearance": {
+              "color": "#82909a"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "length": 1.5,
+              "outerDiameter": 0.044,
+              "thickness": 0.003
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "post-axis": {
+            "position": [0.45,0,0],
+            "direction": [1,0,0]
+          },
+          "wall-axis": {
+            "position": [0.75,0,0],
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,1.923,3]
+      }
+    },
+    {
+      "id": "wall-return",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "construction.circulation.round-return",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0.17],
+                [0.19,0,0.17],
+                [0.258,0,0.153],
+                [0.318,0,0.104],
+                [0.344,0,0.043],
+                [0.344,0,0.005]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.044,
+              "thickness": 0.003
+            }
+          },
+          {
+            "id": "mount-disk",
+            "semanticType": "construction.circulation.round-return.wall-disc",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.344,0,0],
+                [0.344,0,0.007]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.058,0],
+                [0.05602369792476596,0.015011504615946204],
+                [0.05022947341949745,0.028999999999999998],
+                [0.041012193308819764,0.04101219330881976],
+                [0.02900000000000001,0.05022947341949744],
+                [0.015011504615946204,0.05602369792476596],
+                [3.551475717527324e-18,0.058],
+                [-0.015011504615946197,0.05602369792476596],
+                [-0.028999999999999988,0.05022947341949745],
+                [-0.04101219330881976,0.041012193308819764],
+                [-0.05022947341949745,0.028999999999999998],
+                [-0.056023697924765956,0.01501150461594622],
+                [-0.058,7.102951435054648e-18],
+                [-0.05602369792476596,-0.015011504615946207],
+                [-0.050229473419497454,-0.028999999999999984],
+                [-0.04101219330881978,-0.041012193308819736],
+                [-0.029000000000000026,-0.050229473419497433],
+                [-0.015011504615946197,-0.05602369792476596],
+                [-1.0654427152581972e-17,-0.058],
+                [0.015011504615946178,-0.05602369792476597],
+                [0.02900000000000001,-0.05022947341949744],
+                [0.04101219330881975,-0.04101219330881977],
+                [0.05022947341949743,-0.029000000000000026],
+                [0.05602369792476595,-0.015011504615946253]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.018352590699492296,0.004917561856947894],
+                  [0.016454482671904334,0.009499999999999998],
+                  [0.013435028842544404,0.013435028842544402],
+                  [0.009500000000000001,0.016454482671904334],
+                  [0.004917561856947894,0.018352590699492296],
+                  [1.1634144591899855e-18,0.019],
+                  [-0.004917561856947892,0.018352590699492296],
+                  [-0.009499999999999996,0.016454482671904334],
+                  [-0.013435028842544402,0.013435028842544404],
+                  [-0.016454482671904334,0.009499999999999998],
+                  [-0.018352590699492296,0.004917561856947899],
+                  [-0.019,2.326828918379971e-18],
+                  [-0.018352590699492296,-0.004917561856947895],
+                  [-0.016454482671904337,-0.009499999999999995],
+                  [-0.01343502884254441,-0.013435028842544395],
+                  [-0.009500000000000008,-0.01645448267190433],
+                  [-0.004917561856947892,-0.018352590699492296],
+                  [-3.490243377569957e-18,-0.019],
+                  [0.004917561856947886,-0.0183525906994923],
+                  [0.009500000000000001,-0.016454482671904334],
+                  [0.013435028842544399,-0.013435028842544406],
+                  [0.01645448267190433,-0.009500000000000008],
+                  [0.018352590699492292,-0.004917561856947909]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "wall-seat": {
+            "position": [0.344,0,0],
+            "direction": [0,0,-1]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.5,1.923,2.83]
+      }
+    },
+    {
+      "id": "downward-end",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "construction.circulation.round-return.downturned",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0.08,0,0],
+                [0.129,-0.012,0],
+                [0.166,-0.046,0],
+                [0.181,-0.094,0],
+                [0.181,-0.177,0]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.044,
+              "thickness": 0.003
+            }
+          },
+          {
+            "id": "cap",
+            "semanticType": "construction.circulation.round-return.end-cap",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.181,-0.18,0],
+              "end": [0.181,-0.172,0],
+              "radius": 0.021,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "closed-end": {
+            "position": [0.181,-0.18,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,1.923,3],
+        "rotation": [0,3.141592653589793,0]
+      }
+    },
+    {
+      "id": "wall-bracket",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "back-plate",
+            "semanticType": "construction.circulation.handrail-wall-bracket.plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.008]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0285,-0.047],
+                [0.0285,-0.047],
+                [0.0285,0.047],
+                [-0.0285,0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.005,-0.028],
+                  [0.004829629131445342,-0.026705904774487397],
+                  [0.004330127018922193,-0.025500000000000002],
+                  [0.003535533905932738,-0.024464466094067265],
+                  [0.0025000000000000005,-0.023669872981077807],
+                  [0.0012940952255126037,-0.023170370868554658],
+                  [3.061616997868383e-19,-0.023],
+                  [-0.0012940952255126033,-0.023170370868554658],
+                  [-0.0024999999999999988,-0.023669872981077807],
+                  [-0.0035355339059327372,-0.02446446609406726],
+                  [-0.004330127018922193,-0.025500000000000002],
+                  [-0.004829629131445341,-0.026705904774487397],
+                  [-0.005,-0.028],
+                  [-0.004829629131445342,-0.029294095225512604],
+                  [-0.004330127018922194,-0.0305],
+                  [-0.0035355339059327394,-0.031535533905932736],
+                  [-0.0025000000000000022,-0.03233012701892219],
+                  [-0.0012940952255126033,-0.03282962913144534],
+                  [-9.184850993605148e-19,-0.033],
+                  [0.0012940952255126015,-0.03282962913144534],
+                  [0.0025000000000000005,-0.0323301270189222],
+                  [0.003535533905932737,-0.031535533905932736],
+                  [0.004330127018922192,-0.030500000000000003],
+                  [0.004829629131445341,-0.029294095225512608]
+                ],
+                [
+                  [0.005,0.028],
+                  [0.004829629131445342,0.029294095225512604],
+                  [0.004330127018922193,0.0305],
+                  [0.003535533905932738,0.031535533905932736],
+                  [0.0025000000000000005,0.0323301270189222],
+                  [0.0012940952255126037,0.03282962913144534],
+                  [3.061616997868383e-19,0.033],
+                  [-0.0012940952255126033,0.03282962913144534],
+                  [-0.0024999999999999988,0.0323301270189222],
+                  [-0.0035355339059327372,0.031535533905932736],
+                  [-0.004330127018922193,0.0305],
+                  [-0.004829629131445341,0.029294095225512604],
+                  [-0.005,0.028],
+                  [-0.004829629131445342,0.026705904774487397],
+                  [-0.004330127018922194,0.025500000000000002],
+                  [-0.0035355339059327394,0.024464466094067265],
+                  [-0.0025000000000000022,0.023669872981077807],
+                  [-0.0012940952255126033,0.023170370868554658],
+                  [-9.184850993605148e-19,0.023],
+                  [0.0012940952255126015,0.023170370868554658],
+                  [0.0025000000000000005,0.023669872981077807],
+                  [0.003535533905932737,0.02446446609406726],
+                  [0.004330127018922192,0.0255],
+                  [0.004829629131445341,0.026705904774487393]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "arm",
+            "semanticType": "construction.circulation.handrail-wall-bracket.arm",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.018,0.004],
+              "end": [0,0.042,0.17],
+              "radius": 0.011,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "saddle",
+            "semanticType": "construction.circulation.handrail-wall-bracket.saddle",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.028,0.059,0.17],
+                [0.028,0.059,0.17]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.028,3.429011037612589e-18],
+                [-0.027045923136093913,-0.007246933262870583],
+                [-0.024248711305964288,-0.013999999999999993],
+                [-0.019798989873223337,-0.01979898987322333],
+                [-0.014000000000000012,-0.024248711305964277],
+                [-0.007246933262870577,-0.027045923136093913],
+                [-5.143516556418883e-18,-0.028],
+                [0.007246933262870569,-0.027045923136093917],
+                [0.013999999999999981,-0.024248711305964295],
+                [0.019798989873223326,-0.019798989873223337],
+                [0.024248711305964288,-0.013999999999999992],
+                [0.027045923136093913,-0.007246933262870579],
+                [0.028,-6.858022075225178e-18],
+                [0.0223,-5.461924724197196e-18],
+                [0.021540145926246222,-0.005771664705786212],
+                [0.019312366504392987,-0.011149999999999993],
+                [0.015768481220460005,-0.015768481220460012],
+                [0.011149999999999985,-0.01931236650439299],
+                [0.005771664705786203,-0.021540145926246226],
+                [-4.096443543147896e-18,-0.0223],
+                [-0.00577166470578621,-0.021540145926246222],
+                [-0.01115000000000001,-0.01931236650439298],
+                [-0.015768481220460012,-0.01576848122046001],
+                [-0.019312366504392987,-0.011149999999999993],
+                [-0.021540145926246222,-0.0057716647057862135],
+                [-0.0223,2.730962362098598e-18]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "rail-axis": {
+            "position": [0,0.059,0.17],
+            "direction": [1,0,0],
+            "kind": "rail-axis"
+          }
+        }
+      },
+      "transform": {
+        "position": [0.75,1.864,2.83]
+      }
+    },
+    {
+      "id": "baluster-post",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "construction.circulation.floor-guardrail-post.plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "bolted-base-plate",
+              "plateWidth": 0.136,
+              "plateDepth": 0.136,
+              "thickness": 0.012,
+              "holeDiameter": 0.012,
+              "boltPitchX": 0.091,
+              "boltPitchZ": 0.091
+            }
+          },
+          {
+            "id": "post",
+            "semanticType": "construction.circulation.floor-guardrail-post.upright",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.868,0.046]
+            },
+            "transform": {
+              "position": [0,0.446,0]
+            }
+          },
+          {
+            "id": "saddle",
+            "semanticType": "construction.circulation.floor-guardrail-post.saddle",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.028,0.903,0],
+                [0.028,0.903,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.028,3.429011037612589e-18],
+                [-0.027045923136093913,-0.007246933262870583],
+                [-0.024248711305964288,-0.013999999999999993],
+                [-0.019798989873223337,-0.01979898987322333],
+                [-0.014000000000000012,-0.024248711305964277],
+                [-0.007246933262870577,-0.027045923136093913],
+                [-5.143516556418883e-18,-0.028],
+                [0.007246933262870569,-0.027045923136093917],
+                [0.013999999999999981,-0.024248711305964295],
+                [0.019798989873223326,-0.019798989873223337],
+                [0.024248711305964288,-0.013999999999999992],
+                [0.027045923136093913,-0.007246933262870579],
+                [0.028,-6.858022075225178e-18],
+                [0.0223,-5.461924724197196e-18],
+                [0.021540145926246222,-0.005771664705786212],
+                [0.019312366504392987,-0.011149999999999993],
+                [0.015768481220460005,-0.015768481220460012],
+                [0.011149999999999985,-0.01931236650439299],
+                [0.005771664705786203,-0.021540145926246226],
+                [-4.096443543147896e-18,-0.0223],
+                [-0.00577166470578621,-0.021540145926246222],
+                [-0.01115000000000001,-0.01931236650439298],
+                [-0.015768481220460012,-0.01576848122046001],
+                [-0.019312366504392987,-0.011149999999999993],
+                [-0.021540145926246222,-0.0057716647057862135],
+                [-0.0223,2.730962362098598e-18]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "base",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "rail-axis": {
+            "position": [0,0.903,0],
+            "direction": [1,0,0],
+            "kind": "rail-axis"
+          },
+          "bolt-front-left": {
+            "node": "base",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-front-left"
+            }
+          },
+          "bolt-front-right": {
+            "node": "base",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-front-right"
+            }
+          },
+          "bolt-back-left": {
+            "node": "base",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-back-left"
+            }
+          },
+          "bolt-back-right": {
+            "node": "base",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-back-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.45,1.02,3]
+      }
+    },
+    {
+      "id": "winder-lower",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.17,1.1]
+            },
+            "transform": {
+              "position": [0,0.085,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "seat": {
+            "position": [0.6000000000000001,0.17,0],
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [2.4,-0.17,0.15]
+      }
+    },
+    {
+      "id": "winder-upper",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.17,1.04]
+            },
+            "transform": {
+              "position": [0,0.085,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "seat": {
+            "position": [0,0.17,-0.52],
+            "direction": [0,0,-1]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.85,0.85,1.52]
+      }
+    },
+    {
+      "id": "quarter-winder",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tread-1",
+            "semanticType": "construction.circulation.concrete-winder.tread",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.17,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,-1.36],
+                [-0.04449795,-1.35927184],
+                [-0.08894826,-1.35708814],
+                [-0.13330331,-1.35345123],
+                [-0.17751562,-1.34836501],
+                [-0.22153784,-1.34183493],
+                [-0.26532284,-1.33386798],
+                [-0.30882372,-1.32447269],
+                [-0.3519939,-1.31365912],
+                [-0.08799848,-0.32841478],
+                [-0.07720593,-0.33111817],
+                [-0.06633071,-0.333467],
+                [-0.05538446,-0.33545873],
+                [-0.04437891,-0.33709125],
+                [-0.03332583,-0.33836281],
+                [-0.02223706,-0.33927203],
+                [-0.01112449,-0.33981796],
+                [0,-0.34]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tread-2",
+            "semanticType": "construction.circulation.concrete-winder.tread",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.34,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.3519939,-1.31365912],
+                [-0.39478716,-1.30143886],
+                [-0.43715767,-1.28782498],
+                [-0.47906007,-1.27283206],
+                [-0.52044947,-1.25647616],
+                [-0.56128156,-1.2387748],
+                [-0.60151262,-1.21974693],
+                [-0.64109956,-1.19941292],
+                [-0.68,-1.17779455],
+                [-0.17,-0.29444864],
+                [-0.16027489,-0.29985323],
+                [-0.15037815,-0.30493673],
+                [-0.14032039,-0.3096937],
+                [-0.13011237,-0.31411904],
+                [-0.11976502,-0.31820802],
+                [-0.10928942,-0.32195624],
+                [-0.09869679,-0.32535971],
+                [-0.08799848,-0.32841478]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tread-3",
+            "semanticType": "construction.circulation.concrete-winder.tread",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.51,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.68,-1.17779455],
+                [-0.71817228,-1.15491497],
+                [-0.75557552,-1.13079867],
+                [-0.79216967,-1.10547149],
+                [-0.82791554,-1.07896054],
+                [-0.86277487,-1.05129422],
+                [-0.89671031,-1.02250214],
+                [-0.92968553,-0.99261514],
+                [-0.96166522,-0.96166522],
+                [-0.24041631,-0.24041631],
+                [-0.23242138,-0.24815378],
+                [-0.22417758,-0.25562553],
+                [-0.21569372,-0.26282355],
+                [-0.20697889,-0.26974014],
+                [-0.19804242,-0.27636787],
+                [-0.18889388,-0.28269967],
+                [-0.17954307,-0.28872874],
+                [-0.17,-0.29444864]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tread-4",
+            "semanticType": "construction.circulation.concrete-winder.tread",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.68,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.96166522,-0.96166522],
+                [-0.99261514,-0.92968553],
+                [-1.02250214,-0.89671031],
+                [-1.05129422,-0.86277487],
+                [-1.07896054,-0.82791554],
+                [-1.10547149,-0.79216967],
+                [-1.13079867,-0.75557552],
+                [-1.15491497,-0.71817228],
+                [-1.17779455,-0.68],
+                [-0.29444864,-0.17],
+                [-0.28872874,-0.17954307],
+                [-0.28269967,-0.18889388],
+                [-0.27636787,-0.19804242],
+                [-0.26974014,-0.20697889],
+                [-0.26282355,-0.21569372],
+                [-0.25562553,-0.22417758],
+                [-0.24815378,-0.23242138],
+                [-0.24041631,-0.24041631]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tread-5",
+            "semanticType": "construction.circulation.concrete-winder.tread",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.8500000000000001,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-1.17779455,-0.68],
+                [-1.19941292,-0.64109956],
+                [-1.21974693,-0.60151262],
+                [-1.2387748,-0.56128156],
+                [-1.25647616,-0.52044947],
+                [-1.27283206,-0.47906007],
+                [-1.28782498,-0.43715767],
+                [-1.30143886,-0.39478716],
+                [-1.31365912,-0.3519939],
+                [-0.32841478,-0.08799848],
+                [-0.32535971,-0.09869679],
+                [-0.32195624,-0.10928942],
+                [-0.31820802,-0.11976502],
+                [-0.31411904,-0.13011237],
+                [-0.3096937,-0.14032039],
+                [-0.30493673,-0.15037815],
+                [-0.29985323,-0.16027489],
+                [-0.29444864,-0.17]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tread-6",
+            "semanticType": "construction.circulation.concrete-winder.tread",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.02,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-1.31365912,-0.3519939],
+                [-1.32447269,-0.30882372],
+                [-1.33386798,-0.26532284],
+                [-1.34183493,-0.22153784],
+                [-1.34836501,-0.17751562],
+                [-1.35345123,-0.13330331],
+                [-1.35708814,-0.08894826],
+                [-1.35927184,-0.04449795],
+                [-1.36,0],
+                [-0.34,0],
+                [-0.33981796,-0.01112449],
+                [-0.33927203,-0.02223706],
+                [-0.33836281,-0.03332583],
+                [-0.33709125,-0.04437891],
+                [-0.33545873,-0.05538446],
+                [-0.333467,-0.06633071],
+                [-0.33111817,-0.07720593],
+                [-0.32841478,-0.08799848]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "lower-landing": {
+            "position": [0,0,-0.85],
+            "direction": [-1,0,0]
+          },
+          "upper-landing": {
+            "position": [0.85,1.02,0],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [3,0,1]
+      }
+    },
+    {
+      "id": "l-platform-stair",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lower-run",
+            "semanticType": "construction.circulation.quarter-turn-platform.flight",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "straight-stair",
+              "stepCount": 6,
+              "riserHeight": 0.17,
+              "treadDepth": 0.28,
+              "width": 1.1
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "landing",
+            "semanticType": "construction.circulation.quarter-turn-platform.platform",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.1,0.17,1.1]
+            },
+            "transform": {
+              "position": [0,0.935,2.23]
+            }
+          },
+          {
+            "id": "upper-run",
+            "semanticType": "construction.circulation.quarter-turn-platform.flight",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "straight-stair",
+              "stepCount": 6,
+              "riserHeight": 0.17,
+              "treadDepth": 0.28,
+              "width": 1.1
+            },
+            "transform": {
+              "position": [0.55,1.02,2.23],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          }
+        ],
+        "anchors": {
+          "lower-landing": {
+            "node": "lower-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "lower-landing"
+            }
+          },
+          "upper-landing": {
+            "node": "upper-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "upper-landing"
+            }
+          },
+          "run1-end": {
+            "node": "lower-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "upper-landing"
+            }
+          },
+          "run2-start": {
+            "node": "upper-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "lower-landing"
+            }
+          },
+          "platform-in": {
+            "node": "landing",
+            "position": [0,0.085,-0.55],
+            "direction": [0,0,-1]
+          },
+          "platform-out": {
+            "node": "landing",
+            "position": [0.55,0.085,0],
+            "direction": [1,0,0]
+          }
+        },
+        "attachments": [
+          {
+            "from": "run1-end",
+            "to": "platform-in",
+            "contract": {
+              "direction": "opposed"
+            }
+          },
+          {
+            "from": "platform-out",
+            "to": "run2-start",
+            "contract": {
+              "direction": "opposed"
+            }
+          }
+        ]
+      },
+      "transform": {
+        "position": [5.35,0,0]
+      }
+    },
+    {
+      "id": "l-stair-top",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [1.22,0.17,1.27]
+            },
+            "transform": {
+              "position": [0,0.085,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "seat": {
+            "position": [-0.6099999999999994,0.17,0],
+            "direction": [-1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [8.19,1.87,2.23]
+      }
+    },
+    {
+      "id": "spiral-stair",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mast",
+            "semanticType": "construction.circulation.central-mast-spiral.post",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.02,0],
+              "end": [0,2.15,0],
+              "radius": 0.08,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "floor-plate",
+            "semanticType": "construction.circulation.central-mast-spiral.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.02,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.136,0],
+                [0.1313659123753133,0.035199390133942826],
+                [0.11777945491468367,0.06799999999999999],
+                [0.09616652224137048,0.09616652224137046],
+                [0.06800000000000002,0.11777945491468365],
+                [0.035199390133942826,0.1313659123753133],
+                [8.327598234202002e-18,0.136],
+                [-0.035199390133942805,0.1313659123753133],
+                [-0.06799999999999998,0.11777945491468367],
+                [-0.09616652224137046,0.09616652224137048],
+                [-0.11777945491468367,0.06799999999999999],
+                [-0.13136591237531328,0.03519939013394286],
+                [-0.136,1.6655196468404004e-17],
+                [-0.1313659123753133,-0.03519939013394283],
+                [-0.11777945491468368,-0.06799999999999996],
+                [-0.09616652224137053,-0.09616652224137041],
+                [-0.06800000000000006,-0.11777945491468364],
+                [-0.035199390133942805,-0.1313659123753133],
+                [-2.4982794702606006e-17,-0.136],
+                [0.035199390133942764,-0.1313659123753133],
+                [0.06800000000000002,-0.11777945491468365],
+                [0.09616652224137044,-0.0961665222413705],
+                [0.11777945491468363,-0.06800000000000006],
+                [0.13136591237531328,-0.03519939013394294]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "step-1",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.11800000000000002,0],
+                [0,0.17,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-1.04,0],
+                [-1.03880403,0.04986176],
+                [-1.03521886,0.09960884],
+                [-1.02925273,0.14912682],
+                [-1.02091938,0.19830182],
+                [-1.01023797,0.24702074],
+                [-0.99723306,0.29517152],
+                [-0.98193456,0.34264342],
+                [-0.96437767,0.38932726],
+                [-0.07603747,0.03069696],
+                [-0.07742176,0.02701612],
+                [-0.07862799,0.02327314],
+                [-0.07965338,0.01947663],
+                [-0.08049557,0.01563534],
+                [-0.08115262,0.01175808],
+                [-0.08162303,0.00785377],
+                [-0.0819057,0.00393141],
+                [-0.082,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-1",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.07061654018903259,0.10400000000000001,0.014046503185161232],
+              "end": [0.3530827009451629,0.10800000000000001,0.07023251592580616],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-2",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.28800000000000003,0],
+                [0,0.34,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.96083471,0.39799077],
+                [-0.94064851,0.44359935],
+                [-0.91829886,0.48818767],
+                [-0.89383717,0.53165319],
+                [-0.8673197,0.57389593],
+                [-0.83880744,0.61481874],
+                [-0.80836596,0.65432749],
+                [-0.77606529,0.69233133],
+                [-0.7419797,0.72874284],
+                [-0.05850225,0.05745857],
+                [-0.06118976,0.05458766],
+                [-0.06373655,0.05159121],
+                [-0.06613674,0.04847609],
+                [-0.06838482,0.04524949],
+                [-0.07047562,0.04191881],
+                [-0.07240433,0.03849172],
+                [-0.07416652,0.0349761],
+                [-0.07575812,0.03138004]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-2",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.05986581208578325,0.274,0.04000105677741135],
+              "end": [0.29932906042891627,0.278,0.20000528388705677],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-3",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.458,0],
+                [0,0.51,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.73539105,0.73539105],
+                [-0.69928778,0.76980296],
+                [-0.66157619,0.80244436],
+                [-0.622343,0.83324017],
+                [-0.58167846,0.86211958],
+                [-0.53967608,0.88901616],
+                [-0.49643248,0.91386804],
+                [-0.45204711,0.93661807],
+                [-0.40662205,0.95721393],
+                [-0.03206058,0.07547264],
+                [-0.03564218,0.07384873],
+                [-0.03914179,0.07205498],
+                [-0.04255138,0.0700955],
+                [-0.04586311,0.06797481],
+                [-0.04906935,0.06569778],
+                [-0.05216274,0.06326965],
+                [-0.05513615,0.060696],
+                [-0.05798276,0.05798276]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-3",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.040001056777411365,0.444,0.05986581208578325],
+              "end": [0.20000528388705682,0.448,0.29932906042891627],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-4",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.628,0],
+                [0,0.68,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.39799077,0.96083471],
+                [-0.35146683,0.97881105],
+                [-0.30413454,0.99453616],
+                [-0.25610275,1.0079739],
+                [-0.20748194,1.01909334],
+                [-0.15838393,1.02786893],
+                [-0.10892165,1.03428046],
+                [-0.05920885,1.03831321],
+                [-0.00935987,1.03995788],
+                [-0.00073799,0.08199668],
+                [-0.00466839,0.081867],
+                [-0.00858805,0.08154904],
+                [-0.01248796,0.08104351],
+                [-0.01635915,0.08035159],
+                [-0.02019272,0.07947487],
+                [-0.02397984,0.07841535],
+                [-0.02771181,0.07717549],
+                [-0.03138004,0.07575812]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-4",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.014046503185161239,0.6140000000000001,0.07061654018903259],
+              "end": [0.07023251592580619,0.6180000000000001,0.3530827009451629],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-5",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.798,0],
+                [0,0.8500000000000001,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,1.04],
+                [0.04986176,1.03880403],
+                [0.09960884,1.03521886],
+                [0.14912682,1.02925273],
+                [0.19830182,1.02091938],
+                [0.24702074,1.01023797],
+                [0.29517152,0.99723306],
+                [0.34264342,0.98193456],
+                [0.38932726,0.96437767],
+                [0.03069696,0.07603747],
+                [0.02701612,0.07742176],
+                [0.02327314,0.07862799],
+                [0.01947663,0.07965338],
+                [0.01563534,0.08049557],
+                [0.01175808,0.08115262],
+                [0.00785377,0.08162303],
+                [0.00393141,0.0819057],
+                [0,0.082]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-5",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.014046503185161228,0.784,0.07061654018903259],
+              "end": [-0.07023251592580615,0.788,0.3530827009451629],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-6",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.968,0],
+                [0,1.02,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.39799077,0.96083471],
+                [0.44359935,0.94064851],
+                [0.48818767,0.91829886],
+                [0.53165319,0.89383717],
+                [0.57389593,0.8673197],
+                [0.61481874,0.83880744],
+                [0.65432749,0.80836596],
+                [0.69233133,0.77606529],
+                [0.72874284,0.7419797],
+                [0.05745857,0.05850225],
+                [0.05458766,0.06118976],
+                [0.05159121,0.06373655],
+                [0.04847609,0.06613674],
+                [0.04524949,0.06838482],
+                [0.04191881,0.07047562],
+                [0.03849172,0.07240433],
+                [0.0349761,0.07416652],
+                [0.03138004,0.07575812]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-6",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.04000105677741134,0.954,0.05986581208578326],
+              "end": [-0.20000528388705668,0.958,0.2993290604289163],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-7",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.1380000000000001,0],
+                [0,1.1900000000000002,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.73539105,0.73539105],
+                [0.76980296,0.69928778],
+                [0.80244436,0.66157619],
+                [0.83324017,0.622343],
+                [0.86211958,0.58167846],
+                [0.88901616,0.53967608],
+                [0.91386804,0.49643248],
+                [0.93661807,0.45204711],
+                [0.95721393,0.40662205],
+                [0.07547264,0.03206058],
+                [0.07384873,0.03564218],
+                [0.07205498,0.03914179],
+                [0.0700955,0.04255138],
+                [0.06797481,0.04586311],
+                [0.06569778,0.04906935],
+                [0.06326965,0.05216274],
+                [0.060696,0.05513615],
+                [0.05798276,0.05798276]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-7",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.05986581208578326,1.124,0.04000105677741135],
+              "end": [-0.2993290604289163,1.1280000000000001,0.20000528388705677],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-8",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.308,0],
+                [0,1.36,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.96083471,0.39799077],
+                [0.97881105,0.35146683],
+                [0.99453616,0.30413454],
+                [1.0079739,0.25610275],
+                [1.01909334,0.20748194],
+                [1.02786893,0.15838393],
+                [1.03428046,0.10892165],
+                [1.03831321,0.05920885],
+                [1.03995788,0.00935987],
+                [0.08199668,0.00073799],
+                [0.081867,0.00466839],
+                [0.08154904,0.00858805],
+                [0.08104351,0.01248796],
+                [0.08035159,0.01635915],
+                [0.07947487,0.02019272],
+                [0.07841535,0.02397984],
+                [0.07717549,0.02771181],
+                [0.07575812,0.03138004]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-8",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.07061654018903259,1.294,0.014046503185161258],
+              "end": [-0.3530827009451629,1.298,0.0702325159258063],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-9",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.478,0],
+                [0,1.53,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [1.04,0],
+                [1.03880403,-0.04986176],
+                [1.03521886,-0.09960884],
+                [1.02925273,-0.14912682],
+                [1.02091938,-0.19830182],
+                [1.01023797,-0.24702074],
+                [0.99723306,-0.29517152],
+                [0.98193456,-0.34264342],
+                [0.96437767,-0.38932726],
+                [0.07603747,-0.03069696],
+                [0.07742176,-0.02701612],
+                [0.07862799,-0.02327314],
+                [0.07965338,-0.01947663],
+                [0.08049557,-0.01563534],
+                [0.08115262,-0.01175808],
+                [0.08162303,-0.00785377],
+                [0.0819057,-0.00393141],
+                [0.082,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-9",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.07061654018903259,1.464,-0.01404650318516124],
+              "end": [-0.3530827009451629,1.468,-0.0702325159258062],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-10",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.6480000000000001,0],
+                [0,1.7000000000000002,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.96083471,-0.39799077],
+                [0.94064851,-0.44359935],
+                [0.91829886,-0.48818767],
+                [0.89383717,-0.53165319],
+                [0.8673197,-0.57389593],
+                [0.83880744,-0.61481874],
+                [0.80836596,-0.65432749],
+                [0.77606529,-0.69233133],
+                [0.7419797,-0.72874284],
+                [0.05850225,-0.05745857],
+                [0.06118976,-0.05458766],
+                [0.06373655,-0.05159121],
+                [0.06613674,-0.04847609],
+                [0.06838482,-0.04524949],
+                [0.07047562,-0.04191881],
+                [0.07240433,-0.03849172],
+                [0.07416652,-0.0349761],
+                [0.07575812,-0.03138004]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-10",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.05986581208578327,1.6340000000000001,-0.04000105677741134],
+              "end": [-0.2993290604289163,1.6380000000000001,-0.20000528388705668],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-11",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.818,0],
+                [0,1.87,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.73539105,-0.73539105],
+                [0.69928778,-0.76980296],
+                [0.66157619,-0.80244436],
+                [0.622343,-0.83324017],
+                [0.58167846,-0.86211958],
+                [0.53967608,-0.88901616],
+                [0.49643248,-0.91386804],
+                [0.45204711,-0.93661807],
+                [0.40662205,-0.95721393],
+                [0.03206058,-0.07547264],
+                [0.03564218,-0.07384873],
+                [0.03914179,-0.07205498],
+                [0.04255138,-0.0700955],
+                [0.04586311,-0.06797481],
+                [0.04906935,-0.06569778],
+                [0.05216274,-0.06326965],
+                [0.05513615,-0.060696],
+                [0.05798276,-0.05798276]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-11",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.04000105677741135,1.804,-0.05986581208578325],
+              "end": [-0.20000528388705677,1.808,-0.29932906042891627],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "step-12",
+            "semanticType": "construction.circulation.central-mast-spiral.tread",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.988,0],
+                [0,2.04,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.39799077,-0.96083471],
+                [0.35146683,-0.97881105],
+                [0.30413454,-0.99453616],
+                [0.25610275,-1.0079739],
+                [0.20748194,-1.01909334],
+                [0.15838393,-1.02786893],
+                [0.10892165,-1.03428046],
+                [0.05920885,-1.03831321],
+                [0.00935987,-1.03995788],
+                [0.00073799,-0.08199668],
+                [0.00466839,-0.081867],
+                [0.00858805,-0.08154904],
+                [0.01248796,-0.08104351],
+                [0.01635915,-0.08035159],
+                [0.02019272,-0.07947487],
+                [0.02397984,-0.07841535],
+                [0.02771181,-0.07717549],
+                [0.03138004,-0.07575812]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bracket-12",
+            "semanticType": "construction.circulation.central-mast-spiral.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.014046503185161263,1.974,-0.07061654018903257],
+              "end": [-0.07023251592580632,1.978,-0.3530827009451629],
+              "radius": 0.016,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "lower-landing": {
+            "position": [0.561,0,0],
+            "direction": [0,0,-1]
+          },
+          "upper-landing": {
+            "position": [0,2.04,-0.561],
+            "direction": [1,0,0]
+          },
+          "mast-foot": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [10.18,0,1.05]
+      }
+    },
+    {
+      "id": "spiral-landing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [0.96,0.17,1.29]
+            },
+            "transform": {
+              "position": [0,0.085,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "seat": {
+            "position": [-0.4800000000000004,0.17,0],
+            "direction": [-1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [10.66,1.87,0.489]
+      }
+    },
+    {
+      "id": "spiral-base",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [2.21,0.17,2.21]
+            },
+            "transform": {
+              "position": [0,0.085,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "mount": {
+            "position": [0,0.17,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [10.18,-0.17,1.05]
+      }
+    },
+    {
+      "id": "extra-stringer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stringer",
+            "semanticType": "construction.circulation.steel-stair-stringer",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.02,1.68]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.04,-0.094],
+                [0.04,-0.094],
+                [0.04,-0.087],
+                [-0.033,-0.087],
+                [-0.033,0.087],
+                [0.04,0.087],
+                [0.04,0.094],
+                [-0.04,0.094]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "stringer",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "top": {
+            "node": "stringer",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [12.35,0,0.35]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "steel-lower-deck#stair-edge",
+      "to": "steel-flight#lower-landing",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "steel-flight#upper-landing",
+      "to": "steel-upper-deck#stair-edge",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "steel-lower-deck#guard-side-edge",
+      "to": "sloping-guard#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "sloping-guard#end",
+      "to": "upper-guard#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "steel-upper-deck#rail-base",
+      "to": "deck-glass#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "steel-upper-deck#toe-base",
+      "to": "toe-guard#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "steel-flight#first-tread-face",
+      "to": "first-nosing#step",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "handrail-deck#post-base",
+      "to": "baluster-post#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "straight-round-rail#post-axis",
+      "to": "baluster-post#rail-axis",
+      "contract": {
+        "direction": "aligned"
+      }
+    },
+    {
+      "from": "straight-round-rail#wall-axis",
+      "to": "wall-bracket#rail-axis",
+      "contract": {
+        "direction": "aligned"
+      }
+    },
+    {
+      "from": "handrail-wall#bracket-seat",
+      "to": "wall-bracket#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "handrail-wall#hand-return",
+      "to": "wall-return#wall-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "straight-round-rail#start",
+      "to": "downward-end#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "straight-round-rail#end",
+      "to": "wall-return#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "winder-lower#seat",
+      "to": "quarter-winder#lower-landing",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "quarter-winder#upper-landing",
+      "to": "winder-upper#seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "l-platform-stair#upper-landing",
+      "to": "l-stair-top#seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "spiral-stair#upper-landing",
+      "to": "spiral-landing#seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "spiral-base#mount",
+      "to": "spiral-stair#mast-foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

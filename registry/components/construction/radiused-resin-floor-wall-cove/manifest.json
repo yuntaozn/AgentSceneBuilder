@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.radiused-resin-floor-wall-cove",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "弧形树脂地坪圆弧踢脚",
+  "summary": "内凹圆弧跨过墙脚，薄边接地坪，背部有墙面和地面两个安装基准。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.flooring.resin-wall-cove",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室内装修",
+    "地坪",
+    "基础构件"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "wall",
+    "floor",
+    "ground-edge",
+    "wall-edge"
+  ],
+  "ai": {
+    "intent": "以圆弧剖面连接耐磨地坪与立墙。",
+    "editableParts": [
+      "圆角半径",
+      "贴墙长度",
+      "横向落地边"
+    ],
+    "qualityChecks": [
+      "圆弧顶端切向接竖边，水平端接面层。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "radiused-resin-floor-wall-cove",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cove-body",
+            "semanticType": "construction.flooring.resin-cove.shell",
+            "material": "epoxy",
+            "appearance": {
+              "color": "#778f91"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.47,0,0],
+                [0.47,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0],
+                [0,0.11],
+                [-0.006,0.11],
+                [-0.005999999999999998,0.057],
+                [-0.0064192017926832864,0.05060421658121748],
+                [-0.007669634511835652,0.044317866789976484],
+                [-0.009729902906946947,0.0382485118141106],
+                [-0.012564755214562504,0.0325],
+                [-0.01612568632572948,0.02717068997857269],
+                [-0.02035176772185917,0.022351767721859178],
+                [-0.025170689978572688,0.01812568632572948],
+                [-0.030499999999999992,0.014564755214562512],
+                [-0.036248511814110596,0.011729902906946948],
+                [-0.04231786678997648,0.009669634511835654],
+                [-0.04860421658121747,0.008419201792683288],
+                [-0.055,0.008],
+                [-0.098,0.008],
+                [-0.098,0]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [-0.47,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.47,0,0],
+            "direction": [1,0,0]
+          },
+          "wall": {
+            "position": [0,0.082,0],
+            "direction": [0,0,-1]
+          },
+          "floor": {
+            "position": [0,0,0.06],
+            "direction": [0,-1,0]
+          },
+          "ground-edge": {
+            "position": [0,0.008,0.098],
+            "direction": [0,0,1]
+          },
+          "wall-edge": {
+            "position": [0,0.11,0.006],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

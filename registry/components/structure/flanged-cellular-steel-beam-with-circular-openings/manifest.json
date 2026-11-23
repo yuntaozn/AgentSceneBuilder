@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.flanged-cellular-steel-beam-with-circular-openings",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "圆孔蜂窝腹板钢梁",
+  "summary": "顶底翼缘与一排贯通圆孔的中间腹板；圆孔数、直径和孔距从具名截面生成。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.industrial.cellular-steel-beam",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "钢结构",
+    "厂房",
+    "蜂窝梁",
+    "腹板",
+    "通孔"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.44
+    },
+    "webHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.257
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.009
+    },
+    "openingDiameter": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.158
+    },
+    "openingCount": {
+      "type": "number",
+      "default": 6
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "first-hole",
+    "top",
+    "bearing-start",
+    "bearing-end"
+  ],
+  "ai": {
+    "intent": "表示带开孔腹板的钢梁，便于与管线穿越协同。",
+    "editableParts": [
+      "腹板孔数和孔径",
+      "顶底翼缘",
+      "梁端"
+    ],
+    "qualityChecks": [
+      "长度变化时同步编辑翼缘，保持两岸孔间实体。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "flanged-cellular-steel-beam-with-circular-openings",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "perforated-web",
+            "semanticType": "structure.industrial.cellular-steel-beam.web",
+            "material": "steel",
+            "appearance": {
+              "color": "#526d79"
+            },
+            "geometry": {
+              "type": "cellular-steel-web",
+              "length": 2.44,
+              "webHeight": 0.257,
+              "thickness": 0.009,
+              "openingDiameter": 0.158,
+              "openingCount": 6
+            },
+            "transform": {
+              "position": [0,0.013,0]
+            }
+          },
+          {
+            "id": "lower-flange",
+            "semanticType": "structure.industrial.cellular-steel-beam.flange",
+            "material": "steel",
+            "appearance": {
+              "color": "#85999e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.44,0.013,0.144]
+            },
+            "transform": {
+              "position": [1.22,0.0065,0]
+            }
+          },
+          {
+            "id": "upper-flange",
+            "semanticType": "structure.industrial.cellular-steel-beam.flange",
+            "material": "steel",
+            "appearance": {
+              "color": "#85999e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.44,0.013,0.144]
+            },
+            "transform": {
+              "position": [1.22,0.2765,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "perforated-web",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "perforated-web",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "first-hole": {
+            "node": "perforated-web",
+            "onGeometry": {
+              "type": "feature",
+              "name": "first-opening"
+            }
+          },
+          "top": {
+            "position": [1.22,0.283,0],
+            "direction": [0,1,0]
+          },
+          "bearing-start": {
+            "position": [0.085,0,0],
+            "direction": [0,-1,0]
+          },
+          "bearing-end": {
+            "position": [2.355,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

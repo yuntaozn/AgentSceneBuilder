@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.fixed-louver",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形固定百叶",
+  "summary": "由实心外框与可重复排布的倾斜叶片组成，叶片间留有通风空隙。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.window.louver",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "百叶",
+    "开口",
+    "通风"
+  ],
+  "anchors": [
+    "fit-base",
+    "fit-top",
+    "fit-left",
+    "fit-right"
+  ],
+  "ai": {
+    "intent": "复用外墙洞口中的固定百叶与可见叶间空隙。",
+    "editableParts": [
+      "修改 blade.repetition 的数量和间距",
+      "修改 blade.transform.rotation 调整倾角"
+    ],
+    "qualityChecks": [
+      "叶片投影应留在净开口内。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "fixed-louver",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.opening.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#67737b"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 1.2,
+              "wallHeight": 0.65,
+              "thickness": 0.15,
+              "openingWidth": 1.1,
+              "openingHeight": 0.55,
+              "openingOffset": 0,
+              "sillHeight": 0.05
+            }
+          },
+          {
+            "id": "blade",
+            "semanticType": "construction.window.louver-blade",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#88979e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.1,0.02,0.105]
+            },
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0.48,0,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [0,0.11,0],
+              "step": [0,0.08,0]
+            }
+          }
+        ],
+        "anchors": {
+          "fit-base": {
+            "node": "frame",
+            "position": [0,0,0]
+          },
+          "fit-top": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "fit-left": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "fit-right": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        }
+      }
+    }
+  }
+}

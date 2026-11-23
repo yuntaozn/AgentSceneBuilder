@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.open-pass-door-frame-panel-for-operable-partition-wall",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带通行门洞活动隔墙框板",
+  "summary": "面板在底边切出完整小门洞，两侧立框和过梁保留独立靠点。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.operable-partition.operable-wall-pass-door-frame",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内隔断",
+    "通行门",
+    "活动隔墙",
+    "门洞"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "top",
+    "hinge",
+    "bottom"
+  ],
+  "ai": {
+    "intent": "面板在底边切出完整小门洞，两侧立框和过梁保留独立靠点。",
+    "editableParts": [
+      "可分别编辑 cutout-wall-frame、jamb-stop-1、jamb-stop-2、head-stop。"
+    ],
+    "qualityChecks": [
+      "通行口宽 604 mm、高 1895 mm，框内地面敞开。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "open-pass-door-frame-panel-for-operable-partition-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cutout-wall-frame",
+            "semanticType": "construction.operable-partition.pass-frame.opend-web",
+            "material": "wood",
+            "appearance": {
+              "color": "#a69b85"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.039],
+                [0,0,0.039]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.398,0],
+                [-0.302,0],
+                [-0.302,1.895],
+                [0.302,1.895],
+                [0.302,0],
+                [0.398,0],
+                [0.398,2.166],
+                [-0.398,2.166]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "jamb-stop-1",
+            "semanticType": "construction.operable-partition.pass-frame.stop",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.015,1.883,0.013]
+            },
+            "transform": {
+              "position": [-0.303,0.9415,-0.03]
+            }
+          },
+          {
+            "id": "jamb-stop-2",
+            "semanticType": "construction.operable-partition.pass-frame.stop",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.015,1.883,0.013]
+            },
+            "transform": {
+              "position": [0.303,0.9415,-0.03]
+            }
+          },
+          {
+            "id": "head-stop",
+            "semanticType": "construction.operable-partition.pass-frame.stop",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.61,0.014,0.013]
+            },
+            "transform": {
+              "position": [0,1.889,-0.03]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.398,1.08,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.398,1.08,0],
+            "direction": [1,0,0]
+          },
+          "top": {
+            "position": [0,2.166,0],
+            "direction": [0,1,0]
+          },
+          "hinge": {
+            "position": [-0.293,0.018,0],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

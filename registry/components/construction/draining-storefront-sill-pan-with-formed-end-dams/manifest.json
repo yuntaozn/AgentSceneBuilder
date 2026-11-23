@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.draining-storefront-sill-pan-with-formed-end-dams",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带折边止水端坝的门厅窗台托盘",
+  "summary": "底盘向外排水，两端封堵片与背面止水边可拆分，前翻边预留排水口。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.envelope-entry.storefront-sill-pan",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "建筑入口",
+    "门窗台",
+    "止水端坝",
+    "排水槽"
+  ],
+  "anchors": [
+    "base",
+    "profile",
+    "outward"
+  ],
+  "ai": {
+    "intent": "底盘向外排水，两端封堵片与背面止水边可拆分，前翻边预留排水口。",
+    "editableParts": [
+      "可分别编辑 sloped-pan-bed、rear-upstand、end-dam-1、end-dam-2、weep-slotted-exterior-fold。"
+    ],
+    "qualityChecks": [
+      "端坝向上收口，前翻边四处排水孔贯通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "draining-storefront-sill-pan-with-formed-end-dams",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sloped-pan-bed",
+            "semanticType": "construction.envelope-entry.sill.pan",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.54,0,0],
+                [0.54,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.117,-0.008],
+                [0.102,0.003],
+                [0.102,0.015],
+                [-0.117,0.003]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "rear-upstand",
+            "semanticType": "construction.envelope-entry.sill.back-dam",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.08,0.057,0.008]
+            },
+            "transform": {
+              "position": [0,0.03,-0.103]
+            }
+          },
+          {
+            "id": "end-dam-1",
+            "semanticType": "construction.envelope-entry.sill.end-dam",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.049,0.22]
+            },
+            "transform": {
+              "position": [-0.536,0.027,0.005]
+            }
+          },
+          {
+            "id": "end-dam-2",
+            "semanticType": "construction.envelope-entry.sill.end-dam",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.049,0.22]
+            },
+            "transform": {
+              "position": [0.536,0.027,0.005]
+            }
+          },
+          {
+            "id": "weep-slotted-exterior-fold",
+            "semanticType": "construction.envelope-entry.sill.weep-fold",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.009,0.113],
+                [0,-0.009,0.119]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.54,-0.014],
+                [0.54,-0.014],
+                [0.54,0.014],
+                [-0.54,0.014]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3845,-0.0075],
+                  [-0.33549999999999996,-0.0075],
+                  [-0.33549999999999996,-0.0005],
+                  [-0.3845,-0.0005]
+                ],
+                [
+                  [-0.1445,-0.0075],
+                  [-0.0955,-0.0075],
+                  [-0.0955,-0.0005],
+                  [-0.1445,-0.0005]
+                ],
+                [
+                  [0.0955,-0.0075],
+                  [0.1445,-0.0075],
+                  [0.1445,-0.0005],
+                  [0.0955,-0.0005]
+                ],
+                [
+                  [0.33549999999999996,-0.0075],
+                  [0.3845,-0.0075],
+                  [0.3845,-0.0005],
+                  [0.33549999999999996,-0.0005]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,-0.008,0],
+            "direction": [0,-1,0]
+          },
+          "profile": {
+            "position": [0,0.012,0],
+            "direction": [0,1,0]
+          },
+          "outward": {
+            "position": [0,-0.008,0.119],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

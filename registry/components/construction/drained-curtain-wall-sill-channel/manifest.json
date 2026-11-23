@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.drained-curtain-wall-sill-channel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "幕墙导水底槛",
+  "summary": "底槛一侧向外排水，另一侧上翻拦水，独立扣盖下留有连续排水空间。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.drained-sill-channel",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "weeping-edge",
+    "glazing-seat"
+  ],
+  "ai": {
+    "intent": "用连续导水槽连接幕墙底部和外排方向。",
+    "editableParts": [
+      "调整排水边、上翻挡边和胶垫。"
+    ],
+    "qualityChecks": [
+      "外排边位于 +Z。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "drained-curtain-wall-sill-channel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.facade.drained-sill-channel.sill",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8aa3b1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.132,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.091,0],
+                [0.091,0.049],
+                [0.086,0.049],
+                [0.086,0.009],
+                [-0.048,0.009],
+                [-0.069,0.003],
+                [-0.109,0.003],
+                [-0.109,-0.004],
+                [-0.065,-0.004],
+                [-0.047,0.002],
+                [0.082,0.002],
+                [0.082,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "glass-setting-pad",
+            "semanticType": "construction.facade.drained-sill-channel.pad",
+            "material": "rubber",
+            "appearance": {
+              "color": "#384c5a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.129,0.006,0.042]
+            },
+            "transform": {
+              "position": [0.566,0.012,0.021]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "weeping-edge": {
+            "position": [0.566,0.003,0.109],
+            "direction": [0,0,1]
+          },
+          "glazing-seat": {
+            "position": [0.566,0.015,0.021],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

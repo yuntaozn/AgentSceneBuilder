@@ -1,0 +1,160 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.triaxial-accelerometer",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "三轴加速度传感器",
+  "summary": "带螺柱底座和侧向信号口的小型传感器，提供三个正交测轴。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.triaxial-accelerometer",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "基础构件",
+    "实训",
+    "振动监测"
+  ],
+  "anchors": [
+    "mount",
+    "axis-x",
+    "axis-y",
+    "axis-z",
+    "signal-out"
+  ],
+  "ai": {
+    "intent": "在梁或楼板表面定位振动测点并保留三轴方向。",
+    "editableParts": [
+      "调整壳体、底座、安装螺柱和方向标记。"
+    ],
+    "qualityChecks": [
+      "在文档中保留测轴的方向引用。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "triaxial-accelerometer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stud",
+            "semanticType": "instrument.acceleration.triaxial.threaded-stud",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,0.001,0],
+              "radius": 0.005,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "base",
+            "semanticType": "instrument.acceleration.triaxial.base",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.042,0.007,0.044]
+            },
+            "transform": {
+              "position": [0,0.0035,0]
+            }
+          },
+          {
+            "id": "housing",
+            "semanticType": "instrument.acceleration.triaxial.housing",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#307785"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.035,0.031,0.036]
+            },
+            "transform": {
+              "position": [0,0.0225,0]
+            }
+          },
+          {
+            "id": "axis-mark-x",
+            "semanticType": "instrument.acceleration.triaxial.mark",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e8a77d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.001,0.002]
+            },
+            "transform": {
+              "position": [-0.003,0.0385,0.006]
+            }
+          },
+          {
+            "id": "axis-mark-z",
+            "semanticType": "instrument.acceleration.triaxial.mark",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d6eaeb"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.002,0.001,0.019]
+            },
+            "transform": {
+              "position": [-0.011,0.0385,-0.003]
+            }
+          },
+          {
+            "id": "signal-port",
+            "semanticType": "instrument.acceleration.triaxial.connector",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.019,0.017],
+              "end": [0,0.019,0.035],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "axis-x": {
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "measurement-axis"
+          },
+          "axis-y": {
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "measurement-axis"
+          },
+          "axis-z": {
+            "position": [0,0,0],
+            "direction": [0,0,1],
+            "kind": "measurement-axis"
+          },
+          "signal-out": {
+            "position": [0,0.019,0.035],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,339 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.two-leaf-telescoping-elevator-landing-door",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双叶旁开伸缩电梯层门",
+  "summary": "两叶沿前后两道滑轨收向一侧，门扇、滚轮和门框均可单独编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.telescoping-landing-door",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "层门",
+    "伸缩门",
+    "旁开"
+  ],
+  "anchors": [
+    "base",
+    "first-guide",
+    "second-guide",
+    "opening"
+  ],
+  "ai": {
+    "intent": "对齐层门框和双槽门槛，分别检查两片门叶的行程。",
+    "editableParts": [
+      "独立门扇",
+      "头部轮组",
+      "门脚滑块",
+      "两组移动"
+    ],
+    "qualityChecks": [
+      "两片门扇在不同槽面平移，固定门框维持原位。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-leaf-telescoping-elevator-landing-door",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "jamb-left",
+            "semanticType": "mep.elevator.telescoping-landing-door.jamb",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.066,2.05,0.165]
+            },
+            "transform": {
+              "position": [-0.557,1.025,0]
+            }
+          },
+          {
+            "id": "jamb-right",
+            "semanticType": "mep.elevator.telescoping-landing-door.jamb",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.066,2.05,0.165]
+            },
+            "transform": {
+              "position": [0.557,1.025,0]
+            }
+          },
+          {
+            "id": "head-case",
+            "semanticType": "mep.elevator.telescoping-landing-door.head-case",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.65,0.118,0.208]
+            },
+            "transform": {
+              "position": [-0.229,2.105,0]
+            }
+          },
+          {
+            "id": "head-track-0",
+            "semanticType": "mep.elevator.telescoping-landing-door.head-track",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.481,0.017,0.025]
+            },
+            "transform": {
+              "position": [-0.217,2.042,-0.0565]
+            }
+          },
+          {
+            "id": "head-track-1",
+            "semanticType": "mep.elevator.telescoping-landing-door.head-track",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.481,0.017,0.025]
+            },
+            "transform": {
+              "position": [-0.217,2.042,0.047]
+            }
+          },
+          {
+            "id": "inner-leaf",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-0.247,0,-0.0565]
+            }
+          },
+          {
+            "id": "inner-leaf-panel",
+            "semanticType": "mep.elevator.telescoping-landing-door.door-leaf",
+            "material": "steel",
+            "appearance": {
+              "color": "#7b9191"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.502,1.961,0.034]
+            },
+            "transform": {
+              "position": [0,0.9905,0]
+            },
+            "parent": "inner-leaf"
+          },
+          {
+            "id": "inner-leaf-leading-edge",
+            "semanticType": "mep.elevator.telescoping-landing-door.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.026,1.943,0.009]
+            },
+            "transform": {
+              "position": [0.237,0.991,0.019]
+            },
+            "parent": "inner-leaf"
+          },
+          {
+            "id": "inner-leaf-guide-shoe",
+            "semanticType": "mep.elevator.telescoping-landing-door.floor-slide",
+            "material": "polymer",
+            "appearance": {
+              "color": "#46545a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.027999999999999997,0.017]
+            },
+            "transform": {
+              "position": [0,-0.012,0]
+            },
+            "parent": "inner-leaf"
+          },
+          {
+            "id": "inner-leaf-hanger-0",
+            "semanticType": "mep.elevator.telescoping-landing-door.hanger-wheel",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.16,1.981,-0.013],
+              "end": [-0.16,1.981,0.023],
+              "radius": 0.029,
+              "radialSegments": 22
+            },
+            "parent": "inner-leaf"
+          },
+          {
+            "id": "inner-leaf-hanger-1",
+            "semanticType": "mep.elevator.telescoping-landing-door.hanger-wheel",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.16,1.981,-0.013],
+              "end": [0.16,1.981,0.023],
+              "radius": 0.029,
+              "radialSegments": 22
+            },
+            "parent": "inner-leaf"
+          },
+          {
+            "id": "outer-leaf",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0.254,0,0.047]
+            }
+          },
+          {
+            "id": "outer-leaf-panel",
+            "semanticType": "mep.elevator.telescoping-landing-door.door-leaf",
+            "material": "steel",
+            "appearance": {
+              "color": "#7b9191"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.502,1.961,0.034]
+            },
+            "transform": {
+              "position": [0,0.9905,0]
+            },
+            "parent": "outer-leaf"
+          },
+          {
+            "id": "outer-leaf-leading-edge",
+            "semanticType": "mep.elevator.telescoping-landing-door.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.026,1.943,0.009]
+            },
+            "transform": {
+              "position": [0.237,0.991,0.019]
+            },
+            "parent": "outer-leaf"
+          },
+          {
+            "id": "outer-leaf-guide-shoe",
+            "semanticType": "mep.elevator.telescoping-landing-door.floor-slide",
+            "material": "polymer",
+            "appearance": {
+              "color": "#46545a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.031,0.017]
+            },
+            "transform": {
+              "position": [0,-0.013500000000000002,0]
+            },
+            "parent": "outer-leaf"
+          },
+          {
+            "id": "outer-leaf-hanger-0",
+            "semanticType": "mep.elevator.telescoping-landing-door.hanger-wheel",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.16,1.981,-0.013],
+              "end": [-0.16,1.981,0.023],
+              "radius": 0.029,
+              "radialSegments": 22
+            },
+            "parent": "outer-leaf"
+          },
+          {
+            "id": "outer-leaf-hanger-1",
+            "semanticType": "mep.elevator.telescoping-landing-door.hanger-wheel",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.16,1.981,-0.013],
+              "end": [0.16,1.981,0.023],
+              "radius": 0.029,
+              "radialSegments": 22
+            },
+            "parent": "outer-leaf"
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "first-guide": {
+            "position": [0,-0.026,-0.0565],
+            "direction": [0,-1,0]
+          },
+          "second-guide": {
+            "position": [0,-0.029,0.047],
+            "direction": [0,-1,0]
+          },
+          "opening": {
+            "position": [0,0,-0.1],
+            "direction": [0,0,-1]
+          }
+        },
+        "animations": [
+          {
+            "id": "retract-inner-leaf",
+            "target": "inner-leaf",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [-0.505,0,0],
+            "duration": 0.9,
+            "loop": false
+          },
+          {
+            "id": "retract-outer-leaf",
+            "target": "outer-leaf",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [-1.006,0,0],
+            "duration": 1.1,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

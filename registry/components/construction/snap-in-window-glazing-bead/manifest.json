@@ -1,0 +1,121 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.snap-in-window-glazing-bead",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "窗扇弹扣玻璃压条",
+  "summary": "内侧挂钩与斜压边形成开放截面，胶条可视作独立部件。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.opening.snap-in-window-glazing-bead",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门窗",
+    "五金"
+  ],
+  "anchors": [
+    "base",
+    "top",
+    "mount",
+    "glass-seat"
+  ],
+  "ai": {
+    "intent": "在玻璃和门窗框之间表示可单独替换的窄压条。",
+    "editableParts": [
+      "编辑截面钩形、斜面、胶条。"
+    ],
+    "qualityChecks": [
+      "挂钩留出接入槽。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "snap-in-window-glazing-bead",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bead",
+            "semanticType": "construction.opening.snap-in-glazing-bead",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#cad3d8"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.45,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [0.006,0],
+                [0.006,0.01],
+                [0.019,0.022],
+                [0.017,0.028],
+                [0.008,0.018],
+                [0.003,0.016],
+                [0.003,0.006],
+                [0,0.006]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "seal",
+            "semanticType": "construction.opening.snap-in-glazing-bead.seal",
+            "material": "rubber",
+            "appearance": {
+              "color": "#475960"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.45,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.017,0.021],
+                [0.025,0.021],
+                [0.025,0.031],
+                [0.017,0.031]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "node": "bead",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "top": {
+            "node": "bead",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "mount": {
+            "position": [0,0.725,0],
+            "direction": [-1,0,0]
+          },
+          "glass-seat": {
+            "position": [-0.025,0.725,0.027],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

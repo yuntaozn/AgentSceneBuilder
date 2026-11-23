@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.grooved-concrete-cover-spacer",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带凹槽保护层垫块",
+  "summary": "实体垫块顶面有浅圆槽，提供底座和钢筋轴定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.concrete.grooved-cover-spacer",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "混凝土施工",
+    "钢筋支撑"
+  ],
+  "anchors": [
+    "mount",
+    "bar-seat"
+  ],
+  "ai": {
+    "intent": "在钢筋网片和垫层之间表达可见保护层支撑。",
+    "editableParts": [
+      "修改槽形、块高与长度。"
+    ],
+    "qualityChecks": [
+      "bar-seat 表示钢筋圆心高度。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "grooved-concrete-cover-spacer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "block",
+            "semanticType": "construction.concrete.grooved-cover-spacer",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a9b1b3"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.055,0,0],
+                [0.055,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.035,0],
+                [0.035,0],
+                [0.035,0.045],
+                [0.0085,0.045],
+                [0.008210369523457082,0.04280003811662857],
+                [0.007361215932167729,0.04075],
+                [0.006010407640085655,0.038989592359914345],
+                [0.004250000000000001,0.03763878406783227],
+                [0.0021999618833714266,0.03678963047654292],
+                [5.204748896376251e-19,0.0365],
+                [-0.0021999618833714253,0.03678963047654292],
+                [-0.004249999999999999,0.03763878406783227],
+                [-0.0060104076400856535,0.038989592359914345],
+                [-0.007361215932167729,0.04075],
+                [-0.00821036952345708,0.042800038116628566],
+                [-0.0085,0.045],
+                [-0.035,0.045]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "bar-seat": {
+            "position": [0,0.045,0],
+            "direction": [0,1,0],
+            "kind": "bar-support"
+          }
+        }
+      }
+    }
+  }
+}

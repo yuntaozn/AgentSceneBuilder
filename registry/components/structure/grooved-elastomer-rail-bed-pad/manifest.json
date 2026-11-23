@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.grooved-elastomer-rail-bed-pad",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带纵槽行车轨道弹性垫片",
+  "summary": "带纵向凹槽的弹性垫片，可独立置于轨底与支承梁顶。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.crane.elastomer-rail-pad",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "行车",
+    "吊装",
+    "轨座",
+    "弹性垫"
+  ],
+  "anchors": [
+    "base",
+    "rail",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "在轨道下独立显示允许检查的弹性垫片。",
+    "editableParts": [
+      "槽形",
+      "端点",
+      "顶底基准"
+    ],
+    "qualityChecks": [
+      "承压面与轨道底面同高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "grooved-elastomer-rail-bed-pad",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rubber-strip",
+            "semanticType": "structure.crane.rail-bearing-pad.grooved-pad",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4e5b60"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.12,0,0],
+                [1.12,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.078,0],
+                [0.078,0],
+                [0.078,0.011],
+                [0.037,0.011],
+                [0.037,0.008],
+                [0.029,0.008],
+                [0.029,0.011],
+                [-0.029,0.011],
+                [-0.029,0.008],
+                [-0.037,0.008],
+                [-0.037,0.011],
+                [-0.078,0.011]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "rail": {
+            "position": [0,0.011,0],
+            "direction": [0,1,0]
+          },
+          "start": {
+            "position": [-1.12,0.005,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [1.12,0.005,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

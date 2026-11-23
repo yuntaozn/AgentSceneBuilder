@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.suspended-ceiling-perimeter-angle",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "吊顶周边 L 形托边",
+  "summary": "浅 L 形薄条沿墙角连续，底板承托天花板片而竖翼靠墙。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.interior.ceiling-perimeter-angle",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内构造",
+    "吊顶",
+    "收边"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "wall-seat",
+    "tile-seat"
+  ],
+  "ai": {
+    "intent": "在明架吊顶周边兜住相邻板片端部。",
+    "editableParts": [
+      "编辑角线长度、翼高和壁厚。"
+    ],
+    "qualityChecks": [
+      "下翼朝向板片。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "suspended-ceiling-perimeter-angle",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "angle",
+            "semanticType": "construction.interior.ceiling-wall-angle",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.2,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0,0],
+                [-0.03,0],
+                [-0.03,0.0014],
+                [-0.0014,0.0014],
+                [-0.0014,0.03],
+                [0,0.03]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "angle",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "angle",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "wall-seat": {
+            "position": [0.6,0.015,0],
+            "direction": [0,0,-1]
+          },
+          "tile-seat": {
+            "position": [0.6,0.0014,0.024],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

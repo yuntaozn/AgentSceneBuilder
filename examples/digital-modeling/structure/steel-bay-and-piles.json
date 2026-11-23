@@ -1,0 +1,1321 @@
+{
+  "metadata": {
+    "title": "一跨钢梁柱、四孔柱脚与桩承台",
+    "units": "meter"
+  },
+  "instances": [
+    {
+      "id": "left-cap",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cap",
+            "semanticType": "structure.four-pile-cap",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.45,1.2]
+            },
+            "transform": {
+              "position": [0,0.225,0]
+            }
+          }
+        ],
+        "anchors": {
+          "top": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "pile-front-left": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.3333333333333333,-0.5,-0.3333333333333333]
+            },
+            "direction": [0,-1,0]
+          },
+          "pile-back-left": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.3333333333333333,-0.5,0.3333333333333333]
+            },
+            "direction": [0,-1,0]
+          },
+          "pile-front-right": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.3333333333333333,-0.5,-0.3333333333333333]
+            },
+            "direction": [0,-1,0]
+          },
+          "pile-back-right": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.3333333333333333,-0.5,0.3333333333333333]
+            },
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "left-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.bolted-base-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "bolted-base-plate",
+              "plateWidth": 0.38,
+              "plateDepth": 0.36,
+              "thickness": 0.02,
+              "holeDiameter": 0.03,
+              "boltPitchX": 0.3,
+              "boltPitchZ": 0.28
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "column-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "column-seat"
+            }
+          },
+          "bolt-front-left": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-front-left"
+            }
+          },
+          "bolt-front-right": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-front-right"
+            }
+          },
+          "bolt-back-left": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-back-left"
+            }
+          },
+          "bolt-back-right": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-back-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0.45,0]
+      }
+    },
+    {
+      "id": "left-column",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.steel-i-column",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-i-section",
+              "length": 2.7,
+              "sectionWidth": 0.2,
+              "sectionHeight": 0.22,
+              "webThickness": 0.008,
+              "flangeThickness": 0.012
+            },
+            "transform": {
+              "rotation": [0,0,1.5707963267948966]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0.47,0]
+      }
+    },
+    {
+      "id": "left-pile-front-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.round-pile",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "round-pile",
+              "length": 3,
+              "diameter": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "toe": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "toe"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.4,0,-0.4]
+      }
+    },
+    {
+      "id": "left-pile-back-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.round-pile",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "round-pile",
+              "length": 3,
+              "diameter": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "toe": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "toe"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.4,0,0.4]
+      }
+    },
+    {
+      "id": "left-pile-front-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.round-pile",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "round-pile",
+              "length": 3,
+              "diameter": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "toe": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "toe"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.4,0,-0.4]
+      }
+    },
+    {
+      "id": "left-pile-back-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.round-pile",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "round-pile",
+              "length": 3,
+              "diameter": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "toe": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "toe"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.4,0,0.4]
+      }
+    },
+    {
+      "id": "right-cap",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cap",
+            "semanticType": "structure.four-pile-cap",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.45,1.2]
+            },
+            "transform": {
+              "position": [0,0.225,0]
+            }
+          }
+        ],
+        "anchors": {
+          "top": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "pile-front-left": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.3333333333333333,-0.5,-0.3333333333333333]
+            },
+            "direction": [0,-1,0]
+          },
+          "pile-back-left": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.3333333333333333,-0.5,0.3333333333333333]
+            },
+            "direction": [0,-1,0]
+          },
+          "pile-front-right": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.3333333333333333,-0.5,-0.3333333333333333]
+            },
+            "direction": [0,-1,0]
+          },
+          "pile-back-right": {
+            "node": "cap",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.3333333333333333,-0.5,0.3333333333333333]
+            },
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.6,0,0]
+      }
+    },
+    {
+      "id": "right-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.bolted-base-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "bolted-base-plate",
+              "plateWidth": 0.38,
+              "plateDepth": 0.36,
+              "thickness": 0.02,
+              "holeDiameter": 0.03,
+              "boltPitchX": 0.3,
+              "boltPitchZ": 0.28
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "column-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "column-seat"
+            }
+          },
+          "bolt-front-left": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-front-left"
+            }
+          },
+          "bolt-front-right": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-front-right"
+            }
+          },
+          "bolt-back-left": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-back-left"
+            }
+          },
+          "bolt-back-right": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-back-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.6,0.45,0]
+      }
+    },
+    {
+      "id": "right-column",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.steel-i-column",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-i-section",
+              "length": 2.7,
+              "sectionWidth": 0.2,
+              "sectionHeight": 0.22,
+              "webThickness": 0.008,
+              "flangeThickness": 0.012
+            },
+            "transform": {
+              "rotation": [0,0,1.5707963267948966]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.6,0.47,0]
+      }
+    },
+    {
+      "id": "right-pile-front-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.round-pile",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "round-pile",
+              "length": 3,
+              "diameter": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "toe": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "toe"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.2,0,-0.4]
+      }
+    },
+    {
+      "id": "right-pile-back-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.round-pile",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "round-pile",
+              "length": 3,
+              "diameter": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "toe": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "toe"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.2,0,0.4]
+      }
+    },
+    {
+      "id": "right-pile-front-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.round-pile",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "round-pile",
+              "length": 3,
+              "diameter": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "toe": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "toe"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [4,0,-0.4]
+      }
+    },
+    {
+      "id": "right-pile-back-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.round-pile",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "round-pile",
+              "length": 3,
+              "diameter": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "toe": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "toe"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [4,0,0.4]
+      }
+    },
+    {
+      "id": "anchor-front-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rod",
+            "semanticType": "structure.column-anchor-bolt.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.24,0],
+              "end": [0,0.055,0],
+              "radius": 0.012
+            }
+          },
+          {
+            "id": "washer",
+            "semanticType": "structure.column-anchor-bolt.washer",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "length": 0.005,
+              "outerDiameter": 0.054,
+              "thickness": 0.014
+            },
+            "transform": {
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "nut",
+            "semanticType": "structure.column-anchor-bolt.nut",
+            "material": "steel",
+            "appearance": {
+              "color": "#747f84"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.005,0],
+                [0,0.024,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.022,0],
+                [0.011000000000000001,0.019052558883257648],
+                [-0.010999999999999994,0.01905255888325765],
+                [-0.022,2.694222958124177e-18],
+                [-0.01100000000000001,-0.019052558883257645],
+                [0.011000000000000001,-0.019052558883257648]
+              ],
+              "holes": [
+                [
+                  [0.0128,0],
+                  [0.012363850576500074,0.0033128837773122657],
+                  [0.011085125168440816,0.0063999999999999994],
+                  [0.009050966799187809,0.009050966799187809],
+                  [0.006400000000000002,0.011085125168440815],
+                  [0.0033128837773122657,0.012363850576500074],
+                  [7.837739514543061e-19,0.0128],
+                  [-0.003312883777312264,0.012363850576500074],
+                  [-0.006399999999999998,0.011085125168440816],
+                  [-0.009050966799187809,0.009050966799187809],
+                  [-0.011085125168440816,0.0063999999999999994],
+                  [-0.012363850576500074,0.003312883777312269],
+                  [-0.0128,1.5675479029086122e-18],
+                  [-0.012363850576500074,-0.003312883777312266],
+                  [-0.011085125168440818,-0.006399999999999997],
+                  [-0.009050966799187814,-0.009050966799187803],
+                  [-0.006400000000000006,-0.011085125168440813],
+                  [-0.003312883777312264,-0.012363850576500074],
+                  [-2.3513218543629183e-18,-0.0128],
+                  [0.00331288377731226,-0.012363850576500076],
+                  [0.006400000000000002,-0.011085125168440815],
+                  [0.009050966799187807,-0.00905096679918781],
+                  [0.011085125168440811,-0.006400000000000006],
+                  [0.012363850576500073,-0.003312883777312276]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "seat": {
+            "node": "washer",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "toe": {
+            "node": "rod",
+            "position": [0,-0.24,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.15,0.47,-0.14]
+      }
+    },
+    {
+      "id": "anchor-back-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rod",
+            "semanticType": "structure.column-anchor-bolt.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.24,0],
+              "end": [0,0.055,0],
+              "radius": 0.012
+            }
+          },
+          {
+            "id": "washer",
+            "semanticType": "structure.column-anchor-bolt.washer",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "length": 0.005,
+              "outerDiameter": 0.054,
+              "thickness": 0.014
+            },
+            "transform": {
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "nut",
+            "semanticType": "structure.column-anchor-bolt.nut",
+            "material": "steel",
+            "appearance": {
+              "color": "#747f84"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.005,0],
+                [0,0.024,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.022,0],
+                [0.011000000000000001,0.019052558883257648],
+                [-0.010999999999999994,0.01905255888325765],
+                [-0.022,2.694222958124177e-18],
+                [-0.01100000000000001,-0.019052558883257645],
+                [0.011000000000000001,-0.019052558883257648]
+              ],
+              "holes": [
+                [
+                  [0.0128,0],
+                  [0.012363850576500074,0.0033128837773122657],
+                  [0.011085125168440816,0.0063999999999999994],
+                  [0.009050966799187809,0.009050966799187809],
+                  [0.006400000000000002,0.011085125168440815],
+                  [0.0033128837773122657,0.012363850576500074],
+                  [7.837739514543061e-19,0.0128],
+                  [-0.003312883777312264,0.012363850576500074],
+                  [-0.006399999999999998,0.011085125168440816],
+                  [-0.009050966799187809,0.009050966799187809],
+                  [-0.011085125168440816,0.0063999999999999994],
+                  [-0.012363850576500074,0.003312883777312269],
+                  [-0.0128,1.5675479029086122e-18],
+                  [-0.012363850576500074,-0.003312883777312266],
+                  [-0.011085125168440818,-0.006399999999999997],
+                  [-0.009050966799187814,-0.009050966799187803],
+                  [-0.006400000000000006,-0.011085125168440813],
+                  [-0.003312883777312264,-0.012363850576500074],
+                  [-2.3513218543629183e-18,-0.0128],
+                  [0.00331288377731226,-0.012363850576500076],
+                  [0.006400000000000002,-0.011085125168440815],
+                  [0.009050966799187807,-0.00905096679918781],
+                  [0.011085125168440811,-0.006400000000000006],
+                  [0.012363850576500073,-0.003312883777312276]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "seat": {
+            "node": "washer",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "toe": {
+            "node": "rod",
+            "position": [0,-0.24,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.15,0.47,0.14]
+      }
+    },
+    {
+      "id": "anchor-front-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rod",
+            "semanticType": "structure.column-anchor-bolt.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.24,0],
+              "end": [0,0.055,0],
+              "radius": 0.012
+            }
+          },
+          {
+            "id": "washer",
+            "semanticType": "structure.column-anchor-bolt.washer",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "length": 0.005,
+              "outerDiameter": 0.054,
+              "thickness": 0.014
+            },
+            "transform": {
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "nut",
+            "semanticType": "structure.column-anchor-bolt.nut",
+            "material": "steel",
+            "appearance": {
+              "color": "#747f84"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.005,0],
+                [0,0.024,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.022,0],
+                [0.011000000000000001,0.019052558883257648],
+                [-0.010999999999999994,0.01905255888325765],
+                [-0.022,2.694222958124177e-18],
+                [-0.01100000000000001,-0.019052558883257645],
+                [0.011000000000000001,-0.019052558883257648]
+              ],
+              "holes": [
+                [
+                  [0.0128,0],
+                  [0.012363850576500074,0.0033128837773122657],
+                  [0.011085125168440816,0.0063999999999999994],
+                  [0.009050966799187809,0.009050966799187809],
+                  [0.006400000000000002,0.011085125168440815],
+                  [0.0033128837773122657,0.012363850576500074],
+                  [7.837739514543061e-19,0.0128],
+                  [-0.003312883777312264,0.012363850576500074],
+                  [-0.006399999999999998,0.011085125168440816],
+                  [-0.009050966799187809,0.009050966799187809],
+                  [-0.011085125168440816,0.0063999999999999994],
+                  [-0.012363850576500074,0.003312883777312269],
+                  [-0.0128,1.5675479029086122e-18],
+                  [-0.012363850576500074,-0.003312883777312266],
+                  [-0.011085125168440818,-0.006399999999999997],
+                  [-0.009050966799187814,-0.009050966799187803],
+                  [-0.006400000000000006,-0.011085125168440813],
+                  [-0.003312883777312264,-0.012363850576500074],
+                  [-2.3513218543629183e-18,-0.0128],
+                  [0.00331288377731226,-0.012363850576500076],
+                  [0.006400000000000002,-0.011085125168440815],
+                  [0.009050966799187807,-0.00905096679918781],
+                  [0.011085125168440811,-0.006400000000000006],
+                  [0.012363850576500073,-0.003312883777312276]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "seat": {
+            "node": "washer",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "toe": {
+            "node": "rod",
+            "position": [0,-0.24,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.15,0.47,-0.14]
+      }
+    },
+    {
+      "id": "anchor-back-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rod",
+            "semanticType": "structure.column-anchor-bolt.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.24,0],
+              "end": [0,0.055,0],
+              "radius": 0.012
+            }
+          },
+          {
+            "id": "washer",
+            "semanticType": "structure.column-anchor-bolt.washer",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "length": 0.005,
+              "outerDiameter": 0.054,
+              "thickness": 0.014
+            },
+            "transform": {
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "nut",
+            "semanticType": "structure.column-anchor-bolt.nut",
+            "material": "steel",
+            "appearance": {
+              "color": "#747f84"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.005,0],
+                [0,0.024,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.022,0],
+                [0.011000000000000001,0.019052558883257648],
+                [-0.010999999999999994,0.01905255888325765],
+                [-0.022,2.694222958124177e-18],
+                [-0.01100000000000001,-0.019052558883257645],
+                [0.011000000000000001,-0.019052558883257648]
+              ],
+              "holes": [
+                [
+                  [0.0128,0],
+                  [0.012363850576500074,0.0033128837773122657],
+                  [0.011085125168440816,0.0063999999999999994],
+                  [0.009050966799187809,0.009050966799187809],
+                  [0.006400000000000002,0.011085125168440815],
+                  [0.0033128837773122657,0.012363850576500074],
+                  [7.837739514543061e-19,0.0128],
+                  [-0.003312883777312264,0.012363850576500074],
+                  [-0.006399999999999998,0.011085125168440816],
+                  [-0.009050966799187809,0.009050966799187809],
+                  [-0.011085125168440816,0.0063999999999999994],
+                  [-0.012363850576500074,0.003312883777312269],
+                  [-0.0128,1.5675479029086122e-18],
+                  [-0.012363850576500074,-0.003312883777312266],
+                  [-0.011085125168440818,-0.006399999999999997],
+                  [-0.009050966799187814,-0.009050966799187803],
+                  [-0.006400000000000006,-0.011085125168440813],
+                  [-0.003312883777312264,-0.012363850576500074],
+                  [-2.3513218543629183e-18,-0.0128],
+                  [0.00331288377731226,-0.012363850576500076],
+                  [0.006400000000000002,-0.011085125168440815],
+                  [0.009050966799187807,-0.00905096679918781],
+                  [0.011085125168440811,-0.006400000000000006],
+                  [0.012363850576500073,-0.003312883777312276]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "seat": {
+            "node": "washer",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "toe": {
+            "node": "rod",
+            "position": [0,-0.24,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.15,0.47,0.14]
+      }
+    },
+    {
+      "id": "beam",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.steel-i-beam",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-i-section",
+              "length": 3.6,
+              "sectionWidth": 0.16,
+              "sectionHeight": 0.28,
+              "webThickness": 0.006,
+              "flangeThickness": 0.01
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "bearing-start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-start"
+            }
+          },
+          "bearing-end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,3.31,0]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "left-cap#top",
+      "to": "left-plate#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "left-plate#column-seat",
+      "to": "left-column#base",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "left-cap#pile-front-left",
+      "to": "left-pile-front-left#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "left-cap#pile-back-left",
+      "to": "left-pile-back-left#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "left-cap#pile-front-right",
+      "to": "left-pile-front-right#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "left-cap#pile-back-right",
+      "to": "left-pile-back-right#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "right-cap#top",
+      "to": "right-plate#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "right-plate#column-seat",
+      "to": "right-column#base",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "right-cap#pile-front-left",
+      "to": "right-pile-front-left#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "right-cap#pile-back-left",
+      "to": "right-pile-back-left#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "right-cap#pile-front-right",
+      "to": "right-pile-front-right#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "right-cap#pile-back-right",
+      "to": "right-pile-back-right#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "left-plate#bolt-front-left",
+      "to": "anchor-front-left#seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "left-plate#bolt-back-left",
+      "to": "anchor-back-left#seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "left-plate#bolt-front-right",
+      "to": "anchor-front-right#seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "left-plate#bolt-back-right",
+      "to": "anchor-back-right#seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "left-column#head",
+      "to": "beam#bearing-start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "right-column#head",
+      "to": "beam#bearing-end",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

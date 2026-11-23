@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.roll-formed-access-floor-stringer",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "架空地板卡装横梁",
+  "summary": "实体帽型梁及两块端接座，底部两端接支座，上边接地板面板。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.flooring.raised-floor-stringer",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室内装修",
+    "地坪",
+    "基础构件"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "top",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "把架空地板的点支承连成可检查的线支承。",
+    "editableParts": [
+      "端接座",
+      "横梁剖面",
+      "顶面垫条"
+    ],
+    "qualityChecks": [
+      "梁底端点分别压在两个支座头上。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "roll-formed-access-floor-stringer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "raised-web",
+            "semanticType": "construction.flooring.raised-floor-stringer.hat-shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.29,0,0],
+                [0.29,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.022,0],
+                [-0.022,0.003],
+                [-0.014,0.003],
+                [-0.014,0.025],
+                [0.014,0.025],
+                [0.014,0.003],
+                [0.022,0.003],
+                [0.022,0],
+                [0.011,0],
+                [0.011,0.021],
+                [-0.011,0.021],
+                [-0.011,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "end-seat-0",
+            "semanticType": "construction.flooring.raised-floor-stringer.end-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.005,0.062]
+            },
+            "transform": {
+              "position": [-0.29,0.0025,0]
+            }
+          },
+          {
+            "id": "end-seat-1",
+            "semanticType": "construction.flooring.raised-floor-stringer.end-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.005,0.062]
+            },
+            "transform": {
+              "position": [0.29,0.0025,0]
+            }
+          },
+          {
+            "id": "bearing-tape",
+            "semanticType": "construction.flooring.raised-floor-stringer.bearing-strip",
+            "material": "rubber",
+            "appearance": {
+              "color": "#515c61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.568,0.003,0.022]
+            },
+            "transform": {
+              "position": [0,0.0265,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.29,0,0],
+            "direction": [0,-1,0]
+          },
+          "right": {
+            "position": [0.29,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,0.028,0],
+            "direction": [0,1,0]
+          },
+          "start": {
+            "position": [-0.304,0.015,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.304,0.015,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

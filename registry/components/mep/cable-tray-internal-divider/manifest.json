@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.cable-tray-internal-divider",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "桥架纵向隔板",
+  "summary": "L 形薄板沿桥架分隔线布置，底部翻脚与桥架底面定位。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.cable-tray.internal-divider",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "电气",
+    "桥架"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "mount"
+  ],
+  "ai": {
+    "intent": "把同一桥架中的走线路径在几何上分隔开。",
+    "editableParts": [
+      "编辑隔板高度、底脚宽度和长度。"
+    ],
+    "qualityChecks": [
+      "隔板底部贴靠桥架内底。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "cable-tray-internal-divider",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "partition",
+            "semanticType": "cable-tray.internal-divider",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#a2b7c3"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,1.5]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.04,0],
+                [0.002,0],
+                [0.002,0.079],
+                [-0.002,0.079],
+                [-0.002,0.004],
+                [-0.04,0.004]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "partition",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "partition",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "mount": {
+            "position": [0,0,0.75],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

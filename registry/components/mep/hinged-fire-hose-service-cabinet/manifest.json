@@ -1,0 +1,189 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.hinged-fire-hose-service-cabinet",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可开门消防软管箱",
+  "summary": "箱体有真实空腔，门扇和拉手绕单独铰轴转动，内壁留卷盘安装点。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.fire.hose.service-cabinet",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "消防",
+    "疏散"
+  ],
+  "anchors": [
+    "wall",
+    "reel-mount",
+    "bottom"
+  ],
+  "ai": {
+    "intent": "可以单独布置消防箱与内部卷盘。",
+    "editableParts": [
+      "编辑深度、门扇和内壁座。"
+    ],
+    "qualityChecks": [
+      "卷盘位置固定时箱门绕前侧打开。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-fire-hose-service-cabinet",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "housing",
+            "semanticType": "mep.fire.hose-cabinet.walls",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8574c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.46,0],
+                [0,0.46,0.225]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.335,-0.46],
+                [0.335,-0.46],
+                [0.335,0.46],
+                [-0.335,0.46]
+              ],
+              "holes": [
+                [
+                  [-0.315,-0.437],
+                  [0.315,-0.437],
+                  [0.315,0.437],
+                  [-0.315,0.437]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "back",
+            "semanticType": "mep.fire.hose-cabinet.back",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8574c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.67,0.92,0.012]
+            },
+            "transform": {
+              "position": [0,0.46,-0.006]
+            }
+          },
+          {
+            "id": "door-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-0.334,0.46,0.228]
+            }
+          },
+          {
+            "id": "door-frame",
+            "semanticType": "mep.fire.hose-cabinet.door",
+            "material": "steel",
+            "appearance": {
+              "color": "#d36a56"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.334,0,0],
+                [0.334,0,0.032]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.3335,-0.459],
+                [0.3335,-0.459],
+                [0.3335,0.459],
+                [-0.3335,0.459]
+              ],
+              "holes": [
+                [
+                  [-0.2845,-0.395],
+                  [0.2845,-0.395],
+                  [0.2845,0.395],
+                  [-0.2845,0.395]
+                ]
+              ]
+            },
+            "parent": "door-axis"
+          },
+          {
+            "id": "door-window",
+            "semanticType": "mep.fire.hose-cabinet.window",
+            "material": "polymer",
+            "appearance": {
+              "color": "#c2d3d0",
+              "opacity": 0.32
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.573,0.795,0.007]
+            },
+            "transform": {
+              "position": [0.334,0,0.027]
+            },
+            "parent": "door-axis"
+          },
+          {
+            "id": "handle",
+            "semanticType": "mep.fire.hose-cabinet.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#536d79"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.623,-0.059,0.043],
+              "end": [0.623,0.052,0.043],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "parent": "door-axis"
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [0,0.46,-0.012],
+            "direction": [0,0,-1]
+          },
+          "reel-mount": {
+            "position": [0,0.47,0],
+            "direction": [0,0,1]
+          },
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "open-cabinet",
+            "target": "door-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.62,0],
+            "duration": 1.1,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.braced-a-frame-scaffold-trestle",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带横撑的 A 形施工马架",
+  "summary": "两组三角脚通过纵梁和内撑联系，独立提供两端工作板支点。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.scaffold.a-frame-trestle",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工",
+    "脚手架",
+    "临建"
+  ],
+  "anchors": [
+    "floor",
+    "board-seat"
+  ],
+  "ai": {
+    "intent": "在施工流程示例中表示可搬移的临时支托。",
+    "editableParts": [
+      "修改角脚、各向横杆和顶部承托。"
+    ],
+    "qualityChecks": [
+      "四脚落在同一参考面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "braced-a-frame-scaffold-trestle",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "leg-0-0",
+            "semanticType": "construction.scaffold.a-frame-trestle.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.61,0.019,-0.38],
+              "end": [-0.61,0.91,-0.056999999999999995],
+              "radius": 0.029,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "leg-0-1",
+            "semanticType": "construction.scaffold.a-frame-trestle.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.61,0.019,0.38],
+              "end": [-0.61,0.91,0.056999999999999995],
+              "radius": 0.029,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "leg-1-0",
+            "semanticType": "construction.scaffold.a-frame-trestle.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.61,0.019,-0.38],
+              "end": [0.61,0.91,-0.056999999999999995],
+              "radius": 0.029,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "leg-1-1",
+            "semanticType": "construction.scaffold.a-frame-trestle.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.61,0.019,0.38],
+              "end": [0.61,0.91,0.056999999999999995],
+              "radius": 0.029,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "cross-0",
+            "semanticType": "construction.scaffold.a-frame-trestle.stretcher",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.61,0.28,-0.266],
+              "end": [-0.61,0.28,0.266],
+              "radius": 0.019,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "cross-1",
+            "semanticType": "construction.scaffold.a-frame-trestle.stretcher",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.61,0.28,-0.266],
+              "end": [0.61,0.28,0.266],
+              "radius": 0.019,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "long-brace",
+            "semanticType": "construction.scaffold.a-frame-trestle.bracing",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.61,0.31,0],
+              "end": [0.61,0.31,0],
+              "radius": 0.021,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "work-rail",
+            "semanticType": "construction.scaffold.a-frame-trestle.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.36,0.061,0.138]
+            },
+            "transform": {
+              "position": [0,0.942,0]
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "board-seat": {
+            "position": [0,0.9725,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

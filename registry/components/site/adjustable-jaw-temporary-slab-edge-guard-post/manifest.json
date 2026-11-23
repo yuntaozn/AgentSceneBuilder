@@ -1,0 +1,217 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.adjustable-jaw-temporary-slab-edge-guard-post",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "楼板边夹持式临边立柱",
+  "summary": "可独立放置的上夹片、下螺板、旋杆和两只矩形挂梁座。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-site.clamp-slab-edge-guard",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "临边",
+    "立柱",
+    "夹具"
+  ],
+  "anchors": [
+    "slab",
+    "low-rail",
+    "upper-rail"
+  ],
+  "ai": {
+    "intent": "把临边立柱的上夹、下夹和防护面板分别配到楼板边。",
+    "editableParts": [
+      "夹板",
+      "旋杆",
+      "立柱",
+      "两处梁槽"
+    ],
+    "qualityChecks": [
+      "夹片分在楼板上下，挂座共面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "adjustable-jaw-temporary-slab-edge-guard-post",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "upper-jaw",
+            "semanticType": "site.inspection-site.clamp-slab-edge-post.top-clamp",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.108,0.023,0.142]
+            },
+            "transform": {
+              "position": [0,0.0115,0.018]
+            }
+          },
+          {
+            "id": "outer-spine",
+            "semanticType": "site.inspection-site.clamp-slab-edge-post.body",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.081,0.184,0.044]
+            },
+            "transform": {
+              "position": [0,-0.066,0.105]
+            }
+          },
+          {
+            "id": "lower-jaw",
+            "semanticType": "site.inspection-site.clamp-slab-edge-post.bottom-clamp",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.087,0.016,0.133]
+            },
+            "transform": {
+              "position": [0,-0.156,0.054]
+            }
+          },
+          {
+            "id": "press-spindle",
+            "semanticType": "site.inspection-site.clamp-slab-edge-post.screw",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.191,0.032],
+              "end": [0,-0.11,0.032],
+              "radius": 0.0085,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "clamping-bar",
+            "semanticType": "site.inspection-site.clamp-slab-edge-post.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.05,-0.187,0.032],
+              "end": [0.05,-0.187,0.032],
+              "radius": 0.006,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "guard-post",
+            "semanticType": "site.inspection-site.clamp-slab-edge-post.upright",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.044,1.16,0.049]
+            },
+            "transform": {
+              "position": [0,0.605,0.052]
+            }
+          },
+          {
+            "id": "panel-catch-0",
+            "semanticType": "site.inspection-site.clamp-slab-edge-post.receiver",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.414,0.03],
+                [0,0.414,0.072]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.036,-0.039],
+                [0.036,-0.039],
+                [0.036,0.039],
+                [-0.036,0.039]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0205,-0.023],
+                  [0.0205,-0.023],
+                  [0.0205,0.023],
+                  [-0.0205,0.023]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "panel-catch-1",
+            "semanticType": "site.inspection-site.clamp-slab-edge-post.receiver",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.036,0.03],
+                [0,1.036,0.072]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.036,-0.039],
+                [0.036,-0.039],
+                [0.036,0.039],
+                [-0.036,0.039]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0205,-0.023],
+                  [0.0205,-0.023],
+                  [0.0205,0.023],
+                  [-0.0205,0.023]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "slab": {
+            "position": [0,0,0.012],
+            "direction": [0,-1,0]
+          },
+          "low-rail": {
+            "position": [0,0.414,0.054],
+            "direction": [0,0,1]
+          },
+          "upper-rail": {
+            "position": [0,1.036,0.054],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,308 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.four-sided-ceiling-cassette-fan-coil-terminal",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "四面送风嵌顶风机盘管末端",
+  "summary": "吊顶外框、中心回风孔组、四边送风和独立顶箱，两个水连接口在侧面。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.ceiling-cassette-fan-coil-terminal",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "风机盘管",
+    "嵌顶",
+    "送风"
+  ],
+  "anchors": [
+    "ceiling",
+    "left-line",
+    "right-line"
+  ],
+  "ai": {
+    "intent": "在吊顶格下独立摆放盘管末端外形并保留侧水口。",
+    "editableParts": [
+      "顶箱",
+      "四面风口",
+      "中心格栅",
+      "侧水管"
+    ],
+    "qualityChecks": [
+      "可视格栅朝下。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "four-sided-ceiling-cassette-fan-coil-terminal",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "ceiling-fascia",
+            "semanticType": "mep.ahu.ceiling-cassette-fan-coil.ceiling-ring",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.023,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.313,-0.3125],
+                [0.313,-0.3125],
+                [0.313,0.3125],
+                [-0.313,0.3125]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.257,-0.257],
+                  [0.257,-0.257],
+                  [0.257,0.257],
+                  [-0.257,0.257]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "central-grille",
+            "semanticType": "mep.ahu.ceiling-cassette-fan-coil.center-return",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.019,0],
+                [0,-0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.218,-0.2175],
+                [0.218,-0.2175],
+                [0.218,0.2175],
+                [-0.218,0.2175]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1895,-0.172],
+                  [0.1895,-0.172],
+                  [0.1895,-0.15799999999999997],
+                  [-0.1895,-0.15799999999999997]
+                ],
+                [
+                  [-0.1895,-0.14200000000000002],
+                  [0.1895,-0.14200000000000002],
+                  [0.1895,-0.128],
+                  [-0.1895,-0.128]
+                ],
+                [
+                  [-0.1895,-0.112],
+                  [0.1895,-0.112],
+                  [0.1895,-0.09799999999999999],
+                  [-0.1895,-0.09799999999999999]
+                ],
+                [
+                  [-0.1895,-0.082],
+                  [0.1895,-0.082],
+                  [0.1895,-0.06799999999999999],
+                  [-0.1895,-0.06799999999999999]
+                ],
+                [
+                  [-0.1895,-0.052],
+                  [0.1895,-0.052],
+                  [0.1895,-0.038],
+                  [-0.1895,-0.038]
+                ],
+                [
+                  [-0.1895,-0.022],
+                  [0.1895,-0.022],
+                  [0.1895,-0.008],
+                  [-0.1895,-0.008]
+                ],
+                [
+                  [-0.1895,0.008],
+                  [0.1895,0.008],
+                  [0.1895,0.022],
+                  [-0.1895,0.022]
+                ],
+                [
+                  [-0.1895,0.038],
+                  [0.1895,0.038],
+                  [0.1895,0.052],
+                  [-0.1895,0.052]
+                ],
+                [
+                  [-0.1895,0.06799999999999999],
+                  [0.1895,0.06799999999999999],
+                  [0.1895,0.082],
+                  [-0.1895,0.082]
+                ],
+                [
+                  [-0.1895,0.09799999999999999],
+                  [0.1895,0.09799999999999999],
+                  [0.1895,0.112],
+                  [-0.1895,0.112]
+                ],
+                [
+                  [-0.1895,0.128],
+                  [0.1895,0.128],
+                  [0.1895,0.14200000000000002],
+                  [-0.1895,0.14200000000000002]
+                ],
+                [
+                  [-0.1895,0.15799999999999997],
+                  [0.1895,0.15799999999999997],
+                  [0.1895,0.172],
+                  [-0.1895,0.172]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "side-airfoil-z-0",
+            "semanticType": "mep.ahu.ceiling-cassette-fan-coil.supply-louver",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.482,0.009,0.039]
+            },
+            "transform": {
+              "position": [0,-0.018,-0.258]
+            }
+          },
+          {
+            "id": "side-airfoil-x-0",
+            "semanticType": "mep.ahu.ceiling-cassette-fan-coil.supply-louver",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.009,0.482]
+            },
+            "transform": {
+              "position": [-0.258,-0.018,0]
+            }
+          },
+          {
+            "id": "side-airfoil-z-1",
+            "semanticType": "mep.ahu.ceiling-cassette-fan-coil.supply-louver",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.482,0.009,0.039]
+            },
+            "transform": {
+              "position": [0,-0.018,0.258]
+            }
+          },
+          {
+            "id": "side-airfoil-x-1",
+            "semanticType": "mep.ahu.ceiling-cassette-fan-coil.supply-louver",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.009,0.482]
+            },
+            "transform": {
+              "position": [0.258,-0.018,0]
+            }
+          },
+          {
+            "id": "equipment-upper",
+            "semanticType": "mep.ahu.ceiling-cassette-fan-coil.upper-housing",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.519,0.217,0.519]
+            },
+            "transform": {
+              "position": [0,0.114,0]
+            }
+          },
+          {
+            "id": "hydronic-port-0",
+            "semanticType": "mep.ahu.ceiling-cassette-fan-coil.pipe",
+            "material": "steel",
+            "appearance": {
+              "color": "#b78a6c"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [-0.098,0.141,0.25],
+                [-0.098,0.141,0.383]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.032,
+              "thickness": 0.004
+            }
+          },
+          {
+            "id": "hydronic-port-1",
+            "semanticType": "mep.ahu.ceiling-cassette-fan-coil.pipe",
+            "material": "steel",
+            "appearance": {
+              "color": "#b78a6c"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0.098,0.141,0.25],
+                [0.098,0.141,0.383]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.032,
+              "thickness": 0.004
+            }
+          }
+        ],
+        "anchors": {
+          "ceiling": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "left-line": {
+            "position": [-0.098,0.141,0.383],
+            "direction": [0,0,1],
+            "outsideDiameter": 0.032,
+            "kind": "pipe-port"
+          },
+          "right-line": {
+            "position": [0.098,0.141,0.383],
+            "direction": [0,0,1],
+            "outsideDiameter": 0.032,
+            "kind": "pipe-port"
+          }
+        }
+      }
+    }
+  }
+}

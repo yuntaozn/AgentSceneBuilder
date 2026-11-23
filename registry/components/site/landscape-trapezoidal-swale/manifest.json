@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.landscape-trapezoidal-swale",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "梯形绿化浅沟断面",
+  "summary": "带沟底和两边实斜面的浅沟段，顶宽、底宽和沟深可调。",
+  "license": "Apache-2.0",
+  "semanticType": "site.landscape.landscape-trapezoidal-swale",
+  "capabilities": [
+    "resize",
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "园林",
+    "景观",
+    "雨水花园",
+    "植草沟",
+    "浅沟"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.24
+    },
+    "topWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.44
+    },
+    "bottomWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.38
+    },
+    "depth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.25
+    },
+    "baseThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.075
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "invert",
+    "underside",
+    "top-near",
+    "top-far"
+  ],
+  "ai": {
+    "intent": "把低洼绿化沟作为可延长的实体地形断面。",
+    "editableParts": [
+      "沟底宽",
+      "沟口宽",
+      "沟深"
+    ],
+    "qualityChecks": [
+      "沟底平直，沟口大于沟底。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "landscape-trapezoidal-swale",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.landscape.landscape-trapezoidal-swale",
+            "material": "soil",
+            "appearance": {
+              "color": "#897a65"
+            },
+            "geometry": {
+              "type": "landscape-trapezoidal-swale",
+              "length": 1.24,
+              "topWidth": 1.44,
+              "bottomWidth": 0.38,
+              "depth": 0.25,
+              "baseThickness": 0.075
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "invert": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "invert"
+            }
+          },
+          "underside": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside"
+            }
+          },
+          "top-near": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top-near"
+            }
+          },
+          "top-far": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top-far"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -5,15 +5,38 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AgentSceneBuilder 数字模型库</title>
   <meta name="description" content="面向大模型的开源数字模型库，让 AI Agent 读懂构件结构、计算空间关系，并用可编辑构件搭建场景。">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=0.5.40">
   <link rel="stylesheet" href="./detail.css">
   <link rel="stylesheet" href="./guide.css">
 </head>
 <body>
-  <header><a class="brand" href="./"><span>AS</span><strong>AgentSceneBuilder</strong></a><nav><a href="../../README.md">项目</a><a href="../../registry/README.md">贡献模型</a><a href="../editor/">打开编辑器</a></nav></header>
+  <header><a class="brand" href="./"><span>AS</span><strong>AgentSceneBuilder</strong></a><nav><a href="../editor/">打开编辑器</a></nav></header>
   <main>
-    <section class="hero"><div class="eyebrow">OPEN DIGITAL MODEL REGISTRY</div><h1>面向大模型的<br>开源数字模型库</h1><p>让 AI Agent 读懂构件结构、计算空间关系，并用可编辑构件搭建场景。</p><div id="counts" class="counts"></div></section>
-    <section class="browser"><div class="toolbar"><input id="search" type="search" placeholder="搜索模型、语义、能力或标签"><div id="filters" class="filters"><button class="active" data-kind="all">全部</button><button data-kind="component">构件</button><button data-kind="method">空间方法</button><button data-kind="composition">完整模型</button></div></div><div id="resultsMeta" class="results-meta"></div><div id="entries" class="entries"></div></section>
+    <section class="hero">
+      <div class="eyebrow">OPEN DIGITAL MODEL REGISTRY</div>
+      <h1>面向大模型的<br>开源数字模型库</h1>
+      <p>让 AI Agent 读懂构件结构、计算空间关系，并用可编辑构件搭建场景。</p>
+      <div id="counts" class="counts"></div>
+    </section>
+    <section class="browser">
+      <div class="toolbar">
+        <input id="search" type="search" placeholder="搜索模型、语义、能力或标签">
+        <select id="domain" aria-label="模型领域"><option value="all">全部领域</option></select>
+        <div id="filters" class="filters" role="group" aria-label="条目类型"><button type="button" class="active" data-kind="all" aria-pressed="true">全部</button><button type="button" data-kind="component" aria-pressed="false">构件</button><button type="button" data-kind="method" aria-pressed="false">空间方法</button><button type="button" data-kind="composition" aria-pressed="false">完整模型</button></div>
+      </div>
+      <div class="results-bar">
+        <div id="resultsMeta" class="results-meta" role="status" tabindex="-1"></div>
+        <nav class="pagination" aria-label="结果上方分页" hidden></nav>
+      </div>
+      <div id="entries" class="entries"></div>
+      <nav class="pagination" aria-label="结果下方分页" data-pagination-bottom hidden></nav>
+      <template id="paginationTemplate">
+        <button type="button" data-page-step="-1">上一页</button>
+        <select aria-label="跳到页码"></select>
+        <span data-page-total></span>
+        <button type="button" data-page-step="1">下一页</button>
+      </template>
+    </section>
     <section class="contribute"><div><span>开放积累</span><h2>模型库由仓库内容自动生成</h2><p>每个条目都有稳定 ID、版本、能力、参数与许可证。复制模板、运行校验、提交 Pull Request，就能共同完善这套数字建模基础。</p></div><code>npm run registry:check</code></section>
   </main>
   <dialog id="detailDialog" class="detail-dialog">
@@ -24,6 +47,6 @@
     </div>
   </dialog>
   <footer>AgentSceneBuilder · Open digital modeling infrastructure</footer>
-  <script type="module" src="./app.bundle.js?v=0.5.17"></script>
+  <script type="module" src="./app.bundle.js?v=0.5.78"></script>
 </body>
 </html>

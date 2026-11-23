@@ -1,0 +1,168 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.cable-tray-trapeze-hanger",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双吊杆桥架横担",
+  "summary": "两根吊杆和一根槽钢横担组成，承托面位置与吊杆端可分别定位。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.cable-tray.trapeze",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "电气",
+    "安装卡具"
+  ],
+  "anchors": [
+    "tray-seat",
+    "ceiling-left",
+    "ceiling-right"
+  ],
+  "ai": {
+    "intent": "在桥架下托住底板，并用两只吊杆对接楼板。",
+    "editableParts": [
+      "调节吊杆长度、横担截面和端部。"
+    ],
+    "qualityChecks": [
+      "承托面定位位于局部 Y=0。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "cable-tray-trapeze-hanger",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "channel",
+            "semanticType": "cable-tray.trapeze.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "steel-channel-section",
+              "length": 0.475,
+              "sectionWidth": 0.041,
+              "sectionHeight": 0.041,
+              "webThickness": 0.004,
+              "flangeThickness": 0.004
+            },
+            "transform": {
+              "position": [-0.2375,-0.0205,0]
+            }
+          },
+          {
+            "id": "hanger-0",
+            "semanticType": "cable-tray.trapeze.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.198,-0.039,0],
+              "end": [-0.198,0.42,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "nut-0",
+            "semanticType": "cable-tray.trapeze.nut",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.198,-0.044,0],
+              "end": [-0.198,-0.032,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "plate-0",
+            "semanticType": "cable-tray.trapeze.top",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.198,0.414,0],
+              "end": [-0.198,0.42,0],
+              "radius": 0.023,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "hanger-1",
+            "semanticType": "cable-tray.trapeze.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.198,-0.039,0],
+              "end": [0.198,0.42,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "nut-1",
+            "semanticType": "cable-tray.trapeze.nut",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.198,-0.044,0],
+              "end": [0.198,-0.032,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "plate-1",
+            "semanticType": "cable-tray.trapeze.top",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.198,0.414,0],
+              "end": [0.198,0.42,0],
+              "radius": 0.023,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "tray-seat": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "ceiling-left": {
+            "position": [-0.198,0.42,0],
+            "direction": [0,1,0]
+          },
+          "ceiling-right": {
+            "position": [0.198,0.42,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

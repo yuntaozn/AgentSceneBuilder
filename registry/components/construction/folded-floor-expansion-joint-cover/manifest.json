@@ -1,0 +1,132 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.folded-floor-expansion-joint-cover",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "折形楼板变形缝盖条",
+  "summary": "两侧铝合金压边与中间折形弹性带，形成可单独定位的变形缝盖件。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.waterproof.floor-expansion-cover",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "围护",
+    "防水"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "bearing-near",
+    "bearing-far"
+  ],
+  "ai": {
+    "intent": "在两块板之间表达独立支承及中部变形带。",
+    "editableParts": [
+      "编辑两边承压件与软带的下折深度。"
+    ],
+    "qualityChecks": [
+      "两侧应分别贴在各自楼板上。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "folded-floor-expansion-joint-cover",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "left-flange",
+            "semanticType": "waterproof.floor-expansion-cover.retaining-edge",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.018,0.085]
+            },
+            "transform": {
+              "position": [0,-0.014,-0.063]
+            }
+          },
+          {
+            "id": "right-flange",
+            "semanticType": "waterproof.floor-expansion-cover.retaining-edge",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.018,0.085]
+            },
+            "transform": {
+              "position": [0,-0.014,0.063]
+            }
+          },
+          {
+            "id": "elastic-strip",
+            "semanticType": "waterproof.floor-expansion-cover.elastic",
+            "material": "rubber",
+            "appearance": {
+              "color": "#414f56"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.6,0,0],
+                [0.6,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.04,-0.004],
+                [-0.02,-0.004],
+                [-0.008,-0.045],
+                [0,-0.054],
+                [0.008,-0.045],
+                [0.02,-0.004],
+                [0.04,-0.004],
+                [0.04,0.004],
+                [0.015,0.004],
+                [0.002,-0.04],
+                [0,-0.043],
+                [-0.002,-0.04],
+                [-0.015,0.004],
+                [-0.04,0.004]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "elastic-strip",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "elastic-strip",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "bearing-near": {
+            "position": [0,-0.023,-0.063],
+            "direction": [0,-1,0]
+          },
+          "bearing-far": {
+            "position": [0,-0.023,0.063],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

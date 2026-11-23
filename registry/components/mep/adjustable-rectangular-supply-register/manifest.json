@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.adjustable-rectangular-supply-register",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可转叶矩形送风口",
+  "summary": "薄壁框有三片独立可摆叶片，保留中央风口和安装面。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.hvac.adjustable-supply-register",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "通风",
+    "风管"
+  ],
+  "anchors": [
+    "duct",
+    "face"
+  ],
+  "ai": {
+    "intent": "在风道末端表达可以分片调整的导风状态。",
+    "editableParts": [
+      "编辑各叶片的局部旋转与尺寸。"
+    ],
+    "qualityChecks": [
+      "单片动作保持在同一横轴上。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "adjustable-rectangular-supply-register",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "mep.hvac.adjustable-supply-register.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#bdcad0"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.024]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.2105,-0.121],
+                [0.2105,-0.121],
+                [0.2105,0.121],
+                [-0.2105,0.121]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1855,-0.098],
+                  [0.1855,-0.098],
+                  [0.1855,0.098],
+                  [-0.1855,0.098]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "vane-axis-0",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.068,0.018],
+              "rotation": [0.34,0,0]
+            }
+          },
+          {
+            "id": "vane-0",
+            "semanticType": "mep.hvac.adjustable-supply-register.vane",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.355,0.015,0.045]
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "vane-axis-0"
+          },
+          {
+            "id": "vane-axis-1",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0.018],
+              "rotation": [0.34,0,0]
+            }
+          },
+          {
+            "id": "vane-1",
+            "semanticType": "mep.hvac.adjustable-supply-register.vane",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.355,0.015,0.045]
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "vane-axis-1"
+          },
+          {
+            "id": "vane-axis-2",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.068,0.018],
+              "rotation": [0.34,0,0]
+            }
+          },
+          {
+            "id": "vane-2",
+            "semanticType": "mep.hvac.adjustable-supply-register.vane",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.355,0.015,0.045]
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "vane-axis-2"
+          }
+        ],
+        "anchors": {
+          "duct": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "face": {
+            "position": [0,0,0.024],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "adjust-middle-vane",
+            "target": "vane-axis-1",
+            "property": "rotation",
+            "from": [0.34,0,0],
+            "to": [0.9,0,0],
+            "duration": 1,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

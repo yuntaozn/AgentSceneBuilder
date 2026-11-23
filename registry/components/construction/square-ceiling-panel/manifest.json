@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "0.1", "id": "construction.square-ceiling-panel", "version": "0.1.0", "kind": "component",
+  "title": "方形吊顶板", "summary": "可单独添加或重复排布的方形板块，默认尺寸 570 × 570 mm，适配库里的明架龙骨网格。",
+  "license": "Apache-2.0", "semanticType": "construction.ceiling.panel",
+  "capabilities": ["resize", "repeat", "attach", "material"], "tags": ["建筑", "吊顶", "板块", "基础构件"],
+  "parameters": {
+    "width": { "type": "number", "unit": "m", "default": 0.57 },
+    "depth": { "type": "number", "unit": "m", "default": 0.57 },
+    "thickness": { "type": "number", "unit": "m", "default": 0.02 }
+  },
+  "anchors": ["mount"],
+  "editor": { "document": { "id": "square-ceiling-panel", "component": "core.composition", "parameters": {
+    "nodes": [{ "id": "panel", "semanticType": "construction.ceiling.panel", "material": "ceiling-board", "appearance": { "color": "#dcdacf" },
+      "transform": { "position": [0,0.01,0] }, "geometry": { "type": "box", "size": [0.57,0.02,0.57] } }],
+    "anchors": { "mount": { "node": "panel", "onGeometry": { "type": "box", "fraction": [0,-0.5,0] }, "direction": [0,1,0] } }
+  } } }
+}

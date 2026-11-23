@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.rectangular-duct-elbow",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形风管 · 水平弯头",
+  "summary": "带贯通空腔的矩形斜接弯头，默认转向 90°，与直风管共用截面。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.duct.elbow",
+  "capabilities": ["resize", "path-edit", "attach"],
+  "tags": ["机电", "风管", "弯头", "基础构件"],
+  "parameters": {
+    "sectionWidth": { "type": "number", "unit": "m", "default": 0.6 },
+    "sectionHeight": { "type": "number", "unit": "m", "default": 0.35 },
+    "thickness": { "type": "number", "unit": "m", "default": 0.004 }
+  },
+  "anchors": ["start", "end"],
+  "ai": {
+    "intent": "复用矩形风管平面转向件，与直段或同截面的手动风阀拼装。",
+    "editableParts": ["duct.geometry.points 控制入口、折点和出口", "duct.geometry.sectionWidth / sectionHeight / thickness 控制截面"],
+    "qualityChecks": ["转角前后的直段应容纳斜接截面。", "对接时核对两端的位置、方向和矩形截面尺寸。"]
+  },
+  "editor": { "document": {
+    "id": "rectangular-duct-elbow", "component": "core.composition",
+    "parameters": {
+      "nodes": [{ "id": "duct", "semanticType": "mep.duct.elbow", "material": "galvanized-steel",
+        "appearance": { "color": "#98a8b5", "metalness": 0.35, "roughness": 0.55 },
+        "geometry": { "type": "rectangular-duct", "points": [[0,0,0],[0,0,1.2],[1.1,0,1.2]], "up": [0,1,0],
+          "sectionWidth": 0.6, "sectionHeight": 0.35, "thickness": 0.004 } }],
+      "anchors": {
+        "start": { "node": "duct", "onGeometry": { "type": "sweep-end", "end": "start" } },
+        "end": { "node": "duct", "onGeometry": { "type": "sweep-end", "end": "end" } }
+      }
+    }
+  } }
+}

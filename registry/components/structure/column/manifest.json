@@ -1,5 +1,15 @@
 {
-  "schemaVersion":"0.1","id":"structure.rectangular-column","version":"0.1.0","kind":"component","title":"矩形结构柱","summary":"具有截面宽度、截面深度、高度和上下连接位置的通用矩形柱。","license": "Apache-2.0","semanticType":"structure.column","capabilities":["resize","material","repeat","attach"],"tags":["结构","柱","基础构件"],
+  "schemaVersion":"0.1","id":"structure.rectangular-column","version":"0.1.1","kind":"component","title":"矩形结构柱","summary":"具有截面宽度、截面深度、高度和上下连接位置的通用矩形柱。","license": "Apache-2.0","semanticType":"structure.column","capabilities":["resize","material","repeat","attach"],"tags":["结构","柱","基础构件"],
   "parameters":{"width":{"type":"number","unit":"m","default":0.4,"minimum":0.05},"depth":{"type":"number","unit":"m","default":0.4,"minimum":0.05},"height":{"type":"number","unit":"m","default":3,"minimum":0.1}},"anchors":["base-center","top-center","axis-center"],"dependencies":["primitive.box@0.1.0"],
-  "editor":{"template":"column","node":{"id":"column","semanticType":"structure.column","geometry":{"type":"box","size":[0.4,3,0.4]},"transform":{"position":[0,1.5,0],"rotation":[0,0,0],"scale":[1,1,1]},"appearance":{"color":"#89969c","opacity":1}}}
+  "editor": { "document": {
+    "id": "rectangular-column", "component": "core.composition",
+    "parameters": {
+      "nodes": [{ "id": "column", "semanticType": "structure.column", "geometry": { "type": "box", "size": [0.4,3,0.4] }, "transform": { "position": [0,1.5,0] }, "appearance": { "color": "#89969c", "opacity": 1 } }],
+      "anchors": {
+        "base-center": { "node": "column", "onGeometry": { "type": "box", "fraction": [0,-0.5,0] }, "direction": [0,-1,0] },
+        "top-center": { "node": "column", "onGeometry": { "type": "box", "fraction": [0,0.5,0] }, "direction": [0,1,0] },
+        "axis-center": { "node": "column", "onGeometry": { "type": "box", "fraction": [0,0,0] } }
+      }
+    }
+  } }
 }

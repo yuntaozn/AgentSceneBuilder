@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.hollow-floor-straightedge-with-level-vial",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带水准泡观察窗的地坪靠尺",
+  "summary": "空心靠尺截面、顶侧窗和独立水准泡外形，底边可与接触面相接。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.building-inspection.floor-straightedge",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "质量检测",
+    "巡检",
+    "地坪",
+    "靠尺",
+    "平整度"
+  ],
+  "anchors": [
+    "base",
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "用靠尺底边寻找平面与下方量缝点。",
+    "editableParts": [
+      "尺体",
+      "泡窗",
+      "端点"
+    ],
+    "qualityChecks": [
+      "靠尺下缘平直，水准泡可独立选。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hollow-floor-straightedge-with-level-vial",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "aluminum-beam",
+            "semanticType": "instrument.building-inspection.straightedge-vial.section",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#83999e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.64,0.035,0],
+                [0.64,0.035,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.024,-0.033],
+                [0.024,-0.033],
+                [0.024,0.033],
+                [-0.024,0.033]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.02,-0.029],
+                  [0.02,-0.029],
+                  [0.02,0.029],
+                  [-0.02,0.029]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "window-bezel",
+            "semanticType": "instrument.building-inspection.straightedge-vial.face",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.043,0.022],
+                [0,0.043,0.03]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0745,-0.017],
+                [0.0745,-0.017],
+                [0.0745,0.017],
+                [-0.0745,0.017]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.058,-0.0085],
+                  [0.058,-0.0085],
+                  [0.058,0.0085],
+                  [-0.058,0.0085]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "level-vial",
+            "semanticType": "instrument.building-inspection.straightedge-vial.tube",
+            "material": "glass",
+            "appearance": {
+              "color": "#99b6b4"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.057,0.043,0.028],
+              "end": [0.057,0.043,0.028],
+              "radius": 0.0074,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "bubble",
+            "semanticType": "instrument.building-inspection.straightedge-vial.indicator",
+            "material": "polymer",
+            "appearance": {
+              "color": "#c1a267"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.017,0.012,0.003]
+            },
+            "transform": {
+              "position": [0,0.043,0.035]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0.002,0],
+            "direction": [0,-1,0]
+          },
+          "left": {
+            "position": [-0.64,0.035,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.64,0.035,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

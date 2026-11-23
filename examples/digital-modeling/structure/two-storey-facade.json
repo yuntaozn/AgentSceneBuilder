@@ -1,0 +1,1791 @@
+{
+  "metadata": {
+    "title": "两层两跨立面与屋面收边",
+    "units": "meter"
+  },
+  "instances": [
+    {
+      "id": "wall-1-1",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "door-opening-wall",
+              "wallWidth": 3.6,
+              "wallHeight": 2.8,
+              "thickness": 0.15,
+              "openingWidth": 0.9,
+              "openingHeight": 2.1,
+              "openingOffset": 0.25
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "opening-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "opening-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-top"
+            }
+          },
+          "opening-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-left"
+            }
+          },
+          "opening-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-right"
+            }
+          },
+          "panel-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "base": {
+            "node": "wall",
+            "position": [0,0,0]
+          },
+          "canopy-seat": {
+            "node": "wall",
+            "position": [0.25,2.35,0.075],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "door-1-1",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.door.frame",
+            "material": "timber",
+            "appearance": {
+              "color": "#675143"
+            },
+            "geometry": {
+              "type": "door-opening-wall",
+              "wallWidth": 0.9,
+              "wallHeight": 2.1,
+              "thickness": 0.12,
+              "openingWidth": 0.82,
+              "openingHeight": 2.06,
+              "openingOffset": 0
+            }
+          },
+          {
+            "id": "hinge",
+            "semanticType": "construction.door.hinge",
+            "transform": {
+              "position": [-0.404,0,0.02],
+              "rotation": [0,-0.6,0]
+            }
+          },
+          {
+            "id": "leaf",
+            "parent": "hinge",
+            "semanticType": "construction.door.leaf",
+            "material": "timber",
+            "appearance": {
+              "color": "#aa764b"
+            },
+            "transform": {
+              "position": [0.404,1.0325,-0.02]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.808,2.035,0.04]
+            }
+          },
+          {
+            "id": "handle",
+            "parent": "hinge",
+            "semanticType": "construction.door.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#aebbc0"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.74,1,0],
+              "end": [0.74,1,0.06],
+              "radius": 0.014
+            }
+          }
+        ],
+        "anchors": {
+          "fit-base": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "fit-top": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "fit-left": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "fit-right": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        },
+        "animations": [
+          {
+            "id": "door-open",
+            "target": "hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.5707963267948966,0],
+            "duration": 1.5,
+            "loop": false
+          }
+        ]
+      },
+      "transform": {
+        "position": [0.25,0,0]
+      }
+    },
+    {
+      "id": "wall-1-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 3.6,
+              "wallHeight": 2.8,
+              "thickness": 0.15,
+              "openingWidth": 1.2,
+              "openingHeight": 1.2,
+              "openingOffset": 0.35,
+              "sillHeight": 0.9
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "opening-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "opening-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-top"
+            }
+          },
+          "opening-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-left"
+            }
+          },
+          "opening-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-right"
+            }
+          },
+          "opening-exterior-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-exterior-base"
+            }
+          },
+          "panel-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "base": {
+            "node": "wall",
+            "position": [0,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.6,0,0]
+      }
+    },
+    {
+      "id": "window-1-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.window.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#566470"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 1.2,
+              "wallHeight": 1.2,
+              "thickness": 0.1,
+              "openingWidth": 1.08,
+              "openingHeight": 1.08,
+              "openingOffset": 0,
+              "sillHeight": 0.06
+            }
+          },
+          {
+            "id": "glass",
+            "semanticType": "construction.window.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#8fc7dc",
+              "opacity": 0.32
+            },
+            "transform": {
+              "position": [0,0.6,0]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.08,1.08,0.012]
+            }
+          }
+        ],
+        "anchors": {
+          "fit-base": {
+            "node": "frame",
+            "position": [0,0,0]
+          },
+          "fit-top": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "fit-left": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "fit-right": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.95,0.9,0]
+      }
+    },
+    {
+      "id": "sill-1-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sill",
+            "semanticType": "construction.facade.sill",
+            "material": "stone",
+            "appearance": {
+              "color": "#c3c6bd"
+            },
+            "geometry": {
+              "type": "window-sill",
+              "sillWidth": 1.2,
+              "projection": 0.28,
+              "thickness": 0.065,
+              "fall": 0.018,
+              "grooveWidth": 0.012,
+              "grooveDepth": 0.012,
+              "grooveSetback": 0.025
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "sill",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "front": {
+            "node": "sill",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.95,0.9,0.075]
+      }
+    },
+    {
+      "id": "wall-2-1",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 3.6,
+              "wallHeight": 2.8,
+              "thickness": 0.15,
+              "openingWidth": 1.2,
+              "openingHeight": 1.2,
+              "openingOffset": 0.35,
+              "sillHeight": 0.9
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "opening-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "opening-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-top"
+            }
+          },
+          "opening-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-left"
+            }
+          },
+          "opening-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-right"
+            }
+          },
+          "opening-exterior-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-exterior-base"
+            }
+          },
+          "panel-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "base": {
+            "node": "wall",
+            "position": [0,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.8,0]
+      }
+    },
+    {
+      "id": "window-2-1",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.window.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#566470"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 1.2,
+              "wallHeight": 1.2,
+              "thickness": 0.1,
+              "openingWidth": 1.08,
+              "openingHeight": 1.08,
+              "openingOffset": 0,
+              "sillHeight": 0.06
+            }
+          },
+          {
+            "id": "glass",
+            "semanticType": "construction.window.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#8fc7dc",
+              "opacity": 0.32
+            },
+            "transform": {
+              "position": [0,0.6,0]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.08,1.08,0.012]
+            }
+          }
+        ],
+        "anchors": {
+          "fit-base": {
+            "node": "frame",
+            "position": [0,0,0]
+          },
+          "fit-top": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "fit-left": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "fit-right": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.35,3.6999999999999997,0]
+      }
+    },
+    {
+      "id": "sill-2-1",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sill",
+            "semanticType": "construction.facade.sill",
+            "material": "stone",
+            "appearance": {
+              "color": "#c3c6bd"
+            },
+            "geometry": {
+              "type": "window-sill",
+              "sillWidth": 1.2,
+              "projection": 0.28,
+              "thickness": 0.065,
+              "fall": 0.018,
+              "grooveWidth": 0.012,
+              "grooveDepth": 0.012,
+              "grooveSetback": 0.025
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "sill",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "front": {
+            "node": "sill",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.35,3.6999999999999997,0.075]
+      }
+    },
+    {
+      "id": "wall-2-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 3.6,
+              "wallHeight": 2.8,
+              "thickness": 0.15,
+              "openingWidth": 1.2,
+              "openingHeight": 1.2,
+              "openingOffset": 0.35,
+              "sillHeight": 0.9
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "opening-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "opening-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-top"
+            }
+          },
+          "opening-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-left"
+            }
+          },
+          "opening-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-right"
+            }
+          },
+          "opening-exterior-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-exterior-base"
+            }
+          },
+          "panel-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "base": {
+            "node": "wall",
+            "position": [0,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.6,2.8,0]
+      }
+    },
+    {
+      "id": "window-2-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.window.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#566470"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 1.2,
+              "wallHeight": 1.2,
+              "thickness": 0.1,
+              "openingWidth": 1.08,
+              "openingHeight": 1.08,
+              "openingOffset": 0,
+              "sillHeight": 0.06
+            }
+          },
+          {
+            "id": "glass",
+            "semanticType": "construction.window.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#8fc7dc",
+              "opacity": 0.32
+            },
+            "transform": {
+              "position": [0,0.6,0]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.08,1.08,0.012]
+            }
+          }
+        ],
+        "anchors": {
+          "fit-base": {
+            "node": "frame",
+            "position": [0,0,0]
+          },
+          "fit-top": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "fit-left": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "fit-right": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.95,3.6999999999999997,0]
+      }
+    },
+    {
+      "id": "sill-2-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sill",
+            "semanticType": "construction.facade.sill",
+            "material": "stone",
+            "appearance": {
+              "color": "#c3c6bd"
+            },
+            "geometry": {
+              "type": "window-sill",
+              "sillWidth": 1.2,
+              "projection": 0.28,
+              "thickness": 0.065,
+              "fall": 0.018,
+              "grooveWidth": 0.012,
+              "grooveDepth": 0.012,
+              "grooveSetback": 0.025
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "sill",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "front": {
+            "node": "sill",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.95,3.6999999999999997,0.075]
+      }
+    },
+    {
+      "id": "cladding-course",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.facade.cladding-panel",
+            "material": "fiber-cement",
+            "appearance": {
+              "color": "#9ba9a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.58,0.43,0.035]
+            },
+            "transform": {
+              "position": [0,0,0.0175]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "step": [0.6,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,-0.5]
+            },
+            "direction": [0,0,-1],
+            "occurrence": {
+              "index": 0
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0,0]
+            },
+            "direction": [-1,0,0],
+            "occurrence": {
+              "index": 0
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0,0]
+            },
+            "direction": [1,0,0],
+            "occurrence": {
+              "index": 0
+            }
+          },
+          "bottom": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0],
+            "occurrence": {
+              "index": 0
+            }
+          },
+          "top": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0],
+            "occurrence": {
+              "index": 0
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [2.4,0.45,0.075]
+      }
+    },
+    {
+      "id": "inside-slab",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [4,0.2,3]
+            },
+            "transform": {
+              "position": [0,0.1,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "balcony-edge": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0.5]
+            },
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.6,2.6,-1.425]
+      }
+    },
+    {
+      "id": "balcony",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "deck",
+            "semanticType": "construction.facade.balcony-deck",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a6adad"
+            },
+            "geometry": {
+              "type": "balcony-deck",
+              "deckWidth": 2.4,
+              "projection": 1.1,
+              "thickness": 0.16,
+              "edgeWidth": 0.14,
+              "downstand": 0.12
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "deck",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "front": {
+            "node": "deck",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          },
+          "railing-left": {
+            "node": "deck",
+            "onGeometry": {
+              "type": "feature",
+              "name": "railing-left"
+            }
+          },
+          "railing-right": {
+            "node": "deck",
+            "onGeometry": {
+              "type": "feature",
+              "name": "railing-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.6,2.8,0.075]
+      }
+    },
+    {
+      "id": "balcony-rail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "construction.railing",
+            "material": "painted-steel",
+            "appearance": {
+              "color": "#647781"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 2.4,
+              "railHeight": 1,
+              "thickness": 0.05,
+              "memberWidth": 0.045,
+              "bayCount": 8
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [3.6,2.8,1.175]
+      }
+    },
+    {
+      "id": "canopy",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "canopy",
+            "semanticType": "construction.facade.canopy",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#8499a1"
+            },
+            "geometry": {
+              "type": "sloped-cover",
+              "coverWidth": 1.8,
+              "projection": 0.92,
+              "thickness": 0.065,
+              "fall": 0.065
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "canopy",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "front": {
+            "node": "canopy",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.25,2.35,0.075]
+      }
+    },
+    {
+      "id": "canopy-gutter",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "gutter",
+            "semanticType": "construction.roof.gutter",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#708894"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.9,0,0],
+                [0.9,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.12,0],
+                [0.12,0],
+                [0.12,0.115],
+                [0.116,0.115],
+                [0.116,0.004],
+                [-0.116,0.004],
+                [-0.116,0.115],
+                [-0.12,0.115]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "gutter",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "gutter",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "rim-center": {
+            "node": "gutter",
+            "position": [0,0.115,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.25,2.17,0.995]
+      }
+    },
+    {
+      "id": "roof-slab",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [7.2,0.2,3]
+            },
+            "transform": {
+              "position": [0,0.1,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "parapet-seat": {
+            "node": "slab",
+            "position": [0,0.1,1.415],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8,5.4,-1.425]
+      }
+    },
+    {
+      "id": "parapet-1",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "parapet",
+            "semanticType": "construction.roof.parapet",
+            "material": "masonry",
+            "appearance": {
+              "color": "#c1baaa"
+            },
+            "geometry": {
+              "type": "partition-wall",
+              "wallWidth": 2.4,
+              "wallHeight": 0.62,
+              "thickness": 0.17
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "panel-top": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "mount": {
+            "node": "parapet",
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.6,5.6,-0.01]
+      }
+    },
+    {
+      "id": "coping-1",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "coping",
+            "semanticType": "construction.roof.coping",
+            "material": "stone",
+            "appearance": {
+              "color": "#8e989b"
+            },
+            "geometry": {
+              "type": "wall-coping",
+              "capLength": 2.4,
+              "capWidth": 0.29,
+              "edgeHeight": 0.045,
+              "crownRise": 0.021
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "start": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.6,6.22,-0.01]
+      }
+    },
+    {
+      "id": "parapet-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "parapet",
+            "semanticType": "construction.roof.parapet",
+            "material": "masonry",
+            "appearance": {
+              "color": "#c1baaa"
+            },
+            "geometry": {
+              "type": "partition-wall",
+              "wallWidth": 2.4,
+              "wallHeight": 0.62,
+              "thickness": 0.17
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "panel-top": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "mount": {
+            "node": "parapet",
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8,5.6,-0.01]
+      }
+    },
+    {
+      "id": "coping-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "coping",
+            "semanticType": "construction.roof.coping",
+            "material": "stone",
+            "appearance": {
+              "color": "#8e989b"
+            },
+            "geometry": {
+              "type": "wall-coping",
+              "capLength": 2.4,
+              "capWidth": 0.29,
+              "edgeHeight": 0.045,
+              "crownRise": 0.021
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "start": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8,6.22,-0.01]
+      }
+    },
+    {
+      "id": "parapet-3",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "parapet",
+            "semanticType": "construction.roof.parapet",
+            "material": "masonry",
+            "appearance": {
+              "color": "#c1baaa"
+            },
+            "geometry": {
+              "type": "partition-wall",
+              "wallWidth": 2.4,
+              "wallHeight": 0.62,
+              "thickness": 0.17
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "panel-top": {
+            "node": "parapet",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "mount": {
+            "node": "parapet",
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [4.2,5.6,-0.01]
+      }
+    },
+    {
+      "id": "coping-3",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "coping",
+            "semanticType": "construction.roof.coping",
+            "material": "stone",
+            "appearance": {
+              "color": "#8e989b"
+            },
+            "geometry": {
+              "type": "wall-coping",
+              "capLength": 2.4,
+              "capWidth": 0.29,
+              "edgeHeight": 0.045,
+              "crownRise": 0.021
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "start": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [4.2,6.22,-0.01]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "wall-1-1#opening-base",
+      "to": "door-1-1#fit-base",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "wall-1-1#opening-top",
+      "to": "door-1-1#fit-top",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "wall-1-1#opening-left",
+      "to": "door-1-1#fit-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-1-1#opening-right",
+      "to": "door-1-1#fit-right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-1-1#wall-right",
+      "to": "wall-1-2#wall-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-1-2#opening-base",
+      "to": "window-1-2#fit-base",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "wall-1-2#opening-top",
+      "to": "window-1-2#fit-top",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "wall-1-2#opening-left",
+      "to": "window-1-2#fit-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-1-2#opening-right",
+      "to": "window-1-2#fit-right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-1-2#opening-exterior-base",
+      "to": "sill-1-2#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-1-1#panel-top",
+      "to": "wall-2-1#base",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "wall-2-1#opening-base",
+      "to": "window-2-1#fit-base",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "wall-2-1#opening-top",
+      "to": "window-2-1#fit-top",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "wall-2-1#opening-left",
+      "to": "window-2-1#fit-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-2-1#opening-right",
+      "to": "window-2-1#fit-right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-2-1#opening-exterior-base",
+      "to": "sill-2-1#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-1-2#panel-top",
+      "to": "wall-2-2#base",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "wall-2-1#wall-right",
+      "to": "wall-2-2#wall-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-2-2#opening-base",
+      "to": "window-2-2#fit-base",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "wall-2-2#opening-top",
+      "to": "window-2-2#fit-top",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "wall-2-2#opening-left",
+      "to": "window-2-2#fit-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-2-2#opening-right",
+      "to": "window-2-2#fit-right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-2-2#opening-exterior-base",
+      "to": "sill-2-2#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "inside-slab#balcony-edge",
+      "to": "balcony#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "balcony#railing-left",
+      "to": "balcony-rail#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "balcony#railing-right",
+      "to": "balcony-rail#end",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall-1-1#canopy-seat",
+      "to": "canopy#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "canopy#front",
+      "to": "canopy-gutter#rim-center",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "parapet-1#panel-top",
+      "to": "coping-1#mount",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "parapet-2#panel-top",
+      "to": "coping-2#mount",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "roof-slab#parapet-seat",
+      "to": "parapet-2#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "parapet-1#wall-right",
+      "to": "parapet-2#wall-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "coping-1#end",
+      "to": "coping-2#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "parapet-3#panel-top",
+      "to": "coping-3#mount",
+      "contract": {
+        "direction": "any"
+      }
+    },
+    {
+      "from": "parapet-2#wall-right",
+      "to": "parapet-3#wall-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "coping-2#end",
+      "to": "coping-3#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

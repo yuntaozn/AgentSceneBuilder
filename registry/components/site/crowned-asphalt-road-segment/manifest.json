@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.crowned-asphalt-road-segment",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双坡路拱道路段",
+  "summary": "横向中间抬高，两侧排水边定位随断面参数变化。",
+  "license": "Apache-2.0",
+  "semanticType": "site.road.crowned-layer",
+  "capabilities": [
+    "attach",
+    "resize",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "室外",
+    "道路"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 4.8
+    },
+    "width": {
+      "type": "number",
+      "unit": "m",
+      "default": 5.8
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.17
+    },
+    "crownHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.065
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "crown",
+    "edge-negative-z",
+    "edge-positive-z"
+  ],
+  "ai": {
+    "intent": "为建筑场地车行道提供可拼接的断面。",
+    "editableParts": [
+      "改宽度、冠高、长度和厚度。"
+    ],
+    "qualityChecks": [
+      "两侧边同标高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "crowned-asphalt-road-segment",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.road.crowned-layer",
+            "material": "asphalt",
+            "appearance": {
+              "color": "#586569"
+            },
+            "geometry": {
+              "type": "crowned-road-surface",
+              "length": 4.8,
+              "width": 5.8,
+              "thickness": 0.17,
+              "crownHeight": 0.065
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "crown": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "crown"
+            }
+          },
+          "edge-negative-z": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "edge-negative-z"
+            }
+          },
+          "edge-positive-z": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "edge-positive-z"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.shrouded-crane-runway-conductor-channel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "行车绝缘供电滑触槽",
+  "summary": "开口护壳、分隔排条和壁装抱箍，作为行车旁供电系统的外形示意。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.crane.shrouded-runway-conductor-channel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "行车",
+    "吊装",
+    "滑触线",
+    "供电",
+    "防护槽"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "wall-a",
+    "wall-b"
+  ],
+  "ai": {
+    "intent": "布置设备外形时分开表达绝缘槽、线条和支座。",
+    "editableParts": [
+      "槽壳",
+      "三条线",
+      "挂座"
+    ],
+    "qualityChecks": [
+      "滑触槽连续且侧面留开口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "shrouded-crane-runway-conductor-channel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "insulator-cover",
+            "semanticType": "mep.crane.insulated-conductor-cover.insulator",
+            "material": "polymer",
+            "appearance": {
+              "color": "#c2a469"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.76,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.051,-0.037],
+                [0.052,-0.037],
+                [0.052,0.037],
+                [-0.051,0.037],
+                [-0.051,0.013],
+                [-0.043,0.013],
+                [-0.043,0.029],
+                [0.044,0.029],
+                [0.044,-0.029],
+                [-0.043,-0.029],
+                [-0.043,-0.013],
+                [-0.051,-0.013]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "conductive-bar-0",
+            "semanticType": "mep.crane.insulated-conductor-cover.bar",
+            "material": "copper",
+            "appearance": {
+              "color": "#ac9160"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01,-0.023,-0.026],
+              "end": [1.748,-0.023,-0.026],
+              "radius": 0.0038,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "conductive-bar-1",
+            "semanticType": "mep.crane.insulated-conductor-cover.bar",
+            "material": "copper",
+            "appearance": {
+              "color": "#ac9160"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01,0,-0.026],
+              "end": [1.748,0,-0.026],
+              "radius": 0.0038,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "conductive-bar-2",
+            "semanticType": "mep.crane.insulated-conductor-cover.bar",
+            "material": "copper",
+            "appearance": {
+              "color": "#ac9160"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01,0.023,-0.026],
+              "end": [1.748,0.023,-0.026],
+              "radius": 0.0038,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "hanger-0",
+            "semanticType": "mep.crane.insulated-conductor-cover.hanger",
+            "material": "steel",
+            "appearance": {
+              "color": "#506a77"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.064,0.084,0.021]
+            },
+            "transform": {
+              "position": [0.42,0,-0.061]
+            }
+          },
+          {
+            "id": "hanger-1",
+            "semanticType": "mep.crane.insulated-conductor-cover.hanger",
+            "material": "steel",
+            "appearance": {
+              "color": "#506a77"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.064,0.084,0.021]
+            },
+            "transform": {
+              "position": [1.32,0,-0.061]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [1.76,0,0],
+            "direction": [1,0,0]
+          },
+          "wall-a": {
+            "position": [0.42,0,-0.0715],
+            "direction": [0,0,-1]
+          },
+          "wall-b": {
+            "position": [1.32,0,-0.0715],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

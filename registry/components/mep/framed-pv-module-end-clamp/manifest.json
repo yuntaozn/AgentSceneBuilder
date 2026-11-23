@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.framed-pv-module-end-clamp",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "光伏组件边压夹具",
+  "summary": "单侧压舌、支脚和带头螺栓组成边部夹具，可单独对齐组件外框。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.photovoltaic.module-end-clamp",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "光伏",
+    "屋面光伏",
+    "端压块",
+    "边夹"
+  ],
+  "anchors": [
+    "rail",
+    "lip"
+  ],
+  "ai": {
+    "intent": "在阵列边缘固定一块组件的单边边框。",
+    "editableParts": [
+      "压块",
+      "支脚",
+      "螺栓"
+    ],
+    "qualityChecks": [
+      "压边高度与组件框上沿对应。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "framed-pv-module-end-clamp",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "clamp-profile",
+            "semanticType": "mep.photovoltaic.module-end-clamp.body",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.028],
+                [0,0,0.028]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0,0],
+                [0.023,0],
+                [0.023,0.043],
+                [0.037,0.043],
+                [0.037,0.052],
+                [0,0.052]
+              ]
+            }
+          },
+          {
+            "id": "bolt",
+            "semanticType": "mep.photovoltaic.module-end-clamp.bolt",
+            "material": "steel",
+            "appearance": {
+              "color": "#50636f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.006,-0.018,0],
+              "end": [0.006,0.058,0],
+              "radius": 0.0048,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "head",
+            "semanticType": "mep.photovoltaic.module-end-clamp.bolt-head",
+            "material": "steel",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.006,0.057,0],
+                [0.006,0.065,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.009,0],
+                [0.0045000000000000005,0.007794228634059947],
+                [-0.004499999999999998,0.007794228634059948],
+                [-0.009,1.1021821192326178e-18],
+                [-0.004500000000000004,-0.0077942286340599454],
+                [0.0045000000000000005,-0.007794228634059947]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "rail": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "lip": {
+            "position": [0.015,0.043,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.elevator-t-guide-rail-section",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "T 形电梯导轨段",
+  "summary": "可改段长、轨脚和轨刃尺寸，端面、导向面及拼板位置由截面参数生成。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.t-guide-rail",
+  "capabilities": [
+    "attach",
+    "resize",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "导轨",
+    "井道"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.64
+    },
+    "footWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.119
+    },
+    "footThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.013
+    },
+    "bladeWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.02
+    },
+    "bladeDepth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.061
+    },
+    "spliceInset": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.056
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "back",
+    "guide",
+    "splice-start",
+    "splice-end"
+  ],
+  "ai": {
+    "intent": "在电梯井道中连续摆放分段 T 形导轨。",
+    "editableParts": [
+      "轨脚宽",
+      "轨刃宽与伸出量",
+      "段长"
+    ],
+    "qualityChecks": [
+      "轨面向轿厢，拼板贴到两段轨脚背面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "elevator-t-guide-rail-section",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "mep.elevator.t-guide-rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "elevator-t-guide-rail",
+              "length": 1.64,
+              "footWidth": 0.119,
+              "footThickness": 0.013,
+              "bladeWidth": 0.02,
+              "bladeDepth": 0.061,
+              "spliceInset": 0.056
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "back": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "back"
+            }
+          },
+          "guide": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "guide"
+            }
+          },
+          "splice-start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "splice-start"
+            }
+          },
+          "splice-end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "splice-end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

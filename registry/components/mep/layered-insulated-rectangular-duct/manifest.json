@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.layered-insulated-rectangular-duct",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "外保温矩形风管",
+  "summary": "内风管、保温层和金属包皮组成可分层查看的矩形截面，端部敞开。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.hvac.insulated-rect-duct",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "通风",
+    "风管"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "outer-side"
+  ],
+  "ai": {
+    "intent": "在机电综合中表达风管本体与外包层的不同占位。",
+    "editableParts": [
+      "单独修改三层截面和居中位置。"
+    ],
+    "qualityChecks": [
+      "端部连接使用内风管位置。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "layered-insulated-rectangular-duct",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "metal-duct",
+            "semanticType": "mep.hvac.insulated-rect-duct.inner",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.82,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.3,-0.175],
+                [0.3,-0.175],
+                [0.3,0.175],
+                [-0.3,0.175]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.296,-0.171],
+                  [0.296,-0.171],
+                  [0.296,0.171],
+                  [-0.296,0.171]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "insulation",
+            "semanticType": "mep.hvac.insulated-rect-duct.lagging",
+            "material": "mineral-wool",
+            "appearance": {
+              "color": "#b5ac87"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.045,0,0],
+                [0.775,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.33,-0.205],
+                [0.33,-0.205],
+                [0.33,0.205],
+                [-0.33,0.205]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3,-0.175],
+                  [0.3,-0.175],
+                  [0.3,0.175],
+                  [-0.3,0.175]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "outer-sheet",
+            "semanticType": "mep.hvac.insulated-rect-duct.jacket",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.065,0,0],
+                [0.755,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.333,-0.208],
+                [0.333,-0.208],
+                [0.333,0.208],
+                [-0.333,0.208]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.33,-0.205],
+                  [0.33,-0.205],
+                  [0.33,0.205],
+                  [-0.33,0.205]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.82,0,0],
+            "direction": [1,0,0]
+          },
+          "outer-side": {
+            "position": [0.41,0,0.333],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

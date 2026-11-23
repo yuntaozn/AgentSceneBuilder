@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.ribbed-starter-bar",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带肋预留插筋",
+  "summary": "独立直杆和外露重复肋，用于展示预埋与灌浆套筒插接位置。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.rebar.starter",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式",
+    "钢筋",
+    "灌浆"
+  ],
+  "anchors": [
+    "insertion-datum",
+    "tip",
+    "embedded-end"
+  ],
+  "ai": {
+    "intent": "复用套筒安装或钢筋预埋的轴向示意。",
+    "editableParts": [
+      "调整杆体两端长度与肋阵列。"
+    ],
+    "qualityChecks": [
+      "保持肋阵列与竖向轴同心。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ribbed-starter-bar",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bar",
+            "semanticType": "prefab.rebar.starter",
+            "material": "steel",
+            "appearance": {
+              "color": "#71828d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.16,0],
+              "end": [0,0.28,0],
+              "radius": 0.014
+            }
+          },
+          {
+            "id": "rib",
+            "semanticType": "prefab.rebar.starter-rib",
+            "material": "steel",
+            "appearance": {
+              "color": "#465860"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.014,
+              "tubeRadius": 0.002,
+              "radialSegments": 8,
+              "tubularSegments": 16
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 11,
+              "start": [0,0.015,0],
+              "step": [0,0.024,0]
+            }
+          }
+        ],
+        "anchors": {
+          "insertion-datum": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "tip": {
+            "position": [0,0.28,0],
+            "direction": [0,1,0]
+          },
+          "embedded-end": {
+            "position": [0,-0.16,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

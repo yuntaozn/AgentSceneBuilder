@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.round-ventilation-duct-straight",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "圆形通风管直段",
+  "summary": "有独立外径、薄壁和贯通净空，与同径圆风管对接。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.hvac.round-ventilation-duct-straight",
+  "capabilities": [
+    "attach",
+    "resize",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "通风",
+    "风管"
+  ],
+  "parameters": {
+    "outsideDiameter": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.25
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.004
+    }
+  },
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "建立通风路线中的圆形直段。",
+    "editableParts": [
+      "调整口径、壁厚和路径端点。"
+    ],
+    "qualityChecks": [
+      "管口声明随外径更新。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "round-ventilation-duct-straight",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "duct",
+            "semanticType": "mep.hvac.round-ventilation-duct-straight",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0.85,0,0]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.25,
+              "thickness": 0.004
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "duct",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "duct",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

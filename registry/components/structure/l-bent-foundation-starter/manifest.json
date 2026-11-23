@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.l-bent-foundation-starter",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "L 形基础柱插筋",
+  "summary": "埋入水平段经圆弧转到竖向出筋，保留上下两个定位端。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.rebar.l-starter",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "混凝土施工",
+    "钢筋"
+  ],
+  "anchors": [
+    "tip",
+    "foot-end",
+    "column-axis"
+  ],
+  "ai": {
+    "intent": "表示基础内锚固段与柱内出筋。",
+    "editableParts": [
+      "编辑水平段、圆弧与出筋高度。"
+    ],
+    "qualityChecks": [
+      "拐点的半径与杆径可独立调整。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "l-bent-foundation-starter",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "starter",
+            "semanticType": "structure.rebar.l-starter",
+            "material": "steel",
+            "appearance": {
+              "color": "#a57143"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,-0.37],
+                [0,0,-0.075],
+                [0,0.0009233744553646672,-0.06326741512198268],
+                [0,0.0036707612778634907,-0.051823725421878936],
+                [0,0.00817451068587241,-0.040950712519533986],
+                [0,0.014323725421878944,-0.030916106078064512],
+                [0,0.02196699141100894,-0.021966991411008933],
+                [0,0.030916106078064512,-0.014323725421878944],
+                [0,0.04095071251953399,-0.00817451068587241],
+                [0,0.05182372542187894,-0.0036707612778634907],
+                [0,0.06326741512198268,-0.0009233744553646672],
+                [0,0.075,0],
+                [0,1.1,0]
+              ],
+              "radius": 0.012,
+              "radialSegments": 12
+            }
+          }
+        ],
+        "anchors": {
+          "tip": {
+            "position": [0,1.1,0],
+            "direction": [0,1,0]
+          },
+          "foot-end": {
+            "position": [0,0,-0.37],
+            "direction": [0,0,-1]
+          },
+          "column-axis": {
+            "position": [0,0.075,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

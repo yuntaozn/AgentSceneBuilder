@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.ribbed-floor-finish-reducer",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "沟纹高差收口过渡条",
+  "summary": "横断面带防滑沟纹和隐藏卡座，以高、低两面搭接不同标高的饰面。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.flooring.ribbed-floor-reducer",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室内装修",
+    "地坪",
+    "基础构件"
+  ],
+  "anchors": [
+    "base",
+    "high",
+    "low",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "用独立过渡条对齐两侧饰面的不同标高。",
+    "editableParts": [
+      "顶盖剖面",
+      "卡座",
+      "两侧搭接位置"
+    ],
+    "qualityChecks": [
+      "高端和低端应接对应面层，沟纹位于斜面的上表面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ribbed-floor-finish-reducer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "snap-rail",
+            "semanticType": "construction.flooring.modular-floor-reducer.receiver",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.35,0,0],
+                [0.35,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.019,0],
+                [0.019,0],
+                [0.019,0.0025],
+                [0.006,0.0025],
+                [0.006,0.009],
+                [-0.006,0.009],
+                [-0.006,0.0025],
+                [-0.019,0.0025]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "slope-cover",
+            "semanticType": "construction.flooring.modular-floor-reducer.cover",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a3a8a3"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.35,0,0],
+                [0.35,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.043,0.002],
+                [-0.023,0.006],
+                [-0.003,0.009],
+                [0.018,0.016],
+                [0.04,0.017],
+                [0.04,0.023],
+                [0.024,0.023],
+                [0.024,0.021],
+                [0.02,0.021],
+                [0.02,0.022],
+                [0.01,0.02],
+                [0.01,0.018],
+                [0.006,0.018],
+                [0.006,0.019],
+                [-0.005,0.017],
+                [-0.005,0.015],
+                [-0.009,0.015],
+                [-0.009,0.016],
+                [-0.02,0.013],
+                [-0.02,0.011],
+                [-0.024,0.011],
+                [-0.024,0.012],
+                [-0.043,0.006]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "high": {
+            "position": [0,0.017,-0.04],
+            "direction": [0,0,-1]
+          },
+          "low": {
+            "position": [0,0.002,0.043],
+            "direction": [0,0,1]
+          },
+          "start": {
+            "position": [-0.35,0.009,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.35,0.009,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

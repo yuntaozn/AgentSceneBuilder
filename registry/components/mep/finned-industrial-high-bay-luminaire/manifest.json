@@ -1,0 +1,442 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.finned-industrial-high-bay-luminaire",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "鳍片散热工业高棚灯",
+  "summary": "顶部吊环、带竖向鳍片的散热座和宽口罩构成独立设备，带集中下配光。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.lighting.industrial-high-bay-luminaire",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "水电",
+    "照明",
+    "基础构件",
+    "工矿灯",
+    "高棚灯",
+    "工业照明"
+  ],
+  "anchors": [
+    "hook",
+    "face"
+  ],
+  "ai": {
+    "intent": "在厂房演示模型中使用吊点、散热器和下配光灯具。",
+    "editableParts": [
+      "吊环",
+      "鳍片",
+      "反射罩",
+      "聚光节点"
+    ],
+    "qualityChecks": [
+      "吊环顶部落在挂装基准，照射轴线朝下。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "finned-industrial-high-bay-luminaire",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "ring-hanger",
+            "semanticType": "mep.lighting.high-bay.loop",
+            "material": "steel",
+            "appearance": {
+              "color": "#81939b"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.027,
+              "tubeRadius": 0.007,
+              "radialSegments": 20,
+              "tubularSegments": 9
+            },
+            "transform": {
+              "position": [0,-0.034,0],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "hanger-stem",
+            "semanticType": "mep.lighting.high-bay.hanger",
+            "material": "steel",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.091,0],
+              "end": [0,-0.054,0],
+              "radius": 0.012,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "heatsink",
+            "semanticType": "mep.lighting.high-bay.heatsink",
+            "material": "steel",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.148,0],
+              "end": [0,-0.083,0],
+              "radius": 0.092,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "cooling-fin-0",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [0.104,-0.119,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "cooling-fin-1",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [0.09006664199358162,-0.119,0.05199999999999999],
+              "rotation": [0,-0.5235987755982988,0]
+            }
+          },
+          {
+            "id": "cooling-fin-2",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [0.05200000000000001,-0.119,0.09006664199358161],
+              "rotation": [0,-1.0471975511965976,0]
+            }
+          },
+          {
+            "id": "cooling-fin-3",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [6.3681633555662364e-18,-0.119,0.104],
+              "rotation": [0,-1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "cooling-fin-4",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [-0.05199999999999998,-0.119,0.09006664199358162],
+              "rotation": [0,-2.0943951023931953,0]
+            }
+          },
+          {
+            "id": "cooling-fin-5",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [-0.09006664199358162,-0.119,0.05199999999999999],
+              "rotation": [0,-2.6179938779914944,0]
+            }
+          },
+          {
+            "id": "cooling-fin-6",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [-0.104,-0.119,1.2736326711132473e-17],
+              "rotation": [0,-3.141592653589793,0]
+            }
+          },
+          {
+            "id": "cooling-fin-7",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [-0.09006664199358164,-0.119,-0.05199999999999997],
+              "rotation": [0,-3.665191429188092,0]
+            }
+          },
+          {
+            "id": "cooling-fin-8",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [-0.052000000000000046,-0.119,-0.0900666419935816],
+              "rotation": [0,-4.1887902047863905,0]
+            }
+          },
+          {
+            "id": "cooling-fin-9",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [-1.9104490066698708e-17,-0.119,-0.104],
+              "rotation": [0,-4.71238898038469,0]
+            }
+          },
+          {
+            "id": "cooling-fin-10",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [0.05200000000000001,-0.119,-0.09006664199358161],
+              "rotation": [0,-5.235987755982989,0]
+            }
+          },
+          {
+            "id": "cooling-fin-11",
+            "semanticType": "mep.lighting.high-bay.cooling-fin",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.055,0.007]
+            },
+            "transform": {
+              "position": [0.09006664199358158,-0.119,-0.052000000000000046],
+              "rotation": [0,-5.759586531581287,0]
+            }
+          },
+          {
+            "id": "lower-shade",
+            "semanticType": "mep.lighting.high-bay.shade",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#81939b"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 36,
+              "capStart": false,
+              "capEnd": false,
+              "sections": [
+                {
+                  "center": [0,-0.142,0],
+                  "axisX": [0.088,0,0],
+                  "axisZ": [0,0,0.088]
+                },
+                {
+                  "center": [0,-0.165,0],
+                  "axisX": [0.113,0,0],
+                  "axisZ": [0,0,0.113]
+                },
+                {
+                  "center": [0,-0.202,0],
+                  "axisX": [0.166,0,0],
+                  "axisZ": [0,0,0.166]
+                },
+                {
+                  "center": [0,-0.225,0],
+                  "axisX": [0.198,0,0],
+                  "axisZ": [0,0,0.198]
+                }
+              ]
+            }
+          },
+          {
+            "id": "reflector-trim",
+            "semanticType": "mep.lighting.high-bay.trim",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.229,0],
+                [0,-0.223,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.201,0],
+                [0.19415109108410275,0.052022628065606674],
+                [0.1740711061606722,0.10049999999999999],
+                [0.14212846301849608,0.14212846301849605],
+                [0.10050000000000003,0.17407110616067217],
+                [0.052022628065606674,0.19415109108410275],
+                [1.23077003314309e-17,0.201],
+                [-0.052022628065606646,0.19415109108410275],
+                [-0.10049999999999996,0.1740711061606722],
+                [-0.14212846301849605,0.14212846301849608],
+                [-0.1740711061606722,0.10049999999999999],
+                [-0.19415109108410272,0.05202262806560673],
+                [-0.201,2.46154006628618e-17],
+                [-0.19415109108410275,-0.05202262806560668],
+                [-0.1740711061606722,-0.10049999999999995],
+                [-0.14212846301849613,-0.142128463018496],
+                [-0.10050000000000009,-0.17407110616067215],
+                [-0.052022628065606646,-0.19415109108410275],
+                [-3.69231009942927e-17,-0.201],
+                [0.052022628065606584,-0.19415109108410278],
+                [0.10050000000000003,-0.17407110616067217],
+                [0.14212846301849602,-0.1421284630184961],
+                [0.17407110616067212,-0.10050000000000009],
+                [0.1941510910841027,-0.05202262806560684]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.173,0],
+                  [0.1671051679480088,0.044775694802736084],
+                  [0.14982239485470789,0.08649999999999998],
+                  [0.12232947314527272,0.1223294731452727],
+                  [0.08650000000000001,0.14982239485470786],
+                  [0.044775694802736084,0.1671051679480088],
+                  [1.0593194812624605e-17,0.173],
+                  [-0.04477569480273606,0.1671051679480088],
+                  [-0.08649999999999995,0.14982239485470789],
+                  [-0.1223294731452727,0.12232947314527272],
+                  [-0.14982239485470789,0.08649999999999998],
+                  [-0.16710516794800878,0.04477569480273613],
+                  [-0.173,2.118638962524921e-17],
+                  [-0.1671051679480088,-0.0447756948027361],
+                  [-0.1498223948547079,-0.08649999999999995],
+                  [-0.12232947314527277,-0.12232947314527265],
+                  [-0.08650000000000008,-0.14982239485470786],
+                  [-0.04477569480273606,-0.1671051679480088],
+                  [-3.1779584437873813e-17,-0.173],
+                  [0.04477569480273601,-0.16710516794800884],
+                  [0.08650000000000001,-0.14982239485470786],
+                  [0.12232947314527268,-0.12232947314527275],
+                  [0.14982239485470783,-0.08650000000000008],
+                  [0.16710516794800875,-0.04477569480273623]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lens",
+            "semanticType": "mep.lighting.high-bay.diffuser",
+            "material": "polymer",
+            "appearance": {
+              "color": "#fff8e9",
+              "emissive": "#fff8e9"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.225,0],
+              "end": [0,-0.221,0],
+              "radius": 0.174,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "high-bay-beam",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [0,-0.239,0],
+              "rotation": [-1.5707963267948966,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 62,
+              "angle": 0.66,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          }
+        ],
+        "anchors": {
+          "hook": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "face": {
+            "position": [0,-0.229,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

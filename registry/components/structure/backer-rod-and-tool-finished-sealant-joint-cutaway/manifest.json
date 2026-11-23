@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.backer-rod-and-tool-finished-sealant-joint-cutaway",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "变形缝背衬棒与凹面密封胶剖件",
+  "summary": "密封胶向中央形成浅凹，两侧粘结面和背衬泡沫棒独立。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.movement-joint.backer-rod-sealant",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "结构节点",
+    "背衬棒",
+    "密封胶",
+    "剖面"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "backer"
+  ],
+  "ai": {
+    "intent": "密封胶向中央形成浅凹，两侧粘结面和背衬泡沫棒独立。",
+    "editableParts": [
+      "可分别编辑 concave-top-joint-sealant、closed-cell-backer-rod、bond-witness-1、bond-witness-2。"
+    ],
+    "qualityChecks": [
+      "凹面胶条在上、圆棒在下，分开观察两个截面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "backer-rod-and-tool-finished-sealant-joint-cutaway",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "concave-top-joint-sealant",
+            "semanticType": "structure.movement-joint.sealant-joint.seal",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4a5e65"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.235],
+                [0,0,0.235]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.041,0],
+                [-0.027,-0.006],
+                [-0.013,-0.01],
+                [0,-0.011],
+                [0.013,-0.01],
+                [0.027,-0.006],
+                [0.041,0],
+                [0.041,-0.023],
+                [0.025,-0.025],
+                [0.011,-0.022],
+                [-0.011,-0.022],
+                [-0.025,-0.025],
+                [-0.041,-0.023]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "closed-cell-backer-rod",
+            "semanticType": "structure.movement-joint.sealant-joint.backer",
+            "material": "foam",
+            "appearance": {
+              "color": "#a6a18e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.047,-0.236],
+              "end": [0,-0.047,0.236],
+              "radius": 0.027,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "bond-witness-1",
+            "semanticType": "structure.movement-joint.sealant-joint.bond-sample",
+            "material": "plastic",
+            "appearance": {
+              "color": "#798485"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.037,0.468]
+            },
+            "transform": {
+              "position": [-0.042,-0.017,0]
+            }
+          },
+          {
+            "id": "bond-witness-2",
+            "semanticType": "structure.movement-joint.sealant-joint.bond-sample",
+            "material": "plastic",
+            "appearance": {
+              "color": "#798485"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.037,0.468]
+            },
+            "transform": {
+              "position": [0.042,-0.017,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.045,-0.017,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.045,-0.017,0],
+            "direction": [1,0,0]
+          },
+          "backer": {
+            "position": [0,-0.047,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,126 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.recessed-drop-door-bottom-seal",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "内嵌下沉式门底密封条",
+  "summary": "开口外槽扣住可上下移动的密封条，槽壳与下沿分别定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.opening.drop-bottom-door-seal",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门窗",
+    "五金"
+  ],
+  "anchors": [
+    "mount",
+    "gasket-edge"
+  ],
+  "ai": {
+    "intent": "展示门下密封件与门底槽的相对位置。",
+    "editableParts": [
+      "编辑壳体、密封边和下沉量。"
+    ],
+    "qualityChecks": [
+      "外壳位置固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "recessed-drop-door-bottom-seal",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "channel",
+            "semanticType": "construction.opening.automatic-drop-seal.housing",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.96,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.014,0],
+                [0.014,0],
+                [0.014,-0.036],
+                [0.011,-0.036],
+                [0.011,-0.004],
+                [-0.011,-0.004],
+                [-0.011,-0.036],
+                [-0.014,-0.036]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "sliding-gasket",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "gasket",
+            "semanticType": "construction.opening.automatic-drop-seal.shoe",
+            "material": "rubber",
+            "appearance": {
+              "color": "#475960"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.002,0,0],
+                [0.958,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.01,-0.021],
+                [0.01,-0.021],
+                [0.009,-0.034],
+                [0.004,-0.039],
+                [-0.005,-0.039],
+                [-0.009,-0.034]
+              ],
+              "closedProfile": true
+            },
+            "parent": "sliding-gasket"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0.48,0,0],
+            "direction": [0,1,0]
+          },
+          "gasket-edge": {
+            "node": "sliding-gasket",
+            "position": [0.48,-0.039,0],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "lower-seal",
+            "target": "sliding-gasket",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,-0.011,0],
+            "duration": 0.46,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

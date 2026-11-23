@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.tongue-groove-insulated-industrial-wall-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "暗扣企口保温夹芯墙板",
+  "summary": "两层薄钢皮、保温芯和左右企口，边框留有可接暗扣的独立安装位置。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.industrial.concealed-fix-sandwich-panel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "钢结构",
+    "厂房",
+    "保温墙板",
+    "暗扣",
+    "企口"
+  ],
+  "anchors": [
+    "base",
+    "left",
+    "right",
+    "clip-seat",
+    "interior"
+  ],
+  "ai": {
+    "intent": "让保温芯与内外板皮独立编辑，并按企口方向连续组装。",
+    "editableParts": [
+      "保温层",
+      "外皮",
+      "内皮",
+      "侧企口"
+    ],
+    "qualityChecks": [
+      "舌槽位置同高，内外层方向一致。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "tongue-groove-insulated-industrial-wall-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "continuous-insulation",
+            "semanticType": "construction.industrial.hidden-fix-sandwich-panel.core",
+            "material": "insulation",
+            "appearance": {
+              "color": "#b4a697"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.73,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.454,0],
+                [0.454,0],
+                [0.454,0.012],
+                [0.43,0.012],
+                [0.43,0.042],
+                [0.454,0.042],
+                [0.454,0.092],
+                [-0.454,0.092],
+                [-0.454,0.043],
+                [-0.478,0.043],
+                [-0.478,0.013],
+                [-0.454,0.013]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "outer-sheet",
+            "semanticType": "construction.industrial.hidden-fix-sandwich-panel.skin",
+            "material": "steel",
+            "appearance": {
+              "color": "#85999e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.73,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.453,0.09],
+                [0.454,0.09],
+                [0.454,0.095],
+                [0.445,0.095],
+                [0.445,0.098],
+                [-0.445,0.098],
+                [-0.445,0.095],
+                [-0.453,0.095]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "back-liner",
+            "semanticType": "construction.industrial.hidden-fix-sandwich-panel.interior-liner",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b1ad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.904,1.73,0.004]
+            },
+            "transform": {
+              "position": [0,0.865,0.002]
+            }
+          },
+          {
+            "id": "exterior-ridge",
+            "semanticType": "construction.industrial.hidden-fix-sandwich-panel.stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#85999e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.012,1.73,0.009]
+            },
+            "transform": {
+              "position": [0,0.865,0.1015]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "start": [-0.321,0,0],
+              "step": [0.1605,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0.049],
+            "direction": [0,-1,0]
+          },
+          "left": {
+            "position": [-0.454,0.865,0.031],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.454,0.865,0.031],
+            "direction": [1,0,0]
+          },
+          "clip-seat": {
+            "position": [-0.452,0.865,0.011],
+            "direction": [0,0,-1]
+          },
+          "interior": {
+            "position": [0,0.865,0],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

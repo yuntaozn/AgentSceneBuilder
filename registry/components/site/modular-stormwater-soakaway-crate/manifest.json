@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.modular-stormwater-soakaway-crate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带开孔雨水渗蓄模块",
+  "summary": "四片开孔侧格栅连同上下承托板，可独立接成成排蓄水模块。",
+  "license": "Apache-2.0",
+  "semanticType": "site.drainage.soakaway-crate",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "室外",
+    "排水"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "front",
+    "back",
+    "base"
+  ],
+  "ai": {
+    "intent": "表现雨水地下缓冲体的重复模块和开放表面。",
+    "editableParts": [
+      "调整开槽和四面格栅。"
+    ],
+    "qualityChecks": [
+      "每面可独立显示。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "modular-stormwater-soakaway-crate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.62,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [0,0,0.237]
+            }
+          },
+          {
+            "id": "back",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.62,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [0,0,-0.237]
+            }
+          },
+          {
+            "id": "left",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.46,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [-0.304,0,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "right",
+            "semanticType": "site.drainage.perforated-soakaway.screen",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8c81"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 0.46,
+              "railHeight": 0.42,
+              "thickness": 0.015,
+              "memberWidth": 0.025,
+              "bayCount": 7
+            },
+            "transform": {
+              "position": [0.304,0,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "grate-0",
+            "semanticType": "site.drainage.perforated-soakaway.lattice",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4e6873"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 0.594,
+              "width": 0.458,
+              "thickness": 0.021,
+              "frameWidth": 0.022,
+              "barWidth": 0.012,
+              "slotCount": 9
+            },
+            "transform": {
+              "position": [-0.297,0.021,0]
+            }
+          },
+          {
+            "id": "grate-1",
+            "semanticType": "site.drainage.perforated-soakaway.lattice",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4e6873"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 0.594,
+              "width": 0.458,
+              "thickness": 0.021,
+              "frameWidth": 0.022,
+              "barWidth": 0.012,
+              "slotCount": 9
+            },
+            "transform": {
+              "position": [-0.297,0.41300000000000003,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.311,0.21,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.311,0.21,0],
+            "direction": [1,0,0]
+          },
+          "front": {
+            "position": [0,0.21,0.245],
+            "direction": [0,0,1]
+          },
+          "back": {
+            "position": [0,0.21,-0.245],
+            "direction": [0,0,-1]
+          },
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

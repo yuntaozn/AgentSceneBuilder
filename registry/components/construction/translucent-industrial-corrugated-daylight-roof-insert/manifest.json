@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.translucent-industrial-corrugated-daylight-roof-insert",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "厂房波形透光采光板",
+  "summary": "透明波形板、两端压边与侧边搭接座，屋面坡度和波高沿原有波形板形体编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.industrial.corrugated-daylight-roof-insert",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "钢结构",
+    "厂房",
+    "采光板",
+    "屋面",
+    "透光"
+  ],
+  "anchors": [
+    "eave",
+    "ridge",
+    "left",
+    "right",
+    "underside"
+  ],
+  "ai": {
+    "intent": "用同一波形板核表达透光屋面拼接和采光件边缘。",
+    "editableParts": [
+      "波形面",
+      "下边压条",
+      "上边压条"
+    ],
+    "qualityChecks": [
+      "透明面允许查看下方屋面结构。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "translucent-industrial-corrugated-daylight-roof-insert",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "translucent-corrugation",
+            "semanticType": "construction.industrial.corrugated-roof-daylight-insert.panel",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a7bebc",
+              "opacity": 0.5
+            },
+            "geometry": {
+              "type": "corrugated-roof-panel",
+              "panelWidth": 0.84,
+              "run": 1.45,
+              "rise": 0.285,
+              "thickness": 0.005,
+              "ribHeight": 0.032,
+              "corrugationCount": 6
+            }
+          },
+          {
+            "id": "lower-edge-band",
+            "semanticType": "construction.industrial.corrugated-roof-daylight-insert.retaining-strip",
+            "material": "steel",
+            "appearance": {
+              "color": "#85999e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.84,0.022,0.043]
+            },
+            "transform": {
+              "position": [0,0.011,0]
+            }
+          },
+          {
+            "id": "upper-edge-band",
+            "semanticType": "construction.industrial.corrugated-roof-daylight-insert.retaining-strip",
+            "material": "steel",
+            "appearance": {
+              "color": "#85999e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.84,0.022,0.043]
+            },
+            "transform": {
+              "position": [0,0.2945,1.45]
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "translucent-corrugation",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "translucent-corrugation",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "translucent-corrugation",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "translucent-corrugation",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "underside": {
+            "node": "translucent-corrugation",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.shallow-v-roadside-gutter",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "浅 V 形道路边沟",
+  "summary": "凹形实体横断面从两侧汇到中间低点，端点在浅沟水线。",
+  "license": "Apache-2.0",
+  "semanticType": "site.roadside.v-gutter",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "室外",
+    "道路",
+    "排水"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "edge-in",
+    "edge-out"
+  ],
+  "ai": {
+    "intent": "衔接道路边缘并形成可连续布置的浅槽。",
+    "editableParts": [
+      "编辑沟宽、低点和厚度。"
+    ],
+    "qualityChecks": [
+      "中间低于两边。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "shallow-v-roadside-gutter",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "channel",
+            "semanticType": "site.road.shallow-v-gutter",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [2.4,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.285,0],
+                [0,-0.054],
+                [0.285,0],
+                [0.285,-0.09],
+                [0,-0.144],
+                [-0.285,-0.09]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,-0.054,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [2.4,-0.054,0],
+            "direction": [1,0,0]
+          },
+          "edge-in": {
+            "position": [1.2,0,-0.285],
+            "direction": [0,0,-1]
+          },
+          "edge-out": {
+            "position": [1.2,0,0.285],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

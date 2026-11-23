@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.sloped-open-guardrail",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "随坡栏杆段",
+  "summary": "有真实开格的薄壁栏杆，两端高差与扶手定位随尺寸变化。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.circulation.sloped-guardrail",
+  "capabilities": [
+    "attach",
+    "resize",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "交通",
+    "楼梯",
+    "栏杆"
+  ],
+  "parameters": {
+    "railWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.68
+    },
+    "railHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.86
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.041
+    },
+    "memberWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.042
+    },
+    "bayCount": {
+      "type": "number",
+      "default": 8
+    },
+    "rise": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.02
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "handrail-start",
+    "handrail-end"
+  ],
+  "ai": {
+    "intent": "将栏杆沿楼梯、斜道或错层连接。",
+    "editableParts": [
+      "修改开格数、段宽、高度与两端高差。"
+    ],
+    "qualityChecks": [
+      "可使用正或负高差。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "sloped-open-guardrail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "construction.circulation.sloped-guardrail",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sloped-railing",
+              "railWidth": 1.68,
+              "railHeight": 0.86,
+              "thickness": 0.041,
+              "memberWidth": 0.042,
+              "bayCount": 8,
+              "rise": 1.02
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "handrail-start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "handrail-start"
+            }
+          },
+          "handrail-end": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "handrail-end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,397 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.parallel-acoustic-splitter-ahu-silencer",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "平行消声片空气处理段",
+  "summary": "平行四片消声棉及两端倒角护皮，风道保留分隔气隙。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.acoustic-splitter-ahu-silencer",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "消声器",
+    "吸声片",
+    "机组"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "base"
+  ],
+  "ai": {
+    "intent": "用多片并排吸声片在机组出风后保留独立通道。",
+    "editableParts": [
+      "棉芯",
+      "端帽",
+      "独立箱体"
+    ],
+    "qualityChecks": [
+      "消声片之间保留净缝。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "parallel-acoustic-splitter-ahu-silencer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "section-case",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.housing",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.014,0.31,0],
+                [0.523,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.38,-0.29],
+                [0.38,-0.29],
+                [0.38,0.29],
+                [-0.38,0.29]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.356,-0.26599999999999996],
+                  [0.356,-0.26599999999999996],
+                  [0.356,0.26599999999999996],
+                  [-0.356,0.26599999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "entry-frame",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.31,0],
+                [0.014,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "exit-frame",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.523,0.31,0],
+                [0.541,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "porous-core-0",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.absorption",
+            "material": "fiber",
+            "appearance": {
+              "color": "#b6b2a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.41,0.492,0.056]
+            },
+            "transform": {
+              "position": [0.271,0.312,-0.261]
+            }
+          },
+          {
+            "id": "side-skin-0",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.perforated-cover",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.392,0.47,0.0039]
+            },
+            "transform": {
+              "position": [0.271,0.312,-0.233]
+            }
+          },
+          {
+            "id": "round-nose-0-0",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.end-nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.067,0.072,-0.261],
+              "end": [0.067,0.552,-0.261],
+              "radius": 0.026,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "round-nose-0-1",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.end-nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.464,0.072,-0.261],
+              "end": [0.464,0.552,-0.261],
+              "radius": 0.026,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "porous-core-1",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.absorption",
+            "material": "fiber",
+            "appearance": {
+              "color": "#b6b2a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.41,0.492,0.056]
+            },
+            "transform": {
+              "position": [0.271,0.312,-0.086]
+            }
+          },
+          {
+            "id": "side-skin-1",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.perforated-cover",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.392,0.47,0.0039]
+            },
+            "transform": {
+              "position": [0.271,0.312,-0.057999999999999996]
+            }
+          },
+          {
+            "id": "round-nose-1-0",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.end-nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.067,0.072,-0.086],
+              "end": [0.067,0.552,-0.086],
+              "radius": 0.026,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "round-nose-1-1",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.end-nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.464,0.072,-0.086],
+              "end": [0.464,0.552,-0.086],
+              "radius": 0.026,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "porous-core-2",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.absorption",
+            "material": "fiber",
+            "appearance": {
+              "color": "#b6b2a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.41,0.492,0.056]
+            },
+            "transform": {
+              "position": [0.271,0.312,0.089]
+            }
+          },
+          {
+            "id": "side-skin-2",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.perforated-cover",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.392,0.47,0.0039]
+            },
+            "transform": {
+              "position": [0.271,0.312,0.11699999999999999]
+            }
+          },
+          {
+            "id": "round-nose-2-0",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.end-nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.067,0.072,0.089],
+              "end": [0.067,0.552,0.089],
+              "radius": 0.026,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "round-nose-2-1",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.end-nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.464,0.072,0.089],
+              "end": [0.464,0.552,0.089],
+              "radius": 0.026,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "porous-core-3",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.absorption",
+            "material": "fiber",
+            "appearance": {
+              "color": "#b6b2a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.41,0.492,0.056]
+            },
+            "transform": {
+              "position": [0.271,0.312,0.264]
+            }
+          },
+          {
+            "id": "side-skin-3",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.perforated-cover",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.392,0.47,0.0039]
+            },
+            "transform": {
+              "position": [0.271,0.312,0.29200000000000004]
+            }
+          },
+          {
+            "id": "round-nose-3-0",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.end-nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.067,0.072,0.264],
+              "end": [0.067,0.552,0.264],
+              "radius": 0.026,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "round-nose-3-1",
+            "semanticType": "mep.ahu.air-handler-acoustic-splitter.end-nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.464,0.072,0.264],
+              "end": [0.464,0.552,0.264],
+              "radius": 0.026,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0.31,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.541,0.31,0],
+            "direction": [1,0,0]
+          },
+          "base": {
+            "position": [0.2705,0.02,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.lipped-industrial-metal-cladding-external-corner",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带卷边厂房外墙阳角包边",
+  "summary": "两翼、折角与两侧内收卷口为实体薄钢截面，覆盖正交外墙边缘。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.industrial.lipped-factory-external-corner",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "钢结构",
+    "厂房",
+    "阳角",
+    "包边",
+    "卷边"
+  ],
+  "anchors": [
+    "base",
+    "left-sheet",
+    "right-sheet"
+  ],
+  "ai": {
+    "intent": "把独立外阳角覆盖到两路竖向围护板缝。",
+    "editableParts": [
+      "两翼宽度",
+      "折边",
+      "竖向高度"
+    ],
+    "qualityChecks": [
+      "两翼法向相差直角。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "lipped-industrial-metal-cladding-external-corner",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "external-fold",
+            "semanticType": "construction.industrial.factory-external-corner-flash.exterior-sheet",
+            "material": "steel",
+            "appearance": {
+              "color": "#85999e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.58,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.124,0],
+                [0,0],
+                [0,0.124],
+                [-0.014,0.124],
+                [-0.014,0.12],
+                [-0.004,0.12],
+                [-0.004,0.004],
+                [-0.12,0.004],
+                [-0.12,0.014],
+                [-0.124,0.014]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "left-sheet": {
+            "position": [0.069,0.79,0.004],
+            "direction": [0,0,1]
+          },
+          "right-sheet": {
+            "position": [0.004,0.79,0.069],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

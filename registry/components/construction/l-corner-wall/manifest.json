@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "0.1", "id": "construction.l-corner-wall", "version": "0.1.0", "kind": "component",
+  "title": "L 形转角墙", "summary": "沿局部 +X、+Z 延伸的连续直角墙段，两向长度、墙高和厚度可调。",
+  "license": "Apache-2.0", "semanticType": "construction.partition-wall.corner",
+  "capabilities": ["resize", "attach", "material"], "tags": ["建筑", "隔墙", "转角", "墙体", "基础构件"],
+  "parameters": {
+    "lengthX": { "type": "number", "unit": "m", "default": 2.4 },
+    "lengthZ": { "type": "number", "unit": "m", "default": 1.8 },
+    "wallHeight": { "type": "number", "unit": "m", "default": 2.8 },
+    "thickness": { "type": "number", "unit": "m", "default": 0.15 }
+  },
+  "anchors": ["x-end", "z-end"],
+  "editor": { "document": { "id": "l-corner-wall", "component": "core.composition", "parameters": {
+    "nodes": [{ "id": "wall", "semanticType": "construction.partition-wall.corner", "material": "plaster",
+      "appearance": { "color": "#c2b8a6" }, "geometry": { "type": "l-corner-wall", "lengthX": 2.4, "lengthZ": 1.8,
+        "wallHeight": 2.8, "thickness": 0.15 } }],
+    "anchors": {
+      "x-end": { "node": "wall", "onGeometry": { "type": "feature", "name": "x-end" } },
+      "z-end": { "node": "wall", "onGeometry": { "type": "feature", "name": "z-end" } }
+    }
+  } } }
+}

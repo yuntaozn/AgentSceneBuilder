@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.roof-eave-drip-edge",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "檐口滴水泛水",
+  "summary": "薄板边缘下挂后外折，形成向下引水的檐口收边。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.drip-edge",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "沿檐口表达边缘压边和滴水折边。",
+    "editableParts": [
+      "调整分段长度与薄板折线。"
+    ],
+    "qualityChecks": [
+      "安装时外折边朝屋外。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "roof-eave-drip-edge",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "edge",
+            "semanticType": "construction.roof.drip-edge",
+            "material": "metal",
+            "appearance": {
+              "color": "#a1b0b6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.2,0,0],
+                [1.2,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.045,0.01],
+                [0.077,0.01],
+                [0.077,0.003],
+                [-0.045,0.003],
+                [-0.045,-0.045],
+                [-0.068,-0.057],
+                [-0.071,-0.05],
+                [-0.052,-0.04],
+                [-0.052,0.01]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

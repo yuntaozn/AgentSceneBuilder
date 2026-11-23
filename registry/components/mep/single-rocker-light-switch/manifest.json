@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.single-rocker-light-switch",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "单联翘板开关面板",
+  "summary": "安装框有真实开口，翘板独立绕内水平轴切换。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.electric.rocker-switch",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "电气",
+    "电气面板"
+  ],
+  "anchors": [
+    "mount",
+    "actuation"
+  ],
+  "ai": {
+    "intent": "将面板作为独立电气器件放到暗装盒上。",
+    "editableParts": [
+      "调整框、翘板和转轴。"
+    ],
+    "qualityChecks": [
+      "翘板与面框之间保留安装间隙。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "single-rocker-light-switch",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cover",
+            "semanticType": "electric.rocker-switch.cover",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d2dce0"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.006]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.046,-0.055],
+                [0.046,-0.055],
+                [0.046,0.055],
+                [-0.046,0.055]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.026,-0.0345],
+                  [0.026,-0.0345],
+                  [0.026,0.0345],
+                  [-0.026,0.0345]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "insert",
+            "semanticType": "electric.rocker-switch.body",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.083,0.027]
+            },
+            "transform": {
+              "position": [0,0,-0.014]
+            }
+          },
+          {
+            "id": "rocker-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0.0075]
+            }
+          },
+          {
+            "id": "rocker",
+            "semanticType": "electric.rocker-switch.plate",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a2b7c3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.049,0.065,0.008]
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "rocker-axis"
+          },
+          {
+            "id": "mark",
+            "semanticType": "electric.rocker-switch.mark",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.002,0.001]
+            },
+            "transform": {
+              "position": [0,0.018,0.0045]
+            },
+            "parent": "rocker-axis"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "actuation": {
+            "node": "rocker-axis",
+            "position": [0,0.022,0.004],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "toggle-rocker",
+            "target": "rocker-axis",
+            "property": "rotation",
+            "from": [0.085,0,0],
+            "to": [-0.085,0,0],
+            "duration": 0.32,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

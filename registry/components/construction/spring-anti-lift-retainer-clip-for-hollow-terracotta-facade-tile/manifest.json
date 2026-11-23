@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.spring-anti-lift-retainer-clip-for-hollow-terracotta-facade-tile",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "干挂陶板弹性防上窜扣",
+  "summary": "薄弹片压在背槽，下座长孔允许贴近承轨，可观察卡舌压入。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.rainscreen.terracotta-anti-lift-retainer",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "干挂外墙",
+    "陶板",
+    "防上窜",
+    "弹片"
+  ],
+  "anchors": [
+    "rail",
+    "tile"
+  ],
+  "ai": {
+    "intent": "薄弹片压在背槽，下座长孔允许贴近承轨，可观察卡舌压入。",
+    "editableParts": [
+      "可分别编辑 anti-lift-slotted-back、spring-tongue-slide、elastic-folded-tongue。"
+    ],
+    "qualityChecks": [
+      "弹片可下压，背板长孔不随弹片移动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "spring-anti-lift-retainer-clip-for-hollow-terracotta-facade-tile",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "anti-lift-slotted-back",
+            "semanticType": "construction.rainscreen.anti-lift.back",
+            "material": "steel",
+            "appearance": {
+              "color": "#899c9c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.007]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.039,-0.0335],
+                [0.039,-0.0335],
+                [0.039,0.0335],
+                [-0.039,0.0335]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.007,-0.0135],
+                  [0.007,-0.0135],
+                  [0.007,0.0135],
+                  [-0.007,0.0135]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "spring-tongue-slide",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "elastic-folded-tongue",
+            "semanticType": "construction.rainscreen.anti-lift.flex",
+            "material": "steel",
+            "appearance": {
+              "color": "#4c6269"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.028,0,0],
+                [0.028,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.006,0.018],
+                [-0.028,0.018],
+                [-0.04,0.005],
+                [-0.052,0.005],
+                [-0.052,-0.004],
+                [-0.036,-0.004],
+                [-0.024,0.01],
+                [-0.006,0.01]
+              ],
+              "closedProfile": true
+            },
+            "parent": "spring-tongue-slide"
+          }
+        ],
+        "anchors": {
+          "rail": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "tile": {
+            "position": [0,0.001,0.052],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "depress-spring-tab",
+            "target": "spring-tongue-slide",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,-0.01,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

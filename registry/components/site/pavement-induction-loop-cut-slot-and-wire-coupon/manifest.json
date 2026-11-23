@@ -1,0 +1,176 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.pavement-induction-loop-cut-slot-and-wire-coupon",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "停车地感线圈与切槽路面剖件",
+  "summary": "混凝土剖片内有连续矩形切槽，可单独查看埋线和中心路面。",
+  "license": "Apache-2.0",
+  "semanticType": "site.parking.parking-induction-loop",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "停车与慢行",
+    "地感线圈",
+    "停车检测",
+    "切槽"
+  ],
+  "anchors": [
+    "surface",
+    "lead",
+    "base"
+  ],
+  "ai": {
+    "intent": "混凝土剖片内有连续矩形切槽，可单独查看埋线和中心路面。",
+    "editableParts": [
+      "可分别编辑 pavement-bottom、outer-road-slab、isolated-pavement-core、loop-conductor、short-lead-channel。"
+    ],
+    "qualityChecks": [
+      "矩形切槽贯通表层，导线可独立编辑。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "pavement-induction-loop-cut-slot-and-wire-coupon",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "pavement-bottom",
+            "semanticType": "site.parking.loop.underlay",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5a092"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.076,0],
+                [0,-0.021,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.6585,-0.4085],
+                [0.6585,-0.4085],
+                [0.6585,0.4085],
+                [-0.6585,0.4085]
+              ],
+              "closedProfile": true,
+              "holes": []
+            }
+          },
+          {
+            "id": "outer-road-slab",
+            "semanticType": "site.parking.loop.exterior-paving",
+            "material": "asphalt",
+            "appearance": {
+              "color": "#777d7c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.021,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.6585,-0.4085],
+                [0.6585,-0.4085],
+                [0.6585,0.4085],
+                [-0.6585,0.4085]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.5575,-0.336],
+                  [-0.5575,-0.336],
+                  [-0.5575,0.336],
+                  [0.5575,0.336]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "isolated-pavement-core",
+            "semanticType": "site.parking.loop.interior-paving",
+            "material": "asphalt",
+            "appearance": {
+              "color": "#777d7c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.021,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.535,-0.3105],
+                [0.535,-0.3105],
+                [0.535,0.3105],
+                [-0.535,0.3105]
+              ],
+              "closedProfile": true,
+              "holes": []
+            }
+          },
+          {
+            "id": "loop-conductor",
+            "semanticType": "site.parking.loop.embedded-conductor",
+            "material": "steel",
+            "appearance": {
+              "color": "#c09555"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.546,-0.012,-0.323],
+                [0.546,-0.012,-0.323],
+                [0.546,-0.012,0.323],
+                [-0.546,-0.012,0.323],
+                [-0.546,-0.012,-0.323]
+              ],
+              "radius": 0.0035
+            }
+          },
+          {
+            "id": "short-lead-channel",
+            "semanticType": "site.parking.loop.lead",
+            "material": "steel",
+            "appearance": {
+              "color": "#c09555"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.546,-0.012,0.323],
+                [-0.646,-0.012,0.394],
+                [-0.673,-0.012,0.405]
+              ],
+              "radius": 0.0033
+            }
+          }
+        ],
+        "anchors": {
+          "surface": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "lead": {
+            "position": [-0.673,-0.012,0.405],
+            "direction": [-1,0,0]
+          },
+          "base": {
+            "position": [0,-0.076,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

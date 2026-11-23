@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.wall-mounted-washroom-waste-bin-with-lid",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "壁挂翻盖废纸桶",
+  "summary": "实际空腔、壁装座、独立翻盖和盖轴，便于观察清理空间。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.public-washroom.flip-lid-wall-waste-bin",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "废纸桶",
+    "翻盖",
+    "壁挂"
+  ],
+  "anchors": [
+    "wall",
+    "top"
+  ],
+  "ai": {
+    "intent": "在公共卫浴中把废纸桶位置与盖子开启空间分开。",
+    "editableParts": [
+      "壁挂座",
+      "桶身",
+      "底托",
+      "活动盖"
+    ],
+    "qualityChecks": [
+      "盖子转动不影响壁挂座。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "wall-mounted-washroom-waste-bin-with-lid",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-catch",
+            "semanticType": "mep.public-washroom.flip-lid-wall-waste-bin.hanger",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.236,0.075,0.016]
+            },
+            "transform": {
+              "position": [0,0.128,0.008]
+            }
+          },
+          {
+            "id": "open-body",
+            "semanticType": "mep.public-washroom.flip-lid-wall-waste-bin.body",
+            "material": "polymer",
+            "appearance": {
+              "color": "#dedbcf"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.24,0.132],
+                [0,0.216,0.132]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.156,-0.1145],
+                [0.156,-0.1145],
+                [0.156,0.1145],
+                [-0.156,0.1145]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.143,-0.102],
+                  [0.143,-0.102],
+                  [0.143,0.102],
+                  [-0.143,0.102]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "floor-tray",
+            "semanticType": "mep.public-washroom.flip-lid-wall-waste-bin.bottom",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.306,0.022,0.222]
+            },
+            "transform": {
+              "position": [0,-0.231,0.132]
+            }
+          },
+          {
+            "id": "lid-pin",
+            "semanticType": "mep.public-washroom.flip-lid-wall-waste-bin.hinge",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.157,0.216,0.033],
+              "end": [0.157,0.216,0.033],
+              "radius": 0.0052,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "lid-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.216,0.033]
+            }
+          },
+          {
+            "id": "lift-lid",
+            "semanticType": "mep.public-washroom.flip-lid-wall-waste-bin.lid",
+            "material": "polymer",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.322,0.012,0.237]
+            },
+            "transform": {
+              "position": [0,0.007,0.1]
+            },
+            "parent": "lid-axis"
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [0,0.128,0],
+            "direction": [0,0,-1]
+          },
+          "top": {
+            "position": [0,0.223,0.134],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "open-bin-cover",
+            "target": "lid-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [-0.91,0,0],
+            "duration": 0.8,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.steel-i-column",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "H 形钢柱",
+  "summary": "立向 H 形钢柱，柱脚在局部 Y=0，柱头锚点随长度更新。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.steel-i-column",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "结构",
+    "钢柱",
+    "H型钢",
+    "基础构件"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.7
+    },
+    "sectionWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.2
+    },
+    "sectionHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.22
+    },
+    "webThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.008
+    },
+    "flangeThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.012
+    }
+  },
+  "anchors": [
+    "base",
+    "head"
+  ],
+  "ai": {
+    "intent": "用于柱脚底板至钢梁的立向拼装。",
+    "qualityChecks": [
+      "保持柱脚与底板上表面重合。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "steel-i-column",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.steel-i-column",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-i-section",
+              "length": 2.7,
+              "sectionWidth": 0.2,
+              "sectionHeight": 0.22,
+              "webThickness": 0.008,
+              "flangeThickness": 0.012
+            },
+            "transform": {
+              "rotation": [0,0,1.5707963267948966]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

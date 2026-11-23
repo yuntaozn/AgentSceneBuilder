@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.four-hole-inline-strut-splice-plate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "槽钢四孔直拼板",
+  "summary": "一块连板跨过两段槽钢的接缝，四个独立固定孔可布置槽螺母。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.service-support.inline-splice",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "机电安装",
+    "槽钢",
+    "拼接板",
+    "支架"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "left-a",
+    "left-b",
+    "right-a",
+    "right-b"
+  ],
+  "ai": {
+    "intent": "一块连板跨过两段槽钢的接缝，四个独立固定孔可布置槽螺母。",
+    "editableParts": [
+      "分别编辑 splice 的形状、尺寸或位置。"
+    ],
+    "qualityChecks": [
+      "四孔贯通，两段受力面位于同一标高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "four-hole-inline-strut-splice-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "splice",
+            "semanticType": "mep.support.strut.splice-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9da0"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.112,-0.021],
+                [0.112,-0.021],
+                [0.112,0.021],
+                [-0.112,0.021]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0955,-0.005],
+                  [0.07849999999999999,-0.005],
+                  [0.07849999999999999,0.005],
+                  [0.0955,0.005]
+                ],
+                [
+                  [0.0475,-0.005],
+                  [0.0305,-0.005],
+                  [0.0305,0.005],
+                  [0.0475,0.005]
+                ],
+                [
+                  [-0.0305,-0.005],
+                  [-0.0475,-0.005],
+                  [-0.0475,0.005],
+                  [-0.0305,0.005]
+                ],
+                [
+                  [-0.07849999999999999,-0.005],
+                  [-0.0955,-0.005],
+                  [-0.0955,0.005],
+                  [-0.07849999999999999,0.005]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.063,0,0],
+            "direction": [0,-1,0]
+          },
+          "right": {
+            "position": [0.063,0,0],
+            "direction": [0,-1,0]
+          },
+          "left-a": {
+            "position": [-0.087,0.008,0],
+            "direction": [0,1,0]
+          },
+          "left-b": {
+            "position": [-0.039,0.008,0],
+            "direction": [0,1,0]
+          },
+          "right-a": {
+            "position": [0.039,0.008,0],
+            "direction": [0,1,0]
+          },
+          "right-b": {
+            "position": [0.087,0.008,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

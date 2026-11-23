@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.precast-double-tee-slab",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "锥形双肋预制双 T 板",
+  "summary": "钢筋混凝土双 T 形截面，带四个肋底支座与两侧板边基准。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.floor.precast-double-tee-slab",
+  "capabilities": [
+    "resize",
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "双T板",
+    "楼板",
+    "双肋"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.6
+    },
+    "width": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.14
+    },
+    "depth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.32
+    },
+    "flangeThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.066
+    },
+    "stemTopWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.144
+    },
+    "stemBottomWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.113
+    },
+    "stemSpacing": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.64
+    },
+    "bearingInset": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.1
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "top",
+    "near-edge",
+    "far-edge",
+    "start-near-bearing",
+    "start-far-bearing",
+    "end-near-bearing",
+    "end-far-bearing"
+  ],
+  "ai": {
+    "intent": "以两道独立板肋表示双 T 板支承与板边接口。",
+    "editableParts": [
+      "面板厚度",
+      "两肋中心距",
+      "上下肋宽",
+      "支点距端"
+    ],
+    "qualityChecks": [
+      "两肋分开并完整连接到面板底。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "precast-double-tee-slab",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.floor.precast-double-tee-slab",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b4aca0"
+            },
+            "geometry": {
+              "type": "precast-double-tee-slab",
+              "length": 2.6,
+              "width": 1.14,
+              "depth": 0.32,
+              "flangeThickness": 0.066,
+              "stemTopWidth": 0.144,
+              "stemBottomWidth": 0.113,
+              "stemSpacing": 0.64,
+              "bearingInset": 0.1
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "top": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top"
+            }
+          },
+          "near-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "near-edge"
+            }
+          },
+          "far-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "far-edge"
+            }
+          },
+          "start-near-bearing": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start-near-bearing"
+            }
+          },
+          "start-far-bearing": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start-far-bearing"
+            }
+          },
+          "end-near-bearing": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end-near-bearing"
+            }
+          },
+          "end-far-bearing": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end-far-bearing"
+            }
+          }
+        }
+      }
+    }
+  }
+}

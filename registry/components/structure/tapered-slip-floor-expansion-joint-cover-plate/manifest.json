@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.tapered-slip-floor-expansion-joint-cover-plate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "地面变形缝双斜坡滑盖板",
+  "summary": "中间桥盖跨过缝口，边缘薄翼贴地，固定孔和滑槽可以独立定位。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.movement-joint.slip-floor-cover",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "结构节点",
+    "滑盖",
+    "盖缝板",
+    "地面变形缝"
+  ],
+  "anchors": [
+    "left-runner",
+    "right-runner"
+  ],
+  "ai": {
+    "intent": "中间桥盖跨过缝口，边缘薄翼贴地，固定孔和滑槽可以独立定位。",
+    "editableParts": [
+      "可分别编辑 central-plate、sloping-edge-1、sloping-edge-2、bearing-shim-1、bearing-shim-2。"
+    ],
+    "qualityChecks": [
+      "两侧滑垫等高，中间金属板压过缝口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "tapered-slip-floor-expansion-joint-cover-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "central-plate",
+            "semanticType": "structure.movement-joint.joint-cover.body",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6a8388"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.008,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.1135,-0.3505],
+                [0.1135,-0.3505],
+                [0.1135,0.3505],
+                [-0.1135,0.3505]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.08399999999999999,-0.234],
+                  [0.066,-0.234],
+                  [0.066,-0.224],
+                  [0.08399999999999999,-0.224]
+                ],
+                [
+                  [0.08399999999999999,0.224],
+                  [0.066,0.224],
+                  [0.066,0.234],
+                  [0.08399999999999999,0.234]
+                ],
+                [
+                  [-0.066,-0.234],
+                  [-0.08399999999999999,-0.234],
+                  [-0.08399999999999999,-0.224],
+                  [-0.066,-0.224]
+                ],
+                [
+                  [-0.066,0.224],
+                  [-0.08399999999999999,0.224],
+                  [-0.08399999999999999,0.234],
+                  [-0.066,0.234]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "sloping-edge-1",
+            "semanticType": "structure.movement-joint.joint-cover.taper-wing",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.3505],
+                [0,0,0.3505]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.111,-0.008],
+                [-0.158,-0.008],
+                [-0.158,-0.005],
+                [-0.111,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "sloping-edge-2",
+            "semanticType": "structure.movement-joint.joint-cover.taper-wing",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.3505],
+                [0,0,0.3505]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.111,-0.008],
+                [0.158,-0.008],
+                [0.158,-0.005],
+                [0.111,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bearing-shim-1",
+            "semanticType": "structure.movement-joint.joint-cover.slide-pad",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.069,0.011,0.632]
+            },
+            "transform": {
+              "position": [-0.125,-0.0135,0]
+            }
+          },
+          {
+            "id": "bearing-shim-2",
+            "semanticType": "structure.movement-joint.joint-cover.slide-pad",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.069,0.011,0.632]
+            },
+            "transform": {
+              "position": [0.125,-0.0135,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left-runner": {
+            "position": [-0.125,-0.019,0],
+            "direction": [0,-1,0]
+          },
+          "right-runner": {
+            "position": [0.125,-0.019,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

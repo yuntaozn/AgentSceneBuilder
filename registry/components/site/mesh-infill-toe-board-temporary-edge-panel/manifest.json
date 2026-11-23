@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.mesh-infill-toe-board-temporary-edge-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带踢脚板施工临边网片",
+  "summary": "现场栏板网芯、矩管框、独立下挡脚和四处挂位，直接接夹柱。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-site.temporary-slab-edge-infill",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "临边",
+    "安全网",
+    "踢脚板"
+  ],
+  "anchors": [
+    "left-low",
+    "right-low",
+    "left-high",
+    "right-high"
+  ],
+  "ai": {
+    "intent": "用网片和下挡片填在两只临边夹柱之间。",
+    "editableParts": [
+      "边框",
+      "网丝",
+      "下部踢脚",
+      "挂点"
+    ],
+    "qualityChecks": [
+      "网格透视，四个挂点与柱槽对应。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "mesh-infill-toe-board-temporary-edge-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "side-0",
+            "semanticType": "site.inspection-site.temp-panel-infill.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.032,0.84,0.028]
+            },
+            "transform": {
+              "position": [-0.584,0.566,0]
+            }
+          },
+          {
+            "id": "side-1",
+            "semanticType": "site.inspection-site.temp-panel-infill.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.032,0.84,0.028]
+            },
+            "transform": {
+              "position": [0.584,0.566,0]
+            }
+          },
+          {
+            "id": "cross-bar-0",
+            "semanticType": "site.inspection-site.temp-panel-infill.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.178,0.034,0.029]
+            },
+            "transform": {
+              "position": [0,0.167,0]
+            }
+          },
+          {
+            "id": "cross-bar-1",
+            "semanticType": "site.inspection-site.temp-panel-infill.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.178,0.034,0.029]
+            },
+            "transform": {
+              "position": [0,0.972,0]
+            }
+          },
+          {
+            "id": "toe-board",
+            "semanticType": "site.inspection-site.temp-panel-infill.toe",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.155,0.147,0.012]
+            },
+            "transform": {
+              "position": [0,0.092,0.011]
+            }
+          },
+          {
+            "id": "grid-u",
+            "semanticType": "site.inspection-site.temp-panel-infill.wire",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.178,0.004],
+              "end": [0,0.954,0.004],
+              "radius": 0.0025,
+              "radialSegments": 20
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 16,
+              "start": [-0.543,0,0],
+              "step": [0.0724,0,0]
+            }
+          },
+          {
+            "id": "grid-v",
+            "semanticType": "site.inspection-site.temp-panel-infill.wire",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.568,0,0],
+              "end": [0.568,0,0],
+              "radius": 0.0025,
+              "radialSegments": 20
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 10,
+              "start": [0,0.191,0.004],
+              "step": [0,0.084,0]
+            }
+          },
+          {
+            "id": "hook-anchor-0-0",
+            "semanticType": "site.inspection-site.temp-panel-infill.hanging-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.048,0.027]
+            },
+            "transform": {
+              "position": [-0.589,0.414,0]
+            }
+          },
+          {
+            "id": "hook-anchor-0-1",
+            "semanticType": "site.inspection-site.temp-panel-infill.hanging-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.069,0.027]
+            },
+            "transform": {
+              "position": [-0.589,1.007,0]
+            }
+          },
+          {
+            "id": "hook-anchor-1-0",
+            "semanticType": "site.inspection-site.temp-panel-infill.hanging-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.048,0.027]
+            },
+            "transform": {
+              "position": [0.589,0.414,0]
+            }
+          },
+          {
+            "id": "hook-anchor-1-1",
+            "semanticType": "site.inspection-site.temp-panel-infill.hanging-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.069,0.027]
+            },
+            "transform": {
+              "position": [0.589,1.007,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left-low": {
+            "position": [-0.6,0.414,0],
+            "direction": [0,0,-1]
+          },
+          "right-low": {
+            "position": [0.6,0.414,0],
+            "direction": [0,0,-1]
+          },
+          "left-high": {
+            "position": [-0.6,1.036,0],
+            "direction": [0,0,-1]
+          },
+          "right-high": {
+            "position": [0.6,1.036,0],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

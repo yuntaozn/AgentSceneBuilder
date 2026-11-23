@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.double-wing-pv-module-mid-clamp",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双翼光伏组件中压夹具",
+  "summary": "两侧等高压翼跨过组件中缝，中央T形紧固件对齐安装导轨。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.photovoltaic.double-wing-module-mid-clamp",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "光伏",
+    "屋面光伏",
+    "中压块",
+    "压块"
+  ],
+  "anchors": [
+    "rail",
+    "left-lip",
+    "right-lip"
+  ],
+  "ai": {
+    "intent": "在相邻两块组件的边框之间放置中压件。",
+    "editableParts": [
+      "开槽压片",
+      "平行双翼",
+      "螺栓和T螺母"
+    ],
+    "qualityChecks": [
+      "两压翼同高，轨槽中心与模块中缝相接。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-wing-pv-module-mid-clamp",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "clamp-cap",
+            "semanticType": "mep.photovoltaic.module-mid-clamp.saddle",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.031],
+                [0,0,0.031]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.038,0.043],
+                [-0.012,0.043],
+                [-0.012,0.027],
+                [0.012,0.027],
+                [0.012,0.043],
+                [0.038,0.043],
+                [0.038,0.052],
+                [-0.038,0.052]
+              ]
+            }
+          },
+          {
+            "id": "bolt-stem",
+            "semanticType": "mep.photovoltaic.module-mid-clamp.bolt",
+            "material": "steel",
+            "appearance": {
+              "color": "#50636f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.017,0],
+              "end": [0,0.056,0],
+              "radius": 0.005,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "slot-nut",
+            "semanticType": "mep.photovoltaic.module-mid-clamp.sliding-nut",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#50636f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.008,0.018]
+            },
+            "transform": {
+              "position": [0,-0.012,0]
+            }
+          },
+          {
+            "id": "bolt-cap",
+            "semanticType": "mep.photovoltaic.module-mid-clamp.bolt-head",
+            "material": "steel",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.054,0],
+                [0,0.062,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.009,0],
+                [0.0045000000000000005,0.007794228634059947],
+                [-0.004499999999999998,0.007794228634059948],
+                [-0.009,1.1021821192326178e-18],
+                [-0.004500000000000004,-0.0077942286340599454],
+                [0.0045000000000000005,-0.007794228634059947]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "rail": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "left-lip": {
+            "position": [-0.011,0.043,0],
+            "direction": [-1,0,0]
+          },
+          "right-lip": {
+            "position": [0.011,0.043,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,252 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.isolated-pump-inertia-plinth",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "泵组隔振惯性台座",
+  "summary": "混凝土惯性块和四只弹性隔振支座组成的模型，可单独检查设备和地坪交界。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.plant.isolated-plinth",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "泵房",
+    "给排水"
+  ],
+  "anchors": [
+    "base",
+    "top"
+  ],
+  "ai": {
+    "intent": "给设备落座留出隔振空隙并单独编辑四组支座。",
+    "editableParts": [
+      "混凝土惯性块",
+      "弹性体",
+      "支座钢板"
+    ],
+    "qualityChecks": [
+      "台座上表面与泵座贴合，四只支脚共面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "isolated-pump-inertia-plinth",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inertia-block",
+            "semanticType": "mep.plant.pump-isolation.inertia-block",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a9a39a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.04,0.145,0.6]
+            },
+            "transform": {
+              "position": [0,0.18,0]
+            }
+          },
+          {
+            "id": "bottom-plate-0-0",
+            "semanticType": "mep.plant.pump-isolation.bottom-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#496a7c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.012,0.13]
+            },
+            "transform": {
+              "position": [-0.378,0.006,-0.206]
+            }
+          },
+          {
+            "id": "elastomer-0-0",
+            "semanticType": "mep.plant.pump-isolation.body",
+            "material": "steel",
+            "appearance": {
+              "color": "#4c6069"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.378,0.012,-0.206],
+              "end": [-0.378,0.094,-0.206],
+              "radius": 0.049,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "top-plate-0-0",
+            "semanticType": "mep.plant.pump-isolation.top-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#899fac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.0135,0.13]
+            },
+            "transform": {
+              "position": [-0.378,0.10075,-0.206]
+            }
+          },
+          {
+            "id": "bottom-plate-0-1",
+            "semanticType": "mep.plant.pump-isolation.bottom-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#496a7c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.012,0.13]
+            },
+            "transform": {
+              "position": [-0.378,0.006,0.206]
+            }
+          },
+          {
+            "id": "elastomer-0-1",
+            "semanticType": "mep.plant.pump-isolation.body",
+            "material": "steel",
+            "appearance": {
+              "color": "#4c6069"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.378,0.012,0.206],
+              "end": [-0.378,0.094,0.206],
+              "radius": 0.049,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "top-plate-0-1",
+            "semanticType": "mep.plant.pump-isolation.top-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#899fac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.0135,0.13]
+            },
+            "transform": {
+              "position": [-0.378,0.10075,0.206]
+            }
+          },
+          {
+            "id": "bottom-plate-1-0",
+            "semanticType": "mep.plant.pump-isolation.bottom-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#496a7c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.012,0.13]
+            },
+            "transform": {
+              "position": [0.378,0.006,-0.206]
+            }
+          },
+          {
+            "id": "elastomer-1-0",
+            "semanticType": "mep.plant.pump-isolation.body",
+            "material": "steel",
+            "appearance": {
+              "color": "#4c6069"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.378,0.012,-0.206],
+              "end": [0.378,0.094,-0.206],
+              "radius": 0.049,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "top-plate-1-0",
+            "semanticType": "mep.plant.pump-isolation.top-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#899fac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.0135,0.13]
+            },
+            "transform": {
+              "position": [0.378,0.10075,-0.206]
+            }
+          },
+          {
+            "id": "bottom-plate-1-1",
+            "semanticType": "mep.plant.pump-isolation.bottom-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#496a7c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.012,0.13]
+            },
+            "transform": {
+              "position": [0.378,0.006,0.206]
+            }
+          },
+          {
+            "id": "elastomer-1-1",
+            "semanticType": "mep.plant.pump-isolation.body",
+            "material": "steel",
+            "appearance": {
+              "color": "#4c6069"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.378,0.012,0.206],
+              "end": [0.378,0.094,0.206],
+              "radius": 0.049,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "top-plate-1-1",
+            "semanticType": "mep.plant.pump-isolation.top-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#899fac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.0135,0.13]
+            },
+            "transform": {
+              "position": [0.378,0.10075,0.206]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,0.2525,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

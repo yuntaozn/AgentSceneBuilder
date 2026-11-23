@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.clear-labyrinth-inline-drip-emitter",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可见迷宫流道滴头",
+  "summary": "透明面罩下可看到弯折流道，端部小管和底部滴口各有独立接口。",
+  "license": "Apache-2.0",
+  "semanticType": "site.landscape.clear-labyrinth-drip-emitter",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "园林",
+    "景观",
+    "滴灌",
+    "滴头",
+    "教学"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "drip"
+  ],
+  "ai": {
+    "intent": "在透明罩下观察滴头的曲折路径，并独立编辑接口。",
+    "editableParts": [
+      "两端接管",
+      "可见迷宫段",
+      "滴嘴"
+    ],
+    "qualityChecks": [
+      "两个沿线口同轴，滴口朝下。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "clear-labyrinth-inline-drip-emitter",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "incoming",
+            "semanticType": "site.landscape.labyrinth-emitter.supply",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0.018,0,0]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.016,
+              "thickness": 0.002
+            }
+          },
+          {
+            "id": "outgoing",
+            "semanticType": "site.landscape.labyrinth-emitter.supply",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0.109,0,0],
+                [0.127,0,0]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.016,
+              "thickness": 0.002
+            }
+          },
+          {
+            "id": "base",
+            "semanticType": "site.landscape.labyrinth-emitter.base",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.095,0.006,0.048]
+            },
+            "transform": {
+              "position": [0.0635,-0.004,0]
+            }
+          },
+          {
+            "id": "clear-housing",
+            "semanticType": "site.landscape.labyrinth-emitter.housing",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a3b3a7",
+              "opacity": 0.29
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.095,0.012,0.048]
+            },
+            "transform": {
+              "position": [0.0635,0.005,0]
+            }
+          },
+          {
+            "id": "flow-path",
+            "semanticType": "site.landscape.labyrinth-emitter.labyrinth",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a2a884"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.015,0,0],
+                [0.028,0,0],
+                [0.033,0,0.015],
+                [0.045,0,0.015],
+                [0.05,0,-0.015],
+                [0.061,0,-0.015],
+                [0.068,0,0.015],
+                [0.08,0,0.015],
+                [0.085,0,-0.013],
+                [0.095,0,-0.013],
+                [0.103,0,0],
+                [0.111,0,0]
+              ],
+              "radius": 0.0027
+            }
+          },
+          {
+            "id": "drop-nozzle",
+            "semanticType": "site.landscape.labyrinth-emitter.drop",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0.07,-0.022,0.009],
+                [0.07,-0.006,0.009]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.008,
+              "thickness": 0.0015
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0],
+            "outsideDiameter": 0.016,
+            "kind": "pipe-port"
+          },
+          "end": {
+            "position": [0.127,0,0],
+            "direction": [1,0,0],
+            "outsideDiameter": 0.016,
+            "kind": "pipe-port"
+          },
+          "drip": {
+            "position": [0.07,-0.022,0.009],
+            "direction": [0,-1,0],
+            "outsideDiameter": 0.008,
+            "kind": "pipe-port"
+          }
+        }
+      }
+    }
+  }
+}

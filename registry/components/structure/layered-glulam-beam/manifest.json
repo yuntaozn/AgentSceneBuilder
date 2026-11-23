@@ -1,0 +1,111 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.layered-glulam-beam",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "分层胶合木梁",
+  "summary": "沿梁高叠置的十二片长层板，梁端支承和梁顶面分别定位。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.timber.glulam-beam",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "start-bearing",
+    "end-bearing",
+    "slab-center"
+  ],
+  "ai": {
+    "intent": "在木构体系中显示胶合木梁的可编排层片。",
+    "editableParts": [
+      "修改片厚、重复数量与梁长。"
+    ],
+    "qualityChecks": [
+      "梁下两端和上表面各有独立位置。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "layered-glulam-beam",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lamella-0",
+            "semanticType": "structure.timber.glulam-beam.lamella",
+            "material": "glulam",
+            "appearance": {
+              "color": "#bb986f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [3.6,0.025,0.16]
+            },
+            "transform": {
+              "position": [1.8,0,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [0,0.0125,0],
+              "step": [0,0.05,0]
+            }
+          },
+          {
+            "id": "lamella-1",
+            "semanticType": "structure.timber.glulam-beam.lamella",
+            "material": "glulam",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [3.6,0.025,0.16]
+            },
+            "transform": {
+              "position": [1.8,0,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [0,0.0375,0],
+              "step": [0,0.05,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0.15,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [3.6,0.15,0],
+            "direction": [1,0,0]
+          },
+          "start-bearing": {
+            "position": [0.1,0,0],
+            "direction": [0,-1,0]
+          },
+          "end-bearing": {
+            "position": [3.5,0,0],
+            "direction": [0,-1,0]
+          },
+          "slab-center": {
+            "position": [1.8,0.3,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

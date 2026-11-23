@@ -43,7 +43,7 @@ jobs:
       - name: Verify bundled web assets
         shell: pwsh
         run: |
-          $assets = @('apps/editor/app.bundle.js', 'apps/editor/chunks', 'apps/library/app.bundle.js')
+          $assets = @('apps/editor/app.bundle.js', 'apps/editor/chunks', 'apps/library/app.bundle.js', 'apps/library/chunks')
           git diff --exit-code -- $assets
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
           $untracked = git ls-files --others --exclude-standard -- $assets

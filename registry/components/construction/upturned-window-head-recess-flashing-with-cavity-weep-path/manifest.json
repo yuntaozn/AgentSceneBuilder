@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.upturned-window-head-recess-flashing-with-cavity-weep-path",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "幕墙窗头引水折板与上翻边",
+  "summary": "窗头金属托水盘向外倾，独立端坝与前排水槽可查看。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.rainscreen.rainscreen-window-head-flashing",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "干挂外墙",
+    "窗头",
+    "折板",
+    "引水"
+  ],
+  "anchors": [
+    "rear",
+    "drip",
+    "side"
+  ],
+  "ai": {
+    "intent": "窗头金属托水盘向外倾，独立端坝与前排水槽可查看。",
+    "editableParts": [
+      "可分别编辑 tapered-water-shed、front-weep-slots、folded-end-dam-1、folded-end-dam-2。"
+    ],
+    "qualityChecks": [
+      "两边端坝高于引水面，前缘保留独立泄口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "upturned-window-head-recess-flashing-with-cavity-weep-path",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tapered-water-shed",
+            "semanticType": "construction.rainscreen.window-head.flashing",
+            "material": "steel",
+            "appearance": {
+              "color": "#899c9c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.455,0,0],
+                [0.455,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0.053],
+                [0,0.009],
+                [-0.167,-0.018],
+                [-0.167,-0.026],
+                [-0.008,0.001],
+                [0.007,0.001],
+                [0.007,0.053]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "front-weep-slots",
+            "semanticType": "construction.rainscreen.window-head.front-vent",
+            "material": "steel",
+            "appearance": {
+              "color": "#4c6269"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.019,0.16],
+                [0,-0.019,0.168]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.4545,-0.0165],
+                [0.4545,-0.0165],
+                [0.4545,0.0165],
+                [-0.4545,0.0165]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3955,-0.004],
+                  [-0.3725,-0.004],
+                  [-0.3725,0.004],
+                  [-0.3955,0.004]
+                ],
+                [
+                  [-0.29950000000000004,-0.004],
+                  [-0.2765,-0.004],
+                  [-0.2765,0.004],
+                  [-0.29950000000000004,0.004]
+                ],
+                [
+                  [-0.20350000000000001,-0.004],
+                  [-0.1805,-0.004],
+                  [-0.1805,0.004],
+                  [-0.20350000000000001,0.004]
+                ],
+                [
+                  [-0.10749999999999997,-0.004],
+                  [-0.08449999999999998,-0.004],
+                  [-0.08449999999999998,0.004],
+                  [-0.10749999999999997,0.004]
+                ],
+                [
+                  [-0.0115,-0.004],
+                  [0.0115,-0.004],
+                  [0.0115,0.004],
+                  [-0.0115,0.004]
+                ],
+                [
+                  [0.08449999999999998,-0.004],
+                  [0.10749999999999997,-0.004],
+                  [0.10749999999999997,0.004],
+                  [0.08449999999999998,0.004]
+                ],
+                [
+                  [0.18050000000000005,-0.004],
+                  [0.20350000000000007,-0.004],
+                  [0.20350000000000007,0.004],
+                  [0.18050000000000005,0.004]
+                ],
+                [
+                  [0.2765,-0.004],
+                  [0.29950000000000004,-0.004],
+                  [0.29950000000000004,0.004],
+                  [0.2765,0.004]
+                ],
+                [
+                  [0.3725,-0.004],
+                  [0.3955,-0.004],
+                  [0.3955,0.004],
+                  [0.3725,0.004]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "folded-end-dam-1",
+            "semanticType": "construction.rainscreen.window-head.end-dam",
+            "material": "steel",
+            "appearance": {
+              "color": "#899c9c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.053,0.155]
+            },
+            "transform": {
+              "position": [-0.45,0.021,0.082]
+            }
+          },
+          {
+            "id": "folded-end-dam-2",
+            "semanticType": "construction.rainscreen.window-head.end-dam",
+            "material": "steel",
+            "appearance": {
+              "color": "#899c9c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.053,0.155]
+            },
+            "transform": {
+              "position": [0.45,0.021,0.082]
+            }
+          }
+        ],
+        "anchors": {
+          "rear": {
+            "position": [0,0.035,-0.007],
+            "direction": [0,0,-1]
+          },
+          "drip": {
+            "position": [0,-0.019,0.168],
+            "direction": [0,0,1]
+          },
+          "side": {
+            "position": [0.455,0.019,0.08],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

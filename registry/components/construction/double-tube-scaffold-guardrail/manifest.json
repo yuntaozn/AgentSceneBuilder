@@ -1,0 +1,190 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.double-tube-scaffold-guardrail",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双横管脚手架护栏",
+  "summary": "上、下独立钢管连接两端插头，可在同一构件中对齐底部和上口。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.scaffold.scaffold-guardrail",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工",
+    "脚手架",
+    "临建"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "lower-start",
+    "lower-end"
+  ],
+  "ai": {
+    "intent": "组织脚手架外缘的两条横栏和端头位置。",
+    "editableParts": [
+      "修改上下管、握端和竖跨。"
+    ],
+    "qualityChecks": [
+      "两层端可分别对齐盘扣。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-tube-scaffold-guardrail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail-0",
+            "semanticType": "construction.scaffold.double-guardrail.tube",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0.062,-0.5,0],
+                [1.738,-0.5,0]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.041,
+              "thickness": 0.0032
+            }
+          },
+          {
+            "id": "rail-1",
+            "semanticType": "construction.scaffold.double-guardrail.tube",
+            "material": "steel",
+            "appearance": {
+              "color": "#8499a3"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0.062,0,0],
+                [1.738,0,0]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.041,
+              "thickness": 0.0032
+            }
+          },
+          {
+            "id": "spine-0",
+            "semanticType": "construction.scaffold.double-guardrail.vertical",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.07,-0.539,0],
+              "end": [0.07,0.029,0],
+              "radius": 0.015,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "hook-0-0",
+            "semanticType": "construction.scaffold.double-guardrail.hook",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.082,0.042,0.047]
+            },
+            "transform": {
+              "position": [0.07,-0.5,0]
+            }
+          },
+          {
+            "id": "hook-0-1",
+            "semanticType": "construction.scaffold.double-guardrail.hook",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.082,0.042,0.047]
+            },
+            "transform": {
+              "position": [0.07,0,0]
+            }
+          },
+          {
+            "id": "spine-1",
+            "semanticType": "construction.scaffold.double-guardrail.vertical",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.73,-0.539,0],
+              "end": [1.73,0.029,0],
+              "radius": 0.015,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "hook-1-0",
+            "semanticType": "construction.scaffold.double-guardrail.hook",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.082,0.042,0.047]
+            },
+            "transform": {
+              "position": [1.73,-0.5,0]
+            }
+          },
+          {
+            "id": "hook-1-1",
+            "semanticType": "construction.scaffold.double-guardrail.hook",
+            "material": "steel",
+            "appearance": {
+              "color": "#566d7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.082,0.042,0.047]
+            },
+            "transform": {
+              "position": [1.73,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0.062,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [1.738,0,0],
+            "direction": [1,0,0]
+          },
+          "lower-start": {
+            "position": [0.062,-0.5,0],
+            "direction": [-1,0,0]
+          },
+          "lower-end": {
+            "position": [1.738,-0.5,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

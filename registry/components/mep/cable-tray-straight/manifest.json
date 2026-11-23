@@ -1,0 +1,43 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.cable-tray-straight",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "U 形电缆桥架 · 直线段",
+  "summary": "沿开放中心线扫掠的金属 U 形桥架。默认长 1.5 m，外宽 300 mm，外高 100 mm，壁厚 2 mm。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.cable-tray",
+  "capabilities": ["path-edit", "resize", "inspect-structure", "attach"],
+  "tags": ["MEP", "桥架", "电气", "基础构件"],
+  "anchors": ["start", "end"],
+  "ai": {
+    "intent": "在电气线路中复用带方向锚点的直线桥架，与同截面的水平弯头对接。",
+    "editableParts": ["tray.geometry.points 控制路径端点和长度", "tray.geometry.profile 控制截面和壁厚"],
+    "qualityChecks": ["两端连接点跟随当前路径，方向沿各自端部向外。", "与弯头对接时确认两端截面一致。"]
+  },
+  "editor": {
+    "document": {
+      "id": "cable-tray-straight",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [{
+          "id": "tray",
+          "semanticType": "mep.cable-tray",
+          "material": "galvanized-steel",
+          "appearance": { "color": "#8ea2b5", "roughness": 0.55, "metalness": 0.45 },
+          "geometry": {
+            "type": "sweep",
+            "points": [[0,0,0], [0,0,1.5]],
+            "up": [0,1,0],
+            "closedProfile": true,
+            "profile": [[-0.15,0], [0.15,0], [0.15,0.1], [0.148,0.1], [0.148,0.002], [-0.148,0.002], [-0.148,0.1], [-0.15,0.1]]
+          }
+        }],
+        "anchors": {
+          "start": { "node": "tray", "onGeometry": { "type": "sweep-end", "end": "start" } },
+          "end": { "node": "tray", "onGeometry": { "type": "sweep-end", "end": "end" } }
+        }
+      }
+    }
+  }
+}

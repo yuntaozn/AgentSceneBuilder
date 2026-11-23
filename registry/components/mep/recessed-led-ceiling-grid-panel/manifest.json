@@ -1,0 +1,209 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.recessed-led-ceiling-grid-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "明架吊顶 LED 方形平板灯",
+  "summary": "带方形挡边与面扩散板，外框可直接对齐吊顶网格。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.lighting.ceiling-grid-led-panel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "水电",
+    "照明",
+    "基础构件",
+    "面板灯",
+    "吊顶",
+    "格栅"
+  ],
+  "anchors": [
+    "grid",
+    "face"
+  ],
+  "ai": {
+    "intent": "在吊顶格内把一块面板替换为可发光的方形灯。",
+    "editableParts": [
+      "压边",
+      "扩散板",
+      "背部电源盒",
+      "四个光源"
+    ],
+    "qualityChecks": [
+      "开口与网格中心一致，灯向板底照射。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "recessed-led-ceiling-grid-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "perimeter",
+            "semanticType": "mep.lighting.edge-lit-ceiling-panel.trim",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#e4e2d8"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.009,0],
+                [0,0.012,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.2825,-0.2825],
+                [0.2825,-0.2825],
+                [0.2825,0.2825],
+                [-0.2825,0.2825]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.258,-0.258],
+                  [0.258,-0.258],
+                  [0.258,0.258],
+                  [-0.258,0.258]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "back-pan",
+            "semanticType": "mep.lighting.edge-lit-ceiling-panel.backplate",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a3afb1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.529,0.006,0.529]
+            },
+            "transform": {
+              "position": [0,0.019,0]
+            }
+          },
+          {
+            "id": "diffuser",
+            "semanticType": "mep.lighting.edge-lit-ceiling-panel.diffuser",
+            "material": "polymer",
+            "appearance": {
+              "color": "#fff8e9",
+              "emissive": "#fff8e9"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.522,0.004,0.522]
+            },
+            "transform": {
+              "position": [0,-0.005,0]
+            }
+          },
+          {
+            "id": "driver",
+            "semanticType": "mep.lighting.edge-lit-ceiling-panel.driver",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.148,0.028,0.053]
+            },
+            "transform": {
+              "position": [0,0.035,0]
+            }
+          },
+          {
+            "id": "panel-segment-0-0",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [-0.144,-0.024,-0.144],
+              "rotation": [-1.5707963267948966,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 18,
+              "angle": 0.97,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          },
+          {
+            "id": "panel-segment-0-1",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [-0.144,-0.024,0.144],
+              "rotation": [-1.5707963267948966,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 18,
+              "angle": 0.97,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          },
+          {
+            "id": "panel-segment-1-0",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [0.144,-0.024,-0.144],
+              "rotation": [-1.5707963267948966,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 18,
+              "angle": 0.97,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          },
+          {
+            "id": "panel-segment-1-1",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [0.144,-0.024,0.144],
+              "rotation": [-1.5707963267948966,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 18,
+              "angle": 0.97,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          }
+        ],
+        "anchors": {
+          "grid": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "face": {
+            "position": [0,-0.007,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

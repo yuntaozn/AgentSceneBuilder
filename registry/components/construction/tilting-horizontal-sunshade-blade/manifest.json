@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.tilting-horizontal-sunshade-blade",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可转横向梭形遮阳片",
+  "summary": "横向空心梭形板、两侧安装耳和转轴分别可见，可预览改变遮阳角。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.horizontal-sunshade-blade",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "axis-center"
+  ],
+  "ai": {
+    "intent": "将可控角度的单片横向遮阳叶作为外立面构件。",
+    "editableParts": [
+      "编辑截面、轴杆和转角。"
+    ],
+    "qualityChecks": [
+      "调角时两端固定座保持位置。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "tilting-horizontal-sunshade-blade",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bearing-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "blade",
+            "semanticType": "construction.facade.horizontal-shade-blade.blade",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8aa3b1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.132,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.125,0],
+                [-0.098,-0.017],
+                [0.087,-0.017],
+                [0.125,0],
+                [0.087,0.017],
+                [-0.098,0.017]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.108,0],
+                  [-0.093,-0.011],
+                  [0.083,-0.011],
+                  [0.104,0],
+                  [0.083,0.011],
+                  [-0.093,0.011]
+                ]
+              ]
+            },
+            "parent": "bearing-axis"
+          },
+          {
+            "id": "axle",
+            "semanticType": "construction.facade.horizontal-shade-blade.axle",
+            "material": "steel",
+            "appearance": {
+              "color": "#486775"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.022,0,0],
+              "end": [1.154,0,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "ear-0",
+            "semanticType": "construction.facade.horizontal-shade-blade.ear",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.02,0.047,0.062]
+            },
+            "transform": {
+              "position": [-0.032,0,0]
+            }
+          },
+          {
+            "id": "ear-1",
+            "semanticType": "construction.facade.horizontal-shade-blade.ear",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.02,0.047,0.062]
+            },
+            "transform": {
+              "position": [1.164,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.042,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [1.174,0,0],
+            "direction": [1,0,0]
+          },
+          "axis-center": {
+            "position": [0.566,0,0],
+            "direction": [1,0,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "tilt-shade",
+            "target": "bearing-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0.75,0,0],
+            "duration": 1.2,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.privacy-cubicle-latch-with-occupancy-indicator",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带占用窗隔间门插锁",
+  "summary": "独立门内闩、转钮、门外占用窗及接收扣。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.public-washroom.privacy-cubicle-indicator-latch",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "隔间",
+    "门锁",
+    "指示"
+  ],
+  "anchors": [
+    "door",
+    "strike"
+  ],
+  "ai": {
+    "intent": "把厕间门内锁位、对侧锁扣和门外显示窗分别编辑。",
+    "editableParts": [
+      "转钮",
+      "门闩",
+      "扣盒",
+      "外显窗"
+    ],
+    "qualityChecks": [
+      "门闩和扣盒对应，旋钮可单独转。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "privacy-cubicle-latch-with-occupancy-indicator",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inside-plate",
+            "semanticType": "construction.public-washroom.occupancy-privacy-latch.inner-mount",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.089,0.079,0.013]
+            },
+            "transform": {
+              "position": [0,0,-0.0075]
+            }
+          },
+          {
+            "id": "outside-indicator",
+            "semanticType": "construction.public-washroom.occupancy-privacy-latch.outer-window",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.059,0.066,0.017]
+            },
+            "transform": {
+              "position": [0,0,0.019]
+            }
+          },
+          {
+            "id": "indicator-ring",
+            "semanticType": "construction.public-washroom.occupancy-privacy-latch.indicator",
+            "material": "polymer",
+            "appearance": {
+              "color": "#aa735e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.025],
+              "end": [0,0,0.03],
+              "radius": 0.018,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "thumb-turn",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,-0.021]
+            }
+          },
+          {
+            "id": "knob",
+            "semanticType": "construction.public-washroom.occupancy-privacy-latch.knob",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0,-0.015],
+              "radius": 0.016,
+              "radialSegments": 22
+            },
+            "parent": "thumb-turn"
+          },
+          {
+            "id": "thumbturn-lug",
+            "semanticType": "construction.public-washroom.occupancy-privacy-latch.lever",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.009,0.011]
+            },
+            "transform": {
+              "position": [0,0,-0.013]
+            },
+            "parent": "thumb-turn"
+          },
+          {
+            "id": "dead-bolt",
+            "semanticType": "construction.public-washroom.occupancy-privacy-latch.bolt",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.015,0.016]
+            },
+            "transform": {
+              "position": [0.061,0,-0.006]
+            }
+          },
+          {
+            "id": "strike-box",
+            "semanticType": "construction.public-washroom.occupancy-privacy-latch.strike",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.085,0,0],
+                [0.097,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.022,-0.0225],
+                [0.022,-0.0225],
+                [0.022,0.0225],
+                [-0.022,0.0225]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.01,-0.0105],
+                  [0.01,-0.0105],
+                  [0.01,0.0105],
+                  [-0.01,0.0105]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "door": {
+            "position": [0,0,0],
+            "direction": [0,0,1]
+          },
+          "strike": {
+            "position": [0.097,0,0],
+            "direction": [1,0,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "set-privacy-lock",
+            "target": "thumb-turn",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0,1.57],
+            "duration": 0.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

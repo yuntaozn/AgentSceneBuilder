@@ -1,0 +1,357 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.side-window-immersion-dial-thermometer",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "后接插入式表盘温度计",
+  "summary": "后向探杆接到护套，前方表盘、刻度和指针分离并可演示读数。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.domestic-water.immersion-thermometer",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "给排水",
+    "温度计",
+    "表盘",
+    "热水"
+  ],
+  "anchors": [
+    "probe",
+    "dial"
+  ],
+  "ai": {
+    "intent": "后向探杆接到护套，前方表盘、刻度和指针分离并可演示读数。",
+    "editableParts": [
+      "可独立编辑 stem、gauge-case、dial、tick-0、tick-1、tick-2。"
+    ],
+    "qualityChecks": [
+      "探头从表壳后侧插入，前侧指针绕中心运动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "side-window-immersion-dial-thermometer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stem",
+            "semanticType": "mep.domestic-water.temperature.probe",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9fa0"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.083],
+              "end": [0,0,-0.013],
+              "radius": 0.0045,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "gauge-case",
+            "semanticType": "mep.domestic-water.temperature.case",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9fa0"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.016],
+                [0,0,0.011]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.045,0],
+                [0.04346666218300807,0.011646857029613433],
+                [0.03897114317029974,0.022499999999999996],
+                [0.03181980515339464,0.03181980515339464],
+                [0.022500000000000003,0.03897114317029973],
+                [0.011646857029613433,0.04346666218300807],
+                [2.7554552980815448e-18,0.045],
+                [-0.011646857029613428,0.04346666218300807],
+                [-0.02249999999999999,0.03897114317029974],
+                [-0.03181980515339464,0.03181980515339464],
+                [-0.03897114317029974,0.022499999999999996],
+                [-0.04346666218300807,0.011646857029613445],
+                [-0.045,5.5109105961630896e-18],
+                [-0.04346666218300807,-0.011646857029613435],
+                [-0.038971143170299746,-0.022499999999999985],
+                [-0.03181980515339466,-0.03181980515339462],
+                [-0.02250000000000002,-0.03897114317029973],
+                [-0.011646857029613428,-0.04346666218300807],
+                [-8.266365894244633e-18,-0.045],
+                [0.011646857029613412,-0.04346666218300808],
+                [0.022500000000000003,-0.03897114317029973],
+                [0.03181980515339463,-0.031819805153394644],
+                [0.038971143170299725,-0.02250000000000002],
+                [0.04346666218300806,-0.01164685702961347]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.037,0],
+                  [0.03573925557269553,0.009576304668793266],
+                  [0.03204293994002423,0.018499999999999996],
+                  [0.02616295090390226,0.026162950903902256],
+                  [0.018500000000000003,0.032042939940024225],
+                  [0.009576304668793266,0.03573925557269553],
+                  [2.2655965784226034e-18,0.037],
+                  [-0.009576304668793263,0.03573925557269553],
+                  [-0.018499999999999992,0.03204293994002423],
+                  [-0.026162950903902256,0.02616295090390226],
+                  [-0.03204293994002423,0.018499999999999996],
+                  [-0.03573925557269552,0.009576304668793277],
+                  [-0.037,4.531193156845207e-18],
+                  [-0.03573925557269553,-0.00957630466879327],
+                  [-0.03204293994002423,-0.01849999999999999],
+                  [-0.02616295090390227,-0.026162950903902242],
+                  [-0.018500000000000016,-0.032042939940024225],
+                  [-0.009576304668793263,-0.03573925557269553],
+                  [-6.79678973526781e-18,-0.037],
+                  [0.00957630466879325,-0.03573925557269553],
+                  [0.018500000000000003,-0.032042939940024225],
+                  [0.02616295090390225,-0.026162950903902263],
+                  [0.03204293994002422,-0.018500000000000016],
+                  [0.03573925557269552,-0.009576304668793298]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "dial",
+            "semanticType": "mep.domestic-water.temperature.dial",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c5bfab"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.006],
+              "end": [0,0,0.009000000000000001],
+              "radius": 0.039,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-0",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.029097517658421817,-0.013316698769508558,0.01],
+              "end": [-0.032734707365724536,-0.014981286115697125,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-1",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.03198635529732816,-0.0009343847136412421,0.01],
+              "end": [-0.03598464970949418,-0.0010511828028463973,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-2",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.029825250750951247,0.01159544814325355,0.01],
+              "end": [-0.033553407094820145,0.013044879161160242,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-3",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.02295539490878473,0.022294614699109292,0.01],
+              "end": [-0.02582481927238282,0.025081441536497953,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-4",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.012461386953876817,0.029473951808092324,0.01],
+              "end": [-0.014019060323111418,0.03315819578410386,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-5",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.032,0.01],
+              "end": [0,0.036,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-6",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.012461386953876817,0.029473951808092324,0.01],
+              "end": [0.014019060323111418,0.03315819578410386,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-7",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02295539490878473,0.022294614699109292,0.01],
+              "end": [0.02582481927238282,0.025081441536497953,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-8",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.029825250750951247,0.01159544814325355,0.01],
+              "end": [0.033553407094820145,0.013044879161160242,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-9",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.03198635529732816,-0.0009343847136412421,0.01],
+              "end": [0.03598464970949418,-0.0010511828028463973,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "tick-10",
+            "semanticType": "mep.domestic-water.temperature.tick",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4e626b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.029097517658421817,-0.013316698769508558,0.01],
+              "end": [0.032734707365724536,-0.014981286115697125,0.01],
+              "radius": 0.0008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pointer-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0.012]
+            }
+          },
+          {
+            "id": "pointer",
+            "semanticType": "mep.domestic-water.temperature.pointer",
+            "material": "plastic",
+            "appearance": {
+              "color": "#ac6558"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.032,0],
+              "radius": 0.0018,
+              "radialSegments": 24
+            },
+            "parent": "pointer-axis"
+          }
+        ],
+        "anchors": {
+          "probe": {
+            "position": [0,0,-0.083],
+            "direction": [0,0,-1]
+          },
+          "dial": {
+            "position": [0,0,0.014],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "show-temperature",
+            "target": "pointer-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0,-1.27],
+            "duration": 1.35,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

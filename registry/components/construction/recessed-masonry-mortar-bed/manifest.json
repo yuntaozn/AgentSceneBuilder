@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.recessed-masonry-mortar-bed",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "退缝砌体水平灰缝带",
+  "summary": "沿墙连续的窄砂浆床，外缘退进，保留上下层对齐点。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.masonry.bed-joint",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "砌体",
+    "墙体"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "bed-bottom",
+    "bed-top",
+    "reinforcement-seat"
+  ],
+  "ai": {
+    "intent": "在单独墙层之间展示灰缝和埋入配筋。",
+    "editableParts": [
+      "编辑施工段长度、厚度和边缘。"
+    ],
+    "qualityChecks": [
+      "上下定位按灰缝厚度分开。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "recessed-masonry-mortar-bed",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bed",
+            "semanticType": "construction.masonry.bed-joint",
+            "material": "mortar",
+            "appearance": {
+              "color": "#a5a296"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.6,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.084,0.003],
+                [-0.08,0],
+                [0.08,0],
+                [0.084,0.003],
+                [0.084,0.009],
+                [0.08,0.012],
+                [-0.08,0.012],
+                [-0.084,0.009]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "bed",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "bed",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "bed-bottom": {
+            "position": [0.8,0,0],
+            "direction": [0,-1,0]
+          },
+          "bed-top": {
+            "position": [0.8,0.012,0],
+            "direction": [0,1,0]
+          },
+          "reinforcement-seat": {
+            "position": [0.8,0.006,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,248 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.stacked-elevator-counterweight-frame",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "叠片电梯对重架",
+  "summary": "对重块以重复原型叠放，框架、上吊梁和左右导靴连接独立。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.stacked-elevator-counterweight",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "对重",
+    "曳引",
+    "滚轮"
+  ],
+  "anchors": [
+    "shackle",
+    "base",
+    "left-guide",
+    "right-guide"
+  ],
+  "ai": {
+    "intent": "表现可逐片调整的配重与吊点、导靴间的关系。",
+    "editableParts": [
+      "叠片数",
+      "上下横档",
+      "吊孔",
+      "挂点"
+    ],
+    "qualityChecks": [
+      "对重片维持在竖框内，吊点位于中线。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "stacked-elevator-counterweight-frame",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "angle-stile-0",
+            "semanticType": "mep.elevator.counterweight.side-frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.275,0.052,0],
+                [-0.275,1.045,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.023,-0.045],
+                [0.023,-0.045],
+                [0.023,0.042],
+                [0.012,0.042],
+                [0.012,-0.033],
+                [-0.023,-0.033]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "angle-stile-1",
+            "semanticType": "mep.elevator.counterweight.side-frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.275,0.052,0],
+                [0.275,1.045,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.023,-0.045],
+                [0.023,-0.045],
+                [0.023,0.042],
+                [0.012,0.042],
+                [0.012,-0.033],
+                [-0.023,-0.033]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "lower-head",
+            "semanticType": "mep.elevator.counterweight.lower-head",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.611,0.065,0.145]
+            },
+            "transform": {
+              "position": [0,0.035,0]
+            }
+          },
+          {
+            "id": "upper-head",
+            "semanticType": "mep.elevator.counterweight.upper-head",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.635,0.063,0.147]
+            },
+            "transform": {
+              "position": [0,1.069,0]
+            }
+          },
+          {
+            "id": "weight-segment",
+            "semanticType": "mep.elevator.counterweight.infill",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#878e89"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.51,0.078,0.114]
+            },
+            "transform": {
+              "position": [0,0.114,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 11,
+              "start": [0,0,0],
+              "step": [0,0.081,0]
+            }
+          },
+          {
+            "id": "guide-tab-0",
+            "semanticType": "mep.elevator.counterweight.guide-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.1,0.139]
+            },
+            "transform": {
+              "position": [-0.309,0.115,0]
+            }
+          },
+          {
+            "id": "guide-tab-1",
+            "semanticType": "mep.elevator.counterweight.guide-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.1,0.139]
+            },
+            "transform": {
+              "position": [0.309,0.115,0]
+            }
+          },
+          {
+            "id": "hitch-eye",
+            "semanticType": "mep.elevator.counterweight.hitch-eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.121,-0.021],
+                [0,1.121,0.021]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0685,-0.0435],
+                [0.0685,-0.0435],
+                [0.0685,0.0435],
+                [-0.0685,0.0435]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.012,0],
+                  [0.011412678195541842,0.0037082039324993687],
+                  [0.00970820393249937,0.007053423027509678],
+                  [0.007053423027509678,0.00970820393249937],
+                  [0.0037082039324993696,0.011412678195541842],
+                  [7.347880794884119e-19,0.012],
+                  [-0.0037082039324993683,0.011412678195541844],
+                  [-0.0070534230275096765,0.00970820393249937],
+                  [-0.009708203932499368,0.007053423027509679],
+                  [-0.011412678195541842,0.00370820393249937],
+                  [-0.012,1.4695761589768239e-18],
+                  [-0.011412678195541846,-0.0037082039324993626],
+                  [-0.00970820393249937,-0.0070534230275096765],
+                  [-0.007053423027509679,-0.009708203932499368],
+                  [-0.003708203932499371,-0.011412678195541842],
+                  [-2.2043642384652355e-18,-0.012],
+                  [0.003708203932499367,-0.011412678195541844],
+                  [0.007053423027509675,-0.009708203932499371],
+                  [0.009708203932499368,-0.007053423027509681],
+                  [0.011412678195541842,-0.0037082039324993713]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "shackle": {
+            "position": [0,1.121,0],
+            "direction": [0,1,0]
+          },
+          "base": {
+            "position": [0,0.0025,0],
+            "direction": [0,-1,0]
+          },
+          "left-guide": {
+            "position": [-0.328,0.115,0],
+            "direction": [-1,0,0]
+          },
+          "right-guide": {
+            "position": [0.328,0.115,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

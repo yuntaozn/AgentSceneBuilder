@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.flexible-hollow-shower-water-dam-strip",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可压空腔淋浴挡水条",
+  "summary": "低基座、空心凸顶和左右导流翼组合为独立软条，开口可从端部检查。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.public-washroom.flexible-hollow-shower-dam",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "淋浴",
+    "挡水条",
+    "门槛"
+  ],
+  "anchors": [
+    "base",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "把地面干湿分隔中的空心软条作为独立收边。",
+    "editableParts": [
+      "空腔",
+      "软顶",
+      "两翼"
+    ],
+    "qualityChecks": [
+      "沿长度保留连续软槽。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "flexible-hollow-shower-water-dam-strip",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "hollow-bulb",
+            "semanticType": "construction.public-washroom.flexible-wet-zone-threshold.elastic-profile",
+            "material": "rubber",
+            "appearance": {
+              "color": "#545f64"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.515,0,0],
+                [0.515,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.058,0],
+                [0.058,0],
+                [0.058,0.005],
+                [0.029,0.007],
+                [0.019,0.026],
+                [0.008,0.035],
+                [-0.008,0.035],
+                [-0.019,0.026],
+                [-0.029,0.007],
+                [-0.058,0.005]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.014,0.009],
+                  [0.014,0.009],
+                  [0.012,0.021],
+                  [0.006,0.028],
+                  [-0.006,0.028],
+                  [-0.012,0.021]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "position": [-0.515,0.015,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.515,0.015,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

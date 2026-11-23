@@ -1,0 +1,122 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.laminated-glass-balustrade-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "底槽夹持玻璃栏板",
+  "summary": "夹层玻璃板、金属底槽与独立顶边压条可编辑，底槽有实际卡槽。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.circulation.glass-balustrade",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "交通",
+    "楼梯",
+    "栏杆"
+  ],
+  "anchors": [
+    "mount",
+    "left",
+    "right",
+    "top-center"
+  ],
+  "ai": {
+    "intent": "用于平平台或阳台边缘的底槽玻璃栏板。",
+    "editableParts": [
+      "独立调整底槽、玻璃和顶部压条。"
+    ],
+    "qualityChecks": [
+      "玻璃板伸入夹持槽。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "laminated-glass-balustrade-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base-track",
+            "semanticType": "construction.circulation.glass-balustrade.shoe",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.59,0,0],
+                [0.59,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.053,0],
+                [0.053,0],
+                [0.053,0.089],
+                [0.021,0.089],
+                [0.021,0.023],
+                [-0.021,0.023],
+                [-0.021,0.089],
+                [-0.053,0.089]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "glass",
+            "semanticType": "construction.circulation.glass-balustrade.plate",
+            "material": "glass",
+            "appearance": {
+              "color": "#a6cdd9",
+              "opacity": 0.41
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.155,1.011,0.023]
+            },
+            "transform": {
+              "position": [0,0.5285,0]
+            }
+          },
+          {
+            "id": "top-cap",
+            "semanticType": "construction.circulation.glass-balustrade.cap",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.177,0.025,0.045]
+            },
+            "transform": {
+              "position": [0,1.044,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "left": {
+            "position": [-0.59,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.59,0,0],
+            "direction": [1,0,0]
+          },
+          "top-center": {
+            "position": [0,1.0565,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

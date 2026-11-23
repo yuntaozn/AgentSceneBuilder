@@ -1,0 +1,274 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.hinged-loading-dock-leveller-with-separate-lip",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "独立搭唇式装卸月台调节板",
+  "summary": "固定槽框、活动台板和独立前搭唇，提供两处转轴和固定端基准。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.warehouse.hinged-loading-dock-leveller",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "仓储",
+    "物流",
+    "月台",
+    "调节板",
+    "搭唇"
+  ],
+  "anchors": [
+    "rear",
+    "pit-base",
+    "front"
+  ],
+  "ai": {
+    "intent": "在月台接口模型中分别检查固定框、主台板和前搭唇。",
+    "editableParts": [
+      "坑框",
+      "主铰轴",
+      "台板",
+      "搭唇铰轴"
+    ],
+    "qualityChecks": [
+      "固定端和台板轴面保持分开。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-loading-dock-leveller-with-separate-lip",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "pit-frame",
+            "semanticType": "construction.warehouse.hinged-dock-leveller.pit-rim",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.036,0.365],
+                [0,-0.014,0.365]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.594,-0.384],
+                [0.594,-0.384],
+                [0.594,0.384],
+                [-0.594,0.384]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.541,-0.3395],
+                  [0.541,-0.3395],
+                  [0.541,0.3395],
+                  [-0.541,0.3395]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "rear-hinge",
+            "semanticType": "construction.warehouse.hinged-dock-leveller.rear-pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#7f969c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.55,0,0],
+              "end": [0.55,0,0],
+              "radius": 0.022,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "deck-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "deck",
+            "semanticType": "construction.warehouse.hinged-dock-leveller.moving-platform",
+            "material": "steel",
+            "appearance": {
+              "color": "#7f969c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.08,0.039,0.704]
+            },
+            "transform": {
+              "position": [0,-0.006,0.352]
+            },
+            "parent": "deck-axis"
+          },
+          {
+            "id": "under-deck-web-0",
+            "semanticType": "construction.warehouse.hinged-dock-leveller.support-web",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.077,0.626]
+            },
+            "transform": {
+              "position": [-0.334,-0.06,0.345]
+            },
+            "parent": "deck-axis"
+          },
+          {
+            "id": "under-deck-web-1",
+            "semanticType": "construction.warehouse.hinged-dock-leveller.support-web",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.077,0.626]
+            },
+            "transform": {
+              "position": [0,-0.06,0.345]
+            },
+            "parent": "deck-axis"
+          },
+          {
+            "id": "under-deck-web-2",
+            "semanticType": "construction.warehouse.hinged-dock-leveller.support-web",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.077,0.626]
+            },
+            "transform": {
+              "position": [0.334,-0.06,0.345]
+            },
+            "parent": "deck-axis"
+          },
+          {
+            "id": "lip-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.001,0.704]
+            },
+            "parent": "deck-axis"
+          },
+          {
+            "id": "texture-0",
+            "semanticType": "construction.warehouse.hinged-dock-leveller.grip-track",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.056,0.004,0.01]
+            },
+            "transform": {
+              "position": [0,0.024,0.34700000000000003]
+            },
+            "parent": "deck-axis"
+          },
+          {
+            "id": "texture-1",
+            "semanticType": "construction.warehouse.hinged-dock-leveller.grip-track",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.056,0.004,0.01]
+            },
+            "transform": {
+              "position": [0,0.024,0.388]
+            },
+            "parent": "deck-axis"
+          },
+          {
+            "id": "texture-2",
+            "semanticType": "construction.warehouse.hinged-dock-leveller.grip-track",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.056,0.004,0.01]
+            },
+            "transform": {
+              "position": [0,0.024,0.429]
+            },
+            "parent": "deck-axis"
+          },
+          {
+            "id": "front-lip",
+            "semanticType": "construction.warehouse.hinged-dock-leveller.lip",
+            "material": "steel",
+            "appearance": {
+              "color": "#a1afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.04,0.024,0.154]
+            },
+            "transform": {
+              "position": [0,-0.004,0.077]
+            },
+            "parent": "lip-axis"
+          }
+        ],
+        "anchors": {
+          "rear": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "pit-base": {
+            "position": [0,-0.036,0.365],
+            "direction": [0,-1,0]
+          },
+          "front": {
+            "position": [0,0.008,0.858],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "tilt-dock-deck-up",
+            "target": "deck-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [-0.14,0,0],
+            "duration": 1.2,
+            "loop": false
+          },
+          {
+            "id": "fold-dock-extension",
+            "target": "lip-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [1.05,0,0],
+            "duration": 0.9,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

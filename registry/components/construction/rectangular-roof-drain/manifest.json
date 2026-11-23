@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.rectangular-roof-drain",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形屋面落水口",
+  "summary": "带矩形法兰与空心下伸套管的落水口，上口和竖向出口带定位锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.drain-outlet",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "屋面",
+    "排水",
+    "落水口",
+    "基础构件"
+  ],
+  "anchors": [
+    "outlet",
+    "inlet"
+  ],
+  "ai": {
+    "intent": "在屋面或排水槽周边表示带法兰的矩形落水接口。",
+    "qualityChecks": [
+      "核对法兰洞口与套管内净宽、内净深。",
+      "调整尺寸时同步两个部件。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rectangular-roof-drain",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "flange",
+            "semanticType": "construction.roof.drain-outlet",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#667983"
+            },
+            "geometry": {
+              "type": "floor-opening-slab",
+              "slabWidth": 0.3,
+              "slabDepth": 0.25,
+              "thickness": 0.01,
+              "openingWidth": 0.14,
+              "openingDepth": 0.1,
+              "openingOffsetX": 0,
+              "openingOffsetZ": 0
+            }
+          },
+          {
+            "id": "throat",
+            "semanticType": "construction.roof.drain-outlet",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#667983"
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,-0.01,0],
+                [0,-0.22,0]
+              ],
+              "up": [0,0,1],
+              "sectionWidth": 0.16,
+              "sectionHeight": 0.12,
+              "thickness": 0.01
+            }
+          }
+        ],
+        "anchors": {
+          "outlet": {
+            "node": "throat",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "inlet": {
+            "node": "flange",
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

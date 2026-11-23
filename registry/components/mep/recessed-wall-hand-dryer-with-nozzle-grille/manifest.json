@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.recessed-wall-hand-dryer-with-nozzle-grille",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "嵌装伸手口烘手机",
+  "summary": "墙内盒、前壳、带条孔的下风口与传感窗，分别可编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.public-washroom.recessed-hand-dryer",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "烘手机",
+    "嵌墙",
+    "风口"
+  ],
+  "anchors": [
+    "wall",
+    "nozzle"
+  ],
+  "ai": {
+    "intent": "保留烘手机下口和墙内底盒，还可整件嵌入墙洞。",
+    "editableParts": [
+      "背盒",
+      "前壳",
+      "风口条孔"
+    ],
+    "qualityChecks": [
+      "风口朝下，嵌入部分在墙面后。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "recessed-wall-hand-dryer-with-nozzle-grille",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "recessed-can",
+            "semanticType": "mep.public-washroom.recessed-hand-dryer.box",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.268,0.305,0.07]
+            },
+            "transform": {
+              "position": [0,0,-0.035]
+            }
+          },
+          {
+            "id": "wall-surround",
+            "semanticType": "mep.public-washroom.recessed-hand-dryer.rim",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.018]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.1495,-0.172],
+                [0.1495,-0.172],
+                [0.1495,0.172],
+                [-0.1495,0.172]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1255,-0.1425],
+                  [0.1255,-0.1425],
+                  [0.1255,0.1425],
+                  [-0.1255,0.1425]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "front-housing",
+            "semanticType": "mep.public-washroom.recessed-hand-dryer.shell",
+            "material": "polymer",
+            "appearance": {
+              "color": "#dedbcf"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.249,0.215,0.079]
+            },
+            "transform": {
+              "position": [0,0.027,0.055]
+            }
+          },
+          {
+            "id": "nozzle-slots",
+            "semanticType": "mep.public-washroom.recessed-hand-dryer.unblocked-grille",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.099,0.066],
+                [0,-0.092,0.066]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.097,-0.027],
+                [0.097,-0.027],
+                [0.097,0.027],
+                [-0.097,0.027]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.07050000000000001,-0.0095],
+                  [-0.0545,-0.0095],
+                  [-0.0545,0.0095],
+                  [-0.07050000000000001,0.0095]
+                ],
+                [
+                  [-0.045500000000000006,-0.0095],
+                  [-0.029500000000000005,-0.0095],
+                  [-0.029500000000000005,0.0095],
+                  [-0.045500000000000006,0.0095]
+                ],
+                [
+                  [-0.0205,-0.0095],
+                  [-0.0045000000000000005,-0.0095],
+                  [-0.0045000000000000005,0.0095],
+                  [-0.0205,0.0095]
+                ],
+                [
+                  [0.0045000000000000005,-0.0095],
+                  [0.0205,-0.0095],
+                  [0.0205,0.0095],
+                  [0.0045000000000000005,0.0095]
+                ],
+                [
+                  [0.029500000000000005,-0.0095],
+                  [0.045500000000000006,-0.0095],
+                  [0.045500000000000006,0.0095],
+                  [0.029500000000000005,0.0095]
+                ],
+                [
+                  [0.0545,-0.0095],
+                  [0.07050000000000001,-0.0095],
+                  [0.07050000000000001,0.0095],
+                  [0.0545,0.0095]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "presence-sensor",
+            "semanticType": "mep.public-washroom.recessed-hand-dryer.sensor",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.041,0.017,0.012]
+            },
+            "transform": {
+              "position": [0,-0.071,0.097]
+            }
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "nozzle": {
+            "position": [0,-0.099,0.066],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

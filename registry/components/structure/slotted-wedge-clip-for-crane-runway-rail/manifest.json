@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.slotted-wedge-clip-for-crane-runway-rail",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "行车轨底楔形双件压扣",
+  "summary": "开长孔底脚、可单独编辑的压楔和独立螺栓，保留轨底压接位置。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.crane.adjustable-crane-rail-clip",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "行车",
+    "吊装",
+    "轨扣",
+    "楔形",
+    "长孔"
+  ],
+  "anchors": [
+    "base",
+    "foot"
+  ],
+  "ai": {
+    "intent": "将相互独立的压楔和底槽配到轨底翼缘。",
+    "editableParts": [
+      "楔压片",
+      "底孔",
+      "螺栓"
+    ],
+    "qualityChecks": [
+      "压肩保持贴合，底板位于轨床面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "slotted-wedge-clip-for-crane-runway-rail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "clamp-bed",
+            "semanticType": "structure.crane.adjustable-rail-clip.bed",
+            "material": "steel",
+            "appearance": {
+              "color": "#849da3"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.01,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.052,-0.045],
+                [0.052,-0.045],
+                [0.052,0.045],
+                [-0.052,0.045]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.007500000000000001,0.010499999999999999],
+                  [0.021500000000000002,0.010499999999999999],
+                  [0.021500000000000002,0.0275],
+                  [-0.007500000000000001,0.0275]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "wedge-toe",
+            "semanticType": "structure.crane.adjustable-rail-clip.clamp",
+            "material": "steel",
+            "appearance": {
+              "color": "#506a77"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.043,0,0],
+                [0.043,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.049,0.009],
+                [0.049,0.018],
+                [0.008,0.033],
+                [-0.022,0.033],
+                [-0.022,0.011],
+                [-0.01,0.011],
+                [-0.01,0.02],
+                [0.004,0.02],
+                [0.03,0.014]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bolt",
+            "semanticType": "structure.crane.adjustable-rail-clip.bolt",
+            "material": "steel",
+            "appearance": {
+              "color": "#849da3"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.007,0,0.019],
+              "end": [-0.007,0.052,0.019],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "bolt-head",
+            "semanticType": "structure.crane.adjustable-rail-clip.hex",
+            "material": "steel",
+            "appearance": {
+              "color": "#9baaa9"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.007,0.046,0.019],
+                [-0.007,0.056,0.019]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.016,0],
+                [0.008000000000000002,0.013856406460551017],
+                [-0.007999999999999997,0.013856406460551019],
+                [-0.016,1.959434878635765e-18],
+                [-0.008000000000000007,-0.013856406460551016],
+                [0.008000000000000002,-0.013856406460551017]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "foot": {
+            "position": [0,0.014,-0.044],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

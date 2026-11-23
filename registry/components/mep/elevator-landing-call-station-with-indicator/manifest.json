@@ -1,0 +1,275 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.elevator-landing-call-station-with-indicator",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带楼层指示的电梯呼梯面板",
+  "summary": "嵌装底盒、不锈钢面板、楼层灯窗和双按钮，可预览按钮压入。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.landing-call-station",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "呼梯",
+    "门厅",
+    "按钮"
+  ],
+  "anchors": [
+    "wall",
+    "face"
+  ],
+  "ai": {
+    "intent": "在层门旁复用带操作动画的按钮面板。",
+    "editableParts": [
+      "底盒",
+      "显示窗",
+      "接触按钮"
+    ],
+    "qualityChecks": [
+      "按钮压入时面板与墙座固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "elevator-landing-call-station-with-indicator",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-box",
+            "semanticType": "mep.elevator.landing-call-station.backbox",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.091,0.231,0.038]
+            },
+            "transform": {
+              "position": [0,0,-0.019]
+            }
+          },
+          {
+            "id": "faceplate",
+            "semanticType": "mep.elevator.landing-call-station.plate",
+            "material": "stainless-steel",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.007]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.057,-0.1325],
+                [0.057,-0.1325],
+                [0.057,0.1325],
+                [-0.057,0.1325]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.035,0.03950000000000001],
+                  [0.035,0.03950000000000001],
+                  [0.035,0.0945],
+                  [-0.035,0.0945]
+                ],
+                [
+                  [0.014,-0.014],
+                  [0.01331479122813215,-0.009673762078750738],
+                  [0.011326237921249264,-0.005771006467905376],
+                  [0.008228993532094624,-0.0026737620787507365],
+                  [0.0043262379212492645,-0.0006852087718678505],
+                  [8.572527594031473e-19,0],
+                  [-0.004326237921249263,-0.0006852087718678488],
+                  [-0.008228993532094622,-0.0026737620787507365],
+                  [-0.011326237921249264,-0.005771006467905375],
+                  [-0.01331479122813215,-0.009673762078750734],
+                  [-0.014,-0.013999999999999999],
+                  [-0.013314791228132153,-0.018326237921249256],
+                  [-0.011326237921249264,-0.02222899353209462],
+                  [-0.008228993532094626,-0.025326237921249266],
+                  [-0.004326237921249266,-0.02731479122813215],
+                  [-2.5717582782094414e-18,-0.028],
+                  [0.004326237921249261,-0.02731479122813215],
+                  [0.00822899353209462,-0.025326237921249266],
+                  [0.011326237921249264,-0.022228993532094628],
+                  [0.01331479122813215,-0.018326237921249267]
+                ],
+                [
+                  [0.014,-0.066],
+                  [0.01331479122813215,-0.06167376207875074],
+                  [0.011326237921249264,-0.05777100646790538],
+                  [0.008228993532094624,-0.05467376207875074],
+                  [0.0043262379212492645,-0.05268520877186785],
+                  [8.572527594031473e-19,-0.052000000000000005],
+                  [-0.004326237921249263,-0.05268520877186785],
+                  [-0.008228993532094622,-0.05467376207875074],
+                  [-0.011326237921249264,-0.05777100646790538],
+                  [-0.01331479122813215,-0.061673762078750735],
+                  [-0.014,-0.066],
+                  [-0.013314791228132153,-0.07032623792124926],
+                  [-0.011326237921249264,-0.07422899353209463],
+                  [-0.008228993532094626,-0.07732623792124926],
+                  [-0.004326237921249266,-0.07931479122813215],
+                  [-2.5717582782094414e-18,-0.08],
+                  [0.004326237921249261,-0.07931479122813215],
+                  [0.00822899353209462,-0.07732623792124926],
+                  [0.011326237921249264,-0.07422899353209463],
+                  [0.01331479122813215,-0.07032623792124927]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "floor-indicator",
+            "semanticType": "mep.elevator.landing-call-station.indicator",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.068,0.054,0.004]
+            },
+            "transform": {
+              "position": [0,0.067,0.006]
+            }
+          },
+          {
+            "id": "display-segment-0",
+            "semanticType": "mep.elevator.landing-call-station.indicator-segment",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e4ddbd"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.018,0.002]
+            },
+            "transform": {
+              "position": [-0.028,0.068,0.009]
+            }
+          },
+          {
+            "id": "display-segment-1",
+            "semanticType": "mep.elevator.landing-call-station.indicator-segment",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e4ddbd"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.018,0.002]
+            },
+            "transform": {
+              "position": [0,0.068,0.009]
+            }
+          },
+          {
+            "id": "display-segment-2",
+            "semanticType": "mep.elevator.landing-call-station.indicator-segment",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e4ddbd"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.018,0.002]
+            },
+            "transform": {
+              "position": [0.028,0.068,0.009]
+            }
+          },
+          {
+            "id": "call-button-0",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.014,0]
+            }
+          },
+          {
+            "id": "button-0",
+            "semanticType": "mep.elevator.landing-call-station.button",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.003],
+              "end": [0,0,0.013],
+              "radius": 0.012,
+              "radialSegments": 22
+            },
+            "parent": "call-button-0"
+          },
+          {
+            "id": "call-button-1",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.066,0]
+            }
+          },
+          {
+            "id": "button-1",
+            "semanticType": "mep.elevator.landing-call-station.button",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.003],
+              "end": [0,0,0.013],
+              "radius": 0.012,
+              "radialSegments": 22
+            },
+            "parent": "call-button-1"
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "face": {
+            "position": [0,0,0.007],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "press-upper-button",
+            "target": "call-button-0",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0,-0.005],
+            "duration": 0.45,
+            "loop": false
+          },
+          {
+            "id": "press-lower-button",
+            "target": "call-button-1",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0,-0.005],
+            "duration": 0.45,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

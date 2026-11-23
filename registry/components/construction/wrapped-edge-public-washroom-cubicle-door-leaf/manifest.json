@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.wrapped-edge-public-washroom-cubicle-door-leaf",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带包边公共隔间门扇",
+  "summary": "门板、圆角包边、铰链基准和独立锁位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.public-washroom.wrapped-cubicle-door-leaf",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "隔间",
+    "门扇",
+    "包边"
+  ],
+  "anchors": [
+    "lower-hinge",
+    "upper-hinge",
+    "latch",
+    "front"
+  ],
+  "ai": {
+    "intent": "让隔间门作为叶件与两只独立铰链和门锁连接。",
+    "editableParts": [
+      "门板",
+      "包边",
+      "铰片位置",
+      "锁位"
+    ],
+    "qualityChecks": [
+      "上下轴点投影在同一边线上。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "wrapped-edge-public-washroom-cubicle-door-leaf",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "laminate-leaf",
+            "semanticType": "construction.public-washroom.hung-cubicle-door-leaf.laminate",
+            "material": "laminate",
+            "appearance": {
+              "color": "#718c85"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.665,1.386,0.019]
+            },
+            "transform": {
+              "position": [0,0.693,0]
+            }
+          },
+          {
+            "id": "side-trim-0",
+            "semanticType": "construction.public-washroom.hung-cubicle-door-leaf.wrap",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,1.386,0.027]
+            },
+            "transform": {
+              "position": [-0.332,0.693,0]
+            }
+          },
+          {
+            "id": "side-trim-1",
+            "semanticType": "construction.public-washroom.hung-cubicle-door-leaf.wrap",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,1.386,0.027]
+            },
+            "transform": {
+              "position": [0.332,0.693,0]
+            }
+          },
+          {
+            "id": "end-trim-0",
+            "semanticType": "construction.public-washroom.hung-cubicle-door-leaf.wrap",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.646,0.014,0.027]
+            },
+            "transform": {
+              "position": [0,0.007,0]
+            }
+          },
+          {
+            "id": "end-trim-1",
+            "semanticType": "construction.public-washroom.hung-cubicle-door-leaf.wrap",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.646,0.014,0.027]
+            },
+            "transform": {
+              "position": [0,1.379,0]
+            }
+          }
+        ],
+        "anchors": {
+          "lower-hinge": {
+            "position": [-0.341,0.262,0],
+            "direction": [-1,0,0]
+          },
+          "upper-hinge": {
+            "position": [-0.341,1.109,0],
+            "direction": [-1,0,0]
+          },
+          "latch": {
+            "position": [0.282,0.731,-0.0095],
+            "direction": [0,0,-1]
+          },
+          "front": {
+            "position": [0,0.693,0.0135],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

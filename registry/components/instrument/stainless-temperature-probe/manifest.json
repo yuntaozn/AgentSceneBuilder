@@ -1,0 +1,119 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.stainless-temperature-probe",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "封装测温探头",
+  "summary": "不锈钢测温头与出线护套分开建模，带敏感端和出线口。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.stainless-temperature-probe",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "基础构件",
+    "实训",
+    "温控监测"
+  ],
+  "anchors": [
+    "sensing-point",
+    "mount",
+    "lead-end"
+  ],
+  "ai": {
+    "intent": "布置混凝土内部、表层或外部参考温度端点。",
+    "editableParts": [
+      "修改封装长度、探头端点及出线尾部。"
+    ],
+    "qualityChecks": [
+      "保持测点和探头敏感端一致。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "stainless-temperature-probe",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "probe-shell",
+            "semanticType": "instrument.temperature.contact-probe.shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.084,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "probe-nose",
+            "semanticType": "instrument.temperature.contact-probe.nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.006,
+              "segments": 16
+            },
+            "transform": {
+              "position": [0,0.084,0]
+            }
+          },
+          {
+            "id": "strain-relief",
+            "semanticType": "instrument.temperature.contact-probe.relief",
+            "material": "rubber",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.023,0],
+              "end": [0,0,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "lead",
+            "semanticType": "instrument.temperature.contact-probe.lead",
+            "material": "polymer",
+            "appearance": {
+              "color": "#31454e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.1,0],
+              "end": [0,-0.023,0],
+              "radius": 0.003,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "sensing-point": {
+            "position": [0,0.09,0],
+            "direction": [0,1,0],
+            "kind": "temperature-measurement"
+          },
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "lead-end": {
+            "position": [0,-0.1,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

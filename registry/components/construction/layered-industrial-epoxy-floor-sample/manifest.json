@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.layered-industrial-epoxy-floor-sample",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "工业环氧地坪分层试板",
+  "summary": "混凝土、封闭底层、砂浆找平、腻子和面层逐级退让，便于观察分层与安装面。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.flooring.industrial-epoxy-section",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室内装修",
+    "地坪",
+    "基础构件"
+  ],
+  "anchors": [
+    "base",
+    "face",
+    "wall-edge",
+    "left-end",
+    "right-end"
+  ],
+  "ai": {
+    "intent": "在地坪施工演示中独立显示五个标高不同的面层。",
+    "editableParts": [
+      "基层",
+      "封闭底涂",
+      "砂浆层",
+      "腻子",
+      "面层"
+    ],
+    "qualityChecks": [
+      "各界面从下至上连续接触，错台仅用于剖面展示。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "layered-industrial-epoxy-floor-sample",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "construction.flooring.epoxy-system.slab",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b0a89e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.15,0.085,0.73]
+            },
+            "transform": {
+              "position": [0,0.0425,0]
+            }
+          },
+          {
+            "id": "primer",
+            "semanticType": "construction.flooring.epoxy-system.primer",
+            "material": "epoxy",
+            "appearance": {
+              "color": "#ae8d62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.04,0.007,0.73]
+            },
+            "transform": {
+              "position": [0.05499999999999999,0.08850000000000001,0]
+            }
+          },
+          {
+            "id": "quartz-mortar",
+            "semanticType": "construction.flooring.epoxy-system.mortar",
+            "material": "mortar",
+            "appearance": {
+              "color": "#9f9b8b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.89,0.023,0.73]
+            },
+            "transform": {
+              "position": [0.13,0.1035,0]
+            }
+          },
+          {
+            "id": "skim-coat",
+            "semanticType": "construction.flooring.epoxy-system.skim",
+            "material": "epoxy",
+            "appearance": {
+              "color": "#c1b8a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.74,0.01,0.73]
+            },
+            "transform": {
+              "position": [0.205,0.12000000000000001,0]
+            }
+          },
+          {
+            "id": "top-coat",
+            "semanticType": "construction.flooring.epoxy-system.topcoat",
+            "material": "epoxy",
+            "appearance": {
+              "color": "#778f91"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.59,0.012,0.73]
+            },
+            "transform": {
+              "position": [0.27999999999999997,0.131,0]
+            }
+          },
+          {
+            "id": "traffic-line",
+            "semanticType": "construction.flooring.epoxy-system.mark",
+            "material": "epoxy",
+            "appearance": {
+              "color": "#d0b36b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.59,0.001,0.033]
+            },
+            "transform": {
+              "position": [0.27999999999999997,0.1375,0]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "face": {
+            "position": [0.335,0.137,0.15],
+            "direction": [0,1,0]
+          },
+          "wall-edge": {
+            "position": [0.335,0.137,-0.365],
+            "direction": [0,0,-1]
+          },
+          "left-end": {
+            "position": [-0.575,0.085,0],
+            "direction": [-1,0,0]
+          },
+          "right-end": {
+            "position": [0.575,0.137,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.window-sill",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带滴水槽窗台板",
+  "summary": "向外找坡的窗台板，底面有沿长度贯通的滴水槽。可编辑外挑、厚度、坡落差与槽位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.sill",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "外立面",
+    "窗台",
+    "滴水槽",
+    "基础构件"
+  ],
+  "parameters": {
+    "sillWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.2
+    },
+    "projection": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.28
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.065
+    },
+    "fall": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.018
+    },
+    "grooveWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.012
+    },
+    "grooveDepth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.012
+    },
+    "grooveSetback": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.025
+    }
+  },
+  "anchors": [
+    "mount",
+    "front"
+  ],
+  "ai": {
+    "intent": "用可编辑坡面与底面滴水槽表达外窗台。",
+    "editableParts": [
+      "sill.geometry 控制窗台长度、外挑、坡落差和滴水槽"
+    ],
+    "qualityChecks": [
+      "窗台外挑方向沿局部 +Z。",
+      "滴水槽不要贯穿窗台板。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "window-sill",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sill",
+            "semanticType": "construction.facade.sill",
+            "material": "stone",
+            "appearance": {
+              "color": "#c3c6bd"
+            },
+            "geometry": {
+              "type": "window-sill",
+              "sillWidth": 1.2,
+              "projection": 0.28,
+              "thickness": 0.065,
+              "fall": 0.018,
+              "grooveWidth": 0.012,
+              "grooveDepth": 0.012,
+              "grooveSetback": 0.025
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "sill",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "front": {
+            "node": "sill",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          }
+        }
+      }
+    }
+  }
+}

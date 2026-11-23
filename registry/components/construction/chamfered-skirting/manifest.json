@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.chamfered-skirting",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "倒角踢脚板",
+  "summary": "直线扫掠的底部收边条，顶部略有倒角，背面沿局部 Z=0。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.finish.skirting",
+  "capabilities": [
+    "resize",
+    "path-edit",
+    "attach"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "踢脚板",
+    "收边"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "mount"
+  ],
+  "ai": {
+    "intent": "提供可沿局部 X 拼接的线性收边。",
+    "editableParts": [
+      "strip.geometry.points 控制长度与端点",
+      "strip.geometry.profile 控制可见截面"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "chamfered-skirting",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "strip",
+            "semanticType": "construction.finish.skirting",
+            "material": "timber",
+            "appearance": {
+              "color": "#c5b197"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [2.4,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0,0],
+                [-0.014,0],
+                [-0.014,0.077],
+                [-0.01,0.09],
+                [0,0.09]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "strip",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "strip",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "mount": {
+            "node": "strip",
+            "position": [0,0,0]
+          }
+        }
+      }
+    }
+  }
+}

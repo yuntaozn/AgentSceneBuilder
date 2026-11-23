@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.taper-edge-gypsum-board",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "楔形长边纸面石膏板",
+  "summary": "两侧长边有真实楔形退让，保留连续背面和面板端点。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.interior.taper-edge-gypsum-board",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内构造",
+    "隔墙",
+    "龙骨"
+  ],
+  "parameters": {
+    "boardWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.2
+    },
+    "boardHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.6
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.0125
+    },
+    "taperWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.061
+    },
+    "taperDepth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.0023
+    }
+  },
+  "anchors": [
+    "mount",
+    "left",
+    "right",
+    "top",
+    "bottom"
+  ],
+  "ai": {
+    "intent": "按独立板块在骨架上覆盖，可在拼缝侧调整楔边。",
+    "editableParts": [
+      "调整板宽高、长边退让与厚度。"
+    ],
+    "qualityChecks": [
+      "背面保持 Z=0。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "taper-edge-gypsum-board",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.taper-edge-gypsum-board",
+            "material": "gypsum",
+            "appearance": {
+              "color": "#d7d5c8"
+            },
+            "geometry": {
+              "type": "tapered-gypsum-sheet",
+              "boardWidth": 1.2,
+              "boardHeight": 2.6,
+              "thickness": 0.0125,
+              "taperWidth": 0.061,
+              "taperDepth": 0.0023
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "left": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "top": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top"
+            }
+          },
+          "bottom": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bottom"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.flared-sidewalk-curb-ramp",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带侧翼的路缘过渡坡",
+  "summary": "中心步行坡道与两侧扩翼相接，下面有实体厚度，可对齐路面和人行铺装。",
+  "license": "Apache-2.0",
+  "semanticType": "site.road.flared-curb-ramp",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "室外",
+    "铺装",
+    "交通"
+  ],
+  "anchors": [
+    "road-entry",
+    "sidewalk-entry",
+    "warning-seat"
+  ],
+  "ai": {
+    "intent": "在高低两侧铺装之间表达带扩翼的过渡坡。",
+    "editableParts": [
+      "修改两方向坐标、坡差与侧翼。"
+    ],
+    "qualityChecks": [
+      "坡脚与车辆侧对齐。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "flared-sidewalk-curb-ramp",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "middle",
+            "semanticType": "site.road.flared-curb-ramp.ramp",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.62,0,0],
+                [0.62,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0],
+                [-1.15,0.16],
+                [-1.15,0.095],
+                [0,-0.065]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "left-wing",
+            "semanticType": "site.road.flared-curb-ramp.flare",
+            "material": "concrete",
+            "appearance": {
+              "color": "#8c9b9d"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 4,
+              "capStart": true,
+              "capEnd": true,
+              "sections": [
+                {
+                  "center": [0,0,0],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [-1.02,-0.065],
+                    [-0.62,-0.065],
+                    [-0.62,0],
+                    [-1.02,0.16]
+                  ]
+                },
+                {
+                  "center": [0,0,1.15],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [-1.02,0.095],
+                    [-0.62,0.095],
+                    [-0.62,0.16],
+                    [-1.02,0.16]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "right-wing",
+            "semanticType": "site.road.flared-curb-ramp.flare",
+            "material": "concrete",
+            "appearance": {
+              "color": "#8c9b9d"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 4,
+              "capStart": true,
+              "capEnd": true,
+              "sections": [
+                {
+                  "center": [0,0,0],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [1.02,-0.065],
+                    [0.62,-0.065],
+                    [0.62,0],
+                    [1.02,0.16]
+                  ]
+                },
+                {
+                  "center": [0,0,1.15],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [1.02,0.095],
+                    [0.62,0.095],
+                    [0.62,0.16],
+                    [1.02,0.16]
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "road-entry": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "sidewalk-entry": {
+            "position": [0,0.16,1.15],
+            "direction": [0,0,1]
+          },
+          "warning-seat": {
+            "position": [0,0.16,1.15],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

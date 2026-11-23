@@ -1,0 +1,357 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.removable-cover-buried-irrigation-valve-box",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "地埋灌溉阀门检修井盒",
+  "summary": "井盒侧边留敞口，底部独立中空，带可提起的盖与阀门支持点。",
+  "license": "Apache-2.0",
+  "semanticType": "site.landscape.buried-irrigation-valve-service-box",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "园林",
+    "景观",
+    "阀门盒",
+    "灌溉",
+    "检修"
+  ],
+  "anchors": [
+    "grade",
+    "pipe-left",
+    "pipe-right"
+  ],
+  "ai": {
+    "intent": "在绿化带中表示可打开的阀门井盒和两处横向穿管窗口。",
+    "editableParts": [
+      "活动井盖",
+      "盒边",
+      "两处槽口"
+    ],
+    "qualityChecks": [
+      "井盖升起后侧边通口仍固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "removable-cover-buried-irrigation-valve-box",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "near-far-wall-0",
+            "semanticType": "site.landscape.irrigation-valve-box.short-wall",
+            "material": "polymer",
+            "appearance": {
+              "color": "#637a71"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.165],
+                [0,0,-0.143]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.214,-0.244],
+                [0.214,-0.244],
+                [0.214,-0.03],
+                [-0.214,-0.03]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "near-far-wall-1",
+            "semanticType": "site.landscape.irrigation-valve-box.short-wall",
+            "material": "polymer",
+            "appearance": {
+              "color": "#637a71"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.143],
+                [0,0,0.165]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.214,-0.244],
+                [0.214,-0.244],
+                [0.214,-0.03],
+                [-0.214,-0.03]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "side-frames-0",
+            "semanticType": "site.landscape.irrigation-valve-box.notched-side",
+            "material": "polymer",
+            "appearance": {
+              "color": "#637a71"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.217,0,0],
+                [-0.19499999999999998,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.155,-0.244],
+                [-0.085,-0.244],
+                [-0.085,-0.155],
+                [0.085,-0.155],
+                [0.085,-0.244],
+                [0.155,-0.244],
+                [0.155,-0.03],
+                [-0.155,-0.03]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "side-frames-1",
+            "semanticType": "site.landscape.irrigation-valve-box.notched-side",
+            "material": "polymer",
+            "appearance": {
+              "color": "#637a71"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.19499999999999998,0,0],
+                [0.217,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.155,-0.244],
+                [-0.085,-0.244],
+                [-0.085,-0.155],
+                [0.085,-0.155],
+                [0.085,-0.244],
+                [0.155,-0.244],
+                [0.155,-0.03],
+                [-0.155,-0.03]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "lid-seat",
+            "semanticType": "site.landscape.irrigation-valve-box.lid-seat",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.032,0],
+                [0,-0.015,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.231,-0.175],
+                [0.231,-0.175],
+                [0.231,0.175],
+                [-0.231,0.175]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1965,-0.139],
+                  [0.1965,-0.139],
+                  [0.1965,0.139],
+                  [-0.1965,0.139]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "service-lid",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.014,0]
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "site.landscape.irrigation-valve-box.lid",
+            "material": "polymer",
+            "appearance": {
+              "color": "#637a71"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.456,0.014,0.342]
+            },
+            "transform": {
+              "position": [0,0.007,0]
+            },
+            "parent": "service-lid"
+          },
+          {
+            "id": "rib-0",
+            "semanticType": "site.landscape.irrigation-valve-box.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.004,0.254]
+            },
+            "transform": {
+              "position": [-0.166,0.014,0]
+            },
+            "parent": "service-lid"
+          },
+          {
+            "id": "rib-1",
+            "semanticType": "site.landscape.irrigation-valve-box.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.004,0.254]
+            },
+            "transform": {
+              "position": [-0.11900000000000001,0.014,0]
+            },
+            "parent": "service-lid"
+          },
+          {
+            "id": "rib-2",
+            "semanticType": "site.landscape.irrigation-valve-box.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.004,0.254]
+            },
+            "transform": {
+              "position": [-0.07200000000000001,0.014,0]
+            },
+            "parent": "service-lid"
+          },
+          {
+            "id": "rib-3",
+            "semanticType": "site.landscape.irrigation-valve-box.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.004,0.254]
+            },
+            "transform": {
+              "position": [-0.024999999999999994,0.014,0]
+            },
+            "parent": "service-lid"
+          },
+          {
+            "id": "rib-4",
+            "semanticType": "site.landscape.irrigation-valve-box.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.004,0.254]
+            },
+            "transform": {
+              "position": [0.021999999999999992,0.014,0]
+            },
+            "parent": "service-lid"
+          },
+          {
+            "id": "rib-5",
+            "semanticType": "site.landscape.irrigation-valve-box.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.004,0.254]
+            },
+            "transform": {
+              "position": [0.06899999999999998,0.014,0]
+            },
+            "parent": "service-lid"
+          },
+          {
+            "id": "rib-6",
+            "semanticType": "site.landscape.irrigation-valve-box.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.004,0.254]
+            },
+            "transform": {
+              "position": [0.11600000000000002,0.014,0]
+            },
+            "parent": "service-lid"
+          },
+          {
+            "id": "rib-7",
+            "semanticType": "site.landscape.irrigation-valve-box.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#58666a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.004,0.254]
+            },
+            "transform": {
+              "position": [0.163,0.014,0]
+            },
+            "parent": "service-lid"
+          }
+        ],
+        "anchors": {
+          "grade": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "pipe-left": {
+            "position": [-0.217,-0.197,0],
+            "direction": [-1,0,0]
+          },
+          "pipe-right": {
+            "position": [0.217,-0.197,0],
+            "direction": [1,0,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "lift-valve-box-cover",
+            "target": "service-lid",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0.22,0],
+            "duration": 1,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

@@ -4,6 +4,14 @@ All notable changes to AgentSceneBuilder will be documented here.
 
 The project is currently pre-release.
 
+## 0.1.0-alpha.3
+
+- Expanded the public model library to 882 base components, 24 complete models, and 11 spatial methods. Added 53 assembly examples across structure, building services, site works, and prefabrication.
+- Added catalog pagination, domain and type filters, and on-demand model loading. Previews share the editor's GPU renderer and studio lighting, with a Canvas fallback.
+- Added direct editor import for compatible SceneSpec assemblies. Imports preserve editable nodes, anchors, connections, and animations.
+- Added `--domain` and `--kind` filters to `registry search` and broadened the modeled geometry and assembly details supported by the core.
+- Clarified the model library's focus on large language models and simplified its navigation.
+
 ## 0.1.0-alpha.2
 
 - Added `composition check` and `scene check` for reporting multiple issues in one JSON response. Diagnostics include JSON Pointers, related declarations, reference suggestions, and optional source ranges and punctuation fixes. Use `--reject-duplicate-keys` to detect repeated JSON members.

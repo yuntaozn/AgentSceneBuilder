@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.stiffened-deck-perimeter-pour-stop",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带加劲肋楼承板收边挡浆角",
+  "summary": "楼承板外围挡浆立边、底折边与两块三角加劲片，顶部对齐混凝土完成面。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.floor.deck-perimeter-pour-stop",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "楼承板",
+    "封边",
+    "挡浆"
+  ],
+  "anchors": [
+    "base",
+    "face",
+    "edge"
+  ],
+  "ai": {
+    "intent": "封住组合楼板边线，单独表达折边和加强片。",
+    "editableParts": [
+      "挡浆立边",
+      "底翼",
+      "两只加劲肋"
+    ],
+    "qualityChecks": [
+      "挡板顶面对齐浇筑面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "stiffened-deck-perimeter-pour-stop",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "edge-form-angle",
+            "semanticType": "structure.floor.deck-angle-pour-stop.sheet",
+            "material": "steel",
+            "appearance": {
+              "color": "#576d78"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.75,0,0],
+                [0.75,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0,0],
+                [0.086,0],
+                [0.086,0.003],
+                [0.003,0.003],
+                [0.003,0.127],
+                [0,0.127]
+              ]
+            }
+          },
+          {
+            "id": "gusset-0",
+            "semanticType": "structure.floor.deck-angle-pour-stop.stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.5630000000000001,0,0],
+                [-0.557,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.004,0.005],
+                [0.071,0.005],
+                [0.004,0.086]
+              ]
+            }
+          },
+          {
+            "id": "gusset-1",
+            "semanticType": "structure.floor.deck-angle-pour-stop.stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.557,0,0],
+                [0.5630000000000001,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.004,0.005],
+                [0.071,0.005],
+                [0.004,0.086]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,-0.016],
+            "direction": [0,-1,0]
+          },
+          "face": {
+            "position": [0,0.128,0],
+            "direction": [0,1,0]
+          },
+          "edge": {
+            "position": [0,0.064,0],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

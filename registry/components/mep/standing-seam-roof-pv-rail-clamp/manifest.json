@@ -1,0 +1,141 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.standing-seam-roof-pv-rail-clamp",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "直立锁边屋面光伏夹座",
+  "summary": "夹体底面留出贯通的竖肋槽，侧向紧固件和顶装轨座分离。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.photovoltaic.standing-seam-solar-rail-clamp",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "光伏",
+    "屋面光伏",
+    "锁边",
+    "金属屋面",
+    "夹座"
+  ],
+  "anchors": [
+    "seam",
+    "rail"
+  ],
+  "ai": {
+    "intent": "把光伏安装轨支承到直立锁边的竖肋上。",
+    "editableParts": [
+      "叉口",
+      "侧紧固件",
+      "顶面轨座"
+    ],
+    "qualityChecks": [
+      "竖槽贯通并对齐屋面竖肋。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "standing-seam-roof-pv-rail-clamp",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "clamp-block",
+            "semanticType": "mep.photovoltaic.standing-seam-roof-clamp.clamp",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.05],
+                [0,0,0.05]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.037,0],
+                [-0.009,0],
+                [-0.009,0.047],
+                [0.009,0.047],
+                [0.009,0],
+                [0.037,0],
+                [0.037,0.057],
+                [-0.037,0.057]
+              ]
+            }
+          },
+          {
+            "id": "set-screw-0",
+            "semanticType": "mep.photovoltaic.standing-seam-roof-clamp.side-screw",
+            "material": "steel",
+            "appearance": {
+              "color": "#50636f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.005,0.027,-0.027],
+              "end": [0.046,0.027,-0.027],
+              "radius": 0.005,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "set-screw-1",
+            "semanticType": "mep.photovoltaic.standing-seam-roof-clamp.side-screw",
+            "material": "steel",
+            "appearance": {
+              "color": "#50636f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.005,0.027,0.027],
+              "end": [0.046,0.027,0.027],
+              "radius": 0.005,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "top-fastener",
+            "semanticType": "mep.photovoltaic.standing-seam-roof-clamp.top-fastener",
+            "material": "steel",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.057,0],
+                [0,0.065,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.008,0],
+                [0.004000000000000001,0.006928203230275509],
+                [-0.003999999999999998,0.0069282032302755096],
+                [-0.008,9.797174393178825e-19],
+                [-0.0040000000000000036,-0.006928203230275508],
+                [0.004000000000000001,-0.006928203230275509]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "seam": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "rail": {
+            "position": [0,0.057,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

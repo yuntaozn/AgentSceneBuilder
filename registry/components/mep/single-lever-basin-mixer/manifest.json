@@ -1,0 +1,188 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.single-lever-basin-mixer",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "单柄台盆龙头",
+  "summary": "台面安装柱、出水管及可动拨柄独立，下方保留两个给水定位。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.sanitary.single-lever-basin-mixer",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "卫生间",
+    "给排水"
+  ],
+  "anchors": [
+    "mount",
+    "hot-in",
+    "cold-in",
+    "water-out"
+  ],
+  "ai": {
+    "intent": "在台面开孔安装龙头并标识冷热尾口。",
+    "editableParts": [
+      "编辑出水弯管、拨柄、安装柱与两入口。"
+    ],
+    "qualityChecks": [
+      "出水口朝下。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "single-lever-basin-mixer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "mep.sanitary.single-lever-basin-mixer.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#a6b6bf"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.018,0],
+              "radius": 0.035,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "body",
+            "semanticType": "mep.sanitary.single-lever-basin-mixer.body",
+            "material": "steel",
+            "appearance": {
+              "color": "#a6b6bf"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.012,0],
+              "end": [0,0.107,0],
+              "radius": 0.026,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "spout",
+            "semanticType": "mep.sanitary.single-lever-basin-mixer.spout",
+            "material": "steel",
+            "appearance": {
+              "color": "#a6b6bf"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0.08,0],
+                [0,0.127,0],
+                [0,0.154,0.038],
+                [0,0.154,0.152],
+                [0,0.135,0.182],
+                [0,0.111,0.182]
+              ],
+              "up": [1,0,0],
+              "outsideDiameter": 0.027,
+              "thickness": 0.003
+            }
+          },
+          {
+            "id": "lever-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.114,-0.012]
+            }
+          },
+          {
+            "id": "lever",
+            "semanticType": "mep.sanitary.single-lever-basin-mixer.lever",
+            "material": "steel",
+            "appearance": {
+              "color": "#a6b6bf"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.03,0.013,0.067]
+            },
+            "transform": {
+              "position": [0,0.015,-0.028]
+            },
+            "parent": "lever-axis"
+          },
+          {
+            "id": "hot-stem",
+            "semanticType": "mep.sanitary.single-lever-basin-mixer.tail",
+            "material": "steel",
+            "appearance": {
+              "color": "#516f7e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.015,-0.067,0],
+              "end": [-0.015,0,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "cold-stem",
+            "semanticType": "mep.sanitary.single-lever-basin-mixer.tail",
+            "material": "steel",
+            "appearance": {
+              "color": "#516f7e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.015,-0.067,0],
+              "end": [0.015,0,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "hot-in": {
+            "position": [-0.015,-0.067,0],
+            "direction": [0,-1,0],
+            "outsideDiameter": 0.022,
+            "kind": "pipe-port"
+          },
+          "cold-in": {
+            "position": [0.015,-0.067,0],
+            "direction": [0,-1,0],
+            "outsideDiameter": 0.022,
+            "kind": "pipe-port"
+          },
+          "water-out": {
+            "node": "spout",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        },
+        "animations": [
+          {
+            "id": "tilt-handle",
+            "target": "lever-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [-0.38,0,0],
+            "duration": 0.5,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

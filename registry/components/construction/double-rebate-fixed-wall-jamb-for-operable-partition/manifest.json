@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.double-rebate-fixed-wall-jamb-for-operable-partition",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双压线活动隔墙固定接收门框",
+  "summary": "背面铝槽压到固定墙面，双重唇边接纳伸缩末扇。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.operable-partition.fixed-wall-jamb",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内隔断",
+    "收口门框",
+    "密封",
+    "墙装"
+  ],
+  "anchors": [
+    "panel",
+    "wall",
+    "base"
+  ],
+  "ai": {
+    "intent": "背面铝槽压到固定墙面，双重唇边接纳伸缩末扇。",
+    "editableParts": [
+      "可分别编辑 receiver-profile、jamb-buffer-1、jamb-buffer-2、fixed-screw-1、fixed-screw-2。"
+    ],
+    "qualityChecks": [
+      "连接墙面与双侧缓冲条，保留末扇伸缩行程。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-rebate-fixed-wall-jamb-for-operable-partition",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "receiver-profile",
+            "semanticType": "construction.operable-partition.fixed-jamb.receiver",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.156,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.037,-0.063],
+                [0.026,-0.063],
+                [0.026,-0.048],
+                [-0.019,-0.048],
+                [-0.019,0.048],
+                [0.026,0.048],
+                [0.026,0.063],
+                [-0.037,0.063]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "jamb-buffer-1",
+            "semanticType": "construction.operable-partition.fixed-jamb.fin",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.017,2.141,0.012]
+            },
+            "transform": {
+              "position": [-0.005,1.078,-0.037]
+            }
+          },
+          {
+            "id": "jamb-buffer-2",
+            "semanticType": "construction.operable-partition.fixed-jamb.fin",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.017,2.141,0.012]
+            },
+            "transform": {
+              "position": [-0.005,1.078,0.037]
+            }
+          },
+          {
+            "id": "fixed-screw-1",
+            "semanticType": "construction.operable-partition.fixed-jamb.anchor",
+            "material": "steel",
+            "appearance": {
+              "color": "#b28b66"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.013,0.26,0],
+              "end": [0.046,0.26,0],
+              "radius": 0.005,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "fixed-screw-2",
+            "semanticType": "construction.operable-partition.fixed-jamb.anchor",
+            "material": "steel",
+            "appearance": {
+              "color": "#b28b66"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.013,1.89,0],
+              "end": [0.046,1.89,0],
+              "radius": 0.005,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "panel": {
+            "position": [-0.036,1.06,0],
+            "direction": [-1,0,0]
+          },
+          "wall": {
+            "position": [0.039,1.06,0],
+            "direction": [1,0,0]
+          },
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

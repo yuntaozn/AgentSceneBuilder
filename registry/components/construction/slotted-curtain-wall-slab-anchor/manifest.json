@@ -1,0 +1,171 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.slotted-curtain-wall-slab-anchor",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "长孔幕墙转接角码",
+  "summary": "两片正交板带各自穿孔，加设两条加强筋，对接楼板和立柱背面。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.slotted-curtain-wall-slab-anchor",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "slab-seat",
+    "mullion-seat"
+  ],
+  "ai": {
+    "intent": "在结构板边与幕墙主立柱之间组织可拆角码。",
+    "editableParts": [
+      "修改两片板的孔向、肋板和座面。"
+    ],
+    "qualityChecks": [
+      "两个安装基准垂直。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "slotted-curtain-wall-slab-anchor",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "floor-flange",
+            "semanticType": "construction.facade.slotted-floor-anchor.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.05],
+                [0,0.01,0.05]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.081,-0.0585],
+                [0.081,-0.0585],
+                [0.081,0.0585],
+                [-0.081,0.0585]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.059,-0.008],
+                  [-0.031,-0.008],
+                  [-0.031,0.008],
+                  [-0.059,0.008]
+                ],
+                [
+                  [0.031,-0.008],
+                  [0.059,-0.008],
+                  [0.059,0.008],
+                  [0.031,0.008]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "upstand",
+            "semanticType": "construction.facade.slotted-floor-anchor.plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.066,0],
+                [0,0.066,0.01]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.081,-0.066],
+                [0.081,-0.066],
+                [0.081,0.066],
+                [-0.081,0.066]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.057999999999999996,-0.0245],
+                  [-0.044,-0.0245],
+                  [-0.044,0.0245],
+                  [-0.057999999999999996,0.0245]
+                ],
+                [
+                  [0.044,-0.0245],
+                  [0.057999999999999996,-0.0245],
+                  [0.057999999999999996,0.0245],
+                  [0.044,0.0245]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "gusset-0",
+            "semanticType": "construction.facade.slotted-floor-anchor.rib",
+            "material": "steel",
+            "appearance": {
+              "color": "#486775"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.065,0,0],
+                [-0.055,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.072,0.01],
+                [-0.01,0.01],
+                [-0.01,0.098]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "gusset-1",
+            "semanticType": "construction.facade.slotted-floor-anchor.rib",
+            "material": "steel",
+            "appearance": {
+              "color": "#486775"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.055,0,0],
+                [0.065,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.072,0.01],
+                [-0.01,0.01],
+                [-0.01,0.098]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "slab-seat": {
+            "position": [0,0,0.05],
+            "direction": [0,-1,0]
+          },
+          "mullion-seat": {
+            "position": [0,0.066,0],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

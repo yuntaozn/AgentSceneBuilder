@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.wire-rebar-chair",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双脚钢筋马凳",
+  "summary": "两片弯折支脚与顶横杆作为独立节点，支撑上层网片。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.concrete.wire-chair",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "混凝土施工",
+    "钢筋支撑"
+  ],
+  "anchors": [
+    "mount",
+    "mesh-seat"
+  ],
+  "ai": {
+    "intent": "在基础或楼板的两层钢筋之间表达马凳。",
+    "editableParts": [
+      "编辑脚形、排距和上支撑高度。"
+    ],
+    "qualityChecks": [
+      "可按上下层钢筋标高复核。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "wire-rebar-chair",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "leg",
+            "semanticType": "construction.concrete.wire-chair.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#7b8891"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0.006,-0.13],
+                [0,0.006,-0.086],
+                [0,0.148,-0.044],
+                [0,0.148,0.044],
+                [0,0.006,0.086],
+                [0,0.006,0.13]
+              ],
+              "radius": 0.006,
+              "radialSegments": 12
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [-0.065,0,0],
+              "step": [0.13,0,0]
+            }
+          },
+          {
+            "id": "top-rail",
+            "semanticType": "construction.concrete.wire-chair.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#7b8891"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.09,0.148,0],
+              "end": [0.09,0.148,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "mesh-seat": {
+            "position": [0,0.161,0],
+            "direction": [0,1,0],
+            "kind": "bar-support"
+          }
+        }
+      }
+    }
+  }
+}

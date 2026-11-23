@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "0.1", "id": "construction.single-swing-door", "version": "0.1.0", "kind": "component",
+  "title": "单扇平开门", "summary": "带门框、铰轴、门扇和把手，默认与矩形门洞隔墙配合，可预览门扇开启。",
+  "license": "Apache-2.0", "semanticType": "construction.door",
+  "capabilities": ["attach", "animate", "inspect-structure"], "tags": ["建筑", "门", "门洞", "基础构件"],
+  "anchors": ["fit-base", "fit-top", "fit-left", "fit-right"],
+  "ai": {
+    "intent": "给建筑开间复用带开启枢轴的门扇和三边门框。",
+    "editableParts": ["hinge.transform.rotation[1] 控制门扇朝向", "door-open 控制开启演示", "需要改变安装尺寸时调整整组缩放或协调门框与门扇尺寸"],
+    "qualityChecks": ["安装点应与目标洞口相符。", "在闭合位置确认门扇完整落在门框净开口内。"]
+  },
+  "editor": { "document": { "id": "single-swing-door", "component": "core.composition", "parameters": {
+    "nodes": [
+      { "id": "frame", "semanticType": "construction.door.frame", "material": "timber", "appearance": { "color": "#675143" },
+        "geometry": { "type": "door-opening-wall", "wallWidth": 0.9, "wallHeight": 2.1, "thickness": 0.12,
+          "openingWidth": 0.82, "openingHeight": 2.06, "openingOffset": 0 } },
+      { "id": "hinge", "semanticType": "construction.door.hinge", "transform": { "position": [-0.404,0,0.02], "rotation": [0,-0.6,0] } },
+      { "id": "leaf", "parent": "hinge", "semanticType": "construction.door.leaf", "material": "timber", "appearance": { "color": "#aa764b" },
+        "transform": { "position": [0.404,1.0325,-0.02] }, "geometry": { "type": "box", "size": [0.808,2.035,0.04] } },
+      { "id": "handle", "parent": "hinge", "semanticType": "construction.door.handle", "material": "steel", "appearance": { "color": "#aebbc0" },
+        "geometry": { "type": "cylinder-between", "start": [0.74,1,0], "end": [0.74,1,0.06], "radius": 0.014 } }
+    ],
+    "anchors": {
+      "fit-base": { "node": "frame", "onGeometry": { "type": "feature", "name": "opening-base" } },
+      "fit-top": { "node": "frame", "onGeometry": { "type": "feature", "name": "panel-top" } },
+      "fit-left": { "node": "frame", "onGeometry": { "type": "feature", "name": "wall-left" } },
+      "fit-right": { "node": "frame", "onGeometry": { "type": "feature", "name": "wall-right" } }
+    },
+    "animations": [{ "id": "door-open", "target": "hinge", "property": "rotation", "from": [0,0,0], "to": [0,-1.5707963267948966,0], "duration": 1.5, "loop": false }]
+  } } }
+}

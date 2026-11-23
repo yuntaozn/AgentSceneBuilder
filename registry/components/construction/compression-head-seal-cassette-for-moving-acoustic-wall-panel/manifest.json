@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.compression-head-seal-cassette-for-moving-acoustic-wall-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "活动隔墙弹性伸缩顶封组件",
+  "summary": "顶托中有竖直导柱和可升压盖，双道压条与吊轨底面配合。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.operable-partition.retractable-head-seal",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内隔断",
+    "顶封",
+    "伸缩压条",
+    "活动墙"
+  ],
+  "anchors": [
+    "panel",
+    "hanger"
+  ],
+  "ai": {
+    "intent": "顶托中有竖直导柱和可升压盖，双道压条与吊轨底面配合。",
+    "editableParts": [
+      "可分别编辑 fixed-body、compression-guide-1、compression-guide-2、top-slide、raised-sealing-bead-1、raised-sealing-bead-2。"
+    ],
+    "qualityChecks": [
+      "中间通孔为吊杆留位，双胶条向顶面伸出 18 mm。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "compression-head-seal-cassette-for-moving-acoustic-wall-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fixed-body",
+            "semanticType": "construction.operable-partition.head-seal.body",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.01,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.3785,-0.0395],
+                [0.3785,-0.0395],
+                [0.3785,0.0395],
+                [-0.3785,0.0395]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.049,-0.0185],
+                  [-0.049,-0.0185],
+                  [-0.049,0.0185],
+                  [0.049,0.0185]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "compression-guide-1",
+            "semanticType": "construction.operable-partition.head-seal.guide",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.283,0.01,0],
+              "end": [-0.283,0.048,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "compression-guide-2",
+            "semanticType": "construction.operable-partition.head-seal.guide",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.283,0.01,0],
+              "end": [0.283,0.048,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "top-slide",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "raised-sealing-bead-1",
+            "semanticType": "construction.operable-partition.head-seal.gasket",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.755,0.016,0.011]
+            },
+            "transform": {
+              "position": [0,0.03,-0.027]
+            },
+            "parent": "top-slide"
+          },
+          {
+            "id": "raised-sealing-bead-2",
+            "semanticType": "construction.operable-partition.head-seal.gasket",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.755,0.016,0.011]
+            },
+            "transform": {
+              "position": [0,0.03,0.027]
+            },
+            "parent": "top-slide"
+          },
+          {
+            "id": "top-pressure-plate",
+            "semanticType": "construction.operable-partition.head-seal.moving",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.014,0],
+                [0,0.024,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.3755,-0.0385],
+                [0.3755,-0.0385],
+                [0.3755,0.0385],
+                [-0.3755,0.0385]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0515,-0.0195],
+                  [-0.0515,-0.0195],
+                  [-0.0515,0.0195],
+                  [0.0515,0.0195]
+                ]
+              ]
+            },
+            "parent": "top-slide"
+          }
+        ],
+        "anchors": {
+          "panel": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "hanger": {
+            "position": [0,0.01,0],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "raise-head-seal",
+            "target": "top-slide",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0.018,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

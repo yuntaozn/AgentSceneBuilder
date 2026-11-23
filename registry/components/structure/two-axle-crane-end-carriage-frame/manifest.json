@@ -1,0 +1,191 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.two-axle-crane-end-carriage-frame",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双轴行车端梁车架",
+  "summary": "两段轴座、可插轴和箱型端梁，另有主梁端面及缓冲头的定位。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.crane.crane-double-axle-end-carriage",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "行车",
+    "吊装",
+    "端梁",
+    "双轴",
+    "主梁"
+  ],
+  "anchors": [
+    "wheel-left",
+    "wheel-right",
+    "bridge",
+    "end-stop"
+  ],
+  "ai": {
+    "intent": "把端梁、两个轮件和跨度主梁作为独立件对齐。",
+    "editableParts": [
+      "箱形端梁",
+      "轴座",
+      "轮轴",
+      "主梁端板"
+    ],
+    "qualityChecks": [
+      "两只车轮中心同一轨道标高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-axle-crane-end-carriage-frame",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "box-section",
+            "semanticType": "structure.crane.end-carriage.girder",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a469"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.58,0.143,0.118],
+                [0.58,0.143,0.118]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.09,-0.095],
+                [0.09,-0.095],
+                [0.09,0.095],
+                [-0.09,0.095]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.073,-0.0795],
+                  [0.073,-0.0795],
+                  [0.073,0.0795],
+                  [-0.073,0.0795]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "bearing-block-0",
+            "semanticType": "structure.crane.end-carriage.axle-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#506a77"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.111,0.111,0.073]
+            },
+            "transform": {
+              "position": [-0.349,0,0.11]
+            }
+          },
+          {
+            "id": "axle-0",
+            "semanticType": "structure.crane.end-carriage.stub",
+            "material": "steel",
+            "appearance": {
+              "color": "#849da3"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.349,0,-0.044],
+              "end": [-0.349,0,0.118],
+              "radius": 0.024,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "bearing-block-1",
+            "semanticType": "structure.crane.end-carriage.axle-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#506a77"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.111,0.111,0.073]
+            },
+            "transform": {
+              "position": [0.349,0,0.11]
+            }
+          },
+          {
+            "id": "axle-1",
+            "semanticType": "structure.crane.end-carriage.stub",
+            "material": "steel",
+            "appearance": {
+              "color": "#849da3"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.349,0,-0.044],
+              "end": [0.349,0,0.118],
+              "radius": 0.024,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "girder-end-plate",
+            "semanticType": "structure.crane.end-carriage.bridge-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#506a77"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.271,0.239,0.027]
+            },
+            "transform": {
+              "position": [0,0.152,-0.0055]
+            }
+          },
+          {
+            "id": "damped-stop-stud",
+            "semanticType": "structure.crane.end-carriage.bumper-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#506a77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.58,0.143,0.121],
+              "end": [-0.536,0.143,0.121],
+              "radius": 0.037,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "wheel-left": {
+            "position": [-0.349,0,0.066],
+            "direction": [0,0,-1]
+          },
+          "wheel-right": {
+            "position": [0.349,0,0.066],
+            "direction": [0,0,-1]
+          },
+          "bridge": {
+            "position": [0,0.152,-0.019],
+            "direction": [0,0,-1]
+          },
+          "end-stop": {
+            "position": [-0.58,0.143,0.121],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,15 @@
 {
-  "schemaVersion":"0.1","id":"structure.rectangular-slab","version":"0.1.0","kind":"component","title":"矩形结构板","summary":"通过长度、宽度和厚度定义楼板、底板、平台板及设备基础板。","license": "Apache-2.0","semanticType":"structure.slab","capabilities":["resize","material","repeat","attach"],"tags":["结构","楼板","基础构件"],
+  "schemaVersion":"0.1","id":"structure.rectangular-slab","version":"0.1.1","kind":"component","title":"矩形结构板","summary":"通过长度、宽度和厚度定义楼板、底板、平台板及设备基础板。","license": "Apache-2.0","semanticType":"structure.slab","capabilities":["resize","material","repeat","attach"],"tags":["结构","楼板","基础构件"],
   "parameters":{"length":{"type":"number","unit":"m","default":4,"minimum":0.1},"width":{"type":"number","unit":"m","default":3,"minimum":0.1},"thickness":{"type":"number","unit":"m","default":0.2,"minimum":0.01}},"anchors":["center","top-center","bottom-center"],"dependencies":["primitive.box@0.1.0"],
-  "editor":{"template":"slab","node":{"id":"slab","semanticType":"structure.slab","geometry":{"type":"box","size":[4,0.2,3]},"transform":{"position":[0,0.1,0],"rotation":[0,0,0],"scale":[1,1,1]},"appearance":{"color":"#7f8b91","opacity":1}}}
+  "editor": { "document": {
+    "id": "rectangular-slab", "component": "core.composition",
+    "parameters": {
+      "nodes": [{ "id": "slab", "semanticType": "structure.slab", "geometry": { "type": "box", "size": [4,0.2,3] }, "transform": { "position": [0,0.1,0] }, "appearance": { "color": "#7f8b91", "opacity": 1 } }],
+      "anchors": {
+        "center": { "node": "slab", "onGeometry": { "type": "box", "fraction": [0,0,0] } },
+        "top-center": { "node": "slab", "onGeometry": { "type": "box", "fraction": [0,0.5,0] }, "direction": [0,1,0] },
+        "bottom-center": { "node": "slab", "onGeometry": { "type": "box", "fraction": [0,-0.5,0] }, "direction": [0,-1,0] }
+      }
+    }
+  } }
 }

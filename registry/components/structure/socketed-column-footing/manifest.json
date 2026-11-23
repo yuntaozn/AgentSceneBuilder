@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.socketed-column-footing",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "杯口式柱基",
+  "summary": "带封底和真实杯腔的预制柱基，分开定位底面、杯内落座与杯顶中心。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.foundation.column-socket",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "混凝土施工",
+    "基础"
+  ],
+  "anchors": [
+    "bottom",
+    "socket-bottom",
+    "socket-mouth",
+    "inside-near",
+    "inside-far"
+  ],
+  "ai": {
+    "intent": "显示柱脚插入预留杯口的状态。",
+    "editableParts": [
+      "编辑杯壁尺寸、杯口和底盘。"
+    ],
+    "qualityChecks": [
+      "柱截面应小于杯口并落在杯内底面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "socketed-column-footing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "structure.foundation.column-socket.plate",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a9b1b3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.55,0.22,1.55]
+            },
+            "transform": {
+              "position": [0,0.11,0]
+            }
+          },
+          {
+            "id": "cup",
+            "semanticType": "structure.foundation.column-socket.cup",
+            "material": "concrete",
+            "appearance": {
+              "color": "#929fa5"
+            },
+            "geometry": {
+              "type": "floor-opening-slab",
+              "slabWidth": 0.89,
+              "slabDepth": 0.89,
+              "thickness": 0.46,
+              "openingWidth": 0.46,
+              "openingDepth": 0.46,
+              "openingOffsetX": 0,
+              "openingOffsetZ": 0
+            },
+            "transform": {
+              "position": [0,0.68,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "base",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "socket-bottom": {
+            "node": "base",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "socket-mouth": {
+            "position": [0,0.68,0],
+            "direction": [0,1,0]
+          },
+          "inside-near": {
+            "node": "cup",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-near"
+            }
+          },
+          "inside-far": {
+            "node": "cup",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-far"
+            }
+          }
+        }
+      }
+    }
+  }
+}

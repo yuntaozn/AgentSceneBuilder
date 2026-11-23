@@ -1,0 +1,166 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.dual-socket-outlet-faceplate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双位插座面板",
+  "summary": "双位端面有六个对应贯通槽孔，设备底壳与安装面分开。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.electric.dual-outlet-faceplate",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "电气",
+    "电气面板"
+  ],
+  "anchors": [
+    "mount",
+    "upper-face",
+    "lower-face"
+  ],
+  "ai": {
+    "intent": "将带物理槽位的面板装到相同成品面底盒。",
+    "editableParts": [
+      "编辑两个孔组和背部结构。"
+    ],
+    "qualityChecks": [
+      "开槽位置可见，底壳保持独立。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "dual-socket-outlet-faceplate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front",
+            "semanticType": "electric.dual-outlet-faceplate.face",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d2dce0"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.047,-0.056],
+                [0.047,-0.056],
+                [0.047,0.056],
+                [-0.047,0.056]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0155,-0.027499999999999997],
+                  [-0.010499999999999999,-0.027499999999999997],
+                  [-0.010499999999999999,-0.014499999999999999],
+                  [-0.0155,-0.014499999999999999]
+                ],
+                [
+                  [0.010499999999999999,-0.027499999999999997],
+                  [0.0155,-0.027499999999999997],
+                  [0.0155,-0.014499999999999999],
+                  [0.010499999999999999,-0.014499999999999999]
+                ],
+                [
+                  [-0.0035,-0.039999999999999994],
+                  [0.0035,-0.039999999999999994],
+                  [0.0035,-0.032],
+                  [-0.0035,-0.032]
+                ],
+                [
+                  [-0.0155,0.026500000000000003],
+                  [-0.010499999999999999,0.026500000000000003],
+                  [-0.010499999999999999,0.0395],
+                  [-0.0155,0.0395]
+                ],
+                [
+                  [0.010499999999999999,0.026500000000000003],
+                  [0.0155,0.026500000000000003],
+                  [0.0155,0.0395],
+                  [0.010499999999999999,0.0395]
+                ],
+                [
+                  [-0.0035,0.014000000000000002],
+                  [0.0035,0.014000000000000002],
+                  [0.0035,0.022000000000000002],
+                  [-0.0035,0.022000000000000002]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "back-frame",
+            "semanticType": "electric.dual-outlet-faceplate.shell",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.025],
+                [0,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.033,-0.044],
+                [0.033,-0.044],
+                [0.033,0.044],
+                [-0.033,0.044]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0265,-0.0375],
+                  [0.0265,-0.0375],
+                  [0.0265,0.0375],
+                  [-0.0265,0.0375]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "base",
+            "semanticType": "electric.dual-outlet-faceplate.base",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.087,0.004]
+            },
+            "transform": {
+              "position": [0,0,-0.027]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "upper-face": {
+            "position": [0,0.027,0.009],
+            "direction": [0,0,1]
+          },
+          "lower-face": {
+            "position": [0,-0.027,0.009],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

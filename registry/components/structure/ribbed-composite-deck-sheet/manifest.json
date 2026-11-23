@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.ribbed-composite-deck-sheet",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "梯形肋压型楼承钢板",
+  "summary": "谷底、斜腹和肋顶组成连续薄壁截面，覆盖宽度由肋距和肋数决定。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.floor.ribbed-composite-deck",
+  "capabilities": [
+    "resize",
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "楼承板",
+    "组合楼板",
+    "压型钢板"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.1
+    },
+    "ribPitch": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.19
+    },
+    "crownWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.079
+    },
+    "troughWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.067
+    },
+    "ribHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.05
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.002
+    },
+    "ribCount": {
+      "type": "number",
+      "default": 4
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "near-edge",
+    "far-edge",
+    "crown-first",
+    "bearing-start",
+    "bearing-end"
+  ],
+  "ai": {
+    "intent": "在可编辑组合楼板中表现波形钢底板和上部支承面。",
+    "editableParts": [
+      "肋距与肋数",
+      "板厚",
+      "谷底宽",
+      "肋高"
+    ],
+    "qualityChecks": [
+      "截面顶、底轮廓连续且厚度真实。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ribbed-composite-deck-sheet",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.floor.ribbed-composite-deck",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "ribbed-composite-deck-sheet",
+              "length": 2.1,
+              "ribPitch": 0.19,
+              "crownWidth": 0.079,
+              "troughWidth": 0.067,
+              "ribHeight": 0.05,
+              "thickness": 0.002,
+              "ribCount": 4
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "near-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "near-edge"
+            }
+          },
+          "far-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "far-edge"
+            }
+          },
+          "crown-first": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "crown-first"
+            }
+          },
+          "bearing-start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-start"
+            }
+          },
+          "bearing-end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

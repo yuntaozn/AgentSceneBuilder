@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.tapered-isolated-footing",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "坡面独立柱基础",
+  "summary": "矩形底盘向上收成柱墩支承面，底部和顶部有独立锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.foundation.tapered-isolated-footing",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "混凝土施工",
+    "基础"
+  ],
+  "anchors": [
+    "bottom",
+    "column-seat"
+  ],
+  "ai": {
+    "intent": "复用坡形独立基础的上下工作面。",
+    "editableParts": [
+      "编辑三个矩形层和坡顶。"
+    ],
+    "qualityChecks": [
+      "顶部支承面保持水平。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "tapered-isolated-footing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "footing",
+            "semanticType": "structure.foundation.tapered-isolated-footing",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a9b1b3"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 4,
+              "capStart": true,
+              "capEnd": true,
+              "sections": [
+                {
+                  "center": [0,0,0],
+                  "radiusX": 1.05,
+                  "radiusZ": 0.9,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0,0.22,0],
+                  "radiusX": 1.05,
+                  "radiusZ": 0.9,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0,0.68,0],
+                  "radiusX": 0.4,
+                  "radiusZ": 0.37,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "column-seat": {
+            "position": [0,0.68,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

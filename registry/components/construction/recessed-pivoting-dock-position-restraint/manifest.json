@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.recessed-pivoting-dock-position-restraint",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带可转挡臂的月台嵌装挡位件",
+  "summary": "埋入盒、横轴和可转时抬落的挡臂，定位点都在固定盒上。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.warehouse.pivoting-dock-restraint",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "仓储",
+    "物流",
+    "装卸口",
+    "挡位",
+    "月台"
+  ],
+  "anchors": [
+    "floor",
+    "deck"
+  ],
+  "ai": {
+    "intent": "在月台剖面中把固定预埋盒与可转挡臂分别展示。",
+    "editableParts": [
+      "埋盒",
+      "销轴",
+      "活动件"
+    ],
+    "qualityChecks": [
+      "转臂运动期间安装盒不动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "recessed-pivoting-dock-position-restraint",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base-tray",
+            "semanticType": "construction.warehouse.recessed-dock-restraint.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.056,0],
+                [0,-0.013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.205,-0.16],
+                [0.205,-0.16],
+                [0.205,0.16],
+                [-0.205,0.16]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1725,-0.1275],
+                  [0.1725,-0.1275],
+                  [0.1725,0.1275],
+                  [-0.1725,0.1275]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "recess-plate",
+            "semanticType": "construction.warehouse.recessed-dock-restraint.rear-wall",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.397,0.064,0.028]
+            },
+            "transform": {
+              "position": [0,-0.03,-0.151]
+            }
+          },
+          {
+            "id": "retainer-axis",
+            "semanticType": "construction.warehouse.recessed-dock-restraint.rotary-pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#7f969c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.183,-0.004,0],
+              "end": [0.183,-0.004,0],
+              "radius": 0.014,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "retainer-assembly",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.004,0]
+            }
+          },
+          {
+            "id": "move-arm",
+            "semanticType": "construction.warehouse.recessed-dock-restraint.active-stop",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a468"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.282,0.031,0.221]
+            },
+            "transform": {
+              "position": [0,0.023,0.094]
+            },
+            "parent": "retainer-assembly"
+          },
+          {
+            "id": "impact-edge",
+            "semanticType": "construction.warehouse.recessed-dock-restraint.rubber-pad",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4e5c61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.246,0.023,0.022]
+            },
+            "transform": {
+              "position": [0,0.033,0.198]
+            },
+            "parent": "retainer-assembly"
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,-0.056,0],
+            "direction": [0,-1,0]
+          },
+          "deck": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "turn-dock-stop",
+            "target": "retainer-assembly",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [-1.05,0,0],
+            "duration": 0.8,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

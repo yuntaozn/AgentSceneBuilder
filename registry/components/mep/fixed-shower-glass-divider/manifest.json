@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.fixed-shower-glass-divider",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "固定淋浴玻璃隔断",
+  "summary": "独立玻璃、墙侧 U 卡槽和底部定位轨组成可旋转摆放的一片隔断。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.sanitary.shower-divider",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "卫生间",
+    "给排水"
+  ],
+  "anchors": [
+    "mount",
+    "wall-seat",
+    "upper-edge"
+  ],
+  "ai": {
+    "intent": "复用淋浴间固定挡水屏。",
+    "editableParts": [
+      "调玻璃宽高、局部支座和朝向。"
+    ],
+    "qualityChecks": [
+      "玻璃以弱透明外观保留后方层次。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "fixed-shower-glass-divider",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "glass",
+            "semanticType": "mep.sanitary.shower-divider.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#a3d4dc",
+              "opacity": 0.4
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.884,1.92,0.009]
+            },
+            "transform": {
+              "position": [0,0.968,0]
+            }
+          },
+          {
+            "id": "wall-jamb",
+            "semanticType": "mep.sanitary.shower-divider.jamb",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#516f7e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.451,0,0],
+                [-0.451,1.93,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.014,-0.012],
+                [0.014,-0.012],
+                [0.014,-0.008],
+                [-0.008,-0.008],
+                [-0.008,0.008],
+                [0.014,0.008],
+                [0.014,0.012],
+                [-0.014,0.012]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "bottom-rail",
+            "semanticType": "mep.sanitary.shower-divider.bottom",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a6b6bf"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.902,0.013,0.016]
+            },
+            "transform": {
+              "position": [0,0.0065,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "wall-seat": {
+            "position": [-0.465,0.96,0],
+            "direction": [-1,0,0]
+          },
+          "upper-edge": {
+            "position": [0,1.928,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

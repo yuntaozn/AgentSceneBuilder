@@ -1,0 +1,125 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.trapezoid-compressible-precast-joint-filler-strip",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "预制板端梯形压缩填缝条",
+  "summary": "梯形填料嵌在两段板端之间，背部的双道防粘膜可独立查看。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.movement-joint.trapezoid-joint-filler",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "结构节点",
+    "填缝条",
+    "压缩泡沫",
+    "预制板"
+  ],
+  "anchors": [
+    "top",
+    "bottom"
+  ],
+  "ai": {
+    "intent": "梯形填料嵌在两段板端之间，背部的双道防粘膜可独立查看。",
+    "editableParts": [
+      "可分别编辑 compressible-foam-core、separation-liner-1、separation-liner-2。"
+    ],
+    "qualityChecks": [
+      "侧面两道膜以相同角度贴合梯形外边。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "trapezoid-compressible-precast-joint-filler-strip",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "compressible-foam-core",
+            "semanticType": "structure.movement-joint.joint-filler.core",
+            "material": "foam",
+            "appearance": {
+              "color": "#a6a18e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.302],
+                [0,0,0.302]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.068,-0.005],
+                [0.068,-0.005],
+                [0.046,-0.094],
+                [-0.046,-0.094]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "separation-liner-1",
+            "semanticType": "structure.movement-joint.joint-filler.release-skin",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.3],
+                [0,0,0.3]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.068,-0.005],
+                [-0.074,-0.005],
+                [-0.052,-0.094],
+                [-0.046,-0.094]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "separation-liner-2",
+            "semanticType": "structure.movement-joint.joint-filler.release-skin",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.3],
+                [0,0,0.3]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.068,-0.005],
+                [0.074,-0.005],
+                [0.052,-0.094],
+                [0.046,-0.094]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "top": {
+            "position": [0,-0.005,0],
+            "direction": [0,1,0]
+          },
+          "bottom": {
+            "position": [0,-0.094,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

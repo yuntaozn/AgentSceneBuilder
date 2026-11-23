@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.seat-notched-timber-joist",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双端落座缺口木搁栅",
+  "summary": "两端下缘有矩形座口，保留搁置面与接至板底的顶面位置。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.timber.seat-notched-joist",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "left-seat",
+    "right-seat",
+    "deck-seat",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "用实际木梁缺口表达坐落在承托件的端部。",
+    "editableParts": [
+      "修改两端缺口、跨长和厚度。"
+    ],
+    "qualityChecks": [
+      "两处端座可分别连到梁或墙托。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "seat-notched-timber-joist",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "joist",
+            "semanticType": "structure.timber.seat-notched-joist",
+            "material": "timber",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.036],
+                [0,0,0.036]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0.059],
+                [0.135,0.059],
+                [0.135,0],
+                [2.27,0],
+                [2.27,0.059],
+                [2.4,0.059],
+                [2.4,0.224],
+                [0,0.224]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "left-seat": {
+            "position": [0.0675,0.059,0],
+            "direction": [0,-1,0]
+          },
+          "right-seat": {
+            "position": [2.335,0.059,0],
+            "direction": [0,-1,0]
+          },
+          "deck-seat": {
+            "position": [1.2,0.224,0],
+            "direction": [0,1,0]
+          },
+          "start": {
+            "position": [0,0.143,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [2.4,0.143,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

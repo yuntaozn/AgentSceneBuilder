@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.standing-seam-fold-cover",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "直立锁边盖条",
+  "summary": "带内凹净空的倒扣钢条，用于覆盖并列的立缝。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.seam-cover",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "配合直立锁边板，单独展示盖合工序。",
+    "editableParts": [
+      "修改盖条开口、厚度及长度。"
+    ],
+    "qualityChecks": [
+      "净槽应容纳并列折肋。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "standing-seam-fold-cover",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "edge",
+            "semanticType": "construction.roof.seam-cover",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.2,2.4]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.018,-0.02],
+                [-0.018,0.008],
+                [0.018,0.008],
+                [0.018,-0.02],
+                [0.012,-0.02],
+                [0.012,0.002],
+                [-0.012,0.002],
+                [-0.012,-0.02]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

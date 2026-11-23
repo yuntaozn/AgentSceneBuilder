@@ -1,0 +1,123 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.bellows-type-epdm-floor-movement-joint-strip",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "楼地面变形缝波形橡胶芯带",
+  "summary": "中段是折返的软胶截面，两边为独立卡齿，可以拆出露出边轨。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.movement-joint.floor-bellows-seal",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "结构节点",
+    "变形缝",
+    "EPDM",
+    "橡胶折带"
+  ],
+  "anchors": [
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "中段是折返的软胶截面，两边为独立卡齿，可以拆出露出边轨。",
+    "editableParts": [
+      "可分别编辑 foldable-center、lock-rib-1、lock-rib-2。"
+    ],
+    "qualityChecks": [
+      "中心折带低于两侧卡位，左右卡位同高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "bellows-type-epdm-floor-movement-joint-strip",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "foldable-center",
+            "semanticType": "structure.movement-joint.rubber-strip.bellows",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.35],
+                [0,0,0.35]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.081,-0.014],
+                [-0.055,-0.014],
+                [-0.042,-0.02],
+                [-0.021,-0.044],
+                [0,-0.048],
+                [0.021,-0.044],
+                [0.042,-0.02],
+                [0.055,-0.014],
+                [0.081,-0.014],
+                [0.081,-0.022],
+                [0.057,-0.022],
+                [0.044,-0.028],
+                [0.025,-0.052],
+                [0,-0.057],
+                [-0.025,-0.052],
+                [-0.044,-0.028],
+                [-0.057,-0.022],
+                [-0.081,-0.022]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "lock-rib-1",
+            "semanticType": "structure.movement-joint.rubber-strip.lock-rib",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.014,0.701]
+            },
+            "transform": {
+              "position": [-0.077,-0.018,0]
+            }
+          },
+          {
+            "id": "lock-rib-2",
+            "semanticType": "structure.movement-joint.rubber-strip.lock-rib",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.014,0.701]
+            },
+            "transform": {
+              "position": [0.077,-0.018,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.084,-0.018,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.084,-0.018,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

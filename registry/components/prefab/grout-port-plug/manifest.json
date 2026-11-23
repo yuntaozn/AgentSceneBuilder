@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.grout-port-plug",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "灌浆管口封塞",
+  "summary": "细轴插入管口，外侧带止口圆盘和便于拾取的拉耳。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.grout-port-plug",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式",
+    "灌浆"
+  ],
+  "anchors": [
+    "seat",
+    "tip"
+  ],
+  "ai": {
+    "intent": "单独配置进浆或出浆管口的封塞状态。",
+    "editableParts": [
+      "调整插入轴与挡肩"
+    ],
+    "qualityChecks": [
+      "默认可插入内径 28 mm 的管口演示模型。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "grout-port-plug",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "spigot",
+            "semanticType": "prefab.connection.port-plug.spigot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#303e42"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.035,0],
+              "end": [0,0,0],
+              "radius": 0.013,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "shoulder",
+            "semanticType": "prefab.connection.port-plug.stop",
+            "material": "rubber",
+            "appearance": {
+              "color": "#303e42"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.01,0],
+              "radius": 0.022,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pull-tab",
+            "semanticType": "prefab.connection.port-plug.pull",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.014,
+              "tubeRadius": 0.0035,
+              "radialSegments": 12,
+              "tubularSegments": 32
+            },
+            "transform": {
+              "position": [0,0.025,0],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "seat": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "tip": {
+            "position": [0,-0.035,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

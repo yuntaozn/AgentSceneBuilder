@@ -1,0 +1,92 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.masonry-weep-vent-insert",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "砌体泄水孔格栅件",
+  "summary": "扁平开口框带三条分隔肋，作为墙根独立排水与通气小件。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.waterproof.wall-weep-vent",
+  "capabilities": [
+    "attach",
+    "repeat"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "围护",
+    "墙根排水"
+  ],
+  "anchors": [
+    "base",
+    "weep-out"
+  ],
+  "ai": {
+    "intent": "在外墙下部重复定位独立泄水件。",
+    "editableParts": [
+      "编辑洞口框和肋的重复排布。"
+    ],
+    "qualityChecks": [
+      "保留肋之间的开口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "masonry-weep-vent-insert",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "waterproof.wall-weep-vent.frame",
+            "material": "polymer",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 0.1,
+              "wallHeight": 0.036,
+              "thickness": 0.028,
+              "openingWidth": 0.082,
+              "openingHeight": 0.021,
+              "openingOffset": 0,
+              "sillHeight": 0.0075
+            }
+          },
+          {
+            "id": "rib",
+            "semanticType": "waterproof.wall-weep-vent.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.021,0.023]
+            },
+            "transform": {
+              "position": [0,0.018,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [-0.021,0,0],
+              "step": [0.021,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "weep-out": {
+            "position": [0,0.018,0.014],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

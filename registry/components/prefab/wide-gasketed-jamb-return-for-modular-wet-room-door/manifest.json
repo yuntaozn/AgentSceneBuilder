@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.wide-gasketed-jamb-return-for-modular-wet-room-door",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "预制湿区门边回包框和胶唇",
+  "summary": "门框断面回包湿墙，两处余量槽和胶唇都替换编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.wet-room.wet-room-door-jamb-profile",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式湿区",
+    "湿区门框",
+    "回包",
+    "胶条"
+  ],
+  "anchors": [
+    "base",
+    "head",
+    "wall"
+  ],
+  "ai": {
+    "intent": "门框断面回包湿墙，两处余量槽和胶唇都替换编辑。",
+    "editableParts": [
+      "可分别编辑 reversible-door-jamb、compressible-door-lip。"
+    ],
+    "qualityChecks": [
+      "回边压住门壁两侧，密封唇独立于金属断面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "wide-gasketed-jamb-return-for-modular-wet-room-door",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "reversible-door-jamb",
+            "semanticType": "bath-jamb.formed-section",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#869b9d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.064,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.062,-0.036],
+                [0.07,-0.036],
+                [0.07,0.053],
+                [0.057,0.053],
+                [0.057,-0.017],
+                [0.011,-0.017],
+                [0.011,0.04],
+                [-0.061,0.04],
+                [-0.061,0.027],
+                [-0.003,0.027],
+                [-0.003,-0.022],
+                [-0.062,-0.022]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "compressible-door-lip",
+            "semanticType": "prefab.wet-room.bath-jamb.gasket",
+            "material": "rubber",
+            "appearance": {
+              "color": "#526569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.013,2.054,0.012]
+            },
+            "transform": {
+              "position": [0.013,1.031,0.045]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "head": {
+            "position": [0,2.064,0],
+            "direction": [0,1,0]
+          },
+          "wall": {
+            "position": [-0.052,1.023,0.007],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

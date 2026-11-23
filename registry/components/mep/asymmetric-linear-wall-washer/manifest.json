@@ -1,0 +1,222 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.asymmetric-linear-wall-washer",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "不对称配光线性洗墙灯",
+  "summary": "带两只伸臂和狭缝灯槽，多个光源朝墙面偏置。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.lighting.linear-wall-washer",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "水电",
+    "照明",
+    "基础构件",
+    "壁灯",
+    "洗墙灯",
+    "线型"
+  ],
+  "anchors": [
+    "left-wall",
+    "right-wall",
+    "face"
+  ],
+  "ai": {
+    "intent": "沿墙布置带偏角的线性照明。",
+    "editableParts": [
+      "壁座",
+      "伸臂",
+      "出光狭缝",
+      "光源角度"
+    ],
+    "qualityChecks": [
+      "两侧壁座同平面，照射轴线略朝墙面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "asymmetric-linear-wall-washer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-bracket-0",
+            "semanticType": "mep.lighting.wall-grazer.wall-bracket",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.069,0.015]
+            },
+            "transform": {
+              "position": [-0.29,0,0.0075]
+            }
+          },
+          {
+            "id": "standoff-0",
+            "semanticType": "mep.lighting.wall-grazer.arm",
+            "material": "steel",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.29,0,0.014],
+              "end": [-0.29,0,0.113],
+              "radius": 0.011,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "wall-bracket-1",
+            "semanticType": "mep.lighting.wall-grazer.wall-bracket",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.069,0.015]
+            },
+            "transform": {
+              "position": [0.29,0,0.0075]
+            }
+          },
+          {
+            "id": "standoff-1",
+            "semanticType": "mep.lighting.wall-grazer.arm",
+            "material": "steel",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.29,0,0.014],
+              "end": [0.29,0,0.113],
+              "radius": 0.011,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "lamp-channel",
+            "semanticType": "mep.lighting.wall-grazer.channel",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.385,0,0],
+                [0.385,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.137,-0.04],
+                [-0.089,-0.04],
+                [-0.088,0.03],
+                [-0.137,0.03],
+                [-0.137,-0.028],
+                [-0.097,-0.028],
+                [-0.097,-0.034],
+                [-0.137,-0.034]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "optical-slot",
+            "semanticType": "mep.lighting.wall-grazer.lens",
+            "material": "polymer",
+            "appearance": {
+              "color": "#fff8e9",
+              "emissive": "#fff8e9"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.744,0.008,0.026]
+            },
+            "transform": {
+              "position": [0,-0.04,0.11]
+            }
+          },
+          {
+            "id": "grazing-segment-0",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [-0.255,-0.049,0.11],
+              "rotation": [-1.09,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 17,
+              "angle": 0.4,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          },
+          {
+            "id": "grazing-segment-1",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [0,-0.049,0.11],
+              "rotation": [-1.09,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 17,
+              "angle": 0.4,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          },
+          {
+            "id": "grazing-segment-2",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [0.255,-0.049,0.11],
+              "rotation": [-1.09,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 17,
+              "angle": 0.4,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          }
+        ],
+        "anchors": {
+          "left-wall": {
+            "position": [-0.29,0,0],
+            "direction": [0,0,-1]
+          },
+          "right-wall": {
+            "position": [0.29,0,0],
+            "direction": [0,0,-1]
+          },
+          "face": {
+            "position": [0,-0.044,0.11],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

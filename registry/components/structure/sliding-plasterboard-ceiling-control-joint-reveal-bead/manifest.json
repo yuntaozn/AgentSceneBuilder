@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.sliding-plasterboard-ceiling-control-joint-reveal-bead",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "吊顶双边滑移阴缝控制条",
+  "summary": "两边石膏板在独立铝边条上收口，中间留下可变宽度的阴影缝。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.movement-joint.ceiling-control-joint",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "结构节点",
+    "吊顶",
+    "阴缝",
+    "变形缝"
+  ],
+  "anchors": [
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "两边石膏板在独立铝边条上收口，中间留下可变宽度的阴影缝。",
+    "editableParts": [
+      "可分别编辑 slide-edge-bead-1、slide-edge-bead-2、shadow-reveal-overlap、gypsum-edge-sample-1、gypsum-edge-sample-2。"
+    ],
+    "qualityChecks": [
+      "两边板材终止于各自型材，中间保留可见缝口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "sliding-plasterboard-ceiling-control-joint-reveal-bead",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slide-edge-bead-1",
+            "semanticType": "structure.movement-joint.ceiling-reveal.edge",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.48],
+                [0,0,0.48]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.08,-0.005],
+                [-0.012,-0.005],
+                [-0.012,0.017],
+                [-0.025,0.017],
+                [-0.025,0.002],
+                [-0.08,0.002]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "slide-edge-bead-2",
+            "semanticType": "structure.movement-joint.ceiling-reveal.edge",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.48],
+                [0,0,0.48]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.08,-0.005],
+                [0.012,-0.005],
+                [0.012,0.017],
+                [0.025,0.017],
+                [0.025,0.002],
+                [0.08,0.002]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "shadow-reveal-overlap",
+            "semanticType": "structure.movement-joint.ceiling-reveal.top",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.04,0.009,0.96]
+            },
+            "transform": {
+              "position": [0,0.018,0]
+            }
+          },
+          {
+            "id": "gypsum-edge-sample-1",
+            "semanticType": "structure.movement-joint.ceiling-reveal.board",
+            "material": "gypsum",
+            "appearance": {
+              "color": "#b6b2a3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.141,0.011,0.96]
+            },
+            "transform": {
+              "position": [-0.094,-0.011,0]
+            }
+          },
+          {
+            "id": "gypsum-edge-sample-2",
+            "semanticType": "structure.movement-joint.ceiling-reveal.board",
+            "material": "gypsum",
+            "appearance": {
+              "color": "#b6b2a3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.141,0.011,0.96]
+            },
+            "transform": {
+              "position": [0.094,-0.011,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.1645,-0.011,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.1645,-0.011,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

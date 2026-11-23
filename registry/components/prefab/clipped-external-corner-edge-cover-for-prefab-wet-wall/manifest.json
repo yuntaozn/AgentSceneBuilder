@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.clipped-external-corner-edge-cover-for-prefab-wet-wall",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "湿区墙板阳角保护扣盖",
+  "summary": "外角装饰盖与左右内卡扣分开，可拆下看到墙板边框。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.wet-room.wet-room-outside-corner",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式湿区",
+    "阳角",
+    "外盖",
+    "湿区墙板"
+  ],
+  "anchors": [
+    "faceA",
+    "faceB"
+  ],
+  "ai": {
+    "intent": "外角装饰盖与左右内卡扣分开，可拆下看到墙板边框。",
+    "editableParts": [
+      "可分别编辑 rounded-corner-cover、lock-strip-1、lock-strip-2。"
+    ],
+    "qualityChecks": [
+      "同一角盖边后两扣条独立，饰面可脱离框边。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "clipped-external-corner-edge-cover-for-prefab-wet-wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rounded-corner-cover",
+            "semanticType": "prefab.wet-room.cover.exterior-angle",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#869b9d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,1.961,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.05,0.011],
+                [-0.009,0.011],
+                [-0.001,0.013],
+                [0.006,0.021],
+                [0.007,0.059],
+                [0.02,0.059],
+                [0.02,0.02],
+                [0.012,0.008],
+                [0.001,0],
+                [-0.05,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "lock-strip-1",
+            "semanticType": "prefab.wet-room.cover.plastic-clip",
+            "material": "plastic",
+            "appearance": {
+              "color": "#526569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,1.945,0.01]
+            },
+            "transform": {
+              "position": [0.029,0.978,0.005]
+            }
+          },
+          {
+            "id": "lock-strip-2",
+            "semanticType": "prefab.wet-room.cover.plastic-clip",
+            "material": "plastic",
+            "appearance": {
+              "color": "#526569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,1.945,0.01]
+            },
+            "transform": {
+              "position": [0.009,0.978,0.041]
+            }
+          }
+        ],
+        "anchors": {
+          "faceA": {
+            "position": [0,0.976,0],
+            "direction": [0,0,-1]
+          },
+          "faceB": {
+            "position": [0,0.976,0.05],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

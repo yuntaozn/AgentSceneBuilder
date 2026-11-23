@@ -1,0 +1,107 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.backer-rod-sealant-joint",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "背衬棒与耐候胶竖缝",
+  "summary": "圆形背衬棒与凹形胶缝分开建模，保留边缘贴靠点。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.backer-rod-sealant-joint",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式",
+    "接缝"
+  ],
+  "anchors": [
+    "left-edge",
+    "right-edge",
+    "bottom",
+    "top"
+  ],
+  "ai": {
+    "intent": "表示墙板竖缝中的可拆分背衬与封缝层。",
+    "editableParts": [
+      "修改立缝长度、背衬直径及胶面轮廓"
+    ],
+    "qualityChecks": [
+      "默认缝宽 25 mm。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "backer-rod-sealant-joint",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "backer-rod",
+            "semanticType": "prefab.installation.backed-seal.backer",
+            "material": "foam",
+            "appearance": {
+              "color": "#9fb9af"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.004],
+              "end": [0,3,0.004],
+              "radius": 0.0125,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "sealant",
+            "semanticType": "prefab.installation.backed-seal.bead",
+            "material": "sealant",
+            "appearance": {
+              "color": "#303e42"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,3,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.0125,-0.01],
+                [-0.008,-0.006],
+                [0,-0.004],
+                [0.008,-0.006],
+                [0.0125,-0.01],
+                [0.0125,-0.022],
+                [0.006,-0.02],
+                [0,-0.019],
+                [-0.006,-0.02],
+                [-0.0125,-0.022]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "left-edge": {
+            "position": [-0.0125,0,-0.022],
+            "direction": [-1,0,0]
+          },
+          "right-edge": {
+            "position": [0.0125,0,-0.022],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,3,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

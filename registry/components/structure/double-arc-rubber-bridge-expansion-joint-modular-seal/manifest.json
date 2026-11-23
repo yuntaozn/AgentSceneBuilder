@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.double-arc-rubber-bridge-expansion-joint-modular-seal",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "桥面伸缩缝双弧密封条",
+  "summary": "双曲柔性封缝带配两边锁口，截面形状可编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.movement-joint.modular-bridge-seal",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "结构节点",
+    "桥面",
+    "伸缩缝",
+    "止水带"
+  ],
+  "anchors": [
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "双曲柔性封缝带配两边锁口，截面形状可编辑。",
+    "editableParts": [
+      "可分别编辑 double-wave-gasket、steel-channel-key-1、steel-channel-key-2。"
+    ],
+    "qualityChecks": [
+      "双向橡胶波峰之间有凹槽，外端锁进两侧独立槽口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-arc-rubber-bridge-expansion-joint-modular-seal",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "double-wave-gasket",
+            "semanticType": "structure.movement-joint.bridge-seal.fold",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.39],
+                [0,0,0.39]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.088,-0.01],
+                [-0.068,-0.01],
+                [-0.06,-0.03],
+                [-0.043,-0.043],
+                [-0.025,-0.035],
+                [0,-0.019],
+                [0.025,-0.035],
+                [0.043,-0.043],
+                [0.06,-0.03],
+                [0.068,-0.01],
+                [0.088,-0.01],
+                [0.088,-0.02],
+                [0.075,-0.02],
+                [0.065,-0.038],
+                [0.043,-0.052],
+                [0.023,-0.044],
+                [0,-0.029],
+                [-0.023,-0.044],
+                [-0.043,-0.052],
+                [-0.065,-0.038],
+                [-0.075,-0.02],
+                [-0.088,-0.02]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "steel-channel-key-1",
+            "semanticType": "structure.movement-joint.bridge-seal.edge-lock",
+            "material": "steel",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.393],
+                [0,0,0.393]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.112,-0.001],
+                [-0.085,-0.001],
+                [-0.085,-0.011],
+                [-0.094,-0.011],
+                [-0.094,-0.016],
+                [-0.085,-0.016],
+                [-0.085,-0.026],
+                [-0.112,-0.026]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "steel-channel-key-2",
+            "semanticType": "structure.movement-joint.bridge-seal.edge-lock",
+            "material": "steel",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.393],
+                [0,0,0.393]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.112,-0.001],
+                [0.085,-0.001],
+                [0.085,-0.011],
+                [0.094,-0.011],
+                [0.094,-0.016],
+                [0.085,-0.016],
+                [0.085,-0.026],
+                [0.112,-0.026]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.112,-0.013,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.112,-0.013,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

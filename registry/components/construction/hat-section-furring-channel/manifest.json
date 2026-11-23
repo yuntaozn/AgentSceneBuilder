@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.hat-section-furring-channel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "帽形覆面龙骨",
+  "summary": "帽形薄壁截面有两侧翼、架空段和顶部承板面。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.interior.hat-furring",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内构造",
+    "隔墙",
+    "龙骨"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.2
+    },
+    "channelWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.072
+    },
+    "crownWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.037
+    },
+    "standoff": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.021
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.0013
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "base",
+    "board-seat"
+  ],
+  "ai": {
+    "intent": "在墙面或吊顶上形成独立覆面支承。",
+    "editableParts": [
+      "编辑长度、帽顶、架高及厚度。"
+    ],
+    "qualityChecks": [
+      "安装面与板面各有方向。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hat-section-furring-channel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.hat-furring",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "hat-furring-channel",
+              "length": 1.2,
+              "channelWidth": 0.072,
+              "crownWidth": 0.037,
+              "standoff": 0.021,
+              "thickness": 0.0013
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "base": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "base"
+            }
+          },
+          "board-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "board-seat"
+            }
+          }
+        }
+      }
+    }
+  }
+}

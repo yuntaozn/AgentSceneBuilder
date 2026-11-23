@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.long-radius-conduit-bend",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "电线管大弧度下弯",
+  "summary": "有进入与下行直段的圆弧电线管，外径随两端一起更新。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.electric.conduit-radius-bend",
+  "capabilities": [
+    "resize",
+    "path-edit",
+    "attach"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "电气",
+    "电线管"
+  ],
+  "parameters": {
+    "outsideDiameter": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.032
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.0022
+    }
+  },
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "在走线上表达能穿线的缓弯。",
+    "editableParts": [
+      "调整弯曲位置、弧度、外径和壁厚。"
+    ],
+    "qualityChecks": [
+      "起点和终点均沿各自方向。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "long-radius-conduit-bend",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "conduit",
+            "semanticType": "mep.electric.conduit-radius-bend",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0.08000000000000002,0,0],
+                [0.09827366691080724,-0.0011977194076665532,0],
+                [0.1162346663143529,-0.004770384319530446,0],
+                [0.13357568053111257,-0.010656865448419844,0],
+                [0.15,-0.018756443470178588,0],
+                [0.16522660006122092,-0.028930532359227074,0],
+                [0.17899494936611665,-0.041005050633883364,0],
+                [0.19106946764077293,-0.05477339993877911,0],
+                [0.2012435565298214,-0.07,0],
+                [0.20934313455158016,-0.08642431946888744,0],
+                [0.21522961568046955,-0.10376533368564711,0],
+                [0.21880228059233348,-0.12172633308919278,0],
+                [0.22000000000000003,-0.14,0],
+                [0.22,-0.23,0]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.032,
+              "thickness": 0.0022
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "0.1", "id": "construction.window-opening-wall", "version": "0.1.0", "kind": "component",
+  "title": "带窗洞隔墙", "summary": "墙体保留贯通窗洞，可编辑墙尺寸、净洞口、窗台高度和横向偏移。",
+  "license": "Apache-2.0", "semanticType": "construction.partition-wall",
+  "capabilities": ["resize", "material", "attach"], "tags": ["建筑", "墙体", "窗洞", "窗台", "基础构件"],
+  "parameters": {
+    "wallWidth": { "type": "number", "unit": "m", "default": 3.6 },
+    "wallHeight": { "type": "number", "unit": "m", "default": 2.8 },
+    "thickness": { "type": "number", "unit": "m", "default": 0.15 },
+    "openingWidth": { "type": "number", "unit": "m", "default": 1.2 },
+    "openingHeight": { "type": "number", "unit": "m", "default": 1.2 },
+    "openingOffset": { "type": "number", "unit": "m", "default": 0.35 },
+    "sillHeight": { "type": "number", "unit": "m", "default": 0.9 }
+  },
+  "anchors": ["wall-left", "wall-right", "opening-base", "opening-top", "opening-left", "opening-right", "opening-exterior-base"],
+  "ai": {
+    "intent": "提供可定位玻璃窗或其他窗构件的贯通洞口。",
+    "editableParts": ["wall.geometry.openingWidth / openingHeight / openingOffset / sillHeight"],
+    "qualityChecks": ["窗洞四周应保留墙体。", "窗框的左右和顶部安装点应与对应洞口点重合。"]
+  },
+  "editor": { "document": { "id": "window-opening-wall", "component": "core.composition", "parameters": {
+    "nodes": [{ "id": "wall", "semanticType": "construction.partition-wall", "material": "plaster", "appearance": { "color": "#c2b8a6" },
+      "geometry": { "type": "window-opening-wall", "wallWidth": 3.6, "wallHeight": 2.8, "thickness": 0.15,
+        "openingWidth": 1.2, "openingHeight": 1.2, "openingOffset": 0.35, "sillHeight": 0.9 } }],
+    "anchors": {
+      "wall-left": { "node": "wall", "onGeometry": { "type": "feature", "name": "wall-left" } },
+      "wall-right": { "node": "wall", "onGeometry": { "type": "feature", "name": "wall-right" } },
+      "opening-base": { "node": "wall", "onGeometry": { "type": "feature", "name": "opening-base" } },
+      "opening-top": { "node": "wall", "onGeometry": { "type": "feature", "name": "opening-top" } },
+      "opening-left": { "node": "wall", "onGeometry": { "type": "feature", "name": "opening-left" } },
+      "opening-right": { "node": "wall", "onGeometry": { "type": "feature", "name": "opening-right" } },
+      "opening-exterior-base": { "node": "wall", "onGeometry": { "type": "feature", "name": "opening-exterior-base" } }
+    }
+  } } }
+}

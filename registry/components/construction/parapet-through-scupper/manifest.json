@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.parapet-through-scupper",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "穿女儿墙矩形泄水口",
+  "summary": "矩形中空出口配内侧法兰，可穿墙接外侧雨水斗。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.parapet-scupper",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "围护",
+    "屋面排水"
+  ],
+  "anchors": [
+    "inlet",
+    "outlet"
+  ],
+  "ai": {
+    "intent": "把屋面侧向溢流口与外立面集水节点分开表达。",
+    "editableParts": [
+      "编辑通道路径、外形、壁厚及法兰。"
+    ],
+    "qualityChecks": [
+      "保持管段中心净口贯通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "parapet-through-scupper",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "spout",
+            "semanticType": "roof.parapet-scupper",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "rectangular-duct",
+              "points": [
+                [0,0,0],
+                [0,0,0.446]
+              ],
+              "sectionWidth": 0.22,
+              "sectionHeight": 0.12,
+              "thickness": 0.004,
+              "up": [0,1,0]
+            }
+          },
+          {
+            "id": "flashing",
+            "semanticType": "roof.parapet-scupper.flange",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#aab8bb"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.008]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.18,-0.12],
+                [0.18,-0.12],
+                [0.18,0.12],
+                [-0.18,0.12]
+              ],
+              "holes": [
+                [
+                  [-0.106,-0.056],
+                  [0.106,-0.056],
+                  [0.106,0.056],
+                  [-0.106,0.056]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "spout",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "spout",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

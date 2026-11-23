@@ -1,0 +1,212 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.three-way-manhole-invert-side-channel-cutaway",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "侧支汇流三通流槽剖件",
+  "summary": "主流槽与侧支槽在底板内汇合，三个入口均可见，适合展示井内水路。",
+  "license": "Apache-2.0",
+  "semanticType": "site.utility.invert-side-junction",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "地下管网",
+    "三通流槽",
+    "汇流",
+    "污水检查井"
+  ],
+  "anchors": [
+    "inlet",
+    "outlet",
+    "branch",
+    "base"
+  ],
+  "ai": {
+    "intent": "主流槽与侧支槽在底板内汇合，三个入口均可见，适合展示井内水路。",
+    "editableParts": [
+      "独立编辑 lower-channel-bed、connected-side-channel、removable-bridge-tab-1、removable-bridge-tab-2 的尺寸与位置。"
+    ],
+    "qualityChecks": [
+      "中央开口为连通 T 形，两个轴向端面和一处侧支端面相通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "three-way-manhole-invert-side-channel-cutaway",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lower-channel-bed",
+            "semanticType": "site.utility.invert.junction-floor",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a39e91"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.091,0.116],
+                [0,-0.037,0.116]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.391,-0.214],
+                [0.391,-0.214],
+                [0.391,0.214],
+                [-0.391,0.214]
+              ],
+              "closedProfile": true,
+              "holes": []
+            }
+          },
+          {
+            "id": "front-ledge",
+            "semanticType": "site.utility.invert.junction-walls",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a39e91"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.037,0],
+                [0,0.044,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.4,-0.115],
+                [-0.4,-0.115],
+                [-0.4,-0.082],
+                [0.4,-0.082]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "left-bank",
+            "semanticType": "site.utility.invert.junction-walls",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a39e91"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.037,0],
+                [0,0.044,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.4,0.082],
+                [0.236,0.082],
+                [0.149,0.097],
+                [0.111,0.151],
+                [0.111,0.339],
+                [0.4,0.339]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "right-bank",
+            "semanticType": "site.utility.invert.junction-walls",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a39e91"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.037,0],
+                [0,0.044,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.4,0.082],
+                [-0.144,0.082],
+                [-0.076,0.106],
+                [-0.043,0.174],
+                [-0.043,0.339],
+                [-0.4,0.339]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "removable-bridge-tab-1",
+            "semanticType": "site.utility.invert.tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#8c9c9e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.302,0.044,0.169],
+                [-0.302,0.051,0.169]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.0155,-0.0245],
+                [0.0155,-0.0245],
+                [0.0155,0.0245],
+                [-0.0155,0.0245]
+              ],
+              "closedProfile": true,
+              "holes": []
+            }
+          },
+          {
+            "id": "removable-bridge-tab-2",
+            "semanticType": "site.utility.invert.tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#8c9c9e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.302,0.044,0.169],
+                [0.302,0.051,0.169]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.0155,-0.0245],
+                [0.0155,-0.0245],
+                [0.0155,0.0245],
+                [-0.0155,0.0245]
+              ],
+              "closedProfile": true,
+              "holes": []
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "position": [-0.4,0,0],
+            "direction": [-1,0,0]
+          },
+          "outlet": {
+            "position": [0.4,0,0],
+            "direction": [1,0,0]
+          },
+          "branch": {
+            "position": [-0.034,0,0.339],
+            "direction": [0,0,1]
+          },
+          "base": {
+            "position": [0,-0.091,0.116],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

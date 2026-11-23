@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.four-bolt-column-seat-with-sliding-slot-and-bearing-shim",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "柱脚滑槽连接座与独立垫片",
+  "summary": "底座四角为狭长找正孔，上托面设可独立取放的承压垫片。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.movement-joint.column-slotted-seat",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "结构节点",
+    "柱脚",
+    "找正",
+    "滑槽"
+  ],
+  "anchors": [
+    "base",
+    "column"
+  ],
+  "ai": {
+    "intent": "底座四角为狭长找正孔，上托面设可独立取放的承压垫片。",
+    "editableParts": [
+      "可分别编辑 column-base-shoe、retaining-side-web-1、retaining-side-web-2、soft-seat、upper-shim。"
+    ],
+    "qualityChecks": [
+      "四道长孔贯通，垫片支承面居中。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "four-bolt-column-seat-with-sliding-slot-and-bearing-shim",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "column-base-shoe",
+            "semanticType": "structure.movement-joint.sliding-seat.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.022,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.1825,-0.1435],
+                [0.1825,-0.1435],
+                [0.1825,0.1435],
+                [-0.1825,0.1435]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.153,-0.11199999999999999],
+                  [0.10700000000000001,-0.11199999999999999],
+                  [0.10700000000000001,-0.094],
+                  [0.153,-0.094]
+                ],
+                [
+                  [0.153,0.094],
+                  [0.10700000000000001,0.094],
+                  [0.10700000000000001,0.11199999999999999],
+                  [0.153,0.11199999999999999]
+                ],
+                [
+                  [-0.10700000000000001,-0.11199999999999999],
+                  [-0.153,-0.11199999999999999],
+                  [-0.153,-0.094],
+                  [-0.10700000000000001,-0.094]
+                ],
+                [
+                  [-0.10700000000000001,0.094],
+                  [-0.153,0.094],
+                  [-0.153,0.11199999999999999],
+                  [-0.10700000000000001,0.11199999999999999]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "retaining-side-web-1",
+            "semanticType": "structure.movement-joint.sliding-seat.rib",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a8388"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.26,0.041,0.014]
+            },
+            "transform": {
+              "position": [0,0.0425,-0.083]
+            }
+          },
+          {
+            "id": "retaining-side-web-2",
+            "semanticType": "structure.movement-joint.sliding-seat.rib",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a8388"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.26,0.041,0.014]
+            },
+            "transform": {
+              "position": [0,0.0425,0.083]
+            }
+          },
+          {
+            "id": "soft-seat",
+            "semanticType": "structure.movement-joint.sliding-seat.shim",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4a555b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.021,0],
+                [0,0.034,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.1115,-0.0725],
+                [0.1115,-0.0725],
+                [0.1115,0.0725],
+                [-0.1115,0.0725]
+              ],
+              "closedProfile": true,
+              "holes": []
+            }
+          },
+          {
+            "id": "upper-shim",
+            "semanticType": "structure.movement-joint.sliding-seat.adjustable-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.034,0],
+                [0,0.039,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.1145,-0.0755],
+                [0.1145,-0.0755],
+                [0.1145,0.0755],
+                [-0.1145,0.0755]
+              ],
+              "closedProfile": true,
+              "holes": []
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "column": {
+            "position": [0,0.039,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

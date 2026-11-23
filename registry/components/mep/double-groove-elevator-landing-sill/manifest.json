@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.double-groove-elevator-landing-sill",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双槽电梯层门门槛",
+  "summary": "两道贯通运行槽与实体底边，分别输出两条滑块定位和轿厢过渡面。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.double-groove-landing-sill",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "层门",
+    "门槛",
+    "导槽"
+  ],
+  "anchors": [
+    "support",
+    "shaft",
+    "landing",
+    "top",
+    "first-guide",
+    "second-guide",
+    "support-left",
+    "support-right"
+  ],
+  "ai": {
+    "intent": "以真实门槛槽对齐电梯层门的两排导块。",
+    "editableParts": [
+      "双槽型材",
+      "底座",
+      "两条槽深"
+    ],
+    "qualityChecks": [
+      "两个槽口贯通门槛全长，槽侧不封闭。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-groove-elevator-landing-sill",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sill-extrusion",
+            "semanticType": "mep.elevator.dual-groove-sill.sill-section",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a8b3b3"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.61,0,0],
+                [0.61,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.1,0],
+                [0.1,0],
+                [0.1,0.051],
+                [0.07,0.051],
+                [0.07,0.025],
+                [0.043,0.025],
+                [0.043,0.051],
+                [-0.032,0.051],
+                [-0.032,0.022],
+                [-0.062,0.022],
+                [-0.062,0.051],
+                [-0.1,0.051]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "support-pad-0",
+            "semanticType": "mep.elevator.dual-groove-sill.support-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.106,0.015,0.133]
+            },
+            "transform": {
+              "position": [-0.43,-0.0075,0]
+            }
+          },
+          {
+            "id": "support-pad-1",
+            "semanticType": "mep.elevator.dual-groove-sill.support-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.106,0.015,0.133]
+            },
+            "transform": {
+              "position": [0.43,-0.0075,0]
+            }
+          }
+        ],
+        "anchors": {
+          "support": {
+            "position": [0,-0.015,0],
+            "direction": [0,-1,0]
+          },
+          "shaft": {
+            "position": [0,0.051,-0.1],
+            "direction": [0,0,-1]
+          },
+          "landing": {
+            "position": [0,0.051,0.1],
+            "direction": [0,0,1]
+          },
+          "top": {
+            "position": [0,0.051,0],
+            "direction": [0,1,0]
+          },
+          "first-guide": {
+            "position": [0,0.025,-0.0565],
+            "direction": [0,1,0]
+          },
+          "second-guide": {
+            "position": [0,0.022,0.047],
+            "direction": [0,1,0]
+          },
+          "support-left": {
+            "position": [-0.43,-0.015,0],
+            "direction": [0,-1,0]
+          },
+          "support-right": {
+            "position": [0.43,-0.015,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

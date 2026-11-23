@@ -1,0 +1,104 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.ribbed-concrete-topping-for-metal-deck",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "楼承板波形混凝土叠合层",
+  "summary": "混凝土下缘贴合梯形肋钢板的上轮廓，上表面为水平楼面。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.floor.ribbed-concrete-topping",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "组合楼板",
+    "叠合",
+    "混凝土",
+    "压型板"
+  ],
+  "anchors": [
+    "bottom",
+    "top",
+    "front"
+  ],
+  "ai": {
+    "intent": "把叠合层的波形底面对准四肋压型楼承板。",
+    "editableParts": [
+      "实体底截面",
+      "板面标高",
+      "露出边界"
+    ],
+    "qualityChecks": [
+      "混凝土波形应与对应钢板上表面成对。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ribbed-concrete-topping-for-metal-deck",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "concrete-over-deck",
+            "semanticType": "structure.floor.profiled-concrete-topping.body",
+            "material": "concrete",
+            "appearance": {
+              "color": "#c0b9ac"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.65,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.38,0.002],
+                [-0.34650000000000003,0.002],
+                [-0.3245,0.052000000000000005],
+                [-0.2455,0.052000000000000005],
+                [-0.2235,0.002],
+                [-0.1565,0.002],
+                [-0.1345,0.052000000000000005],
+                [-0.055499999999999994,0.052000000000000005],
+                [-0.0335,0.002],
+                [0.0335,0.002],
+                [0.0555,0.052000000000000005],
+                [0.1345,0.052000000000000005],
+                [0.1565,0.002],
+                [0.22350000000000006,0.002],
+                [0.24550000000000005,0.052000000000000005],
+                [0.32450000000000007,0.052000000000000005],
+                [0.34650000000000003,0.002],
+                [0.38,0.002],
+                [0.38,0.127],
+                [-0.38,0.127]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "position": [0.825,0.052,0.285],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0.825,0.127,0],
+            "direction": [0,1,0]
+          },
+          "front": {
+            "position": [0,0.091,0],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.right-angle-branch-switch-for-operable-partition-overhead-track",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "活动隔墙吊轨 T 形转入接头",
+  "summary": "横主轨在中间保留分支缺口，转舌可以转向停车支轨。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.operable-partition.track-branch-switch",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内隔断",
+    "吊轨",
+    "分岔",
+    "停车区"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "storage",
+    "top"
+  ],
+  "ai": {
+    "intent": "横主轨在中间保留分支缺口，转舌可以转向停车支轨。",
+    "editableParts": [
+      "可分别编辑 main-rail-left、main-rail-right、storage-rail、top-bridge、rear-running-web、front-corner-mount-1。"
+    ],
+    "qualityChecks": [
+      "支路和主轨中心槽相交，转舌绕竖直轴换向。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "right-angle-branch-switch-for-operable-partition-overhead-track",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "main-rail-left",
+            "semanticType": "construction.operable-partition.t-junction.main",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.205,0,0],
+                [-0.061,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.052,0],
+                [-0.052,0.105],
+                [0.052,0.105],
+                [0.052,0],
+                [0.015,0],
+                [0.015,0.013],
+                [0.04,0.013],
+                [0.04,0.092],
+                [-0.04,0.092],
+                [-0.04,0.013],
+                [-0.015,0.013],
+                [-0.015,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "main-rail-right",
+            "semanticType": "construction.operable-partition.t-junction.main",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.061,0,0],
+                [0.205,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.052,0],
+                [-0.052,0.105],
+                [0.052,0.105],
+                [0.052,0],
+                [0.015,0],
+                [0.015,0.013],
+                [0.04,0.013],
+                [0.04,0.092],
+                [-0.04,0.092],
+                [-0.04,0.013],
+                [-0.015,0.013],
+                [-0.015,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "storage-rail",
+            "semanticType": "construction.operable-partition.t-junction.branch",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.052],
+                [0,0,0.234]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.052,0],
+                [-0.052,0.105],
+                [0.052,0.105],
+                [0.052,0],
+                [0.015,0],
+                [0.015,0.013],
+                [0.04,0.013],
+                [0.04,0.092],
+                [-0.04,0.092],
+                [-0.04,0.013],
+                [-0.015,0.013],
+                [-0.015,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "top-bridge",
+            "semanticType": "construction.operable-partition.t-junction.top",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.092,0],
+                [0,0.105,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.0655,-0.054],
+                [0.0655,-0.054],
+                [0.0655,0.054],
+                [-0.0655,0.054]
+              ],
+              "closedProfile": true,
+              "holes": []
+            }
+          },
+          {
+            "id": "rear-running-web",
+            "semanticType": "construction.operable-partition.t-junction.rear",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.013,0.037]
+            },
+            "transform": {
+              "position": [0,0.0065,-0.034]
+            }
+          },
+          {
+            "id": "front-corner-mount-1",
+            "semanticType": "construction.operable-partition.t-junction.lip",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.044,0.013,0.038]
+            },
+            "transform": {
+              "position": [-0.08,0.0065,0.033]
+            }
+          },
+          {
+            "id": "front-corner-mount-2",
+            "semanticType": "construction.operable-partition.t-junction.lip",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.044,0.013,0.038]
+            },
+            "transform": {
+              "position": [0.08,0.0065,0.033]
+            }
+          },
+          {
+            "id": "switch-pivot",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.014,0.002]
+            }
+          },
+          {
+            "id": "switch-tongue",
+            "semanticType": "construction.operable-partition.t-junction.moving-tongue",
+            "material": "steel",
+            "appearance": {
+              "color": "#b28b66"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.099,0.01,0.021]
+            },
+            "transform": {
+              "position": [0.034,0.006,0]
+            },
+            "parent": "switch-pivot"
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [-0.205,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.205,0,0],
+            "direction": [1,0,0]
+          },
+          "storage": {
+            "position": [0,0,0.234],
+            "direction": [0,0,1]
+          },
+          "top": {
+            "position": [0,0.105,0],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "switch-to-storage",
+            "target": "switch-pivot",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.5707963267948966,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

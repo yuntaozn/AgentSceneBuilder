@@ -1,0 +1,171 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.tilted-photovoltaic-triangle-rack",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "光伏可调三角支架单片",
+  "summary": "底梁、前后撑杆和斜边组成单片支架，斜边两处轨座共用坡面方向。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.photovoltaic.tilted-photovoltaic-rack",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "光伏",
+    "屋面光伏",
+    "三角支座",
+    "倾角",
+    "平屋面"
+  ],
+  "anchors": [
+    "base",
+    "near-rail",
+    "far-rail"
+  ],
+  "ai": {
+    "intent": "用两片三角支架支承平屋面上的两道斜面安装轨。",
+    "editableParts": [
+      "底梁",
+      "斜边",
+      "立柱",
+      "两处轨座"
+    ],
+    "qualityChecks": [
+      "安装轨法线和斜面法线一致。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "tilted-photovoltaic-triangle-rack",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base-runner",
+            "semanticType": "mep.photovoltaic.tilted-triangle-rack.base",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#50636f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.082,0.026,1.23]
+            },
+            "transform": {
+              "position": [0,0.013,0]
+            }
+          },
+          {
+            "id": "lower-post",
+            "semanticType": "mep.photovoltaic.tilted-triangle-rack.front-riser",
+            "material": "steel",
+            "appearance": {
+              "color": "#839599"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.018,0,0],
+                [0.018,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.535,0.023],
+                [0.488,0.023],
+                [0.488,0.1517179008102843],
+                [0.535,0.1517179008102843]
+              ]
+            }
+          },
+          {
+            "id": "rear-outer-upright",
+            "semanticType": "mep.photovoltaic.tilted-triangle-rack.upright",
+            "material": "steel",
+            "appearance": {
+              "color": "#839599"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.025,0.51],
+              "end": [0,0.308,0.51],
+              "radius": 0.027,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "rear-inner-upright",
+            "semanticType": "mep.photovoltaic.tilted-triangle-rack.upright",
+            "material": "steel",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.288,0.51],
+              "end": [0,0.3620459049745289,0.51],
+              "radius": 0.017,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "knee-brace",
+            "semanticType": "mep.photovoltaic.tilted-triangle-rack.diagonal-brace",
+            "material": "steel",
+            "appearance": {
+              "color": "#839599"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.035,0.515],
+              "end": [0,0.1530798429621527,-0.42],
+              "radius": 0.017,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "inclined-rail-seat",
+            "semanticType": "mep.photovoltaic.tilted-triangle-rack.seat-cap",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.033,0,0],
+                [0.033,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.612,0.10614491403056536],
+                [-0.612,0.3798550859694346],
+                [-0.612,0.40485508596943465],
+                [0.612,0.13114491403056536]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "near-rail": {
+            "position": [0,0.36751064257581445,0.445],
+            "direction": [0,0.9758974493306055,-0.21822962308086932]
+          },
+          "far-rail": {
+            "position": [0,0.16848935742418558,-0.445],
+            "direction": [0,0.9758974493306055,-0.21822962308086932]
+          }
+        }
+      }
+    }
+  }
+}

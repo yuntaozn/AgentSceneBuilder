@@ -1,0 +1,99 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.hexagonal-permeable-paving-unit",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "六角透水铺装单元",
+  "summary": "六个边都有可拼排定位，边部留小缝，便于表达铺面排布。",
+  "license": "Apache-2.0",
+  "semanticType": "site.paving.hex-permeable-paver",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "室外",
+    "铺装"
+  ],
+  "anchors": [
+    "edge-1",
+    "edge-2",
+    "edge-3",
+    "edge-4",
+    "edge-5",
+    "edge-6"
+  ],
+  "ai": {
+    "intent": "在步道、庭院或雨水渗透区独立拼铺。",
+    "editableParts": [
+      "编辑六边外廓、厚度和缝。"
+    ],
+    "qualityChecks": [
+      "边定位包含约 1.4 mm 半缝。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hexagonal-permeable-paving-unit",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tile",
+            "semanticType": "site.paving.hexagonal-permeable-unit",
+            "material": "porous-concrete",
+            "appearance": {
+              "color": "#aab3b5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.076,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.123,0],
+                [-0.06150000000000001,0.10652112466548594],
+                [0.06149999999999997,0.10652112466548595],
+                [0.123,1.5063155629512445e-17],
+                [0.061500000000000055,-0.10652112466548594],
+                [-0.06150000000000001,-0.10652112466548594]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "edge-1": {
+            "position": [0.09346243556529822,0,0.05396056233274297],
+            "direction": [0.8660254037844387,0,0.49999999999999994]
+          },
+          "edge-2": {
+            "position": [6.608262994098492e-18,0,0.10792112466548595],
+            "direction": [6.123233995736766e-17,0,1]
+          },
+          "edge-3": {
+            "position": [-0.0934624355652982,0,0.05396056233274301],
+            "direction": [-0.8660254037844385,0,0.5000000000000003]
+          },
+          "edge-4": {
+            "position": [-0.09346243556529824,0,-0.05396056233274295],
+            "direction": [-0.8660254037844388,0,-0.4999999999999997]
+          },
+          "edge-5": {
+            "position": [-1.9824788982295475e-17,0,-0.10792112466548595],
+            "direction": [-1.8369701987210297e-16,0,-1]
+          },
+          "edge-6": {
+            "position": [0.09346243556529824,0,-0.05396056233274294],
+            "direction": [0.8660254037844388,0,-0.49999999999999967]
+          }
+        }
+      }
+    }
+  }
+}

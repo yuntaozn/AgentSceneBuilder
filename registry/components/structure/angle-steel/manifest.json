@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.angle-steel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "角钢",
+  "summary": "具有两个正交翼边的 L 形钢构件，可单独设定每个翼边尺寸和厚度。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.angle-steel",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "结构",
+    "角钢",
+    "基础构件"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.8
+    },
+    "sectionWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.06
+    },
+    "sectionHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.06
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.006
+    }
+  },
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "editor": {
+    "document": {
+      "id": "angle-steel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.angle-steel",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-angle-section",
+              "length": 1.8,
+              "sectionWidth": 0.06,
+              "sectionHeight": 0.06,
+              "thickness": 0.006
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

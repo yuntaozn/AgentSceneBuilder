@@ -1,0 +1,143 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.fold-down-shower-seat",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "折叠淋浴座板",
+  "summary": "靠墙固定板与独立座架配合，木质条面可以绕水平轴翻起。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.sanitary.folding-seat",
+  "capabilities": [
+    "attach",
+    "animate",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "卫生间",
+    "给排水"
+  ],
+  "anchors": [
+    "mount",
+    "seat-top"
+  ],
+  "ai": {
+    "intent": "在卫浴场景中独立展示有活动座面的靠墙配件。",
+    "editableParts": [
+      "编辑墙座、板条重复和翻转角。"
+    ],
+    "qualityChecks": [
+      "座面锚点跟随转轴。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "fold-down-shower-seat",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-base",
+            "semanticType": "mep.sanitary.folding-seat.plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#516f7e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.135,0.018]
+            },
+            "transform": {
+              "position": [0,-0.042,0.009]
+            }
+          },
+          {
+            "id": "hinge-pin",
+            "semanticType": "mep.sanitary.folding-seat.pivot",
+            "material": "steel",
+            "appearance": {
+              "color": "#a6b6bf"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.185,0,0.045],
+              "end": [0.185,0,0.045],
+              "radius": 0.009,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "seat-pivot",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0.045]
+            }
+          },
+          {
+            "id": "seat-shell",
+            "semanticType": "mep.sanitary.folding-seat.frame",
+            "material": "metal",
+            "appearance": {
+              "color": "#516f7e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.35,0.027,0.342]
+            },
+            "transform": {
+              "position": [0,-0.014,0.174]
+            },
+            "parent": "seat-pivot"
+          },
+          {
+            "id": "seat-slat",
+            "semanticType": "mep.sanitary.folding-seat.slat",
+            "material": "wood",
+            "appearance": {
+              "color": "#a79177"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.362,0.011,0.043]
+            },
+            "transform": {
+              "position": [0,0.003,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 7,
+              "start": [0,0,0.029],
+              "step": [0,0,0.047]
+            },
+            "parent": "seat-pivot"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "seat-top": {
+            "node": "seat-pivot",
+            "position": [0,0.0085,0.17],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "fold-seat",
+            "target": "seat-pivot",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [-1.5707963267948966,0,0],
+            "duration": 0.9,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

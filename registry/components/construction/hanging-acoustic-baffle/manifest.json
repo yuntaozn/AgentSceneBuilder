@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.hanging-acoustic-baffle",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双点悬挂吸声条板",
+  "summary": "竖向吸声板配上缘承托梁和两个独立吊点，可成排摆放。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.interior.hanging-acoustic-baffle",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内构造",
+    "吊顶",
+    "声学"
+  ],
+  "anchors": [
+    "left-hang",
+    "right-hang",
+    "lower-edge"
+  ],
+  "ai": {
+    "intent": "把独立吸声板连接到上方两根吊杆。",
+    "editableParts": [
+      "调整条板宽度、厚度和吊点间距。"
+    ],
+    "qualityChecks": [
+      "吊点应保持等高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hanging-acoustic-baffle",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.interior.acoustic-baffle.fabric",
+            "material": "acoustic-fabric",
+            "appearance": {
+              "color": "#719396"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.91,0.251,0.045]
+            },
+            "transform": {
+              "position": [0,-0.1375,0]
+            }
+          },
+          {
+            "id": "rail",
+            "semanticType": "construction.interior.acoustic-baffle.rail",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.92,0.018,0.052]
+            },
+            "transform": {
+              "position": [0,-0.014,0]
+            }
+          },
+          {
+            "id": "eye-0",
+            "semanticType": "construction.interior.acoustic-baffle.eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.01,
+              "tubeRadius": 0.0025,
+              "radialSegments": 24,
+              "tubularSegments": 8
+            },
+            "transform": {
+              "position": [-0.345,0,0],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "eye-1",
+            "semanticType": "construction.interior.acoustic-baffle.eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.01,
+              "tubeRadius": 0.0025,
+              "radialSegments": 24,
+              "tubularSegments": 8
+            },
+            "transform": {
+              "position": [0.345,0,0],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left-hang": {
+            "position": [-0.345,0,0],
+            "direction": [0,1,0]
+          },
+          "right-hang": {
+            "position": [0.345,0,0],
+            "direction": [0,1,0]
+          },
+          "lower-edge": {
+            "position": [0,-0.263,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

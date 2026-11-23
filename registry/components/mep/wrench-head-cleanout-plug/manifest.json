@@ -1,0 +1,115 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.wrench-head-cleanout-plug",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "方头排水检修塞",
+  "summary": "圆形插塞、止口和可转动的方头拆卸位分别保留，配合独立支管检修。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.drain.cleanout-plug",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "基础构件",
+    "MEP",
+    "给排水",
+    "排水"
+  ],
+  "anchors": [
+    "seat",
+    "drive-axis"
+  ],
+  "ai": {
+    "intent": "给排水检查口预留独立可拆盖。",
+    "editableParts": [
+      "调整止口、密封和上部驱动位。"
+    ],
+    "qualityChecks": [
+      "拆盖动作通过移动构件实现。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "wrench-head-cleanout-plug",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stem",
+            "semanticType": "mep.drain.cleanout-plug.stem",
+            "material": "pvc",
+            "appearance": {
+              "color": "#b7c0bd"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.033,0],
+              "end": [0,0,0],
+              "radius": 0.025,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "seal",
+            "semanticType": "mep.drain.cleanout-plug.seal",
+            "material": "rubber",
+            "appearance": {
+              "color": "#3b4848"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.011,0],
+              "end": [0,-0.007,0],
+              "radius": 0.0275,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "flange",
+            "semanticType": "mep.drain.cleanout-plug.flange",
+            "material": "pvc",
+            "appearance": {
+              "color": "#b7c0bd"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.011,0],
+              "radius": 0.038,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "head",
+            "semanticType": "mep.drain.cleanout-plug.drive",
+            "material": "pvc",
+            "appearance": {
+              "color": "#596f7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.016,0.034]
+            },
+            "transform": {
+              "position": [0,0.019,0]
+            }
+          }
+        ],
+        "anchors": {
+          "seat": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "outsideDiameter": 0.063,
+            "kind": "pipe-port"
+          },
+          "drive-axis": {
+            "position": [0,0.027,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

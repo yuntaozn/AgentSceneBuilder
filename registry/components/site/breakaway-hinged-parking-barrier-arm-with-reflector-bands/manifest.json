@@ -1,0 +1,403 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.breakaway-hinged-parking-barrier-arm-with-reflector-bands",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "升降道闸双面反光闸杆",
+  "summary": "闸杆和轴套一起抬升，外侧反光带和可换软头独立。",
+  "license": "Apache-2.0",
+  "semanticType": "site.parking.parking-barrier-arm",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "停车与慢行",
+    "停车道闸",
+    "反光",
+    "起落杆"
+  ],
+  "anchors": [
+    "pivot",
+    "closed-tip"
+  ],
+  "ai": {
+    "intent": "闸杆和轴套一起抬升，外侧反光带和可换软头独立。",
+    "editableParts": [
+      "可分别编辑 gate-arm-hinge、hinge-bush、arm-box-section、reflector-1、reflector-2、reflector-3。"
+    ],
+    "qualityChecks": [
+      "闸杆沿轴转动，底座安装点保持不动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "breakaway-hinged-parking-barrier-arm-with-reflector-bands",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "gate-arm-hinge",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "hinge-bush",
+            "semanticType": "site.parking.gate-arm.hub",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d636a"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.025]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.04,0],
+                [0.038637033051562734,0.01035276180410083],
+                [0.034641016151377546,0.019999999999999997],
+                [0.028284271247461905,0.028284271247461898],
+                [0.020000000000000004,0.034641016151377546],
+                [0.01035276180410083,0.038637033051562734],
+                [2.4492935982947064e-18,0.04],
+                [-0.010352761804100826,0.038637033051562734],
+                [-0.01999999999999999,0.034641016151377546],
+                [-0.028284271247461898,0.028284271247461905],
+                [-0.034641016151377546,0.019999999999999997],
+                [-0.03863703305156273,0.010352761804100842],
+                [-0.04,4.898587196589413e-18],
+                [-0.038637033051562734,-0.010352761804100831],
+                [-0.03464101615137755,-0.01999999999999999],
+                [-0.028284271247461915,-0.028284271247461884],
+                [-0.020000000000000018,-0.03464101615137754],
+                [-0.010352761804100826,-0.038637033051562734],
+                [-7.347880794884118e-18,-0.04],
+                [0.010352761804100812,-0.038637033051562734],
+                [0.020000000000000004,-0.034641016151377546],
+                [0.028284271247461894,-0.02828427124746191],
+                [0.03464101615137754,-0.020000000000000018],
+                [0.03863703305156273,-0.010352761804100863]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0259,0],
+                  [0.025017478900886868,0.006703413268155287],
+                  [0.02243005795801696,0.012949999999999998],
+                  [0.018314065632731583,0.01831406563273158],
+                  [0.012950000000000003,0.02243005795801696],
+                  [0.006703413268155287,0.025017478900886868],
+                  [1.5859176048958223e-18,0.0259],
+                  [-0.0067034132681552845,0.025017478900886868],
+                  [-0.012949999999999995,0.02243005795801696],
+                  [-0.01831406563273158,0.018314065632731583],
+                  [-0.02243005795801696,0.012949999999999998],
+                  [-0.025017478900886864,0.006703413268155294],
+                  [-0.0259,3.1718352097916446e-18],
+                  [-0.025017478900886868,-0.006703413268155289],
+                  [-0.022430057958016964,-0.012949999999999993],
+                  [-0.01831406563273159,-0.01831406563273157],
+                  [-0.012950000000000012,-0.022430057958016957],
+                  [-0.0067034132681552845,-0.025017478900886868],
+                  [-4.757752814687467e-18,-0.0259],
+                  [0.006703413268155276,-0.02501747890088687],
+                  [0.012950000000000003,-0.02243005795801696],
+                  [0.018314065632731576,-0.018314065632731583],
+                  [0.022430057958016954,-0.012950000000000012],
+                  [0.025017478900886864,-0.006703413268155309]
+                ]
+              ]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "arm-box-section",
+            "semanticType": "site.parking.gate-arm.section",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#cdd4c6"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.836,0.061,0.048]
+            },
+            "transform": {
+              "position": [0.907,0,0.024]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-1",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [0.124,0,-0.0010000000000000009]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-2",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [0.124,0,0.049]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-3",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [0.369,0,-0.0010000000000000009]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-4",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [0.369,0,0.049]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-5",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [0.614,0,-0.0010000000000000009]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-6",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [0.614,0,0.049]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-7",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [0.859,0,-0.0010000000000000009]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-8",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [0.859,0,0.049]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-9",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [1.104,0,-0.0010000000000000009]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-10",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [1.104,0,0.049]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-11",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [1.3490000000000002,0,-0.0010000000000000009]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-12",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [1.3490000000000002,0,0.049]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-13",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [1.5939999999999999,0,-0.0010000000000000009]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "reflector-14",
+            "semanticType": "site.parking.gate-arm.reflector",
+            "material": "plastic",
+            "appearance": {
+              "color": "#a76859"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.053,0.003]
+            },
+            "transform": {
+              "position": [1.5939999999999999,0,0.049]
+            },
+            "parent": "gate-arm-hinge"
+          },
+          {
+            "id": "rubber-safe-tip",
+            "semanticType": "site.parking.gate-arm.tip",
+            "material": "rubber",
+            "appearance": {
+              "color": "#59686a"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.042,0.065,0.051]
+            },
+            "transform": {
+              "position": [1.8350000000000002,0,0.024]
+            },
+            "parent": "gate-arm-hinge"
+          }
+        ],
+        "anchors": {
+          "pivot": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "closed-tip": {
+            "position": [1.852,-0.032,0.024],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "raise-barrier",
+            "target": "gate-arm-hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0,1.32],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

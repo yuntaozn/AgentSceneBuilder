@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.shouldered-tenon-timber-beam",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带端肩凸榫木梁",
+  "summary": "梁端有独立窄榫头和较宽榫肩，能插入侧向榫眼。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.timber.shoulder-tenon",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "shoulder",
+    "tip",
+    "end"
+  ],
+  "ai": {
+    "intent": "表达可插入木柱榫眼的榫头和肩线。",
+    "editableParts": [
+      "调整榫头宽高与插入深度。"
+    ],
+    "qualityChecks": [
+      "榫头尺寸应小于选用榫眼。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "shouldered-tenon-timber-beam",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "beam",
+            "semanticType": "structure.timber.shoulder-tenon.timber",
+            "material": "timber",
+            "appearance": {
+              "color": "#bb986f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.2,0.145,0.125]
+            },
+            "transform": {
+              "position": [0.6,0,0]
+            }
+          },
+          {
+            "id": "tongue",
+            "semanticType": "structure.timber.shoulder-tenon.joint",
+            "material": "timber",
+            "appearance": {
+              "color": "#866748"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.09,0.055]
+            },
+            "transform": {
+              "position": [-0.031,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "shoulder": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "tip": {
+            "position": [-0.062,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [1.2,0,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

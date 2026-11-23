@@ -1,0 +1,2313 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrumented-structure-bay",
+  "title": "结构开间监测布点和三层测温",
+  "instances": [
+    {
+      "id": "ground",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [5.6,0.2,4.8]
+            },
+            "transform": {
+              "position": [0,0.1,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "column-left": {
+            "position": [-1.8,0.2,-0.6],
+            "direction": [0,1,0]
+          },
+          "column-right": {
+            "position": [1.8,0.2,-0.6],
+            "direction": [0,1,0]
+          },
+          "reference-floor": {
+            "position": [0,0.2,-0.6],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,-0.2,0.6]
+      }
+    },
+    {
+      "id": "column-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "column",
+            "semanticType": "structure.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,2.2,0.4]
+            },
+            "transform": {
+              "position": [0,1.1,0]
+            },
+            "appearance": {
+              "color": "#89969c",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "base-center": {
+            "node": "column",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "top-center": {
+            "node": "column",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "axis-center": {
+            "node": "column",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-1.8,0,0]
+      }
+    },
+    {
+      "id": "column-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "column",
+            "semanticType": "structure.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,2.2,0.4]
+            },
+            "transform": {
+              "position": [0,1.1,0]
+            },
+            "appearance": {
+              "color": "#89969c",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "base-center": {
+            "node": "column",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "top-center": {
+            "node": "column",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "axis-center": {
+            "node": "column",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "tilt-site": {
+            "node": "column",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0.5]
+            },
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8,0,0]
+      }
+    },
+    {
+      "id": "beam",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "beam",
+            "semanticType": "structure.beam",
+            "material": "concrete",
+            "geometry": {
+              "type": "box",
+              "size": [3.6,0.4,0.3]
+            },
+            "transform": {
+              "position": [0,0.2,0]
+            },
+            "appearance": {
+              "color": "#9ba6aa"
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "beam",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "node": "beam",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0,0]
+            },
+            "direction": [1,0,0]
+          },
+          "start-bearing": {
+            "node": "beam",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "end-bearing": {
+            "node": "beam",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "top-center": {
+            "node": "beam",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "deflection-contact": {
+            "node": "beam",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "strain-site": {
+            "node": "beam",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.041666666666666664,-0.2875,0.5]
+            },
+            "direction": [0,0,1]
+          },
+          "strain-axis": {
+            "node": "beam",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.041666666666666664,-0.2875,0.5]
+            },
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.2,0]
+      }
+    },
+    {
+      "id": "landing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [4,0.2,1.2]
+            },
+            "transform": {
+              "position": [0,0.1,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "vibration-site": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.1125,0.5,0.16666666666666669]
+            },
+            "direction": [0,1,0]
+          },
+          "vertical-axis": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.1125,0.5,0.16666666666666669]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.6,0]
+      }
+    },
+    {
+      "id": "strain",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "carrier",
+            "semanticType": "instrument.strain.foil.carrier",
+            "material": "polyimide",
+            "appearance": {
+              "color": "#dcd3a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.0018,0.044]
+            },
+            "transform": {
+              "position": [0,0.0009,0]
+            }
+          },
+          {
+            "id": "trace",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.0003,0.001]
+            },
+            "transform": {
+              "position": [0,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 10,
+              "start": [0,0,-0.0135],
+              "step": [0,0,0.003]
+            }
+          },
+          {
+            "id": "return-left",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.001,0.0003,0.004]
+            },
+            "transform": {
+              "position": [0,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "start": [-0.026,0,-0.012],
+              "step": [0,0,0.006]
+            }
+          },
+          {
+            "id": "return-right",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.001,0.0003,0.004]
+            },
+            "transform": {
+              "position": [0,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [0.026,0,-0.009],
+              "step": [0,0,0.006]
+            }
+          },
+          {
+            "id": "pad",
+            "semanticType": "instrument.strain.foil.solder-pad",
+            "material": "alloy",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.0008,0.006]
+            },
+            "transform": {
+              "position": [0.032,0.0022,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0,-0.0135],
+              "step": [0,0,0.027]
+            }
+          },
+          {
+            "id": "pad-trace",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0003,0.001]
+            },
+            "transform": {
+              "position": [0.029,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0,-0.0135],
+              "step": [0,0,0.027]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "measure-axis": {
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "measurement-axis"
+          },
+          "terminal-1": {
+            "position": [0.0375,0.0022,-0.0135],
+            "direction": [1,0,0]
+          },
+          "terminal-2": {
+            "position": [0.0375,0.0022,0.0135],
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.15,2.285,0.15],
+        "rotation": [1.5707963267948966,0,0]
+      }
+    },
+    {
+      "id": "displacement",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mount-foot",
+            "semanticType": "instrument.displacement.contact.reference-flange",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.021,0],
+              "radius": 0.046,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "body",
+            "semanticType": "instrument.displacement.contact.body",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#307785"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.021,0],
+                [0,0.184,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.031,0],
+                [0.02948275200514976,0.00957952682562337],
+                [0.02507952682562337,0.018221342821066668],
+                [0.018221342821066668,0.02507952682562337],
+                [0.009579526825623371,0.02948275200514976],
+                [1.8982025386783975e-18,0.031],
+                [-0.009579526825623368,0.029482752005149764],
+                [-0.018221342821066664,0.02507952682562337],
+                [-0.025079526825623366,0.01822134282106667],
+                [-0.02948275200514976,0.009579526825623373],
+                [-0.031,3.796405077356795e-18],
+                [-0.029482752005149767,-0.009579526825623354],
+                [-0.02507952682562337,-0.018221342821066664],
+                [-0.01822134282106667,-0.025079526825623366],
+                [-0.009579526825623375,-0.02948275200514976],
+                [-5.694607616035192e-18,-0.031],
+                [0.009579526825623364,-0.029482752005149764],
+                [0.01822134282106666,-0.025079526825623373],
+                [0.025079526825623366,-0.018221342821066674],
+                [0.02948275200514976,-0.009579526825623377]
+              ],
+              "holes": [
+                [
+                  [0.012,0],
+                  [0.011412678195541842,0.0037082039324993687],
+                  [0.00970820393249937,0.007053423027509678],
+                  [0.007053423027509678,0.00970820393249937],
+                  [0.0037082039324993696,0.011412678195541842],
+                  [7.347880794884119e-19,0.012],
+                  [-0.0037082039324993683,0.011412678195541844],
+                  [-0.0070534230275096765,0.00970820393249937],
+                  [-0.009708203932499368,0.007053423027509679],
+                  [-0.011412678195541842,0.00370820393249937],
+                  [-0.012,1.4695761589768239e-18],
+                  [-0.011412678195541846,-0.0037082039324993626],
+                  [-0.00970820393249937,-0.0070534230275096765],
+                  [-0.007053423027509679,-0.009708203932499368],
+                  [-0.003708203932499371,-0.011412678195541842],
+                  [-2.2043642384652355e-18,-0.012],
+                  [0.003708203932499367,-0.011412678195541844],
+                  [0.007053423027509675,-0.009708203932499371],
+                  [0.009708203932499368,-0.007053423027509681],
+                  [0.011412678195541842,-0.0037082039324993713]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "guide",
+            "semanticType": "instrument.displacement.contact.guide",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.184,0],
+                [0,0.2,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.025,0],
+                [0.02377641290737884,0.007725424859373685],
+                [0.02022542485937369,0.014694631307311828],
+                [0.014694631307311828,0.02022542485937369],
+                [0.007725424859373687,0.02377641290737884],
+                [1.5308084989341916e-18,0.025],
+                [-0.007725424859373684,0.023776412907378842],
+                [-0.014694631307311827,0.02022542485937369],
+                [-0.020225424859373686,0.014694631307311832],
+                [-0.02377641290737884,0.007725424859373688],
+                [-0.025,3.061616997868383e-18],
+                [-0.023776412907378846,-0.007725424859373673],
+                [-0.02022542485937369,-0.014694631307311827],
+                [-0.014694631307311832,-0.020225424859373686],
+                [-0.007725424859373689,-0.02377641290737884],
+                [-4.592425496802574e-18,-0.025],
+                [0.007725424859373681,-0.023776412907378842],
+                [0.014694631307311823,-0.02022542485937369],
+                [0.020225424859373686,-0.014694631307311835],
+                [0.02377641290737884,-0.007725424859373691]
+              ],
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.008559508646656382,0.0027811529493745263],
+                  [0.007281152949374527,0.005290067270632258],
+                  [0.005290067270632258,0.007281152949374527],
+                  [0.0027811529493745268,0.008559508646656382],
+                  [5.510910596163089e-19,0.009],
+                  [-0.002781152949374526,0.008559508646656382],
+                  [-0.005290067270632257,0.007281152949374527],
+                  [-0.007281152949374525,0.005290067270632259],
+                  [-0.008559508646656382,0.002781152949374527],
+                  [-0.009,1.1021821192326178e-18],
+                  [-0.008559508646656383,-0.002781152949374522],
+                  [-0.007281152949374527,-0.005290067270632257],
+                  [-0.005290067270632259,-0.007281152949374525],
+                  [-0.002781152949374528,-0.008559508646656382],
+                  [-1.6532731788489266e-18,-0.009],
+                  [0.002781152949374525,-0.008559508646656382],
+                  [0.005290067270632256,-0.007281152949374528],
+                  [0.007281152949374525,-0.0052900672706322595],
+                  [0.008559508646656382,-0.0027811529493745285]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "cable-port",
+            "semanticType": "instrument.displacement.contact.connector",
+            "material": "polymer",
+            "appearance": {
+              "color": "#31454e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.075,0.028],
+              "end": [0,0.075,0.055],
+              "radius": 0.009,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "sliding-stem",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "probe-rod",
+            "semanticType": "instrument.displacement.contact.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [0,0.243,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "parent": "sliding-stem"
+          },
+          {
+            "id": "probe-tip",
+            "semanticType": "instrument.displacement.contact.tip",
+            "material": "steel",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.009,
+              "segments": 16
+            },
+            "transform": {
+              "position": [0,0.246,0]
+            },
+            "parent": "sliding-stem"
+          }
+        ],
+        "anchors": {
+          "reference": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "tip": {
+            "node": "probe-tip",
+            "position": [0,0.009,0],
+            "direction": [0,1,0],
+            "kind": "contact-tip"
+          },
+          "measure-axis": {
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "measurement-axis"
+          },
+          "signal-out": {
+            "position": [0,0.075,0.055],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "probe-travel",
+            "target": "sliding-stem",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0.035,0],
+            "duration": 1.25,
+            "loop": false
+          }
+        ]
+      },
+      "transform": {
+        "position": [0,1.945,0]
+      }
+    },
+    {
+      "id": "reference",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "outrigger-0",
+            "semanticType": "instrument.mount.reference-stand.outrigger",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [0.31,0.025,0],
+              "radius": 0.018,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pad-0",
+            "semanticType": "instrument.mount.reference-stand.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.31,0,0],
+              "end": [0.31,0.027,0],
+              "radius": 0.042,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "outrigger-1",
+            "semanticType": "instrument.mount.reference-stand.outrigger",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [-0.15499999999999994,0.025,0.268467875173176],
+              "radius": 0.018,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pad-1",
+            "semanticType": "instrument.mount.reference-stand.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.15499999999999994,0,0.268467875173176],
+              "end": [-0.15499999999999994,0.027,0.268467875173176],
+              "radius": 0.042,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "outrigger-2",
+            "semanticType": "instrument.mount.reference-stand.outrigger",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [-0.15500000000000014,0.025,-0.26846787517317594],
+              "radius": 0.018,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pad-2",
+            "semanticType": "instrument.mount.reference-stand.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.15500000000000014,0,-0.26846787517317594],
+              "end": [-0.15500000000000014,0.027,-0.26846787517317594],
+              "radius": 0.042,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "lower-mast",
+            "semanticType": "instrument.mount.reference-stand.mast",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.1,0],
+                [0,1.25,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.035,0],
+                [0.033286978070330375,0.01081559480312316],
+                [0.028315594803123165,0.020572483830236563],
+                [0.020572483830236563,0.028315594803123165],
+                [0.010815594803123161,0.033286978070330375],
+                [2.1431318985078684e-18,0.035],
+                [-0.010815594803123158,0.03328697807033038],
+                [-0.02057248383023656,0.028315594803123165],
+                [-0.02831559480312316,0.020572483830236566],
+                [-0.033286978070330375,0.010815594803123163],
+                [-0.035,4.286263797015737e-18],
+                [-0.03328697807033038,-0.010815594803123142],
+                [-0.028315594803123165,-0.02057248383023656],
+                [-0.020572483830236566,-0.02831559480312316],
+                [-0.010815594803123166,-0.033286978070330375],
+                [-6.429395695523605e-18,-0.035],
+                [0.010815594803123154,-0.03328697807033038],
+                [0.020572483830236556,-0.028315594803123168],
+                [0.02831559480312316,-0.02057248383023657],
+                [0.033286978070330375,-0.010815594803123168]
+              ],
+              "holes": [
+                [
+                  [0.027,0],
+                  [0.025678525939969145,0.00834345884812358],
+                  [0.02184345884812358,0.015870201811896776],
+                  [0.015870201811896776,0.02184345884812358],
+                  [0.008343458848123582,0.025678525939969145],
+                  [1.6532731788489268e-18,0.027],
+                  [-0.008343458848123578,0.02567852593996915],
+                  [-0.015870201811896772,0.02184345884812358],
+                  [-0.021843458848123578,0.015870201811896776],
+                  [-0.025678525939969145,0.008343458848123583],
+                  [-0.027,3.3065463576978537e-18],
+                  [-0.025678525939969152,-0.008343458848123566],
+                  [-0.02184345884812358,-0.015870201811896772],
+                  [-0.015870201811896776,-0.021843458848123578],
+                  [-0.008343458848123583,-0.025678525939969145],
+                  [-4.95981953654678e-18,-0.027],
+                  [0.008343458848123575,-0.02567852593996915],
+                  [0.01587020181189677,-0.021843458848123585],
+                  [0.021843458848123578,-0.01587020181189678],
+                  [0.025678525939969145,-0.008343458848123585]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "extension",
+            "semanticType": "instrument.mount.reference-stand.extension",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.93,0],
+              "end": [0,1.925,0],
+              "radius": 0.023,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "lock-collar",
+            "semanticType": "instrument.mount.reference-stand.lock",
+            "material": "steel",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,1.19,0],
+              "end": [0,1.26,0],
+              "radius": 0.043,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "knob",
+            "semanticType": "instrument.mount.reference-stand.knob",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.04,1.23,0],
+              "end": [0.087,1.23,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "top-plate",
+            "semanticType": "instrument.mount.reference-stand.plate",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.02,0.14]
+            },
+            "transform": {
+              "position": [0,1.935,0]
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "instrument-seat": {
+            "node": "top-plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "acceleration",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stud",
+            "semanticType": "instrument.acceleration.triaxial.threaded-stud",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,0.001,0],
+              "radius": 0.005,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "base",
+            "semanticType": "instrument.acceleration.triaxial.base",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.042,0.007,0.044]
+            },
+            "transform": {
+              "position": [0,0.0035,0]
+            }
+          },
+          {
+            "id": "housing",
+            "semanticType": "instrument.acceleration.triaxial.housing",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#307785"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.035,0.031,0.036]
+            },
+            "transform": {
+              "position": [0,0.0225,0]
+            }
+          },
+          {
+            "id": "axis-mark-x",
+            "semanticType": "instrument.acceleration.triaxial.mark",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e8a77d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.001,0.002]
+            },
+            "transform": {
+              "position": [-0.003,0.0385,0.006]
+            }
+          },
+          {
+            "id": "axis-mark-z",
+            "semanticType": "instrument.acceleration.triaxial.mark",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d6eaeb"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.002,0.001,0.019]
+            },
+            "transform": {
+              "position": [-0.011,0.0385,-0.003]
+            }
+          },
+          {
+            "id": "signal-port",
+            "semanticType": "instrument.acceleration.triaxial.connector",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.019,0.017],
+              "end": [0,0.019,0.035],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "axis-x": {
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "measurement-axis"
+          },
+          "axis-y": {
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "measurement-axis"
+          },
+          "axis-z": {
+            "position": [0,0,0],
+            "direction": [0,0,1],
+            "kind": "measurement-axis"
+          },
+          "signal-out": {
+            "position": [0,0.019,0.035],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.45,2.8,0.2]
+      }
+    },
+    {
+      "id": "tilt",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "instrument.tilt.surface.body",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#307785"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.026,0.055]
+            },
+            "transform": {
+              "position": [0,0.013,0]
+            }
+          },
+          {
+            "id": "left-ear",
+            "semanticType": "instrument.tilt.surface.mounting-ear",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.044,0,0],
+                [-0.044,0.003,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.01,-0.014],
+                [0.01,-0.014],
+                [0.01,0.014],
+                [-0.01,0.014]
+              ],
+              "holes": [
+                [
+                  [0.0035,0],
+                  [0.0033286978070330374,0.001081559480312316],
+                  [0.002831559480312316,0.002057248383023656],
+                  [0.002057248383023656,0.002831559480312316],
+                  [0.0010815594803123161,0.0033286978070330374],
+                  [2.1431318985078682e-19,0.0035],
+                  [-0.0010815594803123157,0.003328697807033038],
+                  [-0.0020572483830236556,0.002831559480312316],
+                  [-0.002831559480312316,0.0020572483830236564],
+                  [-0.0033286978070330374,0.0010815594803123163],
+                  [-0.0035,4.2862637970157364e-19],
+                  [-0.0033286978070330383,-0.0010815594803123142],
+                  [-0.002831559480312316,-0.0020572483830236556],
+                  [-0.0020572483830236564,-0.002831559480312316],
+                  [-0.0010815594803123166,-0.0033286978070330374],
+                  [-6.429395695523604e-19,-0.0035],
+                  [0.0010815594803123153,-0.003328697807033038],
+                  [0.002057248383023655,-0.0028315594803123164],
+                  [0.002831559480312316,-0.002057248383023657],
+                  [0.0033286978070330374,-0.0010815594803123168]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "right-ear",
+            "semanticType": "instrument.tilt.surface.mounting-ear",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.044,0,0],
+                [0.044,0.003,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.01,-0.014],
+                [0.01,-0.014],
+                [0.01,0.014],
+                [-0.01,0.014]
+              ],
+              "holes": [
+                [
+                  [0.0035,0],
+                  [0.0033286978070330374,0.001081559480312316],
+                  [0.002831559480312316,0.002057248383023656],
+                  [0.002057248383023656,0.002831559480312316],
+                  [0.0010815594803123161,0.0033286978070330374],
+                  [2.1431318985078682e-19,0.0035],
+                  [-0.0010815594803123157,0.003328697807033038],
+                  [-0.0020572483830236556,0.002831559480312316],
+                  [-0.002831559480312316,0.0020572483830236564],
+                  [-0.0033286978070330374,0.0010815594803123163],
+                  [-0.0035,4.2862637970157364e-19],
+                  [-0.0033286978070330383,-0.0010815594803123142],
+                  [-0.002831559480312316,-0.0020572483830236556],
+                  [-0.0020572483830236564,-0.002831559480312316],
+                  [-0.0010815594803123166,-0.0033286978070330374],
+                  [-6.429395695523604e-19,-0.0035],
+                  [0.0010815594803123153,-0.003328697807033038],
+                  [0.002057248383023655,-0.0028315594803123164],
+                  [0.002831559480312316,-0.002057248383023657],
+                  [0.0033286978070330374,-0.0010815594803123168]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "zero-mark",
+            "semanticType": "instrument.tilt.surface.zero-mark",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d6eaeb"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.036,0.001,0.005]
+            },
+            "transform": {
+              "position": [0,0.0265,0]
+            }
+          },
+          {
+            "id": "connector",
+            "semanticType": "instrument.tilt.surface.connector",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.014,-0.027],
+              "end": [0,0.014,-0.045],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "rotation-axis": {
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "measurement-axis"
+          },
+          "signal-out": {
+            "position": [0,0.014,-0.045],
+            "direction": [0,0,-1]
+          },
+          "zero-face": {
+            "position": [0,0.026,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8,1.1,0.2],
+        "rotation": [1.5707963267948966,0,0]
+      }
+    },
+    {
+      "id": "signal-table",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "instrument.signal.bench",
+            "geometry": {
+              "type": "box",
+              "size": [0.66,1.05,0.73]
+            },
+            "transform": {
+              "position": [0.9,0.525,0.53]
+            },
+            "appearance": {
+              "color": "#7b8486"
+            }
+          }
+        ],
+        "anchors": {
+          "top": {
+            "node": "body",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "box-mount": {
+            "position": [0.9,1.05,0.65],
+            "direction": [0,1,0]
+          },
+          "radio-mount": {
+            "position": [0.9,1.05,0.27],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    },
+    {
+      "id": "junction",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mount-plate",
+            "semanticType": "instrument.signal.junction-box.base",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.18,0.005,0.11]
+            },
+            "transform": {
+              "position": [0,0.0025,0]
+            }
+          },
+          {
+            "id": "enclosure",
+            "semanticType": "instrument.signal.junction-box.shell",
+            "material": "polymer",
+            "appearance": {
+              "color": "#307785"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.155,0.044,0.091]
+            },
+            "transform": {
+              "position": [0,0.027,0]
+            }
+          },
+          {
+            "id": "cover",
+            "semanticType": "instrument.signal.junction-box.cover",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d6eaeb"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.159,0.008,0.095]
+            },
+            "transform": {
+              "position": [0,0.053,0]
+            }
+          },
+          {
+            "id": "input-gland",
+            "semanticType": "instrument.signal.junction-box.gland",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.03,0.044],
+                [0,0.03,0.066]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.009,0],
+                [0.008559508646656382,0.0027811529493745263],
+                [0.007281152949374527,0.005290067270632258],
+                [0.005290067270632258,0.007281152949374527],
+                [0.0027811529493745268,0.008559508646656382],
+                [5.510910596163089e-19,0.009],
+                [-0.002781152949374526,0.008559508646656382],
+                [-0.005290067270632257,0.007281152949374527],
+                [-0.007281152949374525,0.005290067270632259],
+                [-0.008559508646656382,0.002781152949374527],
+                [-0.009,1.1021821192326178e-18],
+                [-0.008559508646656383,-0.002781152949374522],
+                [-0.007281152949374527,-0.005290067270632257],
+                [-0.005290067270632259,-0.007281152949374525],
+                [-0.002781152949374528,-0.008559508646656382],
+                [-1.6532731788489266e-18,-0.009],
+                [0.002781152949374525,-0.008559508646656382],
+                [0.005290067270632256,-0.007281152949374528],
+                [0.007281152949374525,-0.0052900672706322595],
+                [0.008559508646656382,-0.0027811529493745285]
+              ],
+              "holes": [
+                [
+                  [0.005,0],
+                  [0.004755282581475768,0.0015450849718747371],
+                  [0.004045084971874737,0.0029389262614623658],
+                  [0.0029389262614623658,0.004045084971874737],
+                  [0.0015450849718747373,0.004755282581475768],
+                  [3.061616997868383e-19,0.005],
+                  [-0.0015450849718747367,0.004755282581475768],
+                  [-0.0029389262614623653,0.004045084971874737],
+                  [-0.004045084971874737,0.002938926261462366],
+                  [-0.004755282581475768,0.0015450849718747375],
+                  [-0.005,6.123233995736766e-19],
+                  [-0.004755282581475769,-0.0015450849718747345],
+                  [-0.004045084971874737,-0.0029389262614623653],
+                  [-0.002938926261462366,-0.004045084971874737],
+                  [-0.0015450849718747378,-0.004755282581475768],
+                  [-9.184850993605148e-19,-0.005],
+                  [0.0015450849718747362,-0.004755282581475768],
+                  [0.0029389262614623645,-0.004045084971874738],
+                  [0.004045084971874737,-0.002938926261462367],
+                  [0.004755282581475768,-0.0015450849718747382]
+                ]
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [-0.057,0,0],
+              "step": [0.038,0,0]
+            }
+          },
+          {
+            "id": "output-gland",
+            "semanticType": "instrument.signal.junction-box.gland",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.03,-0.044],
+                [0,0.03,-0.068]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.009,0],
+                [0.008559508646656382,0.0027811529493745263],
+                [0.007281152949374527,0.005290067270632258],
+                [0.005290067270632258,0.007281152949374527],
+                [0.0027811529493745268,0.008559508646656382],
+                [5.510910596163089e-19,0.009],
+                [-0.002781152949374526,0.008559508646656382],
+                [-0.005290067270632257,0.007281152949374527],
+                [-0.007281152949374525,0.005290067270632259],
+                [-0.008559508646656382,0.002781152949374527],
+                [-0.009,1.1021821192326178e-18],
+                [-0.008559508646656383,-0.002781152949374522],
+                [-0.007281152949374527,-0.005290067270632257],
+                [-0.005290067270632259,-0.007281152949374525],
+                [-0.002781152949374528,-0.008559508646656382],
+                [-1.6532731788489266e-18,-0.009],
+                [0.002781152949374525,-0.008559508646656382],
+                [0.005290067270632256,-0.007281152949374528],
+                [0.007281152949374525,-0.0052900672706322595],
+                [0.008559508646656382,-0.0027811529493745285]
+              ],
+              "holes": [
+                [
+                  [0.005,0],
+                  [0.004755282581475768,0.0015450849718747371],
+                  [0.004045084971874737,0.0029389262614623658],
+                  [0.0029389262614623658,0.004045084971874737],
+                  [0.0015450849718747373,0.004755282581475768],
+                  [3.061616997868383e-19,0.005],
+                  [-0.0015450849718747367,0.004755282581475768],
+                  [-0.0029389262614623653,0.004045084971874737],
+                  [-0.004045084971874737,0.002938926261462366],
+                  [-0.004755282581475768,0.0015450849718747375],
+                  [-0.005,6.123233995736766e-19],
+                  [-0.004755282581475769,-0.0015450849718747345],
+                  [-0.004045084971874737,-0.0029389262614623653],
+                  [-0.002938926261462366,-0.004045084971874737],
+                  [-0.0015450849718747378,-0.004755282581475768],
+                  [-9.184850993605148e-19,-0.005],
+                  [0.0015450849718747362,-0.004755282581475768],
+                  [0.0029389262614623645,-0.004045084971874738],
+                  [0.004045084971874737,-0.002938926261462367],
+                  [0.004755282581475768,-0.0015450849718747382]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "bus-out": {
+            "node": "output-gland",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "input-1": {
+            "node": "input-gland",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            },
+            "occurrence": {
+              "index": 0
+            }
+          },
+          "input-2": {
+            "node": "input-gland",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            },
+            "occurrence": {
+              "index": 1
+            }
+          },
+          "input-3": {
+            "node": "input-gland",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            },
+            "occurrence": {
+              "index": 2
+            }
+          },
+          "input-4": {
+            "node": "input-gland",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            },
+            "occurrence": {
+              "index": 3
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.9,1.05,0.65]
+      }
+    },
+    {
+      "id": "radio",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sole",
+            "semanticType": "instrument.signal.telemetry.mount",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.17,0.009,0.106]
+            },
+            "transform": {
+              "position": [0,0.0045,0]
+            }
+          },
+          {
+            "id": "housing",
+            "semanticType": "instrument.signal.telemetry.housing",
+            "material": "polymer",
+            "appearance": {
+              "color": "#307785"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.052,0.094]
+            },
+            "transform": {
+              "position": [0,0.035,0]
+            }
+          },
+          {
+            "id": "label-panel",
+            "semanticType": "instrument.signal.telemetry.panel",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d6eaeb"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.065,0.002,0.026]
+            },
+            "transform": {
+              "position": [-0.018,0.062,0]
+            }
+          },
+          {
+            "id": "status",
+            "semanticType": "instrument.signal.telemetry.status",
+            "material": "polymer",
+            "appearance": {
+              "color": "#97dbc6"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.003,0.007]
+            },
+            "transform": {
+              "position": [-0.036,0.065,0.012]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [0,0,0],
+              "step": [0.016,0,0]
+            }
+          },
+          {
+            "id": "bus-socket",
+            "semanticType": "instrument.signal.telemetry.port",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.031,0.045],
+              "end": [0,0.031,0.067],
+              "radius": 0.01,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "antenna-hub",
+            "semanticType": "instrument.signal.telemetry.hub",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.052,0.049,-0.034],
+              "end": [0.052,0.066,-0.034],
+              "radius": 0.009,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "antenna-pivot",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0.052,0.065,-0.034]
+            }
+          },
+          {
+            "id": "antenna",
+            "semanticType": "instrument.signal.telemetry.antenna",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.17,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            },
+            "parent": "antenna-pivot"
+          },
+          {
+            "id": "antenna-cap",
+            "semanticType": "instrument.signal.telemetry.cap",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.006,
+              "segments": 16
+            },
+            "transform": {
+              "position": [0,0.17,0]
+            },
+            "parent": "antenna-pivot"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "bus-in": {
+            "position": [0,0.031,0.067],
+            "direction": [0,0,1]
+          },
+          "antenna-base": {
+            "node": "antenna-pivot",
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "antenna-fold",
+            "target": "antenna-pivot",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0,-1.5707963267948966],
+            "duration": 1,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      },
+      "transform": {
+        "position": [0.9,1.05,0.27]
+      }
+    },
+    {
+      "id": "displacement-lead",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wire",
+            "semanticType": "instrument.signal.shielded-lead",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,2.02,0.055],
+                [0,2.02,0.17],
+                [0,1.95,0.37],
+                [0.4,1.32,0.85],
+                [0.843,1.08,0.84],
+                [0.843,1.08,0.716]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.004,0],
+                [0.0038042260651806143,0.0012360679774997896],
+                [0.00323606797749979,0.0023511410091698924],
+                [0.0023511410091698924,0.00323606797749979],
+                [0.0012360679774997899,0.0038042260651806143],
+                [2.4492935982947063e-19,0.004],
+                [-0.0012360679774997894,0.0038042260651806148],
+                [-0.002351141009169892,0.00323606797749979],
+                [-0.0032360679774997895,0.002351141009169893],
+                [-0.0038042260651806143,0.00123606797749979],
+                [-0.004,4.898587196589413e-19],
+                [-0.003804226065180615,-0.0012360679774997877],
+                [-0.00323606797749979,-0.002351141009169892],
+                [-0.002351141009169893,-0.0032360679774997895],
+                [-0.0012360679774997903,-0.0038042260651806143],
+                [-7.347880794884119e-19,-0.004],
+                [0.001236067977499789,-0.0038042260651806148],
+                [0.0023511410091698916,-0.0032360679774997903],
+                [0.0032360679774997895,-0.0023511410091698933],
+                [0.0038042260651806143,-0.0012360679774997905]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "wire",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "wire",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "vibration-lead",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wire",
+            "semanticType": "instrument.signal.shielded-lead",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.45,2.819,0.235],
+                [0.45,2.819,0.77],
+                [0.45,2.78,0.83],
+                [0.61,1.17,0.91],
+                [0.881,1.08,0.86],
+                [0.881,1.08,0.716]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.004,0],
+                [0.0038042260651806143,0.0012360679774997896],
+                [0.00323606797749979,0.0023511410091698924],
+                [0.0023511410091698924,0.00323606797749979],
+                [0.0012360679774997899,0.0038042260651806143],
+                [2.4492935982947063e-19,0.004],
+                [-0.0012360679774997894,0.0038042260651806148],
+                [-0.002351141009169892,0.00323606797749979],
+                [-0.0032360679774997895,0.002351141009169893],
+                [-0.0038042260651806143,0.00123606797749979],
+                [-0.004,4.898587196589413e-19],
+                [-0.003804226065180615,-0.0012360679774997877],
+                [-0.00323606797749979,-0.002351141009169892],
+                [-0.002351141009169893,-0.0032360679774997895],
+                [-0.0012360679774997903,-0.0038042260651806143],
+                [-7.347880794884119e-19,-0.004],
+                [0.001236067977499789,-0.0038042260651806148],
+                [0.0023511410091698916,-0.0032360679774997903],
+                [0.0032360679774997895,-0.0023511410091698933],
+                [0.0038042260651806143,-0.0012360679774997905]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "wire",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "wire",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "bus-lead",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wire",
+            "semanticType": "instrument.signal.shielded-lead",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.9,1.08,0.582],
+                [0.9,1.08,0.53],
+                [0.9,1.081,0.39],
+                [0.9,1.081,0.337]
+              ],
+              "up": [1,0,0],
+              "closedProfile": true,
+              "profile": [
+                [0.004,0],
+                [0.0038042260651806143,0.0012360679774997896],
+                [0.00323606797749979,0.0023511410091698924],
+                [0.0023511410091698924,0.00323606797749979],
+                [0.0012360679774997899,0.0038042260651806143],
+                [2.4492935982947063e-19,0.004],
+                [-0.0012360679774997894,0.0038042260651806148],
+                [-0.002351141009169892,0.00323606797749979],
+                [-0.0032360679774997895,0.002351141009169893],
+                [-0.0038042260651806143,0.00123606797749979],
+                [-0.004,4.898587196589413e-19],
+                [-0.003804226065180615,-0.0012360679774997877],
+                [-0.00323606797749979,-0.002351141009169892],
+                [-0.002351141009169893,-0.0032360679774997895],
+                [-0.0012360679774997903,-0.0038042260651806143],
+                [-7.347880794884119e-19,-0.004],
+                [0.001236067977499789,-0.0038042260651806148],
+                [0.0023511410091698916,-0.0032360679774997903],
+                [0.0032360679774997895,-0.0023511410091698933],
+                [0.0038042260651806143,-0.0012360679774997905]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "wire",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "wire",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "test-block",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "instrument.temperature.test-block",
+            "geometry": {
+              "type": "box",
+              "size": [1.5,1.2,1.06]
+            },
+            "transform": {
+              "position": [3.7,0.6,0.25]
+            },
+            "appearance": {
+              "color": "#afb5ac",
+              "opacity": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "top": {
+            "node": "body",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "other-entry": {
+            "position": [4.16,1.2,0.25],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    },
+    {
+      "id": "embedded-string",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "head",
+            "semanticType": "instrument.temperature.probe-string.connector",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.055,0.028,0.045]
+            },
+            "transform": {
+              "position": [0,0.014,0]
+            }
+          },
+          {
+            "id": "cable",
+            "semanticType": "instrument.temperature.probe-string.cable",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-1.08,0],
+              "end": [0,0,0],
+              "radius": 0.004,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "probe",
+            "semanticType": "instrument.temperature.probe-string.probe",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.013,0],
+              "end": [0,0.013,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [0,-0.2,0],
+              "step": [0,-0.42,0]
+            }
+          }
+        ],
+        "anchors": {
+          "top-entry": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "signal-out": {
+            "position": [0,0.028,0],
+            "direction": [0,1,0]
+          },
+          "shallow": {
+            "node": "probe",
+            "occurrence": {
+              "index": 0
+            },
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "temperature-measurement"
+          },
+          "middle": {
+            "node": "probe",
+            "occurrence": {
+              "index": 1
+            },
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "temperature-measurement"
+          },
+          "deep": {
+            "node": "probe",
+            "occurrence": {
+              "index": 2
+            },
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "temperature-measurement"
+          }
+        }
+      },
+      "transform": {
+        "position": [3.7,1.2,0.25]
+      }
+    },
+    {
+      "id": "surface-probe",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "probe-shell",
+            "semanticType": "instrument.temperature.contact-probe.shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.084,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "probe-nose",
+            "semanticType": "instrument.temperature.contact-probe.nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.006,
+              "segments": 16
+            },
+            "transform": {
+              "position": [0,0.084,0]
+            }
+          },
+          {
+            "id": "strain-relief",
+            "semanticType": "instrument.temperature.contact-probe.relief",
+            "material": "rubber",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.023,0],
+              "end": [0,0,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "lead",
+            "semanticType": "instrument.temperature.contact-probe.lead",
+            "material": "polymer",
+            "appearance": {
+              "color": "#31454e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.1,0],
+              "end": [0,-0.023,0],
+              "radius": 0.003,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "sensing-point": {
+            "position": [0,0.09,0],
+            "direction": [0,1,0],
+            "kind": "temperature-measurement"
+          },
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "lead-end": {
+            "position": [0,-0.1,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [4.16,1.2,0.25],
+        "rotation": [0,0,3.141592653589793]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "ground#column-left",
+      "to": "column-left#base-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "ground#column-right",
+      "to": "column-right#base-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "column-left#top-center",
+      "to": "beam#start-bearing",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "column-right#top-center",
+      "to": "beam#end-bearing",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "beam#top-center",
+      "to": "landing#bottom-center",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "beam#strain-site",
+      "to": "strain#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "beam#strain-axis",
+      "to": "strain#measure-axis",
+      "contract": {
+        "direction": "aligned"
+      }
+    },
+    {
+      "from": "ground#reference-floor",
+      "to": "reference#floor",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "reference#instrument-seat",
+      "to": "displacement#reference",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "beam#deflection-contact",
+      "to": "displacement#tip",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "landing#vibration-site",
+      "to": "acceleration#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "landing#vertical-axis",
+      "to": "acceleration#axis-y",
+      "contract": {
+        "direction": "aligned"
+      }
+    },
+    {
+      "from": "column-right#tilt-site",
+      "to": "tilt#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "signal-table#box-mount",
+      "to": "junction#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "signal-table#radio-mount",
+      "to": "radio#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "displacement#signal-out",
+      "to": "displacement-lead#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "displacement-lead#end",
+      "to": "junction#input-1",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "acceleration#signal-out",
+      "to": "vibration-lead#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "vibration-lead#end",
+      "to": "junction#input-2",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "junction#bus-out",
+      "to": "bus-lead#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "bus-lead#end",
+      "to": "radio#bus-in",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "test-block#top",
+      "to": "embedded-string#top-entry",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "test-block#other-entry",
+      "to": "surface-probe#mount",
+      "contract": {
+        "direction": "aligned"
+      }
+    }
+  ]
+}

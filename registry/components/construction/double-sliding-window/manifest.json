@@ -1,0 +1,187 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.double-sliding-window",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双片推拉窗",
+  "summary": "左右两片窗扇在不同轨道平面上，一片固定，一片可横移预览。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.window.sliding",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "窗",
+    "推拉窗",
+    "玻璃"
+  ],
+  "anchors": [
+    "fit-base",
+    "fit-top",
+    "fit-left",
+    "fit-right"
+  ],
+  "ai": {
+    "intent": "在固定洞口中显示推拉窗的轨道层次与开启动作。",
+    "qualityChecks": [
+      "两片窗扇在不同深度平面移动。",
+      "外框定位点对应窗洞边线。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-sliding-window",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.opening.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#67737b"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 1.4,
+              "wallHeight": 1.2,
+              "thickness": 0.13,
+              "openingWidth": 1.28,
+              "openingHeight": 1.08,
+              "openingOffset": 0,
+              "sillHeight": 0.06
+            }
+          },
+          {
+            "id": "sliding-sash",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-0.31,0.06,0.028]
+            }
+          },
+          {
+            "id": "sliding-sash-frame",
+            "semanticType": "construction.opening.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#7b8b93"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 0.66,
+              "wallHeight": 1.08,
+              "thickness": 0.026,
+              "openingWidth": 0.6,
+              "openingHeight": 1.02,
+              "openingOffset": 0,
+              "sillHeight": 0.03
+            },
+            "parent": "sliding-sash"
+          },
+          {
+            "id": "sliding-sash-glass",
+            "semanticType": "construction.window.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#95c8dc",
+              "opacity": 0.32
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.6,1.02,0.01]
+            },
+            "transform": {
+              "position": [0,0.54,0]
+            },
+            "parent": "sliding-sash"
+          },
+          {
+            "id": "fixed-sash",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0.31,0.06,-0.028]
+            }
+          },
+          {
+            "id": "fixed-sash-frame",
+            "semanticType": "construction.opening.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#7b8b93"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 0.66,
+              "wallHeight": 1.08,
+              "thickness": 0.026,
+              "openingWidth": 0.6,
+              "openingHeight": 1.02,
+              "openingOffset": 0,
+              "sillHeight": 0.03
+            },
+            "parent": "fixed-sash"
+          },
+          {
+            "id": "fixed-sash-glass",
+            "semanticType": "construction.window.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#95c8dc",
+              "opacity": 0.32
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.6,1.02,0.01]
+            },
+            "transform": {
+              "position": [0,0.54,0]
+            },
+            "parent": "fixed-sash"
+          }
+        ],
+        "anchors": {
+          "fit-base": {
+            "node": "frame",
+            "position": [0,0,0]
+          },
+          "fit-top": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "fit-left": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "fit-right": {
+            "node": "frame",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          }
+        },
+        "animations": [
+          {
+            "id": "slide-sash",
+            "target": "sliding-sash",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0.61,0,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

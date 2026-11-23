@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.compact-padded-facade-sounding-tap-tool",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "饰面轻敲检测软头锤外形",
+  "summary": "独立短柄、圆杆和双侧软头，用于在立面检视中表示接触位置。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.building-inspection.padded-facade-sounding-tool",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "质量检测",
+    "巡检",
+    "外墙",
+    "敲击",
+    "空鼓检测"
+  ],
+  "anchors": [
+    "base",
+    "contact"
+  ],
+  "ai": {
+    "intent": "在可观察饰面模型边上配一个独立接触工具外形。",
+    "editableParts": [
+      "短柄",
+      "双头",
+      "软垫"
+    ],
+    "qualityChecks": [
+      "接触面沿横向轴线。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "compact-padded-facade-sounding-tap-tool",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "handle",
+            "semanticType": "instrument.building-inspection.padded-tapping-hammer.stem",
+            "material": "steel",
+            "appearance": {
+              "color": "#83999e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.192,0],
+              "radius": 0.01,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "grip",
+            "semanticType": "instrument.building-inspection.padded-tapping-hammer.soft-grip",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4b5c64"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.074,0],
+              "radius": 0.019,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "head",
+            "semanticType": "instrument.building-inspection.padded-tapping-hammer.head",
+            "material": "steel",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.034,0.192,0],
+              "end": [0.034,0.192,0],
+              "radius": 0.021,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "soft-tip-0",
+            "semanticType": "instrument.building-inspection.padded-tapping-hammer.soft-tip",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4b5c64"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.031,0.192,0],
+              "end": [-0.046,0.192,0],
+              "radius": 0.0215,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "soft-tip-1",
+            "semanticType": "instrument.building-inspection.padded-tapping-hammer.soft-tip",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4b5c64"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.031,0.192,0],
+              "end": [0.046,0.192,0],
+              "radius": 0.0215,
+              "radialSegments": 22
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "contact": {
+            "position": [0.046,0.192,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

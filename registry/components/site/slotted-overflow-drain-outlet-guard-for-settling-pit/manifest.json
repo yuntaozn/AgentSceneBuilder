@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.slotted-overflow-drain-outlet-guard-for-settling-pit",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "沉淀池溢流带网出水口",
+  "summary": "圆形外接口、挂装面和被保护的矩形条孔，独立指示墙外排水方向。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-site.settling-outlet-screen-box",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "出水口",
+    "沉淀池",
+    "溢流"
+  ],
+  "anchors": [
+    "tank",
+    "outlet"
+  ],
+  "ai": {
+    "intent": "在池外出口布置独立的开孔防杂格件和排水管口。",
+    "editableParts": [
+      "进水开槽",
+      "边框",
+      "出口管"
+    ],
+    "qualityChecks": [
+      "出口留净孔。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "slotted-overflow-drain-outlet-guard-for-settling-pit",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front-mesh",
+            "semanticType": "site.inspection-site.overflow-outlet-screen.slotted-front",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.036,0,0],
+                [-0.026,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0815,-0.059],
+                [0.0815,-0.059],
+                [0.0815,0.059],
+                [-0.0815,0.059]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.064,-0.04],
+                  [-0.038,-0.04],
+                  [-0.038,0.04],
+                  [-0.064,0.04]
+                ],
+                [
+                  [-0.013,-0.04],
+                  [0.013,-0.04],
+                  [0.013,0.04],
+                  [-0.013,0.04]
+                ],
+                [
+                  [0.038,-0.04],
+                  [0.064,-0.04],
+                  [0.064,0.04],
+                  [0.038,0.04]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "screen-surround",
+            "semanticType": "site.inspection-site.overflow-outlet-screen.open-case",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.033,0,0],
+                [0.012,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0835,-0.0615],
+                [0.0835,-0.0615],
+                [0.0835,0.0615],
+                [-0.0835,0.0615]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0685,-0.0515],
+                  [0.0685,-0.0515],
+                  [0.0685,0.0515],
+                  [-0.0685,0.0515]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "exit-tube",
+            "semanticType": "site.inspection-site.overflow-outlet-screen.pipe",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0.009,0,0],
+                [0.088,0,0]
+              ],
+              "up": [0,1,0],
+              "outsideDiameter": 0.09,
+              "thickness": 0.007
+            }
+          }
+        ],
+        "anchors": {
+          "tank": {
+            "position": [0,0,0],
+            "direction": [-1,0,0],
+            "outsideDiameter": 0.09,
+            "kind": "pipe-port"
+          },
+          "outlet": {
+            "position": [0.088,0,0],
+            "direction": [1,0,0],
+            "outsideDiameter": 0.09,
+            "kind": "pipe-port"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.concentric-rectangular-duct-reducer",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形风管同心变径",
+  "summary": "两端矩形截面之间有连续内外薄壁，大小口和变径段各自独立。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.hvac.concentric-rectangular-duct-reducer",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "通风",
+    "风管"
+  ],
+  "anchors": [
+    "large",
+    "small"
+  ],
+  "ai": {
+    "intent": "连接两种矩形风管截面。",
+    "editableParts": [
+      "修改两端尺寸后同步检查颈段与过渡段。"
+    ],
+    "qualityChecks": [
+      "两口轴线共线。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "concentric-rectangular-duct-reducer",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "large-collar",
+            "semanticType": "mep.hvac.concentric-rectangular-duct-reducer.collar",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.034,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.3,-0.175],
+                [0.3,-0.175],
+                [0.3,0.175],
+                [-0.3,0.175]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.296,-0.171],
+                  [0.296,-0.171],
+                  [0.296,0.171],
+                  [-0.296,0.171]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "weather-shell",
+            "semanticType": "mep.hvac.concentric-rectangular-duct-reducer.outer",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "capStart": false,
+              "capEnd": false,
+              "radialSegments": 4,
+              "sections": [
+                {
+                  "center": [0.033,0,0],
+                  "axisX": [0,0,-0.3],
+                  "axisZ": [0,0.175,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0.39,0,0],
+                  "axisX": [0,0,-0.21],
+                  "axisZ": [0,0.12,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "bore",
+            "semanticType": "mep.hvac.concentric-rectangular-duct-reducer.inner",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#5b7381"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "capStart": false,
+              "capEnd": false,
+              "radialSegments": 4,
+              "sections": [
+                {
+                  "center": [0.033,0,0],
+                  "axisX": [0,0,-0.296],
+                  "axisZ": [0,0.171,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0.39,0,0],
+                  "axisX": [0,0,-0.206],
+                  "axisZ": [0,0.116,0],
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "small-collar",
+            "semanticType": "mep.hvac.concentric-rectangular-duct-reducer.collar",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#98aab7"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.39,0,0],
+                [0.425,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.21,-0.12],
+                [0.21,-0.12],
+                [0.21,0.12],
+                [-0.21,0.12]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.206,-0.116],
+                  [0.206,-0.116],
+                  [0.206,0.116],
+                  [-0.206,0.116]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "large": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "small": {
+            "position": [0.425,0,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

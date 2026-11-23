@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.rectangular-duct-straight",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形风管 · 直线段",
+  "summary": "带贯通空腔的矩形风管，可修改路径端点、外宽、外高和壁厚。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.duct",
+  "capabilities": ["resize", "path-edit", "attach"],
+  "tags": ["机电", "风管", "通风", "基础构件"],
+  "parameters": {
+    "sectionWidth": { "type": "number", "unit": "m", "default": 0.6 },
+    "sectionHeight": { "type": "number", "unit": "m", "default": 0.35 },
+    "thickness": { "type": "number", "unit": "m", "default": 0.004 }
+  },
+  "anchors": ["start", "end"],
+  "ai": {
+    "intent": "为吊顶机电开间、风管路线和无阻挡的对接示意提供可编辑的直风管。",
+    "editableParts": ["duct.geometry.points 控制长度与方向", "duct.geometry.sectionWidth / sectionHeight / thickness 控制截面"],
+    "qualityChecks": ["搭接前确认两端口的矩形外宽和外高相符。", "调整路线后检查端口位置和向外方向。"]
+  },
+  "editor": { "document": {
+    "id": "rectangular-duct-straight", "component": "core.composition",
+    "parameters": {
+      "nodes": [{ "id": "duct", "semanticType": "mep.duct", "material": "galvanized-steel",
+        "appearance": { "color": "#98a8b5", "metalness": 0.35, "roughness": 0.55 },
+        "geometry": { "type": "rectangular-duct", "points": [[0,0,0],[0,0,1.5]], "up": [0,1,0],
+          "sectionWidth": 0.6, "sectionHeight": 0.35, "thickness": 0.004 } }],
+      "anchors": {
+        "start": { "node": "duct", "onGeometry": { "type": "sweep-end", "end": "start" } },
+        "end": { "node": "duct", "onGeometry": { "type": "sweep-end", "end": "end" } }
+      }
+    }
+  } }
+}

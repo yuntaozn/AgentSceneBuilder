@@ -1,0 +1,291 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.swinging-pedestrian-gate-for-site-safety-passage",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "施工安全通道侧开门片",
+  "summary": "固定双脚座、活动隔离栅和墙侧闭合位，以独立转轴预览开门。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-site.temporary-swing-gate",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "临时通道",
+    "安全门",
+    "转轴"
+  ],
+  "anchors": [
+    "floor"
+  ],
+  "ai": {
+    "intent": "在胸口高度的临时通道图中单独放置可动门片。",
+    "editableParts": [
+      "两脚座",
+      "轴",
+      "活动杆",
+      "扣件"
+    ],
+    "qualityChecks": [
+      "转动时两只加重脚座不动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "swinging-pedestrian-gate-for-site-safety-passage",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fixed-pole-0",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.stand",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.036,1.086,0.036]
+            },
+            "transform": {
+              "position": [-0.437,0.543,0]
+            }
+          },
+          {
+            "id": "weighted-foot-0",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.144,0.037,0.209]
+            },
+            "transform": {
+              "position": [-0.437,0.0185,0]
+            }
+          },
+          {
+            "id": "fixed-pole-1",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.stand",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.036,1.086,0.036]
+            },
+            "transform": {
+              "position": [0.437,0.543,0]
+            }
+          },
+          {
+            "id": "weighted-foot-1",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.144,0.037,0.209]
+            },
+            "transform": {
+              "position": [0.437,0.0185,0]
+            }
+          },
+          {
+            "id": "hinge-pin",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.hinge",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.41,0.188,0],
+              "end": [-0.41,1.012,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "pivot",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-0.41,0,0]
+            }
+          },
+          {
+            "id": "moving-horizontal-0",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.797,0.035,0.032]
+            },
+            "transform": {
+              "position": [0.395,0.184,0]
+            },
+            "parent": "pivot"
+          },
+          {
+            "id": "moving-horizontal-1",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.797,0.035,0.032]
+            },
+            "transform": {
+              "position": [0.395,0.954,0]
+            },
+            "parent": "pivot"
+          },
+          {
+            "id": "moving-upright-0",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.picket",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.069,0.187,0],
+              "end": [0.069,0.947,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "parent": "pivot"
+          },
+          {
+            "id": "moving-upright-1",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.picket",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.2,0.187,0],
+              "end": [0.2,0.947,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "parent": "pivot"
+          },
+          {
+            "id": "moving-upright-2",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.picket",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.331,0.187,0],
+              "end": [0.331,0.947,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "parent": "pivot"
+          },
+          {
+            "id": "moving-upright-3",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.picket",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.462,0.187,0],
+              "end": [0.462,0.947,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "parent": "pivot"
+          },
+          {
+            "id": "moving-upright-4",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.picket",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.593,0.187,0],
+              "end": [0.593,0.947,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "parent": "pivot"
+          },
+          {
+            "id": "moving-upright-5",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.picket",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.724,0.187,0],
+              "end": [0.724,0.947,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "parent": "pivot"
+          },
+          {
+            "id": "catch",
+            "semanticType": "site.inspection-site.temporary-pedestrian-gate.catch",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.063,0.039]
+            },
+            "transform": {
+              "position": [0.439,0.767,0.009]
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "swing-site-gate",
+            "target": "pivot",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.45,0],
+            "duration": 0.8,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

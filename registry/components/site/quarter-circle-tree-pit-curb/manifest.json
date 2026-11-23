@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.quarter-circle-tree-pit-curb",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "四分之一圆预制树池围边",
+  "summary": "内外弧与两端环缝为实体截面，四段可首尾连接成正圆树池。",
+  "license": "Apache-2.0",
+  "semanticType": "site.landscape.quarter-circle-tree-pit-curb",
+  "capabilities": [
+    "resize",
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "园林",
+    "景观",
+    "树池",
+    "围边",
+    "环形"
+  ],
+  "parameters": {
+    "outsideRadius": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.58
+    },
+    "insideRadius": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.46
+    },
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.155
+    }
+  },
+  "anchors": [
+    "center",
+    "start",
+    "end",
+    "seat"
+  ],
+  "ai": {
+    "intent": "围合圆形树池边界并为分体盖板提供落座面。",
+    "editableParts": [
+      "内径",
+      "外径",
+      "围边高度"
+    ],
+    "qualityChecks": [
+      "相邻段在径向截面贴合。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "quarter-circle-tree-pit-curb",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.landscape.quarter-circle-tree-pit-curb",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a9a597"
+            },
+            "geometry": {
+              "type": "quarter-circle-tree-pit-curb",
+              "outsideRadius": 0.58,
+              "insideRadius": 0.46,
+              "height": 0.155
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "center"
+            }
+          },
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "seat"
+            }
+          }
+        }
+      }
+    }
+  }
+}

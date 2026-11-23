@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.right-angle-timber-half-lap-joint",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "直角木梁半搭接节点",
+  "summary": "相交木梁中部各切一半厚度，凹槽互补贴合，独立显示上、下半件。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.timber.cross-halving-joint",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "x-enter",
+    "x-exit",
+    "z-enter",
+    "z-exit",
+    "overlap-plane"
+  ],
+  "ai": {
+    "intent": "作为可拆木梁节点查看两个互补半榫。",
+    "editableParts": [
+      "分别编辑各端翼和两侧半搭接块。"
+    ],
+    "qualityChecks": [
+      "中间接触面在两板半厚处。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "right-angle-timber-half-lap-joint",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "x-wing-0",
+            "semanticType": "structure.timber.cross-halving-joint.beam-x",
+            "material": "timber",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.442,0.12,0.154]
+            },
+            "transform": {
+              "position": [-0.298,0.06,0]
+            }
+          },
+          {
+            "id": "x-wing-1",
+            "semanticType": "structure.timber.cross-halving-joint.beam-x",
+            "material": "timber",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.442,0.12,0.154]
+            },
+            "transform": {
+              "position": [0.298,0.06,0]
+            }
+          },
+          {
+            "id": "x-half",
+            "semanticType": "structure.timber.cross-halving-joint.half-x",
+            "material": "timber",
+            "appearance": {
+              "color": "#866748"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.154,0.06,0.154]
+            },
+            "transform": {
+              "position": [0,0.03,0]
+            }
+          },
+          {
+            "id": "z-wing-0",
+            "semanticType": "structure.timber.cross-halving-joint.beam-z",
+            "material": "timber",
+            "appearance": {
+              "color": "#bb986f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.154,0.12,0.442]
+            },
+            "transform": {
+              "position": [0,0.06,-0.298]
+            }
+          },
+          {
+            "id": "z-wing-1",
+            "semanticType": "structure.timber.cross-halving-joint.beam-z",
+            "material": "timber",
+            "appearance": {
+              "color": "#bb986f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.154,0.12,0.442]
+            },
+            "transform": {
+              "position": [0,0.06,0.298]
+            }
+          },
+          {
+            "id": "z-half",
+            "semanticType": "structure.timber.cross-halving-joint.half-z",
+            "material": "timber",
+            "appearance": {
+              "color": "#c4a884"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.154,0.06,0.154]
+            },
+            "transform": {
+              "position": [0,0.09,0]
+            }
+          }
+        ],
+        "anchors": {
+          "x-enter": {
+            "position": [-0.519,0.06,0],
+            "direction": [-1,0,0]
+          },
+          "x-exit": {
+            "position": [0.519,0.06,0],
+            "direction": [1,0,0]
+          },
+          "z-enter": {
+            "position": [0,0.06,-0.519],
+            "direction": [0,0,-1]
+          },
+          "z-exit": {
+            "position": [0,0.06,0.519],
+            "direction": [0,0,1]
+          },
+          "overlap-plane": {
+            "position": [0,0.06,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

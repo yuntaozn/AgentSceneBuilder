@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.double-tee-embedded-flange-connector",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双 T 板板翼埋入式焊接板",
+  "summary": "外露连接片与板内两条弯脚相互独立，模型保留两片之间的对焊口基准。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.floor.double-tee-flange-connector",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "双T板",
+    "板翼连接",
+    "预埋钢片"
+  ],
+  "anchors": [
+    "mount",
+    "weld"
+  ],
+  "ai": {
+    "intent": "在两块双 T 板边邻接处布置成对的板翼连接。",
+    "editableParts": [
+      "露出部分",
+      "埋入脚",
+      "焊接对边"
+    ],
+    "qualityChecks": [
+      "埋脚在板翼一侧展开，外露钢边对向拼缝。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-tee-embedded-flange-connector",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "weld-face",
+            "semanticType": "prefab.floor.double-tee-flange-connector.exposed",
+            "material": "steel",
+            "appearance": {
+              "color": "#576d78"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.16,0.009,0.049]
+            },
+            "transform": {
+              "position": [0,0.0045,-0.0245]
+            }
+          },
+          {
+            "id": "embedded-rod-0",
+            "semanticType": "prefab.floor.double-tee-flange-connector.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "radius": 0.007,
+              "points": [
+                [-0.053,0.003,-0.03],
+                [-0.053,-0.016,-0.061],
+                [-0.053,-0.025,-0.098],
+                [-0.053,-0.025,-0.145]
+              ]
+            }
+          },
+          {
+            "id": "embedded-rod-1",
+            "semanticType": "prefab.floor.double-tee-flange-connector.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "radius": 0.007,
+              "points": [
+                [0.053,0.003,-0.03],
+                [0.053,-0.016,-0.061],
+                [0.053,-0.025,-0.098],
+                [0.053,-0.025,-0.145]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,-0.021],
+            "direction": [0,-1,0]
+          },
+          "weld": {
+            "position": [0,0.0045,0],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

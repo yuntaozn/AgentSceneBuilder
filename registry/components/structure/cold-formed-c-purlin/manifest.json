@@ -1,0 +1,139 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.cold-formed-c-purlin",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "冷弯卷边 C 形钢檩条",
+  "summary": "可调开口截面，保留腹板、翼缘、卷边和端部承托方向。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.industrial.cold-formed-c-purlin",
+  "capabilities": [
+    "attach",
+    "resize",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "钢结构",
+    "厂房",
+    "檩条",
+    "卷边",
+    "C形钢"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.82
+    },
+    "sectionHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.152
+    },
+    "flangeWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.061
+    },
+    "lipLength": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.017
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.0027
+    },
+    "bearingInset": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.085
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "bearing-start",
+    "bearing-end",
+    "skin-seat"
+  ],
+  "ai": {
+    "intent": "在隧跨或厂房坡面上重复摆放独立檩条。",
+    "editableParts": [
+      "檩条长度",
+      "截面高度",
+      "下座和上翼缘"
+    ],
+    "qualityChecks": [
+      "开口截面仍有净空，安装锚点随外形更新。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "cold-formed-c-purlin",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.industrial.cold-formed-c-purlin",
+            "material": "steel",
+            "appearance": {
+              "color": "#a8b1ad"
+            },
+            "geometry": {
+              "type": "cold-formed-c-purlin",
+              "length": 1.82,
+              "sectionHeight": 0.152,
+              "flangeWidth": 0.061,
+              "lipLength": 0.017,
+              "thickness": 0.0027,
+              "bearingInset": 0.085
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "bearing-start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-start"
+            }
+          },
+          "bearing-end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-end"
+            }
+          },
+          "skin-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "skin-seat"
+            }
+          }
+        }
+      }
+    }
+  }
+}

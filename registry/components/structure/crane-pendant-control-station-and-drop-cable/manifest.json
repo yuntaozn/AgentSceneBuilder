@@ -1,0 +1,277 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.crane-pendant-control-station-and-drop-cable",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "行车悬垂手柄和软缆",
+  "summary": "垂缆、保护口和带独立按钮的手柄面板，安装只依赖上悬点。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.crane.suspended-pendant-control-station",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "行车",
+    "吊装",
+    "手柄",
+    "悬垂线",
+    "控制盒"
+  ],
+  "anchors": [
+    "hang"
+  ],
+  "ai": {
+    "intent": "给起重设备布置独立的悬垂控制手柄外形。",
+    "editableParts": [
+      "悬线",
+      "护套",
+      "壳体",
+      "单个按钮"
+    ],
+    "qualityChecks": [
+      "面板按钮和上端吊点分别可选。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "crane-pendant-control-station-and-drop-cable",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "hanging-cable",
+            "semanticType": "structure.crane.suspended-control-station.cable",
+            "material": "rubber",
+            "appearance": {
+              "color": "#53636c"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,0],
+                [0.027,-0.225,0],
+                [0.017,-0.535,0.012],
+                [0,-0.763,0.017]
+              ],
+              "radius": 0.007
+            }
+          },
+          {
+            "id": "strain-relief",
+            "semanticType": "structure.crane.suspended-control-station.cable-neck",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506a77"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.811,0.017],
+                [0,-0.751,0.017]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.018,0],
+                [0.017386664873203228,0.004658742811845373],
+                [0.015588457268119896,0.008999999999999998],
+                [0.012727922061357855,0.012727922061357854],
+                [0.009000000000000001,0.015588457268119894],
+                [0.004658742811845373,0.017386664873203228],
+                [1.1021821192326178e-18,0.018],
+                [-0.004658742811845371,0.017386664873203228],
+                [-0.008999999999999996,0.015588457268119896],
+                [-0.012727922061357854,0.012727922061357855],
+                [-0.015588457268119896,0.008999999999999998],
+                [-0.017386664873203225,0.004658742811845378],
+                [-0.018,2.2043642384652355e-18],
+                [-0.017386664873203228,-0.004658742811845374],
+                [-0.015588457268119898,-0.008999999999999994],
+                [-0.01272792206135786,-0.012727922061357847],
+                [-0.009000000000000008,-0.015588457268119891],
+                [-0.004658742811845371,-0.017386664873203228],
+                [-3.3065463576978533e-18,-0.018],
+                [0.004658742811845365,-0.01738666487320323],
+                [0.009000000000000001,-0.015588457268119894],
+                [0.012727922061357852,-0.012727922061357857],
+                [0.01558845726811989,-0.009000000000000008],
+                [0.017386664873203225,-0.004658742811845388]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.008693332436601614,0.0023293714059226863],
+                  [0.007794228634059948,0.004499999999999999],
+                  [0.006363961030678928,0.006363961030678927],
+                  [0.0045000000000000005,0.007794228634059947],
+                  [0.0023293714059226863,0.008693332436601614],
+                  [5.510910596163089e-19,0.009],
+                  [-0.0023293714059226854,0.008693332436601614],
+                  [-0.004499999999999998,0.007794228634059948],
+                  [-0.006363961030678927,0.006363961030678928],
+                  [-0.007794228634059948,0.004499999999999999],
+                  [-0.008693332436601612,0.002329371405922689],
+                  [-0.009,1.1021821192326178e-18],
+                  [-0.008693332436601614,-0.002329371405922687],
+                  [-0.007794228634059949,-0.004499999999999997],
+                  [-0.00636396103067893,-0.006363961030678923],
+                  [-0.004500000000000004,-0.0077942286340599454],
+                  [-0.0023293714059226854,-0.008693332436601614],
+                  [-1.6532731788489266e-18,-0.009],
+                  [0.0023293714059226824,-0.008693332436601616],
+                  [0.0045000000000000005,-0.007794228634059947],
+                  [0.006363961030678926,-0.006363961030678929],
+                  [0.007794228634059945,-0.004500000000000004],
+                  [0.008693332436601612,-0.002329371405922694]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "case",
+            "semanticType": "structure.crane.suspended-control-station.housing",
+            "material": "polymer",
+            "appearance": {
+              "color": "#c2a469"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.091,0.307,0.05]
+            },
+            "transform": {
+              "position": [0,-0.946,0.014]
+            }
+          },
+          {
+            "id": "front",
+            "semanticType": "structure.crane.suspended-control-station.control-panel",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506a77"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.078,0.292,0.013]
+            },
+            "transform": {
+              "position": [0,-0.946,0.042]
+            }
+          },
+          {
+            "id": "button-0",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.843,0.049]
+            }
+          },
+          {
+            "id": "cap-0",
+            "semanticType": "structure.crane.suspended-control-station.push-button",
+            "material": "polymer",
+            "appearance": {
+              "color": "#ab7965"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0,0.012],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "parent": "button-0"
+          },
+          {
+            "id": "button-1",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.906,0.049]
+            }
+          },
+          {
+            "id": "cap-1",
+            "semanticType": "structure.crane.suspended-control-station.push-button",
+            "material": "polymer",
+            "appearance": {
+              "color": "#9baaa9"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0,0.012],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "parent": "button-1"
+          },
+          {
+            "id": "button-2",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.964,0.049]
+            }
+          },
+          {
+            "id": "cap-2",
+            "semanticType": "structure.crane.suspended-control-station.push-button",
+            "material": "polymer",
+            "appearance": {
+              "color": "#9baaa9"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0,0.012],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "parent": "button-2"
+          },
+          {
+            "id": "button-3",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-1.022,0.049]
+            }
+          },
+          {
+            "id": "cap-3",
+            "semanticType": "structure.crane.suspended-control-station.push-button",
+            "material": "polymer",
+            "appearance": {
+              "color": "#9baaa9"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0,0.012],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "parent": "button-3"
+          }
+        ],
+        "anchors": {
+          "hang": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "press-pendant-button",
+            "target": "button-1",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0,-0.006],
+            "duration": 0.5,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

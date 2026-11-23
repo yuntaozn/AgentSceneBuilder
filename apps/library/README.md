@@ -1,6 +1,8 @@
 # 模型库静态网站
 
-该站点使用 `registry/registry.json`，可直接从发布版的静态文件运行。在仓库根目录执行 `node apps/editor/server.mjs`，然后访问 `http://127.0.0.1:4173/apps/library/`。也可以用其他静态服务器提供仓库根目录。
+该站点从 `registry/registry.json` 构建索引，显示预览或打开详情时才从 `chunks/` 加载模型数据。在仓库根目录执行 `node apps/editor/server.mjs`，然后访问 `http://127.0.0.1:4173/apps/library/`。也可以用其他静态服务器提供仓库根目录。
+
+搜索和筛选覆盖整个模型库，每页显示 24 项。进入可视区域的模型卡片与详情共用编辑器的 GPU 渲染器，浏览器无法启用 WebGL 时使用 Canvas 预览。
 
 构件与组合条目提供交互式模型预览、CompositionSpec 代码查看和复制。点击“在编辑器中打开并继续编辑”会通过同源浏览器存储传递完整文档，编辑器载入后仍可修改结构、路径、材质、动画和参数。
 

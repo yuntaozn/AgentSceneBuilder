@@ -1,0 +1,130 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.slotted-solar-module-mounting-rail",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "开口槽光伏组件安装轨",
+  "summary": "连续开口槽内可插压块，轨端、三处轨底座和两处组件托面均能对齐。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.photovoltaic.slotted-module-mounting-rail",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "光伏",
+    "屋面光伏",
+    "铝轨",
+    "安装轨",
+    "光伏夹具"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "support-left",
+    "support-middle",
+    "support-right",
+    "module-left",
+    "module-right",
+    "clamp-left",
+    "clamp-mid",
+    "clamp-right"
+  ],
+  "ai": {
+    "intent": "将连续安装轨落到屋面支座，定位两块模块与端压/中压夹具。",
+    "editableParts": [
+      "截面槽口",
+      "两端",
+      "支承和夹具位置"
+    ],
+    "qualityChecks": [
+      "导槽朝组件侧且保持开口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "slotted-solar-module-mounting-rail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "main-extrusion",
+            "semanticType": "mep.photovoltaic.t-slot-rail.body",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.13,0,0],
+                [1.13,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.03,0],
+                [0.03,0],
+                [0.03,0.048],
+                [0.01,0.048],
+                [0.01,0.043],
+                [0.024,0.043],
+                [0.024,0.009],
+                [-0.024,0.009],
+                [-0.024,0.043],
+                [-0.01,0.043],
+                [-0.01,0.048],
+                [-0.03,0.048]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [-1.13,0.025,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [1.13,0.025,0],
+            "direction": [1,0,0]
+          },
+          "support-left": {
+            "position": [-0.95,0,0],
+            "direction": [0,-1,0]
+          },
+          "support-middle": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "support-right": {
+            "position": [0.95,0,0],
+            "direction": [0,-1,0]
+          },
+          "module-left": {
+            "position": [-0.471,0.048,0],
+            "direction": [0,1,0]
+          },
+          "module-right": {
+            "position": [0.471,0.048,0],
+            "direction": [0,1,0]
+          },
+          "clamp-left": {
+            "position": [-0.946,0.048,0],
+            "direction": [0,1,0]
+          },
+          "clamp-mid": {
+            "position": [0,0.048,0],
+            "direction": [0,1,0]
+          },
+          "clamp-right": {
+            "position": [0.946,0.048,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

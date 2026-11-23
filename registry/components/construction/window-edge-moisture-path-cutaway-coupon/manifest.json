@@ -1,0 +1,201 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.window-edge-moisture-path-cutaway-coupon",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "窗边进水路径示意剖片",
+  "summary": "窗台、短边框、分离的密封条与色标路径，可检查入口和剖面中段。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.building-inspection.moisture-path-cutaway-coupon",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "质量检测",
+    "巡检",
+    "窗边",
+    "含湿",
+    "渗水",
+    "剖面"
+  ],
+  "anchors": [
+    "base",
+    "entry"
+  ],
+  "ai": {
+    "intent": "在外墙巡检示意中独立定位窗边接缝和可观察的路径。",
+    "editableParts": [
+      "窗台",
+      "密封条断段",
+      "示意色带",
+      "含湿标记"
+    ],
+    "qualityChecks": [
+      "示意路线几何上可从窗边追到剖面内部。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "window-edge-moisture-path-cutaway-coupon",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-substrate",
+            "semanticType": "construction.building-inspection.window-edge-moisture-section.core",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b0aa9d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.483,0.363,0.102]
+            },
+            "transform": {
+              "position": [0,0.1815,0.051]
+            }
+          },
+          {
+            "id": "left-rendering",
+            "semanticType": "construction.building-inspection.window-edge-moisture-section.plaster",
+            "material": "plaster",
+            "appearance": {
+              "color": "#ddd7c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.191,0.329,0.022]
+            },
+            "transform": {
+              "position": [-0.146,0.1645,0.113]
+            }
+          },
+          {
+            "id": "right-rendering",
+            "semanticType": "construction.building-inspection.window-edge-moisture-section.plaster",
+            "material": "plaster",
+            "appearance": {
+              "color": "#ddd7c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.105,0.329,0.022]
+            },
+            "transform": {
+              "position": [0.164,0.1645,0.113]
+            }
+          },
+          {
+            "id": "sill-flashing",
+            "semanticType": "construction.building-inspection.window-edge-moisture-section.sill",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#83999e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.46,0.032,0.159]
+            },
+            "transform": {
+              "position": [0,0.376,0.087],
+              "rotation": [-0.085,0,0]
+            }
+          },
+          {
+            "id": "sash-section",
+            "semanticType": "construction.building-inspection.window-edge-moisture-section.window-frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.051,0.21,0.075]
+            },
+            "transform": {
+              "position": [0.139,0.488,0.028]
+            }
+          },
+          {
+            "id": "seal-segment-0",
+            "semanticType": "construction.building-inspection.window-edge-moisture-section.gasket",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4b5c64"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.20500000000000002,0.398,0.124],
+              "end": [-0.03599999999999999,0.398,0.124],
+              "radius": 0.008,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "seal-segment-1",
+            "semanticType": "construction.building-inspection.window-edge-moisture-section.gasket",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4b5c64"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.032,0.398,0.124],
+              "end": [0.201,0.398,0.124],
+              "radius": 0.008,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "marked-moisture-route",
+            "semanticType": "construction.building-inspection.window-edge-moisture-section.path",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6e9399"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0.398,0.128],
+                [0,0.354,0.113],
+                [-0.021,0.28,0.107],
+                [-0.043,0.192,0.114],
+                [-0.013,0.116,0.12]
+              ],
+              "radius": 0.006
+            }
+          },
+          {
+            "id": "localized-damp-zone",
+            "semanticType": "construction.building-inspection.window-edge-moisture-section.marker",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6e9399"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.012,0.121,0.1],
+              "end": [-0.012,0.121,0.105],
+              "radius": 0.056,
+              "radialSegments": 22
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0.051],
+            "direction": [0,-1,0]
+          },
+          "entry": {
+            "position": [0,0.398,0.128],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

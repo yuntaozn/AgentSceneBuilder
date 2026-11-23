@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 import fs from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
-import { searchPublicRegistry } from "../../../registry/catalog.js";
+import { parseArgs } from "node:util";
+import { publicRegistryDomains, searchPublicRegistry } from "../../../registry/catalog.js";
 import { describeJsonSyntax, duplicateJsonKeyDiagnostics, indexJsonSource, jsonRangeLocator } from "../../core/src/json-source.js";
 import {
   analyzeSceneSpatial,
@@ -37,7 +38,7 @@ import {
 } from "../../core/src/index.js";
 
 const supportedCommands = [
-  "registry search <query>",
+  "registry search [query] [--kind <component|method|composition>] [--domain <domain>]",
   "component list",
   "component describe <id>",
   "component build <instance.json|manifest.json>",
@@ -182,11 +183,25 @@ export function run(argv = process.argv.slice(2), io = {}) {
     }
 
     if (group === "registry" && action === "search") {
-      const query = args.join(" ").trim();
-      if (!query) throw new Error("registry search requires a search term");
+      const { positionals, values: { kind, domain } } = parseArgs({
+        args,
+        allowPositionals: true,
+        options: {
+          kind: { type: "string", default: "all" },
+          domain: { type: "string", default: "all" },
+        },
+      });
+      const query = positionals.join(" ").trim();
+      if (!query && kind === "all" && domain === "all") throw new Error("registry search requires a search term or filter");
+      if (!["all", "component", "method", "composition"].includes(kind)) {
+        throw new Error("registry search --kind must be component, method, composition, or all");
+      }
       const root = new URL("../../../", import.meta.url);
       const catalog = readJsonFile(new URL("registry/registry.json", root));
-      const results = searchPublicRegistry(catalog, query).map(({ id, kind, title, summary, source }) => ({
+      if (domain !== "all" && !publicRegistryDomains(catalog).some(([key]) => key === domain)) {
+        throw new Error(`Unknown public registry domain: ${domain}`);
+      }
+      const results = searchPublicRegistry(catalog, query, kind, domain).map(({ id, kind, title, summary, source }) => ({
         id, kind, title, summary, manifestPath: fileURLToPath(new URL(source, root)),
       }));
       writeJson(stdout, { ok: true, count: results.length, results });

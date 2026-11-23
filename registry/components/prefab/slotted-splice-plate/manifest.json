@@ -1,0 +1,147 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.slotted-splice-plate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "四长圆孔连接钢板",
+  "summary": "适合装配节点的四个可调长圆孔为贯通开口，孔距和板件尺寸可编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.slotted-splice-plate",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式",
+    "连接件"
+  ],
+  "parameters": {
+    "plateLength": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.24
+    },
+    "plateWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.12
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.012
+    },
+    "slotLength": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.048
+    },
+    "slotWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.022
+    },
+    "pitchX": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.13
+    },
+    "pitchZ": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.07
+    }
+  },
+  "anchors": [
+    "mount",
+    "face",
+    "slot-front-left",
+    "slot-front-right",
+    "slot-back-left",
+    "slot-back-right"
+  ],
+  "ai": {
+    "intent": "表达有安装调节量的拼接钢板。",
+    "editableParts": [
+      "调整孔长、孔宽和孔距"
+    ],
+    "qualityChecks": [
+      "孔长沿 X，孔中心位于板件上表面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "slotted-splice-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "prefab.connection.slotted-splice-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "slotted-splice-plate",
+              "plateLength": 0.24,
+              "plateWidth": 0.12,
+              "thickness": 0.012,
+              "slotLength": 0.048,
+              "slotWidth": 0.022,
+              "pitchX": 0.13,
+              "pitchZ": 0.07
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "face": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "face"
+            }
+          },
+          "slot-front-left": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slot-front-left"
+            }
+          },
+          "slot-front-right": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slot-front-right"
+            }
+          },
+          "slot-back-left": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slot-back-left"
+            }
+          },
+          "slot-back-right": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slot-back-right"
+            }
+          }
+        }
+      }
+    }
+  }
+}

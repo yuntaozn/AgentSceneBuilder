@@ -1,0 +1,117 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.steel-i-beam",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "H 形钢梁",
+  "summary": "可编辑腹板、翼缘与跨度的 H 形钢梁，带轴向端点和梁底支承点。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.steel-i-beam",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "结构",
+    "钢梁",
+    "H型钢",
+    "基础构件"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 3.6
+    },
+    "sectionWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.16
+    },
+    "sectionHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.28
+    },
+    "webThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.006
+    },
+    "flangeThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.01
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "bearing-start",
+    "bearing-end"
+  ],
+  "ai": {
+    "intent": "复用可调截面的钢梁与梁底支承锚点。",
+    "qualityChecks": [
+      "检查两端支承点与柱顶是否处于目标标高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "steel-i-beam",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.steel-i-beam",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-i-section",
+              "length": 3.6,
+              "sectionWidth": 0.16,
+              "sectionHeight": 0.28,
+              "webThickness": 0.006,
+              "flangeThickness": 0.01
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "bearing-start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-start"
+            }
+          },
+          "bearing-end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

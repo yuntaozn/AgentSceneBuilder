@@ -1,0 +1,1111 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site-drainage-and-paving",
+  "title": "场地排水与铺装构件",
+  "instances": [
+    {
+      "id": "end-cap",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cap",
+            "semanticType": "site.drainage.end-cap",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.075,0.36,0.54]
+            },
+            "transform": {
+              "position": [-0.0375,-0.18,0]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "position": [0,-0.27,0],
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "channel-west",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.drainage.channel",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "rebated-drain-channel",
+              "length": 1.2,
+              "clearWidth": 0.36,
+              "depth": 0.36,
+              "thickness": 0.09,
+              "seatWidth": 0.04,
+              "seatDepth": 0.035
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "grate-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "grate-seat"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "channel-east",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.drainage.channel",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "rebated-drain-channel",
+              "length": 1.2,
+              "clearWidth": 0.36,
+              "depth": 0.36,
+              "thickness": 0.09,
+              "seatWidth": 0.04,
+              "seatDepth": 0.035
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "grate-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "grate-seat"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [1.2,0,0]
+      }
+    },
+    {
+      "id": "grate-west",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.drainage.grate",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 1.2,
+              "width": 0.438,
+              "thickness": 0.035,
+              "frameWidth": 0.026,
+              "barWidth": 0.018,
+              "slotCount": 14
+            }
+          }
+        ],
+        "anchors": {
+          "grate-bottom": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "grate-bottom"
+            }
+          },
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "grate-east",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.drainage.grate",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 1.2,
+              "width": 0.438,
+              "thickness": 0.035,
+              "frameWidth": 0.026,
+              "barWidth": 0.018,
+              "slotCount": 14
+            }
+          }
+        ],
+        "anchors": {
+          "grate-bottom": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "grate-bottom"
+            }
+          },
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [1.2,0,0]
+      }
+    },
+    {
+      "id": "catch-basin",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inlet-wall",
+            "semanticType": "site.drainage.catch-basin.inlet",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 0.66,
+              "wallHeight": 0.8,
+              "thickness": 0.09,
+              "openingWidth": 0.36,
+              "openingHeight": 0.22,
+              "openingOffset": 0,
+              "sillHeight": 0.53
+            },
+            "transform": {
+              "position": [-0.285,-0.8,0],
+              "rotation": [0,-1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "far-wall",
+            "semanticType": "site.drainage.catch-basin.wall",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.48,0.8,0.09]
+            },
+            "transform": {
+              "position": [0,-0.4,-0.285]
+            }
+          },
+          {
+            "id": "near-wall",
+            "semanticType": "site.drainage.catch-basin.wall",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.48,0.8,0.09]
+            },
+            "transform": {
+              "position": [0,-0.4,0.285]
+            }
+          },
+          {
+            "id": "back-wall",
+            "semanticType": "site.drainage.catch-basin.wall",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.09,0.8,0.66]
+            },
+            "transform": {
+              "position": [0.285,-0.4,0]
+            }
+          },
+          {
+            "id": "bottom",
+            "semanticType": "site.drainage.catch-basin.base",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.48,0.08,0.48]
+            },
+            "transform": {
+              "position": [0,-0.76,0]
+            }
+          },
+          {
+            "id": "grate-ledge",
+            "semanticType": "site.drainage.catch-basin.ledge",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.48,0.045,0.04]
+            },
+            "transform": {
+              "position": [0,-0.0575,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0,-0.22],
+              "step": [0,0,0.44]
+            }
+          }
+        ],
+        "anchors": {
+          "channel-in": {
+            "node": "inlet-wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-exterior-base"
+            }
+          },
+          "grate-seat": {
+            "position": [0,-0.035,0],
+            "direction": [0,1,0]
+          },
+          "sump-bottom": {
+            "node": "bottom",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [2.73,0,0]
+      }
+    },
+    {
+      "id": "grate-basin",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.drainage.grate",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 0.48,
+              "width": 0.478,
+              "thickness": 0.035,
+              "frameWidth": 0.024,
+              "barWidth": 0.017,
+              "slotCount": 6
+            }
+          }
+        ],
+        "anchors": {
+          "grate-bottom": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "grate-bottom"
+            }
+          },
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [2.49,0,0]
+      }
+    },
+    {
+      "id": "manhole-seat",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "seat-ring",
+            "semanticType": "site.drainage.manhole-frame",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "outerDiameter": 0.78,
+              "length": 0.135,
+              "thickness": 0.08
+            },
+            "transform": {
+              "position": [0,-0.17,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "top-ring",
+            "semanticType": "site.drainage.manhole-frame",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "outerDiameter": 0.78,
+              "length": 0.035,
+              "thickness": 0.03
+            },
+            "transform": {
+              "position": [0,-0.035,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          }
+        ],
+        "anchors": {
+          "cover-seat": {
+            "position": [0,-0.035,0],
+            "direction": [0,1,0]
+          },
+          "shaft-mouth": {
+            "position": [0,-0.17,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.8,0,0]
+      }
+    },
+    {
+      "id": "manhole-cover",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cover",
+            "semanticType": "site.drainage.manhole-cover",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.355,
+              "height": 0.035,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,-0.0175,0]
+            }
+          },
+          {
+            "id": "tread",
+            "semanticType": "site.drainage.manhole-cover.tread",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#6b757d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.41,0.006,0.017]
+            },
+            "transform": {
+              "position": [0,0.003,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "start": [0,0,-0.18],
+              "step": [0,0,0.09]
+            }
+          }
+        ],
+        "anchors": {
+          "underside": {
+            "position": [0,-0.035,0],
+            "direction": [0,-1,0]
+          },
+          "lifting-axis": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.8,0,0]
+      }
+    },
+    {
+      "id": "curb-west",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.paving.curb",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "bevelled-curb",
+              "length": 0.75,
+              "width": 0.18,
+              "height": 0.25,
+              "bevel": 0.045
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "paving-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "paving-edge"
+            }
+          },
+          "road-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "road-edge"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,-1.85]
+      }
+    },
+    {
+      "id": "curb-turn",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "corner",
+            "semanticType": "site.paving.curb-corner",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.5,0,0],
+                [0.5,0,0.5]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.09,0],
+                [0.09,0],
+                [0.09,0.25],
+                [-0.045,0.25],
+                [-0.09,0.205]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "corner",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "corner",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.75,0,-1.85]
+      }
+    },
+    {
+      "id": "curb-east",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.paving.curb",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "bevelled-curb",
+              "length": 0.75,
+              "width": 0.18,
+              "height": 0.25,
+              "bevel": 0.045
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "paving-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "paving-edge"
+            }
+          },
+          "road-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "road-edge"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [1.25,0,-1.35],
+        "rotation": [0,-1.5707963267948966,0]
+      }
+    },
+    {
+      "id": "warning-paver",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tile",
+            "semanticType": "site.paving.tactile.base",
+            "material": "concrete",
+            "appearance": {
+              "color": "#cfa344"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.3,0.035,0.3]
+            },
+            "transform": {
+              "position": [0,-0.0175,0]
+            }
+          },
+          {
+            "id": "stud",
+            "semanticType": "site.paving.tactile.stud",
+            "material": "concrete",
+            "appearance": {
+              "color": "#ebbf54"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.012,
+              "height": 0.006,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,0.003,0]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [5,1,5],
+              "start": [-0.104,0,-0.104],
+              "stepX": [0.052,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.052]
+            }
+          }
+        ],
+        "anchors": {
+          "west": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0.5,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "east": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0.5,0]
+            },
+            "direction": [1,0,0]
+          },
+          "north": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,-0.5]
+            },
+            "direction": [0,0,-1]
+          },
+          "south": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0.5]
+            },
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.375,0.25,-2.09]
+      }
+    },
+    {
+      "id": "guide-paver",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tile",
+            "semanticType": "site.paving.tactile.base",
+            "material": "concrete",
+            "appearance": {
+              "color": "#cfa344"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.3,0.035,0.3]
+            },
+            "transform": {
+              "position": [0,-0.0175,0]
+            }
+          },
+          {
+            "id": "rib",
+            "semanticType": "site.paving.tactile.rib",
+            "material": "concrete",
+            "appearance": {
+              "color": "#ebbf54"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.3,0.006,0.019]
+            },
+            "transform": {
+              "position": [0,0.003,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [0,0,-0.084],
+              "step": [0,0,0.056]
+            }
+          }
+        ],
+        "anchors": {
+          "west": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0.5,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "east": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0.5,0]
+            },
+            "direction": [1,0,0]
+          },
+          "north": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,-0.5]
+            },
+            "direction": [0,0,-1]
+          },
+          "south": {
+            "node": "tile",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0.5]
+            },
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.675,0.25,-2.09]
+      }
+    },
+    {
+      "id": "traffic-barrier",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "barrier",
+            "semanticType": "site.traffic.concrete-barrier",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [2.4,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.34,0],
+                [0.34,0],
+                [0.34,0.07],
+                [0.18,0.24],
+                [0.11,0.81],
+                [-0.11,0.81],
+                [-0.18,0.24],
+                [-0.34,0.07]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "barrier",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "barrier",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,1.15]
+      }
+    },
+    {
+      "id": "bollard",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "site.traffic.bollard.plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.11,
+              "height": 0.018,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,0.009,0]
+            }
+          },
+          {
+            "id": "stem",
+            "semanticType": "site.traffic.bollard.stem",
+            "material": "steel",
+            "appearance": {
+              "color": "#778791"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.055,
+              "height": 0.8,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,0.418,0]
+            }
+          },
+          {
+            "id": "cap",
+            "semanticType": "site.traffic.bollard.cap",
+            "material": "steel",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.059,
+              "height": 0.018,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,0.827,0]
+            }
+          },
+          {
+            "id": "reflector",
+            "semanticType": "site.traffic.bollard.reflector",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e5b849"
+            },
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.057,
+              "height": 0.043,
+              "radialSegments": 48
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0.68,0],
+              "step": [0,0.069,0]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,0.836,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [2.8,0,1.15]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "end-cap#inlet",
+      "to": "channel-west#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "channel-west#end",
+      "to": "channel-east#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "channel-east#end",
+      "to": "catch-basin#channel-in",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "channel-west#grate-seat",
+      "to": "grate-west#grate-bottom",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "channel-east#grate-seat",
+      "to": "grate-east#grate-bottom",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "grate-west#end",
+      "to": "grate-east#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "catch-basin#grate-seat",
+      "to": "grate-basin#grate-bottom",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "manhole-seat#cover-seat",
+      "to": "manhole-cover#underside",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "curb-west#end",
+      "to": "curb-turn#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "curb-turn#end",
+      "to": "curb-east#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "curb-west#paving-edge",
+      "to": "warning-paver#south",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "warning-paver#east",
+      "to": "guide-paver#west",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

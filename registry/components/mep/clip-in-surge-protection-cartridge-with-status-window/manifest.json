@@ -1,0 +1,169 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.clip-in-surge-protection-cartridge-with-status-window",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "插拔式浪涌模块与状态窗",
+  "summary": "底座、可抽功能块和状态色窗可分别检查，外壳用通用外形。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.panelboard.surge-cartridge",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电气配电",
+    "浪涌保护",
+    "可插拔",
+    "状态窗"
+  ],
+  "anchors": [
+    "rail",
+    "status"
+  ],
+  "ai": {
+    "intent": "底座、可抽功能块和状态色窗可分别检查，外壳用通用外形。",
+    "editableParts": [
+      "可分别编辑 surge-rear、surge-body、removable-device-block、extracted-cartridge、color-status-window、finger-grip-1。"
+    ],
+    "qualityChecks": [
+      "拔出部分连同状态窗移动，底座留在柜体。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "clip-in-surge-protection-cartridge-with-status-window",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "surge-rear",
+            "semanticType": "mep.panelboard.modular.surge.rail-grip",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4a6068"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.032999999999999995,0.059,0.013]
+            },
+            "transform": {
+              "position": [0,0,0.0065]
+            }
+          },
+          {
+            "id": "surge-body",
+            "semanticType": "mep.panelboard.modular.surge.body",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c5c9bc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.036,0.091,0.043]
+            },
+            "transform": {
+              "position": [0,0,0.034499999999999996]
+            }
+          },
+          {
+            "id": "removable-device-block",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "extracted-cartridge",
+            "semanticType": "mep.panelboard.surge.extractable",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c5c9bc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.03,0.066,0.028]
+            },
+            "transform": {
+              "position": [0,0.003,0.06]
+            },
+            "parent": "removable-device-block"
+          },
+          {
+            "id": "color-status-window",
+            "semanticType": "mep.panelboard.surge.status",
+            "material": "plastic",
+            "appearance": {
+              "color": "#709181"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.016,0.005]
+            },
+            "transform": {
+              "position": [0,0.011,0.077]
+            },
+            "parent": "removable-device-block"
+          },
+          {
+            "id": "finger-grip-1",
+            "semanticType": "mep.panelboard.surge.grip",
+            "material": "plastic",
+            "appearance": {
+              "color": "#648692"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.048,0.013]
+            },
+            "transform": {
+              "position": [-0.016,0.005,0.072]
+            },
+            "parent": "removable-device-block"
+          },
+          {
+            "id": "finger-grip-2",
+            "semanticType": "mep.panelboard.surge.grip",
+            "material": "plastic",
+            "appearance": {
+              "color": "#648692"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.048,0.013]
+            },
+            "transform": {
+              "position": [0.016,0.005,0.072]
+            },
+            "parent": "removable-device-block"
+          }
+        ],
+        "anchors": {
+          "rail": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "status": {
+            "position": [0,0.011,0.08],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "withdraw-cartridge",
+            "target": "removable-device-block",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0,0.049],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

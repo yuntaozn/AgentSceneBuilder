@@ -1,0 +1,96 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.masonry-u-lintel-block",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "U 形砌体过梁槽块",
+  "summary": "开口朝上的实体槽块，内槽底可承托独立钢筋笼。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.masonry.u-lintel",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "砌体",
+    "墙体"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "bottom",
+    "cage-seat"
+  ],
+  "ai": {
+    "intent": "组成可独立配筋的有槽过梁带。",
+    "editableParts": [
+      "编辑槽底、侧壁与端面长度。"
+    ],
+    "qualityChecks": [
+      "通长槽口保持开放。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "masonry-u-lintel-block",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lintel",
+            "semanticType": "construction.masonry.u-lintel",
+            "material": "concrete",
+            "appearance": {
+              "color": "#9aa7aa"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.4,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.095,0],
+                [0.095,0],
+                [0.095,0.19],
+                [0.063,0.19],
+                [0.063,0.041],
+                [-0.063,0.041],
+                [-0.063,0.19],
+                [-0.095,0.19]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "lintel",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "lintel",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "bottom": {
+            "position": [0.2,0,0],
+            "direction": [0,-1,0]
+          },
+          "cage-seat": {
+            "position": [0.2,0.041,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "metadata": { "title": "U 形直线桥架接水平弯头", "units": "meter" },
+  "instances": [
+    {
+      "id": "straight", "component": "core.composition",
+      "parameters": {
+        "nodes": [{
+          "id": "tray", "semanticType": "mep.cable-tray", "material": "galvanized-steel",
+          "appearance": { "color": "#8ea2b5", "roughness": 0.55, "metalness": 0.45 },
+          "geometry": { "type": "sweep", "points": [[0,0,0], [0,0,1.5]], "up": [0,1,0], "closedProfile": true,
+            "profile": [[-0.15,0], [0.15,0], [0.15,0.1], [0.148,0.1], [0.148,0.002], [-0.148,0.002], [-0.148,0.1], [-0.15,0.1]] }
+        }],
+        "anchors": {
+          "start": { "node": "tray", "onGeometry": { "type": "sweep-end", "end": "start" } },
+          "end": { "node": "tray", "onGeometry": { "type": "sweep-end", "end": "end" } }
+        }
+      }
+    },
+    {
+      "id": "elbow", "component": "core.composition", "transform": { "position": [0,0,1.5] },
+      "parameters": {
+        "nodes": [{
+          "id": "tray", "semanticType": "mep.cable-tray", "material": "galvanized-steel",
+          "appearance": { "color": "#8ea2b5", "roughness": 0.55, "metalness": 0.45 },
+          "geometry": { "type": "sweep", "points": [[0,0,0], [0,0,1.2], [1,0,1.2]], "up": [0,1,0], "closedProfile": true,
+            "profile": [[-0.15,0], [0.15,0], [0.15,0.1], [0.148,0.1], [0.148,0.002], [-0.148,0.002], [-0.148,0.1], [-0.15,0.1]] }
+        }],
+        "anchors": {
+          "start": { "node": "tray", "onGeometry": { "type": "sweep-end", "end": "start" } },
+          "end": { "node": "tray", "onGeometry": { "type": "sweep-end", "end": "end" } }
+        }
+      }
+    }
+  ],
+  "attachments": [
+    { "from": "straight#end", "to": "elbow#start", "contract": { "direction": "opposed" } }
+  ]
+}

@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.drop-out-rail-service-cassette-for-operable-wall-trolley",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "活动隔墙吊车可拆检修轨盒",
+  "summary": "两段固定轨中间搭接可下落短轨，拆换吊轮时可打开底部。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.operable-partition.track-service-cassette",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内隔断",
+    "检修轨盒",
+    "吊车",
+    "活动隔墙"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "service"
+  ],
+  "ai": {
+    "intent": "两段固定轨中间搭接可下落短轨，拆换吊轮时可打开底部。",
+    "editableParts": [
+      "可分别编辑 fixed-rail-left、fixed-rail-right、replaceable-rail-section、drop-track、reinforced-lock-tab-1、reinforced-lock-tab-2。"
+    ],
+    "qualityChecks": [
+      "中段检修轨落下时，两段固定轨保持原位。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "drop-out-rail-service-cassette-for-operable-wall-trolley",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fixed-rail-left",
+            "semanticType": "construction.operable-partition.rail-cassette.fixed",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.198,0,0],
+                [-0.077,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.052,0],
+                [-0.052,0.105],
+                [0.052,0.105],
+                [0.052,0],
+                [0.015,0],
+                [0.015,0.013],
+                [0.04,0.013],
+                [0.04,0.092],
+                [-0.04,0.092],
+                [-0.04,0.013],
+                [-0.015,0.013],
+                [-0.015,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "fixed-rail-right",
+            "semanticType": "construction.operable-partition.rail-cassette.fixed",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.077,0,0],
+                [0.198,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.052,0],
+                [-0.052,0.105],
+                [0.052,0.105],
+                [0.052,0],
+                [0.015,0],
+                [0.015,0.013],
+                [0.04,0.013],
+                [0.04,0.092],
+                [-0.04,0.092],
+                [-0.04,0.013],
+                [-0.015,0.013],
+                [-0.015,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "replaceable-rail-section",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "drop-track",
+            "semanticType": "construction.operable-partition.rail-cassette.movable",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.077,0,0],
+                [0.077,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.052,0],
+                [-0.052,0.105],
+                [0.052,0.105],
+                [0.052,0],
+                [0.015,0],
+                [0.015,0.013],
+                [0.04,0.013],
+                [0.04,0.092],
+                [-0.04,0.092],
+                [-0.04,0.013],
+                [-0.015,0.013],
+                [-0.015,0]
+              ],
+              "closedProfile": true
+            },
+            "parent": "replaceable-rail-section"
+          },
+          {
+            "id": "reinforced-lock-tab-1",
+            "semanticType": "construction.operable-partition.rail-cassette.lock-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.009,0.111]
+            },
+            "transform": {
+              "position": [-0.078,0.105,0]
+            }
+          },
+          {
+            "id": "reinforced-lock-tab-2",
+            "semanticType": "construction.operable-partition.rail-cassette.lock-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.009,0.111]
+            },
+            "transform": {
+              "position": [0.078,0.105,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [-0.198,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.198,0,0],
+            "direction": [1,0,0]
+          },
+          "service": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "drop-service-insert",
+            "target": "replaceable-rail-section",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,-0.119,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

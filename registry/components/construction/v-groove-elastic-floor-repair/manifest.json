@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.v-groove-elastic-floor-repair",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "V 槽地坪裂缝修补剖面",
+  "summary": "两段有真实坡面的基层围出 V 槽，弹性填封、支承条和原始缝相互独立。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.flooring.v-groove-elastic-repair",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室内装修",
+    "地坪",
+    "基础构件"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "base",
+    "face"
+  ],
+  "ai": {
+    "intent": "把基层切口、原缝、支承和弹性封料放进可编辑剖面。",
+    "editableParts": [
+      "两块基层",
+      "背衬",
+      "密封层"
+    ],
+    "qualityChecks": [
+      "槽口从上到下收窄，保持独立材质。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "v-groove-elastic-floor-repair",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "side-a",
+            "semanticType": "construction.flooring.v-groove-repair.concrete",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b0a89e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.35,0,0],
+                [0.35,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.26,0],
+                [-0.002,0],
+                [-0.002,0.057],
+                [-0.046,0.092],
+                [-0.26,0.092]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "side-b",
+            "semanticType": "construction.flooring.v-groove-repair.concrete",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b0a89e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.35,0,0],
+                [0.35,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.002,0],
+                [0.26,0],
+                [0.26,0.092],
+                [0.046,0.092],
+                [0.002,0.057]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "backer",
+            "semanticType": "construction.flooring.v-groove-repair.backer",
+            "material": "foam",
+            "appearance": {
+              "color": "#515c61"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.35,0.061,0],
+              "end": [0.35,0.061,0],
+              "radius": 0.008,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "seal",
+            "semanticType": "construction.flooring.v-groove-repair.sealant",
+            "material": "sealant",
+            "appearance": {
+              "color": "#59767d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.35,0,0],
+                [0.35,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.033,0.082],
+                [-0.012,0.065],
+                [0.012,0.065],
+                [0.033,0.082],
+                [0.042,0.089],
+                [0.019,0.086],
+                [-0.019,0.086],
+                [-0.042,0.089]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [-0.35,0.088,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.35,0.088,0],
+            "direction": [1,0,0]
+          },
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "face": {
+            "position": [0,0.086,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

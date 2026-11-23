@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.rectangular-cable-port-access-floor-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带穿线槽的架空地板",
+  "summary": "面板底钢皮、芯板和贴面上有相同的贯通矩形开口，用于接装穿线刷盖。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.flooring.rectangular-port-access-floor-panel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室内装修",
+    "地坪",
+    "基础构件"
+  ],
+  "anchors": [
+    "bottom",
+    "face",
+    "near-bearing",
+    "far-bearing",
+    "left-bearing",
+    "right-bearing",
+    "grommet-seat",
+    "cable-outlet"
+  ],
+  "ai": {
+    "intent": "在架空地板上单独选择带贯通出线孔的面板。",
+    "editableParts": [
+      "芯层",
+      "贯通槽",
+      "四周包边"
+    ],
+    "qualityChecks": [
+      "上下两层的矩形孔对齐。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rectangular-cable-port-access-floor-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bottom-sheet",
+            "semanticType": "construction.flooring.cable-port-panel.bottom-skin",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.002,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.298,-0.298],
+                [0.298,-0.298],
+                [0.298,0.298],
+                [-0.298,0.298]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.16699999999999998,-0.05],
+                  [-0.04300000000000001,-0.05],
+                  [-0.04300000000000001,0.034],
+                  [-0.16699999999999998,0.034]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "open-core",
+            "semanticType": "construction.flooring.cable-port-panel.open-core",
+            "material": "mineral",
+            "appearance": {
+              "color": "#bab6a4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.002,0],
+                [0,0.031,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.288,-0.288],
+                [0.288,-0.288],
+                [0.288,0.288],
+                [-0.288,0.288]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.16699999999999998,-0.05],
+                  [-0.04300000000000001,-0.05],
+                  [-0.04300000000000001,0.034],
+                  [-0.16699999999999998,0.034]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "frame-left",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.031,0.596]
+            },
+            "transform": {
+              "position": [-0.293,0.0155,0]
+            }
+          },
+          {
+            "id": "frame-right",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.031,0.596]
+            },
+            "transform": {
+              "position": [0.293,0.0155,0]
+            }
+          },
+          {
+            "id": "frame-near",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.576,0.031,0.01]
+            },
+            "transform": {
+              "position": [0,0.0155,0.293]
+            }
+          },
+          {
+            "id": "frame-far",
+            "semanticType": "construction.flooring.calcium-sulfate-panel.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#7a8e95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.576,0.031,0.01]
+            },
+            "transform": {
+              "position": [0,0.0155,-0.293]
+            }
+          },
+          {
+            "id": "open-surface",
+            "semanticType": "construction.flooring.cable-port-panel.open-surface",
+            "material": "laminate",
+            "appearance": {
+              "color": "#94998f"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.031,0],
+                [0,0.034,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.298,-0.298],
+                [0.298,-0.298],
+                [0.298,0.298],
+                [-0.298,0.298]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.16699999999999998,-0.05],
+                  [-0.04300000000000001,-0.05],
+                  [-0.04300000000000001,0.034],
+                  [-0.16699999999999998,0.034]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "face": {
+            "position": [0,0.034,0],
+            "direction": [0,1,0]
+          },
+          "near-bearing": {
+            "position": [0,0,0.285],
+            "direction": [0,-1,0]
+          },
+          "far-bearing": {
+            "position": [0,0,-0.285],
+            "direction": [0,-1,0]
+          },
+          "left-bearing": {
+            "position": [-0.285,0,0],
+            "direction": [0,-1,0]
+          },
+          "right-bearing": {
+            "position": [0.285,0,0],
+            "direction": [0,-1,0]
+          },
+          "grommet-seat": {
+            "position": [0.105,0.034,-0.008],
+            "direction": [0,1,0]
+          },
+          "cable-outlet": {
+            "position": [0.105,0,-0.008],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.standing-seam-roof-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "直立锁边屋面板",
+  "summary": "双侧实体折肋与中间平底成一体，沿坡面拼铺，可同步编辑起高和肋高。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.standing-seam-sheet",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "parameters": {
+    "panelWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.2
+    },
+    "run": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.4
+    },
+    "rise": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.2
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.008
+    },
+    "seamHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.044
+    }
+  },
+  "anchors": [
+    "eave",
+    "ridge",
+    "left",
+    "right",
+    "surface-center",
+    "underside-center"
+  ],
+  "ai": {
+    "intent": "沿坡面连续铺设带竖肋的屋面。",
+    "editableParts": [
+      "调整板宽、坡度和肋高。"
+    ],
+    "qualityChecks": [
+      "相邻锁边板的左右定位相接。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "standing-seam-roof-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.standing-seam-sheet",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "standing-seam-roof-panel",
+              "panelWidth": 1.2,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.008,
+              "seamHeight": 0.044
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      }
+    }
+  }
+}

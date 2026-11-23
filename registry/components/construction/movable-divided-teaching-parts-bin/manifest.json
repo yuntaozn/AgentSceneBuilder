@@ -1,0 +1,222 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.movable-divided-teaching-parts-bin",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可拆分格实训零件盒",
+  "summary": "斜前口、两侧定位槽和两片可移动隔板，形成独立的零件格。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.education.divided-training-parts-bin",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "教室",
+    "实训室",
+    "室内家具",
+    "收纳",
+    "零件盒",
+    "实训工位"
+  ],
+  "anchors": [
+    "base",
+    "front"
+  ],
+  "ai": {
+    "intent": "把独立分格零件盒放在桌面、推车或设备架上。",
+    "editableParts": [
+      "开口盒体",
+      "定位槽",
+      "隔片"
+    ],
+    "qualityChecks": [
+      "前口较低，隔片始终可单独选择。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "movable-divided-teaching-parts-bin",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bottom",
+            "semanticType": "construction.education.divided-parts-bin.base",
+            "material": "polymer",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.315,0.011,0.222]
+            },
+            "transform": {
+              "position": [0,0.0055,0]
+            }
+          },
+          {
+            "id": "back-wall",
+            "semanticType": "construction.education.divided-parts-bin.rear",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8786"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.315,0.112,0.013]
+            },
+            "transform": {
+              "position": [0,0.061,-0.1045]
+            }
+          },
+          {
+            "id": "shallow-front-lip",
+            "semanticType": "construction.education.divided-parts-bin.lip",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8786"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.158,0,0],
+                [0.158,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.11,0.008],
+                [-0.092,0.008],
+                [-0.085,0.047],
+                [-0.102,0.06],
+                [-0.11,0.06]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tapered-wall-0",
+            "semanticType": "construction.education.divided-parts-bin.side",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8786"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.158,0,0],
+                [-0.146,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.11,0.008],
+                [0.111,0.008],
+                [0.111,0.115],
+                [-0.076,0.061],
+                [-0.11,0.061]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "tapered-wall-1",
+            "semanticType": "construction.education.divided-parts-bin.side",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8786"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.146,0,0],
+                [0.158,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.11,0.008],
+                [0.111,0.008],
+                [0.111,0.115],
+                [-0.076,0.061],
+                [-0.11,0.061]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "slot-runner-0",
+            "semanticType": "construction.education.divided-parts-bin.slot",
+            "material": "polymer",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.013,0.186]
+            },
+            "transform": {
+              "position": [-0.052,0.0135,-0.005]
+            }
+          },
+          {
+            "id": "partition-0",
+            "semanticType": "construction.education.divided-parts-bin.divider",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a0a9a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.074,0.189]
+            },
+            "transform": {
+              "position": [-0.052,0.052,-0.009]
+            }
+          },
+          {
+            "id": "slot-runner-1",
+            "semanticType": "construction.education.divided-parts-bin.slot",
+            "material": "polymer",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.013,0.186]
+            },
+            "transform": {
+              "position": [0.052,0.0135,-0.005]
+            }
+          },
+          {
+            "id": "partition-1",
+            "semanticType": "construction.education.divided-parts-bin.divider",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a0a9a4"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.074,0.189]
+            },
+            "transform": {
+              "position": [0.052,0.052,-0.009]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "front": {
+            "position": [0,0.066,0.11],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

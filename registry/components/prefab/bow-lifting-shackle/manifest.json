@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.bow-lifting-shackle",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "弓形卸扣",
+  "summary": "分离的弓身与横销可组合或单独展示，销孔轴沿 X。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.bow-lifting-shackle",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式",
+    "吊装"
+  ],
+  "anchors": [
+    "pin-axis",
+    "crown"
+  ],
+  "ai": {
+    "intent": "把吊耳轴与弓形扣的横销轴对齐。",
+    "editableParts": [
+      "编辑弓身路径、销长与端部"
+    ],
+    "qualityChecks": [
+      "允许按需要拆出横销展示装配过程。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "bow-lifting-shackle",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bow",
+            "semanticType": "prefab.lifting.bow-shackle.bow",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.042,0,0],
+                [-0.046,0.055,0],
+                [-0.045,0.064,0],
+                [-0.041574578963007904,0.08122075445642904,0],
+                [-0.03181980515339464,0.09581980515339464,0],
+                [-0.017220754456429038,0.1055745789630079,0],
+                [2.7554552980815448e-18,0.109,0],
+                [0.01722075445642904,0.1055745789630079,0],
+                [0.03181980515339464,0.09581980515339464,0],
+                [0.041574578963007904,0.08122075445642904,0],
+                [0.045,0.064,0],
+                [0.046,0.055,0],
+                [0.042,0,0]
+              ],
+              "radius": 0.012
+            }
+          },
+          {
+            "id": "pin",
+            "semanticType": "prefab.lifting.bow-shackle.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.067,0,0],
+              "end": [0.066,0,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pin-head",
+            "semanticType": "prefab.lifting.bow-shackle.pin-head",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.078,0,0],
+              "end": [-0.066,0,0],
+              "radius": 0.021,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "pin-axis": {
+            "position": [0,0,0],
+            "direction": [1,0,0]
+          },
+          "crown": {
+            "position": [0,0.109,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

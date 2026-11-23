@@ -1,0 +1,76 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.precast-grout-bed",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "预制墙板底部灌浆层",
+  "summary": "独立布置的墙板底部连续填充层，上下表面带层位定位点。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.precast-grout-bed",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式",
+    "灌浆"
+  ],
+  "anchors": [
+    "bottom",
+    "top"
+  ],
+  "ai": {
+    "intent": "在安装缝中表达灌浆前后状态。",
+    "editableParts": [
+      "修改长、宽和厚度"
+    ],
+    "qualityChecks": [
+      "以底面为安装基准，同步调整节点中心高度。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "precast-grout-bed",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bed",
+            "semanticType": "prefab.installation.grout-bed",
+            "material": "grout",
+            "appearance": {
+              "color": "#b7b5a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [3.6,0.025,0.32]
+            },
+            "transform": {
+              "position": [0,0.0125,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "bed",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0.3125]
+            },
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "node": "bed",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0.3125]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

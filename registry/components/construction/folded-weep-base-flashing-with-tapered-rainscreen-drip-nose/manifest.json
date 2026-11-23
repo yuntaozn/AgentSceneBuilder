@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.folded-weep-base-flashing-with-tapered-rainscreen-drip-nose",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "干挂幕墙底口散水滴水折板",
+  "summary": "折板连续倾向室外，下边抬离地面，并带可观察的排水缺口。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.rainscreen.rainscreen-base-drip",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "干挂外墙",
+    "底口",
+    "滴水板",
+    "散水"
+  ],
+  "anchors": [
+    "wall",
+    "tip",
+    "screen"
+  ],
+  "ai": {
+    "intent": "折板连续倾向室外，下边抬离地面，并带可观察的排水缺口。",
+    "editableParts": [
+      "可分别编辑 bent-low-drip-face、perforated-return-attachment。"
+    ],
+    "qualityChecks": [
+      "外端落至较低处，独立固定条留实际槽孔。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "folded-weep-base-flashing-with-tapered-rainscreen-drip-nose",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bent-low-drip-face",
+            "semanticType": "construction.rainscreen.base-flashing.profile",
+            "material": "steel",
+            "appearance": {
+              "color": "#899c9c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.442,0,0],
+                [0.442,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0.063],
+                [0,-0.005],
+                [-0.137,-0.035],
+                [-0.156,-0.049],
+                [-0.156,-0.056],
+                [-0.136,-0.041],
+                [0.006,-0.011],
+                [0.006,0.063]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "perforated-return-attachment",
+            "semanticType": "construction.rainscreen.base-flashing.return",
+            "material": "steel",
+            "appearance": {
+              "color": "#4c6269"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.043,-0.003],
+                [0,0.043,0.003]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.441,-0.0155],
+                [0.441,-0.0155],
+                [0.441,0.0155],
+                [-0.441,0.0155]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.385,-0.0045],
+                  [-0.357,-0.0045],
+                  [-0.357,0.0045],
+                  [-0.385,0.0045]
+                ],
+                [
+                  [-0.279,-0.0045],
+                  [-0.251,-0.0045],
+                  [-0.251,0.0045],
+                  [-0.279,0.0045]
+                ],
+                [
+                  [-0.17300000000000001,-0.0045],
+                  [-0.145,-0.0045],
+                  [-0.145,0.0045],
+                  [-0.17300000000000001,0.0045]
+                ],
+                [
+                  [-0.06699999999999999,-0.0045],
+                  [-0.03899999999999999,-0.0045],
+                  [-0.03899999999999999,0.0045],
+                  [-0.06699999999999999,0.0045]
+                ],
+                [
+                  [0.03899999999999999,-0.0045],
+                  [0.06699999999999999,-0.0045],
+                  [0.06699999999999999,0.0045],
+                  [0.03899999999999999,0.0045]
+                ],
+                [
+                  [0.14500000000000002,-0.0045],
+                  [0.17300000000000004,-0.0045],
+                  [0.17300000000000004,0.0045],
+                  [0.14500000000000002,0.0045]
+                ],
+                [
+                  [0.251,-0.0045],
+                  [0.279,-0.0045],
+                  [0.279,0.0045],
+                  [0.251,0.0045]
+                ],
+                [
+                  [0.357,-0.0045],
+                  [0.385,-0.0045],
+                  [0.385,0.0045],
+                  [0.357,0.0045]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [0,0.04,0],
+            "direction": [0,0,-1]
+          },
+          "tip": {
+            "position": [0,-0.054,0.156],
+            "direction": [0,0,1]
+          },
+          "screen": {
+            "position": [0,-0.016,0.107],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.recessed-wall-thermostat-control-faceplate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "嵌墙式空调温控面板",
+  "summary": "独立嵌墙盒、面框、显示窗和两个按键外形，墙面位置和操作面分离。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.room-thermostat-control-face",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "温控",
+    "空调",
+    "面板"
+  ],
+  "anchors": [
+    "wall",
+    "front"
+  ],
+  "ai": {
+    "intent": "在暖通末端附近挂装可编辑的面板外形。",
+    "editableParts": [
+      "墙盒",
+      "按键",
+      "窗"
+    ],
+    "qualityChecks": [
+      "窗口向室内。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "recessed-wall-thermostat-control-faceplate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-box",
+            "semanticType": "mep.ahu.room-thermostat.box",
+            "material": "polymer",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.063,0.067,0.025]
+            },
+            "transform": {
+              "position": [0,0,-0.0125]
+            }
+          },
+          {
+            "id": "trim-base",
+            "semanticType": "mep.ahu.room-thermostat.plate",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.091,0.091,0.01]
+            },
+            "transform": {
+              "position": [0,0,0.005]
+            }
+          },
+          {
+            "id": "readout-window",
+            "semanticType": "mep.ahu.room-thermostat.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#6b8b95"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.063,0.037,0.007]
+            },
+            "transform": {
+              "position": [0,0.015,0.013]
+            }
+          },
+          {
+            "id": "down-up-button-0",
+            "semanticType": "mep.ahu.room-thermostat.button",
+            "material": "polymer",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.023,-0.024,0.011],
+              "end": [-0.023,-0.024,0.019],
+              "radius": 0.008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "down-up-button-1",
+            "semanticType": "mep.ahu.room-thermostat.button",
+            "material": "polymer",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.023,-0.024,0.011],
+              "end": [0.023,-0.024,0.019],
+              "radius": 0.008,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "front": {
+            "position": [0,0,0.018],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

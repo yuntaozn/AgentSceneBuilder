@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.illuminated-egress-arrow-sign",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "应急疏散方向指示牌",
+  "summary": "薄壳与立体箭头字形分开定位，墙装或悬挂时可调朝向。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.fire.egress-arrow-sign",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "消防",
+    "疏散"
+  ],
+  "anchors": [
+    "back",
+    "hanger-left",
+    "hanger-right",
+    "arrow-axis"
+  ],
+  "ai": {
+    "intent": "表现通道内独立方向标志并检查其朝向。",
+    "editableParts": [
+      "调整箭头、颜色、墙面及悬挂定位。"
+    ],
+    "qualityChecks": [
+      "可旋转整组改变指示方向。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "illuminated-egress-arrow-sign",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "housing",
+            "semanticType": "construction.fire.illuminated-exit-sign.shell",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#536d79"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.329,0.139,0.024]
+            },
+            "transform": {
+              "position": [0,0,0.012]
+            }
+          },
+          {
+            "id": "face",
+            "semanticType": "construction.fire.illuminated-exit-sign.face",
+            "material": "polymer",
+            "appearance": {
+              "color": "#5e8d78",
+              "emissive": "#27442c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.314,0.126,0.0035]
+            },
+            "transform": {
+              "position": [0,0,0.02475]
+            }
+          },
+          {
+            "id": "arrow",
+            "semanticType": "construction.fire.illuminated-exit-sign.symbol",
+            "material": "polymer",
+            "appearance": {
+              "color": "#dce3de"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.026],
+                [0,0,0.029]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.085,-0.011],
+                [0.03,-0.011],
+                [0.03,-0.038],
+                [0.086,0],
+                [0.03,0.038],
+                [0.03,0.011],
+                [-0.085,0.011]
+              ]
+            }
+          },
+          {
+            "id": "hanger-0",
+            "semanticType": "construction.fire.illuminated-exit-sign.bracket",
+            "material": "steel",
+            "appearance": {
+              "color": "#536d79"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.014,0.026]
+            },
+            "transform": {
+              "position": [-0.101,0.0765,0.012]
+            }
+          },
+          {
+            "id": "hanger-1",
+            "semanticType": "construction.fire.illuminated-exit-sign.bracket",
+            "material": "steel",
+            "appearance": {
+              "color": "#536d79"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.014,0.026]
+            },
+            "transform": {
+              "position": [0.101,0.0765,0.012]
+            }
+          }
+        ],
+        "anchors": {
+          "back": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "hanger-left": {
+            "position": [-0.101,0.0835,0.012],
+            "direction": [0,1,0]
+          },
+          "hanger-right": {
+            "position": [0.101,0.0835,0.012],
+            "direction": [0,1,0]
+          },
+          "arrow-axis": {
+            "position": [0,0,0.029],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

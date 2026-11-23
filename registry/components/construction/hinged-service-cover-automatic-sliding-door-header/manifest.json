@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.hinged-service-cover-automatic-sliding-door-header",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带上翻检修盖的滑门门机横梁",
+  "summary": "横梁内部带安装槽和挂轮轨，面盖绕上部水平铰轴抬起。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.envelope-entry.automatic-door-header",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "建筑入口",
+    "门机横梁",
+    "滑门",
+    "检修盖"
+  ],
+  "anchors": [
+    "structure",
+    "drive",
+    "roller-at-drive",
+    "right-roller-at-rest",
+    "sensor"
+  ],
+  "ai": {
+    "intent": "横梁内部带安装槽和挂轮轨，面盖绕上部水平铰轴抬起。",
+    "editableParts": [
+      "可分别编辑 backplate、upper-return、track-seat、track-lip、head-stop-1、head-stop-2。"
+    ],
+    "qualityChecks": [
+      "挂轮轨与驱动底板独立，开启盖板时两者保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-service-cover-automatic-sliding-door-header",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "backplate",
+            "semanticType": "construction.envelope-entry.header.backplate",
+            "material": "steel",
+            "appearance": {
+              "color": "#6c8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.58,0.178,0.009]
+            },
+            "transform": {
+              "position": [0,0.104,-0.0045]
+            }
+          },
+          {
+            "id": "upper-return",
+            "semanticType": "construction.envelope-entry.header.upper",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.58,0.009,0.098]
+            },
+            "transform": {
+              "position": [0,0.189,0.04]
+            }
+          },
+          {
+            "id": "track-seat",
+            "semanticType": "construction.envelope-entry.header.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#6c8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.58,0.022,0.043]
+            },
+            "transform": {
+              "position": [0,0.01,0.094]
+            }
+          },
+          {
+            "id": "track-lip",
+            "semanticType": "construction.envelope-entry.header.track-lip",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.58,0.008,0.019]
+            },
+            "transform": {
+              "position": [0,0.024,0.092]
+            }
+          },
+          {
+            "id": "head-stop-1",
+            "semanticType": "construction.envelope-entry.header.stop",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.101,0.088]
+            },
+            "transform": {
+              "position": [-0.782,0.102,0.048]
+            }
+          },
+          {
+            "id": "head-stop-2",
+            "semanticType": "construction.envelope-entry.header.stop",
+            "material": "steel",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.101,0.088]
+            },
+            "transform": {
+              "position": [0.782,0.102,0.048]
+            }
+          },
+          {
+            "id": "service-cover-hinge",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.19,0.104]
+            }
+          },
+          {
+            "id": "service-fascia",
+            "semanticType": "construction.envelope-entry.header.fascia",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b0b8b1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.58,0.153,0.011]
+            },
+            "transform": {
+              "position": [0,-0.072,0]
+            },
+            "parent": "service-cover-hinge"
+          }
+        ],
+        "anchors": {
+          "structure": {
+            "position": [0,0.195,0.039],
+            "direction": [0,1,0]
+          },
+          "drive": {
+            "position": [0,0.126,0.028],
+            "direction": [0,0,1]
+          },
+          "roller-at-drive": {
+            "position": [-0.102,0.028,0.092],
+            "direction": [0,1,0]
+          },
+          "right-roller-at-rest": {
+            "position": [0.478,0.028,0.092],
+            "direction": [0,1,0]
+          },
+          "sensor": {
+            "position": [0.011,0.103,0.11],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "tilt-up-fascia",
+            "target": "service-cover-hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [-1.44,0,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

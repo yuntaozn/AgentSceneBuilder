@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.flexible-curtain-loading-dock-shelter-frame",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "软帘式装卸门罩框架",
+  "summary": "独立门罩梁、侧挂座和三张柔性门封帘，内开口保持开放。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.warehouse.flexible-dock-shelter",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "仓储",
+    "物流",
+    "装卸口",
+    "门封",
+    "软帘"
+  ],
+  "anchors": [
+    "wall-left",
+    "wall-right",
+    "opening-base"
+  ],
+  "ai": {
+    "intent": "在完整门洞上独立加装软帘式装卸门罩。",
+    "editableParts": [
+      "门罩架",
+      "侧帘",
+      "上帘"
+    ],
+    "qualityChecks": [
+      "内开口没有被底框堵塞。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "flexible-curtain-loading-dock-shelter-frame",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-jamb-0",
+            "semanticType": "construction.warehouse.dock-shelter.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.084,1.817,0.102]
+            },
+            "transform": {
+              "position": [-0.721,0.9085,0.051]
+            }
+          },
+          {
+            "id": "wall-jamb-1",
+            "semanticType": "construction.warehouse.dock-shelter.support",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.084,1.817,0.102]
+            },
+            "transform": {
+              "position": [0.721,0.9085,0.051]
+            }
+          },
+          {
+            "id": "overhead-beam",
+            "semanticType": "construction.warehouse.dock-shelter.header",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.526,0.095,0.121]
+            },
+            "transform": {
+              "position": [0,1.804,0.0605]
+            }
+          },
+          {
+            "id": "side-curtain-0",
+            "semanticType": "construction.warehouse.dock-shelter.flexible-flap",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4e5c61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.137,1.633,0.03]
+            },
+            "transform": {
+              "position": [-0.697,0.849,0.157]
+            }
+          },
+          {
+            "id": "side-curtain-1",
+            "semanticType": "construction.warehouse.dock-shelter.flexible-flap",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4e5c61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.137,1.633,0.03]
+            },
+            "transform": {
+              "position": [0.697,0.849,0.157]
+            }
+          },
+          {
+            "id": "header-curtain",
+            "semanticType": "construction.warehouse.dock-shelter.flexible-top-skirt",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4e5c61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.498,0.202,0.031]
+            },
+            "transform": {
+              "position": [0,1.658,0.158]
+            }
+          },
+          {
+            "id": "guide-mark-0",
+            "semanticType": "construction.warehouse.dock-shelter.edge-strip",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a468"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,1.218,0.008]
+            },
+            "transform": {
+              "position": [-0.724,0.833,0.175]
+            }
+          },
+          {
+            "id": "guide-mark-1",
+            "semanticType": "construction.warehouse.dock-shelter.edge-strip",
+            "material": "steel",
+            "appearance": {
+              "color": "#c2a468"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,1.218,0.008]
+            },
+            "transform": {
+              "position": [0.724,0.833,0.175]
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "position": [-0.721,0.901,0],
+            "direction": [0,0,-1]
+          },
+          "wall-right": {
+            "position": [0.721,0.901,0],
+            "direction": [0,0,-1]
+          },
+          "opening-base": {
+            "position": [0,0,0.157],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

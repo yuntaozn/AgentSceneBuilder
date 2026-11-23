@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.open-grating-steel-stair-flight",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "开孔钢格栅直梯",
+  "summary": "六块有贯通孔的重复格栅踏板由两侧斜钢梁支承，首末均有落座定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.circulation.open-grating-stair",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "交通",
+    "楼梯"
+  ],
+  "anchors": [
+    "lower-landing",
+    "upper-landing"
+  ],
+  "ai": {
+    "intent": "表达踏板开放的钢梯，踏步原型可单独编辑。",
+    "editableParts": [
+      "修改重复间距、踏板槽数与两条斜梁。"
+    ],
+    "qualityChecks": [
+      "保持上、下梯段方向一致。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "open-grating-steel-stair-flight",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "step",
+            "semanticType": "construction.circulation.grated-stair-flight.step",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "slotted-drain-grate",
+              "length": 1.05,
+              "width": 0.26,
+              "thickness": 0.04,
+              "frameWidth": 0.023,
+              "barWidth": 0.015,
+              "slotCount": 9
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [-0.525,0.17,0.14],
+              "step": [0,0.17,0.28]
+            }
+          },
+          {
+            "id": "stringer-0",
+            "semanticType": "construction.circulation.grated-stair-flight.side",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.48,0,0.035],
+                [-0.48,1.02,1.715]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.04,-0.094],
+                [0.04,-0.094],
+                [0.04,-0.087],
+                [-0.033,-0.087],
+                [-0.033,0.087],
+                [0.04,0.087],
+                [0.04,0.094],
+                [-0.04,0.094]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "stringer-1",
+            "semanticType": "construction.circulation.grated-stair-flight.side",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.48,0,0.035],
+                [0.48,1.02,1.715]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.04,-0.094],
+                [0.04,-0.094],
+                [0.04,-0.087],
+                [-0.033,-0.087],
+                [-0.033,0.087],
+                [0.04,0.087],
+                [0.04,0.094],
+                [-0.04,0.094]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "base-0",
+            "semanticType": "construction.circulation.grated-stair-flight.shoe",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.115,0.017,0.18]
+            },
+            "transform": {
+              "position": [-0.48,0.0085,0.043]
+            }
+          },
+          {
+            "id": "base-1",
+            "semanticType": "construction.circulation.grated-stair-flight.shoe",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.115,0.017,0.18]
+            },
+            "transform": {
+              "position": [0.48,0.0085,0.043]
+            }
+          }
+        ],
+        "anchors": {
+          "lower-landing": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "upper-landing": {
+            "position": [0,1.02,1.68],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

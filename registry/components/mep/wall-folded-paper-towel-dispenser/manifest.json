@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.wall-folded-paper-towel-dispenser",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "壁装抽取式纸巾盒",
+  "summary": "背板、开口底板、外壳和出纸槽，出纸槽可单独检查。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.public-washroom.wall-paper-towel-dispenser",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "纸巾盒",
+    "壁装",
+    "出纸槽"
+  ],
+  "anchors": [
+    "wall",
+    "outlet"
+  ],
+  "ai": {
+    "intent": "独立挂装纸巾盒并对齐下方出纸位置。",
+    "editableParts": [
+      "壳体",
+      "背板",
+      "出纸槽"
+    ],
+    "qualityChecks": [
+      "下方出纸槽可通过几何检查。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "wall-folded-paper-towel-dispenser",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rear-plate",
+            "semanticType": "mep.public-washroom.towel-dispenser.wall-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.279,0.35,0.016]
+            },
+            "transform": {
+              "position": [0,0,0.008]
+            }
+          },
+          {
+            "id": "side-0",
+            "semanticType": "mep.public-washroom.towel-dispenser.side",
+            "material": "polymer",
+            "appearance": {
+              "color": "#dedbcf"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.348,0.108]
+            },
+            "transform": {
+              "position": [-0.139,0,0.069]
+            }
+          },
+          {
+            "id": "side-1",
+            "semanticType": "mep.public-washroom.towel-dispenser.side",
+            "material": "polymer",
+            "appearance": {
+              "color": "#dedbcf"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.348,0.108]
+            },
+            "transform": {
+              "position": [0.139,0,0.069]
+            }
+          },
+          {
+            "id": "front-cover",
+            "semanticType": "mep.public-washroom.towel-dispenser.cover",
+            "material": "polymer",
+            "appearance": {
+              "color": "#dedbcf"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.277,0.334,0.012]
+            },
+            "transform": {
+              "position": [0,0.009,0.129]
+            }
+          },
+          {
+            "id": "bottom-slot",
+            "semanticType": "mep.public-washroom.towel-dispenser.dispense-opening",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.174,0.071],
+                [0,-0.162,0.071]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.1395,-0.054],
+                [0.1395,-0.054],
+                [0.1395,0.054],
+                [-0.1395,0.054]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0905,-0.0135],
+                  [0.0905,-0.0135],
+                  [0.0905,0.0135],
+                  [-0.0905,0.0135]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "status-window",
+            "semanticType": "mep.public-washroom.towel-dispenser.fill-inspection",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a7b9b6"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.024,0.111,0.005]
+            },
+            "transform": {
+              "position": [0.083,-0.007,0.137]
+            }
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "outlet": {
+            "position": [0,-0.174,0.071],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

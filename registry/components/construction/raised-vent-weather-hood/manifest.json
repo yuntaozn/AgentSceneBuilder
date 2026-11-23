@@ -1,0 +1,194 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.raised-vent-weather-hood",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "屋面架空防雨风帽",
+  "summary": "通孔基部上架起双坡防雨盖，四侧留出空气通路，盖板与支撑可分别编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.weather-hood",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "anchors": [
+    "curb-seat",
+    "throat"
+  ],
+  "ai": {
+    "intent": "把屋面通风洞口与架空防雨罩组合。",
+    "editableParts": [
+      "编辑底段开口、立撑与独立盖板。"
+    ],
+    "qualityChecks": [
+      "保持罩下与中心风口互通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "raised-vent-weather-hood",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "construction.roof.weather-hood.open-base",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.16,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.34,-0.265],
+                [0.34,-0.265],
+                [0.34,0.265],
+                [-0.34,0.265]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.255,-0.18],
+                  [0.255,-0.18],
+                  [0.255,0.18],
+                  [-0.255,0.18]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "pier-0-0",
+            "semanticType": "construction.roof.weather-hood.pier",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.33599999999999997,0,0],
+                [-0.274,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.239,0.16],
+                [0.17099999999999999,0.16],
+                [0.17099999999999999,0.45225],
+                [0.239,0.43525]
+              ]
+            }
+          },
+          {
+            "id": "pier-0-1",
+            "semanticType": "construction.roof.weather-hood.pier",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.33599999999999997,0,0],
+                [-0.274,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.17099999999999999,0.16],
+                [-0.239,0.16],
+                [-0.239,0.43525],
+                [-0.17099999999999999,0.45225]
+              ]
+            }
+          },
+          {
+            "id": "pier-1-0",
+            "semanticType": "construction.roof.weather-hood.pier",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.274,0,0],
+                [0.33599999999999997,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.239,0.16],
+                [0.17099999999999999,0.16],
+                [0.17099999999999999,0.45225],
+                [0.239,0.43525]
+              ]
+            }
+          },
+          {
+            "id": "pier-1-1",
+            "semanticType": "construction.roof.weather-hood.pier",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.274,0,0],
+                [0.33599999999999997,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.17099999999999999,0.16],
+                [-0.239,0.16],
+                [-0.239,0.43525],
+                [-0.17099999999999999,0.45225]
+              ]
+            }
+          },
+          {
+            "id": "weather-cap",
+            "semanticType": "construction.roof.weather-hood.cover",
+            "material": "metal",
+            "appearance": {
+              "color": "#4c6874"
+            },
+            "geometry": {
+              "type": "roof-ridge-cap",
+              "length": 0.83,
+              "legWidth": 0.34,
+              "fall": 0.085,
+              "thickness": 0.02
+            },
+            "transform": {
+              "position": [0,0.495,0]
+            }
+          }
+        ],
+        "anchors": {
+          "curb-seat": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "throat": {
+            "position": [0,0.16,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

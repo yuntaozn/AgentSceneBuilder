@@ -1,14 +1,15 @@
 {
   "schemaVersion": "0.1",
   "id": "mep.cable-tray-elbow",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "kind": "composition",
   "title": "U 形电缆桥架 · 水平弯头",
   "summary": "沿直角折线斜接的金属桥架，外宽 300 mm、外高 100 mm、壁厚 2 mm。可编辑截面轮廓和中心线。",
   "license": "Apache-2.0",
   "semanticType": "mep.cable-tray",
-  "capabilities": ["path-edit", "resize", "inspect-structure"],
+  "capabilities": ["path-edit", "resize", "inspect-structure", "attach"],
   "tags": ["MEP", "桥架", "截面扫掠", "电气"],
+  "anchors": ["start", "end"],
   "editor": {
     "document": {
       "id": "cable-tray-elbow",
@@ -26,7 +27,11 @@
             "closedProfile": true,
             "profile": [[-0.15,0], [0.15,0], [0.15,0.1], [0.148,0.1], [0.148,0.002], [-0.148,0.002], [-0.148,0.1], [-0.15,0.1]]
           }
-        }]
+        }],
+        "anchors": {
+          "start": { "node": "tray", "onGeometry": { "type": "sweep-end", "end": "start" } },
+          "end": { "node": "tray", "onGeometry": { "type": "sweep-end", "end": "end" } }
+        }
       }
     }
   }

@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.anchored-precast-floor-edge-angle",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带焊脚预制楼板包角件",
+  "summary": "连续外露 L 形钢包边，内侧三组斜锚脚可单独查看。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.floor.precast-edge-angle-embed",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "包角",
+    "预埋钢角"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "top",
+    "edge"
+  ],
+  "ai": {
+    "intent": "将钢角包边沿预制楼板外缘布置。",
+    "editableParts": [
+      "钢角展开尺寸",
+      "焊脚和位置"
+    ],
+    "qualityChecks": [
+      "锚脚朝混凝土，钢角外腿留在边线。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "anchored-precast-floor-edge-angle",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "face-angle",
+            "semanticType": "prefab.floor.edge-angle-embed.steel-angle",
+            "material": "steel",
+            "appearance": {
+              "color": "#576d78"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.45,0,0],
+                [0.45,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0,-0.062],
+                [0.006,-0.062],
+                [0.006,-0.006],
+                [0.088,-0.006],
+                [0.088,0],
+                [0,0]
+              ]
+            }
+          },
+          {
+            "id": "weld-anchor-0",
+            "semanticType": "prefab.floor.edge-angle-embed.weld-leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "radius": 0.006,
+              "points": [
+                [-0.34,-0.004,-0.066],
+                [-0.34,-0.035,-0.089],
+                [-0.34,-0.074,-0.139],
+                [-0.34,-0.074,-0.167]
+              ]
+            }
+          },
+          {
+            "id": "weld-anchor-1",
+            "semanticType": "prefab.floor.edge-angle-embed.weld-leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "radius": 0.006,
+              "points": [
+                [0,-0.004,-0.066],
+                [0,-0.035,-0.089],
+                [0,-0.074,-0.139],
+                [0,-0.074,-0.167]
+              ]
+            }
+          },
+          {
+            "id": "weld-anchor-2",
+            "semanticType": "prefab.floor.edge-angle-embed.weld-leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "radius": 0.006,
+              "points": [
+                [0.34,-0.004,-0.066],
+                [0.34,-0.035,-0.089],
+                [0.34,-0.074,-0.139],
+                [0.34,-0.074,-0.167]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [-0.45,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.45,0,0],
+            "direction": [1,0,0]
+          },
+          "top": {
+            "position": [0,0,-0.039],
+            "direction": [0,1,0]
+          },
+          "edge": {
+            "position": [0,-0.035,0],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

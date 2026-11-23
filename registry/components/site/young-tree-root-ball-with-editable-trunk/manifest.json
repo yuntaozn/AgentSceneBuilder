@@ -1,0 +1,212 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.young-tree-root-ball-with-editable-trunk",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带土球幼树栽植示意件",
+  "summary": "土球、主干、分枝和三组可单独选中的几何树冠，配有根颈和支撑基准。",
+  "license": "Apache-2.0",
+  "semanticType": "site.landscape.young-tree-root-ball",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "园林",
+    "景观",
+    "苗木",
+    "根球",
+    "树干"
+  ],
+  "anchors": [
+    "base",
+    "collar",
+    "brace"
+  ],
+  "ai": {
+    "intent": "在树池模型里定位带土球幼树并解释固定件所在位置。",
+    "editableParts": [
+      "土球",
+      "枝干",
+      "几何树冠"
+    ],
+    "qualityChecks": [
+      "主干根颈与土球顶面相连。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "young-tree-root-ball-with-editable-trunk",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "root-ball",
+            "semanticType": "site.landscape.tree-with-rootball.soil-ball",
+            "material": "soil",
+            "appearance": {
+              "color": "#897a65"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "capStart": true,
+              "capEnd": true,
+              "radialSegments": 30,
+              "sections": [
+                {
+                  "center": [0,0,0],
+                  "axisX": [0.09,0,0],
+                  "axisZ": [0,0,0.09]
+                },
+                {
+                  "center": [0,0.032,0],
+                  "axisX": [0.211,0,0],
+                  "axisZ": [0,0,0.211]
+                },
+                {
+                  "center": [0,0.155,0],
+                  "axisX": [0.258,0,0],
+                  "axisZ": [0,0,0.258]
+                },
+                {
+                  "center": [0,0.257,0],
+                  "axisX": [0.209,0,0],
+                  "axisZ": [0,0,0.209]
+                }
+              ]
+            }
+          },
+          {
+            "id": "tapered-trunk",
+            "semanticType": "site.landscape.tree-with-rootball.trunk",
+            "material": "wood",
+            "appearance": {
+              "color": "#88745e"
+            },
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.2,0],
+              "end": [0,1.97,0],
+              "startRadius": 0.074,
+              "endRadius": 0.032,
+              "radialSegments": 17
+            }
+          },
+          {
+            "id": "branch-0",
+            "semanticType": "site.landscape.tree-with-rootball.branch",
+            "material": "wood",
+            "appearance": {
+              "color": "#88745e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,1.34,0],
+              "end": [-0.255,1.8,0.11],
+              "radius": 0.023,
+              "radialSegments": 14
+            }
+          },
+          {
+            "id": "branch-1",
+            "semanticType": "site.landscape.tree-with-rootball.branch",
+            "material": "wood",
+            "appearance": {
+              "color": "#88745e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,1.4160000000000001,0],
+              "end": [0.28,1.91,-0.04],
+              "radius": 0.023,
+              "radialSegments": 14
+            }
+          },
+          {
+            "id": "branch-2",
+            "semanticType": "site.landscape.tree-with-rootball.branch",
+            "material": "wood",
+            "appearance": {
+              "color": "#88745e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,1.492,0],
+              "end": [0.03,1.865,-0.293],
+              "radius": 0.023,
+              "radialSegments": 14
+            }
+          },
+          {
+            "id": "crown-0",
+            "semanticType": "site.landscape.tree-with-rootball.crown",
+            "material": "foliage",
+            "appearance": {
+              "color": "#82926e"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.35,
+              "segments": 18
+            },
+            "transform": {
+              "position": [-0.227,1.91,0.075],
+              "scale": [1.05,1.25,0.91]
+            }
+          },
+          {
+            "id": "crown-1",
+            "semanticType": "site.landscape.tree-with-rootball.crown",
+            "material": "foliage",
+            "appearance": {
+              "color": "#9aa17b"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.33199999999999996,
+              "segments": 18
+            },
+            "transform": {
+              "position": [0.22,2.044,-0.067],
+              "scale": [1.05,1.25,0.91]
+            }
+          },
+          {
+            "id": "crown-2",
+            "semanticType": "site.landscape.tree-with-rootball.crown",
+            "material": "foliage",
+            "appearance": {
+              "color": "#82926e"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.314,
+              "segments": 18
+            },
+            "transform": {
+              "position": [0.031,1.95,-0.229],
+              "scale": [1.05,1.25,0.91]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "collar": {
+            "position": [0,0.257,0],
+            "direction": [0,1,0]
+          },
+          "brace": {
+            "position": [0,1.05,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

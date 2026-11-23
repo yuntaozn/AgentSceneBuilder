@@ -1,0 +1,167 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.bolted-floor-guardrail-post",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带四孔底板的栏杆立柱",
+  "summary": "带实际四孔底板、方形立柱和上部横杆座，可独立定位踏面及扶手。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.circulation.floor-guardrail-post",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "交通",
+    "楼梯",
+    "栏杆"
+  ],
+  "anchors": [
+    "mount",
+    "rail-axis",
+    "bolt-front-left",
+    "bolt-front-right",
+    "bolt-back-left",
+    "bolt-back-right"
+  ],
+  "ai": {
+    "intent": "在楼梯或平台边沿独立放置立柱与扶手。",
+    "editableParts": [
+      "编辑立柱、鞍座与底板孔。"
+    ],
+    "qualityChecks": [
+      "四个孔在底板厚度方向贯通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "bolted-floor-guardrail-post",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "construction.circulation.floor-guardrail-post.plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "bolted-base-plate",
+              "plateWidth": 0.136,
+              "plateDepth": 0.136,
+              "thickness": 0.012,
+              "holeDiameter": 0.012,
+              "boltPitchX": 0.091,
+              "boltPitchZ": 0.091
+            }
+          },
+          {
+            "id": "post",
+            "semanticType": "construction.circulation.floor-guardrail-post.upright",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.868,0.046]
+            },
+            "transform": {
+              "position": [0,0.446,0]
+            }
+          },
+          {
+            "id": "saddle",
+            "semanticType": "construction.circulation.floor-guardrail-post.saddle",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.028,0.903,0],
+                [0.028,0.903,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.028,3.429011037612589e-18],
+                [-0.027045923136093913,-0.007246933262870583],
+                [-0.024248711305964288,-0.013999999999999993],
+                [-0.019798989873223337,-0.01979898987322333],
+                [-0.014000000000000012,-0.024248711305964277],
+                [-0.007246933262870577,-0.027045923136093913],
+                [-5.143516556418883e-18,-0.028],
+                [0.007246933262870569,-0.027045923136093917],
+                [0.013999999999999981,-0.024248711305964295],
+                [0.019798989873223326,-0.019798989873223337],
+                [0.024248711305964288,-0.013999999999999992],
+                [0.027045923136093913,-0.007246933262870579],
+                [0.028,-6.858022075225178e-18],
+                [0.0223,-5.461924724197196e-18],
+                [0.021540145926246222,-0.005771664705786212],
+                [0.019312366504392987,-0.011149999999999993],
+                [0.015768481220460005,-0.015768481220460012],
+                [0.011149999999999985,-0.01931236650439299],
+                [0.005771664705786203,-0.021540145926246226],
+                [-4.096443543147896e-18,-0.0223],
+                [-0.00577166470578621,-0.021540145926246222],
+                [-0.01115000000000001,-0.01931236650439298],
+                [-0.015768481220460012,-0.01576848122046001],
+                [-0.019312366504392987,-0.011149999999999993],
+                [-0.021540145926246222,-0.0057716647057862135],
+                [-0.0223,2.730962362098598e-18]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "base",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "rail-axis": {
+            "position": [0,0.903,0],
+            "direction": [1,0,0],
+            "kind": "rail-axis"
+          },
+          "bolt-front-left": {
+            "node": "base",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-front-left"
+            }
+          },
+          "bolt-front-right": {
+            "node": "base",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-front-right"
+            }
+          },
+          "bolt-back-left": {
+            "node": "base",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-back-left"
+            }
+          },
+          "bolt-back-right": {
+            "node": "base",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bolt-back-right"
+            }
+          }
+        }
+      }
+    }
+  }
+}

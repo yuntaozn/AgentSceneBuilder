@@ -1,0 +1,210 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.stackable-classroom-chair-with-moulded-shell",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "连体座背可叠放课椅",
+  "summary": "连体弯面座背与带横撑的管腿分开，可以独立移动地脚或座面。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.education.stackable-moulded-shell-chair",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "教室",
+    "实训室",
+    "室内家具",
+    "课椅",
+    "座椅",
+    "叠放"
+  ],
+  "anchors": [
+    "floor",
+    "seat",
+    "back"
+  ],
+  "ai": {
+    "intent": "用简单连续座背和独立钢管腿铺设可编辑教室座位。",
+    "editableParts": [
+      "座背弯面",
+      "框架",
+      "地脚",
+      "横撑"
+    ],
+    "qualityChecks": [
+      "座面前后方向一致，四脚在同一地面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "stackable-classroom-chair-with-moulded-shell",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "moulded-shell",
+            "semanticType": "construction.education.stackable-moulded-shell-chair.seat-back",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6c8786"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.194,0,0],
+                [0.194,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.199,0.432],
+                [0.14,0.414],
+                [0.186,0.456],
+                [0.219,0.7],
+                [0.212,0.756],
+                [0.225,0.761],
+                [0.238,0.704],
+                [0.204,0.449],
+                [0.153,0.399],
+                [-0.192,0.417]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "side-frame-0",
+            "semanticType": "construction.education.stackable-moulded-shell-chair.bent-leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.172,0.024,0.207],
+                [-0.172,0.368,0.153],
+                [-0.172,0.411,0.095],
+                [-0.172,0.411,-0.105],
+                [-0.172,0.348,-0.15],
+                [-0.172,0.024,-0.204]
+              ],
+              "radius": 0.011
+            }
+          },
+          {
+            "id": "floor-glide-0-0",
+            "semanticType": "construction.education.stackable-moulded-shell-chair.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#515e63"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.172,0,-0.204],
+              "end": [-0.172,0.024,-0.204],
+              "radius": 0.015,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "floor-glide-0-1",
+            "semanticType": "construction.education.stackable-moulded-shell-chair.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#515e63"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.172,0,0.207],
+              "end": [-0.172,0.024,0.207],
+              "radius": 0.015,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "side-frame-1",
+            "semanticType": "construction.education.stackable-moulded-shell-chair.bent-leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.172,0.024,0.207],
+                [0.172,0.368,0.153],
+                [0.172,0.411,0.095],
+                [0.172,0.411,-0.105],
+                [0.172,0.348,-0.15],
+                [0.172,0.024,-0.204]
+              ],
+              "radius": 0.011
+            }
+          },
+          {
+            "id": "floor-glide-1-0",
+            "semanticType": "construction.education.stackable-moulded-shell-chair.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#515e63"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.172,0,-0.204],
+              "end": [0.172,0.024,-0.204],
+              "radius": 0.015,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "floor-glide-1-1",
+            "semanticType": "construction.education.stackable-moulded-shell-chair.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#515e63"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.172,0,0.207],
+              "end": [0.172,0.024,0.207],
+              "radius": 0.015,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "rear-tie",
+            "semanticType": "construction.education.stackable-moulded-shell-chair.brace",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.167,0.205,-0.18],
+              "end": [0.167,0.205,-0.18],
+              "radius": 0.0095,
+              "radialSegments": 20
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "seat": {
+            "position": [0,0.423,0],
+            "direction": [0,1,0]
+          },
+          "back": {
+            "position": [0,0.7,-0.232],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

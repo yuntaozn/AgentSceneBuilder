@@ -1,0 +1,161 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.double-row-buried-utility-protective-marker-tile",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双排凸肋地下管线保护板",
+  "summary": "板中两条凸筋形成识别轮廓，对边带搭接舌和凹位。",
+  "license": "Apache-2.0",
+  "semanticType": "site.utility.protective-marker-tile",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "地下管网",
+    "管线保护",
+    "警示板",
+    "回填"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "bed"
+  ],
+  "ai": {
+    "intent": "板中两条凸筋形成识别轮廓，对边带搭接舌和凹位。",
+    "editableParts": [
+      "独立编辑 protective-base、warning-rib-1、warning-rib-2、male-key、receptor-tab-1、receptor-tab-2 的尺寸与位置。"
+    ],
+    "qualityChecks": [
+      "搭接舌位于板端中心，另一端保留对应凹位。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-row-buried-utility-protective-marker-tile",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "protective-base",
+            "semanticType": "site.utility.warning-tile.face",
+            "material": "masonry",
+            "appearance": {
+              "color": "#bb8b62"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.025,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.249,-0.149],
+                [0.249,-0.149],
+                [0.249,0.149],
+                [-0.249,0.149]
+              ],
+              "closedProfile": true,
+              "holes": []
+            }
+          },
+          {
+            "id": "warning-rib-1",
+            "semanticType": "site.utility.warning-tile.rib",
+            "material": "masonry",
+            "appearance": {
+              "color": "#bb8b62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.414,0.012,0.021]
+            },
+            "transform": {
+              "position": [0,0.031,-0.087]
+            }
+          },
+          {
+            "id": "warning-rib-2",
+            "semanticType": "site.utility.warning-tile.rib",
+            "material": "masonry",
+            "appearance": {
+              "color": "#bb8b62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.414,0.012,0.021]
+            },
+            "transform": {
+              "position": [0,0.031,0.087]
+            }
+          },
+          {
+            "id": "male-key",
+            "semanticType": "site.utility.warning-tile.overlap",
+            "material": "masonry",
+            "appearance": {
+              "color": "#bb8b62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.035,0.013,0.135]
+            },
+            "transform": {
+              "position": [0.266,0.0065,0]
+            }
+          },
+          {
+            "id": "receptor-tab-1",
+            "semanticType": "site.utility.warning-tile.keyway",
+            "material": "masonry",
+            "appearance": {
+              "color": "#bb8b62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.033,0.013,0.079]
+            },
+            "transform": {
+              "position": [-0.266,0.0065,-0.113]
+            }
+          },
+          {
+            "id": "receptor-tab-2",
+            "semanticType": "site.utility.warning-tile.keyway",
+            "material": "masonry",
+            "appearance": {
+              "color": "#bb8b62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.033,0.013,0.079]
+            },
+            "transform": {
+              "position": [-0.266,0.0065,0.113]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [-0.249,0.0065,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.249,0.0065,0],
+            "direction": [1,0,0]
+          },
+          "bed": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

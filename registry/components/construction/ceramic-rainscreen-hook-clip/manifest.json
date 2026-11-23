@@ -1,0 +1,129 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.ceramic-rainscreen-hook-clip",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "陶板幕墙背挂件",
+  "summary": "包含带贯穿紧固孔的背板、上翻卡边与防松压块，卡接口连续。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.ceramic-rainscreen-hook",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "mount",
+    "cladding-seat",
+    "hook-face"
+  ],
+  "ai": {
+    "intent": "把立面陶板挂件作为独立的五金节点。",
+    "editableParts": [
+      "编辑背板孔、卡舌和可替换压垫。"
+    ],
+    "qualityChecks": [
+      "卡口与面板背面可分别旋转定位。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ceramic-rainscreen-hook-clip",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "back",
+            "semanticType": "construction.facade.ceramic-rainscreen-hook.plate",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.006]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0345,-0.0505],
+                [0.0345,-0.0505],
+                [0.0345,0.0505],
+                [-0.0345,0.0505]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.006,-0.018],
+                  [0.006,-0.018],
+                  [0.006,0.018],
+                  [-0.006,0.018]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "claw",
+            "semanticType": "construction.facade.ceramic-rainscreen-hook.claw",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8aa3b1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.034,0,0],
+                [0.034,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,-0.029],
+                [-0.058,-0.029],
+                [-0.058,0.008],
+                [-0.049,0.008],
+                [-0.049,-0.02],
+                [0,-0.02]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "pressure-pad",
+            "semanticType": "construction.facade.ceramic-rainscreen-hook.pad",
+            "material": "rubber",
+            "appearance": {
+              "color": "#465963"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.058,0.014,0.016]
+            },
+            "transform": {
+              "position": [0,0.004,0.044]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "cladding-seat": {
+            "position": [0,-0.02,0.048],
+            "direction": [0,1,0]
+          },
+          "hook-face": {
+            "position": [0,-0.015,0.058],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

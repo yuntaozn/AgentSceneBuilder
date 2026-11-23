@@ -1,0 +1,193 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.three-roller-elevator-car-guide-shoe",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "三滚轮电梯导靴",
+  "summary": "两只侧滚轮、一只正面滚轮与后托架围住轨刃，各滚轮轴向独立。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.elevator.three-roller-guide-shoe",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电梯",
+    "垂直交通",
+    "导靴",
+    "滚轮"
+  ],
+  "anchors": [
+    "rail",
+    "frame"
+  ],
+  "ai": {
+    "intent": "在轨刃外加上三向滚轮和轿架连接座。",
+    "editableParts": [
+      "两只导向轮",
+      "端向轮",
+      "托架"
+    ],
+    "qualityChecks": [
+      "轨刃中心线对准滚轮包围的槽口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "three-roller-elevator-car-guide-shoe",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mounting-flange",
+            "semanticType": "mep.elevator.roller-guide-shoe.backplate",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.163,0.127,0.017]
+            },
+            "transform": {
+              "position": [0,0,0.0855]
+            }
+          },
+          {
+            "id": "carrier-cheek-0",
+            "semanticType": "mep.elevator.roller-guide-shoe.carrier",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.02,0.089,0.092]
+            },
+            "transform": {
+              "position": [-0.054,0,0.038]
+            }
+          },
+          {
+            "id": "carrier-cheek-1",
+            "semanticType": "mep.elevator.roller-guide-shoe.carrier",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6774"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.02,0.089,0.092]
+            },
+            "transform": {
+              "position": [0.054,0,0.038]
+            }
+          },
+          {
+            "id": "side-roller-0",
+            "semanticType": "mep.elevator.roller-guide-shoe.side-roller",
+            "material": "rubber",
+            "appearance": {
+              "color": "#46545a"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.038,0,-0.037],
+              "end": [-0.038,0,-0.012],
+              "radius": 0.028,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "side-axle-0",
+            "semanticType": "mep.elevator.roller-guide-shoe.shaft",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.038,0,-0.042],
+              "end": [-0.038,0,-0.006],
+              "radius": 0.009,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "side-roller-1",
+            "semanticType": "mep.elevator.roller-guide-shoe.side-roller",
+            "material": "rubber",
+            "appearance": {
+              "color": "#46545a"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.038,0,-0.037],
+              "end": [0.038,0,-0.012],
+              "radius": 0.028,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "side-axle-1",
+            "semanticType": "mep.elevator.roller-guide-shoe.shaft",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.038,0,-0.042],
+              "end": [0.038,0,-0.006],
+              "radius": 0.009,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "nose-roller",
+            "semanticType": "mep.elevator.roller-guide-shoe.front-roller",
+            "material": "rubber",
+            "appearance": {
+              "color": "#46545a"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.025,0,0.031],
+              "end": [0.025,0,0.031],
+              "radius": 0.03,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "nose-axle",
+            "semanticType": "mep.elevator.roller-guide-shoe.front-axle",
+            "material": "steel",
+            "appearance": {
+              "color": "#81969d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.05,0,0.031],
+              "end": [0.05,0,0.031],
+              "radius": 0.008,
+              "radialSegments": 22
+            }
+          }
+        ],
+        "anchors": {
+          "rail": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "frame": {
+            "position": [0,0,0.094],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

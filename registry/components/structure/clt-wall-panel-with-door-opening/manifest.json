@@ -1,0 +1,159 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.clt-wall-panel-with-door-opening",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带门洞三层胶合木墙板",
+  "summary": "三个实体板层保留同一门洞，配合外壳夹层和独立的安装定位。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.timber.door-opening-clt-panel",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "top",
+    "door-base",
+    "door-head",
+    "opening-jamb-left",
+    "opening-jamb-right"
+  ],
+  "ai": {
+    "intent": "在木结构开间表达独立有门洞墙板。",
+    "editableParts": [
+      "调整层厚及每层洞口参数。"
+    ],
+    "qualityChecks": [
+      "保持三层洞口的位置和尺寸一致。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "clt-wall-panel-with-door-opening",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "ply-1",
+            "semanticType": "structure.timber.door-opening-clt-panel.ply",
+            "material": "clt",
+            "appearance": {
+              "color": "#c4a884"
+            },
+            "geometry": {
+              "type": "door-opening-wall",
+              "wallWidth": 2.7,
+              "wallHeight": 2.45,
+              "thickness": 0.051,
+              "openingWidth": 1.05,
+              "openingHeight": 2.09,
+              "openingOffset": 0.32
+            },
+            "transform": {
+              "position": [0,0,-0.051]
+            }
+          },
+          {
+            "id": "ply-2",
+            "semanticType": "structure.timber.door-opening-clt-panel.ply",
+            "material": "clt",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "door-opening-wall",
+              "wallWidth": 2.7,
+              "wallHeight": 2.45,
+              "thickness": 0.051,
+              "openingWidth": 1.05,
+              "openingHeight": 2.09,
+              "openingOffset": 0.32
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "ply-3",
+            "semanticType": "structure.timber.door-opening-clt-panel.ply",
+            "material": "clt",
+            "appearance": {
+              "color": "#c4a884"
+            },
+            "geometry": {
+              "type": "door-opening-wall",
+              "wallWidth": 2.7,
+              "wallHeight": 2.45,
+              "thickness": 0.051,
+              "openingWidth": 1.05,
+              "openingHeight": 2.09,
+              "openingOffset": 0.32
+            },
+            "transform": {
+              "position": [0,0,0.051]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "node": "ply-2",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "right": {
+            "node": "ply-2",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "top": {
+            "node": "ply-2",
+            "onGeometry": {
+              "type": "feature",
+              "name": "panel-top"
+            }
+          },
+          "door-base": {
+            "node": "ply-2",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "door-head": {
+            "node": "ply-2",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-top"
+            }
+          },
+          "opening-jamb-left": {
+            "node": "ply-2",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-left"
+            }
+          },
+          "opening-jamb-right": {
+            "node": "ply-2",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-right"
+            }
+          }
+        }
+      }
+    }
+  }
+}

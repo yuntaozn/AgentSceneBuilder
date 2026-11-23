@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.side-mortised-timber-post",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带侧向榫眼木柱",
+  "summary": "柱身有真正的侧向盲榫眼，单独提供柱脚、柱顶与榫眼定位。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.timber.mortised-post",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "foot",
+    "head",
+    "mortise-face",
+    "mortise-back"
+  ],
+  "ai": {
+    "intent": "与有榫梁组合展示传统木节点。",
+    "editableParts": [
+      "编辑盲孔两翼和孔深。"
+    ],
+    "qualityChecks": [
+      "榫眼连到一侧，后侧由实体材料封住。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "side-mortised-timber-post",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lower",
+            "semanticType": "structure.timber.mortised-post.wood",
+            "material": "timber",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.18,1.5,0.18]
+            },
+            "transform": {
+              "position": [0,0.75,0]
+            }
+          },
+          {
+            "id": "upper",
+            "semanticType": "structure.timber.mortised-post.wood",
+            "material": "timber",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.18,0.5,0.18]
+            },
+            "transform": {
+              "position": [0,1.85,0]
+            }
+          },
+          {
+            "id": "mortise-back",
+            "semanticType": "structure.timber.mortised-post.wood",
+            "material": "timber",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.114,0.1,0.18]
+            },
+            "transform": {
+              "position": [-0.033,1.55,0]
+            }
+          },
+          {
+            "id": "mortise-wall-0",
+            "semanticType": "structure.timber.mortised-post.wood",
+            "material": "timber",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.1,0.059]
+            },
+            "transform": {
+              "position": [0.057,1.55,-0.0605]
+            }
+          },
+          {
+            "id": "mortise-wall-1",
+            "semanticType": "structure.timber.mortised-post.wood",
+            "material": "timber",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.1,0.059]
+            },
+            "transform": {
+              "position": [0.057,1.55,0.0605]
+            }
+          }
+        ],
+        "anchors": {
+          "foot": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "head": {
+            "position": [0,2.1,0],
+            "direction": [0,1,0]
+          },
+          "mortise-face": {
+            "position": [0.09,1.55,0],
+            "direction": [1,0,0]
+          },
+          "mortise-back": {
+            "position": [0.024,1.55,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

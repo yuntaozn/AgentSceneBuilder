@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.concrete-traffic-barrier",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "预制防撞隔离墩",
+  "summary": "底部宽、顶部收窄的连续截面，两端适合排布场地分隔线。",
+  "license": "Apache-2.0",
+  "semanticType": "site.traffic.concrete-barrier",
+  "capabilities": [
+    "path-edit",
+    "attach"
+  ],
+  "tags": [
+    "建筑",
+    "室外",
+    "基础构件",
+    "交通"
+  ],
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "表达道路边界、工地通道分隔或区域围护线。",
+    "editableParts": [
+      "编辑纵向路径和凸度截面"
+    ],
+    "qualityChecks": [
+      "起点和终点在底座中心。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "concrete-traffic-barrier",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "barrier",
+            "semanticType": "site.traffic.concrete-barrier",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [2.4,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.34,0],
+                [0.34,0],
+                [0.34,0.07],
+                [0.18,0.24],
+                [0.11,0.81],
+                [-0.11,0.81],
+                [-0.18,0.24],
+                [-0.34,0.07]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "barrier",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "barrier",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.spring-latch-removable-wall-service-panel-for-bathroom-pod",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "整体卫浴弹扣可拔检修面板",
+  "summary": "内框固定，薄盖随两个弹扣一同抽出，背后检修范围独立可见。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.wet-room.wet-pod-removable-access-panel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式湿区",
+    "检修盖",
+    "弹扣",
+    "整体卫浴"
+  ],
+  "anchors": [
+    "spine",
+    "front"
+  ],
+  "ai": {
+    "intent": "内框固定，薄盖随两个弹扣一同抽出，背后检修范围独立可见。",
+    "editableParts": [
+      "可分别编辑 service-opening-edge、removable-inlay、sealed-front-cover、rear-clip-1、rear-clip-2、flush-finger-pull。"
+    ],
+    "qualityChecks": [
+      "检修口边框通透，弹扣和盖板同组随动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "spring-latch-removable-wall-service-panel-for-bathroom-pod",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "service-opening-edge",
+            "semanticType": "prefab.wet-room.service-panel.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#869b9d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.023]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.2325,-0.2235],
+                [0.2325,-0.2235],
+                [0.2325,0.2235],
+                [-0.2325,0.2235]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1935,-0.184],
+                  [0.1935,-0.184],
+                  [0.1935,0.184],
+                  [-0.1935,0.184]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "removable-inlay",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "sealed-front-cover",
+            "semanticType": "prefab.wet-room.service-panel.inlay",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c4c8bd"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.419,0.409,0.019]
+            },
+            "transform": {
+              "position": [0,0,0.015]
+            },
+            "parent": "removable-inlay"
+          },
+          {
+            "id": "rear-clip-1",
+            "semanticType": "prefab.wet-room.service-panel.spring-clip",
+            "material": "steel",
+            "appearance": {
+              "color": "#768f94"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.05,0.032]
+            },
+            "transform": {
+              "position": [-0.173,0,-0.002]
+            },
+            "parent": "removable-inlay"
+          },
+          {
+            "id": "rear-clip-2",
+            "semanticType": "prefab.wet-room.service-panel.spring-clip",
+            "material": "steel",
+            "appearance": {
+              "color": "#768f94"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.05,0.032]
+            },
+            "transform": {
+              "position": [0.173,0,-0.002]
+            },
+            "parent": "removable-inlay"
+          },
+          {
+            "id": "flush-finger-pull",
+            "semanticType": "prefab.wet-room.service-panel.pull",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4c6970"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.075,0.015,0.006]
+            },
+            "transform": {
+              "position": [0,0.144,0.025]
+            },
+            "parent": "removable-inlay"
+          }
+        ],
+        "anchors": {
+          "spine": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "front": {
+            "position": [0,0,0.027],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "remove-access-inlay",
+            "target": "removable-inlay",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0,0.128],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

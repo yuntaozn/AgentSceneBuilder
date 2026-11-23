@@ -44,9 +44,13 @@ test("sweep CLI build, GPU mesh and wire outlines agree under a hierarchy and re
   doc.transform = { position: [-2, 1, 5], rotation: [-.13, Math.PI / 4, .5], scale: [1.5, 2, -.8] };
   doc.parameters.nodes.unshift({ id: "mount", transform: { position: [3, 4, 5], rotation: [.3,.2,0], scale: [2,3,4] } });
   Object.assign(doc.parameters.nodes[1], { parent: "mount", repetition: { type: "linear", count: 2, step: [2,0,0] } });
-  const { nodes, bounds } = createDefaultRegistry().build(doc);
+  doc.parameters.anchors.start.occurrence = { index: 0 };
+  doc.parameters.anchors.end.occurrence = { index: 1 };
+  const { nodes, bounds, anchors } = createDefaultRegistry().build(doc);
   const worldVertices = [];
   assert.equal(nodes.length, 2);
+  assert.deepEqual(anchors.local.start, transformPointMatrix(nodes[0].geometry.points[0], nodes[0].matrix));
+  assert.deepEqual(anchors.local.end, transformPointMatrix(nodes[1].geometry.points.at(-1), nodes[1].matrix));
   for (const node of nodes) {
     const inComponent = p => transformPointMatrix(p, node.matrix);
     const wireBounds = pointsBounds(sweepWireLines(node.geometry).flat().map(inComponent));

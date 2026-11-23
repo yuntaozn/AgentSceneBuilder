@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.roof-valley-flashing",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "天沟谷部泛水板",
+  "summary": "两个上翻翼围绕连续 V 形最低线，供相交坡面之间导水。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.valley-flashing",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "在相交坡面的内角表达独立谷板。",
+    "editableParts": [
+      "调整转角路径、谷宽与两侧上翻。"
+    ],
+    "qualityChecks": [
+      "底部路径低于两边。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "roof-valley-flashing",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "edge",
+            "semanticType": "construction.roof.valley-flashing",
+            "material": "metal",
+            "appearance": {
+              "color": "#a1b0b6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.92,2.6]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.28,0.18],
+                [-0.28,0.105],
+                [0,0],
+                [0.28,0.105],
+                [0.28,0.18],
+                [0.272,0.18],
+                [0.272,0.112],
+                [0,0.008],
+                [-0.272,0.112],
+                [-0.272,0.18]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "edge",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

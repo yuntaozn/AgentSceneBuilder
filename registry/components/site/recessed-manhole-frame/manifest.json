@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.recessed-manhole-frame",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "内凹圆井盖座",
+  "summary": "承环和外圈围出浅凹口，井盖可落入座圈并与顶面齐平。",
+  "license": "Apache-2.0",
+  "semanticType": "site.drainage.manhole-frame",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "室外",
+    "基础构件",
+    "排水"
+  ],
+  "anchors": [
+    "cover-seat",
+    "shaft-mouth"
+  ],
+  "ai": {
+    "intent": "作为可独立盖合的圆形检修口座圈。",
+    "editableParts": [
+      "分别修改承环与上部边圈"
+    ],
+    "qualityChecks": [
+      "默认盖板外径 0.71 m，凹口净径 0.72 m。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "recessed-manhole-frame",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "seat-ring",
+            "semanticType": "site.drainage.manhole-frame",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "outerDiameter": 0.78,
+              "length": 0.135,
+              "thickness": 0.08
+            },
+            "transform": {
+              "position": [0,-0.17,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "top-ring",
+            "semanticType": "site.drainage.manhole-frame",
+            "material": "cast-iron",
+            "appearance": {
+              "color": "#505b62"
+            },
+            "geometry": {
+              "type": "steel-round-tube",
+              "outerDiameter": 0.78,
+              "length": 0.035,
+              "thickness": 0.03
+            },
+            "transform": {
+              "position": [0,-0.035,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          }
+        ],
+        "anchors": {
+          "cover-seat": {
+            "position": [0,-0.035,0],
+            "direction": [0,1,0]
+          },
+          "shaft-mouth": {
+            "position": [0,-0.17,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

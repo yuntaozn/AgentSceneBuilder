@@ -1,0 +1,2800 @@
+{
+  "schemaVersion": "0.1",
+  "id": "precast-wall-panel-installation",
+  "title": "装配式墙板的支撑、吊索、竖缝与灌浆套筒",
+  "instances": [
+    {
+      "id": "foundation",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [8,0.2,4.6]
+            },
+            "transform": {
+              "position": [1.8125,0.1,0.95]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "panel-left-seat": {
+            "position": [0,0.2,0.1],
+            "direction": [0,1,0]
+          },
+          "panel-right-seat": {
+            "position": [3.625,0.2,0.1],
+            "direction": [0,1,0]
+          },
+          "brace-left-seat": {
+            "position": [-0.9,0.2,1.96],
+            "direction": [0,1,0]
+          },
+          "brace-right-seat": {
+            "position": [0.9,0.2,1.96],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,-0.2,0]
+      }
+    },
+    {
+      "id": "panel-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inner-leaf",
+            "semanticType": "prefab.panel.inner-concrete",
+            "geometry": {
+              "type": "box",
+              "size": [3.6,3,0.12]
+            },
+            "transform": {
+              "position": [0,1.5,0.1]
+            },
+            "appearance": {
+              "color": "#a9b1b4",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "insulation",
+            "semanticType": "prefab.panel.insulation",
+            "geometry": {
+              "type": "box",
+              "size": [3.5,2.9,0.1]
+            },
+            "transform": {
+              "position": [0,1.5,-0.01]
+            },
+            "appearance": {
+              "color": "#e9ca55",
+              "opacity": 0.9
+            }
+          },
+          {
+            "id": "outer-leaf",
+            "semanticType": "prefab.panel.outer-concrete",
+            "geometry": {
+              "type": "box",
+              "size": [3.6,3,0.1]
+            },
+            "transform": {
+              "position": [0,1.5,-0.11]
+            },
+            "appearance": {
+              "color": "#c5ccce",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "connector",
+            "semanticType": "prefab.panel.connector",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-1.2,0.55,-0.18],
+              "end": [-1.2,0.55,0.18],
+              "radius": 0.035
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [3,3,1],
+              "start": [0,0,0],
+              "stepX": [1.2,0,0],
+              "stepY": [0,0.95,0],
+              "stepZ": [0,0,0]
+            },
+            "appearance": {
+              "color": "#7c8b91",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "lifting-loop",
+            "semanticType": "prefab.panel.lifting-anchor",
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.16,
+              "tubeRadius": 0.035
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [-1.05,3.12,0.08],
+              "step": [2.1,0,0]
+            },
+            "appearance": {
+              "color": "#f0a44b",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "grout-sleeve",
+            "semanticType": "prefab.panel.grout-sleeve",
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.08,
+              "height": 0.48
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [-1.2,0.24,0.1],
+              "step": [0.8,0,0]
+            },
+            "appearance": {
+              "color": "#497d9b",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "lifting-left": {
+            "node": "lifting-loop",
+            "occurrence": {
+              "index": 0
+            },
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "lifting-point"
+          },
+          "lifting-right": {
+            "node": "lifting-loop",
+            "occurrence": {
+              "index": 1
+            },
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "lifting-point"
+          },
+          "base-center": {
+            "node": "inner-leaf",
+            "position": [0,0,0.1],
+            "direction": [0,-1,0],
+            "kind": "installation-base"
+          },
+          "bearing-bottom": {
+            "node": "inner-leaf",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0],
+            "kind": "bearing-face"
+          },
+          "brace-left": {
+            "node": "inner-leaf",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.25,0,0.5]
+            },
+            "direction": [0,0,1],
+            "kind": "brace-seat"
+          },
+          "brace-right": {
+            "node": "inner-leaf",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.25,0,0.5]
+            },
+            "direction": [0,0,1],
+            "kind": "brace-seat"
+          },
+          "exterior-left-edge": {
+            "node": "outer-leaf",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,-0.5,-0.5]
+            },
+            "direction": [-1,0,0],
+            "kind": "joint-edge"
+          },
+          "exterior-right-edge": {
+            "node": "outer-leaf",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,-0.5,-0.5]
+            },
+            "direction": [1,0,0],
+            "kind": "joint-edge"
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0.025,0]
+      }
+    },
+    {
+      "id": "panel-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inner-leaf",
+            "semanticType": "prefab.panel.inner-concrete",
+            "geometry": {
+              "type": "box",
+              "size": [3.6,3,0.12]
+            },
+            "transform": {
+              "position": [0,1.5,0.1]
+            },
+            "appearance": {
+              "color": "#a9b1b4",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "insulation",
+            "semanticType": "prefab.panel.insulation",
+            "geometry": {
+              "type": "box",
+              "size": [3.5,2.9,0.1]
+            },
+            "transform": {
+              "position": [0,1.5,-0.01]
+            },
+            "appearance": {
+              "color": "#e9ca55",
+              "opacity": 0.9
+            }
+          },
+          {
+            "id": "outer-leaf",
+            "semanticType": "prefab.panel.outer-concrete",
+            "geometry": {
+              "type": "box",
+              "size": [3.6,3,0.1]
+            },
+            "transform": {
+              "position": [0,1.5,-0.11]
+            },
+            "appearance": {
+              "color": "#c5ccce",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "connector",
+            "semanticType": "prefab.panel.connector",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-1.2,0.55,-0.18],
+              "end": [-1.2,0.55,0.18],
+              "radius": 0.035
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [3,3,1],
+              "start": [0,0,0],
+              "stepX": [1.2,0,0],
+              "stepY": [0,0.95,0],
+              "stepZ": [0,0,0]
+            },
+            "appearance": {
+              "color": "#7c8b91",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "lifting-loop",
+            "semanticType": "prefab.panel.lifting-anchor",
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.16,
+              "tubeRadius": 0.035
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [-1.05,3.12,0.08],
+              "step": [2.1,0,0]
+            },
+            "appearance": {
+              "color": "#f0a44b",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "grout-sleeve",
+            "semanticType": "prefab.panel.grout-sleeve",
+            "geometry": {
+              "type": "cylinder",
+              "radius": 0.08,
+              "height": 0.48
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [-1.2,0.24,0.1],
+              "step": [0.8,0,0]
+            },
+            "appearance": {
+              "color": "#497d9b",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "lifting-left": {
+            "node": "lifting-loop",
+            "occurrence": {
+              "index": 0
+            },
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "lifting-point"
+          },
+          "lifting-right": {
+            "node": "lifting-loop",
+            "occurrence": {
+              "index": 1
+            },
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "lifting-point"
+          },
+          "base-center": {
+            "node": "inner-leaf",
+            "position": [0,0,0.1],
+            "direction": [0,-1,0],
+            "kind": "installation-base"
+          },
+          "bearing-bottom": {
+            "node": "inner-leaf",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0],
+            "kind": "bearing-face"
+          },
+          "brace-left": {
+            "node": "inner-leaf",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.25,0,0.5]
+            },
+            "direction": [0,0,1],
+            "kind": "brace-seat"
+          },
+          "brace-right": {
+            "node": "inner-leaf",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.25,0,0.5]
+            },
+            "direction": [0,0,1],
+            "kind": "brace-seat"
+          },
+          "exterior-left-edge": {
+            "node": "outer-leaf",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,-0.5,-0.5]
+            },
+            "direction": [-1,0,0],
+            "kind": "joint-edge"
+          },
+          "exterior-right-edge": {
+            "node": "outer-leaf",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,-0.5,-0.5]
+            },
+            "direction": [1,0,0],
+            "kind": "joint-edge"
+          }
+        }
+      },
+      "transform": {
+        "position": [3.625,0.025,0]
+      }
+    },
+    {
+      "id": "grout-bed-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bed",
+            "semanticType": "prefab.installation.grout-bed",
+            "material": "grout",
+            "appearance": {
+              "color": "#b7b5a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [3.6,0.025,0.32]
+            },
+            "transform": {
+              "position": [0,0.0125,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "bed",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0.3125]
+            },
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "node": "bed",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0.3125]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "grout-bed-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bed",
+            "semanticType": "prefab.installation.grout-bed",
+            "material": "grout",
+            "appearance": {
+              "color": "#b7b5a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [3.6,0.025,0.32]
+            },
+            "transform": {
+              "position": [0,0.0125,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "bed",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0.3125]
+            },
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "node": "bed",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0.3125]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.625,0,0]
+      }
+    },
+    {
+      "id": "brace-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "floor-plate",
+            "semanticType": "prefab.installation.adjustable-brace.floor-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.26,0.02,0.21]
+            },
+            "transform": {
+              "position": [0,0.01,0]
+            }
+          },
+          {
+            "id": "floor-lug",
+            "semanticType": "prefab.installation.adjustable-brace.floor-lug",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.11,0.082,0.13]
+            },
+            "transform": {
+              "position": [0,0.061,0]
+            }
+          },
+          {
+            "id": "head-plate",
+            "semanticType": "prefab.installation.adjustable-brace.head-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.23,0.17,0.016]
+            },
+            "transform": {
+              "position": [0,1.525,-1.792]
+            }
+          },
+          {
+            "id": "head-lug",
+            "semanticType": "prefab.installation.adjustable-brace.head-lug",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.1,0.09,0.05]
+            },
+            "transform": {
+              "position": [0,1.525,-1.759]
+            }
+          },
+          {
+            "id": "outer-tube",
+            "semanticType": "prefab.installation.adjustable-brace.outer-tube",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.08,0],
+                [0,0.9758999999999999,-1.0757]
+              ],
+              "up": [1,0,0],
+              "closedProfile": true,
+              "profile": [
+                [0.032,0],
+                [0.031385128972903374,0.006242890304516104],
+                [0.029564145040361176,0.012245869835682873],
+                [0.02660702759368145,0.01777824745662727],
+                [0.022627416997969524,0.02262741699796952],
+                [0.017778247456627275,0.02660702759368145],
+                [0.012245869835682875,0.029564145040361176],
+                [0.006242890304516107,0.031385128972903374],
+                [1.959434878635765e-18,0.032],
+                [-0.0062428903045161025,0.031385128972903374],
+                [-0.012245869835682871,0.029564145040361176],
+                [-0.017778247456627264,0.026607027593681453],
+                [-0.02262741699796952,0.022627416997969524],
+                [-0.026607027593681453,0.01777824745662727],
+                [-0.029564145040361176,0.012245869835682877],
+                [-0.031385128972903374,0.0062428903045161155],
+                [-0.032,3.91886975727153e-18],
+                [-0.031385128972903374,-0.006242890304516108],
+                [-0.02956414504036118,-0.01224586983568287],
+                [-0.026607027593681457,-0.017778247456627264],
+                [-0.022627416997969527,-0.02262741699796952],
+                [-0.01777824745662727,-0.02660702759368145],
+                [-0.01224586983568289,-0.02956414504036117],
+                [-0.006242890304516117,-0.031385128972903374],
+                [-5.8783046359072955e-18,-0.032],
+                [0.006242890304516106,-0.031385128972903374],
+                [0.01224586983568288,-0.029564145040361173],
+                [0.01777824745662726,-0.026607027593681457],
+                [0.022627416997969517,-0.022627416997969527],
+                [0.02660702759368145,-0.01777824745662727],
+                [0.02956414504036117,-0.012245869835682892],
+                [0.031385128972903374,-0.006242890304516119]
+              ],
+              "holes": [
+                [
+                  [0.023,0],
+                  [0.0225580614492743,0.00448707740637095],
+                  [0.021249229247759596,0.008801718944397064],
+                  [0.01912380108295854,0.01277811535945085],
+                  [0.016263455967290594,0.01626345596729059],
+                  [0.012778115359450852,0.01912380108295854],
+                  [0.008801718944397066,0.021249229247759596],
+                  [0.0044870774063709516,0.0225580614492743],
+                  [1.4083438190194562e-18,0.023],
+                  [-0.004487077406370948,0.0225580614492743],
+                  [-0.008801718944397064,0.021249229247759596],
+                  [-0.012778115359450845,0.019123801082958542],
+                  [-0.01626345596729059,0.016263455967290594],
+                  [-0.019123801082958542,0.01277811535945085],
+                  [-0.021249229247759596,0.008801718944397068],
+                  [-0.0225580614492743,0.004487077406370958],
+                  [-0.023,2.8166876380389123e-18],
+                  [-0.0225580614492743,-0.004487077406370952],
+                  [-0.021249229247759596,-0.008801718944397062],
+                  [-0.019123801082958546,-0.012778115359450845],
+                  [-0.016263455967290598,-0.01626345596729059],
+                  [-0.01277811535945085,-0.01912380108295854],
+                  [-0.008801718944397078,-0.02124922924775959],
+                  [-0.004487077406370959,-0.022558061449274296],
+                  [-4.2250314570583685e-18,-0.023],
+                  [0.004487077406370951,-0.0225580614492743],
+                  [0.00880171894439707,-0.021249229247759592],
+                  [0.012778115359450842,-0.019123801082958546],
+                  [0.016263455967290587,-0.016263455967290598],
+                  [0.01912380108295854,-0.01277811535945085],
+                  [0.02124922924775959,-0.00880171894439708],
+                  [0.022558061449274296,-0.00448707740637096]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "inner-rod",
+            "semanticType": "prefab.installation.adjustable-brace.inner-rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.7446999999999999,-0.7981],
+              "end": [0,1.525,-1.735],
+              "radius": 0.019,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "foot-pin",
+            "semanticType": "prefab.installation.adjustable-brace.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.064,0.08,0],
+              "end": [0.064,0.08,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "head-pin",
+            "semanticType": "prefab.installation.adjustable-brace.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.06,1.525,-1.735],
+              "end": [0.06,1.525,-1.735],
+              "radius": 0.013,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "foot": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "head": {
+            "position": [0,1.525,-1.8],
+            "direction": [0,0,-1]
+          },
+          "foot-pin": {
+            "position": [0,0.08,0],
+            "direction": [1,0,0]
+          },
+          "head-pin": {
+            "position": [0,1.525,-1.735],
+            "direction": [-1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.9,0,1.96]
+      }
+    },
+    {
+      "id": "brace-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "floor-plate",
+            "semanticType": "prefab.installation.adjustable-brace.floor-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.26,0.02,0.21]
+            },
+            "transform": {
+              "position": [0,0.01,0]
+            }
+          },
+          {
+            "id": "floor-lug",
+            "semanticType": "prefab.installation.adjustable-brace.floor-lug",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.11,0.082,0.13]
+            },
+            "transform": {
+              "position": [0,0.061,0]
+            }
+          },
+          {
+            "id": "head-plate",
+            "semanticType": "prefab.installation.adjustable-brace.head-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.23,0.17,0.016]
+            },
+            "transform": {
+              "position": [0,1.525,-1.792]
+            }
+          },
+          {
+            "id": "head-lug",
+            "semanticType": "prefab.installation.adjustable-brace.head-lug",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.1,0.09,0.05]
+            },
+            "transform": {
+              "position": [0,1.525,-1.759]
+            }
+          },
+          {
+            "id": "outer-tube",
+            "semanticType": "prefab.installation.adjustable-brace.outer-tube",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.08,0],
+                [0,0.9758999999999999,-1.0757]
+              ],
+              "up": [1,0,0],
+              "closedProfile": true,
+              "profile": [
+                [0.032,0],
+                [0.031385128972903374,0.006242890304516104],
+                [0.029564145040361176,0.012245869835682873],
+                [0.02660702759368145,0.01777824745662727],
+                [0.022627416997969524,0.02262741699796952],
+                [0.017778247456627275,0.02660702759368145],
+                [0.012245869835682875,0.029564145040361176],
+                [0.006242890304516107,0.031385128972903374],
+                [1.959434878635765e-18,0.032],
+                [-0.0062428903045161025,0.031385128972903374],
+                [-0.012245869835682871,0.029564145040361176],
+                [-0.017778247456627264,0.026607027593681453],
+                [-0.02262741699796952,0.022627416997969524],
+                [-0.026607027593681453,0.01777824745662727],
+                [-0.029564145040361176,0.012245869835682877],
+                [-0.031385128972903374,0.0062428903045161155],
+                [-0.032,3.91886975727153e-18],
+                [-0.031385128972903374,-0.006242890304516108],
+                [-0.02956414504036118,-0.01224586983568287],
+                [-0.026607027593681457,-0.017778247456627264],
+                [-0.022627416997969527,-0.02262741699796952],
+                [-0.01777824745662727,-0.02660702759368145],
+                [-0.01224586983568289,-0.02956414504036117],
+                [-0.006242890304516117,-0.031385128972903374],
+                [-5.8783046359072955e-18,-0.032],
+                [0.006242890304516106,-0.031385128972903374],
+                [0.01224586983568288,-0.029564145040361173],
+                [0.01777824745662726,-0.026607027593681457],
+                [0.022627416997969517,-0.022627416997969527],
+                [0.02660702759368145,-0.01777824745662727],
+                [0.02956414504036117,-0.012245869835682892],
+                [0.031385128972903374,-0.006242890304516119]
+              ],
+              "holes": [
+                [
+                  [0.023,0],
+                  [0.0225580614492743,0.00448707740637095],
+                  [0.021249229247759596,0.008801718944397064],
+                  [0.01912380108295854,0.01277811535945085],
+                  [0.016263455967290594,0.01626345596729059],
+                  [0.012778115359450852,0.01912380108295854],
+                  [0.008801718944397066,0.021249229247759596],
+                  [0.0044870774063709516,0.0225580614492743],
+                  [1.4083438190194562e-18,0.023],
+                  [-0.004487077406370948,0.0225580614492743],
+                  [-0.008801718944397064,0.021249229247759596],
+                  [-0.012778115359450845,0.019123801082958542],
+                  [-0.01626345596729059,0.016263455967290594],
+                  [-0.019123801082958542,0.01277811535945085],
+                  [-0.021249229247759596,0.008801718944397068],
+                  [-0.0225580614492743,0.004487077406370958],
+                  [-0.023,2.8166876380389123e-18],
+                  [-0.0225580614492743,-0.004487077406370952],
+                  [-0.021249229247759596,-0.008801718944397062],
+                  [-0.019123801082958546,-0.012778115359450845],
+                  [-0.016263455967290598,-0.01626345596729059],
+                  [-0.01277811535945085,-0.01912380108295854],
+                  [-0.008801718944397078,-0.02124922924775959],
+                  [-0.004487077406370959,-0.022558061449274296],
+                  [-4.2250314570583685e-18,-0.023],
+                  [0.004487077406370951,-0.0225580614492743],
+                  [0.00880171894439707,-0.021249229247759592],
+                  [0.012778115359450842,-0.019123801082958546],
+                  [0.016263455967290587,-0.016263455967290598],
+                  [0.01912380108295854,-0.01277811535945085],
+                  [0.02124922924775959,-0.00880171894439708],
+                  [0.022558061449274296,-0.00448707740637096]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "inner-rod",
+            "semanticType": "prefab.installation.adjustable-brace.inner-rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.7446999999999999,-0.7981],
+              "end": [0,1.525,-1.735],
+              "radius": 0.019,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "foot-pin",
+            "semanticType": "prefab.installation.adjustable-brace.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.064,0.08,0],
+              "end": [0.064,0.08,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "head-pin",
+            "semanticType": "prefab.installation.adjustable-brace.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.06,1.525,-1.735],
+              "end": [0.06,1.525,-1.735],
+              "radius": 0.013,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "foot": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "head": {
+            "position": [0,1.525,-1.8],
+            "direction": [0,0,-1]
+          },
+          "foot-pin": {
+            "position": [0,0.08,0],
+            "direction": [1,0,0]
+          },
+          "head-pin": {
+            "position": [0,1.525,-1.735],
+            "direction": [-1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.9,0,1.96]
+      }
+    },
+    {
+      "id": "lifting-sling",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "left-leg",
+            "semanticType": "prefab.lifting.two-leg-sling.leg",
+            "material": "wire-rope",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-1.05,0.14,0.115],
+              "end": [-0.055,1.54,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "right-leg",
+            "semanticType": "prefab.lifting.two-leg-sling.leg",
+            "material": "wire-rope",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.05,0.14,0.115],
+              "end": [0.055,1.54,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "left-eye",
+            "semanticType": "prefab.lifting.two-leg-sling.eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.1,
+              "tubeRadius": 0.012,
+              "radialSegments": 12,
+              "tubularSegments": 32
+            },
+            "transform": {
+              "position": [-1.05,0.04,0.115],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "right-eye",
+            "semanticType": "prefab.lifting.two-leg-sling.eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.1,
+              "tubeRadius": 0.012,
+              "radialSegments": 12,
+              "tubularSegments": 32
+            },
+            "transform": {
+              "position": [1.05,0.04,0.115],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "master-link",
+            "semanticType": "prefab.lifting.two-leg-sling.master-link",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.08,
+              "tubeRadius": 0.016,
+              "radialSegments": 12,
+              "tubularSegments": 32
+            },
+            "transform": {
+              "position": [0,1.6,0],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "panel-left": {
+            "position": [-1.05,0,0],
+            "direction": [0,-1,0]
+          },
+          "panel-right": {
+            "position": [1.05,0,0],
+            "direction": [0,-1,0]
+          },
+          "hoist-axis": {
+            "position": [0,1.6,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.625,3.145,0.08]
+      }
+    },
+    {
+      "id": "panel-joint",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "backer-rod",
+            "semanticType": "prefab.installation.backed-seal.backer",
+            "material": "foam",
+            "appearance": {
+              "color": "#9fb9af"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.004],
+              "end": [0,3,0.004],
+              "radius": 0.0125,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "sealant",
+            "semanticType": "prefab.installation.backed-seal.bead",
+            "material": "sealant",
+            "appearance": {
+              "color": "#303e42"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,3,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.0125,-0.01],
+                [-0.008,-0.006],
+                [0,-0.004],
+                [0.008,-0.006],
+                [0.0125,-0.01],
+                [0.0125,-0.022],
+                [0.006,-0.02],
+                [0,-0.019],
+                [-0.006,-0.02],
+                [-0.0125,-0.022]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "left-edge": {
+            "position": [-0.0125,0,-0.022],
+            "direction": [-1,0,0]
+          },
+          "right-edge": {
+            "position": [0.0125,0,-0.022],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,3,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8125,0.025,-0.138]
+      }
+    },
+    {
+      "id": "sleeve",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lower-neck",
+            "semanticType": "prefab.connection.sleeve.shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#62869b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.04,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.067,0],
+                [0.06571261378701644,0.013071051575080593],
+                [0.061899928678256215,0.025639789968461016],
+                [0.055708464024270536,0.03722320561231335],
+                [0.04737615433949869,0.04737615433949868],
+                [0.037223205612313355,0.055708464024270536],
+                [0.02563978996846102,0.061899928678256215],
+                [0.0130710515750806,0.06571261378701644],
+                [4.1025667771436334e-18,0.067],
+                [-0.01307105157508059,0.06571261378701644],
+                [-0.025639789968461012,0.061899928678256215],
+                [-0.037223205612313334,0.05570846402427054],
+                [-0.04737615433949868,0.04737615433949869],
+                [-0.05570846402427054,0.03722320561231335],
+                [-0.061899928678256215,0.025639789968461023],
+                [-0.06571261378701644,0.013071051575080617],
+                [-0.067,8.205133554287267e-18],
+                [-0.06571261378701644,-0.013071051575080601],
+                [-0.06189992867825622,-0.02563978996846101],
+                [-0.05570846402427055,-0.037223205612313334],
+                [-0.0473761543394987,-0.04737615433949868],
+                [-0.03722320561231335,-0.055708464024270536],
+                [-0.025639789968461054,-0.0618999286782562],
+                [-0.01307105157508062,-0.06571261378701644],
+                [-1.23077003314309e-17,-0.067],
+                [0.013071051575080598,-0.06571261378701644],
+                [0.025639789968461033,-0.06189992867825621],
+                [0.03722320561231333,-0.05570846402427055],
+                [0.047376154339498676,-0.0473761543394987],
+                [0.055708464024270536,-0.03722320561231335],
+                [0.0618999286782562,-0.025639789968461058],
+                [0.06571261378701644,-0.013071051575080626]
+              ],
+              "holes": [
+                [
+                  [0.027,0],
+                  [0.026481202570887222,0.005267438694435462],
+                  [0.024944747377804742,0.010332452673857424],
+                  [0.022449679532168722,0.015000396291529258],
+                  [0.019091883092036785,0.01909188309203678],
+                  [0.015000396291529262,0.022449679532168722],
+                  [0.010332452673857425,0.024944747377804742],
+                  [0.005267438694435465,0.026481202570887222],
+                  [1.6532731788489268e-18,0.027],
+                  [-0.0052674386944354615,0.026481202570887222],
+                  [-0.010332452673857422,0.024944747377804742],
+                  [-0.015000396291529253,0.022449679532168722],
+                  [-0.01909188309203678,0.019091883092036785],
+                  [-0.022449679532168722,0.015000396291529258],
+                  [-0.024944747377804742,0.010332452673857427],
+                  [-0.026481202570887222,0.005267438694435472],
+                  [-0.027,3.3065463576978537e-18],
+                  [-0.026481202570887222,-0.005267438694435466],
+                  [-0.024944747377804746,-0.01033245267385742],
+                  [-0.022449679532168726,-0.015000396291529253],
+                  [-0.01909188309203679,-0.01909188309203678],
+                  [-0.015000396291529258,-0.022449679532168722],
+                  [-0.01033245267385744,-0.024944747377804735],
+                  [-0.005267438694435474,-0.02648120257088722],
+                  [-4.95981953654678e-18,-0.027],
+                  [0.005267438694435464,-0.026481202570887222],
+                  [0.01033245267385743,-0.02494474737780474],
+                  [0.01500039629152925,-0.022449679532168726],
+                  [0.019091883092036778,-0.01909188309203679],
+                  [0.022449679532168722,-0.015000396291529258],
+                  [0.024944747377804735,-0.010332452673857441],
+                  [0.02648120257088722,-0.005267438694435475]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lower-body",
+            "semanticType": "prefab.connection.sleeve.shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#62869b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.04,0],
+                [0,0.085,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.067,0],
+                [0.06571261378701644,0.013071051575080593],
+                [0.061899928678256215,0.025639789968461016],
+                [0.055708464024270536,0.03722320561231335],
+                [0.04737615433949869,0.04737615433949868],
+                [0.037223205612313355,0.055708464024270536],
+                [0.02563978996846102,0.061899928678256215],
+                [0.0130710515750806,0.06571261378701644],
+                [4.1025667771436334e-18,0.067],
+                [-0.01307105157508059,0.06571261378701644],
+                [-0.025639789968461012,0.061899928678256215],
+                [-0.037223205612313334,0.05570846402427054],
+                [-0.04737615433949868,0.04737615433949869],
+                [-0.05570846402427054,0.03722320561231335],
+                [-0.061899928678256215,0.025639789968461023],
+                [-0.06571261378701644,0.013071051575080617],
+                [-0.067,8.205133554287267e-18],
+                [-0.06571261378701644,-0.013071051575080601],
+                [-0.06189992867825622,-0.02563978996846101],
+                [-0.05570846402427055,-0.037223205612313334],
+                [-0.0473761543394987,-0.04737615433949868],
+                [-0.03722320561231335,-0.055708464024270536],
+                [-0.025639789968461054,-0.0618999286782562],
+                [-0.01307105157508062,-0.06571261378701644],
+                [-1.23077003314309e-17,-0.067],
+                [0.013071051575080598,-0.06571261378701644],
+                [0.025639789968461033,-0.06189992867825621],
+                [0.03722320561231333,-0.05570846402427055],
+                [0.047376154339498676,-0.0473761543394987],
+                [0.055708464024270536,-0.03722320561231335],
+                [0.0618999286782562,-0.025639789968461058],
+                [0.06571261378701644,-0.013071051575080626]
+              ],
+              "holes": [
+                [
+                  [0.053,0],
+                  [0.05198161986137121,0.010339787066854797],
+                  [0.0489656152230982,0.020282221915349757],
+                  [0.044067889452034895,0.029445222350038915],
+                  [0.03747665940288702,0.03747665940288702],
+                  [0.02944522235003892,0.044067889452034895],
+                  [0.02028222191534976,0.0489656152230982],
+                  [0.0103397870668548,0.05198161986137121],
+                  [3.2453140177404857e-18,0.053],
+                  [-0.010339787066854794,0.05198161986137121],
+                  [-0.020282221915349754,0.0489656152230982],
+                  [-0.029445222350038904,0.0440678894520349],
+                  [-0.03747665940288702,0.03747665940288702],
+                  [-0.0440678894520349,0.029445222350038915],
+                  [-0.0489656152230982,0.020282221915349764],
+                  [-0.05198161986137121,0.010339787066854816],
+                  [-0.053,6.4906280354809715e-18],
+                  [-0.05198161986137121,-0.010339787066854803],
+                  [-0.048965615223098204,-0.02028222191534975],
+                  [-0.04406788945203491,-0.029445222350038904],
+                  [-0.037476659402887025,-0.03747665940288702],
+                  [-0.029445222350038915,-0.044067889452034895],
+                  [-0.02028222191534979,-0.04896561522309818],
+                  [-0.010339787066854818,-0.0519816198613712],
+                  [-9.735942053221456e-18,-0.053],
+                  [0.010339787066854799,-0.05198161986137121],
+                  [0.02028222191534977,-0.04896561522309819],
+                  [0.029445222350038897,-0.04406788945203491],
+                  [0.03747665940288701,-0.037476659402887025],
+                  [0.044067889452034895,-0.029445222350038915],
+                  [0.04896561522309818,-0.02028222191534979],
+                  [0.0519816198613712,-0.010339787066854822]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "injection-band",
+            "semanticType": "prefab.connection.sleeve.perforated-shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#62869b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.085,0],
+                [0,0.13,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.023602373629431017,0.06270508718642165],
+                [-0.03551480786798291,0.05681283677216145],
+                [-0.046029872437867415,0.048685222022228206],
+                [-0.05473384041287802,0.038642032990742106],
+                [-0.06128424447936506,0.027078430135320124],
+                [-0.06542335169409962,0.014449396288778053],
+                [-0.06698830427396395,0.0012518348528555517],
+                [-0.06591752741680414,-0.011994981419530195],
+                [-0.062253152030597184,-0.02476984178906588],
+                [-0.05613935704595509,-0.036570105147056574],
+                [-0.04781669653552683,-0.04693147698964243],
+                [-0.037612634846103186,-0.0554462776021412],
+                [-0.025928662149192743,-0.06177948267145833],
+                [-0.013224497363081405,-0.06568190519080466],
+                [-1.23077003314309e-17,-0.067],
+                [0.013224497363081322,-0.06568190519080469],
+                [0.025928662149192667,-0.06177948267145836],
+                [0.03761263484610307,-0.05544627760214128],
+                [0.047816696535526775,-0.04693147698964249],
+                [0.05613935704595503,-0.03657010514705665],
+                [0.062253152030597156,-0.02476984178906596],
+                [0.06591752741680414,-0.01199498141953022],
+                [0.06698830427396395,0.0012518348528554677],
+                [0.06542335169409963,0.014449396288778029],
+                [0.061284244479365105,0.027078430135320044],
+                [0.05473384041287805,0.038642032990742065],
+                [0.0460298724378675,0.04868522202222812],
+                [0.03551480786798295,0.05681283677216142],
+                [0.023602373629431125,0.06270508718642161],
+                [0.018670534363579842,0.04960253165493052],
+                [0.028093803238852185,0.04494149774514261],
+                [0.03641169013741757,0.03851219055489687],
+                [0.043296918535560246,0.030567578335960136],
+                [0.04847858145382612,0.02142025070405914],
+                [0.05175280059384,0.011430119452316947],
+                [0.05299074815701626,0.0009902574209155193],
+                [0.052143715717770434,-0.00948856739156868],
+                [0.049245030710770875,-0.01959405395254471],
+                [0.044408745125904724,-0.028928590638716452],
+                [0.0378251480057152,-0.037124899708224655],
+                [0.029753278311096452,-0.043860488252440114],
+                [0.02051073274488375,-0.04887033703861631],
+                [0.010461169555870299,-0.05195732798675594],
+                [-9.735942053221456e-18,-0.053],
+                [-0.010461169555870365,-0.051957327986755925],
+                [-0.02051073274488381,-0.048870337038616284],
+                [-0.029753278311096545,-0.04386048825244005],
+                [-0.03782514800571525,-0.03712489970822461],
+                [-0.044408745125904765,-0.028928590638716393],
+                [-0.0492450307107709,-0.01959405395254465],
+                [-0.052143715717770434,-0.009488567391568661],
+                [-0.05299074815701625,0.0009902574209155856],
+                [-0.05175280059383999,0.011430119452316966],
+                [-0.048478581453826095,0.0214202507040592],
+                [-0.04329691853556022,0.03056757833596017],
+                [-0.036411690137417504,0.038512190554896936],
+                [-0.02809380323885215,0.04494149774514263],
+                [-0.01867053436357976,0.04960253165493055]
+              ]
+            }
+          },
+          {
+            "id": "main-body",
+            "semanticType": "prefab.connection.sleeve.shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#62869b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.13,0],
+                [0,0.3,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.067,0],
+                [0.06571261378701644,0.013071051575080593],
+                [0.061899928678256215,0.025639789968461016],
+                [0.055708464024270536,0.03722320561231335],
+                [0.04737615433949869,0.04737615433949868],
+                [0.037223205612313355,0.055708464024270536],
+                [0.02563978996846102,0.061899928678256215],
+                [0.0130710515750806,0.06571261378701644],
+                [4.1025667771436334e-18,0.067],
+                [-0.01307105157508059,0.06571261378701644],
+                [-0.025639789968461012,0.061899928678256215],
+                [-0.037223205612313334,0.05570846402427054],
+                [-0.04737615433949868,0.04737615433949869],
+                [-0.05570846402427054,0.03722320561231335],
+                [-0.061899928678256215,0.025639789968461023],
+                [-0.06571261378701644,0.013071051575080617],
+                [-0.067,8.205133554287267e-18],
+                [-0.06571261378701644,-0.013071051575080601],
+                [-0.06189992867825622,-0.02563978996846101],
+                [-0.05570846402427055,-0.037223205612313334],
+                [-0.0473761543394987,-0.04737615433949868],
+                [-0.03722320561231335,-0.055708464024270536],
+                [-0.025639789968461054,-0.0618999286782562],
+                [-0.01307105157508062,-0.06571261378701644],
+                [-1.23077003314309e-17,-0.067],
+                [0.013071051575080598,-0.06571261378701644],
+                [0.025639789968461033,-0.06189992867825621],
+                [0.03722320561231333,-0.05570846402427055],
+                [0.047376154339498676,-0.0473761543394987],
+                [0.055708464024270536,-0.03722320561231335],
+                [0.0618999286782562,-0.025639789968461058],
+                [0.06571261378701644,-0.013071051575080626]
+              ],
+              "holes": [
+                [
+                  [0.053,0],
+                  [0.05198161986137121,0.010339787066854797],
+                  [0.0489656152230982,0.020282221915349757],
+                  [0.044067889452034895,0.029445222350038915],
+                  [0.03747665940288702,0.03747665940288702],
+                  [0.02944522235003892,0.044067889452034895],
+                  [0.02028222191534976,0.0489656152230982],
+                  [0.0103397870668548,0.05198161986137121],
+                  [3.2453140177404857e-18,0.053],
+                  [-0.010339787066854794,0.05198161986137121],
+                  [-0.020282221915349754,0.0489656152230982],
+                  [-0.029445222350038904,0.0440678894520349],
+                  [-0.03747665940288702,0.03747665940288702],
+                  [-0.0440678894520349,0.029445222350038915],
+                  [-0.0489656152230982,0.020282221915349764],
+                  [-0.05198161986137121,0.010339787066854816],
+                  [-0.053,6.4906280354809715e-18],
+                  [-0.05198161986137121,-0.010339787066854803],
+                  [-0.048965615223098204,-0.02028222191534975],
+                  [-0.04406788945203491,-0.029445222350038904],
+                  [-0.037476659402887025,-0.03747665940288702],
+                  [-0.029445222350038915,-0.044067889452034895],
+                  [-0.02028222191534979,-0.04896561522309818],
+                  [-0.010339787066854818,-0.0519816198613712],
+                  [-9.735942053221456e-18,-0.053],
+                  [0.010339787066854799,-0.05198161986137121],
+                  [0.02028222191534977,-0.04896561522309819],
+                  [0.029445222350038897,-0.04406788945203491],
+                  [0.03747665940288701,-0.037476659402887025],
+                  [0.044067889452034895,-0.029445222350038915],
+                  [0.04896561522309818,-0.02028222191534979],
+                  [0.0519816198613712,-0.010339787066854822]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "vent-band",
+            "semanticType": "prefab.connection.sleeve.perforated-shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#62869b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.3,0],
+                [0,0.345,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.023602373629431017,0.06270508718642165],
+                [-0.03551480786798291,0.05681283677216145],
+                [-0.046029872437867415,0.048685222022228206],
+                [-0.05473384041287802,0.038642032990742106],
+                [-0.06128424447936506,0.027078430135320124],
+                [-0.06542335169409962,0.014449396288778053],
+                [-0.06698830427396395,0.0012518348528555517],
+                [-0.06591752741680414,-0.011994981419530195],
+                [-0.062253152030597184,-0.02476984178906588],
+                [-0.05613935704595509,-0.036570105147056574],
+                [-0.04781669653552683,-0.04693147698964243],
+                [-0.037612634846103186,-0.0554462776021412],
+                [-0.025928662149192743,-0.06177948267145833],
+                [-0.013224497363081405,-0.06568190519080466],
+                [-1.23077003314309e-17,-0.067],
+                [0.013224497363081322,-0.06568190519080469],
+                [0.025928662149192667,-0.06177948267145836],
+                [0.03761263484610307,-0.05544627760214128],
+                [0.047816696535526775,-0.04693147698964249],
+                [0.05613935704595503,-0.03657010514705665],
+                [0.062253152030597156,-0.02476984178906596],
+                [0.06591752741680414,-0.01199498141953022],
+                [0.06698830427396395,0.0012518348528554677],
+                [0.06542335169409963,0.014449396288778029],
+                [0.061284244479365105,0.027078430135320044],
+                [0.05473384041287805,0.038642032990742065],
+                [0.0460298724378675,0.04868522202222812],
+                [0.03551480786798295,0.05681283677216142],
+                [0.023602373629431125,0.06270508718642161],
+                [0.018670534363579842,0.04960253165493052],
+                [0.028093803238852185,0.04494149774514261],
+                [0.03641169013741757,0.03851219055489687],
+                [0.043296918535560246,0.030567578335960136],
+                [0.04847858145382612,0.02142025070405914],
+                [0.05175280059384,0.011430119452316947],
+                [0.05299074815701626,0.0009902574209155193],
+                [0.052143715717770434,-0.00948856739156868],
+                [0.049245030710770875,-0.01959405395254471],
+                [0.044408745125904724,-0.028928590638716452],
+                [0.0378251480057152,-0.037124899708224655],
+                [0.029753278311096452,-0.043860488252440114],
+                [0.02051073274488375,-0.04887033703861631],
+                [0.010461169555870299,-0.05195732798675594],
+                [-9.735942053221456e-18,-0.053],
+                [-0.010461169555870365,-0.051957327986755925],
+                [-0.02051073274488381,-0.048870337038616284],
+                [-0.029753278311096545,-0.04386048825244005],
+                [-0.03782514800571525,-0.03712489970822461],
+                [-0.044408745125904765,-0.028928590638716393],
+                [-0.0492450307107709,-0.01959405395254465],
+                [-0.052143715717770434,-0.009488567391568661],
+                [-0.05299074815701625,0.0009902574209155856],
+                [-0.05175280059383999,0.011430119452316966],
+                [-0.048478581453826095,0.0214202507040592],
+                [-0.04329691853556022,0.03056757833596017],
+                [-0.036411690137417504,0.038512190554896936],
+                [-0.02809380323885215,0.04494149774514263],
+                [-0.01867053436357976,0.04960253165493055]
+              ]
+            }
+          },
+          {
+            "id": "upper-body",
+            "semanticType": "prefab.connection.sleeve.shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#62869b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.345,0],
+                [0,0.4,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.067,0],
+                [0.06571261378701644,0.013071051575080593],
+                [0.061899928678256215,0.025639789968461016],
+                [0.055708464024270536,0.03722320561231335],
+                [0.04737615433949869,0.04737615433949868],
+                [0.037223205612313355,0.055708464024270536],
+                [0.02563978996846102,0.061899928678256215],
+                [0.0130710515750806,0.06571261378701644],
+                [4.1025667771436334e-18,0.067],
+                [-0.01307105157508059,0.06571261378701644],
+                [-0.025639789968461012,0.061899928678256215],
+                [-0.037223205612313334,0.05570846402427054],
+                [-0.04737615433949868,0.04737615433949869],
+                [-0.05570846402427054,0.03722320561231335],
+                [-0.061899928678256215,0.025639789968461023],
+                [-0.06571261378701644,0.013071051575080617],
+                [-0.067,8.205133554287267e-18],
+                [-0.06571261378701644,-0.013071051575080601],
+                [-0.06189992867825622,-0.02563978996846101],
+                [-0.05570846402427055,-0.037223205612313334],
+                [-0.0473761543394987,-0.04737615433949868],
+                [-0.03722320561231335,-0.055708464024270536],
+                [-0.025639789968461054,-0.0618999286782562],
+                [-0.01307105157508062,-0.06571261378701644],
+                [-1.23077003314309e-17,-0.067],
+                [0.013071051575080598,-0.06571261378701644],
+                [0.025639789968461033,-0.06189992867825621],
+                [0.03722320561231333,-0.05570846402427055],
+                [0.047376154339498676,-0.0473761543394987],
+                [0.055708464024270536,-0.03722320561231335],
+                [0.0618999286782562,-0.025639789968461058],
+                [0.06571261378701644,-0.013071051575080626]
+              ],
+              "holes": [
+                [
+                  [0.053,0],
+                  [0.05198161986137121,0.010339787066854797],
+                  [0.0489656152230982,0.020282221915349757],
+                  [0.044067889452034895,0.029445222350038915],
+                  [0.03747665940288702,0.03747665940288702],
+                  [0.02944522235003892,0.044067889452034895],
+                  [0.02028222191534976,0.0489656152230982],
+                  [0.0103397870668548,0.05198161986137121],
+                  [3.2453140177404857e-18,0.053],
+                  [-0.010339787066854794,0.05198161986137121],
+                  [-0.020282221915349754,0.0489656152230982],
+                  [-0.029445222350038904,0.0440678894520349],
+                  [-0.03747665940288702,0.03747665940288702],
+                  [-0.0440678894520349,0.029445222350038915],
+                  [-0.0489656152230982,0.020282221915349764],
+                  [-0.05198161986137121,0.010339787066854816],
+                  [-0.053,6.4906280354809715e-18],
+                  [-0.05198161986137121,-0.010339787066854803],
+                  [-0.048965615223098204,-0.02028222191534975],
+                  [-0.04406788945203491,-0.029445222350038904],
+                  [-0.037476659402887025,-0.03747665940288702],
+                  [-0.029445222350038915,-0.044067889452034895],
+                  [-0.02028222191534979,-0.04896561522309818],
+                  [-0.010339787066854818,-0.0519816198613712],
+                  [-9.735942053221456e-18,-0.053],
+                  [0.010339787066854799,-0.05198161986137121],
+                  [0.02028222191534977,-0.04896561522309819],
+                  [0.029445222350038897,-0.04406788945203491],
+                  [0.03747665940288701,-0.037476659402887025],
+                  [0.044067889452034895,-0.029445222350038915],
+                  [0.04896561522309818,-0.02028222191534979],
+                  [0.0519816198613712,-0.010339787066854822]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "upper-neck",
+            "semanticType": "prefab.connection.sleeve.shell",
+            "material": "steel",
+            "appearance": {
+              "color": "#62869b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.4,0],
+                [0,0.44,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.067,0],
+                [0.06571261378701644,0.013071051575080593],
+                [0.061899928678256215,0.025639789968461016],
+                [0.055708464024270536,0.03722320561231335],
+                [0.04737615433949869,0.04737615433949868],
+                [0.037223205612313355,0.055708464024270536],
+                [0.02563978996846102,0.061899928678256215],
+                [0.0130710515750806,0.06571261378701644],
+                [4.1025667771436334e-18,0.067],
+                [-0.01307105157508059,0.06571261378701644],
+                [-0.025639789968461012,0.061899928678256215],
+                [-0.037223205612313334,0.05570846402427054],
+                [-0.04737615433949868,0.04737615433949869],
+                [-0.05570846402427054,0.03722320561231335],
+                [-0.061899928678256215,0.025639789968461023],
+                [-0.06571261378701644,0.013071051575080617],
+                [-0.067,8.205133554287267e-18],
+                [-0.06571261378701644,-0.013071051575080601],
+                [-0.06189992867825622,-0.02563978996846101],
+                [-0.05570846402427055,-0.037223205612313334],
+                [-0.0473761543394987,-0.04737615433949868],
+                [-0.03722320561231335,-0.055708464024270536],
+                [-0.025639789968461054,-0.0618999286782562],
+                [-0.01307105157508062,-0.06571261378701644],
+                [-1.23077003314309e-17,-0.067],
+                [0.013071051575080598,-0.06571261378701644],
+                [0.025639789968461033,-0.06189992867825621],
+                [0.03722320561231333,-0.05570846402427055],
+                [0.047376154339498676,-0.0473761543394987],
+                [0.055708464024270536,-0.03722320561231335],
+                [0.0618999286782562,-0.025639789968461058],
+                [0.06571261378701644,-0.013071051575080626]
+              ],
+              "holes": [
+                [
+                  [0.027,0],
+                  [0.026481202570887222,0.005267438694435462],
+                  [0.024944747377804742,0.010332452673857424],
+                  [0.022449679532168722,0.015000396291529258],
+                  [0.019091883092036785,0.01909188309203678],
+                  [0.015000396291529262,0.022449679532168722],
+                  [0.010332452673857425,0.024944747377804742],
+                  [0.005267438694435465,0.026481202570887222],
+                  [1.6532731788489268e-18,0.027],
+                  [-0.0052674386944354615,0.026481202570887222],
+                  [-0.010332452673857422,0.024944747377804742],
+                  [-0.015000396291529253,0.022449679532168722],
+                  [-0.01909188309203678,0.019091883092036785],
+                  [-0.022449679532168722,0.015000396291529258],
+                  [-0.024944747377804742,0.010332452673857427],
+                  [-0.026481202570887222,0.005267438694435472],
+                  [-0.027,3.3065463576978537e-18],
+                  [-0.026481202570887222,-0.005267438694435466],
+                  [-0.024944747377804746,-0.01033245267385742],
+                  [-0.022449679532168726,-0.015000396291529253],
+                  [-0.01909188309203679,-0.01909188309203678],
+                  [-0.015000396291529258,-0.022449679532168722],
+                  [-0.01033245267385744,-0.024944747377804735],
+                  [-0.005267438694435474,-0.02648120257088722],
+                  [-4.95981953654678e-18,-0.027],
+                  [0.005267438694435464,-0.026481202570887222],
+                  [0.01033245267385743,-0.02494474737780474],
+                  [0.01500039629152925,-0.022449679532168726],
+                  [0.019091883092036778,-0.01909188309203679],
+                  [0.022449679532168722,-0.015000396291529258],
+                  [0.024944747377804735,-0.010332452673857441],
+                  [0.02648120257088722,-0.005267438694435475]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "port",
+            "semanticType": "prefab.connection.sleeve.port",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.048],
+                [0,0,0.15]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.021,0],
+                [0.02059649088846784,0.004096896762338693],
+                [0.019401470182737024,0.008036352079666886],
+                [0.017460861858353452,0.011666974893411647],
+                [0.0148492424049175,0.014849242404917497],
+                [0.011666974893411649,0.017460861858353452],
+                [0.008036352079666888,0.019401470182737024],
+                [0.004096896762338695,0.02059649088846784],
+                [1.285879139104721e-18,0.021],
+                [-0.004096896762338692,0.02059649088846784],
+                [-0.008036352079666884,0.019401470182737024],
+                [-0.011666974893411642,0.017460861858353452],
+                [-0.014849242404917497,0.0148492424049175],
+                [-0.017460861858353452,0.011666974893411647],
+                [-0.019401470182737024,0.008036352079666888],
+                [-0.02059649088846784,0.004096896762338701],
+                [-0.021,2.571758278209442e-18],
+                [-0.02059649088846784,-0.004096896762338696],
+                [-0.019401470182737024,-0.008036352079666884],
+                [-0.017460861858353455,-0.011666974893411642],
+                [-0.014849242404917503,-0.014849242404917497],
+                [-0.011666974893411647,-0.017460861858353452],
+                [-0.008036352079666898,-0.019401470182737017],
+                [-0.004096896762338703,-0.02059649088846784],
+                [-3.8576374173141625e-18,-0.021],
+                [0.004096896762338695,-0.02059649088846784],
+                [0.008036352079666891,-0.01940147018273702],
+                [0.01166697489341164,-0.017460861858353455],
+                [0.014849242404917496,-0.014849242404917503],
+                [0.017460861858353452,-0.011666974893411647],
+                [0.019401470182737017,-0.008036352079666898],
+                [0.02059649088846784,-0.0040968967623387035]
+              ],
+              "holes": [
+                [
+                  [0.014,0],
+                  [0.013730993925645226,0.0027312645082257954],
+                  [0.012934313455158015,0.005357568053111257],
+                  [0.011640574572235633,0.007777983262274431],
+                  [0.009899494936611667,0.009899494936611665],
+                  [0.007777983262274432,0.011640574572235633],
+                  [0.005357568053111258,0.012934313455158015],
+                  [0.0027312645082257967,0.013730993925645226],
+                  [8.572527594031473e-19,0.014],
+                  [-0.002731264508225795,0.013730993925645226],
+                  [-0.005357568053111256,0.012934313455158015],
+                  [-0.0077779832622744275,0.011640574572235635],
+                  [-0.009899494936611665,0.009899494936611667],
+                  [-0.011640574572235635,0.007777983262274431],
+                  [-0.012934313455158015,0.0053575680531112585],
+                  [-0.013730993925645226,0.0027312645082258006],
+                  [-0.014,1.7145055188062945e-18],
+                  [-0.013730993925645226,-0.002731264508225797],
+                  [-0.012934313455158017,-0.005357568053111256],
+                  [-0.011640574572235636,-0.0077779832622744275],
+                  [-0.009899494936611668,-0.009899494936611665],
+                  [-0.007777983262274431,-0.011640574572235633],
+                  [-0.005357568053111265,-0.012934313455158011],
+                  [-0.0027312645082258015,-0.013730993925645224],
+                  [-2.5717582782094414e-18,-0.014],
+                  [0.0027312645082257963,-0.013730993925645226],
+                  [0.00535756805311126,-0.012934313455158013],
+                  [0.007777983262274426,-0.011640574572235636],
+                  [0.009899494936611663,-0.009899494936611668],
+                  [0.011640574572235633,-0.007777983262274431],
+                  [0.012934313455158011,-0.0053575680531112654],
+                  [0.013730993925645224,-0.0027312645082258023]
+                ]
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0.1075,0],
+              "step": [0,0.215,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom-rebar": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top-rebar": {
+            "position": [0,0.44,0],
+            "direction": [0,1,0]
+          },
+          "grout-in": {
+            "node": "port",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            },
+            "occurrence": {
+              "index": 0
+            }
+          },
+          "grout-out": {
+            "node": "port",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            },
+            "occurrence": {
+              "index": 1
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [7,0,0.15]
+      }
+    },
+    {
+      "id": "starter-bar",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bar",
+            "semanticType": "prefab.rebar.starter",
+            "material": "steel",
+            "appearance": {
+              "color": "#71828d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.16,0],
+              "end": [0,0.28,0],
+              "radius": 0.014
+            }
+          },
+          {
+            "id": "rib",
+            "semanticType": "prefab.rebar.starter-rib",
+            "material": "steel",
+            "appearance": {
+              "color": "#465860"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.014,
+              "tubeRadius": 0.002,
+              "radialSegments": 8,
+              "tubularSegments": 16
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 11,
+              "start": [0,0.015,0],
+              "step": [0,0.024,0]
+            }
+          }
+        ],
+        "anchors": {
+          "insertion-datum": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "tip": {
+            "position": [0,0.28,0],
+            "direction": [0,1,0]
+          },
+          "embedded-end": {
+            "position": [0,-0.16,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [7,0,0.15]
+      }
+    },
+    {
+      "id": "inlet-elbow",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tube",
+            "semanticType": "prefab.connection.grout-tube",
+            "material": "polymer",
+            "appearance": {
+              "color": "#558da3"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.075],
+                [0,0.016,0.114],
+                [0,0.06,0.133],
+                [0,0.15,0.133]
+              ],
+              "up": [1,0,0],
+              "closedProfile": true,
+              "profile": [
+                [0.02,0],
+                [0.01961570560806461,0.003901806440322565],
+                [0.018477590650225736,0.007653668647301796],
+                [0.016629392246050905,0.011111404660392043],
+                [0.014142135623730952,0.014142135623730949],
+                [0.011111404660392047,0.016629392246050905],
+                [0.007653668647301797,0.018477590650225736],
+                [0.003901806440322567,0.01961570560806461],
+                [1.2246467991473532e-18,0.02],
+                [-0.003901806440322564,0.01961570560806461],
+                [-0.007653668647301794,0.018477590650225736],
+                [-0.01111140466039204,0.01662939224605091],
+                [-0.014142135623730949,0.014142135623730952],
+                [-0.01662939224605091,0.011111404660392043],
+                [-0.018477590650225736,0.007653668647301798],
+                [-0.01961570560806461,0.003901806440322572],
+                [-0.02,2.4492935982947064e-18],
+                [-0.01961570560806461,-0.0039018064403225673],
+                [-0.018477590650225736,-0.0076536686473017935],
+                [-0.01662939224605091,-0.01111140466039204],
+                [-0.014142135623730954,-0.014142135623730949],
+                [-0.011111404660392043,-0.016629392246050905],
+                [-0.0076536686473018065,-0.01847759065022573],
+                [-0.0039018064403225734,-0.019615705608064606],
+                [-3.673940397442059e-18,-0.02],
+                [0.003901806440322566,-0.01961570560806461],
+                [0.0076536686473018005,-0.018477590650225733],
+                [0.011111404660392036,-0.01662939224605091],
+                [0.014142135623730947,-0.014142135623730954],
+                [0.016629392246050905,-0.011111404660392043],
+                [0.01847759065022573,-0.007653668647301808],
+                [0.019615705608064606,-0.0039018064403225747]
+              ],
+              "holes": [
+                [
+                  [0.014,0],
+                  [0.013730993925645226,0.0027312645082257954],
+                  [0.012934313455158015,0.005357568053111257],
+                  [0.011640574572235633,0.007777983262274431],
+                  [0.009899494936611667,0.009899494936611665],
+                  [0.007777983262274432,0.011640574572235633],
+                  [0.005357568053111258,0.012934313455158015],
+                  [0.0027312645082257967,0.013730993925645226],
+                  [8.572527594031473e-19,0.014],
+                  [-0.002731264508225795,0.013730993925645226],
+                  [-0.005357568053111256,0.012934313455158015],
+                  [-0.0077779832622744275,0.011640574572235635],
+                  [-0.009899494936611665,0.009899494936611667],
+                  [-0.011640574572235635,0.007777983262274431],
+                  [-0.012934313455158015,0.0053575680531112585],
+                  [-0.013730993925645226,0.0027312645082258006],
+                  [-0.014,1.7145055188062945e-18],
+                  [-0.013730993925645226,-0.002731264508225797],
+                  [-0.012934313455158017,-0.005357568053111256],
+                  [-0.011640574572235636,-0.0077779832622744275],
+                  [-0.009899494936611668,-0.009899494936611665],
+                  [-0.007777983262274431,-0.011640574572235633],
+                  [-0.005357568053111265,-0.012934313455158011],
+                  [-0.0027312645082258015,-0.013730993925645224],
+                  [-2.5717582782094414e-18,-0.014],
+                  [0.0027312645082257963,-0.013730993925645226],
+                  [0.00535756805311126,-0.012934313455158013],
+                  [0.007777983262274426,-0.011640574572235636],
+                  [0.009899494936611663,-0.009899494936611668],
+                  [0.011640574572235633,-0.007777983262274431],
+                  [0.012934313455158011,-0.0053575680531112654],
+                  [0.013730993925645224,-0.0027312645082258023]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "tube",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "tube",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [7,0.1075,0.3]
+      }
+    },
+    {
+      "id": "outlet-elbow",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tube",
+            "semanticType": "prefab.connection.grout-tube",
+            "material": "polymer",
+            "appearance": {
+              "color": "#558da3"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.075],
+                [0,0.016,0.114],
+                [0,0.06,0.133],
+                [0,0.15,0.133]
+              ],
+              "up": [1,0,0],
+              "closedProfile": true,
+              "profile": [
+                [0.02,0],
+                [0.01961570560806461,0.003901806440322565],
+                [0.018477590650225736,0.007653668647301796],
+                [0.016629392246050905,0.011111404660392043],
+                [0.014142135623730952,0.014142135623730949],
+                [0.011111404660392047,0.016629392246050905],
+                [0.007653668647301797,0.018477590650225736],
+                [0.003901806440322567,0.01961570560806461],
+                [1.2246467991473532e-18,0.02],
+                [-0.003901806440322564,0.01961570560806461],
+                [-0.007653668647301794,0.018477590650225736],
+                [-0.01111140466039204,0.01662939224605091],
+                [-0.014142135623730949,0.014142135623730952],
+                [-0.01662939224605091,0.011111404660392043],
+                [-0.018477590650225736,0.007653668647301798],
+                [-0.01961570560806461,0.003901806440322572],
+                [-0.02,2.4492935982947064e-18],
+                [-0.01961570560806461,-0.0039018064403225673],
+                [-0.018477590650225736,-0.0076536686473017935],
+                [-0.01662939224605091,-0.01111140466039204],
+                [-0.014142135623730954,-0.014142135623730949],
+                [-0.011111404660392043,-0.016629392246050905],
+                [-0.0076536686473018065,-0.01847759065022573],
+                [-0.0039018064403225734,-0.019615705608064606],
+                [-3.673940397442059e-18,-0.02],
+                [0.003901806440322566,-0.01961570560806461],
+                [0.0076536686473018005,-0.018477590650225733],
+                [0.011111404660392036,-0.01662939224605091],
+                [0.014142135623730947,-0.014142135623730954],
+                [0.016629392246050905,-0.011111404660392043],
+                [0.01847759065022573,-0.007653668647301808],
+                [0.019615705608064606,-0.0039018064403225747]
+              ],
+              "holes": [
+                [
+                  [0.014,0],
+                  [0.013730993925645226,0.0027312645082257954],
+                  [0.012934313455158015,0.005357568053111257],
+                  [0.011640574572235633,0.007777983262274431],
+                  [0.009899494936611667,0.009899494936611665],
+                  [0.007777983262274432,0.011640574572235633],
+                  [0.005357568053111258,0.012934313455158015],
+                  [0.0027312645082257967,0.013730993925645226],
+                  [8.572527594031473e-19,0.014],
+                  [-0.002731264508225795,0.013730993925645226],
+                  [-0.005357568053111256,0.012934313455158015],
+                  [-0.0077779832622744275,0.011640574572235635],
+                  [-0.009899494936611665,0.009899494936611667],
+                  [-0.011640574572235635,0.007777983262274431],
+                  [-0.012934313455158015,0.0053575680531112585],
+                  [-0.013730993925645226,0.0027312645082258006],
+                  [-0.014,1.7145055188062945e-18],
+                  [-0.013730993925645226,-0.002731264508225797],
+                  [-0.012934313455158017,-0.005357568053111256],
+                  [-0.011640574572235636,-0.0077779832622744275],
+                  [-0.009899494936611668,-0.009899494936611665],
+                  [-0.007777983262274431,-0.011640574572235633],
+                  [-0.005357568053111265,-0.012934313455158011],
+                  [-0.0027312645082258015,-0.013730993925645224],
+                  [-2.5717582782094414e-18,-0.014],
+                  [0.0027312645082257963,-0.013730993925645226],
+                  [0.00535756805311126,-0.012934313455158013],
+                  [0.007777983262274426,-0.011640574572235636],
+                  [0.009899494936611663,-0.009899494936611668],
+                  [0.011640574572235633,-0.007777983262274431],
+                  [0.012934313455158011,-0.0053575680531112654],
+                  [0.013730993925645224,-0.0027312645082258023]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "tube",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "tube",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [7,0.3225,0.3]
+      }
+    },
+    {
+      "id": "outlet-plug",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "spigot",
+            "semanticType": "prefab.connection.port-plug.spigot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#303e42"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.035,0],
+              "end": [0,0,0],
+              "radius": 0.013,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "shoulder",
+            "semanticType": "prefab.connection.port-plug.stop",
+            "material": "rubber",
+            "appearance": {
+              "color": "#303e42"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.01,0],
+              "radius": 0.022,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pull-tab",
+            "semanticType": "prefab.connection.port-plug.pull",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.014,
+              "tubeRadius": 0.0035,
+              "radialSegments": 12,
+              "tubularSegments": 32
+            },
+            "transform": {
+              "position": [0,0.025,0],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "seat": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "tip": {
+            "position": [0,-0.035,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [7,0.4725,0.433]
+      }
+    },
+    {
+      "id": "lifting-eye",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "eye",
+            "semanticType": "prefab.lifting.embedded-eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.013],
+                [0,0,0.013]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.055,0],
+                [0.055,0],
+                [0.055,0.092],
+                [0.039,0.13],
+                [0,0.146],
+                [-0.039,0.13],
+                [-0.055,0.092]
+              ],
+              "holes": [
+                [
+                  [0.028,0.091],
+                  [0.02746198785129045,0.09646252901645158],
+                  [0.02586862691031603,0.10171513610622251],
+                  [0.023281149144471266,0.10655596652454886],
+                  [0.019798989873223333,0.11079898987322333],
+                  [0.015555966524548864,0.11428114914447127],
+                  [0.010715136106222515,0.11686862691031602],
+                  [0.005462529016451593,0.11846198785129045],
+                  [1.7145055188062945e-18,0.119],
+                  [-0.00546252901645159,0.11846198785129045],
+                  [-0.010715136106222512,0.11686862691031602],
+                  [-0.015555966524548855,0.11428114914447127],
+                  [-0.01979898987322333,0.11079898987322333],
+                  [-0.02328114914447127,0.10655596652454886],
+                  [-0.02586862691031603,0.10171513610622251],
+                  [-0.02746198785129045,0.0964625290164516],
+                  [-0.028,0.091],
+                  [-0.02746198785129045,0.0855374709835484],
+                  [-0.025868626910316033,0.08028486389377748],
+                  [-0.023281149144471273,0.07544403347545114],
+                  [-0.019798989873223337,0.07120101012677667],
+                  [-0.015555966524548862,0.06771885085552873],
+                  [-0.01071513610622253,0.06513137308968397],
+                  [-0.005462529016451603,0.06353801214870955],
+                  [-5.143516556418883e-18,0.063],
+                  [0.0054625290164515925,0.06353801214870955],
+                  [0.01071513610622252,0.06513137308968397],
+                  [0.015555966524548851,0.06771885085552873],
+                  [0.019798989873223326,0.07120101012677665],
+                  [0.023281149144471266,0.07544403347545113],
+                  [0.025868626910316023,0.08028486389377747],
+                  [0.027461987851290448,0.08553747098354839]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "stem",
+            "semanticType": "prefab.lifting.embedded-eye.stem",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.16,0],
+              "end": [0,0,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "head",
+            "semanticType": "prefab.lifting.embedded-eye.head",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.172,0],
+              "end": [0,-0.16,0],
+              "radius": 0.036,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "lifting-axis": {
+            "position": [0,0.091,0],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [8.5,0,0.15]
+      }
+    },
+    {
+      "id": "shackle",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bow",
+            "semanticType": "prefab.lifting.bow-shackle.bow",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.042,0,0],
+                [-0.046,0.055,0],
+                [-0.045,0.064,0],
+                [-0.041574578963007904,0.08122075445642904,0],
+                [-0.03181980515339464,0.09581980515339464,0],
+                [-0.017220754456429038,0.1055745789630079,0],
+                [2.7554552980815448e-18,0.109,0],
+                [0.01722075445642904,0.1055745789630079,0],
+                [0.03181980515339464,0.09581980515339464,0],
+                [0.041574578963007904,0.08122075445642904,0],
+                [0.045,0.064,0],
+                [0.046,0.055,0],
+                [0.042,0,0]
+              ],
+              "radius": 0.012
+            }
+          },
+          {
+            "id": "pin",
+            "semanticType": "prefab.lifting.bow-shackle.pin",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.067,0,0],
+              "end": [0.066,0,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "pin-head",
+            "semanticType": "prefab.lifting.bow-shackle.pin-head",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.078,0,0],
+              "end": [-0.066,0,0],
+              "radius": 0.021,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "pin-axis": {
+            "position": [0,0,0],
+            "direction": [1,0,0]
+          },
+          "crown": {
+            "position": [0,0.109,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [8.5,0.091,0.15],
+        "rotation": [0,1.5707963267948966,0]
+      }
+    },
+    {
+      "id": "shim-pack",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lower",
+            "semanticType": "prefab.installation.level-shim",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.17,0.012,0.1]
+            },
+            "transform": {
+              "position": [0,0.006,0]
+            }
+          },
+          {
+            "id": "middle",
+            "semanticType": "prefab.installation.level-shim",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.16,0.008,0.095]
+            },
+            "transform": {
+              "position": [0,0.016,0]
+            }
+          },
+          {
+            "id": "upper",
+            "semanticType": "prefab.installation.level-shim",
+            "material": "steel",
+            "appearance": {
+              "color": "#a0acb3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.15,0.005,0.09]
+            },
+            "transform": {
+              "position": [0,0.0225,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "lower",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "node": "upper",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [7.55,0,0.15]
+      }
+    },
+    {
+      "id": "embed-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "prefab.connection.studded-embed",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.22,0.012,0.16]
+            },
+            "transform": {
+              "position": [0,-0.006,0]
+            }
+          },
+          {
+            "id": "shaft",
+            "semanticType": "prefab.connection.studded-embed.stud",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,-0.134,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [2,1,2],
+              "start": [-0.07,0,-0.045],
+              "stepX": [0.14,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.09]
+            }
+          },
+          {
+            "id": "head",
+            "semanticType": "prefab.connection.studded-embed.stud-head",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.134,0],
+              "end": [0,-0.145,0],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [2,1,2],
+              "start": [-0.07,0,-0.045],
+              "stepX": [0.14,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.09]
+            }
+          }
+        ],
+        "anchors": {
+          "face": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "underside": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [7.55,0,0.65]
+      }
+    },
+    {
+      "id": "splice-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "prefab.connection.slotted-splice-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "slotted-splice-plate",
+              "plateLength": 0.24,
+              "plateWidth": 0.12,
+              "thickness": 0.012,
+              "slotLength": 0.048,
+              "slotWidth": 0.022,
+              "pitchX": 0.13,
+              "pitchZ": 0.07
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "face": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "face"
+            }
+          },
+          "slot-front-left": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slot-front-left"
+            }
+          },
+          "slot-front-right": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slot-front-right"
+            }
+          },
+          "slot-back-left": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slot-back-left"
+            }
+          },
+          "slot-back-right": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "feature",
+              "name": "slot-back-right"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [8.5,0,0.65]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "foundation#panel-left-seat",
+      "to": "grout-bed-left#bottom",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "foundation#panel-right-seat",
+      "to": "grout-bed-right#bottom",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "grout-bed-left#top",
+      "to": "panel-left#bearing-bottom",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "grout-bed-right#top",
+      "to": "panel-right#bearing-bottom",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "foundation#brace-left-seat",
+      "to": "brace-left#foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "foundation#brace-right-seat",
+      "to": "brace-right#foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "panel-left#brace-left",
+      "to": "brace-left#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "panel-left#brace-right",
+      "to": "brace-right#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "panel-right#lifting-left",
+      "to": "lifting-sling#panel-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "panel-right#lifting-right",
+      "to": "lifting-sling#panel-right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "panel-left#exterior-right-edge",
+      "to": "panel-joint#left-edge",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "panel-right#exterior-left-edge",
+      "to": "panel-joint#right-edge",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "sleeve#bottom-rebar",
+      "to": "starter-bar#insertion-datum",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "sleeve#grout-in",
+      "to": "inlet-elbow#inlet",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "sleeve#grout-out",
+      "to": "outlet-elbow#inlet",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "outlet-elbow#outlet",
+      "to": "outlet-plug#seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "lifting-eye#lifting-axis",
+      "to": "shackle#pin-axis",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

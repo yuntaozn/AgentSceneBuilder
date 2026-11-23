@@ -1,0 +1,240 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.winged-low-profile-access-threshold-transition",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带双侧翼的低门槛过渡板",
+  "summary": "中央浅坡、两侧倒角翼和固定底面，端边可以接门洞标高。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.public-washroom.winged-low-entry-threshold",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "门槛",
+    "过渡",
+    "无障碍"
+  ],
+  "anchors": [
+    "base",
+    "low",
+    "high"
+  ],
+  "ai": {
+    "intent": "把一对不同标高的地坪接到同一个低过渡件。",
+    "editableParts": [
+      "浅坡",
+      "两侧翼",
+      "表面沟纹"
+    ],
+    "qualityChecks": [
+      "坡面分别接高、低端基准。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "winged-low-profile-access-threshold-transition",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "central-transition",
+            "semanticType": "construction.public-washroom.winged-low-entry-threshold.ramp",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.496,0,0],
+                [0.496,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.147,0],
+                [0.147,0],
+                [0.147,0.039],
+                [0.098,0.039],
+                [-0.147,0.005]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "edge-wing-0",
+            "semanticType": "construction.public-washroom.winged-low-entry-threshold.side-wing",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 3,
+              "capStart": true,
+              "capEnd": true,
+              "sections": [
+                {
+                  "center": [0,0,-0.147],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [-0.494,0],
+                    [-0.57,0],
+                    [-0.494,0.039]
+                  ]
+                },
+                {
+                  "center": [0,0,-0.098],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [-0.494,0],
+                    [-0.57,0],
+                    [-0.494,0.039]
+                  ]
+                },
+                {
+                  "center": [0,0,0.147],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [-0.494,0],
+                    [-0.57,0],
+                    [-0.494,0.005]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "edge-wing-1",
+            "semanticType": "construction.public-washroom.winged-low-entry-threshold.side-wing",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 3,
+              "capStart": true,
+              "capEnd": true,
+              "sections": [
+                {
+                  "center": [0,0,-0.147],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [0.494,0],
+                    [0.57,0],
+                    [0.494,0.039]
+                  ]
+                },
+                {
+                  "center": [0,0,-0.098],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [0.494,0],
+                    [0.57,0],
+                    [0.494,0.039]
+                  ]
+                },
+                {
+                  "center": [0,0,0.147],
+                  "axisX": [1,0,0],
+                  "axisZ": [0,1,0],
+                  "profile": [
+                    [0.494,0],
+                    [0.57,0],
+                    [0.494,0.005]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "top-rib-0",
+            "semanticType": "construction.public-washroom.winged-low-entry-threshold.surface-rib",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.968,0.003,0.006]
+            },
+            "transform": {
+              "position": [0,0.03716938775510204,-0.074]
+            }
+          },
+          {
+            "id": "top-rib-1",
+            "semanticType": "construction.public-washroom.winged-low-entry-threshold.surface-rib",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.968,0.003,0.006]
+            },
+            "transform": {
+              "position": [0,0.029675510204081636,-0.02]
+            }
+          },
+          {
+            "id": "top-rib-2",
+            "semanticType": "construction.public-washroom.winged-low-entry-threshold.surface-rib",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.968,0.003,0.006]
+            },
+            "transform": {
+              "position": [0,0.022181632653061226,0.034]
+            }
+          },
+          {
+            "id": "top-rib-3",
+            "semanticType": "construction.public-washroom.winged-low-entry-threshold.surface-rib",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.968,0.003,0.006]
+            },
+            "transform": {
+              "position": [0,0.014687755102040815,0.088]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "low": {
+            "position": [0,0.005,0.147],
+            "direction": [0,0,1]
+          },
+          "high": {
+            "position": [0,0.039,-0.147],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

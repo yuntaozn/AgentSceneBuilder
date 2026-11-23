@@ -1,0 +1,177 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.raised-pedestrian-table-end-ramp-with-inset-stripes",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "高台人行横道带嵌入标条坡段",
+  "summary": "斜坡与高台平接，四条浅色条沿实际坡面独立铺设。",
+  "license": "Apache-2.0",
+  "semanticType": "site.parking.raised-crosswalk-ramp",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "停车与慢行",
+    "人行横道",
+    "抬升过街",
+    "坡段"
+  ],
+  "anchors": [
+    "base",
+    "grade",
+    "raised"
+  ],
+  "ai": {
+    "intent": "斜坡与高台平接，四条浅色条沿实际坡面独立铺设。",
+    "editableParts": [
+      "可分别编辑 raised-asphalt-ramp、visible-ramp-stripe-1、visible-ramp-stripe-2、visible-ramp-stripe-3、visible-ramp-stripe-4。"
+    ],
+    "qualityChecks": [
+      "走行坡沿 X 上升，标条沿地形倾斜。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "raised-pedestrian-table-end-ramp-with-inset-stripes",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "raised-asphalt-ramp",
+            "semanticType": "site.parking.crossing.ramp",
+            "material": "asphalt",
+            "appearance": {
+              "color": "#777d7c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.67],
+                [0,0,0.67]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.422,0],
+                [-0.422,-0.064],
+                [0.42,-0.064],
+                [0.42,0.1],
+                [0.249,0.1]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "visible-ramp-stripe-1",
+            "semanticType": "site.parking.crossing.stripe",
+            "material": "paint",
+            "appearance": {
+              "color": "#cdd4c6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.598],
+                [0,0,-0.376]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.337,0.012],
+                [0.19,0.091],
+                [0.19,0.095],
+                [-0.337,0.016]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "visible-ramp-stripe-2",
+            "semanticType": "site.parking.crossing.stripe",
+            "material": "paint",
+            "appearance": {
+              "color": "#cdd4c6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.273],
+                [0,0,-0.051000000000000004]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.337,0.012],
+                [0.19,0.091],
+                [0.19,0.095],
+                [-0.337,0.016]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "visible-ramp-stripe-3",
+            "semanticType": "site.parking.crossing.stripe",
+            "material": "paint",
+            "appearance": {
+              "color": "#cdd4c6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.051000000000000004],
+                [0,0,0.273]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.337,0.012],
+                [0.19,0.091],
+                [0.19,0.095],
+                [-0.337,0.016]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "visible-ramp-stripe-4",
+            "semanticType": "site.parking.crossing.stripe",
+            "material": "paint",
+            "appearance": {
+              "color": "#cdd4c6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.376],
+                [0,0,0.598]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.337,0.012],
+                [0.19,0.091],
+                [0.19,0.095],
+                [-0.337,0.016]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,-0.064,0],
+            "direction": [0,-1,0]
+          },
+          "grade": {
+            "position": [-0.422,0,0],
+            "direction": [-1,0,0]
+          },
+          "raised": {
+            "position": [0.42,0.1,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

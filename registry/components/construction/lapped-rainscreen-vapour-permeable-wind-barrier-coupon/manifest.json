@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.lapped-rainscreen-vapour-permeable-wind-barrier-coupon",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "通风墙防风透汽膜搭接样片",
+  "summary": "两层膜带错缝叠压，压带和固定点分开，便于展示接缝先后。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.rainscreen.lapped-wind-barrier",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "干挂外墙",
+    "防风膜",
+    "搭接",
+    "保温"
+  ],
+  "anchors": [
+    "back",
+    "lap"
+  ],
+  "ai": {
+    "intent": "两层膜带错缝叠压，压带和固定点分开，便于展示接缝先后。",
+    "editableParts": [
+      "可分别编辑 bottom-sheet、overlap-sheet、continuous-lap-bonding-strip、fixing-witness-1、fixing-witness-2。"
+    ],
+    "qualityChecks": [
+      "叠压宽度可从背面和剖面看出，胶带独立。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "lapped-rainscreen-vapour-permeable-wind-barrier-coupon",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bottom-sheet",
+            "semanticType": "construction.rainscreen.wind-layer.bottom",
+            "material": "plastic",
+            "appearance": {
+              "color": "#648482"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.562,0.399,0.004]
+            },
+            "transform": {
+              "position": [-0.208,0,0]
+            }
+          },
+          {
+            "id": "overlap-sheet",
+            "semanticType": "construction.rainscreen.wind-layer.overlap",
+            "material": "plastic",
+            "appearance": {
+              "color": "#789391"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.558,0.4,0.004]
+            },
+            "transform": {
+              "position": [0.279,0,0.0055]
+            }
+          },
+          {
+            "id": "continuous-lap-bonding-strip",
+            "semanticType": "construction.rainscreen.wind-layer.adhered-tape",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4c6269"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.396,0.002]
+            },
+            "transform": {
+              "position": [0.038,0,0.0085]
+            }
+          },
+          {
+            "id": "fixing-witness-1",
+            "semanticType": "construction.rainscreen.wind-layer.witness",
+            "material": "steel",
+            "appearance": {
+              "color": "#899c9c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.041,-0.149,0.009],
+              "end": [0.041,-0.149,0.012],
+              "radius": 0.008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "fixing-witness-2",
+            "semanticType": "construction.rainscreen.wind-layer.witness",
+            "material": "steel",
+            "appearance": {
+              "color": "#899c9c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.041,0.149,0.009],
+              "end": [0.041,0.149,0.012],
+              "radius": 0.008,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "back": {
+            "position": [0,0,-0.002],
+            "direction": [0,0,-1]
+          },
+          "lap": {
+            "position": [0.038,0,0.0095],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

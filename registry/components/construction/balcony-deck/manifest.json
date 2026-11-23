@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.balcony-deck",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带边梁阳台板",
+  "summary": "带连续下挂边梁的悬挑板，板面在局部 Y=0，提供正面栏杆两端定位点。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.balcony-deck",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "阳台",
+    "边梁",
+    "外立面",
+    "基础构件"
+  ],
+  "parameters": {
+    "deckWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.4
+    },
+    "projection": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.1
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.16
+    },
+    "edgeWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.14
+    },
+    "downstand": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.12
+    }
+  },
+  "anchors": [
+    "mount",
+    "front",
+    "railing-left",
+    "railing-right"
+  ],
+  "ai": {
+    "intent": "用同一个截面同时表达外挑平台和其外侧下挂边梁。",
+    "qualityChecks": [
+      "板面应与相邻楼板齐平。",
+      "按栏杆实际长度检查两个定位点。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "balcony-deck",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "deck",
+            "semanticType": "construction.facade.balcony-deck",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a6adad"
+            },
+            "geometry": {
+              "type": "balcony-deck",
+              "deckWidth": 2.4,
+              "projection": 1.1,
+              "thickness": 0.16,
+              "edgeWidth": 0.14,
+              "downstand": 0.12
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "deck",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "front": {
+            "node": "deck",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          },
+          "railing-left": {
+            "node": "deck",
+            "onGeometry": {
+              "type": "feature",
+              "name": "railing-left"
+            }
+          },
+          "railing-right": {
+            "node": "deck",
+            "onGeometry": {
+              "type": "feature",
+              "name": "railing-right"
+            }
+          }
+        }
+      }
+    }
+  }
+}

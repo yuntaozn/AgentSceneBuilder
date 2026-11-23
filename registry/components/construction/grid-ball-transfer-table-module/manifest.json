@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.grid-ball-transfer-table-module",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "网格万向球转运台面",
+  "summary": "矩形基座和成网布置的万向球、球座，接相邻辊道的运输面。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.warehouse.ball-transfer-table-module",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "仓储",
+    "物流",
+    "万向球台",
+    "输送",
+    "转运"
+  ],
+  "anchors": [
+    "base",
+    "start",
+    "end",
+    "top"
+  ],
+  "ai": {
+    "intent": "在物流线中插入可转向的万向球运输台。",
+    "editableParts": [
+      "底板",
+      "滚珠与球座",
+      "阵列间距"
+    ],
+    "qualityChecks": [
+      "滚珠上平面与相邻辊道一致。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "grid-ball-transfer-table-module",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "transfer-bed",
+            "semanticType": "construction.warehouse.ball-transfer-conveyor-table.bed",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.579,0.047,0.574]
+            },
+            "transform": {
+              "position": [0,0.0235,0]
+            }
+          },
+          {
+            "id": "cup",
+            "semanticType": "construction.warehouse.ball-transfer-conveyor-table.cup",
+            "material": "steel",
+            "appearance": {
+              "color": "#7f969c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.046,0],
+              "end": [0,0.062,0],
+              "radius": 0.027,
+              "radialSegments": 20
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [5,1,5],
+              "start": [-0.21,0,-0.21],
+              "stepX": [0.105,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.105]
+            }
+          },
+          {
+            "id": "ball",
+            "semanticType": "construction.warehouse.ball-transfer-conveyor-table.ball",
+            "material": "steel",
+            "appearance": {
+              "color": "#a1afad"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.015,
+              "segments": 16
+            },
+            "transform": {
+              "position": [0,0.056,0]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [5,1,5],
+              "start": [-0.21,0,-0.21],
+              "stepX": [0.105,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.105]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "position": [-0.2895,0.071,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.2895,0.071,0],
+            "direction": [1,0,0]
+          },
+          "top": {
+            "position": [0,0.071,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

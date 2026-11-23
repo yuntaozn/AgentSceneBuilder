@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.bevelled-curb",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "倒角直路缘石",
+  "summary": "靠车道一侧带倒角，两端可沿道路连续拼接。",
+  "license": "Apache-2.0",
+  "semanticType": "site.paving.curb",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室外",
+    "基础构件",
+    "铺装"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.75
+    },
+    "width": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.18
+    },
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.25
+    },
+    "bevel": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.045
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "paving-edge",
+    "road-edge"
+  ],
+  "ai": {
+    "intent": "定位路面边界并区分人行铺装与车道。",
+    "editableParts": [
+      "编辑长度、宽度、高度和倒角"
+    ],
+    "qualityChecks": [
+      "道路侧靠局部 +Z。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "bevelled-curb",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "site.paving.curb",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "bevelled-curb",
+              "length": 0.75,
+              "width": 0.18,
+              "height": 0.25,
+              "bevel": 0.045
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "paving-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "paving-edge"
+            }
+          },
+          "road-edge": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "road-edge"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.bevelled-porcelain-floor-tile",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "倒角瓷质地砖",
+  "summary": "独立砖坯和倒角釉面，底座、光面与四条排缝边均有装配基准。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.flooring.bevelled-porcelain-tile",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "室内装修",
+    "地坪",
+    "基础构件"
+  ],
+  "anchors": [
+    "base",
+    "face",
+    "left-edge",
+    "right-edge",
+    "near-edge",
+    "far-edge"
+  ],
+  "ai": {
+    "intent": "规则平面铺贴和排缝时重复插入相同尺寸地砖。",
+    "editableParts": [
+      "砖体",
+      "釉层",
+      "两条倒角边"
+    ],
+    "qualityChecks": [
+      "面朝上，砖底贴在找平或粘结层上。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "bevelled-porcelain-floor-tile",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "porcelain",
+            "semanticType": "construction.flooring.porcelain-tile.body",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#d1caad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.296,0.0104,0.296]
+            },
+            "transform": {
+              "position": [0,0.0052,0]
+            }
+          },
+          {
+            "id": "glaze",
+            "semanticType": "construction.flooring.porcelain-tile.bevelled-glaze",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#dbd8c9"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.148,0,0],
+                [0.148,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.148,0.0104],
+                [0.148,0.0104],
+                [0.1455,0.014],
+                [-0.1455,0.014]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "face": {
+            "position": [0,0.014,0],
+            "direction": [0,1,0]
+          },
+          "left-edge": {
+            "position": [-0.148,0.007,0],
+            "direction": [-1,0,0]
+          },
+          "right-edge": {
+            "position": [0.148,0.007,0],
+            "direction": [1,0,0]
+          },
+          "near-edge": {
+            "position": [0,0.007,0.148],
+            "direction": [0,0,1]
+          },
+          "far-edge": {
+            "position": [0,0.007,-0.148],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

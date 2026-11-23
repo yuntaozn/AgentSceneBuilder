@@ -1,0 +1,89 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.rectangular-steel-tube",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形空心钢管",
+  "summary": "沿局部 +X 延伸的矩形钢管，具有两端贯通的矩形内腔。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.rectangular-steel-tube",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "结构",
+    "方通",
+    "空心截面",
+    "基础构件"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.4
+    },
+    "sectionWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.1
+    },
+    "sectionHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.075
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.004
+    }
+  },
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "editor": {
+    "document": {
+      "id": "rectangular-steel-tube",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.rectangular-steel-tube",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-rectangular-tube",
+              "length": 2.4,
+              "sectionWidth": 0.1,
+              "sectionHeight": 0.075,
+              "thickness": 0.004
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

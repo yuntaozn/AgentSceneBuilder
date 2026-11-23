@@ -1,0 +1,153 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.wall-fire-alarm-horn-strobe",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "墙装声光报警器外壳",
+  "summary": "分开的多横缝扬声面与透光罩，底壳保留卡位。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.fire.alarm.horn-strobe",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "消防",
+    "疏散"
+  ],
+  "anchors": [
+    "mount",
+    "audible-axis",
+    "lens-face"
+  ],
+  "ai": {
+    "intent": "布置墙上火警设备和可见外形。",
+    "editableParts": [
+      "编辑网孔、灯罩与墙面定位。"
+    ],
+    "qualityChecks": [
+      "上罩与下部孔组独立。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "wall-fire-alarm-horn-strobe",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "shell",
+            "semanticType": "mep.fire.horn-strobe.back",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a8574c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.128,0.174,0.038]
+            },
+            "transform": {
+              "position": [0,0,0.019]
+            }
+          },
+          {
+            "id": "grille",
+            "semanticType": "mep.fire.horn-strobe.sound-grille",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d36a56"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.041],
+                [0,0,0.049]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.053,-0.0695],
+                [0.053,-0.0695],
+                [0.053,0.0415],
+                [-0.053,0.0415]
+              ],
+              "holes": [
+                [
+                  [-0.0335,-0.0435],
+                  [0.0335,-0.0435],
+                  [0.0335,-0.0345],
+                  [-0.0335,-0.0345]
+                ],
+                [
+                  [-0.0335,-0.0225],
+                  [0.0335,-0.0225],
+                  [0.0335,-0.013499999999999998],
+                  [-0.0335,-0.013499999999999998]
+                ],
+                [
+                  [-0.0335,-0.0014999999999999996],
+                  [0.0335,-0.0014999999999999996],
+                  [0.0335,0.0075],
+                  [-0.0335,0.0075]
+                ],
+                [
+                  [-0.0335,0.0195],
+                  [0.0335,0.0195],
+                  [0.0335,0.0285],
+                  [-0.0335,0.0285]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lens",
+            "semanticType": "mep.fire.horn-strobe.diffuser",
+            "material": "polymer",
+            "appearance": {
+              "color": "#dce3de",
+              "opacity": 0.72
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.091,0.042,0.041]
+            },
+            "transform": {
+              "position": [0,0.06,0.045]
+            }
+          },
+          {
+            "id": "internal",
+            "semanticType": "mep.fire.horn-strobe.inner",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a8b4b9"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.082,0.031,0.008]
+            },
+            "transform": {
+              "position": [0,0.061,0.049]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "audible-axis": {
+            "position": [0,-0.015,0.049],
+            "direction": [0,0,1]
+          },
+          "lens-face": {
+            "position": [0,0.06,0.0655],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

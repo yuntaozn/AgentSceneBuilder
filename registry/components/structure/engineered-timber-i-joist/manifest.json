@@ -1,0 +1,113 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.engineered-timber-i-joist",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "木翼缘工字搁栅",
+  "summary": "窄腹板和上下两条木翼缘独立，可检查轻型楼面的支承位置。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.timber.engineered-i-joist",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "start-bearing",
+    "end-bearing",
+    "deck-seat",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "复用实木翼缘和薄腹板组合搁栅。",
+    "editableParts": [
+      "独立调整跨度、翼缘和腹板。"
+    ],
+    "qualityChecks": [
+      "楼面顶点上方留出板层。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "engineered-timber-i-joist",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bottom-flange",
+            "semanticType": "structure.timber.engineered-i-joist.flange",
+            "material": "timber",
+            "appearance": {
+              "color": "#bb986f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.4,0.042,0.071]
+            },
+            "transform": {
+              "position": [1.2,0.021,0]
+            }
+          },
+          {
+            "id": "top-flange",
+            "semanticType": "structure.timber.engineered-i-joist.flange",
+            "material": "timber",
+            "appearance": {
+              "color": "#bb986f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.4,0.042,0.071]
+            },
+            "transform": {
+              "position": [1.2,0.222,0]
+            }
+          },
+          {
+            "id": "web",
+            "semanticType": "structure.timber.engineered-i-joist.osb-web",
+            "material": "osb",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.4,0.159,0.012]
+            },
+            "transform": {
+              "position": [1.2,0.1215,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start-bearing": {
+            "position": [0.0675,0,0],
+            "direction": [0,-1,0]
+          },
+          "end-bearing": {
+            "position": [2.335,0,0],
+            "direction": [0,-1,0]
+          },
+          "deck-seat": {
+            "position": [1.2,0.243,0],
+            "direction": [0,1,0]
+          },
+          "start": {
+            "position": [0,0.1215,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [2.4,0.1215,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

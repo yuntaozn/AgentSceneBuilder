@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.corrugated-roof-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "波形金属屋面板",
+  "summary": "上下表面保留均匀波形和材料厚度，波高、波数与坡度可分别调整。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.corrugated-sheet",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "parameters": {
+    "panelWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.15
+    },
+    "run": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.4
+    },
+    "rise": {
+      "type": "number",
+      "unit": "m",
+      "default": 1.2
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.006
+    },
+    "ribHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.038
+    },
+    "corrugationCount": {
+      "type": "number",
+      "default": 6
+    }
+  },
+  "anchors": [
+    "eave",
+    "ridge",
+    "left",
+    "right",
+    "surface-center",
+    "underside-center"
+  ],
+  "ai": {
+    "intent": "表达可切换坡度与波形数的采光或金属屋面基件。",
+    "editableParts": [
+      "调整坡度、波高和波数。"
+    ],
+    "qualityChecks": [
+      "改变波数后中心定位贴合真实中心波形。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "corrugated-roof-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.roof.corrugated-sheet",
+            "material": "metal",
+            "appearance": {
+              "color": "#758e9c"
+            },
+            "geometry": {
+              "type": "corrugated-roof-panel",
+              "panelWidth": 1.15,
+              "run": 2.4,
+              "rise": 1.2,
+              "thickness": 0.006,
+              "ribHeight": 0.038,
+              "corrugationCount": 6
+            }
+          }
+        ],
+        "anchors": {
+          "eave": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "eave"
+            }
+          },
+          "ridge": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "ridge"
+            }
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "surface-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "surface-center"
+            }
+          },
+          "underside-center": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "feature",
+              "name": "underside-center"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.quarter-turn-landing-stair",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带直角平台的 L 形双跑楼梯",
+  "summary": "两段直梯在独立休息平台处转 90 度，首末对接按实际走向布置。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.circulation.platform-turn-stair",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "交通",
+    "楼梯"
+  ],
+  "anchors": [
+    "lower-landing",
+    "upper-landing",
+    "run1-end",
+    "run2-start",
+    "platform-in",
+    "platform-out"
+  ],
+  "ai": {
+    "intent": "与洞口楼板或走廊相接的直角换向楼梯。",
+    "editableParts": [
+      "分别修改直梯和休息平台；改级高后同步更新各层位置。"
+    ],
+    "qualityChecks": [
+      "两段踏步与平台使用内部连接检查。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "quarter-turn-landing-stair",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lower-run",
+            "semanticType": "construction.circulation.quarter-turn-platform.flight",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "straight-stair",
+              "stepCount": 6,
+              "riserHeight": 0.17,
+              "treadDepth": 0.28,
+              "width": 1.1
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "landing",
+            "semanticType": "construction.circulation.quarter-turn-platform.platform",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.1,0.17,1.1]
+            },
+            "transform": {
+              "position": [0,0.935,2.23]
+            }
+          },
+          {
+            "id": "upper-run",
+            "semanticType": "construction.circulation.quarter-turn-platform.flight",
+            "material": "concrete",
+            "appearance": {
+              "color": "#aab3b6"
+            },
+            "geometry": {
+              "type": "straight-stair",
+              "stepCount": 6,
+              "riserHeight": 0.17,
+              "treadDepth": 0.28,
+              "width": 1.1
+            },
+            "transform": {
+              "position": [0.55,1.02,2.23],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          }
+        ],
+        "anchors": {
+          "lower-landing": {
+            "node": "lower-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "lower-landing"
+            }
+          },
+          "upper-landing": {
+            "node": "upper-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "upper-landing"
+            }
+          },
+          "run1-end": {
+            "node": "lower-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "upper-landing"
+            }
+          },
+          "run2-start": {
+            "node": "upper-run",
+            "onGeometry": {
+              "type": "feature",
+              "name": "lower-landing"
+            }
+          },
+          "platform-in": {
+            "node": "landing",
+            "position": [0,0.085,-0.55],
+            "direction": [0,0,-1]
+          },
+          "platform-out": {
+            "node": "landing",
+            "position": [0.55,0.085,0],
+            "direction": [1,0,0]
+          }
+        },
+        "attachments": [
+          {
+            "from": "run1-end",
+            "to": "platform-in",
+            "contract": {
+              "direction": "opposed"
+            }
+          },
+          {
+            "from": "platform-out",
+            "to": "run2-start",
+            "contract": {
+              "direction": "opposed"
+            }
+          }
+        ]
+      }
+    }
+  }
+}

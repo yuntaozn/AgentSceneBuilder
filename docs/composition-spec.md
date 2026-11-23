@@ -110,6 +110,20 @@ anchor 可以使用 `node` 绑定到节点，其位置和方向会继承完整�
 
 构建结果返回如 `stud[2]` 的 `occurrenceRef`，避免依赖渲染器对象顺序。
 
+对于绑定到几何节点的锚点，可用 `onGeometry` 根据当前尺寸或路径计算位置。每个锚点使用 `position` 或 `onGeometry` 中的一项。
+
+```json
+{
+  "beam-end": { "node": "beam", "onGeometry": { "type": "box", "fraction": [0.5, 0, 0] }, "direction": [1, 0, 0] },
+  "tray-start": { "node": "tray", "onGeometry": { "type": "sweep-end", "end": "start" } }
+}
+```
+
+- `box` 的三个 `fraction` 分量对应盒体局部 X、Y、Z 轴，以中心为原点。`-0.5` 和 `0.5` 指向相对的两侧面，`0` 指向中面。修改 `geometry.size` 后，锚点按新尺寸重算。
+- `sweep-end` 使用 `sweep` 路径的 `start` 或 `end`。默认方向沿端部切线向外，也可以同普通锚点一样设置局部 `direction`。路径修改后，锚点跟随端点。
+- `feature` 使用 `name` 选择楼梯、坡道、楼板、墙体或栏杆的特征点。特征点随模型尺寸更新。
+- 这些锚点均继承所属节点和实例的变换。构建结果提供实际坐标，源稿保留 `onGeometry`，便于继续编辑。
+
 ## Attachment contract
 
 场景通过 `attachments` 描述构件间连接，端点写作 `实例ID#锚点名`。组合模型也可以在 `parameters.attachments` 中声明内部连接，`from` 和 `to` 直接填写本模型 `parameters.anchors` 中的名称。两种写法均可省略 `type`，显式值可以是 `attachment` 或 `connects`。其他连接形式如承插可在 `contract.contact` 中描述。
@@ -144,6 +158,8 @@ anchor 可以使用 `node` 绑定到节点，其位置和方向会继承完整�
 - `outsideDiameter` 默认为 `any`。`equal` 要求两端声明正数外径，且差值在 `diameterTolerance` 以内。尺寸和公差均以米为单位，公差默认 `0.000001`。比较的是端口声明的工程尺寸，模型缩放只作用于空间坐标与方向。
 
 内核计算 `effectiveGap = max(0, gap - embed)`。`mep.pipe-run` 和 `mep route-with-clips` 生成的端口带有外径，起点方向沿首段向外，终点方向沿末段向外。对于弯管，两个方向分别取自各自端部。变径件可以在每个锚点声明不同的 `outsideDiameter`。
+
+组合几何 `hollow-round-pipe` 使用 `points`、`outsideDiameter` 和 `thickness`。断面生成连续管壁和贯通内孔。`onGeometry.type: "feature"` 的 `start` 和 `end` 提供沿各自端部向外的方向以及随几何更新的工程外径。编排变径、三通或承插件时，各接口可声明各自匹配的管材外径。
 
 三项容差都包含边界。50 mm 和 49 mm 的端口在 1 mm 外径容差下可以连接，50 mm 和 48.99 mm 的端口会报告超限。位置和外径按米比较，端口方向使用世界坐标下的单位向量。`angle` 是两个向量间的实际夹角，`deviation` 是相对连接要求的角度偏差，两者均用弧度表示。例如完全相对的端口在 `opposed` 模式下夹角为 π、偏差为 0。
 
@@ -216,12 +232,64 @@ npm run agentscene -- scene build examples/digital-modeling/mep/pipe-reducer-con
 
 `point`、`directional` 和 `spot` 是当前支持的类型。方向光和聚光灯沿节点局部 `-Z` 轴照射。`parameters.lighting` 只保留场景级环境预设和总开关，不再存放可操作灯光列表。灯光节点不参与模型几何包围尺寸计算。
 
+## 楼梯、隔墙与栏杆
+
+`straight-stair` 使用 `stepCount`、`riserHeight`、`treadDepth` 和 `width`。楼梯沿局部 +Z 上升，以起步处为原点，横向以 X=0 居中。踏步数为 1 至 128 的整数，尺寸单位为米。`lower-landing` 和 `upper-landing` 分别定位上下接续点。
+
+`partition-wall`、`door-opening-wall` 和 `window-opening-wall` 均使用 `wallWidth`、`wallHeight`、`thickness`。墙宽沿 X，墙厚沿 Z，底边在 Y=0。`wall-left`、`wall-right` 可用于墙段拼接。
+
+门洞墙与窗洞墙还使用 `openingWidth`、`openingHeight`、`openingOffset`。偏移相对墙中心沿 X 计，洞口两侧和上方须保留墙体。窗洞墙额外使用正数 `sillHeight` 指定窗洞底边的 Y 坐标。`opening-base`、`opening-top` 用于定位洞口底部和顶部中心，`opening-left`、`opening-right` 用于定位洞口底边两侧。
+
+`straight-railing` 使用 `railWidth`、`railHeight`、`thickness`、`memberWidth` 和 `bayCount`。沿 X 分布的开格为 1 至 32 个，宽度相等。`start`、`end` 位于栏杆段底边两端。栏杆位置和尺寸使用米。
+
+`sloped-railing` 增加沿 X 的有符号高差 `rise`。开格随坡形变，栏杆高度保持竖向。底端和高端的 `start`、`end` 以及顶部的 `handrail-start`、`handrail-end` 提供接续位置。
+
+这些几何会构建为可预览的闭合扫掠，源稿保留命名尺寸。编辑器属性面板可直接修改。
+
+## 坡道、开洞楼板与转角墙
+
+- `straight-ramp` 使用 `run`、`rise`、`rampWidth` 和 `deckThickness`。坡道沿 +Z 抬升，厚度沿 Y 向计量。`lower-landing` 和 `upper-landing` 位于坡板上表面的两端。
+- `floor-opening-slab` 使用 `slabWidth`、`slabDepth`、`thickness`、`openingWidth`、`openingDepth`、`openingOffsetX` 和 `openingOffsetZ`。板面位于 Y=0，厚度向下。`opening-near` 和 `opening-far` 是洞口沿 Z 的两端，洞口四周须保留楼板。
+- `l-corner-wall` 使用 `lengthX`、`lengthZ`、`wallHeight` 和 `thickness`。墙从局部原点沿 +X 与 +Z 延伸，`x-end` 和 `z-end` 位于两个墙端的底边中心。
+
+这些尺寸均以米计，属性面板可直接编辑。以已有楼板作为坡道平台时，可在板顶近边设置方向向外的锚点。
+
+## 窗台、阳台板、雨棚与压顶
+
+- `window-sill` 沿局部 +X 展开，沿 +Z 向外挑出。`sillWidth`、`projection`、`thickness` 和 `fall` 控制找坡，`grooveWidth`、`grooveDepth`、`grooveSetback` 控制底面滴水槽。`mount` 位于根部上边中点。窗洞墙的 `opening-exterior-base` 给出同标高的外墙面锚点。
+- `balcony-deck` 使用 `deckWidth`、`projection`、`thickness`、`edgeWidth`、`downstand`。板面在 Y=0，向 +Z 外挑，前边缘包含下挂边梁。`railing-left` 与 `railing-right` 可定位栏杆两端。
+- `sloped-cover` 用 `coverWidth`、`projection`、`thickness` 与 `fall` 描述单坡外挑板，`mount` 和 `front` 读取根部、外边的上表面位置。
+- `wall-coping` 用 `capLength`、`capWidth`、`edgeHeight` 与 `crownRise` 生成跨墙厚的双坡压顶。`mount` 位于底面中点，两端有同标高的拼接点。
+
+## 钢截面、柱脚底板与基础
+
+- `steel-i-section` 和 `steel-channel-section` 使用 `length`、`sectionWidth`、`sectionHeight`、`webThickness`、`flangeThickness`，沿 +X 展开。`start`、`end` 表示轴向两端，`bearing-start`、`bearing-end` 表示对应的底面支承点。旋转节点可用同一截面组成立柱。
+- `steel-angle-section`、`steel-rectangular-tube` 使用 `length`、`sectionWidth`、`sectionHeight` 和 `thickness`。`steel-round-tube` 使用 `length`、`outerDiameter`、`thickness`。两种钢管均有通孔。
+- `bolted-base-plate` 使用 `plateWidth`、`plateDepth`、`thickness`、`holeDiameter`、`boltPitchX` 和 `boltPitchZ`。底面在 Y=0，`column-seat` 与四个 `bolt-*` 锚点位于顶面。孔须位于底板内且彼此分离。
+- `slotted-splice-plate` 使用 `plateLength`、`plateWidth`、`thickness`、`slotLength`、`slotWidth`、`pitchX` 和 `pitchZ`。四个长圆孔沿局部 X 延伸，顶面的 `slot-*` 锚点随孔距移动。
+- `strip-footing` 使用 `length`、`footingWidth`、`footingThickness`、`stemWidth`、`stemHeight`，`top-center` 跟随基础墙顶面。`round-pile` 使用 `length` 和 `diameter`，从 `head` 向局部 -Y 延伸至 `toe`。
+
+场地构件使用沿局部 +X 延伸的截面。下列类型支持 `onGeometry.type: "feature"`。
+
+- `bevelled-curb` 使用 `length`、`width`、`height`、`bevel`。车行侧沿 +Z，`paving-edge` 在另一侧顶缘。
+- `rebated-drain-channel` 使用 `length`、`clearWidth`、`depth`、`thickness`、`seatWidth`、`seatDepth`。顶面位于 Y=0，`start` 和 `end` 位于沟底，`grate-seat` 位于格栅承托高度。
+- `slotted-drain-grate` 使用 `length`、`width`、`thickness`、`frameWidth`、`barWidth` 和整数 `slotCount`。开槽贯通厚度，`grate-bottom` 对齐沟槽的 `grate-seat`。
+- `crowned-road-surface` 使用 `length`、`width`、`thickness` 与 `crownHeight`。两边的 Y 坐标为零，两段拼接使用位于路拱上的端点。
+- `l-retaining-wall` 使用 `length`、`wallHeight`、`wallThickness`、`capThickness`、`toeDepth`、`heelDepth`、`footingThickness`。踵板伸向本地 +Z，`wall-top` 和 `base-center` 分别定位顶缘和底板。
+
+`pitched-roof-deck`、`standing-seam-roof-panel` 和 `corrugated-roof-panel` 共用 `panelWidth`、`run`、`rise` 与法向 `thickness`。坡脚位于本地原点，屋脊在 `[0,rise,run]`，`surface-center` 和 `underside-center` 分别贴合上下表面。锁边板可设置 `seamHeight`。波形板使用 `ribHeight` 与整数 `corrugationCount`，中心定位随所处波峰或波谷移动。双坡 `roof-ridge-cap` 使用 `length`、`legWidth`、`fall`、`thickness`，沿 X 伸展，`crest` 位于盖板下表面交线的中点。
+
+`hollow-masonry-block`、`perforated-clay-brick` 和 `tongue-groove-masonry-block` 沿 X 使用 `length` 排列，宽度沿 Z，高度沿 Y。几何定位提供 `start`、`end`、`bottom`、`top` 与 `outer-face`。空心块可调 `webThickness` 和整数 `coreCount`，圆孔砖可调 `holeDiameter`、`columnCount` 和 `rowCount`，企口块可调 `keyWidth`、`keyDepth` 和 `clearance`。企口块的标称长度量到榫肩，拼装时凸榫伸入后续砌块的凹槽。
+
+轻钢与面板几何支持随尺寸更新的 `feature`。竖向 `lipped-drywall-stud` 使用 `length`、`webDepth`、`flangeWidth`、`lipLength`、`thickness`，提供 `foot`、`head`、`front`、`back`。水平 `u-drywall-track` 按 `length`、`trackWidth`、`sideHeight`、`thickness` 生成 `mount` 与 `stud-seat`。 `hat-furring-channel` 使用 `length`、`channelWidth`、`crownWidth`、`standoff`、`thickness` 并提供 `base` 与 `board-seat`。 `tapered-gypsum-sheet` 的两条长边由 `taperWidth`、`taperDepth` 控制，`mount` 保留在板背面。
+
 ## 折线路径截面扫掠
 
 `geometry.type = "sweep"` 将二维截面沿开放三维折线扫掠。长度单位为米。
 
 - `points` 给出依序经过的局部坐标点。转弯处采用斜接。相邻点须不同；原路折返或截面过宽导致相邻斜接重叠时，编译器会报告对应线段。
 - `profile` 给出简单轮廓的 `[u, v]` 顶点。默认生成开放薄面。`closedProfile: true` 会连接首尾轮廓顶点，并在路径两端封口。闭合轮廓至少三个点，末尾省略重复的起点。用有内外壁的凹多边形可以表示有厚度的 U 形槽。
+- 闭合截面可用 `holes` 声明内部孔轮廓。孔须完全位于外轮廓内，且各孔互不接触或包含。两端的端面只覆盖孔以外的材料区域，孔沿路径贯通。
 - `up` 定义首段截面的高度方向，默认取局部 Y，首段竖直时取 Z。显式设置的方向要与首段非平行。宽度正方向为高度方向叉乘前进方向，后续截面随路径转向。节点和父级矩阵作用于完整截面和路径。
 
 在模型库中打开“U 形电缆桥架 · 水平弯头”，可直接改截面宽高或拖动路径点。宽高按截面原点等比例缩放对应轴上的所有顶点；要单独控制壁厚，可在源 JSON 中编辑 `profile`。折弯半径、闭合路径和非相邻线段的全局碰撞检查均不在此几何类型的范围内。
@@ -229,6 +297,8 @@ npm run agentscene -- scene build examples/digital-modeling/mep/pipe-reducer-con
 ```powershell
 npm run agentscene -- component build registry/compositions/cable-tray-elbow/manifest.json
 ```
+
+`rectangular-duct` 使用 `points`、可选的 `up`、外宽 `sectionWidth`、外高 `sectionHeight` 和壁厚 `thickness`。尺寸单位为米。编译器用同心矩形生成外壁和连续空腔，编辑器可调整三项尺寸和路径控制点。`sweep-end` 锚点会随路径更新。
 
 ## 当前边界
 

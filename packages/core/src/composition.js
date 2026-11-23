@@ -6,7 +6,9 @@ import {
   assertVec3,
   identityMatrix,
   multiplyMatrices,
+  normalizeVector,
   scale,
+  subtract,
   transformMatrix,
   transformDirectionMatrix,
   transformPointMatrix,
@@ -17,6 +19,15 @@ import { samplePath } from "./path.js";
 import { resolveMepRouteBindings } from "./mep-route-bindings.js";
 import { checkLocalAttachments } from "./connection-check.js";
 import { worldAnchorDefinition } from "./component.js";
+import { architecturalSweep } from "./architectural-geometry.js";
+import { rectangularDuctSweep } from "./rectangular-duct.js";
+import { structuralSweep } from "./structural-geometry.js";
+import { siteSweep } from "./site-geometry.js";
+import { roofSweep } from "./roof-geometry.js";
+import { roundPipeSweep } from "./round-pipe-geometry.js";
+import { masonrySweep } from "./masonry-geometry.js";
+import { drywallSweep } from "./drywall-geometry.js";
+import { precastSweep } from "./precast-geometry.js";
 
 export const COMPOSITION_SPEC_VERSION = "0.3";
 
@@ -25,11 +36,18 @@ function requiredString(value, name) {
   return value;
 }
 
+export function parametricSweep(geometry) {
+  return rectangularDuctSweep(geometry) ?? roundPipeSweep(geometry) ?? architecturalSweep(geometry) ?? structuralSweep(geometry) ??
+    siteSweep(geometry) ?? roofSweep(geometry) ?? masonrySweep(geometry) ?? drywallSweep(geometry) ?? precastSweep(geometry);
+}
+
 export function compileGeometry(node, id, matrix) {
   const geometry = node.geometry;
   if (!geometry || typeof geometry !== "object") throw new TypeError(`${node.id}.geometry must be an object`);
   const common = { id, material: node.material, appearance: node.appearance, semanticType: node.semanticType, metadata: node.metadata };
   if (geometry.type === "sweep") return sweep({ ...geometry, ...common, matrix });
+  const sectionSweep = parametricSweep(geometry);
+  if (sectionSweep) return sweep({ ...sectionSweep, ...common, matrix });
   if (geometry.type === "box") {
     return box({ ...common, size: geometry.size, position: transformPointMatrix([0, 0, 0], matrix), matrix });
   }
@@ -237,6 +255,30 @@ export function compileForDiagnostics(spec, instanceId, onIssue) {
   return compile(spec, instanceId, onIssue);
 }
 
+function geometryAnchor(definition, geometry) {
+  if (definition.position !== undefined) throw new Error("Use either position or onGeometry for an anchor");
+  const placement = definition.onGeometry;
+  if (placement?.type === "box" && geometry?.type === "box") {
+    const fraction = assertVec3(placement.fraction, "box fraction");
+    if (fraction.some(value => Math.abs(value) > 0.5)) throw new Error("Box fractions must be between -0.5 and 0.5");
+    return { position: fraction.map((value, axis) => value * geometry.size[axis]) };
+  }
+  if (placement?.type === "sweep-end" && ["sweep", "rectangular-duct"].includes(geometry?.type)) {
+    const { end } = placement;
+    if (end !== "start" && end !== "end") throw new Error("A sweep end must be start or end");
+    const points = geometry.points;
+    const [position, neighbor] = end === "start" ? [points[0], points[1]] : [points.at(-1), points.at(-2)];
+    return { position, direction: definition.direction ?? normalizeVector(subtract(position, neighbor), "sweep end direction") };
+  }
+  if (placement?.type === "feature") {
+    const anchors = parametricSweep(geometry)?.anchors;
+    if (!anchors || !Object.hasOwn(anchors, placement.name)) throw new Error("Expected a named feature on the node geometry");
+    const anchor = anchors[placement.name];
+    return definition.direction === undefined ? anchor : { ...anchor, direction: definition.direction };
+  }
+  throw new Error("Expected a box, sweep-end or feature anchor on matching node geometry");
+}
+
 function compile(spec, instanceId, onIssue) {
   if (!spec || typeof spec !== "object") throw new TypeError("composition spec must be an object");
   requiredString(instanceId, "composition instanceId");
@@ -317,10 +359,24 @@ function compile(spec, instanceId, onIssue) {
   }
 
   const anchors = Object.fromEntries(Object.entries(spec.anchors ?? {}).map(([id, value]) => {
-    const definition = Array.isArray(value) ? { position: value } : value;
-    if (!definition?.node) return [id, value];
+    let definition = Array.isArray(value) ? { position: value } : value;
+    if (!definition?.node) {
+      if (definition?.onGeometry !== undefined) throw new Error(`Anchor ${id} requires a node for onGeometry`);
+      return [id, value];
+    }
     const owner = nodesById.get(definition.node);
     if (!owner) throw new Error(`Anchor ${id} refers to unknown node: ${definition.node}`);
+    if (definition.onGeometry !== undefined) {
+      try {
+        const local = geometryAnchor(definition, owner.geometry);
+        const { onGeometry, ...fields } = definition;
+        definition = { ...fields, ...local };
+      } catch (error) {
+        if (!onIssue) throw error;
+        onIssue("ANCHOR_GEOMETRY_INVALID", ["anchors", id, "onGeometry"], error.message, owner.id);
+        return null;
+      }
+    }
     const selected = owner.repetition
       ? selectOccurrence(owner.id, occurrencePlacements.get(owner.id), definition.occurrence)
       : occurrencePlacements.get(owner.id)[0];

@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.facade-cladding-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形外墙分格板",
+  "summary": "带板背安装点及上下左右拼缝锚点，适合按网格重复排布。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.cladding-panel",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "外立面",
+    "分格",
+    "饰面板",
+    "基础构件"
+  ],
+  "parameters": {
+    "width": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.58
+    },
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.43
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.035
+    }
+  },
+  "anchors": [
+    "mount",
+    "left",
+    "right",
+    "bottom",
+    "top"
+  ],
+  "ai": {
+    "intent": "让 Agent 以命名锚点和网格步长组织立面饰面板与分格缝。",
+    "editableParts": [
+      "panel.geometry.size 控制板块尺寸",
+      "网格步长可用板尺寸加目标缝宽"
+    ],
+    "qualityChecks": [
+      "按项目调整分格缝宽。",
+      "板背安装面位于局部 Z=0。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "facade-cladding-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.facade.cladding-panel",
+            "material": "fiber-cement",
+            "appearance": {
+              "color": "#9ba9a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.58,0.43,0.035]
+            },
+            "transform": {
+              "position": [0,0,0.0175]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,-0.5]
+            },
+            "direction": [0,0,-1]
+          },
+          "left": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0,0]
+            },
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

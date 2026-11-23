@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.sloped-excavation-trench-section",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双侧放坡基槽断面",
+  "summary": "地坪向下收成实际槽底，实体土体中留下开放开挖空间。",
+  "license": "Apache-2.0",
+  "semanticType": "site.grading.sloped-trench",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "室外",
+    "土方"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "trench-base"
+  ],
+  "ai": {
+    "intent": "在基础课件中提供可观察的基槽土体断面。",
+    "editableParts": [
+      "修改长度、开挖深度和坡脚。"
+    ],
+    "qualityChecks": [
+      "示意坡形与实际项目的设计输入独立。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "sloped-excavation-trench-section",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "soil",
+            "semanticType": "site.grading.sloped-trench",
+            "material": "soil",
+            "appearance": {
+              "color": "#927c64"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [3.8,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-2.42,0],
+                [-1.63,0],
+                [-0.86,-1.19],
+                [0.86,-1.19],
+                [1.63,0],
+                [2.42,0],
+                [2.42,-1.58],
+                [-2.42,-1.58]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,-1.19,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [3.8,-1.19,0],
+            "direction": [1,0,0]
+          },
+          "trench-base": {
+            "position": [1.9,-1.19,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

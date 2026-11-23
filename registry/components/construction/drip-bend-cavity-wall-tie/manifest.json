@@ -1,0 +1,146 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.drip-bend-cavity-wall-tie",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带滴水弯的夹层墙拉结片",
+  "summary": "两端埋入段之间下弯折，拉结片与夹层空间可独立检查。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.masonry.cavity-wall-tie",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "砌体",
+    "墙体"
+  ],
+  "anchors": [
+    "inside-leaf",
+    "outside-leaf",
+    "drip-point"
+  ],
+  "ai": {
+    "intent": "在两片砌体之间展示带滴水点的实体连接。",
+    "editableParts": [
+      "编辑埋入距离、滴水折弯和端部齿片。"
+    ],
+    "qualityChecks": [
+      "最低点位于中间跨越段。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "drip-bend-cavity-wall-tie",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tie",
+            "semanticType": "construction.masonry.cavity-wall-tie",
+            "material": "steel",
+            "appearance": {
+              "color": "#778e9b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.105],
+                [0,-0.014,0.131],
+                [0,0,0.157],
+                [0,0,0.273]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0145,-0.0017],
+                [0.0145,-0.0017],
+                [0.0145,0.0017],
+                [-0.0145,0.0017]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "token-0",
+            "semanticType": "construction.masonry.cavity-wall-tie.key",
+            "material": "steel",
+            "appearance": {
+              "color": "#778e9b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.001,0.027],
+                [0,0.002,0.027]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.025,-0.0185],
+                [0.025,-0.0185],
+                [0.025,0.0185],
+                [-0.025,0.0185]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.009,-0.0075],
+                  [0.009,-0.0075],
+                  [0.009,0.0075],
+                  [-0.009,0.0075]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "token-1",
+            "semanticType": "construction.masonry.cavity-wall-tie.key",
+            "material": "steel",
+            "appearance": {
+              "color": "#778e9b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.001,0.242],
+                [0,0.002,0.242]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.025,-0.0185],
+                [0.025,-0.0185],
+                [0.025,0.0185],
+                [-0.025,0.0185]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.009,-0.0075],
+                  [0.009,-0.0075],
+                  [0.009,0.0075],
+                  [-0.009,0.0075]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "inside-leaf": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "outside-leaf": {
+            "position": [0,0,0.273],
+            "direction": [0,0,1]
+          },
+          "drip-point": {
+            "position": [0,-0.014,0.131],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

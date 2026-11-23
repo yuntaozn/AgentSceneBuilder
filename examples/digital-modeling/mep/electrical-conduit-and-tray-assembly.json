@@ -1,0 +1,2701 @@
+{
+  "schemaVersion": "0.1",
+  "id": "electrical-conduit-and-tray-assembly",
+  "title": "电线管、接线盒和桥架分支",
+  "instances": [
+    {
+      "id": "ceiling",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [3.4,0.18,3.8]
+            },
+            "transform": {
+              "position": [0,0.09,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "anchor-left": {
+            "position": [-0.198,0,-0.95],
+            "direction": [0,-1,0]
+          },
+          "anchor-right": {
+            "position": [0.198,0,-0.95],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.84,1.7]
+      }
+    },
+    {
+      "id": "tray-main",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tray",
+            "semanticType": "mep.cable-tray",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ea2b5",
+              "roughness": 0.55,
+              "metalness": 0.45
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,1.5]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.15,0],
+                [0.15,0],
+                [0.15,0.1],
+                [0.148,0.1],
+                [0.148,0.002],
+                [-0.148,0.002],
+                [-0.148,0.1],
+                [-0.15,0.1]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "tray",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "tray",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "inner-bottom": {
+            "position": [0,0.002,0.75],
+            "direction": [0,1,0]
+          },
+          "hanger-midpoint": {
+            "position": [0,0,0.75],
+            "direction": [0,-1,0]
+          },
+          "splice-face": {
+            "position": [0.15,0.05,1.5],
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.42,0]
+      }
+    },
+    {
+      "id": "tray-tee",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "cable-tray.branch-tee.floor",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.002,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.15,0],
+                [0.15,0],
+                [0.15,0.68],
+                [-0.15,0.68],
+                [-0.15,0.49],
+                [-0.72,0.49],
+                [-0.72,0.19],
+                [-0.15,0.19]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "main-left",
+            "semanticType": "cable-tray.branch-tee.tray-wall",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.002,0.1,0.68]
+            },
+            "transform": {
+              "position": [-0.149,0.05,0.34]
+            }
+          },
+          {
+            "id": "main-right-near",
+            "semanticType": "cable-tray.branch-tee.tray-wall",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.002,0.1,0.19]
+            },
+            "transform": {
+              "position": [0.149,0.05,0.095]
+            }
+          },
+          {
+            "id": "main-right-far",
+            "semanticType": "cable-tray.branch-tee.tray-wall",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.002,0.1,0.19]
+            },
+            "transform": {
+              "position": [0.149,0.05,0.585]
+            }
+          },
+          {
+            "id": "branch-near",
+            "semanticType": "cable-tray.branch-tee.tray-wall",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.57,0.1,0.002]
+            },
+            "transform": {
+              "position": [0.435,0.05,0.191]
+            }
+          },
+          {
+            "id": "branch-far",
+            "semanticType": "cable-tray.branch-tee.tray-wall",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.57,0.1,0.002]
+            },
+            "transform": {
+              "position": [0.435,0.05,0.489]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "end": {
+            "position": [0,0,0.68],
+            "direction": [0,0,1]
+          },
+          "branch": {
+            "position": [0.72,0,0.34],
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.42,1.5]
+      }
+    },
+    {
+      "id": "tray-next",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tray",
+            "semanticType": "mep.cable-tray",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ea2b5",
+              "roughness": 0.55,
+              "metalness": 0.45
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,1.1]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.15,0],
+                [0.15,0],
+                [0.15,0.1],
+                [0.148,0.1],
+                [0.148,0.002],
+                [-0.148,0.002],
+                [-0.148,0.1],
+                [-0.15,0.1]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "tray",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "tray",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.42,2.18]
+      }
+    },
+    {
+      "id": "tray-branch",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tray",
+            "semanticType": "mep.cable-tray",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ea2b5",
+              "roughness": 0.55,
+              "metalness": 0.45
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,1.5]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.15,0],
+                [0.15,0],
+                [0.15,0.1],
+                [0.148,0.1],
+                [0.148,0.002],
+                [-0.148,0.002],
+                [-0.148,0.1],
+                [-0.15,0.1]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "tray",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "tray",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "cover-seat": {
+            "position": [0,0.1,0.75],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.72,2.42,1.84],
+        "rotation": [0,1.5707963267948966,0]
+      }
+    },
+    {
+      "id": "branch-cover",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cover",
+            "semanticType": "cable-tray.snap-cover",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,1.5]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.155,-0.02],
+                [-0.151,-0.02],
+                [-0.151,0],
+                [0.151,0],
+                [0.151,-0.02],
+                [0.155,-0.02],
+                [0.155,0.004],
+                [-0.155,0.004]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "cover",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "cover",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "tray-seat": {
+            "position": [0,0,0.75],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.72,2.52,1.84],
+        "rotation": [0,1.5707963267948966,0]
+      }
+    },
+    {
+      "id": "main-divider",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "partition",
+            "semanticType": "cable-tray.internal-divider",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#a2b7c3"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,1.5]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.04,0],
+                [0.002,0],
+                [0.002,0.079],
+                [-0.002,0.079],
+                [-0.002,0.004],
+                [-0.04,0.004]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "partition",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "partition",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "mount": {
+            "position": [0,0,0.75],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.422,0]
+      }
+    },
+    {
+      "id": "tray-trapeze",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "channel",
+            "semanticType": "cable-tray.trapeze.rail",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "steel-channel-section",
+              "length": 0.475,
+              "sectionWidth": 0.041,
+              "sectionHeight": 0.041,
+              "webThickness": 0.004,
+              "flangeThickness": 0.004
+            },
+            "transform": {
+              "position": [-0.2375,-0.0205,0]
+            }
+          },
+          {
+            "id": "hanger-0",
+            "semanticType": "cable-tray.trapeze.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.198,-0.039,0],
+              "end": [-0.198,0.42,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "nut-0",
+            "semanticType": "cable-tray.trapeze.nut",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.198,-0.044,0],
+              "end": [-0.198,-0.032,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "plate-0",
+            "semanticType": "cable-tray.trapeze.top",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.198,0.414,0],
+              "end": [-0.198,0.42,0],
+              "radius": 0.023,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "hanger-1",
+            "semanticType": "cable-tray.trapeze.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.198,-0.039,0],
+              "end": [0.198,0.42,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "nut-1",
+            "semanticType": "cable-tray.trapeze.nut",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.198,-0.044,0],
+              "end": [0.198,-0.032,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "plate-1",
+            "semanticType": "cable-tray.trapeze.top",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.198,0.414,0],
+              "end": [0.198,0.42,0],
+              "radius": 0.023,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "tray-seat": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "ceiling-left": {
+            "position": [-0.198,0.42,0],
+            "direction": [0,1,0]
+          },
+          "ceiling-right": {
+            "position": [0.198,0.42,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.42,0.75]
+      }
+    },
+    {
+      "id": "tray-drop",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "waterfall",
+            "semanticType": "cable-tray.bent-dropout",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.095],
+                [0,-0.018,0.155],
+                [0,-0.055,0.195],
+                [0,-0.102,0.22],
+                [0,-0.184,0.22]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.148,0],
+                [0.148,0],
+                [0.148,0.024],
+                [0.144,0.024],
+                [0.144,0.004],
+                [-0.144,0.004],
+                [-0.144,0.024],
+                [-0.148,0.024]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "node": "waterfall",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "outlet": {
+            "node": "waterfall",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.42,3.28]
+      }
+    },
+    {
+      "id": "main-splice",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "splice",
+            "semanticType": "cable-tray.side-splice",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.005]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.1175,-0.0425],
+                [0.1175,-0.0425],
+                [0.1175,0.0425],
+                [-0.1175,0.0425]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.065,-0.024],
+                  [-0.06346926627053964,-0.023695518130045147],
+                  [-0.06217157287525381,-0.02282842712474619],
+                  [-0.06130448186995485,-0.02153073372946036],
+                  [-0.061,-0.02],
+                  [-0.06130448186995485,-0.01846926627053964],
+                  [-0.06217157287525381,-0.01717157287525381],
+                  [-0.06346926627053964,-0.016304481869954854],
+                  [-0.065,-0.016],
+                  [-0.08299999999999999,-0.016],
+                  [-0.08453073372946035,-0.016304481869954854],
+                  [-0.08582842712474618,-0.01717157287525381],
+                  [-0.08669551813004514,-0.01846926627053964],
+                  [-0.087,-0.02],
+                  [-0.08669551813004514,-0.02153073372946036],
+                  [-0.08582842712474618,-0.02282842712474619],
+                  [-0.08453073372946035,-0.023695518130045147],
+                  [-0.08299999999999999,-0.024]
+                ],
+                [
+                  [0.08299999999999999,-0.024],
+                  [0.08453073372946035,-0.023695518130045147],
+                  [0.08582842712474618,-0.02282842712474619],
+                  [0.08669551813004514,-0.02153073372946036],
+                  [0.087,-0.02],
+                  [0.08669551813004514,-0.01846926627053964],
+                  [0.08582842712474618,-0.01717157287525381],
+                  [0.08453073372946035,-0.016304481869954854],
+                  [0.08299999999999999,-0.016],
+                  [0.065,-0.016],
+                  [0.06346926627053964,-0.016304481869954854],
+                  [0.062171572875253815,-0.01717157287525381],
+                  [0.06130448186995485,-0.01846926627053964],
+                  [0.061,-0.02],
+                  [0.06130448186995485,-0.02153073372946036],
+                  [0.06217157287525381,-0.02282842712474619],
+                  [0.06346926627053964,-0.023695518130045147],
+                  [0.065,-0.024]
+                ],
+                [
+                  [-0.065,0.016],
+                  [-0.06346926627053964,0.016304481869954854],
+                  [-0.06217157287525381,0.01717157287525381],
+                  [-0.06130448186995485,0.01846926627053964],
+                  [-0.061,0.02],
+                  [-0.06130448186995485,0.02153073372946036],
+                  [-0.06217157287525381,0.02282842712474619],
+                  [-0.06346926627053964,0.023695518130045147],
+                  [-0.065,0.024],
+                  [-0.08299999999999999,0.024],
+                  [-0.08453073372946035,0.023695518130045147],
+                  [-0.08582842712474618,0.02282842712474619],
+                  [-0.08669551813004514,0.02153073372946036],
+                  [-0.087,0.02],
+                  [-0.08669551813004514,0.01846926627053964],
+                  [-0.08582842712474618,0.01717157287525381],
+                  [-0.08453073372946035,0.016304481869954854],
+                  [-0.08299999999999999,0.016]
+                ],
+                [
+                  [0.08299999999999999,0.016],
+                  [0.08453073372946035,0.016304481869954854],
+                  [0.08582842712474618,0.01717157287525381],
+                  [0.08669551813004514,0.01846926627053964],
+                  [0.087,0.02],
+                  [0.08669551813004514,0.02153073372946036],
+                  [0.08582842712474618,0.02282842712474619],
+                  [0.08453073372946035,0.023695518130045147],
+                  [0.08299999999999999,0.024],
+                  [0.065,0.024],
+                  [0.06346926627053964,0.023695518130045147],
+                  [0.062171572875253815,0.02282842712474619],
+                  [0.06130448186995485,0.02153073372946036],
+                  [0.061,0.02],
+                  [0.06130448186995485,0.01846926627053964],
+                  [0.06217157287525381,0.01717157287525381],
+                  [0.06346926627053964,0.016304481869954854],
+                  [0.065,0.016]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "joint-center": {
+            "position": [0,0,0.005],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.15,2.47,1.5],
+        "rotation": [0,1.5707963267948966,0]
+      }
+    },
+    {
+      "id": "wall",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.partition-wall",
+            "material": "plaster",
+            "appearance": {
+              "color": "#c2b8a6"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 2.7,
+              "wallHeight": 2.74,
+              "thickness": 0.12,
+              "openingWidth": 0.083,
+              "openingHeight": 0.112,
+              "openingOffset": 0.4,
+              "sillHeight": 0.694
+            }
+          }
+        ],
+        "anchors": {
+          "wall-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-left"
+            }
+          },
+          "wall-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "wall-right"
+            }
+          },
+          "opening-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-base"
+            }
+          },
+          "opening-top": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-top"
+            }
+          },
+          "opening-left": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-left"
+            }
+          },
+          "opening-right": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-right"
+            }
+          },
+          "opening-exterior-base": {
+            "node": "wall",
+            "onGeometry": {
+              "type": "feature",
+              "name": "opening-exterior-base"
+            }
+          },
+          "surface-box": {
+            "position": [-0.46,1.58,0.06],
+            "direction": [0,0,1]
+          },
+          "flush-seat": {
+            "position": [0.4,0.75,0.06],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.8,0,-1.26]
+      }
+    },
+    {
+      "id": "feed-conduit",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "conduit",
+            "semanticType": "mep.electric.conduit-rigid",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0.74,0,0]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.032,
+              "thickness": 0.0022
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-2.22,1.918,-1.157]
+      }
+    },
+    {
+      "id": "down-bend",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "conduit",
+            "semanticType": "mep.electric.conduit-radius-bend",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0.08000000000000002,0,0],
+                [0.09827366691080724,-0.0011977194076665532,0],
+                [0.1162346663143529,-0.004770384319530446,0],
+                [0.13357568053111257,-0.010656865448419844,0],
+                [0.15,-0.018756443470178588,0],
+                [0.16522660006122092,-0.028930532359227074,0],
+                [0.17899494936611665,-0.041005050633883364,0],
+                [0.19106946764077293,-0.05477339993877911,0],
+                [0.2012435565298214,-0.07,0],
+                [0.20934313455158016,-0.08642431946888744,0],
+                [0.21522961568046955,-0.10376533368564711,0],
+                [0.21880228059233348,-0.12172633308919278,0],
+                [0.22000000000000003,-0.14,0],
+                [0.22,-0.23,0]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.032,
+              "thickness": 0.0022
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-1.48,1.918,-1.157]
+      }
+    },
+    {
+      "id": "junction",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "back",
+            "semanticType": "electric.surface-junction-box.back",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.18,0.16,0.01]
+            },
+            "transform": {
+              "position": [0,0,0.005]
+            }
+          },
+          {
+            "id": "side-left",
+            "semanticType": "electric.surface-junction-box.side",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.16,0.066]
+            },
+            "transform": {
+              "position": [-0.0855,0,0.043]
+            }
+          },
+          {
+            "id": "side-right",
+            "semanticType": "electric.surface-junction-box.side",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.16,0.066]
+            },
+            "transform": {
+              "position": [0.0855,0,0.043]
+            }
+          },
+          {
+            "id": "top-entry",
+            "semanticType": "electric.surface-junction-box.knockout-wall",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.073,0.043],
+                [0,0.08,0.043]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.087,-0.033],
+                [0.087,-0.033],
+                [0.087,0.033],
+                [-0.087,0.033]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0164,0],
+                  [0.01584118355114072,0.00424463233968134],
+                  [0.014202816622064796,0.008199999999999999],
+                  [0.011596551211459381,0.01159655121145938],
+                  [0.008200000000000002,0.014202816622064794],
+                  [0.00424463233968134,0.01584118355114072],
+                  [1.0042103753008296e-18,0.0164],
+                  [-0.0042446323396813385,0.01584118355114072],
+                  [-0.008199999999999997,0.014202816622064796],
+                  [-0.01159655121145938,0.011596551211459381],
+                  [-0.014202816622064796,0.008199999999999999],
+                  [-0.015841183551140718,0.0042446323396813455],
+                  [-0.0164,2.0084207506016593e-18],
+                  [-0.01584118355114072,-0.004244632339681341],
+                  [-0.014202816622064797,-0.008199999999999995],
+                  [-0.011596551211459387,-0.011596551211459374],
+                  [-0.008200000000000008,-0.014202816622064792],
+                  [-0.0042446323396813385,-0.01584118355114072],
+                  [-3.012631125902489e-18,-0.0164],
+                  [0.004244632339681333,-0.015841183551140725],
+                  [0.008200000000000002,-0.014202816622064794],
+                  [0.011596551211459378,-0.011596551211459383],
+                  [0.01420281662206479,-0.008200000000000008],
+                  [0.015841183551140718,-0.004244632339681354]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "bottom-entry",
+            "semanticType": "electric.surface-junction-box.knockout-wall",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.08,0.043],
+                [0,-0.073,0.043]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.087,-0.033],
+                [0.087,-0.033],
+                [0.087,0.033],
+                [-0.087,0.033]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0127,0],
+                  [0.012267257993871168,0.0032870018728020133],
+                  [0.010998522628062371,0.006349999999999999],
+                  [0.008980256121069154,0.008980256121069152],
+                  [0.0063500000000000015,0.01099852262806237],
+                  [0.0032870018728020133,0.012267257993871168],
+                  [7.776507174585693e-19,0.0127],
+                  [-0.003287001872802012,0.012267257993871168],
+                  [-0.006349999999999997,0.010998522628062371],
+                  [-0.008980256121069152,0.008980256121069154],
+                  [-0.010998522628062371,0.006349999999999999],
+                  [-0.012267257993871166,0.0032870018728020168],
+                  [-0.0127,1.5553014349171385e-18],
+                  [-0.012267257993871168,-0.003287001872802014],
+                  [-0.010998522628062373,-0.006349999999999996],
+                  [-0.008980256121069159,-0.008980256121069148],
+                  [-0.006350000000000006,-0.010998522628062368],
+                  [-0.003287001872802012,-0.012267257993871168],
+                  [-2.3329521523757078e-18,-0.0127],
+                  [0.0032870018728020076,-0.012267257993871168],
+                  [0.0063500000000000015,-0.01099852262806237],
+                  [0.00898025612106915,-0.008980256121069155],
+                  [0.010998522628062366,-0.006350000000000006],
+                  [0.012267257993871164,-0.0032870018728020237]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "top-collar",
+            "semanticType": "electric.surface-junction-box.gland",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.08,0.043],
+                [0,0.108,0.043]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.022,0],
+                [0.021250368178359503,0.005694018992255456],
+                [0.01905255888325765,0.010999999999999998],
+                [0.015556349186104046,0.015556349186104042],
+                [0.011000000000000001,0.019052558883257648],
+                [0.005694018992255456,0.021250368178359503],
+                [1.3471114790620884e-18,0.022],
+                [-0.0056940189922554535,0.021250368178359503],
+                [-0.010999999999999994,0.01905255888325765],
+                [-0.015556349186104042,0.015556349186104046],
+                [-0.01905255888325765,0.010999999999999998],
+                [-0.0212503681783595,0.005694018992255462],
+                [-0.022,2.694222958124177e-18],
+                [-0.021250368178359503,-0.005694018992255457],
+                [-0.01905255888325765,-0.010999999999999992],
+                [-0.015556349186104053,-0.015556349186104036],
+                [-0.01100000000000001,-0.019052558883257645],
+                [-0.0056940189922554535,-0.021250368178359503],
+                [-4.041334437186265e-18,-0.022],
+                [0.0056940189922554466,-0.021250368178359503],
+                [0.011000000000000001,-0.019052558883257648],
+                [0.01555634918610404,-0.015556349186104048],
+                [0.019052558883257645,-0.01100000000000001],
+                [0.021250368178359496,-0.005694018992255474]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0164,0],
+                  [0.01584118355114072,0.00424463233968134],
+                  [0.014202816622064796,0.008199999999999999],
+                  [0.011596551211459381,0.01159655121145938],
+                  [0.008200000000000002,0.014202816622064794],
+                  [0.00424463233968134,0.01584118355114072],
+                  [1.0042103753008296e-18,0.0164],
+                  [-0.0042446323396813385,0.01584118355114072],
+                  [-0.008199999999999997,0.014202816622064796],
+                  [-0.01159655121145938,0.011596551211459381],
+                  [-0.014202816622064796,0.008199999999999999],
+                  [-0.015841183551140718,0.0042446323396813455],
+                  [-0.0164,2.0084207506016593e-18],
+                  [-0.01584118355114072,-0.004244632339681341],
+                  [-0.014202816622064797,-0.008199999999999995],
+                  [-0.011596551211459387,-0.011596551211459374],
+                  [-0.008200000000000008,-0.014202816622064792],
+                  [-0.0042446323396813385,-0.01584118355114072],
+                  [-3.012631125902489e-18,-0.0164],
+                  [0.004244632339681333,-0.015841183551140725],
+                  [0.008200000000000002,-0.014202816622064794],
+                  [0.011596551211459378,-0.011596551211459383],
+                  [0.01420281662206479,-0.008200000000000008],
+                  [0.015841183551140718,-0.004244632339681354]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "bottom-collar",
+            "semanticType": "electric.surface-junction-box.gland",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.107,0.043],
+                [0,-0.08,0.043]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.019,0],
+                [0.018352590699492296,0.004917561856947894],
+                [0.016454482671904334,0.009499999999999998],
+                [0.013435028842544404,0.013435028842544402],
+                [0.009500000000000001,0.016454482671904334],
+                [0.004917561856947894,0.018352590699492296],
+                [1.1634144591899855e-18,0.019],
+                [-0.004917561856947892,0.018352590699492296],
+                [-0.009499999999999996,0.016454482671904334],
+                [-0.013435028842544402,0.013435028842544404],
+                [-0.016454482671904334,0.009499999999999998],
+                [-0.018352590699492296,0.004917561856947899],
+                [-0.019,2.326828918379971e-18],
+                [-0.018352590699492296,-0.004917561856947895],
+                [-0.016454482671904337,-0.009499999999999995],
+                [-0.01343502884254441,-0.013435028842544395],
+                [-0.009500000000000008,-0.01645448267190433],
+                [-0.004917561856947892,-0.018352590699492296],
+                [-3.490243377569957e-18,-0.019],
+                [0.004917561856947886,-0.0183525906994923],
+                [0.009500000000000001,-0.016454482671904334],
+                [0.013435028842544399,-0.013435028842544406],
+                [0.01645448267190433,-0.009500000000000008],
+                [0.018352590699492292,-0.004917561856947909]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0127,0],
+                  [0.012267257993871168,0.0032870018728020133],
+                  [0.010998522628062371,0.006349999999999999],
+                  [0.008980256121069154,0.008980256121069152],
+                  [0.0063500000000000015,0.01099852262806237],
+                  [0.0032870018728020133,0.012267257993871168],
+                  [7.776507174585693e-19,0.0127],
+                  [-0.003287001872802012,0.012267257993871168],
+                  [-0.006349999999999997,0.010998522628062371],
+                  [-0.008980256121069152,0.008980256121069154],
+                  [-0.010998522628062371,0.006349999999999999],
+                  [-0.012267257993871166,0.0032870018728020168],
+                  [-0.0127,1.5553014349171385e-18],
+                  [-0.012267257993871168,-0.003287001872802014],
+                  [-0.010998522628062373,-0.006349999999999996],
+                  [-0.008980256121069159,-0.008980256121069148],
+                  [-0.006350000000000006,-0.010998522628062368],
+                  [-0.003287001872802012,-0.012267257993871168],
+                  [-2.3329521523757078e-18,-0.0127],
+                  [0.0032870018728020076,-0.012267257993871168],
+                  [0.0063500000000000015,-0.01099852262806237],
+                  [0.00898025612106915,-0.008980256121069155],
+                  [0.010998522628062366,-0.006350000000000006],
+                  [0.012267257993871164,-0.0032870018728020237]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lid-hinge",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-0.089,0,0.078]
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "electric.surface-junction-box.lid",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d2dce0"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.18,0.16,0.011]
+            },
+            "transform": {
+              "position": [0.089,0,0.0055]
+            },
+            "parent": "lid-hinge"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "upper-inlet": {
+            "position": [0,0.108,0.043],
+            "direction": [0,1,0],
+            "outsideDiameter": 0.032,
+            "kind": "conduit-port"
+          },
+          "lower-inlet": {
+            "position": [0,-0.107,0.043],
+            "direction": [0,-1,0],
+            "outsideDiameter": 0.025,
+            "kind": "conduit-port"
+          },
+          "interior-center": {
+            "position": [0,0,0.043],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "open-lid",
+            "target": "lid-hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.64,0],
+            "duration": 1.1,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      },
+      "transform": {
+        "position": [-1.26,1.58,-1.2]
+      }
+    },
+    {
+      "id": "flex-tail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "conduit",
+            "semanticType": "mep.electric.conduit-flexible",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0.44,0,0]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.025,
+              "thickness": 0.002
+            }
+          },
+          {
+            "id": "rib",
+            "semanticType": "mep.electric.conduit-flexible.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.0127,
+              "tubeRadius": 0.0018,
+              "radialSegments": 24,
+              "tubularSegments": 8
+            },
+            "transform": {
+              "rotation": [0,0,-1.5707963267948966]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 35,
+              "start": [0.016,0,0],
+              "step": [0.012,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [-1.26,1.473,-1.157],
+        "rotation": [0,0,-1.5707963267948966]
+      }
+    },
+    {
+      "id": "wall-box",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "top-wall",
+            "semanticType": "mep.electric.flush-device-box.wall",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.0445,-0.026],
+                [0,0.0505,-0.026]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.033,-0.026],
+                [0.033,-0.026],
+                [0.033,0.026],
+                [-0.033,0.026]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0128,0.004],
+                  [0.012363850576500074,0.007312883777312266],
+                  [0.011085125168440816,0.0104],
+                  [0.009050966799187809,0.013050966799187809],
+                  [0.006400000000000002,0.015085125168440815],
+                  [0.0033128837773122657,0.016363850576500076],
+                  [7.837739514543061e-19,0.016800000000000002],
+                  [-0.003312883777312264,0.016363850576500076],
+                  [-0.006399999999999998,0.015085125168440816],
+                  [-0.009050966799187809,0.013050966799187809],
+                  [-0.011085125168440816,0.0104],
+                  [-0.012363850576500074,0.007312883777312269],
+                  [-0.0128,0.004000000000000002],
+                  [-0.012363850576500074,0.0006871162226877339],
+                  [-0.011085125168440818,-0.0023999999999999968],
+                  [-0.009050966799187814,-0.005050966799187803],
+                  [-0.006400000000000006,-0.007085125168440813],
+                  [-0.003312883777312264,-0.008363850576500074],
+                  [-2.3513218543629183e-18,-0.0088],
+                  [0.00331288377731226,-0.008363850576500076],
+                  [0.006400000000000002,-0.0070851251684408145],
+                  [0.009050966799187807,-0.00505096679918781],
+                  [0.011085125168440811,-0.0024000000000000063],
+                  [0.012363850576500073,0.0006871162226877239]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lower-wall",
+            "semanticType": "mep.electric.flush-device-box.wall",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.006,0.052]
+            },
+            "transform": {
+              "position": [0,-0.0475,-0.026]
+            }
+          },
+          {
+            "id": "left-wall",
+            "semanticType": "mep.electric.flush-device-box.wall",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.101,0.052]
+            },
+            "transform": {
+              "position": [-0.0355,0,-0.026]
+            }
+          },
+          {
+            "id": "right-wall",
+            "semanticType": "mep.electric.flush-device-box.wall",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.101,0.052]
+            },
+            "transform": {
+              "position": [0.0355,0,-0.026]
+            }
+          },
+          {
+            "id": "back",
+            "semanticType": "electric.flush-device-box.base",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.076,0.101,0.006]
+            },
+            "transform": {
+              "position": [0,0,-0.055]
+            }
+          },
+          {
+            "id": "upper-ear",
+            "semanticType": "electric.flush-device-box.mounting-ear",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.046,-0.005],
+                [0,0.046,-0.001]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.013,-0.007],
+                [0.013,-0.007],
+                [0.013,0.007],
+                [-0.013,0.007]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0025,0],
+                  [0.002414814565722671,0.0006470476127563018],
+                  [0.0021650635094610966,0.0012499999999999998],
+                  [0.001767766952966369,0.0017677669529663686],
+                  [0.0012500000000000002,0.0021650635094610966],
+                  [0.0006470476127563018,0.002414814565722671],
+                  [1.5308084989341915e-19,0.0025],
+                  [-0.0006470476127563016,0.002414814565722671],
+                  [-0.0012499999999999994,0.0021650635094610966],
+                  [-0.0017677669529663686,0.001767766952966369],
+                  [-0.0021650635094610966,0.0012499999999999998],
+                  [-0.0024148145657226705,0.0006470476127563026],
+                  [-0.0025,3.061616997868383e-19],
+                  [-0.002414814565722671,-0.000647047612756302],
+                  [-0.002165063509461097,-0.0012499999999999994],
+                  [-0.0017677669529663697,-0.0017677669529663678],
+                  [-0.0012500000000000011,-0.002165063509461096],
+                  [-0.0006470476127563016,-0.002414814565722671],
+                  [-4.592425496802574e-19,-0.0025],
+                  [0.0006470476127563008,-0.002414814565722671],
+                  [0.0012500000000000002,-0.0021650635094610966],
+                  [0.0017677669529663684,-0.0017677669529663693],
+                  [0.002165063509461096,-0.0012500000000000011],
+                  [0.0024148145657226705,-0.0006470476127563039]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lower-ear",
+            "semanticType": "electric.flush-device-box.mounting-ear",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.046,-0.005],
+                [0,-0.046,-0.001]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.013,-0.007],
+                [0.013,-0.007],
+                [0.013,0.007],
+                [-0.013,0.007]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0025,0],
+                  [0.002414814565722671,0.0006470476127563018],
+                  [0.0021650635094610966,0.0012499999999999998],
+                  [0.001767766952966369,0.0017677669529663686],
+                  [0.0012500000000000002,0.0021650635094610966],
+                  [0.0006470476127563018,0.002414814565722671],
+                  [1.5308084989341915e-19,0.0025],
+                  [-0.0006470476127563016,0.002414814565722671],
+                  [-0.0012499999999999994,0.0021650635094610966],
+                  [-0.0017677669529663686,0.001767766952966369],
+                  [-0.0021650635094610966,0.0012499999999999998],
+                  [-0.0024148145657226705,0.0006470476127563026],
+                  [-0.0025,3.061616997868383e-19],
+                  [-0.002414814565722671,-0.000647047612756302],
+                  [-0.002165063509461097,-0.0012499999999999994],
+                  [-0.0017677669529663697,-0.0017677669529663678],
+                  [-0.0012500000000000011,-0.002165063509461096],
+                  [-0.0006470476127563016,-0.002414814565722671],
+                  [-4.592425496802574e-19,-0.0025],
+                  [0.0006470476127563008,-0.002414814565722671],
+                  [0.0012500000000000002,-0.0021650635094610966],
+                  [0.0017677669529663684,-0.0017677669529663693],
+                  [0.002165063509461096,-0.0012500000000000011],
+                  [0.0024148145657226705,-0.0006470476127563039]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "top-neck",
+            "semanticType": "electric.flush-device-box.neck",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.049,-0.022],
+                [0,0.075,-0.022]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.017,0],
+                [0.016420739046914164,0.004399923766742853],
+                [0.014722431864335458,0.008499999999999999],
+                [0.01202081528017131,0.012020815280171307],
+                [0.008500000000000002,0.014722431864335457],
+                [0.004399923766742853,0.016420739046914164],
+                [1.0409497792752502e-18,0.017],
+                [-0.004399923766742851,0.016420739046914164],
+                [-0.008499999999999997,0.014722431864335458],
+                [-0.012020815280171307,0.01202081528017131],
+                [-0.014722431864335458,0.008499999999999999],
+                [-0.01642073904691416,0.004399923766742858],
+                [-0.017,2.0818995585505005e-18],
+                [-0.016420739046914164,-0.004399923766742854],
+                [-0.01472243186433546,-0.008499999999999995],
+                [-0.012020815280171316,-0.012020815280171302],
+                [-0.008500000000000008,-0.014722431864335455],
+                [-0.004399923766742851,-0.016420739046914164],
+                [-3.1228493378257507e-18,-0.017],
+                [0.0043999237667428455,-0.016420739046914164],
+                [0.008500000000000002,-0.014722431864335457],
+                [0.012020815280171305,-0.012020815280171312],
+                [0.014722431864335453,-0.008500000000000008],
+                [0.01642073904691416,-0.004399923766742867]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0128,0],
+                  [0.012363850576500074,0.0033128837773122657],
+                  [0.011085125168440816,0.0063999999999999994],
+                  [0.009050966799187809,0.009050966799187809],
+                  [0.006400000000000002,0.011085125168440815],
+                  [0.0033128837773122657,0.012363850576500074],
+                  [7.837739514543061e-19,0.0128],
+                  [-0.003312883777312264,0.012363850576500074],
+                  [-0.006399999999999998,0.011085125168440816],
+                  [-0.009050966799187809,0.009050966799187809],
+                  [-0.011085125168440816,0.0063999999999999994],
+                  [-0.012363850576500074,0.003312883777312269],
+                  [-0.0128,1.5675479029086122e-18],
+                  [-0.012363850576500074,-0.003312883777312266],
+                  [-0.011085125168440818,-0.006399999999999997],
+                  [-0.009050966799187814,-0.009050966799187803],
+                  [-0.006400000000000006,-0.011085125168440813],
+                  [-0.003312883777312264,-0.012363850576500074],
+                  [-2.3513218543629183e-18,-0.0128],
+                  [0.00331288377731226,-0.012363850576500076],
+                  [0.006400000000000002,-0.011085125168440815],
+                  [0.009050966799187807,-0.00905096679918781],
+                  [0.011085125168440811,-0.006400000000000006],
+                  [0.012363850576500073,-0.003312883777312276]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "wall-plane": {
+            "position": [0,0,0],
+            "direction": [0,0,1]
+          },
+          "faceplate-seat": {
+            "position": [0,0,0],
+            "direction": [0,0,1]
+          },
+          "top-inlet": {
+            "position": [0,0.075,-0.022],
+            "direction": [0,1,0],
+            "outsideDiameter": 0.025,
+            "kind": "conduit-port"
+          }
+        }
+      },
+      "transform": {
+        "position": [-0.4,0.75,-1.2]
+      }
+    },
+    {
+      "id": "rocker",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cover",
+            "semanticType": "electric.rocker-switch.cover",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d2dce0"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.006]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.046,-0.055],
+                [0.046,-0.055],
+                [0.046,0.055],
+                [-0.046,0.055]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.026,-0.0345],
+                  [0.026,-0.0345],
+                  [0.026,0.0345],
+                  [-0.026,0.0345]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "insert",
+            "semanticType": "electric.rocker-switch.body",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.083,0.027]
+            },
+            "transform": {
+              "position": [0,0,-0.014]
+            }
+          },
+          {
+            "id": "rocker-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0.0075]
+            }
+          },
+          {
+            "id": "rocker",
+            "semanticType": "electric.rocker-switch.plate",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a2b7c3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.049,0.065,0.008]
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "rocker-axis"
+          },
+          {
+            "id": "mark",
+            "semanticType": "electric.rocker-switch.mark",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.002,0.001]
+            },
+            "transform": {
+              "position": [0,0.018,0.0045]
+            },
+            "parent": "rocker-axis"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "actuation": {
+            "node": "rocker-axis",
+            "position": [0,0.022,0.004],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "toggle-rocker",
+            "target": "rocker-axis",
+            "property": "rotation",
+            "from": [0.085,0,0],
+            "to": [-0.085,0,0],
+            "duration": 0.32,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      },
+      "transform": {
+        "position": [-0.4,0.75,-1.2]
+      }
+    },
+    {
+      "id": "duplex-detail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front",
+            "semanticType": "electric.dual-outlet-faceplate.face",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d2dce0"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.047,-0.056],
+                [0.047,-0.056],
+                [0.047,0.056],
+                [-0.047,0.056]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0155,-0.027499999999999997],
+                  [-0.010499999999999999,-0.027499999999999997],
+                  [-0.010499999999999999,-0.014499999999999999],
+                  [-0.0155,-0.014499999999999999]
+                ],
+                [
+                  [0.010499999999999999,-0.027499999999999997],
+                  [0.0155,-0.027499999999999997],
+                  [0.0155,-0.014499999999999999],
+                  [0.010499999999999999,-0.014499999999999999]
+                ],
+                [
+                  [-0.0035,-0.039999999999999994],
+                  [0.0035,-0.039999999999999994],
+                  [0.0035,-0.032],
+                  [-0.0035,-0.032]
+                ],
+                [
+                  [-0.0155,0.026500000000000003],
+                  [-0.010499999999999999,0.026500000000000003],
+                  [-0.010499999999999999,0.0395],
+                  [-0.0155,0.0395]
+                ],
+                [
+                  [0.010499999999999999,0.026500000000000003],
+                  [0.0155,0.026500000000000003],
+                  [0.0155,0.0395],
+                  [0.010499999999999999,0.0395]
+                ],
+                [
+                  [-0.0035,0.014000000000000002],
+                  [0.0035,0.014000000000000002],
+                  [0.0035,0.022000000000000002],
+                  [-0.0035,0.022000000000000002]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "back-frame",
+            "semanticType": "electric.dual-outlet-faceplate.shell",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.025],
+                [0,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.033,-0.044],
+                [0.033,-0.044],
+                [0.033,0.044],
+                [-0.033,0.044]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0265,-0.0375],
+                  [0.0265,-0.0375],
+                  [0.0265,0.0375],
+                  [-0.0265,0.0375]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "base",
+            "semanticType": "electric.dual-outlet-faceplate.base",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.087,0.004]
+            },
+            "transform": {
+              "position": [0,0,-0.027]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "upper-face": {
+            "position": [0,0.027,0.009],
+            "direction": [0,0,1]
+          },
+          "lower-face": {
+            "position": [0,-0.027,0.009],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [-2.58,0.73,-1.2]
+      }
+    },
+    {
+      "id": "saddle-detail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "electric.twin-conduit-saddle.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.007]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.082,-0.0305],
+                [0.082,-0.0305],
+                [0.082,0.0305],
+                [-0.082,0.0305]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.059000000000000004,0],
+                  [-0.05917037086855466,0.0012940952255126037],
+                  [-0.05966987298107781,0.0024999999999999996],
+                  [-0.06046446609406726,0.0035355339059327372],
+                  [-0.0615,0.004330127018922193],
+                  [-0.0627059047744874,0.004829629131445342],
+                  [-0.064,0.005],
+                  [-0.0652940952255126,0.004829629131445342],
+                  [-0.0665,0.004330127018922193],
+                  [-0.06753553390593274,0.003535533905932738],
+                  [-0.06833012701892219,0.0024999999999999996],
+                  [-0.06882962913144534,0.0012940952255126052],
+                  [-0.069,6.123233995736766e-19],
+                  [-0.06882962913144534,-0.001294095225512604],
+                  [-0.0683301270189222,-0.0024999999999999988],
+                  [-0.06753553390593274,-0.0035355339059327355],
+                  [-0.0665,-0.004330127018922192],
+                  [-0.0652940952255126,-0.004829629131445342],
+                  [-0.064,-0.005],
+                  [-0.0627059047744874,-0.004829629131445342],
+                  [-0.0615,-0.004330127018922193],
+                  [-0.06046446609406726,-0.0035355339059327385],
+                  [-0.05966987298107781,-0.0025000000000000022],
+                  [-0.05917037086855466,-0.0012940952255126078]
+                ],
+                [
+                  [0.069,0],
+                  [0.06882962913144534,0.0012940952255126037],
+                  [0.06833012701892219,0.0024999999999999996],
+                  [0.06753553390593274,0.0035355339059327372],
+                  [0.0665,0.004330127018922193],
+                  [0.0652940952255126,0.004829629131445342],
+                  [0.064,0.005],
+                  [0.0627059047744874,0.004829629131445342],
+                  [0.0615,0.004330127018922193],
+                  [0.06046446609406726,0.003535533905932738],
+                  [0.05966987298107781,0.0024999999999999996],
+                  [0.05917037086855466,0.0012940952255126052],
+                  [0.059000000000000004,6.123233995736766e-19],
+                  [0.05917037086855466,-0.001294095225512604],
+                  [0.05966987298107781,-0.0024999999999999988],
+                  [0.06046446609406726,-0.0035355339059327355],
+                  [0.0615,-0.004330127018922192],
+                  [0.0627059047744874,-0.004829629131445342],
+                  [0.064,-0.005],
+                  [0.0652940952255126,-0.004829629131445342],
+                  [0.0665,-0.004330127018922193],
+                  [0.06753553390593274,-0.0035355339059327385],
+                  [0.06833012701892219,-0.0025000000000000022],
+                  [0.06882962913144534,-0.0012940952255126078]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "spacer",
+            "semanticType": "electric.twin-conduit-saddle.spacer",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.12,0.038,0.011]
+            },
+            "transform": {
+              "position": [0,0,0.0125]
+            }
+          },
+          {
+            "id": "collar-0",
+            "semanticType": "electric.twin-conduit-saddle.collar",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.035,-0.018,0.037],
+                [-0.035,0.018,0.037]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.021,0],
+                [0.020284442352070435,0.005435199947152936],
+                [0.018186533479473212,0.010499999999999999],
+                [0.0148492424049175,0.014849242404917497],
+                [0.010500000000000002,0.018186533479473212],
+                [0.005435199947152936,0.020284442352070435],
+                [1.285879139104721e-18,0.021],
+                [-0.005435199947152933,0.020284442352070435],
+                [-0.010499999999999995,0.018186533479473212],
+                [-0.014849242404917497,0.0148492424049175],
+                [-0.018186533479473212,0.010499999999999999],
+                [-0.020284442352070435,0.005435199947152942],
+                [-0.021,2.571758278209442e-18],
+                [-0.020284442352070435,-0.005435199947152937],
+                [-0.018186533479473216,-0.010499999999999995],
+                [-0.014849242404917506,-0.01484924240491749],
+                [-0.01050000000000001,-0.01818653347947321],
+                [-0.005435199947152933,-0.020284442352070435],
+                [-3.8576374173141625e-18,-0.021],
+                [0.005435199947152926,-0.02028444235207044],
+                [0.010500000000000002,-0.018186533479473212],
+                [0.014849242404917496,-0.014849242404917503],
+                [0.018186533479473205,-0.01050000000000001],
+                [0.02028444235207043,-0.005435199947152953]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0163,0],
+                  [0.01574459096851181,0.004218750435171088],
+                  [0.014116214081686349,0.008149999999999998],
+                  [0.011525840533340725,0.011525840533340723],
+                  [0.008150000000000001,0.014116214081686347],
+                  [0.004218750435171088,0.01574459096851181],
+                  [9.980871413050928e-19,0.0163],
+                  [-0.004218750435171086,0.01574459096851181],
+                  [-0.008149999999999996,0.014116214081686349],
+                  [-0.011525840533340723,0.011525840533340725],
+                  [-0.014116214081686349,0.008149999999999998],
+                  [-0.01574459096851181,0.004218750435171092],
+                  [-0.0163,1.9961742826101856e-18],
+                  [-0.01574459096851181,-0.004218750435171089],
+                  [-0.014116214081686352,-0.008149999999999994],
+                  [-0.01152584053334073,-0.011525840533340718],
+                  [-0.008150000000000006,-0.014116214081686345],
+                  [-0.004218750435171086,-0.01574459096851181],
+                  [-2.994261423915278e-18,-0.0163],
+                  [0.00421875043517108,-0.015744590968511815],
+                  [0.008150000000000001,-0.014116214081686347],
+                  [0.011525840533340721,-0.011525840533340726],
+                  [0.014116214081686344,-0.008150000000000006],
+                  [0.015744590968511808,-0.004218750435171101]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "collar-1",
+            "semanticType": "electric.twin-conduit-saddle.collar",
+            "material": "steel",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.035,-0.018,0.037],
+                [0.035,0.018,0.037]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.021,0],
+                [0.020284442352070435,0.005435199947152936],
+                [0.018186533479473212,0.010499999999999999],
+                [0.0148492424049175,0.014849242404917497],
+                [0.010500000000000002,0.018186533479473212],
+                [0.005435199947152936,0.020284442352070435],
+                [1.285879139104721e-18,0.021],
+                [-0.005435199947152933,0.020284442352070435],
+                [-0.010499999999999995,0.018186533479473212],
+                [-0.014849242404917497,0.0148492424049175],
+                [-0.018186533479473212,0.010499999999999999],
+                [-0.020284442352070435,0.005435199947152942],
+                [-0.021,2.571758278209442e-18],
+                [-0.020284442352070435,-0.005435199947152937],
+                [-0.018186533479473216,-0.010499999999999995],
+                [-0.014849242404917506,-0.01484924240491749],
+                [-0.01050000000000001,-0.01818653347947321],
+                [-0.005435199947152933,-0.020284442352070435],
+                [-3.8576374173141625e-18,-0.021],
+                [0.005435199947152926,-0.02028444235207044],
+                [0.010500000000000002,-0.018186533479473212],
+                [0.014849242404917496,-0.014849242404917503],
+                [0.018186533479473205,-0.01050000000000001],
+                [0.02028444235207043,-0.005435199947152953]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0163,0],
+                  [0.01574459096851181,0.004218750435171088],
+                  [0.014116214081686349,0.008149999999999998],
+                  [0.011525840533340725,0.011525840533340723],
+                  [0.008150000000000001,0.014116214081686347],
+                  [0.004218750435171088,0.01574459096851181],
+                  [9.980871413050928e-19,0.0163],
+                  [-0.004218750435171086,0.01574459096851181],
+                  [-0.008149999999999996,0.014116214081686349],
+                  [-0.011525840533340723,0.011525840533340725],
+                  [-0.014116214081686349,0.008149999999999998],
+                  [-0.01574459096851181,0.004218750435171092],
+                  [-0.0163,1.9961742826101856e-18],
+                  [-0.01574459096851181,-0.004218750435171089],
+                  [-0.014116214081686352,-0.008149999999999994],
+                  [-0.01152584053334073,-0.011525840533340718],
+                  [-0.008150000000000006,-0.014116214081686345],
+                  [-0.004218750435171086,-0.01574459096851181],
+                  [-2.994261423915278e-18,-0.0163],
+                  [0.00421875043517108,-0.015744590968511815],
+                  [0.008150000000000001,-0.014116214081686347],
+                  [0.011525840533340721,-0.011525840533340726],
+                  [0.014116214081686344,-0.008150000000000006],
+                  [0.015744590968511808,-0.004218750435171101]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "left-axis": {
+            "position": [-0.035,0,0.037],
+            "direction": [0,-1,0]
+          },
+          "right-axis": {
+            "position": [0.035,0,0.037],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [-2.53,0.49,-1.2]
+      }
+    },
+    {
+      "id": "pull-box-detail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "left-wall",
+            "semanticType": "electric.conduit-pull-body.wall",
+            "material": "metal",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.062,0,0.0015],
+                [-0.0495,0,0.0015]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0285,-0.051],
+                [0.0285,-0.051],
+                [0.0285,0.051],
+                [-0.0285,0.051]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.017900000000000003,0],
+                  [0.017341183551140723,0.00424463233968134],
+                  [0.015702816622064797,0.008199999999999999],
+                  [0.013096551211459381,0.01159655121145938],
+                  [0.009700000000000002,0.014202816622064794],
+                  [0.00574463233968134,0.01584118355114072],
+                  [0.0015000000000000011,0.0164],
+                  [-0.0027446323396813385,0.01584118355114072],
+                  [-0.006699999999999998,0.014202816622064796],
+                  [-0.01009655121145938,0.011596551211459381],
+                  [-0.012702816622064796,0.008199999999999999],
+                  [-0.014341183551140719,0.0042446323396813455],
+                  [-0.014900000000000002,2.0084207506016593e-18],
+                  [-0.014341183551140722,-0.004244632339681341],
+                  [-0.012702816622064798,-0.008199999999999995],
+                  [-0.010096551211459387,-0.011596551211459374],
+                  [-0.006700000000000008,-0.014202816622064792],
+                  [-0.0027446323396813385,-0.01584118355114072],
+                  [0.001499999999999997,-0.0164],
+                  [0.005744632339681333,-0.015841183551140725],
+                  [0.009700000000000002,-0.014202816622064794],
+                  [0.013096551211459377,-0.011596551211459383],
+                  [0.01570281662206479,-0.008200000000000008],
+                  [0.01734118355114072,-0.004244632339681354]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lower-wall",
+            "semanticType": "electric.conduit-pull-body.wall",
+            "material": "metal",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.051,0.0015],
+                [0,-0.0385,0.0015]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.0495,-0.0285],
+                [0.0495,-0.0285],
+                [0.0495,0.0285],
+                [-0.0495,0.0285]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0164,-0.0015],
+                  [0.01584118355114072,0.0027446323396813402],
+                  [0.014202816622064796,0.006699999999999999],
+                  [0.011596551211459381,0.01009655121145938],
+                  [0.008200000000000002,0.012702816622064794],
+                  [0.00424463233968134,0.014341183551140722],
+                  [1.0042103753008296e-18,0.014900000000000002],
+                  [-0.0042446323396813385,0.014341183551140722],
+                  [-0.008199999999999997,0.012702816622064796],
+                  [-0.01159655121145938,0.010096551211459382],
+                  [-0.014202816622064796,0.006699999999999999],
+                  [-0.015841183551140718,0.0027446323396813454],
+                  [-0.0164,-0.001499999999999998],
+                  [-0.01584118355114072,-0.005744632339681342],
+                  [-0.014202816622064797,-0.009699999999999995],
+                  [-0.011596551211459387,-0.013096551211459374],
+                  [-0.008200000000000008,-0.015702816622064793],
+                  [-0.0042446323396813385,-0.017341183551140723],
+                  [-3.012631125902489e-18,-0.017900000000000003],
+                  [0.004244632339681333,-0.017341183551140726],
+                  [0.008200000000000002,-0.015702816622064793],
+                  [0.011596551211459378,-0.013096551211459383],
+                  [0.01420281662206479,-0.009700000000000007],
+                  [0.015841183551140718,-0.005744632339681354]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "right-wall",
+            "semanticType": "electric.conduit-pull-body.wall",
+            "material": "metal",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.0125,0.102,0.057]
+            },
+            "transform": {
+              "position": [0.05575,0,0.0015]
+            }
+          },
+          {
+            "id": "upper-wall",
+            "semanticType": "electric.conduit-pull-body.wall",
+            "material": "metal",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.099,0.0125,0.057]
+            },
+            "transform": {
+              "position": [0,0.04475,0.0015]
+            }
+          },
+          {
+            "id": "back",
+            "semanticType": "electric.conduit-pull-body.back",
+            "material": "metal",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.124,0.102,0.006]
+            },
+            "transform": {
+              "position": [0,0,-0.03]
+            }
+          },
+          {
+            "id": "left-neck",
+            "semanticType": "electric.conduit-pull-body.port",
+            "material": "metal",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.118,0,0],
+                [-0.061,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.022,0],
+                [0.021250368178359503,0.005694018992255456],
+                [0.01905255888325765,0.010999999999999998],
+                [0.015556349186104046,0.015556349186104042],
+                [0.011000000000000001,0.019052558883257648],
+                [0.005694018992255456,0.021250368178359503],
+                [1.3471114790620884e-18,0.022],
+                [-0.0056940189922554535,0.021250368178359503],
+                [-0.010999999999999994,0.01905255888325765],
+                [-0.015556349186104042,0.015556349186104046],
+                [-0.01905255888325765,0.010999999999999998],
+                [-0.0212503681783595,0.005694018992255462],
+                [-0.022,2.694222958124177e-18],
+                [-0.021250368178359503,-0.005694018992255457],
+                [-0.01905255888325765,-0.010999999999999992],
+                [-0.015556349186104053,-0.015556349186104036],
+                [-0.01100000000000001,-0.019052558883257645],
+                [-0.0056940189922554535,-0.021250368178359503],
+                [-4.041334437186265e-18,-0.022],
+                [0.0056940189922554466,-0.021250368178359503],
+                [0.011000000000000001,-0.019052558883257648],
+                [0.01555634918610404,-0.015556349186104048],
+                [0.019052558883257645,-0.01100000000000001],
+                [0.021250368178359496,-0.005694018992255474]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0164,0],
+                  [0.01584118355114072,0.00424463233968134],
+                  [0.014202816622064796,0.008199999999999999],
+                  [0.011596551211459381,0.01159655121145938],
+                  [0.008200000000000002,0.014202816622064794],
+                  [0.00424463233968134,0.01584118355114072],
+                  [1.0042103753008296e-18,0.0164],
+                  [-0.0042446323396813385,0.01584118355114072],
+                  [-0.008199999999999997,0.014202816622064796],
+                  [-0.01159655121145938,0.011596551211459381],
+                  [-0.014202816622064796,0.008199999999999999],
+                  [-0.015841183551140718,0.0042446323396813455],
+                  [-0.0164,2.0084207506016593e-18],
+                  [-0.01584118355114072,-0.004244632339681341],
+                  [-0.014202816622064797,-0.008199999999999995],
+                  [-0.011596551211459387,-0.011596551211459374],
+                  [-0.008200000000000008,-0.014202816622064792],
+                  [-0.0042446323396813385,-0.01584118355114072],
+                  [-3.012631125902489e-18,-0.0164],
+                  [0.004244632339681333,-0.015841183551140725],
+                  [0.008200000000000002,-0.014202816622064794],
+                  [0.011596551211459378,-0.011596551211459383],
+                  [0.01420281662206479,-0.008200000000000008],
+                  [0.015841183551140718,-0.004244632339681354]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lower-neck",
+            "semanticType": "electric.conduit-pull-body.port",
+            "material": "metal",
+            "appearance": {
+              "color": "#52748c"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.101,0],
+                [0,-0.05,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.022,0],
+                [0.021250368178359503,0.005694018992255456],
+                [0.01905255888325765,0.010999999999999998],
+                [0.015556349186104046,0.015556349186104042],
+                [0.011000000000000001,0.019052558883257648],
+                [0.005694018992255456,0.021250368178359503],
+                [1.3471114790620884e-18,0.022],
+                [-0.0056940189922554535,0.021250368178359503],
+                [-0.010999999999999994,0.01905255888325765],
+                [-0.015556349186104042,0.015556349186104046],
+                [-0.01905255888325765,0.010999999999999998],
+                [-0.0212503681783595,0.005694018992255462],
+                [-0.022,2.694222958124177e-18],
+                [-0.021250368178359503,-0.005694018992255457],
+                [-0.01905255888325765,-0.010999999999999992],
+                [-0.015556349186104053,-0.015556349186104036],
+                [-0.01100000000000001,-0.019052558883257645],
+                [-0.0056940189922554535,-0.021250368178359503],
+                [-4.041334437186265e-18,-0.022],
+                [0.0056940189922554466,-0.021250368178359503],
+                [0.011000000000000001,-0.019052558883257648],
+                [0.01555634918610404,-0.015556349186104048],
+                [0.019052558883257645,-0.01100000000000001],
+                [0.021250368178359496,-0.005694018992255474]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0164,0],
+                  [0.01584118355114072,0.00424463233968134],
+                  [0.014202816622064796,0.008199999999999999],
+                  [0.011596551211459381,0.01159655121145938],
+                  [0.008200000000000002,0.014202816622064794],
+                  [0.00424463233968134,0.01584118355114072],
+                  [1.0042103753008296e-18,0.0164],
+                  [-0.0042446323396813385,0.01584118355114072],
+                  [-0.008199999999999997,0.014202816622064796],
+                  [-0.01159655121145938,0.011596551211459381],
+                  [-0.014202816622064796,0.008199999999999999],
+                  [-0.015841183551140718,0.0042446323396813455],
+                  [-0.0164,2.0084207506016593e-18],
+                  [-0.01584118355114072,-0.004244632339681341],
+                  [-0.014202816622064797,-0.008199999999999995],
+                  [-0.011596551211459387,-0.011596551211459374],
+                  [-0.008200000000000008,-0.014202816622064792],
+                  [-0.0042446323396813385,-0.01584118355114072],
+                  [-3.012631125902489e-18,-0.0164],
+                  [0.004244632339681333,-0.015841183551140725],
+                  [0.008200000000000002,-0.014202816622064794],
+                  [0.011596551211459378,-0.011596551211459383],
+                  [0.01420281662206479,-0.008200000000000008],
+                  [0.015841183551140718,-0.004244632339681354]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "electric.conduit-pull-body.lid",
+            "material": "metal",
+            "appearance": {
+              "color": "#9cafbc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.119,0.098,0.006]
+            },
+            "transform": {
+              "position": [0,0,0.033]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "position": [-0.118,0,0],
+            "direction": [-1,0,0],
+            "outsideDiameter": 0.032,
+            "kind": "conduit-port"
+          },
+          "outlet": {
+            "position": [0,-0.101,0],
+            "direction": [0,-1,0],
+            "outsideDiameter": 0.032,
+            "kind": "conduit-port"
+          },
+          "cover-face": {
+            "position": [0,0,0.036],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [-2.53,0.95,-1.2]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "tray-main#end",
+      "to": "tray-tee#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "tray-tee#end",
+      "to": "tray-next#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "tray-tee#branch",
+      "to": "tray-branch#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "tray-next#end",
+      "to": "tray-drop#inlet",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "tray-main#inner-bottom",
+      "to": "main-divider#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "tray-branch#cover-seat",
+      "to": "branch-cover#tray-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "tray-main#hanger-midpoint",
+      "to": "tray-trapeze#tray-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "ceiling#anchor-left",
+      "to": "tray-trapeze#ceiling-left",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "ceiling#anchor-right",
+      "to": "tray-trapeze#ceiling-right",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "tray-main#splice-face",
+      "to": "main-splice#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wall#surface-box",
+      "to": "junction#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "feed-conduit#end",
+      "to": "down-bend#start",
+      "contract": {
+        "direction": "opposed",
+        "outsideDiameter": "equal"
+      }
+    },
+    {
+      "from": "down-bend#end",
+      "to": "junction#upper-inlet",
+      "contract": {
+        "direction": "opposed",
+        "outsideDiameter": "equal"
+      }
+    },
+    {
+      "from": "junction#lower-inlet",
+      "to": "flex-tail#start",
+      "contract": {
+        "direction": "opposed",
+        "outsideDiameter": "equal"
+      }
+    },
+    {
+      "from": "wall#flush-seat",
+      "to": "wall-box#wall-plane",
+      "contract": {
+        "direction": "aligned"
+      }
+    },
+    {
+      "from": "wall-box#faceplate-seat",
+      "to": "rocker#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

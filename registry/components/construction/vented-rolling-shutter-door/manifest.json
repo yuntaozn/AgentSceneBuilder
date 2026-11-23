@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.vented-rolling-shutter-door",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带透气格的卷帘门模块",
+  "summary": "侧导轨、收卷壳和重复金属帘片构成半开状态，下端可见连续通行开口。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.opening.vented-roller-shutter",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门窗",
+    "五金"
+  ],
+  "anchors": [
+    "base",
+    "top",
+    "left",
+    "right",
+    "lower-edge"
+  ],
+  "ai": {
+    "intent": "在较宽开口表示收卷壳和可辨的金属帘片。",
+    "editableParts": [
+      "调整分离部件与帘片重复。"
+    ],
+    "qualityChecks": [
+      "半开状态可直接查看底部间隙。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "vented-rolling-shutter-door",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "guide-0",
+            "semanticType": "construction.opening.vented-roller-shutter.guide",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.111,0,0],
+                [-1.111,2.21,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.038,-0.038],
+                [0.038,-0.038],
+                [0.038,0.04],
+                [0.027,0.04],
+                [0.027,-0.026],
+                [-0.027,-0.026],
+                [-0.027,0.04],
+                [-0.038,0.04]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "guide-1",
+            "semanticType": "construction.opening.vented-roller-shutter.guide",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [1.111,0,0],
+                [1.111,2.21,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.038,-0.038],
+                [0.038,-0.038],
+                [0.038,0.04],
+                [0.027,0.04],
+                [0.027,-0.026],
+                [-0.027,-0.026],
+                [-0.027,0.04],
+                [-0.038,0.04]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "housing",
+            "semanticType": "construction.opening.vented-roller-shutter.cover",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.34,0.228,0.203]
+            },
+            "transform": {
+              "position": [0,2.21,-0.031]
+            }
+          },
+          {
+            "id": "drum",
+            "semanticType": "construction.opening.vented-roller-shutter.drum",
+            "material": "steel",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-1.13,2.19,-0.021],
+              "end": [1.13,2.19,-0.021],
+              "radius": 0.095,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "slat",
+            "semanticType": "construction.opening.vented-roller-shutter.slat",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.177,0.069,0.027]
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 7,
+              "start": [0,0.57,0],
+              "step": [0,0.065,0]
+            }
+          },
+          {
+            "id": "vent",
+            "semanticType": "construction.opening.vented-roller-shutter.vent",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#cad3d8"
+            },
+            "geometry": {
+              "type": "straight-railing",
+              "railWidth": 2.177,
+              "railHeight": 0.097,
+              "thickness": 0.025,
+              "memberWidth": 0.019,
+              "bayCount": 16
+            },
+            "transform": {
+              "position": [0,0.994,0]
+            }
+          },
+          {
+            "id": "lower-rail",
+            "semanticType": "construction.opening.vented-roller-shutter.last-slat",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.193,0.05,0.038]
+            },
+            "transform": {
+              "position": [0,0.515,0]
+            }
+          },
+          {
+            "id": "upper-slat",
+            "semanticType": "construction.opening.vented-roller-shutter.slat",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [2.177,0.069,0.027]
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 16,
+              "start": [0,1.1235,0],
+              "step": [0,0.065,0]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,2.324,0],
+            "direction": [0,1,0]
+          },
+          "left": {
+            "position": [-1.149,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [1.149,0,0],
+            "direction": [1,0,0]
+          },
+          "lower-edge": {
+            "position": [0,0.49,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

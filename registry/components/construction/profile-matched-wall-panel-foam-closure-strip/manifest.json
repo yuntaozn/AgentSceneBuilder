@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.profile-matched-wall-panel-foam-closure-strip",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "梯形肋墙板配套封边填条",
+  "summary": "上侧轮廓对齐梯形金属墙板凸肋，下边为平直连续封口。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.industrial.trapezoidal-wall-panel-foam-closure",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "钢结构",
+    "厂房",
+    "填条",
+    "围护",
+    "闭口"
+  ],
+  "anchors": [
+    "panel-seat",
+    "base"
+  ],
+  "ai": {
+    "intent": "在压型板下缘填补肋形空口。",
+    "editableParts": [
+      "配套肋形",
+      "底边",
+      "截短位置"
+    ],
+    "qualityChecks": [
+      "轮廓和墙板波型对应。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "profile-matched-wall-panel-foam-closure-strip",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "profiled-foam",
+            "semanticType": "construction.industrial.ribbed-wall-foam-closure.full-profile",
+            "material": "foam",
+            "appearance": {
+              "color": "#596b67"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.035,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.48,-0.014],
+                [0.48,-0.014],
+                [0.48,0.001],
+                [0.44400000000000006,0.001],
+                [0.42000000000000004,0.033],
+                [0.34800000000000003,0.033],
+                [0.324,0.001],
+                [0.28800000000000003,0.001],
+                [0.2520000000000001,0.001],
+                [0.2280000000000001,0.033],
+                [0.15600000000000008,0.033],
+                [0.1320000000000001,0.001],
+                [0.09600000000000009,0.001],
+                [0.060000000000000026,0.001],
+                [0.03600000000000003,0.033],
+                [-0.035999999999999976,0.033],
+                [-0.05999999999999998,0.001],
+                [-0.09599999999999997,0.001],
+                [-0.13199999999999998,0.001],
+                [-0.15599999999999997,0.033],
+                [-0.22799999999999998,0.033],
+                [-0.252,0.001],
+                [-0.288,0.001],
+                [-0.32399999999999995,0.001],
+                [-0.348,0.033],
+                [-0.42,0.033],
+                [-0.444,0.001],
+                [-0.48,0.001]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "panel-seat": {
+            "position": [0,0.035,0],
+            "direction": [0,1,0]
+          },
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

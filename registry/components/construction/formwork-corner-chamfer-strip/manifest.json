@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.formwork-corner-chamfer-strip",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "模板三角倒角条",
+  "summary": "局部直角三角截面沿直线延伸，用于布置基础或板边倒角。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.formwork.chamfer-fillet",
+  "capabilities": [
+    "attach",
+    "path-edit"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "混凝土施工",
+    "模板"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "inside-corner"
+  ],
+  "ai": {
+    "intent": "在模板内转角作为独立倒角件。",
+    "editableParts": [
+      "编辑截面尺寸与路径。"
+    ],
+    "qualityChecks": [
+      "两个直角面分别靠模板的相邻面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "formwork-corner-chamfer-strip",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bead",
+            "semanticType": "construction.formwork.chamfer-fillet",
+            "material": "timber",
+            "appearance": {
+              "color": "#b5895e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.9,0,0],
+                [0.9,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0,0],
+                [-0.025,0],
+                [0,0.025]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "bead",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "bead",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "inside-corner": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.side-inlet-rainwater-hopper",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "侧入口外墙雨水斗",
+  "summary": "侧入口、敞口集水斗和矩形渐缩出水口分开建模，下端可对接雨落管。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.rainwater-hopper",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "围护",
+    "屋面排水"
+  ],
+  "anchors": [
+    "wall-in",
+    "outlet",
+    "top-inspection"
+  ],
+  "ai": {
+    "intent": "承接墙上泄水口并把水转入竖向落水管。",
+    "editableParts": [
+      "编辑收水箱、侧开口与双面渐缩段。"
+    ],
+    "qualityChecks": [
+      "斗体顶部可开放检查。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "side-inlet-rainwater-hopper",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inlet-wall",
+            "semanticType": "roof.rainwater-hopper.hole-wall",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 0.4,
+              "wallHeight": 0.24,
+              "thickness": 0.018,
+              "openingWidth": 0.224,
+              "openingHeight": 0.126,
+              "openingOffset": 0,
+              "sillHeight": 0.091
+            },
+            "transform": {
+              "position": [0,-0.24,-0.141]
+            }
+          },
+          {
+            "id": "rear-wall",
+            "semanticType": "roof.rainwater-hopper.wall",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.4,0.24,0.018]
+            },
+            "transform": {
+              "position": [0,-0.12,0.141]
+            }
+          },
+          {
+            "id": "east-wall",
+            "semanticType": "roof.rainwater-hopper.wall",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.24,0.264]
+            },
+            "transform": {
+              "position": [0.191,-0.12,0]
+            }
+          },
+          {
+            "id": "west-wall",
+            "semanticType": "roof.rainwater-hopper.wall",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.24,0.264]
+            },
+            "transform": {
+              "position": [-0.191,-0.12,0]
+            }
+          },
+          {
+            "id": "outer-hopper",
+            "semanticType": "roof.rainwater-hopper.taper",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#778e98"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 4,
+              "capStart": false,
+              "capEnd": false,
+              "sections": [
+                {
+                  "center": [0,-0.46,0],
+                  "radiusX": 0.085,
+                  "radiusZ": 0.06,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0,-0.24,0],
+                  "radiusX": 0.2,
+                  "radiusZ": 0.15,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "id": "inner-hopper",
+            "semanticType": "roof.rainwater-hopper.taper",
+            "material": "coated-steel",
+            "appearance": {
+              "color": "#54707b"
+            },
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 4,
+              "capStart": false,
+              "capEnd": false,
+              "sections": [
+                {
+                  "center": [0,-0.46,0],
+                  "radiusX": 0.077,
+                  "radiusZ": 0.052,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                },
+                {
+                  "center": [0,-0.24,0],
+                  "radiusX": 0.182,
+                  "radiusZ": 0.132,
+                  "profile": [
+                    [-1,-1],
+                    [1,-1],
+                    [1,1],
+                    [-1,1]
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "wall-in": {
+            "position": [0,-0.086,-0.15],
+            "direction": [0,0,-1]
+          },
+          "outlet": {
+            "position": [0,-0.46,0],
+            "direction": [0,-1,0]
+          },
+          "top-inspection": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,480 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.eight-blade-plug-fan-air-handler-module",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "八叶箱式无蜗壳风机段",
+  "summary": "独立圆进风口、径向叶片、电机与支座，外部保留机组端框。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.plug-fan-ahu-module",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "风机段",
+    "叶轮",
+    "箱式风机"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "base"
+  ],
+  "ai": {
+    "intent": "把插入机组箱体的叶轮、圆进口和固定电机分开。",
+    "editableParts": [
+      "孔板",
+      "圆口",
+      "叶片",
+      "电机"
+    ],
+    "qualityChecks": [
+      "叶轮绕进风轴转动，外框不动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "eight-blade-plug-fan-air-handler-module",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plug-fan-cell",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.case",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.017,0.31,0],
+                [0.635,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.38,-0.29],
+                [0.38,-0.29],
+                [0.38,0.29],
+                [-0.38,0.29]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.356,-0.26599999999999996],
+                  [0.356,-0.26599999999999996],
+                  [0.356,0.26599999999999996],
+                  [-0.356,0.26599999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "left-frame",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.31,0],
+                [0.017,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "right-frame",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.frame",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.635,0.31,0],
+                [0.655,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.394,-0.3035],
+                [0.394,-0.3035],
+                [0.394,0.3035],
+                [-0.394,0.3035]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3585,-0.26849999999999996],
+                  [0.3585,-0.26849999999999996],
+                  [0.3585,0.26849999999999996],
+                  [-0.3585,0.26849999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "inlet-bulkhead",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.orifice-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.103,0.31,0],
+                [0.119,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.3515,-0.2635],
+                [0.3515,-0.2635],
+                [0.3515,0.2635],
+                [-0.3515,0.2635]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.173,0],
+                  [0.1671051679480088,0.044775694802736084],
+                  [0.14982239485470789,0.08649999999999998],
+                  [0.12232947314527272,0.1223294731452727],
+                  [0.08650000000000001,0.14982239485470786],
+                  [0.044775694802736084,0.1671051679480088],
+                  [1.0593194812624605e-17,0.173],
+                  [-0.04477569480273606,0.1671051679480088],
+                  [-0.08649999999999995,0.14982239485470789],
+                  [-0.1223294731452727,0.12232947314527272],
+                  [-0.14982239485470789,0.08649999999999998],
+                  [-0.16710516794800878,0.04477569480273613],
+                  [-0.173,2.118638962524921e-17],
+                  [-0.1671051679480088,-0.0447756948027361],
+                  [-0.1498223948547079,-0.08649999999999995],
+                  [-0.12232947314527277,-0.12232947314527265],
+                  [-0.08650000000000008,-0.14982239485470786],
+                  [-0.04477569480273606,-0.1671051679480088],
+                  [-3.1779584437873813e-17,-0.173],
+                  [0.04477569480273601,-0.16710516794800884],
+                  [0.08650000000000001,-0.14982239485470786],
+                  [0.12232947314527268,-0.12232947314527275],
+                  [0.14982239485470783,-0.08650000000000008],
+                  [0.16710516794800875,-0.04477569480273623]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "inlet-bell",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.inlet",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.112,0.31,0],
+                [0.158,0.31,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.183,0],
+                [0.1767644262108995,0.04736388525376129],
+                [0.15848264889255229,0.09149999999999998],
+                [0.1294005409571382,0.12940054095713818],
+                [0.09150000000000001,0.15848264889255226],
+                [0.04736388525376129,0.1767644262108995],
+                [1.1205518212198282e-17,0.183],
+                [-0.04736388525376128,0.1767644262108995],
+                [-0.09149999999999996,0.15848264889255229],
+                [-0.12940054095713818,0.1294005409571382],
+                [-0.15848264889255229,0.09149999999999998],
+                [-0.17676442621089947,0.04736388525376135],
+                [-0.183,2.2411036424396563e-17],
+                [-0.1767644262108995,-0.047363885253761305],
+                [-0.1584826488925523,-0.09149999999999994],
+                [-0.12940054095713827,-0.12940054095713813],
+                [-0.09150000000000008,-0.15848264889255223],
+                [-0.04736388525376128,-0.1767644262108995],
+                [-3.3616554636594845e-17,-0.183],
+                [0.047363885253761215,-0.17676442621089952],
+                [0.09150000000000001,-0.15848264889255226],
+                [0.12940054095713815,-0.1294005409571382],
+                [0.15848264889255223,-0.09150000000000008],
+                [0.17676442621089947,-0.047363885253761444]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.158,0],
+                  [0.1526162805536728,0.04089340912619828],
+                  [0.13683201379794133,0.07899999999999999],
+                  [0.11172287142747452,0.1117228714274745],
+                  [0.07900000000000001,0.1368320137979413],
+                  [0.04089340912619828,0.1526162805536728],
+                  [9.67470971326409e-18,0.158],
+                  [-0.04089340912619826,0.1526162805536728],
+                  [-0.07899999999999996,0.13683201379794133],
+                  [-0.1117228714274745,0.11172287142747452],
+                  [-0.13683201379794133,0.07899999999999999],
+                  [-0.15261628055367277,0.04089340912619832],
+                  [-0.158,1.934941942652818e-17],
+                  [-0.1526162805536728,-0.04089340912619829],
+                  [-0.13683201379794133,-0.07899999999999996],
+                  [-0.11172287142747457,-0.11172287142747445],
+                  [-0.07900000000000007,-0.13683201379794127],
+                  [-0.04089340912619826,-0.1526162805536728],
+                  [-2.902412913979227e-17,-0.158],
+                  [0.04089340912619821,-0.15261628055367282],
+                  [0.07900000000000001,-0.1368320137979413],
+                  [0.11172287142747449,-0.11172287142747453],
+                  [0.13683201379794127,-0.07900000000000007],
+                  [0.15261628055367277,-0.04089340912619841]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "impeller-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0.246,0.31,0]
+            }
+          },
+          {
+            "id": "backplate",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.rotor-back",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.042,0,0],
+              "end": [0.058,0,0],
+              "radius": 0.188,
+              "radialSegments": 24
+            },
+            "parent": "impeller-axis"
+          },
+          {
+            "id": "impeller-blade-0",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.blade",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.102,0.075,0.01]
+            },
+            "transform": {
+              "position": [0.004,0.132,0],
+              "rotation": [0,0,0]
+            },
+            "parent": "impeller-axis"
+          },
+          {
+            "id": "impeller-blade-1",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.blade",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.102,0.075,0.01]
+            },
+            "transform": {
+              "position": [0.004,0.09333809511662429,0.09333809511662428],
+              "rotation": [0.7853981633974483,0,0]
+            },
+            "parent": "impeller-axis"
+          },
+          {
+            "id": "impeller-blade-2",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.blade",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.102,0.075,0.01]
+            },
+            "transform": {
+              "position": [0.004,8.082668874372532e-18,0.132],
+              "rotation": [1.5707963267948966,0,0]
+            },
+            "parent": "impeller-axis"
+          },
+          {
+            "id": "impeller-blade-3",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.blade",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.102,0.075,0.01]
+            },
+            "transform": {
+              "position": [0.004,-0.09333809511662428,0.09333809511662429],
+              "rotation": [2.356194490192345,0,0]
+            },
+            "parent": "impeller-axis"
+          },
+          {
+            "id": "impeller-blade-4",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.blade",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.102,0.075,0.01]
+            },
+            "transform": {
+              "position": [0.004,-0.132,1.6165337748745064e-17],
+              "rotation": [3.141592653589793,0,0]
+            },
+            "parent": "impeller-axis"
+          },
+          {
+            "id": "impeller-blade-5",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.blade",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.102,0.075,0.01]
+            },
+            "transform": {
+              "position": [0.004,-0.0933380951166243,-0.09333809511662428],
+              "rotation": [3.9269908169872414,0,0]
+            },
+            "parent": "impeller-axis"
+          },
+          {
+            "id": "impeller-blade-6",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.blade",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.102,0.075,0.01]
+            },
+            "transform": {
+              "position": [0.004,-2.4248006623117592e-17,-0.132],
+              "rotation": [4.71238898038469,0,0]
+            },
+            "parent": "impeller-axis"
+          },
+          {
+            "id": "impeller-blade-7",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.blade",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.102,0.075,0.01]
+            },
+            "transform": {
+              "position": [0.004,0.09333809511662425,-0.0933380951166243],
+              "rotation": [5.497787143782138,0,0]
+            },
+            "parent": "impeller-axis"
+          },
+          {
+            "id": "drive-motor",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.motor",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.297,0.31,0],
+              "end": [0.481,0.31,0],
+              "radius": 0.076,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "motor-base",
+            "semanticType": "mep.ahu.shrouded-plug-fan-cell.stand",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.21,0.219,0.13]
+            },
+            "transform": {
+              "position": [0.39,0.13,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0.31,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.655,0.31,0],
+            "direction": [1,0,0]
+          },
+          "base": {
+            "position": [0.3275,0.02,0],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "rotate-plug-fan-impeller",
+            "target": "impeller-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [6.283185307179586,0,0],
+            "duration": 1.35,
+            "loop": true
+          }
+        ]
+      }
+    }
+  }
+}

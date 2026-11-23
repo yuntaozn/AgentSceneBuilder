@@ -1,0 +1,192 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.flat-roof-pv-ballast-tray-with-isolation-pads",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带隔离垫平屋面光伏压载槽",
+  "summary": "底槽、两块压载块、弹性隔离垫与独立轨座，带底面和支架安装基准。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.photovoltaic.pv-ballast-tray",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "光伏",
+    "屋面光伏",
+    "平屋面",
+    "压载",
+    "隔离垫"
+  ],
+  "anchors": [
+    "roof",
+    "frame"
+  ],
+  "ai": {
+    "intent": "在平屋面样板中表达隔离垫、压载块和支架之间的关系。",
+    "editableParts": [
+      "弹性底垫",
+      "槽体",
+      "压载块",
+      "支架座"
+    ],
+    "qualityChecks": [
+      "槽不直接落在屋面；支架座与槽独立。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "flat-roof-pv-ballast-tray-with-isolation-pads",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "isolation-pad-0",
+            "semanticType": "mep.photovoltaic.flat-roof-ballast-tray.membrane-pad",
+            "material": "rubber",
+            "appearance": {
+              "color": "#65736f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.303,0.013,0.27]
+            },
+            "transform": {
+              "position": [0,0.0065,-0.39]
+            }
+          },
+          {
+            "id": "isolation-pad-1",
+            "semanticType": "mep.photovoltaic.flat-roof-ballast-tray.membrane-pad",
+            "material": "rubber",
+            "appearance": {
+              "color": "#65736f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.303,0.013,0.27]
+            },
+            "transform": {
+              "position": [0,0.0065,0.39]
+            }
+          },
+          {
+            "id": "ballast-pan",
+            "semanticType": "mep.photovoltaic.flat-roof-ballast-tray.folded-pan",
+            "material": "steel",
+            "appearance": {
+              "color": "#839599"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.645],
+                [0,0,0.645]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.163,0.013],
+                [0.163,0.013],
+                [0.163,0.084],
+                [0.158,0.084],
+                [0.158,0.022],
+                [-0.158,0.022],
+                [-0.158,0.084],
+                [-0.163,0.084]
+              ]
+            }
+          },
+          {
+            "id": "ballast-block-0",
+            "semanticType": "mep.photovoltaic.flat-roof-ballast-tray.ballast",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a9a395"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.264,0.104,0.259]
+            },
+            "transform": {
+              "position": [0,0.074,-0.366]
+            }
+          },
+          {
+            "id": "ballast-block-1",
+            "semanticType": "mep.photovoltaic.flat-roof-ballast-tray.ballast",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a9a395"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.264,0.104,0.259]
+            },
+            "transform": {
+              "position": [0,0.074,0.366]
+            }
+          },
+          {
+            "id": "runner-mount-0",
+            "semanticType": "mep.photovoltaic.flat-roof-ballast-tray.mount-post",
+            "material": "steel",
+            "appearance": {
+              "color": "#50636f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.088,0.117,0.046]
+            },
+            "transform": {
+              "position": [0,0.0785,-0.478]
+            }
+          },
+          {
+            "id": "runner-mount-1",
+            "semanticType": "mep.photovoltaic.flat-roof-ballast-tray.mount-post",
+            "material": "steel",
+            "appearance": {
+              "color": "#50636f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.088,0.117,0.046]
+            },
+            "transform": {
+              "position": [0,0.0785,0.478]
+            }
+          },
+          {
+            "id": "rack-seat",
+            "semanticType": "mep.photovoltaic.flat-roof-ballast-tray.rack-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#839599"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.103,0.012,1.226]
+            },
+            "transform": {
+              "position": [0,0.143,0]
+            }
+          }
+        ],
+        "anchors": {
+          "roof": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "frame": {
+            "position": [0,0.149,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

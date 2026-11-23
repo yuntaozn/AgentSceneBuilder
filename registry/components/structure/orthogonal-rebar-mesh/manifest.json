@@ -1,0 +1,118 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.orthogonal-rebar-mesh",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双向钢筋网片",
+  "summary": "两层正交钢筋各保留独立重复原型，底部端排提供垫块定位。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.rebar.welded-mesh",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "混凝土施工",
+    "钢筋"
+  ],
+  "anchors": [
+    "near-bar",
+    "far-bar",
+    "lower-middle",
+    "layout-center"
+  ],
+  "ai": {
+    "intent": "把基础、板或墙的两向网片作为独立可编辑组。",
+    "editableParts": [
+      "修改两个 prototype 的直径、长度、数量和间距。"
+    ],
+    "qualityChecks": [
+      "两层高差可独立检查。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "orthogonal-rebar-mesh",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "x-rebar",
+            "semanticType": "structure.rebar.welded-mesh.longitudinal",
+            "material": "steel",
+            "appearance": {
+              "color": "#a57143"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.9,0.007,0],
+              "end": [0.9,0.007,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 7,
+              "start": [0,0,-0.75],
+              "step": [0,0,0.25]
+            }
+          },
+          {
+            "id": "z-rebar",
+            "semanticType": "structure.rebar.welded-mesh.transverse",
+            "material": "steel",
+            "appearance": {
+              "color": "#a57143"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.021,-0.75],
+              "end": [0,0.021,0.75],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 7,
+              "start": [-0.9,0,0],
+              "step": [0.3,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "near-bar": {
+            "node": "x-rebar",
+            "position": [0,0.007,0],
+            "direction": [0,-1,0],
+            "occurrence": {
+              "index": 0
+            }
+          },
+          "far-bar": {
+            "node": "x-rebar",
+            "position": [0,0.007,0],
+            "direction": [0,-1,0],
+            "occurrence": {
+              "index": 6
+            }
+          },
+          "lower-middle": {
+            "node": "x-rebar",
+            "position": [0,0.007,0],
+            "direction": [0,-1,0],
+            "occurrence": {
+              "index": 3
+            }
+          },
+          "layout-center": {
+            "position": [0,0.014,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

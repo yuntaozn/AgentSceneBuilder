@@ -1,0 +1,185 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.hinged-carrier-din-rail-cartridge-fuse-disconnector",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "导轨式熔断器翻出载座",
+  "summary": "熔芯与两端卡口位于同一翻转载座，底壳和导轨扣仍在原位。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.panelboard.fuse-carrier",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "电气配电",
+    "熔断器",
+    "熔芯",
+    "翻转载座"
+  ],
+  "anchors": [
+    "rail",
+    "front"
+  ],
+  "ai": {
+    "intent": "熔芯与两端卡口位于同一翻转载座，底壳和导轨扣仍在原位。",
+    "editableParts": [
+      "可分别编辑 fuse-rear、fuse-body、hinged-fuse-carrier、fuse-cartridge、metal-end-1、metal-end-2。"
+    ],
+    "qualityChecks": [
+      "熔芯和卡口随载座移动，导轨脚留在原位。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-carrier-din-rail-cartridge-fuse-disconnector",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fuse-rear",
+            "semanticType": "mep.panelboard.modular.fuse.rail-grip",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4a6068"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.025,0.059,0.013]
+            },
+            "transform": {
+              "position": [0,0,0.0065]
+            }
+          },
+          {
+            "id": "fuse-body",
+            "semanticType": "mep.panelboard.modular.fuse.body",
+            "material": "plastic",
+            "appearance": {
+              "color": "#c5c9bc"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.086,0.047]
+            },
+            "transform": {
+              "position": [0,0,0.0365]
+            }
+          },
+          {
+            "id": "hinged-fuse-carrier",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.032,0.06]
+            }
+          },
+          {
+            "id": "fuse-cartridge",
+            "semanticType": "mep.panelboard.fuse-carrier.fuse",
+            "material": "ceramic",
+            "appearance": {
+              "color": "#c5c9bc"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.018,0.012],
+              "end": [0,0.057,0.012],
+              "radius": 0.0065,
+              "radialSegments": 24
+            },
+            "parent": "hinged-fuse-carrier"
+          },
+          {
+            "id": "metal-end-1",
+            "semanticType": "mep.panelboard.fuse-carrier.metal-cap",
+            "material": "brass",
+            "appearance": {
+              "color": "#bc9470"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.012,0.012],
+              "end": [0,0.02,0.012],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "parent": "hinged-fuse-carrier"
+          },
+          {
+            "id": "metal-end-2",
+            "semanticType": "mep.panelboard.fuse-carrier.metal-cap",
+            "material": "brass",
+            "appearance": {
+              "color": "#bc9470"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.059,0.012],
+              "end": [0,0.067,0.012],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "parent": "hinged-fuse-carrier"
+          },
+          {
+            "id": "carrier-yoke",
+            "semanticType": "mep.panelboard.fuse-carrier.frame",
+            "material": "plastic",
+            "appearance": {
+              "color": "#4a6068"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.066,0.006]
+            },
+            "transform": {
+              "position": [0,0.033,0.022]
+            },
+            "parent": "hinged-fuse-carrier"
+          },
+          {
+            "id": "pull-tab",
+            "semanticType": "mep.panelboard.fuse-carrier.handle",
+            "material": "plastic",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.025,0.014,0.016]
+            },
+            "transform": {
+              "position": [0,0.071,0.016]
+            },
+            "parent": "hinged-fuse-carrier"
+          }
+        ],
+        "anchors": {
+          "rail": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "front": {
+            "position": [0,0,0.082],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "lift-fuse-drawer",
+            "target": "hinged-fuse-carrier",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [1.08,0,0],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

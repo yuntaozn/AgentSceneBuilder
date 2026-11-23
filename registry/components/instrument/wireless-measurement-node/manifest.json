@@ -1,0 +1,207 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.wireless-measurement-node",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "无线测量采集节点",
+  "summary": "包括小型外壳、信号入口、指示窗和可转动天线，便于课件表达采集到传输。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.wireless-measurement-node",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "基础构件",
+    "实训",
+    "信号采集"
+  ],
+  "anchors": [
+    "mount",
+    "bus-in",
+    "antenna-base"
+  ],
+  "ai": {
+    "intent": "作为传感数据的外壳与通信示意节点。",
+    "editableParts": [
+      "编辑信号口和可动天线。"
+    ],
+    "qualityChecks": [
+      "bus-in 与接线盒之间保留独立信号线。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "wireless-measurement-node",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sole",
+            "semanticType": "instrument.signal.telemetry.mount",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.17,0.009,0.106]
+            },
+            "transform": {
+              "position": [0,0.0045,0]
+            }
+          },
+          {
+            "id": "housing",
+            "semanticType": "instrument.signal.telemetry.housing",
+            "material": "polymer",
+            "appearance": {
+              "color": "#307785"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.052,0.094]
+            },
+            "transform": {
+              "position": [0,0.035,0]
+            }
+          },
+          {
+            "id": "label-panel",
+            "semanticType": "instrument.signal.telemetry.panel",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d6eaeb"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.065,0.002,0.026]
+            },
+            "transform": {
+              "position": [-0.018,0.062,0]
+            }
+          },
+          {
+            "id": "status",
+            "semanticType": "instrument.signal.telemetry.status",
+            "material": "polymer",
+            "appearance": {
+              "color": "#97dbc6"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.003,0.007]
+            },
+            "transform": {
+              "position": [-0.036,0.065,0.012]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [0,0,0],
+              "step": [0.016,0,0]
+            }
+          },
+          {
+            "id": "bus-socket",
+            "semanticType": "instrument.signal.telemetry.port",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.031,0.045],
+              "end": [0,0.031,0.067],
+              "radius": 0.01,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "antenna-hub",
+            "semanticType": "instrument.signal.telemetry.hub",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.052,0.049,-0.034],
+              "end": [0.052,0.066,-0.034],
+              "radius": 0.009,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "antenna-pivot",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0.052,0.065,-0.034]
+            }
+          },
+          {
+            "id": "antenna",
+            "semanticType": "instrument.signal.telemetry.antenna",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.17,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            },
+            "parent": "antenna-pivot"
+          },
+          {
+            "id": "antenna-cap",
+            "semanticType": "instrument.signal.telemetry.cap",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.006,
+              "segments": 16
+            },
+            "transform": {
+              "position": [0,0.17,0]
+            },
+            "parent": "antenna-pivot"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "bus-in": {
+            "position": [0,0.031,0.067],
+            "direction": [0,0,1]
+          },
+          "antenna-base": {
+            "node": "antenna-pivot",
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "antenna-fold",
+            "target": "antenna-pivot",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0,-1.5707963267948966],
+            "duration": 1,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

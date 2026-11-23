@@ -1,0 +1,181 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.welded-wire-mesh-pallet-rack-deck-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "托盘货架焊接金属网层板",
+  "summary": "纵横钢丝、前后折边、下部加强肋及横梁支承点。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.warehouse.welded-wire-rack-deck",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "仓储",
+    "物流",
+    "层板",
+    "金属网",
+    "货架"
+  ],
+  "anchors": [
+    "front-seat",
+    "back-seat",
+    "load"
+  ],
+  "ai": {
+    "intent": "令网层板沿前后两根横梁落座并保留网格空隙。",
+    "editableParts": [
+      "纵横网丝",
+      "加强肋",
+      "前后折边"
+    ],
+    "qualityChecks": [
+      "网丝之间能透视，支承点分在两根梁。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "welded-wire-mesh-pallet-rack-deck-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "length-wire",
+            "semanticType": "construction.warehouse.wire-rack-deck.warp",
+            "material": "steel",
+            "appearance": {
+              "color": "#7f969c"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.603,0.027,0],
+              "end": [0.603,0.027,0],
+              "radius": 0.0045,
+              "radialSegments": 20
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 13,
+              "start": [0,0,-0.455],
+              "step": [0,0,0.0758]
+            }
+          },
+          {
+            "id": "transverse-wire",
+            "semanticType": "construction.warehouse.wire-rack-deck.weft",
+            "material": "steel",
+            "appearance": {
+              "color": "#a1afad"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.023,-0.468],
+              "end": [0,0.023,0.468],
+              "radius": 0.0045,
+              "radialSegments": 20
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 14,
+              "start": [-0.586,0,0],
+              "step": [0.09,0,0]
+            }
+          },
+          {
+            "id": "longitudinal-stiffener-0",
+            "semanticType": "construction.warehouse.wire-rack-deck.stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.037,0.026,0.941]
+            },
+            "transform": {
+              "position": [-0.392,0.013,0]
+            }
+          },
+          {
+            "id": "longitudinal-stiffener-1",
+            "semanticType": "construction.warehouse.wire-rack-deck.stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.037,0.026,0.941]
+            },
+            "transform": {
+              "position": [0,0.013,0]
+            }
+          },
+          {
+            "id": "longitudinal-stiffener-2",
+            "semanticType": "construction.warehouse.wire-rack-deck.stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#4d6976"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.037,0.026,0.941]
+            },
+            "transform": {
+              "position": [0.392,0.013,0]
+            }
+          },
+          {
+            "id": "hooked-edge-0",
+            "semanticType": "construction.warehouse.wire-rack-deck.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#ae7c61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.216,0.039,0.037]
+            },
+            "transform": {
+              "position": [0,0.02,-0.486]
+            }
+          },
+          {
+            "id": "hooked-edge-1",
+            "semanticType": "construction.warehouse.wire-rack-deck.edge",
+            "material": "steel",
+            "appearance": {
+              "color": "#ae7c61"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.216,0.039,0.037]
+            },
+            "transform": {
+              "position": [0,0.02,0.486]
+            }
+          }
+        ],
+        "anchors": {
+          "front-seat": {
+            "position": [0,0,0.486],
+            "direction": [0,-1,0]
+          },
+          "back-seat": {
+            "position": [0,0,-0.486],
+            "direction": [0,-1,0]
+          },
+          "load": {
+            "position": [0,0.0315,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

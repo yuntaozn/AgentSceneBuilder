@@ -1,0 +1,145 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.two-leg-lifting-sling",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双肢吊索",
+  "summary": "两腿吊索连到中央主环，两个底端可对齐墙板两处吊点。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.two-leg-lifting-sling",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式",
+    "吊装"
+  ],
+  "anchors": [
+    "panel-left",
+    "panel-right",
+    "hoist-axis"
+  ],
+  "ai": {
+    "intent": "作为独立吊具复用在带两个吊点的预制构件上。",
+    "editableParts": [
+      "调整两侧绳长和吊点间距，保持绳端连接中央环"
+    ],
+    "qualityChecks": [
+      "默认吊点间距 2.1 m。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-leg-lifting-sling",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "left-leg",
+            "semanticType": "prefab.lifting.two-leg-sling.leg",
+            "material": "wire-rope",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-1.05,0.14,0.115],
+              "end": [-0.055,1.54,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "right-leg",
+            "semanticType": "prefab.lifting.two-leg-sling.leg",
+            "material": "wire-rope",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.05,0.14,0.115],
+              "end": [0.055,1.54,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "left-eye",
+            "semanticType": "prefab.lifting.two-leg-sling.eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.1,
+              "tubeRadius": 0.012,
+              "radialSegments": 12,
+              "tubularSegments": 32
+            },
+            "transform": {
+              "position": [-1.05,0.04,0.115],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "right-eye",
+            "semanticType": "prefab.lifting.two-leg-sling.eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.1,
+              "tubeRadius": 0.012,
+              "radialSegments": 12,
+              "tubularSegments": 32
+            },
+            "transform": {
+              "position": [1.05,0.04,0.115],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "master-link",
+            "semanticType": "prefab.lifting.two-leg-sling.master-link",
+            "material": "steel",
+            "appearance": {
+              "color": "#d9a64b"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.08,
+              "tubeRadius": 0.016,
+              "radialSegments": 12,
+              "tubularSegments": 32
+            },
+            "transform": {
+              "position": [0,1.6,0],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "panel-left": {
+            "position": [-1.05,0,0],
+            "direction": [0,-1,0]
+          },
+          "panel-right": {
+            "position": [1.05,0,0],
+            "direction": [0,-1,0]
+          },
+          "hoist-axis": {
+            "position": [0,1.6,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

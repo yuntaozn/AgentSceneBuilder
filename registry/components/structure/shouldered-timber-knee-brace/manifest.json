@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.shouldered-timber-knee-brace",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "木框架短斜撑",
+  "summary": "短斜撑的端部有水平与竖向贴靠面，适合梁柱角独立布置。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.timber.knee-brace",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "foot",
+    "top",
+    "outer-seat"
+  ],
+  "ai": {
+    "intent": "在木梁柱附近布置非正交杆件并展示端面。",
+    "editableParts": [
+      "编辑斜长和切肩点。"
+    ],
+    "qualityChecks": [
+      "两端保持可独立贴靠。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "shouldered-timber-knee-brace",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "brace",
+            "semanticType": "structure.timber.knee-brace",
+            "material": "timber",
+            "appearance": {
+              "color": "#bb986f"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.043],
+                [0,0,0.043]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0],
+                [0.088,0],
+                [0.54,0.462],
+                [0.54,0.558],
+                [0.446,0.558],
+                [0,0.105]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "foot": {
+            "position": [0.044,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0.493,0.558,0],
+            "direction": [0,1,0]
+          },
+          "outer-seat": {
+            "position": [0.54,0.51,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

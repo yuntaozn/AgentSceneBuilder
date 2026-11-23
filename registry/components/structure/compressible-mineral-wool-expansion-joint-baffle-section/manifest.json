@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.compressible-mineral-wool-expansion-joint-baffle-section",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "变形缝可压缩矿棉与金属托皮剖件",
+  "summary": "矿棉条被上下折板承托，侧翻边可独立在两段板体之间定位。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.movement-joint.mineral-wool-joint-baffle",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "结构节点",
+    "矿棉",
+    "压缩填料",
+    "变形缝"
+  ],
+  "anchors": [
+    "outer-left",
+    "outer-right"
+  ],
+  "ai": {
+    "intent": "矿棉条被上下折板承托，侧翻边可独立在两段板体之间定位。",
+    "editableParts": [
+      "可分别编辑 compressible-core、lower-folded-support、upper-folded-support。"
+    ],
+    "qualityChecks": [
+      "中芯与金属托皮独立，角部向缝两侧翻边。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "compressible-mineral-wool-expansion-joint-baffle-section",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "compressible-core",
+            "semanticType": "structure.movement-joint.mineral-joint.core",
+            "material": "mineral-wool",
+            "appearance": {
+              "color": "#a29875"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.152,0.082,0.51]
+            },
+            "transform": {
+              "position": [0,-0.065,0]
+            }
+          },
+          {
+            "id": "lower-folded-support",
+            "semanticType": "structure.movement-joint.mineral-joint.lower-support",
+            "material": "steel",
+            "appearance": {
+              "color": "#89999b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.254],
+                [0,0,0.254]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.126,-0.013],
+                [-0.086,-0.013],
+                [-0.069,-0.111],
+                [0.069,-0.111],
+                [0.086,-0.013],
+                [0.126,-0.013],
+                [0.126,-0.02],
+                [0.093,-0.02],
+                [0.077,-0.118],
+                [-0.077,-0.118],
+                [-0.093,-0.02],
+                [-0.126,-0.02]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "upper-folded-support",
+            "semanticType": "structure.movement-joint.mineral-joint.upper-support",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a8388"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.254],
+                [0,0,0.254]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.107,-0.015],
+                [-0.078,-0.015],
+                [-0.06,-0.036],
+                [0.06,-0.036],
+                [0.078,-0.015],
+                [0.107,-0.015],
+                [0.107,-0.022],
+                [0.08,-0.022],
+                [0.06,-0.043],
+                [-0.06,-0.043],
+                [-0.08,-0.022],
+                [-0.107,-0.022]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "outer-left": {
+            "position": [-0.105,-0.013,0],
+            "direction": [0,1,0]
+          },
+          "outer-right": {
+            "position": [0.105,-0.013,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,114 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.u-profile-drywall-track",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "U 形沿顶沿地龙骨",
+  "summary": "U 形轨沿局部 X 展开，轨底安装面、侧翼和竖龙骨落座面分开。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.interior.u-track",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内构造",
+    "隔墙",
+    "龙骨"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.4
+    },
+    "trackWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.079
+    },
+    "sideHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.034
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.001
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "mount",
+    "stud-seat"
+  ],
+  "ai": {
+    "intent": "把隔墙骨架的底轨和顶轨统一成可旋转安装的单段。",
+    "editableParts": [
+      "调整轨长、口宽、壁厚和侧高。"
+    ],
+    "qualityChecks": [
+      "stud-seat 位于槽内腹板表面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "u-profile-drywall-track",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.u-track",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "u-drywall-track",
+              "length": 2.4,
+              "trackWidth": 0.079,
+              "sideHeight": 0.034,
+              "thickness": 0.001
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "mount": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "stud-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "stud-seat"
+            }
+          }
+        }
+      }
+    }
+  }
+}

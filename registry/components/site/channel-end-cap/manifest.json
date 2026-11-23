@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.channel-end-cap",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "排水沟封头",
+  "summary": "覆盖默认 U 形沟端的独立封头，中心定位在沟底。",
+  "license": "Apache-2.0",
+  "semanticType": "site.drainage.end-cap",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "室外",
+    "基础构件",
+    "排水"
+  ],
+  "anchors": [
+    "inlet"
+  ],
+  "ai": {
+    "intent": "封闭从高端起始的沟槽端部。",
+    "editableParts": [
+      "单独编辑盖板尺寸与安装位置"
+    ],
+    "qualityChecks": [
+      "inlet 点应贴合沟段起始沟底。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "channel-end-cap",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "cap",
+            "semanticType": "site.drainage.end-cap",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a4aaab"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.075,0.36,0.54]
+            },
+            "transform": {
+              "position": [-0.0375,-0.18,0]
+            }
+          }
+        ],
+        "anchors": {
+          "inlet": {
+            "position": [0,-0.27,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

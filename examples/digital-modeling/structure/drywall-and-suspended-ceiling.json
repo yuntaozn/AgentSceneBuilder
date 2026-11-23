@@ -1,0 +1,2786 @@
+{
+  "schemaVersion": "0.1",
+  "id": "drywall-and-suspended-ceiling",
+  "title": "轻钢隔墙、隔振覆面和吊顶收边",
+  "instances": [
+    {
+      "id": "floor",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [2.7,0.18,1.7]
+            },
+            "transform": {
+              "position": [0,0.09,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "track-floor": {
+            "position": [0,0.18,-0.47],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.2,-0.18,0.47]
+      }
+    },
+    {
+      "id": "ceiling-slab",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slab",
+            "semanticType": "structure.slab",
+            "geometry": {
+              "type": "box",
+              "size": [2.7,0.18,2.36]
+            },
+            "transform": {
+              "position": [0,0.09,0]
+            },
+            "appearance": {
+              "color": "#7f8b91",
+              "opacity": 1
+            }
+          }
+        ],
+        "anchors": {
+          "center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0,0]
+            }
+          },
+          "top-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "bottom-center": {
+            "node": "slab",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "track-top": {
+            "position": [0,0,-0.9],
+            "direction": [0,-1,0]
+          },
+          "baffle-left": {
+            "position": [-0.359,0,0.4],
+            "direction": [0,-1,0]
+          },
+          "baffle-right": {
+            "position": [0.33099999999999996,0,0.4],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.2,2.6,0.9]
+      }
+    },
+    {
+      "id": "track-bottom",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.u-track",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "u-drywall-track",
+              "length": 2.4,
+              "trackWidth": 0.079,
+              "sideHeight": 0.034,
+              "thickness": 0.001
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "mount": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "stud-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "stud-seat"
+            }
+          },
+          "seat-1": {
+            "position": [0.02,0.001,0],
+            "direction": [0,1,0]
+          },
+          "seat-2": {
+            "position": [0.6,0.001,0],
+            "direction": [0,1,0]
+          },
+          "seat-3": {
+            "position": [1.2,0.001,0],
+            "direction": [0,1,0]
+          },
+          "seat-4": {
+            "position": [1.8,0.001,0],
+            "direction": [0,1,0]
+          },
+          "seat-5": {
+            "position": [2.38,0.001,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,0,0]
+      }
+    },
+    {
+      "id": "track-top",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.u-track",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "u-drywall-track",
+              "length": 2.4,
+              "trackWidth": 0.079,
+              "sideHeight": 0.034,
+              "thickness": 0.001
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "mount": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "stud-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "stud-seat"
+            }
+          },
+          "seat-1": {
+            "position": [0.02,0.001,0],
+            "direction": [0,1,0]
+          },
+          "seat-2": {
+            "position": [0.6,0.001,0],
+            "direction": [0,1,0]
+          },
+          "seat-3": {
+            "position": [1.2,0.001,0],
+            "direction": [0,1,0]
+          },
+          "seat-4": {
+            "position": [1.8,0.001,0],
+            "direction": [0,1,0]
+          },
+          "seat-5": {
+            "position": [2.38,0.001,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.6,0],
+        "rotation": [3.141592653589793,0,0]
+      }
+    },
+    {
+      "id": "stud-1",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.lipped-stud",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "lipped-drywall-stud",
+              "length": 2.598,
+              "webDepth": 0.075,
+              "flangeWidth": 0.039,
+              "lipLength": 0.009,
+              "thickness": 0.001
+            }
+          }
+        ],
+        "anchors": {
+          "foot": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "foot"
+            }
+          },
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "front": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          },
+          "back": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "back"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [0.02,0.001,0]
+      }
+    },
+    {
+      "id": "stud-2",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.lipped-stud",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "lipped-drywall-stud",
+              "length": 2.598,
+              "webDepth": 0.075,
+              "flangeWidth": 0.039,
+              "lipLength": 0.009,
+              "thickness": 0.001
+            }
+          }
+        ],
+        "anchors": {
+          "foot": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "foot"
+            }
+          },
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "front": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          },
+          "back": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "back"
+            }
+          },
+          "bridge-right": {
+            "position": [0,0.609,0],
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.6,0.001,0]
+      }
+    },
+    {
+      "id": "stud-3",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.lipped-stud",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "lipped-drywall-stud",
+              "length": 2.598,
+              "webDepth": 0.075,
+              "flangeWidth": 0.039,
+              "lipLength": 0.009,
+              "thickness": 0.001
+            }
+          }
+        ],
+        "anchors": {
+          "foot": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "foot"
+            }
+          },
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "front": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          },
+          "back": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "back"
+            }
+          },
+          "bridge-left": {
+            "position": [0,0.609,0],
+            "direction": [-1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.2,0.001,0]
+      }
+    },
+    {
+      "id": "stud-4",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.lipped-stud",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "lipped-drywall-stud",
+              "length": 2.598,
+              "webDepth": 0.075,
+              "flangeWidth": 0.039,
+              "lipLength": 0.009,
+              "thickness": 0.001
+            }
+          }
+        ],
+        "anchors": {
+          "foot": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "foot"
+            }
+          },
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "front": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          },
+          "back": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "back"
+            }
+          },
+          "resilient-clip-seat": {
+            "position": [0,1.329,0.0375],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8,0.001,0]
+      }
+    },
+    {
+      "id": "stud-5",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.lipped-stud",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "lipped-drywall-stud",
+              "length": 2.598,
+              "webDepth": 0.075,
+              "flangeWidth": 0.039,
+              "lipLength": 0.009,
+              "thickness": 0.001
+            }
+          }
+        ],
+        "anchors": {
+          "foot": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "foot"
+            }
+          },
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "front": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          },
+          "back": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "back"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [2.38,0.001,0]
+      }
+    },
+    {
+      "id": "finished-board",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.taper-edge-gypsum-board",
+            "material": "gypsum",
+            "appearance": {
+              "color": "#d7d5c8"
+            },
+            "geometry": {
+              "type": "tapered-gypsum-sheet",
+              "boardWidth": 1.2,
+              "boardHeight": 2.6,
+              "thickness": 0.0125,
+              "taperWidth": 0.061,
+              "taperDepth": 0.0023
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "left": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "left"
+            }
+          },
+          "right": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "right"
+            }
+          },
+          "top": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top"
+            }
+          },
+          "bottom": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bottom"
+            }
+          },
+          "angle-seat": {
+            "position": [0,2.405,0.0125],
+            "direction": [0,0,1]
+          },
+          "fastener-seat": {
+            "position": [-0.012,1.35,0.0125],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.6,0,0.0375]
+      }
+    },
+    {
+      "id": "wool-low",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "batt",
+            "semanticType": "construction.interior.cavity-mineral-wool",
+            "material": "mineral-wool",
+            "appearance": {
+              "color": "#b5a982"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.552,1.18,0.071]
+            },
+            "transform": {
+              "position": [0,0.59,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "left": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0,0]
+            },
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.5,0.07,0]
+      }
+    },
+    {
+      "id": "wool-high",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "batt",
+            "semanticType": "construction.interior.cavity-mineral-wool",
+            "material": "mineral-wool",
+            "appearance": {
+              "color": "#b5a982"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.552,1.18,0.071]
+            },
+            "transform": {
+              "position": [0,0.59,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "left": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0,0]
+            },
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.5,1.25,0]
+      }
+    },
+    {
+      "id": "wool-side",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "batt",
+            "semanticType": "construction.interior.cavity-mineral-wool",
+            "material": "mineral-wool",
+            "appearance": {
+              "color": "#b5a982"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.552,1.18,0.071]
+            },
+            "transform": {
+              "position": [0,0.59,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "left": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "node": "batt",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0,0]
+            },
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [2.1,0.07,0]
+      }
+    },
+    {
+      "id": "bridging",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "channel",
+            "semanticType": "construction.interior.stud-bracing.channel",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "steel-channel-section",
+              "length": 0.6,
+              "sectionWidth": 0.026,
+              "sectionHeight": 0.038,
+              "flangeThickness": 0.002,
+              "webThickness": 0.002
+            }
+          },
+          {
+            "id": "end-tab-0",
+            "semanticType": "construction.interior.stud-bracing.end-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.002,0,0],
+                [0.002,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.0235,-0.0275],
+                [0.0235,-0.0275],
+                [0.0235,0.0275],
+                [-0.0235,0.0275]
+              ],
+              "holes": [
+                [
+                  [0.004,0],
+                  [0.003695518130045147,0.0015307337294603591],
+                  [0.0028284271247461905,0.00282842712474619],
+                  [0.0015307337294603594,0.003695518130045147],
+                  [2.4492935982947063e-19,0.004],
+                  [-0.001530733729460359,0.003695518130045147],
+                  [-0.00282842712474619,0.0028284271247461905],
+                  [-0.003695518130045147,0.0015307337294603596],
+                  [-0.004,4.898587196589413e-19],
+                  [-0.0036955181300451475,-0.0015307337294603587],
+                  [-0.002828427124746191,-0.00282842712474619],
+                  [-0.0015307337294603613,-0.003695518130045146],
+                  [-7.347880794884119e-19,-0.004],
+                  [0.00153073372946036,-0.0036955181300451466],
+                  [0.0028284271247461896,-0.002828427124746191],
+                  [0.003695518130045146,-0.0015307337294603615]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "end-tab-1",
+            "semanticType": "construction.interior.stud-bracing.end-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.598,0,0],
+                [0.602,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.0235,-0.0275],
+                [0.0235,-0.0275],
+                [0.0235,0.0275],
+                [-0.0235,0.0275]
+              ],
+              "holes": [
+                [
+                  [0.004,0],
+                  [0.003695518130045147,0.0015307337294603591],
+                  [0.0028284271247461905,0.00282842712474619],
+                  [0.0015307337294603594,0.003695518130045147],
+                  [2.4492935982947063e-19,0.004],
+                  [-0.001530733729460359,0.003695518130045147],
+                  [-0.00282842712474619,0.0028284271247461905],
+                  [-0.003695518130045147,0.0015307337294603596],
+                  [-0.004,4.898587196589413e-19],
+                  [-0.0036955181300451475,-0.0015307337294603587],
+                  [-0.002828427124746191,-0.00282842712474619],
+                  [-0.0015307337294603613,-0.003695518130045146],
+                  [-7.347880794884119e-19,-0.004],
+                  [0.00153073372946036,-0.0036955181300451466],
+                  [0.0028284271247461896,-0.002828427124746191],
+                  [0.003695518130045146,-0.0015307337294603615]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.6,0,0],
+            "direction": [1,0,0]
+          },
+          "mid-clearance": {
+            "position": [0.3,0,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.6,0.61,0]
+      }
+    },
+    {
+      "id": "resilient-clip",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "construction.interior.resilient-clip.base",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.005]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.0385,-0.056],
+                [0.0385,-0.056],
+                [0.0385,0.056],
+                [-0.0385,0.056]
+              ],
+              "holes": [
+                [
+                  [0.005,-0.037],
+                  [0.004619397662556434,-0.03508658283817455],
+                  [0.003535533905932738,-0.03346446609406726],
+                  [0.0019134171618254492,-0.03238060233744357],
+                  [3.061616997868383e-19,-0.032],
+                  [-0.0019134171618254486,-0.03238060233744357],
+                  [-0.0035355339059327372,-0.03346446609406726],
+                  [-0.004619397662556434,-0.03508658283817455],
+                  [-0.005,-0.037],
+                  [-0.004619397662556434,-0.03891341716182545],
+                  [-0.0035355339059327385,-0.04053553390593274],
+                  [-0.0019134171618254516,-0.04161939766255643],
+                  [-9.184850993605148e-19,-0.041999999999999996],
+                  [0.0019134171618254501,-0.04161939766255643],
+                  [0.003535533905932737,-0.04053553390593274],
+                  [0.004619397662556432,-0.03891341716182545]
+                ],
+                [
+                  [0.005,0.037],
+                  [0.004619397662556434,0.03891341716182545],
+                  [0.003535533905932738,0.04053553390593274],
+                  [0.0019134171618254492,0.04161939766255643],
+                  [3.061616997868383e-19,0.041999999999999996],
+                  [-0.0019134171618254486,0.04161939766255643],
+                  [-0.0035355339059327372,0.04053553390593274],
+                  [-0.004619397662556434,0.03891341716182545],
+                  [-0.005,0.037],
+                  [-0.004619397662556434,0.03508658283817455],
+                  [-0.0035355339059327385,0.03346446609406726],
+                  [-0.0019134171618254516,0.03238060233744357],
+                  [-9.184850993605148e-19,0.032],
+                  [0.0019134171618254501,0.03238060233744357],
+                  [0.003535533905932737,0.03346446609406726],
+                  [0.004619397662556432,0.03508658283817455]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "pad",
+            "semanticType": "construction.interior.resilient-clip.pad",
+            "material": "rubber",
+            "appearance": {
+              "color": "#405b63"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.072,0.013]
+            },
+            "transform": {
+              "position": [0,0,0.0115]
+            }
+          },
+          {
+            "id": "jaw-0",
+            "semanticType": "construction.interior.resilient-clip.jaw",
+            "material": "steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.032,0,0],
+                [0.032,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.016,-0.044000000000000004],
+                [-0.048,-0.044000000000000004],
+                [-0.048,-0.035],
+                [-0.042,-0.035],
+                [-0.042,-0.04],
+                [-0.016,-0.04]
+              ]
+            }
+          },
+          {
+            "id": "jaw-1",
+            "semanticType": "construction.interior.resilient-clip.jaw",
+            "material": "steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.032,0,0],
+                [0.032,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.016,0.038],
+                [-0.048,0.038],
+                [-0.048,0.047],
+                [-0.042,0.047],
+                [-0.042,0.042],
+                [-0.016,0.042]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "channel-seat": {
+            "position": [0,0,0.018],
+            "direction": [0,0,1]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8,1.33,0.0375]
+      }
+    },
+    {
+      "id": "furring",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.hat-furring",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "hat-furring-channel",
+              "length": 1.2,
+              "channelWidth": 0.072,
+              "crownWidth": 0.037,
+              "standoff": 0.021,
+              "thickness": 0.0013
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "base": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "base"
+            }
+          },
+          "board-seat": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "board-seat"
+            }
+          }
+        }
+      },
+      "transform": {
+        "position": [1.2,1.33,0.0555],
+        "rotation": [1.5707963267948966,0,0]
+      }
+    },
+    {
+      "id": "acoustic-board",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "board",
+            "semanticType": "construction.interior.acoustic-gypsum-panel",
+            "material": "gypsum",
+            "appearance": {
+              "color": "#d7d5c8"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.015]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.3,0],
+                [0.3,0],
+                [0.3,1.2],
+                [-0.3,1.2]
+              ],
+              "holes": [
+                [
+                  [-0.201,0.09150000000000001],
+                  [-0.179,0.09150000000000001],
+                  [-0.179,0.1785],
+                  [-0.201,0.1785]
+                ],
+                [
+                  [-0.076,0.09150000000000001],
+                  [-0.054000000000000006,0.09150000000000001],
+                  [-0.054000000000000006,0.1785],
+                  [-0.076,0.1785]
+                ],
+                [
+                  [0.054000000000000006,0.09150000000000001],
+                  [0.076,0.09150000000000001],
+                  [0.076,0.1785],
+                  [0.054000000000000006,0.1785]
+                ],
+                [
+                  [0.179,0.09150000000000001],
+                  [0.201,0.09150000000000001],
+                  [0.201,0.1785],
+                  [0.179,0.1785]
+                ],
+                [
+                  [-0.201,0.3215],
+                  [-0.179,0.3215],
+                  [-0.179,0.4085],
+                  [-0.201,0.4085]
+                ],
+                [
+                  [-0.076,0.3215],
+                  [-0.054000000000000006,0.3215],
+                  [-0.054000000000000006,0.4085],
+                  [-0.076,0.4085]
+                ],
+                [
+                  [0.054000000000000006,0.3215],
+                  [0.076,0.3215],
+                  [0.076,0.4085],
+                  [0.054000000000000006,0.4085]
+                ],
+                [
+                  [0.179,0.3215],
+                  [0.201,0.3215],
+                  [0.201,0.4085],
+                  [0.179,0.4085]
+                ],
+                [
+                  [-0.201,0.5515],
+                  [-0.179,0.5515],
+                  [-0.179,0.6385],
+                  [-0.201,0.6385]
+                ],
+                [
+                  [-0.076,0.5515],
+                  [-0.054000000000000006,0.5515],
+                  [-0.054000000000000006,0.6385],
+                  [-0.076,0.6385]
+                ],
+                [
+                  [0.054000000000000006,0.5515],
+                  [0.076,0.5515],
+                  [0.076,0.6385],
+                  [0.054000000000000006,0.6385]
+                ],
+                [
+                  [0.179,0.5515],
+                  [0.201,0.5515],
+                  [0.201,0.6385],
+                  [0.179,0.6385]
+                ],
+                [
+                  [-0.201,0.7815000000000001],
+                  [-0.179,0.7815000000000001],
+                  [-0.179,0.8685],
+                  [-0.201,0.8685]
+                ],
+                [
+                  [-0.076,0.7815000000000001],
+                  [-0.054000000000000006,0.7815000000000001],
+                  [-0.054000000000000006,0.8685],
+                  [-0.076,0.8685]
+                ],
+                [
+                  [0.054000000000000006,0.7815000000000001],
+                  [0.076,0.7815000000000001],
+                  [0.076,0.8685],
+                  [0.054000000000000006,0.8685]
+                ],
+                [
+                  [0.179,0.7815000000000001],
+                  [0.201,0.7815000000000001],
+                  [0.201,0.8685],
+                  [0.179,0.8685]
+                ],
+                [
+                  [-0.201,1.0115],
+                  [-0.179,1.0115],
+                  [-0.179,1.0985000000000003],
+                  [-0.201,1.0985000000000003]
+                ],
+                [
+                  [-0.076,1.0115],
+                  [-0.054000000000000006,1.0115],
+                  [-0.054000000000000006,1.0985000000000003],
+                  [-0.076,1.0985000000000003]
+                ],
+                [
+                  [0.054000000000000006,1.0115],
+                  [0.076,1.0115],
+                  [0.076,1.0985000000000003],
+                  [0.054000000000000006,1.0985000000000003]
+                ],
+                [
+                  [0.179,1.0115],
+                  [0.201,1.0115],
+                  [0.201,1.0985000000000003],
+                  [0.179,1.0985000000000003]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0.6,0],
+            "direction": [0,0,-1]
+          },
+          "left": {
+            "position": [-0.3,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.3,0,0],
+            "direction": [1,0,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.8,0.73,0.0765]
+      }
+    },
+    {
+      "id": "perimeter-angle",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "angle",
+            "semanticType": "construction.interior.ceiling-wall-angle",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.2,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0,0],
+                [-0.03,0],
+                [-0.03,0.0014],
+                [-0.0014,0.0014],
+                [-0.0014,0.03],
+                [0,0.03]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "angle",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "start"
+            }
+          },
+          "end": {
+            "node": "angle",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "wall-seat": {
+            "position": [0.6,0.015,0],
+            "direction": [0,0,-1]
+          },
+          "tile-seat": {
+            "position": [0.6,0.0014,0.024],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0,2.39,0.05]
+      }
+    },
+    {
+      "id": "ceiling-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.ceiling.panel",
+            "material": "ceiling-board",
+            "appearance": {
+              "color": "#dcdacf"
+            },
+            "transform": {
+              "position": [0,0.01,0]
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.57,0.02,0.57]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "edge-bearing": {
+            "node": "panel",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,-0.5]
+            },
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.6,2.3914,0.359]
+      }
+    },
+    {
+      "id": "wire-left",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "upper-rod",
+            "semanticType": "construction.interior.ceiling-adjuster.wire",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.007,0.155,0],
+              "end": [-0.007,0.39,0],
+              "radius": 0.0047,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "lower-rod",
+            "semanticType": "construction.interior.ceiling-adjuster.wire",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.007,0,0],
+              "end": [0.007,0.219,0],
+              "radius": 0.0047,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "clip",
+            "semanticType": "construction.interior.ceiling-adjuster.spring",
+            "material": "steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.182,0],
+                [0,0.188,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.0225,-0.022],
+                [0.0225,-0.022],
+                [0.0225,0.022],
+                [-0.0225,0.022]
+              ],
+              "holes": [
+                [
+                  [-0.0013,0],
+                  [-0.0017338866646856655,0.002181295564481012],
+                  [-0.002969491347236679,0.00403050865276332],
+                  [-0.004818704435518988,0.005266113335314335],
+                  [-0.007,0.0057],
+                  [-0.009181295564481011,0.005266113335314335],
+                  [-0.01103050865276332,0.004030508652763321],
+                  [-0.012266113335314334,0.0021812955644810125],
+                  [-0.0127,6.980486755139913e-19],
+                  [-0.012266113335314336,-0.002181295564481011],
+                  [-0.011030508652763322,-0.00403050865276332],
+                  [-0.009181295564481015,-0.005266113335314333],
+                  [-0.007000000000000001,-0.0057],
+                  [-0.004818704435518987,-0.005266113335314334],
+                  [-0.00296949134723668,-0.004030508652763322],
+                  [-0.0017338866646856672,-0.0021812955644810155]
+                ],
+                [
+                  [0.0127,0],
+                  [0.012266113335314334,0.002181295564481012],
+                  [0.01103050865276332,0.00403050865276332],
+                  [0.009181295564481013,0.005266113335314335],
+                  [0.007,0.0057],
+                  [0.004818704435518989,0.005266113335314335],
+                  [0.00296949134723668,0.004030508652763321],
+                  [0.0017338866646856655,0.0021812955644810125],
+                  [0.0013,6.980486755139913e-19],
+                  [0.0017338866646856646,-0.002181295564481011],
+                  [0.002969491347236678,-0.00403050865276332],
+                  [0.0048187044355189855,-0.005266113335314333],
+                  [0.006999999999999999,-0.0057],
+                  [0.009181295564481013,-0.005266113335314334],
+                  [0.01103050865276332,-0.004030508652763322],
+                  [0.012266113335314334,-0.0021812955644810155]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "upper-pad",
+            "semanticType": "construction.interior.ceiling-adjuster.roof-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.007,0.046]
+            },
+            "transform": {
+              "position": [-0.007,0.3865,0]
+            }
+          }
+        ],
+        "anchors": {
+          "ceiling-seat": {
+            "position": [-0.007,0.39,0],
+            "direction": [0,1,0]
+          },
+          "hanger-tip": {
+            "position": [0.007,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.848,2.21,1.3]
+      }
+    },
+    {
+      "id": "wire-right",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "upper-rod",
+            "semanticType": "construction.interior.ceiling-adjuster.wire",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.007,0.155,0],
+              "end": [-0.007,0.39,0],
+              "radius": 0.0047,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "lower-rod",
+            "semanticType": "construction.interior.ceiling-adjuster.wire",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.007,0,0],
+              "end": [0.007,0.219,0],
+              "radius": 0.0047,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "clip",
+            "semanticType": "construction.interior.ceiling-adjuster.spring",
+            "material": "steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.182,0],
+                [0,0.188,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.0225,-0.022],
+                [0.0225,-0.022],
+                [0.0225,0.022],
+                [-0.0225,0.022]
+              ],
+              "holes": [
+                [
+                  [-0.0013,0],
+                  [-0.0017338866646856655,0.002181295564481012],
+                  [-0.002969491347236679,0.00403050865276332],
+                  [-0.004818704435518988,0.005266113335314335],
+                  [-0.007,0.0057],
+                  [-0.009181295564481011,0.005266113335314335],
+                  [-0.01103050865276332,0.004030508652763321],
+                  [-0.012266113335314334,0.0021812955644810125],
+                  [-0.0127,6.980486755139913e-19],
+                  [-0.012266113335314336,-0.002181295564481011],
+                  [-0.011030508652763322,-0.00403050865276332],
+                  [-0.009181295564481015,-0.005266113335314333],
+                  [-0.007000000000000001,-0.0057],
+                  [-0.004818704435518987,-0.005266113335314334],
+                  [-0.00296949134723668,-0.004030508652763322],
+                  [-0.0017338866646856672,-0.0021812955644810155]
+                ],
+                [
+                  [0.0127,0],
+                  [0.012266113335314334,0.002181295564481012],
+                  [0.01103050865276332,0.00403050865276332],
+                  [0.009181295564481013,0.005266113335314335],
+                  [0.007,0.0057],
+                  [0.004818704435518989,0.005266113335314335],
+                  [0.00296949134723668,0.004030508652763321],
+                  [0.0017338866646856655,0.0021812955644810125],
+                  [0.0013,6.980486755139913e-19],
+                  [0.0017338866646856646,-0.002181295564481011],
+                  [0.002969491347236678,-0.00403050865276332],
+                  [0.0048187044355189855,-0.005266113335314333],
+                  [0.006999999999999999,-0.0057],
+                  [0.009181295564481013,-0.005266113335314334],
+                  [0.01103050865276332,-0.004030508652763322],
+                  [0.012266113335314334,-0.0021812955644810155]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "upper-pad",
+            "semanticType": "construction.interior.ceiling-adjuster.roof-pad",
+            "material": "steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.007,0.046]
+            },
+            "transform": {
+              "position": [-0.007,0.3865,0]
+            }
+          }
+        ],
+        "anchors": {
+          "ceiling-seat": {
+            "position": [-0.007,0.39,0],
+            "direction": [0,1,0]
+          },
+          "hanger-tip": {
+            "position": [0.007,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.538,2.21,1.3]
+      }
+    },
+    {
+      "id": "baffle",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "construction.interior.acoustic-baffle.fabric",
+            "material": "acoustic-fabric",
+            "appearance": {
+              "color": "#719396"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.91,0.251,0.045]
+            },
+            "transform": {
+              "position": [0,-0.1375,0]
+            }
+          },
+          {
+            "id": "rail",
+            "semanticType": "construction.interior.acoustic-baffle.rail",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.92,0.018,0.052]
+            },
+            "transform": {
+              "position": [0,-0.014,0]
+            }
+          },
+          {
+            "id": "eye-0",
+            "semanticType": "construction.interior.acoustic-baffle.eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.01,
+              "tubeRadius": 0.0025,
+              "radialSegments": 24,
+              "tubularSegments": 8
+            },
+            "transform": {
+              "position": [-0.345,0,0],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "eye-1",
+            "semanticType": "construction.interior.acoustic-baffle.eye",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.01,
+              "tubeRadius": 0.0025,
+              "radialSegments": 24,
+              "tubularSegments": 8
+            },
+            "transform": {
+              "position": [0.345,0,0],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "left-hang": {
+            "position": [-0.345,0,0],
+            "direction": [0,1,0]
+          },
+          "right-hang": {
+            "position": [0.345,0,0],
+            "direction": [0,1,0]
+          },
+          "lower-edge": {
+            "position": [0,-0.263,0],
+            "direction": [0,-1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [1.2,2.21,1.3]
+      }
+    },
+    {
+      "id": "drywall-screw",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "shaft",
+            "semanticType": "construction.interior.drywall-screw.shaft",
+            "material": "steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.03],
+              "end": [0,0,-0.003],
+              "radius": 0.0017,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "tip",
+            "semanticType": "construction.interior.drywall-screw.tip",
+            "material": "steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,-0.035],
+              "end": [0,0,-0.03],
+              "startRadius": 0.00015,
+              "endRadius": 0.0017,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "head",
+            "semanticType": "construction.interior.drywall-screw.head",
+            "material": "steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,-0.003],
+              "end": [0,0,-0.0012],
+              "startRadius": 0.00185,
+              "endRadius": 0.0043,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "drive-face",
+            "semanticType": "construction.interior.drywall-screw.recess",
+            "material": "steel",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.0012],
+                [0,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.0043,0],
+                [0.004192190022381841,0.0009568400160121519],
+                [0.0038741661319804024,0.0018657000782054999],
+                [0.0033618753746125283,0.002681006147992554],
+                [0.0026810061479925545,0.0033618753746125283],
+                [0.0018657000782055,0.0038741661319804024],
+                [0.0009568400160121521,0.004192190022381841],
+                [2.6329906181668092e-19,0.0043],
+                [-0.0009568400160121516,0.004192190022381841],
+                [-0.0018657000782054997,0.0038741661319804024],
+                [-0.002681006147992554,0.0033618753746125288],
+                [-0.0033618753746125266,0.002681006147992556],
+                [-0.003874166131980402,0.0018657000782055003],
+                [-0.004192190022381842,0.0009568400160121506],
+                [-0.0043,5.2659812363336185e-19],
+                [-0.004192190022381842,-0.0009568400160121495],
+                [-0.0038741661319804024,-0.0018657000782054995],
+                [-0.003361875374612527,-0.0026810061479925554],
+                [-0.002681006147992555,-0.0033618753746125275],
+                [-0.0018657000782055005,-0.003874166131980402],
+                [-0.0009568400160121527,-0.004192190022381841],
+                [-7.898971854500427e-19,-0.0043],
+                [0.0009568400160121474,-0.004192190022381842],
+                [0.0018657000782054992,-0.003874166131980403],
+                [0.0026810061479925536,-0.0033618753746125288],
+                [0.0033618753746125275,-0.002681006147992555],
+                [0.0038741661319804032,-0.0018657000782054973],
+                [0.004192190022381841,-0.000956840016012153]
+              ],
+              "holes": [
+                [
+                  [-0.0021,-0.00042],
+                  [-0.00042,-0.00042],
+                  [-0.00042,-0.0021],
+                  [0.00042,-0.0021],
+                  [0.00042,-0.00042],
+                  [0.0021,-0.00042],
+                  [0.0021,0.00042],
+                  [0.00042,0.00042],
+                  [0.00042,0.0021],
+                  [-0.00042,0.0021],
+                  [-0.00042,0.00042],
+                  [-0.0021,0.00042]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "thread",
+            "semanticType": "construction.interior.drywall-screw.thread",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.00172,0,-0.029],
+                [0.0012162236636408619,0.0012162236636408617,-0.02865277777777778],
+                [1.0531962472667238e-19,0.00172,-0.028305555555555556],
+                [-0.0012162236636408617,0.0012162236636408619,-0.027958333333333335],
+                [-0.00172,2.1063924945334475e-19,-0.027611111111111114],
+                [-0.0012162236636408619,-0.0012162236636408617,-0.02726388888888889],
+                [-3.159588741800171e-19,-0.00172,-0.02691666666666667],
+                [0.0012162236636408614,-0.0012162236636408619,-0.026569444444444444],
+                [0.00172,-4.212784989066895e-19,-0.026222222222222223],
+                [0.0012162236636408619,0.0012162236636408614,-0.025875000000000002],
+                [5.2659812363336185e-19,0.00172,-0.02552777777777778],
+                [-0.0012162236636408604,0.0012162236636408632,-0.025180555555555557],
+                [-0.00172,6.319177483600342e-19,-0.024833333333333332],
+                [-0.001216223663640861,-0.0012162236636408623,-0.02448611111111111],
+                [-7.372373730867066e-19,-0.00172,-0.02413888888888889],
+                [0.0012162236636408601,-0.0012162236636408634,-0.02379166666666667],
+                [0.00172,-8.42556997813379e-19,-0.023444444444444445],
+                [0.0012162236636408612,0.001216223663640862,-0.023097222222222224],
+                [9.478766225400513e-19,0.00172,-0.02275],
+                [-0.00121622366364086,0.0012162236636408636,-0.02240277777777778],
+                [-0.00172,1.0531962472667237e-18,-0.022055555555555557],
+                [-0.0012162236636408614,-0.0012162236636408619,-0.021708333333333336],
+                [-4.213849635761827e-18,-0.00172,-0.021361111111111112],
+                [0.00121622366364086,-0.0012162236636408636,-0.021013888888888888],
+                [0.00172,-1.2638354967200685e-18,-0.020666666666666667],
+                [0.0012162236636408617,0.0012162236636408619,-0.020319444444444446],
+                [-1.6861786423216899e-18,0.00172,-0.019972222222222225],
+                [-0.0012162236636408597,0.0012162236636408638,-0.019625],
+                [-0.00172,1.4744747461734133e-18,-0.01927777777777778],
+                [-0.0012162236636408619,-0.0012162236636408619,-0.018930555555555555],
+                [-4.635128134668516e-18,-0.00172,-0.018583333333333334],
+                [0.0012162236636408595,-0.0012162236636408638,-0.018236111111111113],
+                [0.00172,-1.685113995626758e-18,-0.01788888888888889],
+                [0.0012162236636408619,0.0012162236636408617,-0.017541666666666667],
+                [-1.2649001434150003e-18,0.00172,-0.017194444444444443],
+                [-0.0012162236636408593,0.001216223663640864,-0.016847222222222222],
+                [-0.00172,1.8957532450801026e-18,-0.0165],
+                [-0.0012162236636408619,-0.0012162236636408614,-0.01615277777777778],
+                [-5.056406633575206e-18,-0.00172,-0.015805555555555555],
+                [0.001216223663640859,-0.0012162236636408643,-0.015458333333333334],
+                [0.00172,-2.1063924945334474e-18,-0.015111111111111113],
+                [0.0012162236636408667,0.0012162236636408571,-0.014763888888888889],
+                [-8.436216445083109e-19,0.00172,-0.014416666666666668],
+                [-0.001216223663640859,0.0012162236636408645,-0.014069444444444447],
+                [-0.00172,8.427699271523653e-18,-0.013722222222222222],
+                [-0.0012162236636408623,-0.001216223663640861,-0.013375000000000001],
+                [-5.477685132481895e-18,-0.00172,-0.013027777777777777],
+                [0.0012162236636408632,-0.0012162236636408604,-0.012680555555555556],
+                [0.00172,-2.527670993440137e-18,-0.012333333333333332],
+                [0.0012162236636408667,0.0012162236636408567,-0.01198611111111111],
+                [-4.223431456016215e-19,0.00172,-0.01163888888888889],
+                [-0.0012162236636408588,0.0012162236636408647,-0.011291666666666665],
+                [-0.00172,-3.3723572846433797e-18,-0.010944444444444444],
+                [-0.0012162236636408625,-0.0012162236636408608,-0.01059722222222222],
+                [-5.898963631388585e-18,-0.00172,-0.010249999999999999],
+                [0.001216223663640863,-0.0012162236636408604,-0.009902777777777778],
+                [0.00172,-2.9489494923468265e-18,-0.009555555555555557],
+                [0.001216223663640867,0.0012162236636408562,-0.009208333333333336],
+                [-1.0646466949319753e-21,0.00172,-0.008861111111111111],
+                [-0.0012162236636408586,0.0012162236636408651,-0.00851388888888889],
+                [-0.00172,9.270256269337032e-18,-0.00816666666666667],
+                [-0.001216223663640863,-0.0012162236636408604,-0.007819444444444445],
+                [-6.320242130295274e-18,-0.00172,-0.007472222222222224],
+                [0.0012162236636408627,-0.0012162236636408608,-0.007124999999999999],
+                [0.00172,-3.370227991253516e-18,-0.006777777777777778],
+                [0.0012162236636408673,0.001216223663640856,-0.006430555555555557],
+                [4.2021385221175754e-19,0.00172,-0.006083333333333333],
+                [-0.0012162236636408582,0.0012162236636408651,-0.005736111111111112],
+                [-0.00172,-2.5298002868300006e-18,-0.0053888888888888875],
+                [-0.0012162236636408632,-0.0012162236636408604,-0.0050416666666666665],
+                [-6.741520629201964e-18,-0.00172,-0.0046944444444444455],
+                [0.0012162236636408623,-0.001216223663640861,-0.004347222222222221],
+                [0.00172,-3.791506490160205e-18,-0.004]
+              ],
+              "radius": 0.00037,
+              "radialSegments": 8
+            }
+          }
+        ],
+        "anchors": {
+          "head": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "tip": {
+            "position": [0,0,-0.035],
+            "direction": [0,0,-1]
+          }
+        }
+      },
+      "transform": {
+        "position": [0.588,1.35,0.05]
+      }
+    },
+    {
+      "id": "detail-corner-bead",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "first-wing",
+            "semanticType": "construction.interior.perforated-corner-bead.wing",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.0012]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.037,0],
+                [0,0],
+                [0,2.55],
+                [-0.037,2.55]
+              ],
+              "holes": [
+                [
+                  [-0.0137,0.14],
+                  [-0.01410343847769018,0.142028222191535],
+                  [-0.015252334059711298,0.1437476659402887],
+                  [-0.016971777808465024,0.14489656152230984],
+                  [-0.019,0.1453],
+                  [-0.021028222191534975,0.14489656152230984],
+                  [-0.0227476659402887,0.1437476659402887],
+                  [-0.023896561522309817,0.142028222191535],
+                  [-0.0243,0.14],
+                  [-0.02389656152230982,0.13797177780846503],
+                  [-0.0227476659402887,0.13625233405971132],
+                  [-0.021028222191534978,0.13510343847769019],
+                  [-0.019,0.13470000000000001],
+                  [-0.01697177780846502,0.13510343847769019],
+                  [-0.015252334059711298,0.13625233405971132],
+                  [-0.014103438477690182,0.13797177780846503]
+                ],
+                [
+                  [-0.0137,0.34],
+                  [-0.01410343847769018,0.342028222191535],
+                  [-0.015252334059711298,0.3437476659402887],
+                  [-0.016971777808465024,0.34489656152230985],
+                  [-0.019,0.34530000000000005],
+                  [-0.021028222191534975,0.34489656152230985],
+                  [-0.0227476659402887,0.3437476659402887],
+                  [-0.023896561522309817,0.342028222191535],
+                  [-0.0243,0.34],
+                  [-0.02389656152230982,0.33797177780846505],
+                  [-0.0227476659402887,0.33625233405971133],
+                  [-0.021028222191534978,0.3351034384776902],
+                  [-0.019,0.3347],
+                  [-0.01697177780846502,0.3351034384776902],
+                  [-0.015252334059711298,0.33625233405971133],
+                  [-0.014103438477690182,0.33797177780846505]
+                ],
+                [
+                  [-0.0137,0.54],
+                  [-0.01410343847769018,0.542028222191535],
+                  [-0.015252334059711298,0.5437476659402888],
+                  [-0.016971777808465024,0.5448965615223098],
+                  [-0.019,0.5453],
+                  [-0.021028222191534975,0.5448965615223098],
+                  [-0.0227476659402887,0.5437476659402888],
+                  [-0.023896561522309817,0.542028222191535],
+                  [-0.0243,0.54],
+                  [-0.02389656152230982,0.5379717778084651],
+                  [-0.0227476659402887,0.5362523340597113],
+                  [-0.021028222191534978,0.5351034384776903],
+                  [-0.019,0.5347000000000001],
+                  [-0.01697177780846502,0.5351034384776903],
+                  [-0.015252334059711298,0.5362523340597113],
+                  [-0.014103438477690182,0.5379717778084651]
+                ],
+                [
+                  [-0.0137,0.7400000000000001],
+                  [-0.01410343847769018,0.7420282221915351],
+                  [-0.015252334059711298,0.7437476659402888],
+                  [-0.016971777808465024,0.7448965615223099],
+                  [-0.019,0.7453000000000001],
+                  [-0.021028222191534975,0.7448965615223099],
+                  [-0.0227476659402887,0.7437476659402888],
+                  [-0.023896561522309817,0.7420282221915351],
+                  [-0.0243,0.7400000000000001],
+                  [-0.02389656152230982,0.7379717778084651],
+                  [-0.0227476659402887,0.7362523340597114],
+                  [-0.021028222191534978,0.7351034384776903],
+                  [-0.019,0.7347000000000001],
+                  [-0.01697177780846502,0.7351034384776903],
+                  [-0.015252334059711298,0.7362523340597114],
+                  [-0.014103438477690182,0.7379717778084651]
+                ],
+                [
+                  [-0.0137,0.9400000000000001],
+                  [-0.01410343847769018,0.942028222191535],
+                  [-0.015252334059711298,0.9437476659402888],
+                  [-0.016971777808465024,0.9448965615223098],
+                  [-0.019,0.9453],
+                  [-0.021028222191534975,0.9448965615223098],
+                  [-0.0227476659402887,0.9437476659402888],
+                  [-0.023896561522309817,0.942028222191535],
+                  [-0.0243,0.9400000000000001],
+                  [-0.02389656152230982,0.9379717778084651],
+                  [-0.0227476659402887,0.9362523340597113],
+                  [-0.021028222191534978,0.9351034384776903],
+                  [-0.019,0.9347000000000001],
+                  [-0.01697177780846502,0.9351034384776903],
+                  [-0.015252334059711298,0.9362523340597113],
+                  [-0.014103438477690182,0.9379717778084651]
+                ],
+                [
+                  [-0.0137,1.1400000000000001],
+                  [-0.01410343847769018,1.142028222191535],
+                  [-0.015252334059711298,1.1437476659402888],
+                  [-0.016971777808465024,1.14489656152231],
+                  [-0.019,1.1453000000000002],
+                  [-0.021028222191534975,1.14489656152231],
+                  [-0.0227476659402887,1.1437476659402888],
+                  [-0.023896561522309817,1.142028222191535],
+                  [-0.0243,1.1400000000000001],
+                  [-0.02389656152230982,1.1379717778084653],
+                  [-0.0227476659402887,1.1362523340597115],
+                  [-0.021028222191534978,1.1351034384776904],
+                  [-0.019,1.1347],
+                  [-0.01697177780846502,1.1351034384776904],
+                  [-0.015252334059711298,1.1362523340597115],
+                  [-0.014103438477690182,1.137971777808465]
+                ],
+                [
+                  [-0.0137,1.3400000000000003],
+                  [-0.01410343847769018,1.3420282221915352],
+                  [-0.015252334059711298,1.343747665940289],
+                  [-0.016971777808465024,1.34489656152231],
+                  [-0.019,1.3453000000000004],
+                  [-0.021028222191534975,1.34489656152231],
+                  [-0.0227476659402887,1.343747665940289],
+                  [-0.023896561522309817,1.3420282221915352],
+                  [-0.0243,1.3400000000000003],
+                  [-0.02389656152230982,1.3379717778084654],
+                  [-0.0227476659402887,1.3362523340597117],
+                  [-0.021028222191534978,1.3351034384776905],
+                  [-0.019,1.3347000000000002],
+                  [-0.01697177780846502,1.3351034384776905],
+                  [-0.015252334059711298,1.3362523340597117],
+                  [-0.014103438477690182,1.3379717778084652]
+                ],
+                [
+                  [-0.0137,1.54],
+                  [-0.01410343847769018,1.542028222191535],
+                  [-0.015252334059711298,1.5437476659402887],
+                  [-0.016971777808465024,1.5448965615223098],
+                  [-0.019,1.5453000000000001],
+                  [-0.021028222191534975,1.5448965615223098],
+                  [-0.0227476659402887,1.5437476659402887],
+                  [-0.023896561522309817,1.542028222191535],
+                  [-0.0243,1.54],
+                  [-0.02389656152230982,1.5379717778084652],
+                  [-0.0227476659402887,1.5362523340597114],
+                  [-0.021028222191534978,1.5351034384776903],
+                  [-0.019,1.5347],
+                  [-0.01697177780846502,1.5351034384776903],
+                  [-0.015252334059711298,1.5362523340597114],
+                  [-0.014103438477690182,1.537971777808465]
+                ],
+                [
+                  [-0.0137,1.7400000000000002],
+                  [-0.01410343847769018,1.742028222191535],
+                  [-0.015252334059711298,1.7437476659402888],
+                  [-0.016971777808465024,1.74489656152231],
+                  [-0.019,1.7453000000000003],
+                  [-0.021028222191534975,1.74489656152231],
+                  [-0.0227476659402887,1.7437476659402888],
+                  [-0.023896561522309817,1.742028222191535],
+                  [-0.0243,1.7400000000000002],
+                  [-0.02389656152230982,1.7379717778084653],
+                  [-0.0227476659402887,1.7362523340597116],
+                  [-0.021028222191534978,1.7351034384776904],
+                  [-0.019,1.7347000000000001],
+                  [-0.01697177780846502,1.7351034384776904],
+                  [-0.015252334059711298,1.7362523340597116],
+                  [-0.014103438477690182,1.7379717778084651]
+                ],
+                [
+                  [-0.0137,1.94],
+                  [-0.01410343847769018,1.9420282221915348],
+                  [-0.015252334059711298,1.9437476659402886],
+                  [-0.016971777808465024,1.9448965615223097],
+                  [-0.019,1.9453],
+                  [-0.021028222191534975,1.9448965615223097],
+                  [-0.0227476659402887,1.9437476659402886],
+                  [-0.023896561522309817,1.9420282221915348],
+                  [-0.0243,1.94],
+                  [-0.02389656152230982,1.937971777808465],
+                  [-0.0227476659402887,1.9362523340597113],
+                  [-0.021028222191534978,1.9351034384776902],
+                  [-0.019,1.9346999999999999],
+                  [-0.01697177780846502,1.9351034384776902],
+                  [-0.015252334059711298,1.9362523340597113],
+                  [-0.014103438477690182,1.9379717778084649]
+                ],
+                [
+                  [-0.0137,2.14],
+                  [-0.01410343847769018,2.142028222191535],
+                  [-0.015252334059711298,2.143747665940289],
+                  [-0.016971777808465024,2.14489656152231],
+                  [-0.019,2.1453],
+                  [-0.021028222191534975,2.14489656152231],
+                  [-0.0227476659402887,2.143747665940289],
+                  [-0.023896561522309817,2.142028222191535],
+                  [-0.0243,2.14],
+                  [-0.02389656152230982,2.137971777808465],
+                  [-0.0227476659402887,2.1362523340597113],
+                  [-0.021028222191534978,2.13510343847769],
+                  [-0.019,2.1347],
+                  [-0.01697177780846502,2.13510343847769],
+                  [-0.015252334059711298,2.1362523340597113],
+                  [-0.014103438477690182,2.137971777808465]
+                ],
+                [
+                  [-0.0137,2.3400000000000003],
+                  [-0.01410343847769018,2.3420282221915354],
+                  [-0.015252334059711298,2.343747665940289],
+                  [-0.016971777808465024,2.3448965615223103],
+                  [-0.019,2.3453000000000004],
+                  [-0.021028222191534975,2.3448965615223103],
+                  [-0.0227476659402887,2.343747665940289],
+                  [-0.023896561522309817,2.3420282221915354],
+                  [-0.0243,2.3400000000000003],
+                  [-0.02389656152230982,2.337971777808465],
+                  [-0.0227476659402887,2.3362523340597114],
+                  [-0.021028222191534978,2.3351034384776903],
+                  [-0.019,2.3347],
+                  [-0.01697177780846502,2.3351034384776903],
+                  [-0.015252334059711298,2.3362523340597114],
+                  [-0.014103438477690182,2.337971777808465]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "second-wing",
+            "semanticType": "construction.interior.perforated-corner-bead.wing",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.0012,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.037,0],
+                [0,0],
+                [0,2.55],
+                [-0.037,2.55]
+              ],
+              "holes": [
+                [
+                  [-0.0137,0.14],
+                  [-0.01410343847769018,0.142028222191535],
+                  [-0.015252334059711298,0.1437476659402887],
+                  [-0.016971777808465024,0.14489656152230984],
+                  [-0.019,0.1453],
+                  [-0.021028222191534975,0.14489656152230984],
+                  [-0.0227476659402887,0.1437476659402887],
+                  [-0.023896561522309817,0.142028222191535],
+                  [-0.0243,0.14],
+                  [-0.02389656152230982,0.13797177780846503],
+                  [-0.0227476659402887,0.13625233405971132],
+                  [-0.021028222191534978,0.13510343847769019],
+                  [-0.019,0.13470000000000001],
+                  [-0.01697177780846502,0.13510343847769019],
+                  [-0.015252334059711298,0.13625233405971132],
+                  [-0.014103438477690182,0.13797177780846503]
+                ],
+                [
+                  [-0.0137,0.34],
+                  [-0.01410343847769018,0.342028222191535],
+                  [-0.015252334059711298,0.3437476659402887],
+                  [-0.016971777808465024,0.34489656152230985],
+                  [-0.019,0.34530000000000005],
+                  [-0.021028222191534975,0.34489656152230985],
+                  [-0.0227476659402887,0.3437476659402887],
+                  [-0.023896561522309817,0.342028222191535],
+                  [-0.0243,0.34],
+                  [-0.02389656152230982,0.33797177780846505],
+                  [-0.0227476659402887,0.33625233405971133],
+                  [-0.021028222191534978,0.3351034384776902],
+                  [-0.019,0.3347],
+                  [-0.01697177780846502,0.3351034384776902],
+                  [-0.015252334059711298,0.33625233405971133],
+                  [-0.014103438477690182,0.33797177780846505]
+                ],
+                [
+                  [-0.0137,0.54],
+                  [-0.01410343847769018,0.542028222191535],
+                  [-0.015252334059711298,0.5437476659402888],
+                  [-0.016971777808465024,0.5448965615223098],
+                  [-0.019,0.5453],
+                  [-0.021028222191534975,0.5448965615223098],
+                  [-0.0227476659402887,0.5437476659402888],
+                  [-0.023896561522309817,0.542028222191535],
+                  [-0.0243,0.54],
+                  [-0.02389656152230982,0.5379717778084651],
+                  [-0.0227476659402887,0.5362523340597113],
+                  [-0.021028222191534978,0.5351034384776903],
+                  [-0.019,0.5347000000000001],
+                  [-0.01697177780846502,0.5351034384776903],
+                  [-0.015252334059711298,0.5362523340597113],
+                  [-0.014103438477690182,0.5379717778084651]
+                ],
+                [
+                  [-0.0137,0.7400000000000001],
+                  [-0.01410343847769018,0.7420282221915351],
+                  [-0.015252334059711298,0.7437476659402888],
+                  [-0.016971777808465024,0.7448965615223099],
+                  [-0.019,0.7453000000000001],
+                  [-0.021028222191534975,0.7448965615223099],
+                  [-0.0227476659402887,0.7437476659402888],
+                  [-0.023896561522309817,0.7420282221915351],
+                  [-0.0243,0.7400000000000001],
+                  [-0.02389656152230982,0.7379717778084651],
+                  [-0.0227476659402887,0.7362523340597114],
+                  [-0.021028222191534978,0.7351034384776903],
+                  [-0.019,0.7347000000000001],
+                  [-0.01697177780846502,0.7351034384776903],
+                  [-0.015252334059711298,0.7362523340597114],
+                  [-0.014103438477690182,0.7379717778084651]
+                ],
+                [
+                  [-0.0137,0.9400000000000001],
+                  [-0.01410343847769018,0.942028222191535],
+                  [-0.015252334059711298,0.9437476659402888],
+                  [-0.016971777808465024,0.9448965615223098],
+                  [-0.019,0.9453],
+                  [-0.021028222191534975,0.9448965615223098],
+                  [-0.0227476659402887,0.9437476659402888],
+                  [-0.023896561522309817,0.942028222191535],
+                  [-0.0243,0.9400000000000001],
+                  [-0.02389656152230982,0.9379717778084651],
+                  [-0.0227476659402887,0.9362523340597113],
+                  [-0.021028222191534978,0.9351034384776903],
+                  [-0.019,0.9347000000000001],
+                  [-0.01697177780846502,0.9351034384776903],
+                  [-0.015252334059711298,0.9362523340597113],
+                  [-0.014103438477690182,0.9379717778084651]
+                ],
+                [
+                  [-0.0137,1.1400000000000001],
+                  [-0.01410343847769018,1.142028222191535],
+                  [-0.015252334059711298,1.1437476659402888],
+                  [-0.016971777808465024,1.14489656152231],
+                  [-0.019,1.1453000000000002],
+                  [-0.021028222191534975,1.14489656152231],
+                  [-0.0227476659402887,1.1437476659402888],
+                  [-0.023896561522309817,1.142028222191535],
+                  [-0.0243,1.1400000000000001],
+                  [-0.02389656152230982,1.1379717778084653],
+                  [-0.0227476659402887,1.1362523340597115],
+                  [-0.021028222191534978,1.1351034384776904],
+                  [-0.019,1.1347],
+                  [-0.01697177780846502,1.1351034384776904],
+                  [-0.015252334059711298,1.1362523340597115],
+                  [-0.014103438477690182,1.137971777808465]
+                ],
+                [
+                  [-0.0137,1.3400000000000003],
+                  [-0.01410343847769018,1.3420282221915352],
+                  [-0.015252334059711298,1.343747665940289],
+                  [-0.016971777808465024,1.34489656152231],
+                  [-0.019,1.3453000000000004],
+                  [-0.021028222191534975,1.34489656152231],
+                  [-0.0227476659402887,1.343747665940289],
+                  [-0.023896561522309817,1.3420282221915352],
+                  [-0.0243,1.3400000000000003],
+                  [-0.02389656152230982,1.3379717778084654],
+                  [-0.0227476659402887,1.3362523340597117],
+                  [-0.021028222191534978,1.3351034384776905],
+                  [-0.019,1.3347000000000002],
+                  [-0.01697177780846502,1.3351034384776905],
+                  [-0.015252334059711298,1.3362523340597117],
+                  [-0.014103438477690182,1.3379717778084652]
+                ],
+                [
+                  [-0.0137,1.54],
+                  [-0.01410343847769018,1.542028222191535],
+                  [-0.015252334059711298,1.5437476659402887],
+                  [-0.016971777808465024,1.5448965615223098],
+                  [-0.019,1.5453000000000001],
+                  [-0.021028222191534975,1.5448965615223098],
+                  [-0.0227476659402887,1.5437476659402887],
+                  [-0.023896561522309817,1.542028222191535],
+                  [-0.0243,1.54],
+                  [-0.02389656152230982,1.5379717778084652],
+                  [-0.0227476659402887,1.5362523340597114],
+                  [-0.021028222191534978,1.5351034384776903],
+                  [-0.019,1.5347],
+                  [-0.01697177780846502,1.5351034384776903],
+                  [-0.015252334059711298,1.5362523340597114],
+                  [-0.014103438477690182,1.537971777808465]
+                ],
+                [
+                  [-0.0137,1.7400000000000002],
+                  [-0.01410343847769018,1.742028222191535],
+                  [-0.015252334059711298,1.7437476659402888],
+                  [-0.016971777808465024,1.74489656152231],
+                  [-0.019,1.7453000000000003],
+                  [-0.021028222191534975,1.74489656152231],
+                  [-0.0227476659402887,1.7437476659402888],
+                  [-0.023896561522309817,1.742028222191535],
+                  [-0.0243,1.7400000000000002],
+                  [-0.02389656152230982,1.7379717778084653],
+                  [-0.0227476659402887,1.7362523340597116],
+                  [-0.021028222191534978,1.7351034384776904],
+                  [-0.019,1.7347000000000001],
+                  [-0.01697177780846502,1.7351034384776904],
+                  [-0.015252334059711298,1.7362523340597116],
+                  [-0.014103438477690182,1.7379717778084651]
+                ],
+                [
+                  [-0.0137,1.94],
+                  [-0.01410343847769018,1.9420282221915348],
+                  [-0.015252334059711298,1.9437476659402886],
+                  [-0.016971777808465024,1.9448965615223097],
+                  [-0.019,1.9453],
+                  [-0.021028222191534975,1.9448965615223097],
+                  [-0.0227476659402887,1.9437476659402886],
+                  [-0.023896561522309817,1.9420282221915348],
+                  [-0.0243,1.94],
+                  [-0.02389656152230982,1.937971777808465],
+                  [-0.0227476659402887,1.9362523340597113],
+                  [-0.021028222191534978,1.9351034384776902],
+                  [-0.019,1.9346999999999999],
+                  [-0.01697177780846502,1.9351034384776902],
+                  [-0.015252334059711298,1.9362523340597113],
+                  [-0.014103438477690182,1.9379717778084649]
+                ],
+                [
+                  [-0.0137,2.14],
+                  [-0.01410343847769018,2.142028222191535],
+                  [-0.015252334059711298,2.143747665940289],
+                  [-0.016971777808465024,2.14489656152231],
+                  [-0.019,2.1453],
+                  [-0.021028222191534975,2.14489656152231],
+                  [-0.0227476659402887,2.143747665940289],
+                  [-0.023896561522309817,2.142028222191535],
+                  [-0.0243,2.14],
+                  [-0.02389656152230982,2.137971777808465],
+                  [-0.0227476659402887,2.1362523340597113],
+                  [-0.021028222191534978,2.13510343847769],
+                  [-0.019,2.1347],
+                  [-0.01697177780846502,2.13510343847769],
+                  [-0.015252334059711298,2.1362523340597113],
+                  [-0.014103438477690182,2.137971777808465]
+                ],
+                [
+                  [-0.0137,2.3400000000000003],
+                  [-0.01410343847769018,2.3420282221915354],
+                  [-0.015252334059711298,2.343747665940289],
+                  [-0.016971777808465024,2.3448965615223103],
+                  [-0.019,2.3453000000000004],
+                  [-0.021028222191534975,2.3448965615223103],
+                  [-0.0227476659402887,2.343747665940289],
+                  [-0.023896561522309817,2.3420282221915354],
+                  [-0.0243,2.3400000000000003],
+                  [-0.02389656152230982,2.337971777808465],
+                  [-0.0227476659402887,2.3362523340597114],
+                  [-0.021028222191534978,2.3351034384776903],
+                  [-0.019,2.3347],
+                  [-0.01697177780846502,2.3351034384776903],
+                  [-0.015252334059711298,2.3362523340597114],
+                  [-0.014103438477690182,2.337971777808465]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "edge-nose",
+            "semanticType": "construction.interior.perforated-corner-bead.nose",
+            "material": "steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,2.55,0],
+              "radius": 0.0022,
+              "radialSegments": 16
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,2.55,0],
+            "direction": [0,1,0]
+          },
+          "face-x": {
+            "position": [0,1.275,0.019],
+            "direction": [-1,0,0]
+          },
+          "face-z": {
+            "position": [-0.019,1.275,0],
+            "direction": [0,0,-1]
+          }
+        }
+      },
+      "transform": {
+        "position": [2.95,0,0.25]
+      }
+    },
+    {
+      "id": "detail-control-joint",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "left-strip",
+            "semanticType": "construction.interior.plaster-reveal.flange",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.044,2.6,0.002]
+            },
+            "transform": {
+              "position": [-0.025,1.3,0]
+            }
+          },
+          {
+            "id": "right-strip",
+            "semanticType": "construction.interior.plaster-reveal.flange",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.044,2.6,0.002]
+            },
+            "transform": {
+              "position": [0.025,1.3,0]
+            }
+          },
+          {
+            "id": "v-fold",
+            "semanticType": "construction.interior.plaster-reveal.fold",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#517185"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.6,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.007,0],
+                [0,-0.011],
+                [0.007,0],
+                [0.007,0.002],
+                [0,-0.008],
+                [-0.007,0.002]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.047,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.047,0,0],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,2.6,0],
+            "direction": [0,1,0]
+          }
+        }
+      },
+      "transform": {
+        "position": [3.17,0,0.25]
+      }
+    }
+  ],
+  "attachments": [
+    {
+      "from": "floor#track-floor",
+      "to": "track-bottom#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "ceiling-slab#track-top",
+      "to": "track-top#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "track-bottom#seat-1",
+      "to": "stud-1#foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "track-top#seat-1",
+      "to": "stud-1#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "track-bottom#seat-2",
+      "to": "stud-2#foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "track-top#seat-2",
+      "to": "stud-2#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "track-bottom#seat-3",
+      "to": "stud-3#foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "track-top#seat-3",
+      "to": "stud-3#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "track-bottom#seat-4",
+      "to": "stud-4#foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "track-top#seat-4",
+      "to": "stud-4#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "track-bottom#seat-5",
+      "to": "stud-5#foot",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "track-top#seat-5",
+      "to": "stud-5#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "stud-2#front",
+      "to": "finished-board#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "stud-2#bridge-right",
+      "to": "bridging#start",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "stud-3#bridge-left",
+      "to": "bridging#end",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "stud-4#resilient-clip-seat",
+      "to": "resilient-clip#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "resilient-clip#channel-seat",
+      "to": "furring#base",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "furring#board-seat",
+      "to": "acoustic-board#mount",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "finished-board#angle-seat",
+      "to": "perimeter-angle#wall-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "perimeter-angle#tile-seat",
+      "to": "ceiling-panel#edge-bearing",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "ceiling-slab#baffle-left",
+      "to": "wire-left#ceiling-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "ceiling-slab#baffle-right",
+      "to": "wire-right#ceiling-seat",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wire-left#hanger-tip",
+      "to": "baffle#left-hang",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "wire-right#hanger-tip",
+      "to": "baffle#right-hang",
+      "contract": {
+        "direction": "opposed"
+      }
+    },
+    {
+      "from": "finished-board#fastener-seat",
+      "to": "drywall-screw#head",
+      "contract": {
+        "direction": "opposed"
+      }
+    }
+  ]
+}

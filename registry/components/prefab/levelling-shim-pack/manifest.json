@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.levelling-shim-pack",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "墙板找平垫片组",
+  "summary": "三片不同厚度的钢垫片组成可拆分调节组，上下表面可对齐墙板与底座。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.levelling-shim-pack",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "装配式",
+    "安装"
+  ],
+  "anchors": [
+    "bottom",
+    "top"
+  ],
+  "ai": {
+    "intent": "表达墙板安装前的分片找平和找平后定位。",
+    "editableParts": [
+      "逐片调整垫片厚度和层位"
+    ],
+    "qualityChecks": [
+      "默认组厚 25 mm。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "levelling-shim-pack",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lower",
+            "semanticType": "prefab.installation.level-shim",
+            "material": "steel",
+            "appearance": {
+              "color": "#47565f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.17,0.012,0.1]
+            },
+            "transform": {
+              "position": [0,0.006,0]
+            }
+          },
+          {
+            "id": "middle",
+            "semanticType": "prefab.installation.level-shim",
+            "material": "steel",
+            "appearance": {
+              "color": "#647b88"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.16,0.008,0.095]
+            },
+            "transform": {
+              "position": [0,0.016,0]
+            }
+          },
+          {
+            "id": "upper",
+            "semanticType": "prefab.installation.level-shim",
+            "material": "steel",
+            "appearance": {
+              "color": "#a0acb3"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.15,0.005,0.09]
+            },
+            "transform": {
+              "position": [0,0.0225,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "lower",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "node": "upper",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

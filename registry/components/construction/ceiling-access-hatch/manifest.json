@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.ceiling-access-hatch",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "方形吊顶检修口",
+  "summary": "适配明架龙骨格的边框与下翻盖板，带铰轴和拉手。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.ceiling.access-hatch",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "吊顶",
+    "检修口",
+    "盖板"
+  ],
+  "anchors": [
+    "mount"
+  ],
+  "ai": {
+    "intent": "用一块可下翻的盖板表达吊顶内设备的检修入口。",
+    "qualityChecks": [
+      "安装点对应吊顶板面。",
+      "下方留出开启空间。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ceiling-access-hatch",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "frame",
+            "semanticType": "construction.ceiling.access-hatch.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#67737b"
+            },
+            "geometry": {
+              "type": "floor-opening-slab",
+              "slabWidth": 0.57,
+              "slabDepth": 0.57,
+              "thickness": 0.025,
+              "openingWidth": 0.49,
+              "openingDepth": 0.49,
+              "openingOffsetX": 0,
+              "openingOffsetZ": 0
+            }
+          },
+          {
+            "id": "hinge",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-0.24,-0.025,0]
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "construction.ceiling.access-hatch.lid",
+            "material": "ceiling-board",
+            "appearance": {
+              "color": "#e0ded2"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.48,0.016,0.48]
+            },
+            "transform": {
+              "position": [0.24,0.008,0]
+            },
+            "parent": "hinge"
+          },
+          {
+            "id": "pull",
+            "semanticType": "construction.ceiling.access-hatch.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#82909a"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.43,-0.006,-0.04],
+              "end": [0.43,-0.006,0.04],
+              "radius": 0.008
+            },
+            "parent": "hinge"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "frame",
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "open-hatch",
+            "target": "hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0,-1.18],
+            "duration": 1.6,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

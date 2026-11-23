@@ -1,0 +1,184 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.open-channel-modular-ahu-section-base-rail",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "组合空调机组模块底框",
+  "summary": "纵向开口底轨、分体端横撑及孔垫，便于连续支承各功能段。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.modular-ahu-section-base",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "底框",
+    "机组",
+    "承托"
+  ],
+  "anchors": [
+    "floor",
+    "top",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "用于各个空气处理模块下面的独立机组承托格架。",
+    "editableParts": [
+      "两底轨",
+      "横撑",
+      "机组座"
+    ],
+    "qualityChecks": [
+      "底框落在安装平台，机壳保持水平。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "open-channel-modular-ahu-section-base-rail",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base-channel-0",
+            "semanticType": "mep.ahu.section-frame.side-channel",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.431,0,-0.289],
+                [0.431,0,-0.289]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.041,0],
+                [0.041,0],
+                [0.041,0.014],
+                [-0.026,0.014],
+                [-0.026,0.071],
+                [0.041,0.071],
+                [0.041,0.086],
+                [-0.041,0.086]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "base-channel-1",
+            "semanticType": "mep.ahu.section-frame.side-channel",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.431,0,0.289],
+                [0.431,0,0.289]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.041,0],
+                [0.041,0],
+                [0.041,0.014],
+                [-0.026,0.014],
+                [-0.026,0.071],
+                [0.041,0.071],
+                [0.041,0.086],
+                [-0.041,0.086]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "crossmember-0",
+            "semanticType": "mep.ahu.section-frame.cross-tie",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.074,0.044,0.548]
+            },
+            "transform": {
+              "position": [-0.353,0.023,0]
+            }
+          },
+          {
+            "id": "crossmember-1",
+            "semanticType": "mep.ahu.section-frame.cross-tie",
+            "material": "steel",
+            "appearance": {
+              "color": "#6b8387"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.074,0.044,0.548]
+            },
+            "transform": {
+              "position": [0.353,0.023,0]
+            }
+          },
+          {
+            "id": "open-mount-seat",
+            "semanticType": "mep.ahu.section-frame.section-seat",
+            "material": "steel",
+            "appearance": {
+              "color": "#869da4"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.086,0],
+                [0,0.099,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.4345,-0.385],
+                [0.4345,-0.385],
+                [0.4345,0.385],
+                [-0.4345,0.385]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.4015,-0.333],
+                  [0.4015,-0.333],
+                  [0.4015,0.333],
+                  [-0.4015,0.333]
+                ]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,0.099,0],
+            "direction": [0,1,0]
+          },
+          "start": {
+            "position": [-0.4345,0.044,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.4345,0.044,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.parapet-coping",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双坡女儿墙压顶",
+  "summary": "具有中线隆起与两侧坡面的连续压顶，提供底面安装点和两端拼接点。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.coping",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "屋面",
+    "压顶",
+    "女儿墙",
+    "基础构件"
+  ],
+  "parameters": {
+    "capLength": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.4
+    },
+    "capWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.29
+    },
+    "edgeHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.045
+    },
+    "crownRise": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.021
+    }
+  },
+  "anchors": [
+    "mount",
+    "start",
+    "end"
+  ],
+  "editor": {
+    "document": {
+      "id": "parapet-coping",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "coping",
+            "semanticType": "construction.roof.coping",
+            "material": "stone",
+            "appearance": {
+              "color": "#8e989b"
+            },
+            "geometry": {
+              "type": "wall-coping",
+              "capLength": 2.4,
+              "capWidth": 0.29,
+              "edgeHeight": 0.045,
+              "crownRise": 0.021
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "mount"
+            }
+          },
+          "start": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "coping",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

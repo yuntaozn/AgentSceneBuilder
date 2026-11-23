@@ -201,11 +201,11 @@ export function tubeAlong({ id, points, radius, radialSegments = 12, material, a
   });
 }
 
-export function sweep({ id, profile, points, up, closedProfile, position, rotation, scale, matrix, material, appearance, semanticType, metadata }) {
+export function sweep({ id, profile, holes, points, up, closedProfile, position, rotation, scale, matrix, material, appearance, semanticType, metadata }) {
   return geometryNode({
     id, material, appearance, semanticType, metadata, position, rotation, scale,
     matrix: matrix ?? transformMatrix({ position, rotation, scale }),
-    geometry: sweepGeometry({ profile, points, up, closedProfile }),
+    geometry: sweepGeometry({ profile, holes, points, up, closedProfile }),
   });
 }
 

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.door-opening-wall",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带门洞隔墙",
+  "summary": "整体墙体保留贯通门洞，可编辑墙宽、墙高、墙厚，以及门洞净宽、净高与中心偏移。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.partition-wall",
+  "capabilities": ["resize", "material", "attach"],
+  "tags": ["建筑", "隔墙", "墙体", "门洞", "基础构件"],
+  "parameters": {
+    "wallWidth": { "type": "number", "unit": "m", "default": 3.6 },
+    "wallHeight": { "type": "number", "unit": "m", "default": 2.8 },
+    "thickness": { "type": "number", "unit": "m", "default": 0.15 },
+    "openingWidth": { "type": "number", "unit": "m", "default": 0.9 },
+    "openingHeight": { "type": "number", "unit": "m", "default": 2.1 },
+    "openingOffset": { "type": "number", "unit": "m", "default": 0.25 }
+  },
+  "anchors": ["wall-left", "wall-right", "opening-base", "opening-top", "opening-left", "opening-right"],
+  "ai": {
+    "intent": "复用一个底部开口的隔墙墙段，用于室内开间和墙段拼装。",
+    "editableParts": ["wall.geometry.wallWidth / wallHeight / thickness", "wall.geometry.openingWidth / openingHeight / openingOffset"],
+    "qualityChecks": ["门洞两侧和上方都应保留墙体。", "门洞中心锚点应随偏移和洞口净高更新。"]
+  },
+  "editor": {
+    "document": {
+      "id": "door-opening-wall", "component": "core.composition",
+      "parameters": {
+        "nodes": [{
+          "id": "wall", "semanticType": "construction.partition-wall", "material": "plaster",
+          "appearance": { "color": "#c2b8a6" },
+          "geometry": { "type": "door-opening-wall", "wallWidth": 3.6, "wallHeight": 2.8, "thickness": 0.15,
+            "openingWidth": 0.9, "openingHeight": 2.1, "openingOffset": 0.25 }
+        }],
+        "anchors": {
+          "wall-left": { "node": "wall", "onGeometry": { "type": "feature", "name": "wall-left" } },
+          "wall-right": { "node": "wall", "onGeometry": { "type": "feature", "name": "wall-right" } },
+          "opening-base": { "node": "wall", "onGeometry": { "type": "feature", "name": "opening-base" } },
+          "opening-top": { "node": "wall", "onGeometry": { "type": "feature", "name": "opening-top" } },
+          "opening-left": { "node": "wall", "onGeometry": { "type": "feature", "name": "opening-left" } },
+          "opening-right": { "node": "wall", "onGeometry": { "type": "feature", "name": "opening-right" } }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.lipped-c-drywall-stud",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "卷边 C 形竖龙骨",
+  "summary": "连续薄壁腹板、翼缘和短卷边构成开口截面，端点和板面定位随几何更新。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.interior.lipped-stud",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内构造",
+    "隔墙",
+    "龙骨"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.598
+    },
+    "webDepth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.075
+    },
+    "flangeWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.039
+    },
+    "lipLength": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.009
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.001
+    }
+  },
+  "anchors": [
+    "foot",
+    "head",
+    "front",
+    "back"
+  ],
+  "ai": {
+    "intent": "与上下轨和面板拼出轻钢骨架。",
+    "editableParts": [
+      "修改竖龙骨长度、壁厚和卷边。"
+    ],
+    "qualityChecks": [
+      "开口截面能在端面辨识。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "lipped-c-drywall-stud",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "construction.interior.lipped-stud",
+            "material": "galvanized-steel",
+            "appearance": {
+              "color": "#8ca0ad"
+            },
+            "geometry": {
+              "type": "lipped-drywall-stud",
+              "length": 2.598,
+              "webDepth": 0.075,
+              "flangeWidth": 0.039,
+              "lipLength": 0.009,
+              "thickness": 0.001
+            }
+          }
+        ],
+        "anchors": {
+          "foot": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "foot"
+            }
+          },
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "front": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "front"
+            }
+          },
+          "back": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "back"
+            }
+          }
+        }
+      }
+    }
+  }
+}

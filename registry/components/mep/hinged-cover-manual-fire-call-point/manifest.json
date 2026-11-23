@@ -1,0 +1,151 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.hinged-cover-manual-fire-call-point",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带透明翻盖手动报警盒",
+  "summary": "红色外壳、独立按板与透明活动盖，安装面固定时可预览翻盖。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.fire.alarm.manual-call-point",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "消防",
+    "疏散"
+  ],
+  "anchors": [
+    "mount",
+    "press-position"
+  ],
+  "ai": {
+    "intent": "以独立可动盖表示墙上手动报警节点。",
+    "editableParts": [
+      "编辑安装面、保护盖、内部按板。"
+    ],
+    "qualityChecks": [
+      "打开盖时设备位置不变。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-cover-manual-fire-call-point",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "back-box",
+            "semanticType": "mep.fire.manual-call-point.shell",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a8574c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.109,0.109,0.036]
+            },
+            "transform": {
+              "position": [0,0,0.018]
+            }
+          },
+          {
+            "id": "face-frame",
+            "semanticType": "mep.fire.manual-call-point.face",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d36a56"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.034],
+                [0,0,0.045]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.056,-0.056],
+                [0.056,-0.056],
+                [0.056,0.056],
+                [-0.056,0.056]
+              ],
+              "holes": [
+                [
+                  [-0.0345,-0.0375],
+                  [0.0345,-0.0375],
+                  [0.0345,0.0375],
+                  [-0.0345,0.0375]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "press-board",
+            "semanticType": "mep.fire.manual-call-point.press",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d7e1da"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.071,0.01]
+            },
+            "transform": {
+              "position": [0,0,0.036]
+            }
+          },
+          {
+            "id": "lid-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-0.054,0,0.047]
+            }
+          },
+          {
+            "id": "cover",
+            "semanticType": "mep.fire.manual-call-point.cover",
+            "material": "polymer",
+            "appearance": {
+              "color": "#aeb9c0",
+              "opacity": 0.29
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.106,0.103,0.0038]
+            },
+            "transform": {
+              "position": [0.054,0,0.002]
+            },
+            "parent": "lid-axis"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "press-position": {
+            "position": [0,0,0.043],
+            "direction": [0,0,1]
+          }
+        },
+        "animations": [
+          {
+            "id": "open-cover",
+            "target": "lid-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-1.68,0],
+            "duration": 0.82,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

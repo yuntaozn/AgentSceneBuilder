@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.editable-straight-parking-lane-arrow-marking",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可编辑停车通道直行箭头标线",
+  "summary": "箭身和边缘由平面轮廓生成，可沿地面旋转或更换颜色。",
+  "license": "Apache-2.0",
+  "semanticType": "site.parking.parking-direction-arrow",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "停车与慢行",
+    "交通标线",
+    "箭头",
+    "停车"
+  ],
+  "anchors": [
+    "base",
+    "head"
+  ],
+  "ai": {
+    "intent": "箭身和边缘由平面轮廓生成，可沿地面旋转或更换颜色。",
+    "editableParts": [
+      "可分别编辑 stenciled-lane-arrow。"
+    ],
+    "qualityChecks": [
+      "箭头在 X 方向，实体厚度仅用来显示漆层。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "editable-straight-parking-lane-arrow-marking",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stenciled-lane-arrow",
+            "semanticType": "site.parking.ground-arrow.paint",
+            "material": "paint",
+            "appearance": {
+              "color": "#cdd4c6"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.451,-0.033],
+                [-0.094,-0.033],
+                [-0.094,-0.119],
+                [-0.419,0],
+                [-0.094,0.119],
+                [-0.094,0.033],
+                [0.451,0.033]
+              ],
+              "closedProfile": true
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "head": {
+            "position": [0.419,0.004,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.slot-bottom-centre-hung-operable-partition-head-track",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "底部开槽中吊式活动隔墙轨道",
+  "summary": "箱形铝轨下方开连续吊杆口，两侧轮承台和端面均可定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.operable-partition.head-track",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内隔断",
+    "活动隔墙",
+    "吊轨",
+    "开槽轨道"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "suspension",
+    "carriage-center"
+  ],
+  "ai": {
+    "intent": "箱形铝轨下方开连续吊杆口，两侧轮承台和端面均可定位。",
+    "editableParts": [
+      "可分别编辑 main-rail、stiffening-keyway-1、stiffening-keyway-2。"
+    ],
+    "qualityChecks": [
+      "吊杆槽宽 30 mm，滑轮在槽内两侧承台工作。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "slot-bottom-centre-hung-operable-partition-head-track",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "main-rail",
+            "semanticType": "construction.operable-partition.rail.closed-head",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [1.202,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.052,0],
+                [-0.052,0.105],
+                [0.052,0.105],
+                [0.052,0],
+                [0.015,0],
+                [0.015,0.013],
+                [0.04,0.013],
+                [0.04,0.092],
+                [-0.04,0.092],
+                [-0.04,0.013],
+                [-0.015,0.013],
+                [-0.015,0]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "stiffening-keyway-1",
+            "semanticType": "construction.operable-partition.rail.upper-key",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.202,0.013,0.018]
+            },
+            "transform": {
+              "position": [0.601,0.109,-0.036]
+            }
+          },
+          {
+            "id": "stiffening-keyway-2",
+            "semanticType": "construction.operable-partition.rail.upper-key",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.202,0.013,0.018]
+            },
+            "transform": {
+              "position": [0.601,0.109,0.036]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [1.202,0,0],
+            "direction": [1,0,0]
+          },
+          "suspension": {
+            "position": [0.601,0.1155,0],
+            "direction": [0,1,0]
+          },
+          "carriage-center": {
+            "position": [0.601,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

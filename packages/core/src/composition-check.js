@@ -192,15 +192,19 @@ export function checkComposition(input, { path = "", onWorldAnchor } = {}) {
     const path = base + "/anchors/" + token(name);
     const array = Array.isArray(anchor);
     const id = anchor?.node;
+    const onGeometry = anchor?.onGeometry !== undefined;
     if (unavailableRoutePorts.has(id) && ["route-start", "route-end"].includes(anchor?.kind)) continue;
     const beforeAnchor = issues.length;
-    attempt("ANCHOR_POSITION_INVALID", array ? path : path + "/position", id, null,
-      () => assertVec3(array ? anchor : anchor?.position, "position"));
+    if (!onGeometry) {
+      attempt("ANCHOR_POSITION_INVALID", array ? path : path + "/position", id, null,
+        () => assertVec3(array ? anchor : anchor?.position, "position"));
+    }
     if (anchor?.direction !== undefined) {
       attempt("ANCHOR_DIRECTION_INVALID", path + "/direction", id, null, () => normalizeVector(anchor.direction, "direction"));
     }
     if (id === undefined) {
-      if (beforeAnchor === issues.length) anchors.push([name, anchor]);
+      if (onGeometry) report("ANCHOR_NODE_MISSING", path + "/node", "A geometry anchor requires a node");
+      else if (beforeAnchor === issues.length) anchors.push([name, anchor]);
       continue;
     }
     if (!hasNodes) continue;
@@ -217,7 +221,8 @@ export function checkComposition(input, { path = "", onWorldAnchor } = {}) {
       attempt("ANCHOR_OCCURRENCE_INVALID", path + "/occurrence", id, null,
         () => selectAnchorOccurrence(owner, anchor.occurrence));
     }
-    if (beforeAnchor === issues.length && reachable.has(owner) && !invalidPlacements.has(owner)) anchors.push([name, anchor]);
+    if (beforeAnchor === issues.length && reachable.has(owner) && !invalidPlacements.has(owner) &&
+        (!onGeometry || !owner.geometry || candidates.get(owner).geometry)) anchors.push([name, anchor]);
   }
   const instanceId = typeof doc.id === "string" && doc.id ? doc.id : "check";
   const subset = { nodes: sources.map(node => candidates.get(node)), anchors: Object.fromEntries(anchors) };

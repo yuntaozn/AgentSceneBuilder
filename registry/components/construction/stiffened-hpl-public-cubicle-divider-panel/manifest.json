@@ -1,0 +1,154 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.stiffened-hpl-public-cubicle-divider-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "公共卫生间 HPL 隔间板",
+  "summary": "独立面芯、保护包边、上下固定点以及两处支脚定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.public-washroom.hpl-cubicle-divider",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "隔间",
+    "隔断板",
+    "板材"
+  ],
+  "anchors": [
+    "base",
+    "top",
+    "left",
+    "right",
+    "foot-left",
+    "foot-right"
+  ],
+  "ai": {
+    "intent": "将隔间板和支脚、顶梁或五金作为独立件定位。",
+    "editableParts": [
+      "高压板",
+      "竖包边",
+      "下缘支脚"
+    ],
+    "qualityChecks": [
+      "两处下支点位于同一底边。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "stiffened-hpl-public-cubicle-divider-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "hpl-board",
+            "semanticType": "construction.public-washroom.hpl-cubicle-panel.panel",
+            "material": "laminate",
+            "appearance": {
+              "color": "#cbc6b8"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.914,1.45,0.019]
+            },
+            "transform": {
+              "position": [0,0.725,0]
+            }
+          },
+          {
+            "id": "end-profile-0",
+            "semanticType": "construction.public-washroom.hpl-cubicle-panel.edge",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,1.45,0.024]
+            },
+            "transform": {
+              "position": [-0.452,0.725,0]
+            }
+          },
+          {
+            "id": "end-profile-1",
+            "semanticType": "construction.public-washroom.hpl-cubicle-panel.edge",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,1.45,0.024]
+            },
+            "transform": {
+              "position": [0.452,0.725,0]
+            }
+          },
+          {
+            "id": "horizontal-cap-0",
+            "semanticType": "construction.public-washroom.hpl-cubicle-panel.rail",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.884,0.01,0.024]
+            },
+            "transform": {
+              "position": [0,0.005,0]
+            }
+          },
+          {
+            "id": "horizontal-cap-1",
+            "semanticType": "construction.public-washroom.hpl-cubicle-panel.rail",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.884,0.01,0.024]
+            },
+            "transform": {
+              "position": [0,1.445,0]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,1.45,0],
+            "direction": [0,1,0]
+          },
+          "left": {
+            "position": [-0.4625,0.725,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.4625,0.725,0],
+            "direction": [1,0,0]
+          },
+          "foot-left": {
+            "position": [-0.359,0,0],
+            "direction": [0,-1,0]
+          },
+          "foot-right": {
+            "position": [0.359,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

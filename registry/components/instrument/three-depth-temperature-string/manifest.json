@@ -1,0 +1,134 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.three-depth-temperature-string",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "三点深度测温线",
+  "summary": "竖向干线带上中下三个密封测点与顶部转接块，可嵌入混凝土剖面。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.three-depth-temperature-string",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "基础构件",
+    "实训",
+    "温控监测"
+  ],
+  "anchors": [
+    "top-entry",
+    "signal-out",
+    "shallow",
+    "middle",
+    "deep"
+  ],
+  "ai": {
+    "intent": "把三个测点作为独立数据通道绑定在同一轴线上。",
+    "editableParts": [
+      "修改测点的数量、层间距与对应锚点。"
+    ],
+    "qualityChecks": [
+      "三个测点绑定重复节点，移动排布后会同步。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "three-depth-temperature-string",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "head",
+            "semanticType": "instrument.temperature.probe-string.connector",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.055,0.028,0.045]
+            },
+            "transform": {
+              "position": [0,0.014,0]
+            }
+          },
+          {
+            "id": "cable",
+            "semanticType": "instrument.temperature.probe-string.cable",
+            "material": "polymer",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-1.08,0],
+              "end": [0,0,0],
+              "radius": 0.004,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "probe",
+            "semanticType": "instrument.temperature.probe-string.probe",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.013,0],
+              "end": [0,0.013,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [0,-0.2,0],
+              "step": [0,-0.42,0]
+            }
+          }
+        ],
+        "anchors": {
+          "top-entry": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "signal-out": {
+            "position": [0,0.028,0],
+            "direction": [0,1,0]
+          },
+          "shallow": {
+            "node": "probe",
+            "occurrence": {
+              "index": 0
+            },
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "temperature-measurement"
+          },
+          "middle": {
+            "node": "probe",
+            "occurrence": {
+              "index": 1
+            },
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "temperature-measurement"
+          },
+          "deep": {
+            "node": "probe",
+            "occurrence": {
+              "index": 2
+            },
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "temperature-measurement"
+          }
+        }
+      }
+    }
+  }
+}

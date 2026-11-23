@@ -1,0 +1,229 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.wall-mount-ahu-u-tube-pressure-column",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "机组壁装 U 管压差计外形",
+  "summary": "墙挂板、透明 U 管、独立示意液柱和上方双入口。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.ahu.u-tube-pressure-column",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "暖通",
+    "空气处理",
+    "压差计",
+    "U形管",
+    "机组"
+  ],
+  "anchors": [
+    "wall",
+    "left-tap",
+    "right-tap"
+  ],
+  "ai": {
+    "intent": "把两根取压线接到透明 U 管设备外形。",
+    "editableParts": [
+      "背板",
+      "透明管",
+      "液柱形状"
+    ],
+    "qualityChecks": [
+      "两个出口保持独立，液柱可选。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "wall-mount-ahu-u-tube-pressure-column",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mount-board",
+            "semanticType": "mep.ahu.u-tube-pressure-column.backplate",
+            "material": "steel",
+            "appearance": {
+              "color": "#526c77"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.112,0.274,0.012]
+            },
+            "transform": {
+              "position": [0,0,0.006]
+            }
+          },
+          {
+            "id": "transparent-u-shape",
+            "semanticType": "mep.ahu.u-tube-pressure-column.gauge",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a1bab7",
+              "opacity": 0.44
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [-0.033,0.112,0.029],
+                [-0.033,-0.07,0.029],
+                [-0.025,-0.093,0.029],
+                [0,-0.105,0.029],
+                [0.026,-0.093,0.029],
+                [0.033,-0.07,0.029],
+                [0.033,0.112,0.029]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.012,
+              "thickness": 0.0017
+            }
+          },
+          {
+            "id": "fluid-column",
+            "semanticType": "mep.ahu.u-tube-pressure-column.level-anatomy",
+            "material": "polymer",
+            "appearance": {
+              "color": "#6b8b95"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.033,0.038,0.029],
+                [-0.033,-0.07,0.029],
+                [-0.025,-0.093,0.029],
+                [0,-0.105,0.029],
+                [0.026,-0.093,0.029],
+                [0.033,-0.07,0.029],
+                [0.033,-0.026,0.029]
+              ],
+              "radius": 0.0033
+            }
+          },
+          {
+            "id": "readout-line-0",
+            "semanticType": "mep.ahu.u-tube-pressure-column.scale",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.0015,0.002]
+            },
+            "transform": {
+              "position": [0,-0.068,0.015]
+            }
+          },
+          {
+            "id": "readout-line-1",
+            "semanticType": "mep.ahu.u-tube-pressure-column.scale",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.0015,0.002]
+            },
+            "transform": {
+              "position": [0,-0.043,0.015]
+            }
+          },
+          {
+            "id": "readout-line-2",
+            "semanticType": "mep.ahu.u-tube-pressure-column.scale",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.0015,0.002]
+            },
+            "transform": {
+              "position": [0,-0.018,0.015]
+            }
+          },
+          {
+            "id": "readout-line-3",
+            "semanticType": "mep.ahu.u-tube-pressure-column.scale",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.0015,0.002]
+            },
+            "transform": {
+              "position": [0,0.007,0.015]
+            }
+          },
+          {
+            "id": "readout-line-4",
+            "semanticType": "mep.ahu.u-tube-pressure-column.scale",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.0015,0.002]
+            },
+            "transform": {
+              "position": [0,0.032,0.015]
+            }
+          },
+          {
+            "id": "readout-line-5",
+            "semanticType": "mep.ahu.u-tube-pressure-column.scale",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.0015,0.002]
+            },
+            "transform": {
+              "position": [0,0.057,0.015]
+            }
+          },
+          {
+            "id": "readout-line-6",
+            "semanticType": "mep.ahu.u-tube-pressure-column.scale",
+            "material": "steel",
+            "appearance": {
+              "color": "#a3afad"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.0015,0.002]
+            },
+            "transform": {
+              "position": [0,0.082,0.015]
+            }
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "left-tap": {
+            "position": [-0.033,0.112,0.029],
+            "direction": [0,1,0]
+          },
+          "right-tap": {
+            "position": [0.033,0.112,0.029],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

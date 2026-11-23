@@ -1,0 +1,208 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.modular-laboratory-bench-service-spine",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "实训台模块化服务梁",
+  "summary": "两端支撑、集中线槽、两段开口面板及独立设备插片，可安装到工作台后侧。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.education.bench-service-spine",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "教室",
+    "实训室",
+    "室内家具",
+    "工作台",
+    "服务梁",
+    "电源板"
+  ],
+  "anchors": [
+    "mount",
+    "left-module",
+    "right-module"
+  ],
+  "ai": {
+    "intent": "将插片、线槽和支腿作为可编辑的工作台服务单元。",
+    "editableParts": [
+      "支腿",
+      "端点",
+      "线槽",
+      "标准插片"
+    ],
+    "qualityChecks": [
+      "梁脚贴台面，开口面朝操作者。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "modular-laboratory-bench-service-spine",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "support-leg-0",
+            "semanticType": "mep.education.lab-service-spine.post",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.286,0.054]
+            },
+            "transform": {
+              "position": [-0.424,0.143,0]
+            }
+          },
+          {
+            "id": "support-leg-1",
+            "semanticType": "mep.education.lab-service-spine.post",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.286,0.054]
+            },
+            "transform": {
+              "position": [0.424,0.143,0]
+            }
+          },
+          {
+            "id": "lower-channel",
+            "semanticType": "mep.education.lab-service-spine.bottom",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.044,0.022,0.097]
+            },
+            "transform": {
+              "position": [0,0.284,0]
+            }
+          },
+          {
+            "id": "upper-channel",
+            "semanticType": "mep.education.lab-service-spine.top",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.044,0.018,0.097]
+            },
+            "transform": {
+              "position": [0,0.414,0]
+            }
+          },
+          {
+            "id": "rear-shell",
+            "semanticType": "mep.education.lab-service-spine.rear",
+            "material": "steel",
+            "appearance": {
+              "color": "#485c68"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.044,0.149,0.015]
+            },
+            "transform": {
+              "position": [0,0.349,-0.05]
+            }
+          },
+          {
+            "id": "port-bezel",
+            "semanticType": "mep.education.lab-service-spine.face",
+            "material": "steel",
+            "appearance": {
+              "color": "#6a7d83"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.047],
+                [0,0,0.057]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.522,0.2875],
+                [0.522,0.2875],
+                [0.522,0.4105],
+                [-0.522,0.4105]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.3855,0.307],
+                  [-0.2345,0.307],
+                  [-0.2345,0.39099999999999996],
+                  [-0.3855,0.39099999999999996]
+                ],
+                [
+                  [0.2345,0.307],
+                  [0.3855,0.307],
+                  [0.3855,0.39099999999999996],
+                  [0.2345,0.39099999999999996]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "module-panel-0",
+            "semanticType": "mep.education.lab-service-spine.insert",
+            "material": "polymer",
+            "appearance": {
+              "color": "#ded9c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.075,0.013]
+            },
+            "transform": {
+              "position": [-0.31,0.349,0.057]
+            }
+          },
+          {
+            "id": "module-panel-1",
+            "semanticType": "mep.education.lab-service-spine.insert",
+            "material": "polymer",
+            "appearance": {
+              "color": "#ded9c7"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.075,0.013]
+            },
+            "transform": {
+              "position": [0.31,0.349,0.057]
+            }
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "left-module": {
+            "position": [-0.31,0.349,0.0635],
+            "direction": [0,0,1]
+          },
+          "right-module": {
+            "position": [0.31,0.349,0.0635],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

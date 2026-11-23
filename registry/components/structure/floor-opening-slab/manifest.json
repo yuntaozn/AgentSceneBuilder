@@ -1,0 +1,31 @@
+{
+  "schemaVersion": "0.1", "id": "structure.floor-opening-slab", "version": "0.1.0", "kind": "component",
+  "title": "带矩形洞口楼板", "summary": "上表面固定在局部 Y=0，厚度向下，可编辑楼板跨度、洞口尺寸和双向偏移。",
+  "license": "Apache-2.0", "semanticType": "structure.slab",
+  "capabilities": ["resize", "attach", "inspect-structure"], "tags": ["建筑", "结构", "楼板", "楼梯洞口", "基础构件"],
+  "parameters": {
+    "slabWidth": { "type": "number", "unit": "m", "default": 4.8 },
+    "slabDepth": { "type": "number", "unit": "m", "default": 4.2 },
+    "thickness": { "type": "number", "unit": "m", "default": 0.2 },
+    "openingWidth": { "type": "number", "unit": "m", "default": 1.4 },
+    "openingDepth": { "type": "number", "unit": "m", "default": 2.6 },
+    "openingOffsetX": { "type": "number", "unit": "m", "default": 0 },
+    "openingOffsetZ": { "type": "number", "unit": "m", "default": 0.1 }
+  },
+  "anchors": ["opening-near", "opening-far", "slab-near", "slab-far"],
+  "ai": {
+    "intent": "用上表面标高和洞口锚点定位楼梯、竖井或检修开口。",
+    "qualityChecks": ["楼板四边须保留材料。", "楼梯上接续点应与洞口远端边缘位置匹配。"]
+  },
+  "editor": { "document": { "id": "floor-opening-slab", "component": "core.composition", "parameters": {
+    "nodes": [{ "id": "slab", "semanticType": "structure.slab", "material": "concrete", "appearance": { "color": "#8c979d" },
+      "geometry": { "type": "floor-opening-slab", "slabWidth": 4.8, "slabDepth": 4.2, "thickness": 0.2,
+        "openingWidth": 1.4, "openingDepth": 2.6, "openingOffsetX": 0, "openingOffsetZ": 0.1 } }],
+    "anchors": {
+      "opening-near": { "node": "slab", "onGeometry": { "type": "feature", "name": "opening-near" } },
+      "opening-far": { "node": "slab", "onGeometry": { "type": "feature", "name": "opening-far" } },
+      "slab-near": { "node": "slab", "onGeometry": { "type": "feature", "name": "slab-near" } },
+      "slab-far": { "node": "slab", "onGeometry": { "type": "feature", "name": "slab-far" } }
+    }
+  } } }
+}

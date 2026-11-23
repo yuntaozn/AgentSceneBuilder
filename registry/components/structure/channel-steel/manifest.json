@@ -1,0 +1,94 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.channel-steel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "槽钢",
+  "summary": "具有一侧开口的 C 形截面钢构件，长度和腹板、翼缘尺寸可编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.channel-steel",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "结构",
+    "槽钢",
+    "基础构件"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.4
+    },
+    "sectionWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.075
+    },
+    "sectionHeight": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.16
+    },
+    "webThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.006
+    },
+    "flangeThickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.009
+    }
+  },
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "editor": {
+    "document": {
+      "id": "channel-steel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.channel-steel",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a7"
+            },
+            "geometry": {
+              "type": "steel-channel-section",
+              "length": 2.4,
+              "sectionWidth": 0.075,
+              "sectionHeight": 0.16,
+              "webThickness": 0.006,
+              "flangeThickness": 0.009
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

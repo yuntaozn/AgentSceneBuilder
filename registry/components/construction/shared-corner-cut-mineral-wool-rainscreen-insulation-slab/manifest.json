@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.shared-corner-cut-mineral-wool-rainscreen-insulation-slab",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "墙角错缝矿棉保温板",
+  "summary": "保温板两侧错边切口可拼接，表面的防风夹层可独立查看。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.rainscreen.rainscreen-mineral-wool-slab",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "干挂外墙",
+    "矿棉",
+    "保温",
+    "通风幕墙"
+  ],
+  "anchors": [
+    "back",
+    "face",
+    "left"
+  ],
+  "ai": {
+    "intent": "保温板两侧错边切口可拼接，表面的防风夹层可独立查看。",
+    "editableParts": [
+      "可分别编辑 stagger-notched-insulation、outer-wind-facing、soft-edge-stagger-overlay。"
+    ],
+    "qualityChecks": [
+      "保温层和护面层都为独立面，边缘错搭可观察。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "shared-corner-cut-mineral-wool-rainscreen-insulation-slab",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "stagger-notched-insulation",
+            "semanticType": "construction.rainscreen.insulation.face",
+            "material": "mineral-wool",
+            "appearance": {
+              "color": "#b6a484"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.071]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.307,-0.249],
+                [0.307,-0.249],
+                [0.307,0.249],
+                [-0.307,0.249]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.178,0.129],
+                  [0.238,0.129],
+                  [0.238,0.21100000000000002],
+                  [0.178,0.21100000000000002]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "outer-wind-facing",
+            "semanticType": "construction.rainscreen.insulation.courtesy-layer",
+            "material": "plastic",
+            "appearance": {
+              "color": "#687d79"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.071],
+                [0,0,0.077]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.309,-0.2525],
+                [0.309,-0.2525],
+                [0.309,0.2525],
+                [-0.309,0.2525]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.178,0.129],
+                  [0.238,0.129],
+                  [0.238,0.21100000000000002],
+                  [0.178,0.21100000000000002]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "soft-edge-stagger-overlay",
+            "semanticType": "construction.rainscreen.insulation.lap-layer",
+            "material": "mineral-wool",
+            "appearance": {
+              "color": "#b6a484"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.054,0.499,0.033]
+            },
+            "transform": {
+              "position": [-0.319,0,0.018]
+            }
+          }
+        ],
+        "anchors": {
+          "back": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "face": {
+            "position": [0,0,0.077],
+            "direction": [0,0,1]
+          },
+          "left": {
+            "position": [-0.346,0,0.018],
+            "direction": [-1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

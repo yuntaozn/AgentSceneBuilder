@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "0.1", "id": "construction.suspended-ceiling-grid", "version": "0.1.0", "kind": "component",
+  "title": "明架吊顶龙骨网格", "summary": "由纵向主龙骨、横撑和吊杆组成，默认 4 × 3 格，龙骨轴线间距 600 mm。",
+  "license": "Apache-2.0", "semanticType": "construction.suspended-ceiling-grid",
+  "capabilities": ["repeat", "attach", "inspect-structure"], "tags": ["建筑", "吊顶", "龙骨", "吊杆", "基础构件"],
+  "anchors": ["first-cell", "last-cell"],
+  "ai": {
+    "intent": "为建筑开间和吊顶内机电布置提供可独立摆放的网格骨架。",
+    "editableParts": ["纵向主龙骨、横撑与吊杆各由独立重复原型控制", "改变网格间距时同步调整横撑尺寸、排布和板块定位点"],
+    "qualityChecks": ["默认格内净尺寸为 570 mm × 570 mm。", "吊顶板块底面可通过 first-cell 或 last-cell 对齐。"]
+  },
+  "editor": { "document": { "id": "suspended-ceiling-grid", "component": "core.composition", "parameters": {
+    "nodes": [
+      { "id": "main-runner", "semanticType": "construction.ceiling.main-runner", "material": "aluminum", "appearance": { "color": "#81929a" },
+        "transform": { "position": [0,0.02,0] }, "geometry": { "type": "box", "size": [0.03,0.04,1.83] },
+        "repetition": { "type": "linear", "count": 5, "start": [-1.2,0,0], "step": [0.6,0,0] } },
+      { "id": "cross-runner", "semanticType": "construction.ceiling.cross-runner", "material": "aluminum", "appearance": { "color": "#81929a" },
+        "transform": { "position": [0,0.02,0] }, "geometry": { "type": "box", "size": [0.57,0.04,0.03] },
+        "repetition": { "type": "grid", "count": [4,1,4], "start": [-0.9,0,-0.9], "stepX": [0.6,0,0], "stepY": [0,0,0], "stepZ": [0,0,0.6] } },
+      { "id": "hanger", "semanticType": "construction.ceiling.hanger", "material": "steel", "appearance": { "color": "#647781" },
+        "transform": { "position": [0,0.19,0] }, "geometry": { "type": "cylinder", "radius": 0.008, "height": 0.3 },
+        "repetition": { "type": "grid", "count": [3,1,2], "start": [-0.6,0,-0.3], "stepX": [0.6,0,0], "stepY": [0,0,0], "stepZ": [0,0,0.6] } }
+    ],
+    "anchors": {
+      "first-cell": { "position": [-0.9,0,-0.6], "direction": [0,-1,0] },
+      "last-cell": { "position": [0.9,0,0.6], "direction": [0,-1,0] }
+    }
+  } } }
+}

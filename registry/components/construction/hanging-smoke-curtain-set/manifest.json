@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.hanging-smoke-curtain-set",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "吊顶垂挂防烟帘示意件",
+  "summary": "吊顶盒体、下垂帘布和配重杆可分开编辑，保留两点固定与底边定位。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.fire.smoke-curtain",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "消防",
+    "疏散"
+  ],
+  "anchors": [
+    "left-hanger",
+    "right-hanger",
+    "lower-edge"
+  ],
+  "ai": {
+    "intent": "在吊顶分区中组织独立垂挂件和下缘轮廓。",
+    "editableParts": [
+      "编辑帘布宽高、配重和盒体。"
+    ],
+    "qualityChecks": [
+      "安装点保持等高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hanging-smoke-curtain-set",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "housing",
+            "semanticType": "construction.fire.smoke-curtain.housing",
+            "material": "steel",
+            "appearance": {
+              "color": "#536d79"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.8,0.123,0.144]
+            },
+            "transform": {
+              "position": [0,-0.0615,0]
+            }
+          },
+          {
+            "id": "fabric",
+            "semanticType": "construction.fire.smoke-curtain.fabric",
+            "material": "fabric",
+            "appearance": {
+              "color": "#d7e1da"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.762,0.573,0.007]
+            },
+            "transform": {
+              "position": [0,-0.3995,0]
+            }
+          },
+          {
+            "id": "bottom-bar",
+            "semanticType": "construction.fire.smoke-curtain.bar",
+            "material": "steel",
+            "appearance": {
+              "color": "#536d79"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.885,-0.691,0],
+              "end": [0.885,-0.691,0],
+              "radius": 0.015,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "left-hanger": {
+            "position": [-0.72,0,0],
+            "direction": [0,1,0]
+          },
+          "right-hanger": {
+            "position": [0.72,0,0],
+            "direction": [0,1,0]
+          },
+          "lower-edge": {
+            "position": [0,-0.706,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.hinged-a-frame-portable-site-warning-sign-stand",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可折叠人字巡检警示牌",
+  "summary": "前后脚架、翻转上轴、压片和可替换面板，便于占位与检视。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-site.portable-a-frame-warning-sign",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "警示",
+    "折叠"
+  ],
+  "anchors": [
+    "floor"
+  ],
+  "ai": {
+    "intent": "让场地警示牌能独立摆放和进行收纳姿态演示。",
+    "editableParts": [
+      "前架",
+      "后架",
+      "轴",
+      "面芯"
+    ],
+    "qualityChecks": [
+      "后脚可折叠，前面保持位置。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-a-frame-portable-site-warning-sign-stand",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front-leg-0",
+            "semanticType": "site.inspection-site.a-frame-warning-sign.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.245,0.018,0.267],
+              "end": [-0.245,0.874,0],
+              "radius": 0.017,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "front-leg-1",
+            "semanticType": "site.inspection-site.a-frame-warning-sign.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.245,0.018,0.267],
+              "end": [0.245,0.874,0],
+              "radius": 0.017,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "pin",
+            "semanticType": "site.inspection-site.a-frame-warning-sign.hinge",
+            "material": "steel",
+            "appearance": {
+              "color": "#849a9d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.268,0.874,0],
+              "end": [0.268,0.874,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "rear-axis",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.874,0]
+            }
+          },
+          {
+            "id": "rear-leg-0",
+            "semanticType": "site.inspection-site.a-frame-warning-sign.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.245,-0.856,-0.267],
+              "end": [-0.245,0,0],
+              "radius": 0.017,
+              "radialSegments": 20
+            },
+            "parent": "rear-axis"
+          },
+          {
+            "id": "rear-leg-1",
+            "semanticType": "site.inspection-site.a-frame-warning-sign.leg",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.245,-0.856,-0.267],
+              "end": [0.245,0,0],
+              "radius": 0.017,
+              "radialSegments": 20
+            },
+            "parent": "rear-axis"
+          },
+          {
+            "id": "graphic-board",
+            "semanticType": "site.inspection-site.a-frame-warning-sign.exchangeable-face",
+            "material": "polymer",
+            "appearance": {
+              "color": "#c2a569"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.517,0.591,0.018]
+            },
+            "transform": {
+              "position": [0,0.484,0.134],
+              "rotation": [-0.301,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "fold-warning-stand",
+            "target": "rear-axis",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0.56,0,0],
+            "duration": 0.65,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.laminated-precast-bearing-pad",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "预制梁板叠层弹性承压垫",
+  "summary": "橡胶层与钢夹片交替叠放成实体承压垫，上下接触面独立。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.floor.laminated-bearing-pad",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "支座",
+    "承压垫"
+  ],
+  "anchors": [
+    "base",
+    "seat"
+  ],
+  "ai": {
+    "intent": "在梁、板和牛腿之间表示可独立选中的叠层支承件。",
+    "editableParts": [
+      "橡胶层",
+      "夹层钢片",
+      "承压中心"
+    ],
+    "qualityChecks": [
+      "各层沿 Y 轴连续贴合。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "laminated-precast-bearing-pad",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "elastomer-0",
+            "semanticType": "prefab.floor.laminated-bearing.elastomer",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4d5b62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.132,0.0066,0.178]
+            },
+            "transform": {
+              "position": [0,0.0033,0]
+            }
+          },
+          {
+            "id": "elastomer-1",
+            "semanticType": "prefab.floor.laminated-bearing.elastomer",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4d5b62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.132,0.0066,0.178]
+            },
+            "transform": {
+              "position": [0,0.011699999999999999,0]
+            }
+          },
+          {
+            "id": "elastomer-2",
+            "semanticType": "prefab.floor.laminated-bearing.elastomer",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4d5b62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.132,0.0066,0.178]
+            },
+            "transform": {
+              "position": [0,0.0201,0]
+            }
+          },
+          {
+            "id": "elastomer-3",
+            "semanticType": "prefab.floor.laminated-bearing.elastomer",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4d5b62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.132,0.0066,0.178]
+            },
+            "transform": {
+              "position": [0,0.0285,0]
+            }
+          },
+          {
+            "id": "steel-shim-0",
+            "semanticType": "prefab.floor.laminated-bearing.lamina",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.128,0.0018,0.174]
+            },
+            "transform": {
+              "position": [0,0.0075,0]
+            }
+          },
+          {
+            "id": "steel-shim-1",
+            "semanticType": "prefab.floor.laminated-bearing.lamina",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.128,0.0018,0.174]
+            },
+            "transform": {
+              "position": [0,0.0159,0]
+            }
+          },
+          {
+            "id": "steel-shim-2",
+            "semanticType": "prefab.floor.laminated-bearing.lamina",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.128,0.0018,0.174]
+            },
+            "transform": {
+              "position": [0,0.024300000000000002,0]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "seat": {
+            "position": [0,0.0318,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

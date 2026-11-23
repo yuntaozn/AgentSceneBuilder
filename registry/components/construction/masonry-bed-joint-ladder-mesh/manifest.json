@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.masonry-bed-joint-ladder-mesh",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "砌体灰缝梯形拉结网",
+  "summary": "两根纵筋与重复横筋组成开放网片，可埋入独立砂浆带。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.masonry.bed-joint-ladder",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "砌体",
+    "墙体"
+  ],
+  "anchors": [
+    "start",
+    "end",
+    "embed"
+  ],
+  "ai": {
+    "intent": "沿墙长复用可编辑配筋原型。",
+    "editableParts": [
+      "修改两个纵向杆和横向重复件。"
+    ],
+    "qualityChecks": [
+      "网片应保持在灰缝内层。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "masonry-bed-joint-ladder-mesh",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "near-rail",
+            "semanticType": "construction.masonry.joint-ladder.rails",
+            "material": "steel",
+            "appearance": {
+              "color": "#ac7e56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.055],
+              "end": [1.6,0,-0.055],
+              "radius": 0.0026,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "far-rail",
+            "semanticType": "construction.masonry.joint-ladder.rails",
+            "material": "steel",
+            "appearance": {
+              "color": "#ac7e56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.055],
+              "end": [1.6,0,0.055],
+              "radius": 0.0026,
+              "radialSegments": 16
+            }
+          },
+          {
+            "id": "rung",
+            "semanticType": "construction.masonry.joint-ladder.rung",
+            "material": "steel",
+            "appearance": {
+              "color": "#ac7e56"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.055],
+              "end": [0,0,0.055],
+              "radius": 0.0026,
+              "radialSegments": 16
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 10,
+              "start": [0.08,0,0],
+              "step": [0.16,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "position": [0,0,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [1.6,0,0],
+            "direction": [1,0,0]
+          },
+          "embed": {
+            "position": [0.8,0,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

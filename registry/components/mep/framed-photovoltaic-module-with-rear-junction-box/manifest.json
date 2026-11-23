@@ -1,0 +1,244 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.framed-photovoltaic-module-with-rear-junction-box",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带背面接线盒的光伏组件",
+  "summary": "铝边框、重复电池片、保护面板与背面接线盒均可单独选中，带两排支承锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.photovoltaic.framed-module",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "光伏",
+    "屋面光伏",
+    "组件",
+    "面板",
+    "太阳能"
+  ],
+  "anchors": [
+    "rail-near",
+    "rail-far",
+    "face",
+    "left-frame",
+    "right-frame",
+    "positive-lead",
+    "negative-lead"
+  ],
+  "ai": {
+    "intent": "以两排安装基准摆放光伏组件，并可单独观察背面接线。",
+    "editableParts": [
+      "边框",
+      "电池片阵列",
+      "玻璃",
+      "接线盒与出线"
+    ],
+    "qualityChecks": [
+      "组件正面向外，两承压线同平面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "framed-photovoltaic-module-with-rear-junction-box",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "aluminum-frame",
+            "semanticType": "mep.photovoltaic.framed-module.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.043,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.46,-0.775],
+                [0.46,-0.775],
+                [0.46,0.775],
+                [-0.46,0.775]
+              ],
+              "holes": [
+                [
+                  [-0.4395,-0.753],
+                  [0.4395,-0.753],
+                  [0.4395,0.753],
+                  [-0.4395,0.753]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "module-backsheet",
+            "semanticType": "mep.photovoltaic.framed-module.backsheet",
+            "material": "polymer",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.889,0.006,1.514]
+            },
+            "transform": {
+              "position": [0,0.027,0]
+            }
+          },
+          {
+            "id": "cell",
+            "semanticType": "mep.photovoltaic.framed-module.cell",
+            "material": "semiconductor",
+            "appearance": {
+              "color": "#4d6880"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.133,0.0014,0.139]
+            },
+            "transform": {
+              "position": [0,0.031,0]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [6,1,10],
+              "start": [-0.3525,0,-0.675],
+              "stepX": [0.141,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.15]
+            }
+          },
+          {
+            "id": "cell-bus-line",
+            "semanticType": "mep.photovoltaic.framed-module.bus-line",
+            "material": "metal",
+            "appearance": {
+              "color": "#a9b3ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.001,0.0015,0.13]
+            },
+            "transform": {
+              "position": [0,0.0312,0]
+            },
+            "repetition": {
+              "type": "grid",
+              "count": [6,1,10],
+              "start": [-0.3525,0,-0.675],
+              "stepX": [0.141,0,0],
+              "stepY": [0,0,0],
+              "stepZ": [0,0,0.15]
+            }
+          },
+          {
+            "id": "glazing",
+            "semanticType": "mep.photovoltaic.framed-module.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#9cb5bc",
+              "opacity": 0.26
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.884,0.004,1.51]
+            },
+            "transform": {
+              "position": [0,0.034,0]
+            }
+          },
+          {
+            "id": "rear-junction-box",
+            "semanticType": "mep.photovoltaic.framed-module.junction-box",
+            "material": "polymer",
+            "appearance": {
+              "color": "#48525b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.123,0.025,0.077]
+            },
+            "transform": {
+              "position": [0,0.012,-0.518]
+            }
+          },
+          {
+            "id": "rear-lead-0",
+            "semanticType": "mep.photovoltaic.framed-module.lead",
+            "material": "rubber",
+            "appearance": {
+              "color": "#555966"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.039,0.01,-0.52],
+                [-0.1,-0.008,-0.58],
+                [-0.195,-0.007,-0.63],
+                [-0.241,-0.006,-0.612]
+              ],
+              "radius": 0.0039
+            }
+          },
+          {
+            "id": "rear-lead-1",
+            "semanticType": "mep.photovoltaic.framed-module.lead",
+            "material": "rubber",
+            "appearance": {
+              "color": "#555966"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.039,0.01,-0.52],
+                [0.1,-0.008,-0.58],
+                [0.195,-0.007,-0.63],
+                [0.241,-0.006,-0.612]
+              ],
+              "radius": 0.0039
+            }
+          }
+        ],
+        "anchors": {
+          "rail-near": {
+            "position": [0,0,0.445],
+            "direction": [0,-1,0]
+          },
+          "rail-far": {
+            "position": [0,0,-0.445],
+            "direction": [0,-1,0]
+          },
+          "face": {
+            "position": [0,0.036,0],
+            "direction": [0,1,0]
+          },
+          "left-frame": {
+            "position": [-0.46,0.043,0],
+            "direction": [-1,0,0]
+          },
+          "right-frame": {
+            "position": [0.46,0.043,0],
+            "direction": [1,0,0]
+          },
+          "positive-lead": {
+            "position": [-0.241,-0.006,-0.612],
+            "direction": [-1,0,0]
+          },
+          "negative-lead": {
+            "position": [0.241,-0.006,-0.612],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

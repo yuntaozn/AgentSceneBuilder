@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.recessed-precast-loop-joint-box",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "预制接缝凹盒钢丝环",
+  "summary": "埋置凹盒和双钢丝环，混凝土接缝面仍可观察。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.floor.precast-loop-joint-box",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "装配接缝",
+    "预埋",
+    "连接环"
+  ],
+  "anchors": [
+    "face",
+    "back",
+    "loop"
+  ],
+  "ai": {
+    "intent": "在预制拼缝面表达凹盒外缘和向外伸出的成对钢丝环。",
+    "editableParts": [
+      "凹盒",
+      "底片",
+      "独立钢丝环"
+    ],
+    "qualityChecks": [
+      "外露钢丝越过板间拼缝界面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "recessed-precast-loop-joint-box",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "open-perimeter",
+            "semanticType": "prefab.floor.wall-joint-loop-box.box",
+            "material": "steel",
+            "appearance": {
+              "color": "#576d78"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.039],
+                [0,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.068,-0.097],
+                [0.068,-0.097],
+                [0.068,0.097],
+                [-0.068,0.097]
+              ],
+              "holes": [
+                [
+                  [-0.057,-0.0855],
+                  [0.057,-0.0855],
+                  [0.057,0.0855],
+                  [-0.057,0.0855]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "back-cover",
+            "semanticType": "prefab.floor.wall-joint-loop-box.lid",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.136,0.194,0.004]
+            },
+            "transform": {
+              "position": [0,0,-0.041]
+            }
+          },
+          {
+            "id": "wire-loop-0",
+            "semanticType": "prefab.floor.wall-joint-loop-box.loop",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "radius": 0.0065,
+              "points": [
+                [-0.028,-0.049,-0.035],
+                [-0.028,-0.049,0.032],
+                [-0.021,-0.049,0.059],
+                [0,-0.049,0.072],
+                [0.021,-0.049,0.059],
+                [0.028,-0.049,0.032],
+                [0.028,-0.049,-0.035]
+              ]
+            }
+          },
+          {
+            "id": "wire-loop-1",
+            "semanticType": "prefab.floor.wall-joint-loop-box.loop",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "radius": 0.0065,
+              "points": [
+                [-0.028,0.049,-0.035],
+                [-0.028,0.049,0.032],
+                [-0.021,0.049,0.059],
+                [0,0.049,0.072],
+                [0.021,0.049,0.059],
+                [0.028,0.049,0.032],
+                [0.028,0.049,-0.035]
+              ]
+            }
+          }
+        ],
+        "anchors": {
+          "face": {
+            "position": [0,0,0],
+            "direction": [0,0,1]
+          },
+          "back": {
+            "position": [0,0,-0.043],
+            "direction": [0,0,-1]
+          },
+          "loop": {
+            "position": [0,0,0.072],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

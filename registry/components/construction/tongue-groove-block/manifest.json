@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.tongue-groove-block",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "企口砌块",
+  "summary": "一端有凸榫，另一端有凹槽，按标称长度拼装并保留可调间隙。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.masonry.tongue-groove-block",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "砌体",
+    "墙体"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.6
+    },
+    "width": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.2
+    },
+    "height": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.24
+    },
+    "keyWidth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.082
+    },
+    "keyDepth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.027
+    },
+    "clearance": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.003
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "bottom",
+    "top",
+    "outer-face"
+  ],
+  "ai": {
+    "intent": "在轻质内墙中拼装端面有企口的单元。",
+    "editableParts": [
+      "分别调整榫宽、深度与装配间隙。"
+    ],
+    "qualityChecks": [
+      "start/end 使用标称长度，不含伸出的榫舌。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "tongue-groove-block",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "block",
+            "semanticType": "construction.masonry.tongue-groove-block",
+            "material": "aac",
+            "appearance": {
+              "color": "#c7c6bb"
+            },
+            "geometry": {
+              "type": "tongue-groove-masonry-block",
+              "length": 0.6,
+              "width": 0.2,
+              "height": 0.24,
+              "keyWidth": 0.082,
+              "keyDepth": 0.027,
+              "clearance": 0.003
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "bottom": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bottom"
+            }
+          },
+          "top": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top"
+            }
+          },
+          "outer-face": {
+            "node": "block",
+            "onGeometry": {
+              "type": "feature",
+              "name": "outer-face"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.interlocking-stepped-panel-edge-coupler-for-acoustic-divider",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "活动隔断错缝企口边接件",
+  "summary": "墙板对接时一深一浅的槽相互套合，两个弹性密封条可更换。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.operable-partition.labyrinth-edge-coupler",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "室内隔断",
+    "企口",
+    "错缝",
+    "隔断连接"
+  ],
+  "anchors": [
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "墙板对接时一深一浅的槽相互套合，两个弹性密封条可更换。",
+    "editableParts": [
+      "可分别编辑 deep-channel-stile、step-tongue-stile、labyrinth-seal-1、labyrinth-seal-2。"
+    ],
+    "qualityChecks": [
+      "两片边条在平面内折返对接，压条错开布置。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "interlocking-stepped-panel-edge-coupler-for-acoustic-divider",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "deep-channel-stile",
+            "semanticType": "construction.operable-partition.edge-coupler.female",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#617783"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.135,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.046,-0.039],
+                [0,-0.039],
+                [0,-0.024],
+                [-0.025,-0.024],
+                [-0.025,0.022],
+                [0.014,0.022],
+                [0.014,0.039],
+                [-0.046,0.039]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "step-tongue-stile",
+            "semanticType": "construction.operable-partition.edge-coupler.male",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8e9f9e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,2.135,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.044,-0.037],
+                [0.014,-0.037],
+                [0.014,-0.019],
+                [-0.015,-0.019],
+                [-0.015,0.011],
+                [0.028,0.011],
+                [0.028,0.036],
+                [0.044,0.036]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "labyrinth-seal-1",
+            "semanticType": "construction.operable-partition.edge-coupler.flex",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.008,2.132,0.01]
+            },
+            "transform": {
+              "position": [0,1.067,-0.017]
+            }
+          },
+          {
+            "id": "labyrinth-seal-2",
+            "semanticType": "construction.operable-partition.edge-coupler.flex",
+            "material": "rubber",
+            "appearance": {
+              "color": "#506064"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.008,2.132,0.01]
+            },
+            "transform": {
+              "position": [0,1.067,0.017]
+            }
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.046,1.061,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.044,1.061,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

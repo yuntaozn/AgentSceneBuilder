@@ -1,0 +1,173 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.ribbed-electrical-pull-box-drop-in-service-lid",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "电缆手孔井带加强筋检修盖",
+  "summary": "盖板背面有横肋，正面两个沉孔用于提盖，整体可抬离井口。",
+  "license": "Apache-2.0",
+  "semanticType": "site.utility.pull-box-lid",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "animate"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "场地",
+    "地下管网",
+    "手孔井",
+    "井盖",
+    "加强筋"
+  ],
+  "anchors": [
+    "mount"
+  ],
+  "ai": {
+    "intent": "盖板背面有横肋，正面两个沉孔用于提盖，整体可抬离井口。",
+    "editableParts": [
+      "独立编辑 lifting-plate、lid-face、rear-stiffener-1、rear-stiffener-2、drop-key-1、drop-key-2 的尺寸与位置。"
+    ],
+    "qualityChecks": [
+      "盖板全部构件随提盖行程抬升，定位口不动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ribbed-electrical-pull-box-drop-in-service-lid",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lifting-plate",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "lid-face",
+            "semanticType": "site.utility.pull-box.cover",
+            "material": "steel",
+            "appearance": {
+              "color": "#4a6067"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.019,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.265,-0.2095],
+                [0.265,-0.2095],
+                [0.265,0.2095],
+                [-0.265,0.2095]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.15400000000000003,-0.0045],
+                  [0.126,-0.0045],
+                  [0.126,0.0045],
+                  [0.15400000000000003,0.0045]
+                ],
+                [
+                  [-0.126,-0.0045],
+                  [-0.15400000000000003,-0.0045],
+                  [-0.15400000000000003,0.0045],
+                  [-0.126,0.0045]
+                ]
+              ]
+            },
+            "parent": "lifting-plate"
+          },
+          {
+            "id": "rear-stiffener-1",
+            "semanticType": "site.utility.pull-box.stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#8c9c9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.408,0.017,0.014]
+            },
+            "transform": {
+              "position": [0,-0.0085,-0.08]
+            },
+            "parent": "lifting-plate"
+          },
+          {
+            "id": "rear-stiffener-2",
+            "semanticType": "site.utility.pull-box.stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#8c9c9e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.408,0.017,0.014]
+            },
+            "transform": {
+              "position": [0,-0.0085,0.08]
+            },
+            "parent": "lifting-plate"
+          },
+          {
+            "id": "drop-key-1",
+            "semanticType": "site.utility.pull-box.locating-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#4a6067"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.089,0.012,0.022]
+            },
+            "transform": {
+              "position": [0,-0.006,-0.152]
+            },
+            "parent": "lifting-plate"
+          },
+          {
+            "id": "drop-key-2",
+            "semanticType": "site.utility.pull-box.locating-tab",
+            "material": "steel",
+            "appearance": {
+              "color": "#4a6067"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.089,0.012,0.022]
+            },
+            "transform": {
+              "position": [0,-0.006,0.152]
+            },
+            "parent": "lifting-plate"
+          }
+        ],
+        "anchors": {
+          "mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "raise-cover",
+            "target": "lifting-plate",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0.137,0],
+            "duration": 1.5,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

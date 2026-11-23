@@ -1,0 +1,152 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.lift-out-slotted-settling-tank-baffle-plate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "沉淀池可提分隔溢流板",
+  "summary": "独立插板、两根撑柱和上部浅溢流缺口，分水观察点位于缺口最高边。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-site.lift-out-settling-baffle",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "施工现场",
+    "巡检",
+    "沉淀池",
+    "挡板",
+    "溢流"
+  ],
+  "anchors": [
+    "base",
+    "weir"
+  ],
+  "ai": {
+    "intent": "在可编辑的冲洗水沉淀模型中分开设置溢流板。",
+    "editableParts": [
+      "缺口形态",
+      "插边",
+      "提手"
+    ],
+    "qualityChecks": [
+      "上部缺口不封闭，底面可定位。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "lift-out-slotted-settling-tank-baffle-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "weir-cutout",
+            "semanticType": "site.inspection-site.settling-weir-baffle.weir-plate",
+            "material": "steel",
+            "appearance": {
+              "color": "#a0adab"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.017,0,0],
+                [0.017,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.336,0],
+                [0.336,0],
+                [0.336,0.374],
+                [0.107,0.374],
+                [0.083,0.287],
+                [-0.083,0.287],
+                [-0.107,0.374],
+                [-0.336,0.374]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "edge-guide-0",
+            "semanticType": "site.inspection-site.settling-weir-baffle.end-stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.385,0.032]
+            },
+            "transform": {
+              "position": [0,0.1925,-0.338]
+            }
+          },
+          {
+            "id": "edge-guide-1",
+            "semanticType": "site.inspection-site.settling-weir-baffle.end-stiffener",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.385,0.032]
+            },
+            "transform": {
+              "position": [0,0.1925,0.338]
+            }
+          },
+          {
+            "id": "grip-loop-0",
+            "semanticType": "site.inspection-site.settling-weir-baffle.grip",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0.357,-0.304],
+                [0,0.423,-0.29200000000000004],
+                [0,0.423,-0.234],
+                [0,0.357,-0.222]
+              ],
+              "radius": 0.0075
+            }
+          },
+          {
+            "id": "grip-loop-1",
+            "semanticType": "site.inspection-site.settling-weir-baffle.grip",
+            "material": "steel",
+            "appearance": {
+              "color": "#536b76"
+            },
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0.357,0.222],
+                [0,0.423,0.234],
+                [0,0.423,0.29200000000000004],
+                [0,0.357,0.304]
+              ],
+              "radius": 0.0075
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "weir": {
+            "position": [0,0.287,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

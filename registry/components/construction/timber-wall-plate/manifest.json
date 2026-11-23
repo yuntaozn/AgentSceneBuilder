@@ -1,0 +1,112 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.timber-wall-plate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "屋架墙顶托木",
+  "summary": "支承在墙顶的连续托木，基于长方截面的三点锚位可定位重复屋架。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.roof.wall-plate",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "屋面",
+    "坡屋面"
+  ],
+  "anchors": [
+    "bottom",
+    "start",
+    "end",
+    "first-truss",
+    "middle-truss",
+    "last-truss"
+  ],
+  "ai": {
+    "intent": "在承重墙上安装多榀屋架。",
+    "editableParts": [
+      "编辑托木尺寸与截面位置。"
+    ],
+    "qualityChecks": [
+      "同一屋架的前后脚保持同标高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "timber-wall-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "construction.roof.wall-plate",
+            "material": "timber",
+            "appearance": {
+              "color": "#ae8c63"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [4.8,0.08,0.19]
+            },
+            "transform": {
+              "position": [0,0.04,0]
+            }
+          }
+        ],
+        "anchors": {
+          "bottom": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,-0.5,0]
+            },
+            "direction": [0,-1,0]
+          },
+          "start": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.5,0,0]
+            },
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.5,0,0]
+            },
+            "direction": [1,0,0]
+          },
+          "first-truss": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [-0.3333333333333333,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "middle-truss": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "last-truss": {
+            "node": "plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0.3333333333333333,0.5,0]
+            },
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

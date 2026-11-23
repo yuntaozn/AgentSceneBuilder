@@ -1,20 +1,25 @@
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import { buildRegistry } from "../scripts/registry.mjs";
+import { publicRegistryDomains, searchPublicRegistry } from "../registry/catalog.js";
 import {
   applyCompositionChangesetProposal,
   analyzeHumanModelQuality,
+  checkComposition,
+  checkScene,
   compileCompositionSpec,
+  composeScene,
   createDefaultRegistry,
   proposeHumanGraspChangeset,
   proposeHumanIkReachChangeset,
 } from "../packages/core/src/index.js";
-import { modelPreviewZoomForExtent } from "../apps/shared/model-preview.js";
+import { modelDocumentFor, modelPreviewZoomForExtent } from "../apps/shared/model-preview.js";
 import { publicRegistryCounts, publicRegistryEntries } from "../apps/shared/registry-visibility.js";
 
 test("validates the open digital model registry", async () => {
   const registry = await buildRegistry();
-  assert.deepEqual(registry.counts, { component: 9, method: 13, composition: 28 });
+  assert.deepEqual(registry.counts, { component: 882, method: 13, composition: 28 });
   assert.equal(new Set(registry.entries.map(entry => entry.id)).size, registry.entries.length);
   assert.ok(registry.entries.every(entry => entry.source.endsWith("manifest.json")));
 });
@@ -22,8 +27,21 @@ test("validates the open digital model registry", async () => {
 test("public model library hides internal experimental character entries", async () => {
   const registry = await buildRegistry();
   const publicEntries = publicRegistryEntries(registry);
-  assert.deepEqual(publicRegistryCounts(publicEntries), { component: 9, method: 11, composition: 24 });
+  assert.deepEqual(publicRegistryCounts(publicEntries), { component: 882, method: 11, composition: 24 });
   assert.equal(publicEntries.some(entry => entry.id.startsWith("character.")), false);
+});
+
+test("public domain filtering combines spaces in queries with the selected kind", () => {
+  const catalog = { entries: [
+    { id: "mep.bend", kind: "component", title: "圆形弯头", tags: ["风管"] },
+    { id: "mep.route", kind: "method", title: "圆形弯头", tags: ["风管"] },
+    { id: "structure.bend", kind: "component", title: "圆形弯头", tags: ["风管"] },
+    { id: "internal.fixture", kind: "component", title: "圆形弯头", visibility: "internal" },
+    { id: "new-domain.fixture", kind: "composition", title: "装配示例" },
+  ] };
+  assert.deepEqual(publicRegistryDomains(catalog).map(([key]) => key), ["structure", "mep", "new-domain"]);
+  const matches = searchPublicRegistry(catalog, "风管 弯头", "component", "mep");
+  assert.deepEqual(matches.map(entry => entry.id), ["mep.bend"]);
 });
 
 test("library components expose agent-usable capabilities", async () => {
@@ -90,12 +108,8 @@ test("library-to-editor JSON transfer preserves every editable model build", asy
   const library = await buildRegistry();
   const core = createDefaultRegistry();
   for (const entry of library.entries) {
-    const document = entry.editor?.document ?? (entry.editor?.node ? {
-      id: `library-${entry.editor.node.id}`,
-      component: "core.composition",
-      parameters: { nodes: [entry.editor.node], anchors: {} },
-    } : null);
-    if (!document) continue;
+    if (!entry.editor?.document && !entry.editor?.node) continue;
+    const document = modelDocumentFor(entry);
     const before = core.build(document);
     const transferred = JSON.parse(JSON.stringify({ source: entry.id, document })).document;
     const after = core.build(transferred);
@@ -103,6 +117,79 @@ test("library-to-editor JSON transfer preserves every editable model build", asy
     assert.deepEqual(after.bounds, before.bounds, `${entry.id} changes bounds during library import`);
     assert.deepEqual(after.anchors, before.anchors, `${entry.id} changes anchors during library import`);
   }
+});
+
+async function loadAssembly(file, componentIds) {
+  const scene = JSON.parse(await readFile(new URL(`../examples/digital-modeling/${file}`, import.meta.url), "utf8"));
+  const library = await buildRegistry();
+  for (const [i, id] of componentIds.entries()) {
+    const entry = library.entries.find(item => item.id === id);
+    assert.deepEqual(scene.instances[i].parameters, modelDocumentFor(entry).parameters, id);
+  }
+  return scene;
+}
+
+test("a beam-column-slab bay validates against anchor positions derived from current box sizes", async () => {
+  const scene = await loadAssembly("structure/beam-column-slab-bay.json", [
+    "structure.rectangular-column", "structure.rectangular-column", "structure.rectangular-beam", "structure.rectangular-slab",
+  ]);
+  const core = createDefaultRegistry();
+  assert.deepEqual(checkScene(scene, core), { ok: true, issues: [] });
+  assert.ok(composeScene(scene, core).relations.every(relation => relation.connected));
+  const [left, right, beam, slab] = scene.instances;
+  beam.parameters.nodes[0].geometry.size[0] = 6;
+  assert.deepEqual(core.build(beam).anchors.local.end, [3, 0.2, 0]);
+  assert.ok(checkScene(scene, core).issues.some(issue => issue.code === "SCENE_CONNECTION_GAP"));
+  beam.transform.position[0] = slab.transform.position[0] = 3;
+  right.transform.position[0] = 6;
+  left.parameters.nodes[0].geometry.size[1] = 3.2;
+  slab.parameters.nodes[0].geometry.size[1] = 0.4;
+  assert.deepEqual(core.build(left).anchors.local["top-center"], [0, 3.1, 0]);
+  assert.deepEqual(core.build(slab).anchors.local["bottom-center"], [0, -0.1, 0]);
+  left.parameters.nodes[0].transform.position[1] = 1.4;
+  slab.transform.position[1] = 3.5;
+  assert.deepEqual(checkScene(scene, core), { ok: true, issues: [] });
+});
+
+test("a straight tray and elbow keep equal profiles and recalculate anchor positions and directions", async () => {
+  const scene = await loadAssembly("mep/cable-tray-connection.json", ["mep.cable-tray-straight", "mep.cable-tray-elbow"]);
+  const [straight, elbow] = scene.instances;
+  const straightGeometry = straight.parameters.nodes[0].geometry;
+  assert.deepEqual(straightGeometry.profile, elbow.parameters.nodes[0].geometry.profile);
+  const core = createDefaultRegistry();
+  assert.deepEqual(checkScene(scene, core), { ok: true, issues: [] });
+  assert.ok(composeScene(scene, core).relations[0].connected);
+  assert.deepEqual(core.build(elbow).anchors.worldDefinitions.end.direction, [1, 0, 0]);
+  straightGeometry.points[1] = [2, 0, 0];
+  const straightBuild = core.build(straight);
+  assert.deepEqual(straightBuild.anchors.worldDefinitions.end.position, [2, 0, 0]);
+  assert.deepEqual(straightBuild.anchors.worldDefinitions.end.direction, [1, 0, 0]);
+  assert.deepEqual(straightBuild.instance.parameters.anchors.end, straight.parameters.anchors.end);
+  elbow.transform.position = [2, 0, 0];
+  assert.ok(checkScene(scene, core).issues.some(issue => issue.code === "SCENE_CONNECTION_DIRECTION"));
+  elbow.transform.rotation = [0, Math.PI / 2, 0];
+  assert.deepEqual(checkScene(scene, core), { ok: true, issues: [] });
+});
+
+test("geometry anchors report their own input paths when invalid", () => {
+  const parameters = {
+    nodes: [{ id: "box", geometry: { type: "box", size: [1, 1, 1] } }],
+    anchors: {
+      unbound: { onGeometry: { type: "box", fraction: [0, 0, 0] } },
+      outside: { node: "box", onGeometry: { type: "box", fraction: [0.6, 0, 0] } },
+      wrongGeometry: { node: "box", onGeometry: { type: "sweep-end", end: "start" } },
+      both: { node: "box", position: [0, 0, 0], onGeometry: { type: "box", fraction: [0, 0, 0] } },
+      fixed: { node: "box", position: [2, 0, 0] },
+    },
+  };
+  const doc = { id: "geometry-anchor-check", component: "core.composition", parameters };
+  assert.deepEqual(checkComposition(doc).issues.map(({ code, path }) => [code, path]), [
+    ["ANCHOR_NODE_MISSING", "/parameters/anchors/unbound/node"],
+    ["ANCHOR_GEOMETRY_INVALID", "/parameters/anchors/outside/onGeometry"],
+    ["ANCHOR_GEOMETRY_INVALID", "/parameters/anchors/wrongGeometry/onGeometry"],
+    ["ANCHOR_GEOMETRY_INVALID", "/parameters/anchors/both/onGeometry"],
+  ]);
+  assert.throws(() => createDefaultRegistry().build(doc), /requires a node for onGeometry/);
 });
 
 test("equipment entries describe the machine itself without scene cargo", async () => {

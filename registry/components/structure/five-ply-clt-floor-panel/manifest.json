@@ -1,0 +1,174 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.five-ply-clt-floor-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "五层正交胶合木楼板",
+  "summary": "相邻层的板条方向交替，共五层独立原型，可在楼面与支承梁之间定位。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.timber.clt-floor",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "木构",
+    "木结构"
+  ],
+  "anchors": [
+    "front-bearing",
+    "rear-bearing",
+    "top",
+    "left",
+    "right"
+  ],
+  "ai": {
+    "intent": "复用正交层板的楼面组件。",
+    "editableParts": [
+      "独立调整五个层的方向、厚度和排布。"
+    ],
+    "qualityChecks": [
+      "可检查相邻层板条的交错。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "five-ply-clt-floor-panel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "ply-1",
+            "semanticType": "structure.timber.clt-floor.x-boards",
+            "material": "clt",
+            "appearance": {
+              "color": "#ccaa7c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [3.6,0.028,0.1995]
+            },
+            "transform": {
+              "position": [0,0.014,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [0,0,-0.5],
+              "step": [0,0,0.2]
+            }
+          },
+          {
+            "id": "ply-2",
+            "semanticType": "structure.timber.clt-floor.z-boards",
+            "material": "clt",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.1995,0.028,1.2]
+            },
+            "transform": {
+              "position": [0,0.042,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 18,
+              "start": [-1.7,0,0],
+              "step": [0.2,0,0]
+            }
+          },
+          {
+            "id": "ply-3",
+            "semanticType": "structure.timber.clt-floor.x-boards",
+            "material": "clt",
+            "appearance": {
+              "color": "#ccaa7c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [3.6,0.028,0.1995]
+            },
+            "transform": {
+              "position": [0,0.07,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [0,0,-0.5],
+              "step": [0,0,0.2]
+            }
+          },
+          {
+            "id": "ply-4",
+            "semanticType": "structure.timber.clt-floor.z-boards",
+            "material": "clt",
+            "appearance": {
+              "color": "#ad825b"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.1995,0.028,1.2]
+            },
+            "transform": {
+              "position": [0,0.098,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 18,
+              "start": [-1.7,0,0],
+              "step": [0.2,0,0]
+            }
+          },
+          {
+            "id": "ply-5",
+            "semanticType": "structure.timber.clt-floor.x-boards",
+            "material": "clt",
+            "appearance": {
+              "color": "#ccaa7c"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [3.6,0.028,0.1995]
+            },
+            "transform": {
+              "position": [0,0.126,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 6,
+              "start": [0,0,-0.5],
+              "step": [0,0,0.2]
+            }
+          }
+        ],
+        "anchors": {
+          "front-bearing": {
+            "position": [0,0,0.51],
+            "direction": [0,-1,0]
+          },
+          "rear-bearing": {
+            "position": [0,0,-0.51],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,0.14,0],
+            "direction": [0,1,0]
+          },
+          "left": {
+            "position": [-1.8,0,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [1.8,0,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

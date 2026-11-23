@@ -1,0 +1,235 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.recessed-asymmetric-step-light",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "嵌墙下照踏步灯",
+  "summary": "嵌墙灯盒、外部压框和向下的可调聚光部件，适合楼梯侧墙预留槽。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.lighting.recessed-step-light",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "水电",
+    "照明",
+    "基础构件",
+    "地脚灯",
+    "楼梯灯",
+    "嵌墙"
+  ],
+  "anchors": [
+    "wall",
+    "face"
+  ],
+  "ai": {
+    "intent": "在楼梯侧壁表达墙洞、灯盒压边和低位出光。",
+    "editableParts": [
+      "预埋盒",
+      "压边",
+      "遮光片",
+      "灯光"
+    ],
+    "qualityChecks": [
+      "压框前置，光轴指向外侧及下方。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "recessed-asymmetric-step-light",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "recessed-can",
+            "semanticType": "mep.lighting.recessed-step-light.box",
+            "material": "steel",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.055],
+                [0,0,-0.008]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0675,-0.033],
+                [0.0675,-0.033],
+                [0.0675,0.033],
+                [-0.0675,0.033]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0605,-0.0265],
+                  [0.0605,-0.0265],
+                  [0.0605,0.0265],
+                  [-0.0605,0.0265]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "box-back",
+            "semanticType": "mep.lighting.recessed-step-light.rear",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.133,0.065,0.004]
+            },
+            "transform": {
+              "position": [0,0,-0.055]
+            }
+          },
+          {
+            "id": "front-trim",
+            "semanticType": "mep.lighting.recessed-step-light.face-frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#81939b"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.008],
+                [0,0,0.006]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0815,-0.0405],
+                [0.0815,-0.0405],
+                [0.0815,0.0405],
+                [-0.0815,0.0405]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0625,-0.0265],
+                  [0.0625,-0.0265],
+                  [0.0625,0.0265],
+                  [-0.0625,0.0265]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "lens",
+            "semanticType": "mep.lighting.recessed-step-light.diffuser",
+            "material": "polymer",
+            "appearance": {
+              "color": "#fff8e9",
+              "emissive": "#fff8e9"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.102,0.024,0.006]
+            },
+            "transform": {
+              "position": [0,0.004,0.002]
+            }
+          },
+          {
+            "id": "baffle-0",
+            "semanticType": "mep.lighting.recessed-step-light.baffle",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.118,0.003,0.022]
+            },
+            "transform": {
+              "position": [0,-0.015,0.013],
+              "rotation": [-0.42,0,0]
+            }
+          },
+          {
+            "id": "baffle-1",
+            "semanticType": "mep.lighting.recessed-step-light.baffle",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.118,0.003,0.022]
+            },
+            "transform": {
+              "position": [0,-0.005,0.013],
+              "rotation": [-0.42,0,0]
+            }
+          },
+          {
+            "id": "baffle-2",
+            "semanticType": "mep.lighting.recessed-step-light.baffle",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.118,0.003,0.022]
+            },
+            "transform": {
+              "position": [0,0.005,0.013],
+              "rotation": [-0.42,0,0]
+            }
+          },
+          {
+            "id": "baffle-3",
+            "semanticType": "mep.lighting.recessed-step-light.baffle",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.118,0.003,0.022]
+            },
+            "transform": {
+              "position": [0,0.015,0.013],
+              "rotation": [-0.42,0,0]
+            }
+          },
+          {
+            "id": "floor-beam",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [0,-0.009,0.029],
+              "rotation": [-0.39,3.141592653589793,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 11,
+              "angle": 0.68,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          },
+          "face": {
+            "position": [0,0,0.006],
+            "direction": [0,0,1]
+          }
+        }
+      }
+    }
+  }
+}

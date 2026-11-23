@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.rectangular-beam",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形结构梁",
+  "summary": "沿局部 X 轴布置的矩形梁，可编辑跨度、截面宽度和高度，提供端部及梁柱板接触锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.beam",
+  "capabilities": ["resize", "material", "repeat", "attach"],
+  "tags": ["结构", "梁", "基础构件"],
+  "parameters": {
+    "span": { "type": "number", "unit": "m", "default": 4 },
+    "height": { "type": "number", "unit": "m", "default": 0.4 },
+    "width": { "type": "number", "unit": "m", "default": 0.3 }
+  },
+  "anchors": ["start", "end", "start-bearing", "end-bearing", "top-center"],
+  "dependencies": ["primitive.box@0.1.0"],
+  "ai": {
+    "intent": "在梁柱板组合中复用矩形截面梁与几何接触位置。",
+    "editableParts": ["beam.geometry.size 使用 [跨度, 高度, 宽度]", "beam.transform 控制梁的定位和朝向"],
+    "qualityChecks": ["跨度变化后检查梁端锚点和柱顶的位置。", "梁顶和板底的接触方向应相对。"]
+  },
+  "editor": {
+    "document": {
+      "id": "rectangular-beam",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [{ "id": "beam", "semanticType": "structure.beam", "material": "concrete", "geometry": { "type": "box", "size": [4,0.4,0.3] }, "transform": { "position": [0,0.2,0] }, "appearance": { "color": "#9ba6aa" } }],
+        "anchors": {
+          "start": { "node": "beam", "onGeometry": { "type": "box", "fraction": [-0.5,0,0] }, "direction": [-1,0,0] },
+          "end": { "node": "beam", "onGeometry": { "type": "box", "fraction": [0.5,0,0] }, "direction": [1,0,0] },
+          "start-bearing": { "node": "beam", "onGeometry": { "type": "box", "fraction": [-0.5,-0.5,0] }, "direction": [0,-1,0] },
+          "end-bearing": { "node": "beam", "onGeometry": { "type": "box", "fraction": [0.5,-0.5,0] }, "direction": [0,-1,0] },
+          "top-center": { "node": "beam", "onGeometry": { "type": "box", "fraction": [0,0.5,0] }, "direction": [0,1,0] }
+        }
+      }
+    }
+  }
+}

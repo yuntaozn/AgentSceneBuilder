@@ -1,0 +1,156 @@
+{
+  "schemaVersion": "0.1",
+  "id": "prefab.flat-shear-dowel-with-sliding-pocket",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "板缝平板传力销与滑移盒",
+  "summary": "插入扁销、套盒长孔及容许伸缩的空余腔，销与盒可分开编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "prefab.floor.shear-dowel-sliding-pocket",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "板缝",
+    "传力销",
+    "滑移"
+  ],
+  "anchors": [
+    "slab-a",
+    "slab-b",
+    "joint-plane"
+  ],
+  "ai": {
+    "intent": "在接缝两侧分别建模固定扁销和允许行程的空盒。",
+    "editableParts": [
+      "扁销",
+      "空盒",
+      "端面间隙",
+      "锚固端"
+    ],
+    "qualityChecks": [
+      "扁销位于滑移盒中间，后端仍留空腔。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "flat-shear-dowel-with-sliding-pocket",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sliding-sleeve",
+            "semanticType": "prefab.floor.sliding-shear-dowel.pocket",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4d5b62"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.205,0,0]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.053,-0.0255],
+                [0.053,-0.0255],
+                [0.053,0.0255],
+                [-0.053,0.0255]
+              ],
+              "holes": [
+                [
+                  [-0.04,-0.0115],
+                  [0.04,-0.0115],
+                  [0.04,0.0115],
+                  [-0.04,0.0115]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "end-stopper",
+            "semanticType": "prefab.floor.sliding-shear-dowel.end-stop",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4d5b62"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.051,0.106]
+            },
+            "transform": {
+              "position": [0.2095,0,0]
+            }
+          },
+          {
+            "id": "shear-plate",
+            "semanticType": "prefab.floor.sliding-shear-dowel.dowel",
+            "material": "steel",
+            "appearance": {
+              "color": "#576d78"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.325,0.014,0.061]
+            },
+            "transform": {
+              "position": [-0.051,0,0]
+            }
+          },
+          {
+            "id": "anchor-bolt-0",
+            "semanticType": "prefab.floor.sliding-shear-dowel.anchor-rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.13,-0.012,0],
+              "end": [-0.13,0.023,0],
+              "radius": 0.008,
+              "radialSegments": 22
+            }
+          },
+          {
+            "id": "anchor-bolt-1",
+            "semanticType": "prefab.floor.sliding-shear-dowel.anchor-rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#839598"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.085,-0.012,0],
+              "end": [-0.085,0.023,0],
+              "radius": 0.008,
+              "radialSegments": 22
+            }
+          }
+        ],
+        "anchors": {
+          "slab-a": {
+            "position": [-0.13,0,0],
+            "direction": [-1,0,0]
+          },
+          "slab-b": {
+            "position": [0.129,0,0],
+            "direction": [1,0,0]
+          },
+          "joint-plane": {
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

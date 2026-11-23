@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.braided-fixture-supply-hose",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "洁具柔性给水软管",
+  "summary": "细径中空软管，两端连接定位随路径更新，可适配龙头和角阀的相对位置。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.sanitary.braided-supply-hose",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "resize"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "卫生间",
+    "给排水"
+  ],
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "在洗手盆下表示柔性接入路线。",
+    "editableParts": [
+      "修改路径点、外径与壁厚。"
+    ],
+    "qualityChecks": [
+      "两端分别对接给水角阀和龙头。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "braided-fixture-supply-hose",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "hose",
+            "semanticType": "mep.sanitary.supply-hose",
+            "material": "reinforced-hose",
+            "appearance": {
+              "color": "#537f91"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0,0.06,0],
+                [0.04,0.125,-0.025],
+                [0.15,0.29,-0.05],
+                [0.16,0.37,-0.05],
+                [0.16,0.45,-0.05]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.022,
+              "thickness": 0.003
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "hose",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "hose",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

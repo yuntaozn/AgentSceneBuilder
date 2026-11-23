@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.precast-dapped-end-beam",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双端缺口预制梁",
+  "summary": "中段全截面、两端各削去下部形成差高座台，可与牛腿或垫块直接组合。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.floor.dapped-end-beam",
+  "capabilities": [
+    "resize",
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "装配式",
+    "基础构件",
+    "预制楼板",
+    "端部削角",
+    "预制梁",
+    "牛腿"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 2.6
+    },
+    "width": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.24
+    },
+    "depth": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.32
+    },
+    "notchLength": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.2
+    },
+    "seatRise": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.145
+    }
+  },
+  "anchors": [
+    "start",
+    "end",
+    "top",
+    "bearing-start",
+    "bearing-end"
+  ],
+  "ai": {
+    "intent": "用可调端部切口演示预制梁搁置在柱牛腿上的关系。",
+    "editableParts": [
+      "梁跨",
+      "缺口长",
+      "搁置标高"
+    ],
+    "qualityChecks": [
+      "两端座台在同一高度，中段保持全高。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "precast-dapped-end-beam",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.floor.dapped-end-beam",
+            "material": "concrete",
+            "appearance": {
+              "color": "#b4aca0"
+            },
+            "geometry": {
+              "type": "precast-dapped-end-beam",
+              "length": 2.6,
+              "width": 0.24,
+              "depth": 0.32,
+              "notchLength": 0.2,
+              "seatRise": 0.145
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          },
+          "top": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "top"
+            }
+          },
+          "bearing-start": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-start"
+            }
+          },
+          "bearing-end": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "bearing-end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

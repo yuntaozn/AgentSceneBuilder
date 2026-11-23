@@ -1,3 +1,7 @@
+import { withDefaultSceneLighting } from "./scene-lighting.js";
+
+export const modelMaterialPalette = { concrete: "#7d8991", steel: "#8fd0d1", water: "#54a8ff", accent: "#d9ff57", default: "#aab5be" };
+
 export function modelDocumentFor(entry) {
   if (entry.editor?.document) return structuredClone(entry.editor.document);
   if (entry.kind === "component" && entry.editor?.node) {
@@ -17,16 +21,40 @@ export function modelDocumentFor(entry) {
   };
 }
 
-export function modelPreviewNodes(entry, core) {
+export function modelPreviewBuild(entry, core, { studioLighting = false } = {}) {
   try {
-    const documentValue = modelDocumentFor(entry);
-    return documentValue?.component === "core.composition"
-      ? core.build(documentValue).nodes
-      : [];
+    const model = modelDocumentFor(entry);
+    if (model.component !== "core.composition") return { nodes: [] };
+    return core.build(studioLighting ? withDefaultSceneLighting(model) : model);
   } catch {
-    return entry.editor?.document?.parameters?.nodes
+    const nodes = entry.editor?.document?.parameters?.nodes
       ?? (entry.editor?.node ? [entry.editor.node] : []);
+    return { nodes };
   }
+}
+
+export function modelPreviewNodes(entry, core) {
+  return modelPreviewBuild(entry, core).nodes;
+}
+
+export function observeModelPreviews(canvases, draw, { root = null } = {}) {
+  if (typeof IntersectionObserver !== "function") {
+    const frame = requestAnimationFrame(() => canvases.forEach(draw));
+    return () => cancelAnimationFrame(frame);
+  }
+  const pending = new Set(canvases);
+  const observer = new IntersectionObserver(entries => {
+    for (const { target, isIntersecting } of entries) {
+      if (!isIntersecting || !pending.delete(target)) continue;
+      observer.unobserve(target);
+      draw(target);
+    }
+  }, { root, rootMargin: "160px 0px" });
+  for (const canvas of pending) observer.observe(canvas);
+  return () => {
+    pending.clear();
+    observer.disconnect();
+  };
 }
 
 export function modelPreviewZoomForExtent({
@@ -70,9 +98,17 @@ function profileSample(profile, index, segments) {
   return [a[0] + (b[0] - a[0]) * t, a[1] + (b[1] - a[1]) * t];
 }
 
-export function sweepWireLines({ rings, closedProfile }) {
+export function sweepWireLines({ rings, profile, holes = [], closedProfile }) {
   if (!rings?.length) return [];
-  const outlines = closedProfile ? rings.map(ring => [...ring, ring[0]]) : rings;
+  const sizes = holes.length ? [profile.length, ...holes.map(contour => contour.length)] : [rings[0].length];
+  const outlines = closedProfile ? rings.flatMap(ring => {
+    let start = 0;
+    return sizes.map(size => {
+      const line = [...ring.slice(start, start + size), ring[start]];
+      start += size;
+      return line;
+    });
+  }) : rings;
   const rails = rings[0].map((_, i) => rings.map(ring => ring[i]));
   return [...outlines, ...rails];
 }

@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.rigid-electrical-conduit",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "硬质中空电线管",
+  "summary": "可编辑外径、壁厚与长度的穿线管，两端可参与固定件或接线盒对接。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.electric.conduit-rigid",
+  "capabilities": [
+    "resize",
+    "path-edit",
+    "attach"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "电气",
+    "电线管"
+  ],
+  "parameters": {
+    "outsideDiameter": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.032
+    },
+    "thickness": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.0022
+    }
+  },
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "在电气走线中保留真实中空路径。",
+    "editableParts": [
+      "修改路径和管径。"
+    ],
+    "qualityChecks": [
+      "连接时匹配接线盒或弯管的口径。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rigid-electrical-conduit",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "conduit",
+            "semanticType": "mep.electric.conduit-rigid",
+            "material": "polymer",
+            "appearance": {
+              "color": "#768894"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [1.1,0,0]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.032,
+              "thickness": 0.0022
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,133 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.surface-mounted-door-closer-with-arm",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "明装闭门器与连杆",
+  "summary": "长形壳体、主臂、二级臂和上固定座分开，可独立定位门扇和框头。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.opening.overhead-door-closer",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "门窗",
+    "五金"
+  ],
+  "anchors": [
+    "leaf",
+    "frame",
+    "arm-joint"
+  ],
+  "ai": {
+    "intent": "布置闭门器外观和与门框、门扇相接的两端。",
+    "editableParts": [
+      "编辑连杆端点、外壳与固定座。"
+    ],
+    "qualityChecks": [
+      "同一场景中两个安装面可分别检查。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "surface-mounted-door-closer-with-arm",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "housing",
+            "semanticType": "construction.opening.overhead-door-closer.housing",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.257,0.04,0.048]
+            },
+            "transform": {
+              "position": [0,0,0.026]
+            }
+          },
+          {
+            "id": "drive",
+            "semanticType": "construction.opening.overhead-door-closer.drive",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.081,0.019,0.034],
+              "end": [0.081,0.032,0.034],
+              "radius": 0.009,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "main-arm",
+            "semanticType": "construction.opening.overhead-door-closer.arm",
+            "material": "steel",
+            "appearance": {
+              "color": "#556e7b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.081,0.032,0.034],
+              "end": [0.2,0.071,0.071],
+              "radius": 0.008,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "second-arm",
+            "semanticType": "construction.opening.overhead-door-closer.arm",
+            "material": "steel",
+            "appearance": {
+              "color": "#9fb1b8"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.2,0.071,0.071],
+              "end": [0.296,0.077,0.009],
+              "radius": 0.007,
+              "radialSegments": 24
+            }
+          },
+          {
+            "id": "frame-shoe",
+            "semanticType": "construction.opening.overhead-door-closer.shoe",
+            "material": "steel",
+            "appearance": {
+              "color": "#cad3d8"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.057,0.024,0.018]
+            },
+            "transform": {
+              "position": [0.296,0.077,0.009]
+            }
+          }
+        ],
+        "anchors": {
+          "leaf": {
+            "position": [0,0,0.002],
+            "direction": [0,0,-1]
+          },
+          "frame": {
+            "position": [0.296,0.077,0],
+            "direction": [0,0,-1]
+          },
+          "arm-joint": {
+            "position": [0.2,0.071,0.071],
+            "direction": [0,1,0]
+          }
+        }
+      }
+    }
+  }
+}

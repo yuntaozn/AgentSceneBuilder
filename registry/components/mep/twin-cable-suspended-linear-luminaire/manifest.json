@@ -1,0 +1,258 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.twin-cable-suspended-linear-luminaire",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双索吊挂线性灯具",
+  "summary": "双吊索、线形槽体和前向扩散面，线段两端和吊装位置都能拼接。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.lighting.twin-cable-linear-light",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "水电",
+    "照明",
+    "基础构件",
+    "线型灯",
+    "吊索",
+    "吊灯"
+  ],
+  "anchors": [
+    "left-suspension",
+    "right-suspension",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "在开敞空间表达独立吊索和下配光线性灯具。",
+    "editableParts": [
+      "吊索",
+      "卡座",
+      "型材",
+      "扩散面",
+      "光源"
+    ],
+    "qualityChecks": [
+      "两个吊点共面，灯体水平。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "twin-cable-suspended-linear-luminaire",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "hanger-cup-0",
+            "semanticType": "mep.lighting.suspended-linear.hanger",
+            "material": "steel",
+            "appearance": {
+              "color": "#e4e2d8"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.39,-0.022,0],
+              "end": [-0.39,0,0],
+              "radius": 0.029,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "suspension-0",
+            "semanticType": "mep.lighting.suspended-linear.cable",
+            "material": "steel",
+            "appearance": {
+              "color": "#81939b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.39,-0.337,0],
+              "end": [-0.39,-0.02,0],
+              "radius": 0.0027,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "hanger-cup-1",
+            "semanticType": "mep.lighting.suspended-linear.hanger",
+            "material": "steel",
+            "appearance": {
+              "color": "#e4e2d8"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.39,-0.022,0],
+              "end": [0.39,0,0],
+              "radius": 0.029,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "suspension-1",
+            "semanticType": "mep.lighting.suspended-linear.cable",
+            "material": "steel",
+            "appearance": {
+              "color": "#81939b"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.39,-0.337,0],
+              "end": [0.39,-0.02,0],
+              "radius": 0.0027,
+              "radialSegments": 20
+            }
+          },
+          {
+            "id": "linear-housing",
+            "semanticType": "mep.lighting.suspended-linear.channel",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#a3afb1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.51,0,0],
+                [0.51,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.035,-0.377],
+                [-0.035,-0.34],
+                [0.035,-0.34],
+                [0.035,-0.377],
+                [0.027,-0.377],
+                [0.027,-0.347],
+                [-0.027,-0.347],
+                [-0.027,-0.377]
+              ],
+              "closedProfile": true
+            }
+          },
+          {
+            "id": "end-cap-0",
+            "semanticType": "mep.lighting.suspended-linear.end-cap",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.037,0.07]
+            },
+            "transform": {
+              "position": [-0.511,-0.3585,0]
+            }
+          },
+          {
+            "id": "end-cap-1",
+            "semanticType": "mep.lighting.suspended-linear.end-cap",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#414d56"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.037,0.07]
+            },
+            "transform": {
+              "position": [0.511,-0.3585,0]
+            }
+          },
+          {
+            "id": "diffuser",
+            "semanticType": "mep.lighting.suspended-linear.diffuser",
+            "material": "polymer",
+            "appearance": {
+              "color": "#fff8e9",
+              "emissive": "#fff8e9"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.02,0.004,0.055]
+            },
+            "transform": {
+              "position": [0,-0.375,0]
+            }
+          },
+          {
+            "id": "down-segment-0",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [-0.33,-0.395,0],
+              "rotation": [-1.5707963267948966,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 21,
+              "angle": 0.73,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          },
+          {
+            "id": "down-segment-1",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [0,-0.395,0],
+              "rotation": [-1.5707963267948966,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 21,
+              "angle": 0.73,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          },
+          {
+            "id": "down-segment-2",
+            "kind": "light",
+            "semanticType": "scene.light.spot",
+            "transform": {
+              "position": [0.33,-0.395,0],
+              "rotation": [-1.5707963267948966,0,0]
+            },
+            "light": {
+              "type": "spot",
+              "color": "#fff8e9",
+              "intensity": 21,
+              "angle": 0.73,
+              "penumbra": 0.35,
+              "distance": 8,
+              "helperLength": 0.6
+            }
+          }
+        ],
+        "anchors": {
+          "left-suspension": {
+            "position": [-0.39,0,0],
+            "direction": [0,1,0]
+          },
+          "right-suspension": {
+            "position": [0.39,0,0],
+            "direction": [0,1,0]
+          },
+          "start": {
+            "position": [-0.514,-0.3585,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.514,-0.3585,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

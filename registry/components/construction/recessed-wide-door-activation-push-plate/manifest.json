@@ -1,0 +1,150 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.recessed-wide-door-activation-push-plate",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "入口门宽面按压开关",
+  "summary": "嵌装底盒、实体外框和整面可压面板，便于接到墙侧。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.public-washroom.wide-door-activation-push-plate",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "公共卫生间",
+    "卫浴",
+    "门禁",
+    "按压板",
+    "入口"
+  ],
+  "anchors": [
+    "wall"
+  ],
+  "ai": {
+    "intent": "在入口边墙上使用独立低轮廓触发板。",
+    "editableParts": [
+      "底盒",
+      "边框",
+      "活动面板"
+    ],
+    "qualityChecks": [
+      "触发时只有宽面板向内位移。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "recessed-wide-door-activation-push-plate",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-backbox",
+            "semanticType": "construction.public-washroom.door-push-activation-plate.box",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.126,0.142,0.033]
+            },
+            "transform": {
+              "position": [0,0,-0.0165]
+            }
+          },
+          {
+            "id": "trim-perimeter",
+            "semanticType": "construction.public-washroom.door-push-activation-plate.trim",
+            "material": "steel",
+            "appearance": {
+              "color": "#91a0a1"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.012]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.082,-0.0895],
+                [0.082,-0.0895],
+                [0.082,0.0895],
+                [-0.082,0.0895]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.067,-0.073],
+                  [0.067,-0.073],
+                  [0.067,0.073],
+                  [-0.067,0.073]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "push-pad",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "press-surface",
+            "semanticType": "construction.public-washroom.door-push-activation-plate.moving-face",
+            "material": "steel",
+            "appearance": {
+              "color": "#aeb6ae"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.142,0.012]
+            },
+            "transform": {
+              "position": [0,0,0.008]
+            },
+            "parent": "push-pad"
+          },
+          {
+            "id": "center-symbol-bar",
+            "semanticType": "construction.public-washroom.door-push-activation-plate.engraved-mark",
+            "material": "steel",
+            "appearance": {
+              "color": "#52656e"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.057,0.005,0.003]
+            },
+            "transform": {
+              "position": [0,0,0.014]
+            },
+            "parent": "push-pad"
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "position": [0,0,0],
+            "direction": [0,0,-1]
+          }
+        },
+        "animations": [
+          {
+            "id": "press-entry-plate",
+            "target": "push-pad",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0,-0.006],
+            "duration": 0.55,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

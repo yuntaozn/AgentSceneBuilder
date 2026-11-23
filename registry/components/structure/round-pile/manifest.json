@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "0.1",
+  "id": "structure.round-pile",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "圆截面基础桩",
+  "summary": "桩头在局部 Y=0，桩身竖向向下，直径和桩长可编辑。",
+  "license": "Apache-2.0",
+  "semanticType": "structure.round-pile",
+  "capabilities": [
+    "resize",
+    "attach",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础",
+    "桩",
+    "结构",
+    "基础构件"
+  ],
+  "parameters": {
+    "length": {
+      "type": "number",
+      "unit": "m",
+      "default": 3
+    },
+    "diameter": {
+      "type": "number",
+      "unit": "m",
+      "default": 0.3
+    }
+  },
+  "anchors": [
+    "head",
+    "toe"
+  ],
+  "editor": {
+    "document": {
+      "id": "round-pile",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "structure.round-pile",
+            "material": "concrete",
+            "appearance": {
+              "color": "#a5acac"
+            },
+            "geometry": {
+              "type": "round-pile",
+              "length": 3,
+              "diameter": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "head": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "head"
+            }
+          },
+          "toe": {
+            "node": "body",
+            "onGeometry": {
+              "type": "feature",
+              "name": "toe"
+            }
+          }
+        }
+      }
+    }
+  }
+}

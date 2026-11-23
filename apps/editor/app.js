@@ -1,65 +1,29 @@
 import { checkComposition, createDefaultRegistry, isCompositionManifest } from "../../packages/core/src/index.js";
 import { applySyntaxFixes, checkSourceDraft, diagnosticRange } from "./diagnostic-range.js";
+import { allocateModelId, insertableComponentParameters, insertLibraryGroup } from "./library-insert.js";
+import { importEditableScene, isSceneDocument } from "./scene-import.js";
+import { parametricSweep } from "../../packages/core/src/composition.js";
 import { sweepGeometry } from "../../packages/core/src/sweep.js";
-import modelLibrary from "../../registry/registry.json";
-import { drawModelPreview, modelPreviewNodes, sweepWireLines } from "../shared/model-preview.js";
-import { publicRegistryEntries } from "../shared/registry-visibility.js";
+import { publicRegistryDomains, searchPublicRegistry } from "../../registry/catalog.js";
+import { catalog, loadCatalogEntry } from "../shared/browser-catalog.js";
+import { drawModelPreview, modelMaterialPalette as palette, modelPreviewNodes, observeModelPreviews, sweepWireLines } from "../shared/model-preview.js";
+import { studioLighting, studioLightNodes, withDefaultSceneLighting } from "../shared/scene-lighting.js";
 
 const registry = createDefaultRegistry();
-const publicModelLibraryEntries = publicRegistryEntries(modelLibrary);
+const publicModelLibraryEntries = catalog.entries.filter(item => item.hasPreview || item.template);
+const publicModelLibraryById = new Map(publicModelLibraryEntries.map(item => [item.id, item]));
 const defaultDocument = {
   id: "untitled-scene",
   component: "core.composition",
   parameters: {
     nodes: [
       { id: "cube", semanticType: "generic.solid", geometry: { type: "box", size: [1, 1, 1] }, transform: { position: [0, .5, 0], rotation: [0, 0, 0], scale: [1, 1, 1] }, material: "default" },
-      { id: "key-light", kind: "light", semanticType: "scene.light.directional", light: { type: "directional", color: "#ffffff", intensity: 4.5, helperLength: 3 }, transform: { position: [4, 6, 4], rotation: [-.77134, .7854, 0], scale: [1, 1, 1] } },
-      { id: "fill-light", kind: "light", semanticType: "scene.light.directional", light: { type: "directional", color: "#8cc7ff", intensity: 1.8, helperLength: 2.5 }, transform: { position: [-4, 3, -4], rotation: [-.41613, -2.35619, 0], scale: [1, 1, 1] } },
-      { id: "local-light", kind: "light", semanticType: "scene.light.point", light: { type: "point", color: "#fff0d2", intensity: 350, distance: 7 }, transform: { position: [2.8, 3.5, 2.8], rotation: [0, 0, 0], scale: [1, 1, 1] } }
+      ...studioLightNodes,
     ],
     anchors: {},
-    lighting: { enabled: true, preset: "studio", ambientIntensity: 1 }
+    lighting: studioLighting
   }
 };
-
-function defaultLightNodes() {
-  return defaultDocument.parameters.nodes
-    .filter(node => node.kind === "light" || node.light)
-    .map(node => structuredClone(node));
-}
-
-function uniqueDocumentNodeId(base, usedIds) {
-  let id = base;
-  let index = 2;
-  while (usedIds.has(id)) {
-    id = `${base}-${index}`;
-    index += 1;
-  }
-  usedIds.add(id);
-  return id;
-}
-
-function withDefaultSceneLighting(sourceDocument) {
-  const next = structuredClone(sourceDocument);
-  next.parameters ??= {};
-  next.parameters.nodes ??= [];
-  next.parameters.anchors ??= {};
-  next.parameters.lighting = {
-    ...defaultDocument.parameters.lighting,
-    ...(next.parameters.lighting ?? {})
-  };
-  const hasLightNode = next.parameters.nodes.some(node => node.kind === "light" || node.light);
-  const hasLegacyLight = Array.isArray(next.parameters.lighting.lights) && next.parameters.lighting.lights.length > 0;
-  if (!hasLightNode && !hasLegacyLight) {
-    const usedIds = new Set(next.parameters.nodes.map(node => node.id).filter(Boolean));
-    next.parameters.nodes.push(...defaultLightNodes().map(node => ({
-      ...node,
-      id: uniqueDocumentNodeId(node.id, usedIds)
-    })));
-    next.parameters.lighting.enabled = true;
-  }
-  return next;
-}
 
 const $ = (selector) => document.querySelector(selector);
 const canvas = $("#viewport");
@@ -104,7 +68,6 @@ let draggedPrototype = null;
 let soloLightPrototype = null;
 const initialDocument = structuredClone(defaultDocument);
 
-const palette = { concrete: "#7d8991", steel: "#8fd0d1", water: "#54a8ff", accent: "#d9ff57", default: "#aab5be" };
 const add = (a, b) => a.map((value, index) => value + b[index]);
 const sub = (a, b) => a.map((value, index) => value - b[index]);
 const scale = (vector, amount) => vector.map((value) => value * amount);
@@ -390,7 +353,7 @@ function sourceWorldPoint(source, point) {
   return result;
 }
 function sourceControlKind(source) {
-  if (["tube-along", "sweep"].includes(source?.geometry?.type)) return "tube-point";
+  if (["tube-along", "sweep", "rectangular-duct", "hollow-round-pipe"].includes(source?.geometry?.type)) return "tube-point";
   if (source?.geometry?.type === "lofted-surface") return "loft-section";
   if (source?.repetition?.type === "path") return "path-point";
   return null;
@@ -480,7 +443,99 @@ function sectionExtent(profile, axis) {
   return max - min;
 }
 
-function sweepSizeFields(geometry) {
+const wallFields = [["wallWidth", "墙宽（米）"], ["wallHeight", "墙高（米）"], ["thickness", "墙厚（米）"]];
+const openingFields = [["openingWidth", "洞口净宽（米）"], ["openingHeight", "洞口净高（米）"], ["openingOffset", "洞口中心偏移（米）"]];
+const sectionFields = [["length", "构件长度（米）"], ["sectionWidth", "截面外宽（米）"], ["sectionHeight", "截面外高（米）"]];
+const webFlangeFields = [...sectionFields, ["webThickness", "腹板厚度（米）"], ["flangeThickness", "翼缘厚度（米）"]];
+const roofPanelFields = [["panelWidth", "板宽（米）"], ["run", "水平进深（米）"], ["rise", "坡面起高（米）"], ["thickness", "板厚（米）"]];
+const masonryFields = [["length", "砌块长度（米）"], ["width", "砌块厚度（米）"], ["height", "砌块高度（米）"]];
+const precastFields = [["length", "构件长度（米）"], ["width", "构件宽度（米）"], ["depth", "构件总高（米）"]];
+const purlinFields = [["length", "檩条段长（米）"], ["sectionHeight", "截面高度（米）"], ["flangeWidth", "翼缘宽度（米）"],
+  ["thickness", "壁厚（米）"], ["lipLength", "卷边长度（米）"], ["bearingInset", "支点距端（米）"]];
+const railingFields = [["railWidth", "栏杆段宽（米）"], ["railHeight", "栏杆高度（米）"], ["thickness", "栏杆厚度（米）"],
+  ["memberWidth", "杆件宽度（米）"], ["bayCount", "开格数"]];
+const namedGeometryFields = new Map([
+  ["straight-stair", [["stepCount", "踏步数"], ["riserHeight", "级高（米）"], ["treadDepth", "踏面深度（米）"], ["width", "梯段宽度（米）"]]],
+  ["door-opening-wall", [...wallFields, ["openingWidth", "门洞净宽（米）"], ["openingHeight", "门洞净高（米）"], ["openingOffset", "门洞中心偏移（米）"]]],
+  ["partition-wall", wallFields],
+  ["window-opening-wall", [...wallFields, ...openingFields, ["sillHeight", "窗台高度（米）"]]],
+  ["l-corner-wall", [["lengthX", "X 向墙长（米）"], ["lengthZ", "Z 向墙长（米）"], ["wallHeight", "墙高（米）"], ["thickness", "墙厚（米）"]]],
+  ["straight-ramp", [["run", "水平投影长度（米）"], ["rise", "坡道高差（米）"], ["rampWidth", "坡道宽度（米）"], ["deckThickness", "坡板厚度（米）"]]],
+  ["floor-opening-slab", [["slabWidth", "楼板宽度（米）"], ["slabDepth", "楼板进深（米）"], ["thickness", "楼板厚度（米）"],
+    ["openingWidth", "洞口净宽（米）"], ["openingDepth", "洞口进深（米）"], ["openingOffsetX", "洞口 X 偏移（米）"], ["openingOffsetZ", "洞口 Z 偏移（米）"]]],
+  ["window-sill", [["sillWidth", "窗台板长度（米）"], ["projection", "外挑深度（米）"], ["thickness", "根部厚度（米）"],
+    ["fall", "向外落差（米）"], ["grooveWidth", "滴水槽宽度（米）"], ["grooveDepth", "滴水槽深度（米）"], ["grooveSetback", "滴水槽距前边（米）"]]],
+  ["balcony-deck", [["deckWidth", "阳台板宽度（米）"], ["projection", "外挑深度（米）"], ["thickness", "板厚（米）"],
+    ["edgeWidth", "边梁宽度（米）"], ["downstand", "边梁下挂高度（米）"]]],
+  ["sloped-cover", [["coverWidth", "雨棚宽度（米）"], ["projection", "外挑深度（米）"], ["thickness", "板厚（米）"], ["fall", "向外落差（米）"]]],
+  ["wall-coping", [["capLength", "压顶长度（米）"], ["capWidth", "压顶宽度（米）"], ["edgeHeight", "边缘高度（米）"], ["crownRise", "中线抬升（米）"]]],
+  ["steel-i-section", webFlangeFields],
+  ["steel-channel-section", webFlangeFields],
+  ["steel-angle-section", [...sectionFields, ["thickness", "角钢厚度（米）"]]],
+  ["steel-rectangular-tube", [...sectionFields, ["thickness", "钢管壁厚（米）"]]],
+  ["steel-round-tube", [["length", "钢管长度（米）"], ["outerDiameter", "外径（米）"], ["thickness", "钢管壁厚（米）"]]],
+  ["precast-hollow-core-slab", [...precastFields, ["voidCount", "空芯孔数"], ["voidDiameter", "孔径（米）"],
+    ["keyDepth", "侧键凹深（米）"], ["bearingInset", "支点距板端（米）"]]],
+  ["precast-double-tee-slab", [...precastFields, ["flangeThickness", "面板厚度（米）"],
+    ["stemTopWidth", "板肋上缘宽（米）"], ["stemBottomWidth", "板肋底宽（米）"], ["stemSpacing", "双肋中心距（米）"],
+    ["bearingInset", "支点距板端（米）"]]],
+  ["precast-inverted-tee-beam", [...precastFields, ["ledgeHeight", "座台标高（米）"], ["webWidth", "腹板宽度（米）"]]],
+  ["precast-dapped-end-beam", [...precastFields, ["notchLength", "端部缺口长度（米）"], ["seatRise", "端部座台起高（米）"]]],
+  ["ribbed-composite-deck-sheet", [["length", "钢板长度（米）"], ["ribPitch", "肋距（米）"], ["crownWidth", "顶肋宽度（米）"],
+    ["troughWidth", "谷底宽度（米）"], ["ribHeight", "钢板肋高（米）"], ["thickness", "钢板厚度（米）"], ["ribCount", "肋数"]]],
+  ["elevator-t-guide-rail", [["length", "导轨段长（米）"], ["footWidth", "轨脚宽（米）"], ["footThickness", "轨脚厚（米）"],
+    ["bladeWidth", "轨刃宽（米）"], ["bladeDepth", "轨刃伸出（米）"], ["spliceInset", "拼板定位点距端（米）"]]],
+  ["cold-formed-c-purlin", purlinFields],
+  ["cold-formed-z-purlin", purlinFields],
+  ["cellular-steel-web", [["length", "腹板长度（米）"], ["webHeight", "腹板高度（米）"], ["thickness", "腹板厚度（米）"],
+    ["openingDiameter", "孔口直径（米）"], ["openingCount", "开孔数"]]],
+  ["overhead-crane-runway-rail", [["length", "轨道段长（米）"], ["headWidth", "轨顶宽度（米）"], ["footWidth", "轨底宽度（米）"],
+    ["height", "轨道总高（米）"], ["headThickness", "轨头高度（米）"], ["footThickness", "轨底厚度（米）"], ["webThickness", "轨腰厚度（米）"]]],
+  ["bolted-base-plate", [["plateWidth", "底板宽度（米）"], ["plateDepth", "底板进深（米）"], ["thickness", "板厚（米）"],
+    ["holeDiameter", "孔径（米）"], ["boltPitchX", "X 向孔距（米）"], ["boltPitchZ", "Z 向孔距（米）"]]],
+  ["slotted-splice-plate", [["plateLength", "连接板长度（米）"], ["plateWidth", "连接板宽度（米）"], ["thickness", "板厚（米）"],
+    ["slotLength", "长孔长度（米）"], ["slotWidth", "长孔宽度（米）"], ["pitchX", "X 向孔距（米）"], ["pitchZ", "Z 向孔距（米）"]]],
+  ["strip-footing", [["length", "基础长度（米）"], ["footingWidth", "底座宽度（米）"], ["footingThickness", "底座厚度（米）"],
+    ["stemWidth", "基础墙宽度（米）"], ["stemHeight", "基础墙高度（米）"]]],
+  ["round-pile", [["length", "桩长（米）"], ["diameter", "桩径（米）"]]],
+  ["bevelled-curb", [["length", "路缘石长度（米）"], ["width", "路缘石宽度（米）"], ["height", "路缘石高度（米）"], ["bevel", "倒角（米）"]]],
+  ["crowned-road-surface", [["length", "路段长度（米）"], ["width", "路面宽度（米）"], ["thickness", "结构层厚度（米）"],
+    ["crownHeight", "路拱抬高（米）"]]],
+  ["quarter-circle-tree-pit-curb", [["outsideRadius", "树池外半径（米）"], ["insideRadius", "树池内半径（米）"], ["height", "围边高度（米）"]]],
+  ["landscape-trapezoidal-swale", [["length", "浅沟段长（米）"], ["topWidth", "沟顶宽度（米）"], ["bottomWidth", "沟底宽度（米）"],
+    ["depth", "沟槽深度（米）"], ["baseThickness", "沟底厚度（米）"]]],
+  ["l-retaining-wall", [["length", "挡墙段长（米）"], ["wallHeight", "墙身高度（米）"], ["wallThickness", "墙身根部厚（米）"],
+    ["capThickness", "顶部厚度（米）"], ["toeDepth", "前趾长度（米）"], ["heelDepth", "后踵长度（米）"], ["footingThickness", "底板厚度（米）"]]],
+  ["rebated-drain-channel", [["length", "槽段长度（米）"], ["clearWidth", "沟槽净宽（米）"], ["depth", "沟槽深度（米）"],
+    ["thickness", "槽壁厚度（米）"], ["seatWidth", "单侧格栅支座宽（米）"], ["seatDepth", "支座下沉（米）"]]],
+  ["slotted-drain-grate", [["length", "格栅长度（米）"], ["width", "格栅宽度（米）"], ["thickness", "格栅厚度（米）"],
+    ["frameWidth", "边框宽度（米）"], ["barWidth", "格条宽度（米）"], ["slotCount", "开槽数"]]],
+  ["pitched-roof-deck", roofPanelFields],
+  ["standing-seam-roof-panel", [...roofPanelFields, ["seamHeight", "锁边高度（米）"]]],
+  ["corrugated-roof-panel", [...roofPanelFields, ["ribHeight", "波形高度（米）"], ["corrugationCount", "波形数"]]],
+  ["roof-ridge-cap", [["length", "屋脊段长度（米）"], ["legWidth", "单边水平投影（米）"], ["fall", "单边落差（米）"], ["thickness", "板厚（米）"]]],
+  ["hollow-masonry-block", [...masonryFields, ["webThickness", "壁肋厚度（米）"], ["coreCount", "芯孔数"]]],
+  ["perforated-clay-brick", [...masonryFields, ["holeDiameter", "孔径（米）"], ["columnCount", "孔列数"], ["rowCount", "孔行数"]]],
+  ["tongue-groove-masonry-block", [...masonryFields, ["keyWidth", "榫舌宽度（米）"], ["keyDepth", "榫舌深度（米）"], ["clearance", "企口间隙（米）"]]],
+  ["lipped-drywall-stud", [["length", "竖龙骨长度（米）"], ["webDepth", "腹板宽度（米）"], ["flangeWidth", "翼缘宽度（米）"],
+    ["lipLength", "卷边长度（米）"], ["thickness", "壁厚（米）"]]],
+  ["u-drywall-track", [["length", "沿顶地龙骨长度（米）"], ["trackWidth", "龙骨外宽（米）"],
+    ["sideHeight", "两翼高度（米）"], ["thickness", "壁厚（米）"]]],
+  ["hat-furring-channel", [["length", "覆面龙骨长度（米）"], ["channelWidth", "展开宽度（米）"], ["crownWidth", "顶面净宽（米）"],
+    ["standoff", "架空高度（米）"], ["thickness", "壁厚（米）"]]],
+  ["tapered-gypsum-sheet", [["boardWidth", "石膏板宽度（米）"], ["boardHeight", "石膏板高度（米）"], ["thickness", "板厚（米）"],
+    ["taperWidth", "楔形边宽度（米）"], ["taperDepth", "楔形边下沉（米）"]]],
+  ["straight-railing", railingFields],
+  ["sloped-railing", [...railingFields, ["rise", "两端高差（米）"]]],
+  ["rectangular-duct", [["sectionWidth", "风管外宽（米）"], ["sectionHeight", "风管外高（米）"], ["thickness", "风管壁厚（米）"]]],
+  ["hollow-round-pipe", [["outsideDiameter", "管道外径（米）"], ["thickness", "管道壁厚（米）"]]],
+]);
+
+function geometryDimensionFields(geometry) {
+  const fields = namedGeometryFields.get(geometry.type);
+  if (fields) return fields.map(([key, label]) =>
+    `<label class="edit-field">${label}<input type="number" data-geometry-field="${key}" step="${key.endsWith("Count") ? "1" : "any"}" value="${escapeHtml(geometry[key])}"></label>`
+  ).join("");
   if (geometry?.type !== "sweep") return "";
   return ["截面宽度（米）", "截面高度（米）"].map((label, axis) => {
     const value = sectionExtent(geometry.profile, axis);
@@ -499,8 +554,9 @@ function renderInspector() {
   if(sourceNode.light){renderLightInspector(sourceNode);enhanceLightInspector(sourceNode);bindLightLivePreview(sourceNode);return}
   const transform=sourceNode?.transform??{};const position=transform.position??sourceNode?.position??[0,0,0];const rotation=transform.rotation??[0,0,0];const nodeScale=transform.scale??[1,1,1];const size=sourceNode?.geometry?.size;
   const parentOptions=[`<option value="">无父节点</option>`,...documentValue.parameters.nodes.filter(item=>item.id!==sourceNode.id&&!item.repetition).map(item=>`<option value="${escapeHtml(item.id)}" ${sourceNode.parent===item.id?"selected":""}>${escapeHtml(item.id)}</option>`)].join("");
-  const selectionDescription=selectedOccurrenceExplicit&&node?node.metadata?.occurrenceRef??node.id:outputs.length>1?`组件原型（包含 ${outputs.length} 个展开实例）`:outputs.length===1?"组件原型（1 个实例）":"仅组织层级的空组件";
-  const geometryHtml=sourceNode.geometry?`<div class="section"><div class="section-title">几何 · ${escapeHtml(sourceNode.geometry.type)}</div>${sweepSizeFields(sourceNode.geometry)}${size?`<div class="edit-field"><label>尺寸 X / Y / Z</label>${vectorInputs("editSize",size,.1)}</div>`:""}${sourceNode.geometry.radius!==undefined?`<div class="edit-field"><label>半径</label><input id="editRadius" type="number" min="0.001" step="0.01" value="${sourceNode.geometry.radius}"></div>`:""}${sourceNode.geometry.height!==undefined?`<div class="edit-field"><label>高度</label><input id="editHeight" type="number" min="0.001" step="0.1" value="${sourceNode.geometry.height}"></div>`:""}${sourceNode.geometry.majorRadius!==undefined?`<div class="edit-field"><label>圆环主半径</label><input id="editMajorRadius" type="number" min="0.001" step="0.1" value="${sourceNode.geometry.majorRadius}"></div><div class="edit-field"><label>圆管半径</label><input id="editTubeRadius" type="number" min="0.001" step="0.01" value="${sourceNode.geometry.tubeRadius}"></div>`:""}</div>`:`<div class="section"><div class="section-title">几何</div><div class="concept-note"><strong>空组件</strong><span>这个组件只用于组织父子关系和变换，本身没有可绘制几何。</span></div></div>`;
+  const modelGroup = !sourceNode.geometry && nodeHasDescendants(sourceNode.id);
+  const selectionDescription=selectedOccurrenceExplicit&&node?node.metadata?.occurrenceRef??node.id:outputs.length>1?`组件原型（包含 ${outputs.length} 个展开实例）`:outputs.length===1?"组件原型（1 个实例）":modelGroup?"模型组":"空组件";
+  const geometryHtml=sourceNode.geometry?`<div class="section"><div class="section-title">几何 · ${escapeHtml(sourceNode.geometry.type)}</div>${geometryDimensionFields(sourceNode.geometry)}${size?`<div class="edit-field"><label>尺寸 X / Y / Z</label>${vectorInputs("editSize",size,.1)}</div>`:""}${sourceNode.geometry.radius!==undefined?`<div class="edit-field"><label>半径</label><input id="editRadius" type="number" min="0.001" step="0.01" value="${sourceNode.geometry.radius}"></div>`:""}${sourceNode.geometry.height!==undefined?`<div class="edit-field"><label>高度</label><input id="editHeight" type="number" min="0.001" step="0.1" value="${sourceNode.geometry.height}"></div>`:""}${sourceNode.geometry.majorRadius!==undefined?`<div class="edit-field"><label>圆环主半径</label><input id="editMajorRadius" type="number" min="0.001" step="0.1" value="${sourceNode.geometry.majorRadius}"></div><div class="edit-field"><label>圆管半径</label><input id="editTubeRadius" type="number" min="0.001" step="0.01" value="${sourceNode.geometry.tubeRadius}"></div>`:""}</div>`:`<div class="section"><div class="section-title">几何</div><div class="concept-note"><strong>${modelGroup ? "模型组" : "空组件"}</strong><span>${modelGroup ? "编辑位置、旋转或缩放可调整整组。" : "可把其他组件设为它的子节点。"}</span></div></div>`;
   $("#inspectTab").innerHTML = `<div class="selection-context"><span>当前选择</span><strong>${escapeHtml(sourceNode.id)}</strong><small>${escapeHtml(selectionDescription)}</small></div><div class="section"><div class="section-title">组件身份与层级</div><div class="edit-field"><label>组件 ID <span class="field-key">id / 原型 ID</span></label><small class="field-help">模型中的唯一名称。父子关系、动画和连接会通过它引用这个组件。</small><input id="editId" value="${escapeHtml(sourceNode.id)}"></div><div class="edit-field"><label>父组件 <span class="field-key">parent</span></label><small class="field-help">决定组件跟随谁移动、旋转和缩放。</small><select id="editParent">${parentOptions}</select></div><div class="edit-field"><label>用途分类 <span class="field-key">semanticType / 语义类型</span></label><small class="field-help">告诉 Agent 这是什么，例如 structure.column 表示结构柱；不决定几何外形。</small><input id="editSemantic" value="${escapeHtml(sourceNode.semanticType??"")}"></div>${property(selectedOccurrenceExplicit?"当前实例":"选择范围",selectionDescription)}</div><div class="section"><div class="section-title">外观与材质</div><div class="edit-field"><label>材质名称 <span class="field-key">material / 材质标识</span></label><small class="field-help">可复用的材质类别名称，例如 steel、concrete、water；颜色可在下方单独覆盖。</small><input id="editMaterial" value="${escapeHtml(sourceNode.material??"")}"></div><div class="edit-field"><label>颜色与不透明度</label><div class="color-row"><input id="editColor" type="color" value="${escapeHtml(sourceNode.appearance?.color??(node?colorFor(node):palette.default))}"><input id="editOpacity" type="number" min="0" max="1" step="0.05" value="${sourceNode.appearance?.opacity??1}"></div></div></div><div class="section"><div class="section-title">位置与姿态</div><div class="edit-field"><label>位置 X / Y / Z</label>${vectorInputs("editPosition",position,.1)}</div><div class="edit-field"><label>旋转 X / Y / Z（弧度）</label>${vectorInputs("editRotation",rotation,.1)}</div><div class="edit-field"><label>缩放 X / Y / Z</label>${vectorInputs("editScale",nodeScale,.1)}</div></div>${geometryHtml}<div class="section"><div class="inspector-actions"><button id="focusSelected">聚焦</button><button id="isolateSelected">${isolatedPrototype?"退出隔离":"隔离查看"}</button><button id="duplicateSelected">复制</button><button id="deleteSelected">删除</button>${sourceNode.geometry?`<button id="addMoveAnimation">＋ 移动动画</button><button id="addRotateAnimation">＋ 旋转动画</button>`:""}<button id="applyProperties" class="apply">应用全部修改</button></div></div>`;
   $("#applyProperties").addEventListener("click",()=>applyProperties(sourceNode));
   if (clipBinding(sourceNode.id)) {
@@ -827,7 +883,7 @@ function renderDiagnostics({ checkedDraft = false } = {}) {
 
 function refreshDraftDiagnostics() {
   diagnosticsSource = $("#sourceEditor").value;
-  diagnostics = checkSourceDraft(diagnosticsSource).issues;
+  diagnostics = checkSourceDraft(diagnosticsSource, { registry }).issues;
   renderDiagnostics({ checkedDraft: true });
 }
 
@@ -921,10 +977,11 @@ function readVector(selector) { return [...document.querySelectorAll(selector)].
 
 function applyProperties(sourceNode) {
   if (!sourceNode) return;
-  let nextProfile;
-  if (sourceNode.geometry?.type === "sweep") {
-    const geometry = sourceNode.geometry;
-    try {
+  let nextGeometry;
+  const geometry = sourceNode.geometry;
+  const dimensions = [...$("#inspectTab").querySelectorAll("[data-geometry-field]")];
+  try {
+    if (geometry?.type === "sweep") {
       const factors = [0, 1].map(axis => {
         const input = $(`#sweepSize${axis}`);
         if (!input) return 1;
@@ -932,13 +989,21 @@ function applyProperties(sourceNode) {
         if (!Number.isFinite(size) || size <= 0) throw new Error("截面尺寸必须大于 0");
         return size / sectionExtent(geometry.profile, axis);
       });
-      nextProfile = geometry.profile.map(([u, v]) => [u * factors[0], v * factors[1]]);
-      sweepGeometry({ ...geometry, profile: nextProfile });
-    } catch (error) {
-      diagnostics = [{ message: error.message }];
-      renderDiagnostics();
-      return;
+      const scaleContour = contour => contour.map(([u, v]) => [u * factors[0], v * factors[1]]);
+      nextGeometry = { ...geometry, profile: scaleContour(geometry.profile),
+        ...(geometry.holes ? { holes: geometry.holes.map(scaleContour) } : {}) };
+      sweepGeometry(nextGeometry);
+    } else if (dimensions.length) {
+      const values = dimensions.map(input => [input.dataset.geometryField, input.valueAsNumber]);
+      nextGeometry = { ...geometry, ...Object.fromEntries(values) };
+      sweepGeometry(parametricSweep(nextGeometry));
     }
+  } catch (error) {
+    diagnostics = [{ message: error.message }];
+    renderDiagnostics();
+    activateTab("diagnostics");
+    setStatus("几何参数无效");
+    return;
   }
   pushUndo();
   const oldId=sourceNode.id;const nextId=$("#editId").value.trim();
@@ -963,7 +1028,7 @@ function applyProperties(sourceNode) {
   const sizeInputs=document.querySelectorAll(".editSize");if(sizeInputs.length){const size=readVector(".editSize");if(size.some(value=>!Number.isFinite(value)||value<=0)){diagnostics=[{message:"几何尺寸必须大于 0"}];renderDiagnostics();return;}sourceNode.geometry.size=size}
   const radiusInput=$("#editRadius");if(radiusInput){const radius=Number(radiusInput.value);if(!Number.isFinite(radius)||radius<=0){diagnostics=[{message:"半径必须大于 0"}];renderDiagnostics();return;}sourceNode.geometry.radius=radius}
   for(const [selector,key,label] of [["#editHeight","height","高度"],["#editMajorRadius","majorRadius","圆环主半径"],["#editTubeRadius","tubeRadius","圆管半径"]]){const input=$(selector);if(input){const value=Number(input.value);if(!Number.isFinite(value)||value<=0){diagnostics=[{message:`${label}必须大于 0`}];renderDiagnostics();return}sourceNode.geometry[key]=value}}
-  if (nextProfile) sourceNode.geometry.profile = nextProfile;
+  if (nextGeometry) sourceNode.geometry = nextGeometry;
   delete sourceNode.position;
   syncSourceEditor();
   compile(undefined,{preserveSource:true});
@@ -977,7 +1042,8 @@ function addComponent(template){pushUndo();const configs={box:{base:"box",semant
 function addLightComponent(type){pushUndo(`添加${type}灯光组件`);const id=uniqueNodeId(`${type}-light`),defaults={point:{color:"#fff1d6",intensity:80,distance:18},directional:{color:"#ffffff",intensity:1.2},spot:{color:"#fff1d6",intensity:120,distance:20,angle:Math.PI/5,penumbra:.25}},node={id,kind:"light",semanticType:`scene.light.${type}`,light:{type,...defaults[type]},transform:{position:[3,4,3],rotation:type==="point"?[0,0,0]:[-.7,.7,0],scale:[1,1,1]}};documentValue.parameters.nodes.push(node);threeNeedsRebuild=true;compile(undefined,{preserveSource:true});selectCreatedComponent(id);setStatus(`已创建灯光组件 ${id}`)}
 
 const libraryPreviewStates=new Map();
-let libraryPreviewRenderVersion=0;
+let stopLibraryPreviews;
+let librarySelection=0;
 function bindLibraryPreview(canvas,item){
   if(!canvas)return;
   const nodes=modelPreviewNodes(item,registry);
@@ -1029,18 +1095,48 @@ function bindLibraryPreview(canvas,item){
     redraw();
   });
   redraw();
-  requestAnimationFrame(redraw);
-  setTimeout(redraw, 80);
 }
 
-function renderModelLibrary(filter="all",query=""){
-  const normalized=query.trim().toLowerCase();
-  const usable=publicModelLibraryEntries.filter(item=>item.editor?.document||item.editor?.node||item.editor?.template);
-  const entries=usable.filter(item=>(filter==="all"||item.kind===filter)&&(!normalized||[item.id,item.title,item.summary,item.semanticType??"",...(item.tags??[]),...(item.capabilities??[])].join(" ").toLowerCase().includes(normalized)));
+function addLibraryGroup(item) {
+  if (sourceDraftPending) {
+    activateTab("source");
+    setStatus("先重新构建 JSON 草稿，再加入模型组");
+    return;
+  }
+  let insertion;
+  try {
+    insertion = insertLibraryGroup(documentValue, item.editor.document);
+    registry.build(insertion.document);
+  } catch (error) {
+    diagnostics = [{ message: error.message }];
+    renderDiagnostics();
+    activateTab("diagnostics");
+    setStatus("模型组加入失败");
+    return;
+  }
+  pushUndo(`加入模型组 ${item.title}`);
+  if (animationHandle) stopAnimation();
+  documentValue = insertion.document;
+  isolatedPrototype = null;
+  selectedAnnotationId = null;
+  collapsedPrototypes.add(insertion.groupId);
+  compile(undefined, { preserveSource: true });
+  selectCreatedComponent(insertion.groupId);
+  activateTab("inspect");
+  fitView();
+  setStatus(`已加入模型组 ${item.title}`);
+}
+
+function renderModelLibrary(){
+  stopLibraryPreviews?.();
+  const usable=publicModelLibraryEntries;
+  const entries=searchPublicRegistry({ entries: usable }, $("#librarySearch").value, $("#libraryKind").value, $("#libraryDomain").value);
   const labels={component:"构件",method:"空间方法",composition:"组合"};
   $("#libraryEntries").innerHTML=entries.map(item=>{
-    const actionLabel=item.editor?.document?"打开完整模型":"添加到场景";
-    const previewLabel=item.editor?.document||item.editor?.node?"可旋转预览":"结构定义";
+    const actionLabel=item.opensDocument?"打开完整模型":"添加到场景";
+    const addGroup = item.canInsertGroup
+      ? `<button type="button" data-library-group="${escapeHtml(item.id)}">加入当前场景</button>` : "";
+    const previewLabel=item.hasPreview?"可旋转预览":"结构定义";
     const source=item.source??item.license??"registry";
     return `<article class="library-card" data-library-id="${escapeHtml(item.id)}" data-library-title="${escapeHtml(item.title)}">
       <div class="library-card-content">
@@ -1053,7 +1149,7 @@ function renderModelLibrary(filter="all",query=""){
         <div class="library-tags">${(item.capabilities??[]).map(value=>`<span>${escapeHtml(value)}</span>`).join("")}</div>
         <footer>
           <small>${escapeHtml(source)}</small>
-          <button data-library-use="${escapeHtml(item.id)}">${actionLabel}</button>
+          <span class="library-card-actions">${addGroup}<button type="button" data-library-use="${escapeHtml(item.id)}">${actionLabel}</button></span>
         </footer>
       </div>
       <div class="library-card-preview">
@@ -1064,37 +1160,81 @@ function renderModelLibrary(filter="all",query=""){
     </article>`;
   }).join("")||`<div class="library-empty">没有可带入编辑器的匹配条目</div>`;
   $("#libraryCount").textContent=`${entries.length} / ${usable.length}`;
-  const renderVersion=++libraryPreviewRenderVersion;
-  requestAnimationFrame(()=>entries.forEach(item=>{
-    if(renderVersion!==libraryPreviewRenderVersion)return;
-    const card=[...$("#libraryEntries").querySelectorAll("[data-library-id]")].find(element=>element.dataset.libraryId===item.id);
-    bindLibraryPreview(card?.querySelector("[data-library-preview]"),item);
-  }));
-  $("#libraryEntries").querySelectorAll("[data-library-use]").forEach(button=>button.addEventListener("click",()=>{
-    const item=usable.find(entry=>entry.id===button.dataset.libraryUse);
-    if(!item)return;
-    $("#libraryDialog").close();
-    if(item.editor.template){addComponent(item.editor.template);return}
-    pushUndo(`从模型库使用 ${item.id}`);
-    if(item.editor.document){
-      sourceDraftPending=false;
-      documentValue=withDefaultSceneLighting(item.editor.document);
-      hiddenPrototypes.clear();isolatedPrototype=null;selectedId=null;activePrototype=null;selectedOccurrenceExplicit=false;selectedAnnotationId=null;selectedPrototypes.clear();
-      threeNeedsRebuild=true;
-      compile(undefined,{preserveSource:true});
-      fitView();
-      setStatus(`已打开完整模型 ${item.title}，并确认默认灯光`);
-      return;
+  const root = $("#libraryEntries");
+  stopLibraryPreviews = observeModelPreviews(root.querySelectorAll("canvas[data-library-preview]"), async canvas => {
+    const summary = publicModelLibraryById.get(canvas.dataset.libraryPreview);
+    try {
+      const item = summary.hasPreview ? await loadCatalogEntry(summary) : summary;
+      if (canvas.isConnected && $("#libraryDialog").open) bindLibraryPreview(canvas, item);
+    } catch (error) {
+      console.warn("Library model load failed", summary.id, error);
     }
-    if(item.editor.node){
-      const node=structuredClone(item.editor.node),original=node.id??"library-component";
-      node.id=uniqueNodeId(original);
-      documentValue.parameters.nodes.push(node);
-      compile(undefined,{preserveSource:true});
-      selectCreatedComponent(node.id);
-      setStatus(`已添加模型库构件 ${item.title}`);
+  }, { root });
+}
+
+function useLibraryEntry(item) {
+  pushUndo(`从模型库使用 ${item.id}`);
+  const insertion = insertableComponentParameters(item);
+  if(item.editor.document&&!insertion){
+    sourceDraftPending=false;
+    documentValue=withDefaultSceneLighting(item.editor.document);
+    hiddenPrototypes.clear();isolatedPrototype=null;selectedId=null;activePrototype=null;selectedOccurrenceExplicit=false;selectedAnnotationId=null;selectedPrototypes.clear();
+    threeNeedsRebuild=true;
+    compile(undefined,{preserveSource:true});
+    fitView();
+    setStatus(`已打开完整模型 ${item.title}，并确认默认灯光`);
+    return;
+  }
+  const sourceNode = insertion?.nodes[0] ?? item.editor.node;
+  if(sourceNode){
+    const node=structuredClone(sourceNode),original=node.id??"library-component";
+    node.id=uniqueNodeId(original);
+    documentValue.parameters.nodes.push(node);
+    if (insertion?.anchors) {
+      const existing = documentValue.parameters.anchors ?? {};
+      const names = new Set(Object.keys(existing));
+      const incoming = Object.entries(insertion.anchors).map(([name, anchor]) => [
+        allocateModelId(`${node.id}-${name}`, names),
+        { ...structuredClone(anchor), node: node.id },
+      ]);
+      documentValue.parameters.anchors = { ...existing, ...Object.fromEntries(incoming) };
     }
-  }));
+    compile(undefined,{preserveSource:true});
+    selectCreatedComponent(node.id);
+    activateTab("inspect");
+    setStatus(`已添加模型库构件 ${item.title}`);
+  }
+}
+
+async function selectLibraryEntry(event) {
+  const button = event.target.closest("[data-library-use], [data-library-group]");
+  const summary = publicModelLibraryById.get(button?.dataset.libraryGroup ?? button?.dataset.libraryUse);
+  if (!summary || button.disabled) return;
+  const dialog = $("#libraryDialog");
+  const selection = ++librarySelection;
+  if (summary.template && !button.dataset.libraryGroup) {
+    dialog.close();
+    addComponent(summary.template);
+    return;
+  }
+  button.disabled = true;
+  const label = button.textContent;
+  button.textContent = "加载中…";
+  let item;
+  try {
+    item = await loadCatalogEntry(summary);
+  } catch (error) {
+    button.textContent = "加载失败，请刷新页面";
+    console.warn("Library model load failed", summary.id, error);
+    return;
+  } finally {
+    button.disabled = false;
+  }
+  button.textContent = label;
+  if (selection !== librarySelection || !dialog.open || !button.isConnected) return;
+  dialog.close();
+  if (button.dataset.libraryGroup) addLibraryGroup(item);
+  else useLibraryEntry(item);
 }
 function duplicateNode(id){const source=documentValue.parameters.nodes.find(item=>item.id===id);if(!source)return;pushUndo();const clone=structuredClone(source);clone.id=uniqueNodeId(`${id}-copy`);const p=clone.transform?.position??clone.position??[0,0,0];clone.transform={...(clone.transform??{}),position:[p[0]+.5,p[1],p[2]+.5]};delete clone.position;documentValue.parameters.nodes.push(clone);compile(undefined,{preserveSource:true});selectCreatedComponent(clone.id);setStatus(`已复制为 ${clone.id}`)}
 function descendantNodeIds(id){
@@ -1119,7 +1259,16 @@ function deleteNode(id){
       if (ids.has(binding.clip)) { delete binding.clip; delete binding.clipOffset; }
     }
   }
-  for(const [key,anchor] of Object.entries(documentValue.parameters.anchors??{})){if(ids.has(anchor.node))delete documentValue.parameters.anchors[key]}
+  const removedAnchors = new Set();
+  for (const [name, anchor] of Object.entries(documentValue.parameters.anchors ?? {})) {
+    if (!ids.has(anchor?.node)) continue;
+    removedAnchors.add(name);
+    delete documentValue.parameters.anchors[name];
+  }
+  if (removedAnchors.size && documentValue.parameters.attachments) {
+    documentValue.parameters.attachments = documentValue.parameters.attachments.filter(link =>
+      !removedAnchors.has(link.from) && !removedAnchors.has(link.to));
+  }
   documentValue.parameters.animations=(documentValue.parameters.animations??[]).filter(item=>!ids.has(item.target));
   for(const removedId of ids){hiddenPrototypes.delete(removedId);collapsedPrototypes.delete(removedId)}
   if(isolatedPrototype&&ids.has(isolatedPrototype))isolatedPrototype=null;
@@ -1227,6 +1376,7 @@ function compile(source, { preserveSource = false } = {}) {
   const editor = $("#sourceEditor");
   let candidate = documentValue;
   let input;
+  let sceneImport = false;
   diagnostics = [];
   diagnosticsSource = undefined;
   const hasErrors = () => diagnostics.some(issue => issue.level !== "warning");
@@ -1235,14 +1385,16 @@ function compile(source, { preserveSource = false } = {}) {
     if (lastSyntaxRepair?.after !== editor.value) lastSyntaxRepair = undefined;
     sourceDraftPending = true;
     diagnosticsSource = editor.value;
-    ({ input, issues: diagnostics } = checkSourceDraft(diagnosticsSource));
-    if (!hasErrors()) {
-      const doc = isCompositionManifest(input) ? input.editor.document : input;
-      candidate = doc.component ? doc : { id: doc.id, component: "core.composition", parameters: doc };
-    }
+    ({ input, issues: diagnostics } = checkSourceDraft(diagnosticsSource, { registry }));
+    sceneImport = isSceneDocument(input);
   }
   if (!hasErrors()) {
     try {
+      if (!preserveSource) {
+        const doc = sceneImport ? withDefaultSceneLighting(importEditableScene(input)) :
+          isCompositionManifest(input) ? input.editor.document : input;
+        candidate = doc.component ? doc : { id: doc.id, component: "core.composition", parameters: doc };
+      }
       migrateLegacyLights(candidate);
       build = registry.build(candidate);
       const resolved = build.instance.parameters;
@@ -1256,8 +1408,8 @@ function compile(source, { preserveSource = false } = {}) {
       diagnostics = build.warnings.filter(issue => issue?.level === "warning" && typeof issue.path === "string" && issue.path.startsWith("/attachments/"))
         .map(issue => ({ ...issue, path: "/parameters" + issue.path }));
     } catch (error) {
-      diagnostics = checkComposition(input ?? candidate).issues;
-      if (!hasErrors()) diagnostics.push({ code: "COMPILE_FAILED", path: "", message: error.message });
+      diagnostics = sceneImport ? [] : checkComposition(input ?? candidate).issues;
+      if (!hasErrors()) diagnostics.push({ code: sceneImport ? "EDITOR_SCENE_IMPORT_FAILED" : "COMPILE_FAILED", path: "", message: error.message });
     }
   }
   if (hasErrors()) {
@@ -1271,6 +1423,16 @@ function compile(source, { preserveSource = false } = {}) {
     return;
   }
   if (!preserveSource) sourceDraftPending = false;
+  if (sceneImport) {
+    hiddenPrototypes.clear();
+    isolatedPrototype = null;
+    activePrototype = null;
+    selectedPrototypes.clear();
+    selectedOccurrenceExplicit = false;
+    selectedAnnotationId = null;
+    collapsedPrototypes = new Set(documentValue.parameters.nodes.filter(node => !node.parent && node.semanticType === "core.group").map(node => node.id));
+    threeNeedsRebuild = true;
+  }
   syncSourceEditor();
   if (!sourceDraftPending) diagnosticsSource = editor.value;
   if (activePrototype && !documentValue.parameters.nodes.some(node => node.id === activePrototype)) {
@@ -1283,6 +1445,7 @@ function compile(source, { preserveSource = false } = {}) {
     ? selectedId : build.nodes.find(node => node.metadata?.compositionNodeId === activePrototype)?.id ?? null;
   renderTree(); renderInspector(); renderSelectedAnimations(); renderAnnotations(); renderChanges();
   renderDiagnostics(); refreshAnimationSelect(); updateSummary(); draw();
+  if (sceneImport) fitView();
   setStatus(`构建完成 · ${build.nodes.length} 个展开节点${diagnostics.length ? ` · ${diagnostics.length} 条警告` : ""}`);
 }
 
@@ -1298,10 +1461,16 @@ $("#compileButton").addEventListener("click",()=>compile());
 $("#documentName").addEventListener("click",()=>{selectedId=null;activePrototype=null;selectedOccurrenceExplicit=false;selectedAnnotationId=null;selectedPrototypes.clear();renderTree();renderInspector();renderSelectedAnimations();renderAnnotations();activateTab("inspect");draw();setStatus("已切换到场景属性，可修改场景名称")});
 $("#newButton").addEventListener("click",()=>{pushUndo();sourceDraftPending=false;documentValue=structuredClone(defaultDocument);hiddenPrototypes.clear();isolatedPrototype=null;selectedId=null;activePrototype=null;selectedOccurrenceExplicit=false;selectedAnnotationId=null;selectedPrototypes.clear();compile(undefined,{preserveSource:true});fitView();setStatus("已创建基础场景：立方体与默认灯光")});
 $("#addComponentButton").addEventListener("click",()=>$("#componentDialog").showModal());
-$("#openLibraryButton").addEventListener("click",()=>{$("#libraryDialog").showModal();renderModelLibrary($("#libraryKind").value,$("#librarySearch").value)});
+for (const [id, label] of publicRegistryDomains({ entries: publicModelLibraryEntries })) {
+  $("#libraryDomain").add(new Option(label, id));
+}
+$("#openLibraryButton").addEventListener("click",()=>{$("#libraryDialog").showModal();renderModelLibrary()});
 $("#closeLibraryDialog").addEventListener("click",()=>$("#libraryDialog").close());
-$("#libraryKind").addEventListener("change",event=>renderModelLibrary(event.target.value,$("#librarySearch").value));
-$("#librarySearch").addEventListener("input",event=>renderModelLibrary($("#libraryKind").value,event.target.value));
+$("#libraryDialog").addEventListener("close",()=>{if(!$("#libraryDialog").open)stopLibraryPreviews?.()});
+$("#libraryKind").addEventListener("change",renderModelLibrary);
+$("#libraryDomain").addEventListener("change",renderModelLibrary);
+$("#librarySearch").addEventListener("input",renderModelLibrary);
+$("#libraryEntries").addEventListener("click",selectLibraryEntry);
 $("#closeComponentDialog").addEventListener("click",()=>$("#componentDialog").close());
 document.querySelectorAll("[data-template]").forEach(button=>button.addEventListener("click",()=>{$("#componentDialog").close();addComponent(button.dataset.template)}));
 document.querySelectorAll("[data-light-template]").forEach(button=>button.addEventListener("click",()=>{$("#componentDialog").close();addLightComponent(button.dataset.lightTemplate)}));

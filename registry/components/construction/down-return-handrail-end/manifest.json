@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.down-return-handrail-end",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "圆扶手垂直下翻端头",
+  "summary": "扶手沿圆弧朝下收口，可接走廊末端的圆管；盖片独立。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.circulation.down-return-handrail",
+  "capabilities": [
+    "attach",
+    "path-edit",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "交通",
+    "楼梯",
+    "扶手"
+  ],
+  "anchors": [
+    "start",
+    "closed-end"
+  ],
+  "ai": {
+    "intent": "给圆扶手设置独立垂直下收的可替换端头。",
+    "editableParts": [
+      "编辑曲线与封口。"
+    ],
+    "qualityChecks": [
+      "下翻段末端朝下。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "down-return-handrail-end",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail",
+            "semanticType": "construction.circulation.round-return.downturned",
+            "material": "steel",
+            "appearance": {
+              "color": "#869eac"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0.08,0,0],
+                [0.129,-0.012,0],
+                [0.166,-0.046,0],
+                [0.181,-0.094,0],
+                [0.181,-0.177,0]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.044,
+              "thickness": 0.003
+            }
+          },
+          {
+            "id": "cap",
+            "semanticType": "construction.circulation.round-return.end-cap",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f6779"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.181,-0.18,0],
+              "end": [0.181,-0.172,0],
+              "radius": 0.021,
+              "radialSegments": 24
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "rail",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "closed-end": {
+            "position": [0.181,-0.18,0],
+            "direction": [0,-1,0]
+          }
+        }
+      }
+    }
+  }
+}

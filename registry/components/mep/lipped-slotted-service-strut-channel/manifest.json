@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.lipped-slotted-service-strut-channel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "开口卷边长孔槽钢",
+  "summary": "槽钢的背板带七条通孔，双侧边向内翻折，端部敞开以容纳槽螺母。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.service-support.strut",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "机电安装",
+    "槽钢",
+    "长圆孔",
+    "支吊架"
+  ],
+  "anchors": [
+    "base",
+    "slot",
+    "slot-left",
+    "slot-right",
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "槽钢的背板带七条通孔，双侧边向内翻折，端部敞开以容纳槽螺母。",
+    "editableParts": [
+      "分别编辑 slotted-web、left-flange、right-flange、return-lip-1、return-lip-2 的形状、尺寸或位置。"
+    ],
+    "qualityChecks": [
+      "从背板长孔能进入槽腔，翻边之间保留 23.2 mm 开口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "lipped-slotted-service-strut-channel",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "slotted-web",
+            "semanticType": "mep.support.strut.web",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9da0"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.02,0],
+                [0,0.024,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.31,-0.02],
+                [0.31,-0.02],
+                [0.31,0.02],
+                [-0.31,0.02]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.2575,-0.005],
+                  [0.22249999999999998,-0.005],
+                  [0.22249999999999998,0.005],
+                  [0.2575,0.005]
+                ],
+                [
+                  [0.1775,-0.005],
+                  [0.14250000000000002,-0.005],
+                  [0.14250000000000002,0.005],
+                  [0.1775,0.005]
+                ],
+                [
+                  [0.0975,-0.005],
+                  [0.0625,-0.005],
+                  [0.0625,0.005],
+                  [0.0975,0.005]
+                ],
+                [
+                  [0.0175,-0.005],
+                  [-0.0175,-0.005],
+                  [-0.0175,0.005],
+                  [0.0175,0.005]
+                ],
+                [
+                  [-0.0625,-0.005],
+                  [-0.0975,-0.005],
+                  [-0.0975,0.005],
+                  [-0.0625,0.005]
+                ],
+                [
+                  [-0.14250000000000002,-0.005],
+                  [-0.1775,-0.005],
+                  [-0.1775,0.005],
+                  [-0.14250000000000002,0.005]
+                ],
+                [
+                  [-0.22249999999999998,-0.005],
+                  [-0.2575,-0.005],
+                  [-0.2575,0.005],
+                  [-0.22249999999999998,0.005]
+                ]
+              ]
+            }
+          },
+          {
+            "id": "left-flange",
+            "semanticType": "mep.support.strut.side",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9da0"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.62,0.036,0.0036]
+            },
+            "transform": {
+              "position": [0,0.042,-0.0182]
+            }
+          },
+          {
+            "id": "right-flange",
+            "semanticType": "mep.support.strut.side",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9da0"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.62,0.036,0.0036]
+            },
+            "transform": {
+              "position": [0,0.042,0.0182]
+            }
+          },
+          {
+            "id": "return-lip-1",
+            "semanticType": "mep.support.strut.return-lip",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9da0"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.62,0.004,0.008]
+            },
+            "transform": {
+              "position": [0,0.058,-0.0156]
+            }
+          },
+          {
+            "id": "return-lip-2",
+            "semanticType": "mep.support.strut.return-lip",
+            "material": "steel",
+            "appearance": {
+              "color": "#8e9da0"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.62,0.004,0.008]
+            },
+            "transform": {
+              "position": [0,0.058,0.0156]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "position": [0,0.02,0],
+            "direction": [0,-1,0]
+          },
+          "slot": {
+            "position": [0,0.06,0],
+            "direction": [0,1,0]
+          },
+          "slot-left": {
+            "position": [-0.24,0.06,0],
+            "direction": [0,1,0]
+          },
+          "slot-right": {
+            "position": [0.24,0.06,0],
+            "direction": [0,1,0]
+          },
+          "start": {
+            "position": [-0.31,0.04,0],
+            "direction": [-1,0,0]
+          },
+          "end": {
+            "position": [0.31,0.04,0],
+            "direction": [1,0,0]
+          }
+        }
+      }
+    }
+  }
+}

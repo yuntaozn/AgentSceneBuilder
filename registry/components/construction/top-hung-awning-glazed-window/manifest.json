@@ -1,0 +1,204 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.top-hung-awning-glazed-window",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "上悬开启玻璃窗扇",
+  "summary": "固定外框、独立玻璃扇和上部铰轴可作为整体插入，窗扇可向外打开。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.facade.top-hung-awning",
+  "capabilities": [
+    "attach",
+    "animate",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "外立面",
+    "幕墙"
+  ],
+  "anchors": [
+    "left",
+    "right",
+    "bottom",
+    "top",
+    "hinge-axis"
+  ],
+  "ai": {
+    "intent": "在同一幕墙格口切换固定玻璃或独立上悬扇。",
+    "editableParts": [
+      "编辑外框、扇料、把手和上部铰轴。"
+    ],
+    "qualityChecks": [
+      "扇动时沿顶部轴向外开启。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "top-hung-awning-glazed-window",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "outer-frame",
+            "semanticType": "construction.facade.top-hung-awning.frame",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6d828d"
+            },
+            "geometry": {
+              "type": "window-opening-wall",
+              "wallWidth": 1.132,
+              "wallHeight": 1.532,
+              "thickness": 0.087,
+              "openingWidth": 1.046,
+              "openingHeight": 1.44,
+              "openingOffset": 0,
+              "sillHeight": 0.046
+            }
+          },
+          {
+            "id": "top-hinge",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,1.483,0.02]
+            }
+          },
+          {
+            "id": "sash-horizontal-0",
+            "semanticType": "construction.facade.top-hung-awning.sash",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b1c3ca"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.04,0.053,0.044]
+            },
+            "transform": {
+              "position": [0,-0.029,0]
+            },
+            "parent": "top-hinge"
+          },
+          {
+            "id": "sash-horizontal-1",
+            "semanticType": "construction.facade.top-hung-awning.sash",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b1c3ca"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [1.04,0.053,0.044]
+            },
+            "transform": {
+              "position": [0,-1.401,0]
+            },
+            "parent": "top-hinge"
+          },
+          {
+            "id": "sash-vertical-0",
+            "semanticType": "construction.facade.top-hung-awning.sash",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b1c3ca"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,1.32,0.044]
+            },
+            "transform": {
+              "position": [-0.493,-0.715,0]
+            },
+            "parent": "top-hinge"
+          },
+          {
+            "id": "sash-vertical-1",
+            "semanticType": "construction.facade.top-hung-awning.sash",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#b1c3ca"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,1.32,0.044]
+            },
+            "transform": {
+              "position": [0.493,-0.715,0]
+            },
+            "parent": "top-hinge"
+          },
+          {
+            "id": "sash-glazing",
+            "semanticType": "construction.facade.top-hung-awning.glass",
+            "material": "glass",
+            "appearance": {
+              "color": "#99c7d5",
+              "opacity": 0.42
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.938,1.326,0.023]
+            },
+            "transform": {
+              "position": [0,-0.714,0]
+            },
+            "parent": "top-hinge"
+          },
+          {
+            "id": "handle",
+            "semanticType": "construction.facade.top-hung-awning.handle",
+            "material": "steel",
+            "appearance": {
+              "color": "#486775"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.064,-1.385,0.026],
+              "end": [0.064,-1.385,0.026],
+              "radius": 0.01,
+              "radialSegments": 24
+            },
+            "parent": "top-hinge"
+          }
+        ],
+        "anchors": {
+          "left": {
+            "position": [-0.566,0.766,0],
+            "direction": [-1,0,0]
+          },
+          "right": {
+            "position": [0.566,0.766,0],
+            "direction": [1,0,0]
+          },
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0]
+          },
+          "top": {
+            "position": [0,1.532,0],
+            "direction": [0,1,0]
+          },
+          "hinge-axis": {
+            "node": "top-hinge",
+            "position": [0,0,0],
+            "direction": [1,0,0]
+          }
+        },
+        "animations": [
+          {
+            "id": "awning-open",
+            "target": "top-hinge",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [-0.565,0,0],
+            "duration": 1.3,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

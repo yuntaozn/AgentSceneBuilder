@@ -1,0 +1,103 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.ribbed-flexible-conduit",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带波纹可挠电线管",
+  "summary": "中空基管外有连续分布的外肋，可用于设备端或盒体局部过渡。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.electric.conduit-flexible",
+  "capabilities": [
+    "attach",
+    "repeat",
+    "inspect-structure"
+  ],
+  "tags": [
+    "建筑",
+    "基础构件",
+    "MEP",
+    "电气",
+    "电线管"
+  ],
+  "anchors": [
+    "start",
+    "end"
+  ],
+  "ai": {
+    "intent": "保留柔性波纹管的独立外肋和中空轴。",
+    "editableParts": [
+      "调整基管或波纹的间距和个数。"
+    ],
+    "qualityChecks": [
+      "端口匹配的是不含波峰的标称管身外径。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ribbed-flexible-conduit",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "conduit",
+            "semanticType": "mep.electric.conduit-flexible",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "hollow-round-pipe",
+              "points": [
+                [0,0,0],
+                [0.44,0,0]
+              ],
+              "up": [0,0,1],
+              "outsideDiameter": 0.025,
+              "thickness": 0.002
+            }
+          },
+          {
+            "id": "rib",
+            "semanticType": "mep.electric.conduit-flexible.rib",
+            "material": "polymer",
+            "appearance": {
+              "color": "#435466"
+            },
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.0127,
+              "tubeRadius": 0.0018,
+              "radialSegments": 24,
+              "tubularSegments": 8
+            },
+            "transform": {
+              "rotation": [0,0,-1.5707963267948966]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 35,
+              "start": [0.016,0,0],
+              "step": [0.012,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "start": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "start"
+            }
+          },
+          "end": {
+            "node": "conduit",
+            "onGeometry": {
+              "type": "feature",
+              "name": "end"
+            }
+          }
+        }
+      }
+    }
+  }
+}
