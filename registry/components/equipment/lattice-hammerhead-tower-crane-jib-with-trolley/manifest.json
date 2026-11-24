@@ -1,0 +1,1355 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "塔机平头吊臂与运行小车",
+  "summary": "分段三角格构吊臂、双下弦轨、可平移小车、滑轮块和带实际开口的悬挂吊钩。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "塔机吊臂",
+    "小车吊钩",
+    "hammerhead-jib",
+    "travel-trolley",
+    "塔式起重机",
+    "tower-crane",
+    "equipment"
+  ],
+  "anchors": [
+    "root-dock",
+    "trolley-reference",
+    "load-hook"
+  ],
+  "ai": {
+    "intent": "独立表达塔机前吊臂和轨道小车，按根部接口、行程位置及吊钩装配。",
+    "editableParts": [
+      "travel",
+      "hook-swivel"
+    ],
+    "qualityChecks": [
+      "小车和吊线组沿双下弦移动。",
+      "吊钩绕下滑轮轴独立回转。",
+      "根部孔表可与同库回转平台配接。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "lattice-hammerhead-tower-crane-jib-with-trolley",
+      "title": "塔机平头吊臂与运行小车",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "jib-root",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-rear-mounting-plate",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.045,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.24900000000000003,-0.135],
+                [0.24900000000000003,-0.135],
+                [0.275,-0.10900000000000001],
+                [0.275,0.10900000000000001],
+                [0.24900000000000003,0.135],
+                [-0.24900000000000003,0.135],
+                [-0.275,0.10900000000000001],
+                [-0.275,-0.10900000000000001]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.172,-0.079],
+                  [-0.1725671,-0.07505574],
+                  [-0.17422245,-0.07143103],
+                  [-0.17683195,-0.06841951],
+                  [-0.18018419,-0.06626515],
+                  [-0.18400759,-0.0651425],
+                  [-0.18799241,-0.0651425],
+                  [-0.19181581,-0.06626515],
+                  [-0.19516805,-0.06841951],
+                  [-0.19777755,-0.07143103],
+                  [-0.1994329,-0.07505574],
+                  [-0.2,-0.079],
+                  [-0.1994329,-0.08294426],
+                  [-0.19777755,-0.08656897],
+                  [-0.19516805,-0.08958049],
+                  [-0.19181581,-0.09173485],
+                  [-0.18799241,-0.0928575],
+                  [-0.18400759,-0.0928575],
+                  [-0.18018419,-0.09173485],
+                  [-0.17683195,-0.08958049],
+                  [-0.17422245,-0.08656897],
+                  [-0.1725671,-0.08294426]
+                ],
+                [
+                  [-0.172,0.079],
+                  [-0.1725671,0.08294426],
+                  [-0.17422245,0.08656897],
+                  [-0.17683195,0.08958049],
+                  [-0.18018419,0.09173485],
+                  [-0.18400759,0.0928575],
+                  [-0.18799241,0.0928575],
+                  [-0.19181581,0.09173485],
+                  [-0.19516805,0.08958049],
+                  [-0.19777755,0.08656897],
+                  [-0.1994329,0.08294426],
+                  [-0.2,0.079],
+                  [-0.1994329,0.07505574],
+                  [-0.19777755,0.07143103],
+                  [-0.19516805,0.06841951],
+                  [-0.19181581,0.06626515],
+                  [-0.18799241,0.0651425],
+                  [-0.18400759,0.0651425],
+                  [-0.18018419,0.06626515],
+                  [-0.17683195,0.06841951],
+                  [-0.17422245,0.07143103],
+                  [-0.1725671,0.07505574]
+                ],
+                [
+                  [0.2,-0.079],
+                  [0.1994329,-0.07505574],
+                  [0.19777755,-0.07143103],
+                  [0.19516805,-0.06841951],
+                  [0.19181581,-0.06626515],
+                  [0.18799241,-0.0651425],
+                  [0.18400759,-0.0651425],
+                  [0.18018419,-0.06626515],
+                  [0.17683195,-0.06841951],
+                  [0.17422245,-0.07143103],
+                  [0.1725671,-0.07505574],
+                  [0.172,-0.079],
+                  [0.1725671,-0.08294426],
+                  [0.17422245,-0.08656897],
+                  [0.17683195,-0.08958049],
+                  [0.18018419,-0.09173485],
+                  [0.18400759,-0.0928575],
+                  [0.18799241,-0.0928575],
+                  [0.19181581,-0.09173485],
+                  [0.19516805,-0.08958049],
+                  [0.19777755,-0.08656897],
+                  [0.1994329,-0.08294426]
+                ],
+                [
+                  [0.2,0.079],
+                  [0.1994329,0.08294426],
+                  [0.19777755,0.08656897],
+                  [0.19516805,0.08958049],
+                  [0.19181581,0.09173485],
+                  [0.18799241,0.0928575],
+                  [0.18400759,0.0928575],
+                  [0.18018419,0.09173485],
+                  [0.17683195,0.08958049],
+                  [0.17422245,0.08656897],
+                  [0.1725671,0.08294426],
+                  [0.172,0.079],
+                  [0.1725671,0.07505574],
+                  [0.17422245,0.07143103],
+                  [0.17683195,0.06841951],
+                  [0.18018419,0.06626515],
+                  [0.18400759,0.0651425],
+                  [0.18799241,0.0651425],
+                  [0.19181581,0.06626515],
+                  [0.19516805,0.06841951],
+                  [0.19777755,0.07143103],
+                  [0.1994329,0.07505574]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#7b939e"
+            }
+          },
+          {
+            "id": "lower-rail--1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-trolley-track",
+            "geometry": {
+              "type": "box",
+              "size": [3.825,0.042,0.046]
+            },
+            "appearance": {
+              "color": "#7b939e"
+            },
+            "transform": {
+              "position": [1.952,-0.044,-0.173]
+            }
+          },
+          {
+            "id": "truss-rod--1-0",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.041,-0.04,-0.173],
+              "end": [0.582,0.29300000000000004,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie--1-0",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.041,0.323,0],
+              "end": [0.041,-0.04,-0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod--1-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.582,-0.04,-0.173],
+              "end": [1.123,0.263,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie--1-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.582,0.29300000000000004,0],
+              "end": [0.582,-0.04,-0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod--1-2",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.123,-0.04,-0.173],
+              "end": [1.664,0.233,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie--1-2",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.123,0.263,0],
+              "end": [1.123,-0.04,-0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod--1-3",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.664,-0.04,-0.173],
+              "end": [2.205,0.203,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie--1-3",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.664,0.233,0],
+              "end": [1.664,-0.04,-0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod--1-4",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.205,-0.04,-0.173],
+              "end": [2.746,0.17300000000000001,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie--1-4",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.205,0.203,0],
+              "end": [2.205,-0.04,-0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod--1-5",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.746,-0.04,-0.173],
+              "end": [3.287,0.14300000000000002,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie--1-5",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.746,0.17300000000000001,0],
+              "end": [2.746,-0.04,-0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod--1-6",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [3.287,-0.04,-0.173],
+              "end": [3.828,0.11300000000000002,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie--1-6",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [3.287,0.14300000000000002,0],
+              "end": [3.287,-0.04,-0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "lower-rail-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-trolley-track",
+            "geometry": {
+              "type": "box",
+              "size": [3.825,0.042,0.046]
+            },
+            "appearance": {
+              "color": "#7b939e"
+            },
+            "transform": {
+              "position": [1.952,-0.044,0.173]
+            }
+          },
+          {
+            "id": "truss-rod-1-0",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.041,-0.04,0.173],
+              "end": [0.582,0.29300000000000004,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie-1-0",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.041,0.323,0],
+              "end": [0.041,-0.04,0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod-1-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.582,-0.04,0.173],
+              "end": [1.123,0.263,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie-1-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.582,0.29300000000000004,0],
+              "end": [0.582,-0.04,0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod-1-2",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.123,-0.04,0.173],
+              "end": [1.664,0.233,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie-1-2",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.123,0.263,0],
+              "end": [1.123,-0.04,0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod-1-3",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.664,-0.04,0.173],
+              "end": [2.205,0.203,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie-1-3",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.664,0.233,0],
+              "end": [1.664,-0.04,0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod-1-4",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.205,-0.04,0.173],
+              "end": [2.746,0.17300000000000001,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie-1-4",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.205,0.203,0],
+              "end": [2.205,-0.04,0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod-1-5",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.746,-0.04,0.173],
+              "end": [3.287,0.14300000000000002,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie-1-5",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.746,0.17300000000000001,0],
+              "end": [2.746,-0.04,0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "truss-rod-1-6",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-side-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [3.287,-0.04,0.173],
+              "end": [3.828,0.11300000000000002,0],
+              "radius": 0.015,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "upper-tie-1-6",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-vertical-diagonal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [3.287,0.14300000000000002,0],
+              "end": [3.287,-0.04,0.173],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "upper-chord-0",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-top-chord",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.041,0.323,0],
+              "end": [0.582,0.29300000000000004,0],
+              "radius": 0.023,
+              "radialSegments": 14
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "cross-brace-0",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-lower-cross-brace",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.041,-0.04,-0.173],
+              "end": [0.041,-0.04,0.173],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "upper-chord-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-top-chord",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.582,0.29300000000000004,0],
+              "end": [1.123,0.263,0],
+              "radius": 0.023,
+              "radialSegments": 14
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "cross-brace-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-lower-cross-brace",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.582,-0.04,-0.173],
+              "end": [0.582,-0.04,0.173],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "upper-chord-2",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-top-chord",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.123,0.263,0],
+              "end": [1.664,0.233,0],
+              "radius": 0.023,
+              "radialSegments": 14
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "cross-brace-2",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-lower-cross-brace",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.123,-0.04,-0.173],
+              "end": [1.123,-0.04,0.173],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "upper-chord-3",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-top-chord",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.664,0.233,0],
+              "end": [2.205,0.203,0],
+              "radius": 0.023,
+              "radialSegments": 14
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "cross-brace-3",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-lower-cross-brace",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [1.664,-0.04,-0.173],
+              "end": [1.664,-0.04,0.173],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "upper-chord-4",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-top-chord",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.205,0.203,0],
+              "end": [2.746,0.17300000000000001,0],
+              "radius": 0.023,
+              "radialSegments": 14
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "cross-brace-4",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-lower-cross-brace",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.205,-0.04,-0.173],
+              "end": [2.205,-0.04,0.173],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "upper-chord-5",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-top-chord",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.746,0.17300000000000001,0],
+              "end": [3.287,0.14300000000000002,0],
+              "radius": 0.023,
+              "radialSegments": 14
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "cross-brace-5",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-lower-cross-brace",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [2.746,-0.04,-0.173],
+              "end": [2.746,-0.04,0.173],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "upper-chord-6",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-top-chord",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [3.287,0.14300000000000002,0],
+              "end": [3.828,0.11300000000000002,0],
+              "radius": 0.023,
+              "radialSegments": 14
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            }
+          },
+          {
+            "id": "cross-brace-6",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-lower-cross-brace",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [3.287,-0.04,-0.173],
+              "end": [3.287,-0.04,0.173],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "cross-brace-7",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.jib-lower-cross-brace",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [3.828,-0.04,-0.173],
+              "end": [3.828,-0.04,0.173],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "trolley-stop-left",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.trolley-end-stop",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.061,0.395]
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            },
+            "transform": {
+              "position": [0.221,-0.067,0]
+            }
+          },
+          {
+            "id": "trolley-stop-right",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.trolley-end-stop",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.061,0.395]
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            },
+            "transform": {
+              "position": [3.729,-0.067,0]
+            }
+          },
+          {
+            "id": "trolley",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.frame",
+            "transform": {
+              "position": [1.027,-0.103,0]
+            }
+          },
+          {
+            "id": "trolley-bed",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.travel-trolley-chassis",
+            "parent": "trolley",
+            "geometry": {
+              "type": "box",
+              "size": [0.285,0.039,0.392]
+            },
+            "appearance": {
+              "color": "#7b939e"
+            },
+            "transform": {
+              "position": [0,-0.044,0]
+            }
+          },
+          {
+            "id": "wheel--0.098--1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.frame",
+            "parent": "trolley",
+            "transform": {
+              "position": [-0.098,0.019,-0.173]
+            }
+          },
+          {
+            "id": "roller--0.098--1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.track-roller",
+            "parent": "wheel--0.098--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.02],
+                [0,0,0.02]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.035,0],
+                [0.03412248,0.00778823],
+                [0.03153391,0.01518593],
+                [0.0273641,0.02182214],
+                [0.02182214,0.0273641],
+                [0.01518593,0.03153391],
+                [0.00778823,0.03412248],
+                [0,0.035],
+                [-0.00778823,0.03412248],
+                [-0.01518593,0.03153391],
+                [-0.02182214,0.0273641],
+                [-0.0273641,0.02182214],
+                [-0.03153391,0.01518593],
+                [-0.03412248,0.00778823],
+                [-0.035,0],
+                [-0.03412248,-0.00778823],
+                [-0.03153391,-0.01518593],
+                [-0.0273641,-0.02182214],
+                [-0.02182214,-0.0273641],
+                [-0.01518593,-0.03153391],
+                [-0.00778823,-0.03412248],
+                [0,-0.035],
+                [0.00778823,-0.03412248],
+                [0.01518593,-0.03153391],
+                [0.02182214,-0.0273641],
+                [0.0273641,-0.02182214],
+                [0.03153391,-0.01518593],
+                [0.03412248,-0.00778823]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.00877435,0.00200269],
+                  [0.00810872,0.00390495],
+                  [0.00703648,0.00561141],
+                  [0.00561141,0.00703648],
+                  [0.00390495,0.00810872],
+                  [0.00200269,0.00877435],
+                  [0,0.009],
+                  [-0.00200269,0.00877435],
+                  [-0.00390495,0.00810872],
+                  [-0.00561141,0.00703648],
+                  [-0.00703648,0.00561141],
+                  [-0.00810872,0.00390495],
+                  [-0.00877435,0.00200269],
+                  [-0.009,0],
+                  [-0.00877435,-0.00200269],
+                  [-0.00810872,-0.00390495],
+                  [-0.00703648,-0.00561141],
+                  [-0.00561141,-0.00703648],
+                  [-0.00390495,-0.00810872],
+                  [-0.00200269,-0.00877435],
+                  [0,-0.009],
+                  [0.00200269,-0.00877435],
+                  [0.00390495,-0.00810872],
+                  [0.00561141,-0.00703648],
+                  [0.00703648,-0.00561141],
+                  [0.00810872,-0.00390495],
+                  [0.00877435,-0.00200269]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "wheel--0.098-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.frame",
+            "parent": "trolley",
+            "transform": {
+              "position": [-0.098,0.019,0.173]
+            }
+          },
+          {
+            "id": "roller--0.098-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.track-roller",
+            "parent": "wheel--0.098-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.02],
+                [0,0,0.02]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.035,0],
+                [0.03412248,0.00778823],
+                [0.03153391,0.01518593],
+                [0.0273641,0.02182214],
+                [0.02182214,0.0273641],
+                [0.01518593,0.03153391],
+                [0.00778823,0.03412248],
+                [0,0.035],
+                [-0.00778823,0.03412248],
+                [-0.01518593,0.03153391],
+                [-0.02182214,0.0273641],
+                [-0.0273641,0.02182214],
+                [-0.03153391,0.01518593],
+                [-0.03412248,0.00778823],
+                [-0.035,0],
+                [-0.03412248,-0.00778823],
+                [-0.03153391,-0.01518593],
+                [-0.0273641,-0.02182214],
+                [-0.02182214,-0.0273641],
+                [-0.01518593,-0.03153391],
+                [-0.00778823,-0.03412248],
+                [0,-0.035],
+                [0.00778823,-0.03412248],
+                [0.01518593,-0.03153391],
+                [0.02182214,-0.0273641],
+                [0.0273641,-0.02182214],
+                [0.03153391,-0.01518593],
+                [0.03412248,-0.00778823]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.00877435,0.00200269],
+                  [0.00810872,0.00390495],
+                  [0.00703648,0.00561141],
+                  [0.00561141,0.00703648],
+                  [0.00390495,0.00810872],
+                  [0.00200269,0.00877435],
+                  [0,0.009],
+                  [-0.00200269,0.00877435],
+                  [-0.00390495,0.00810872],
+                  [-0.00561141,0.00703648],
+                  [-0.00703648,0.00561141],
+                  [-0.00810872,0.00390495],
+                  [-0.00877435,0.00200269],
+                  [-0.009,0],
+                  [-0.00877435,-0.00200269],
+                  [-0.00810872,-0.00390495],
+                  [-0.00703648,-0.00561141],
+                  [-0.00561141,-0.00703648],
+                  [-0.00390495,-0.00810872],
+                  [-0.00200269,-0.00877435],
+                  [0,-0.009],
+                  [0.00200269,-0.00877435],
+                  [0.00390495,-0.00810872],
+                  [0.00561141,-0.00703648],
+                  [0.00703648,-0.00561141],
+                  [0.00810872,-0.00390495],
+                  [0.00877435,-0.00200269]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "wheel-0.098--1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.frame",
+            "parent": "trolley",
+            "transform": {
+              "position": [0.098,0.019,-0.173]
+            }
+          },
+          {
+            "id": "roller-0.098--1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.track-roller",
+            "parent": "wheel-0.098--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.02],
+                [0,0,0.02]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.035,0],
+                [0.03412248,0.00778823],
+                [0.03153391,0.01518593],
+                [0.0273641,0.02182214],
+                [0.02182214,0.0273641],
+                [0.01518593,0.03153391],
+                [0.00778823,0.03412248],
+                [0,0.035],
+                [-0.00778823,0.03412248],
+                [-0.01518593,0.03153391],
+                [-0.02182214,0.0273641],
+                [-0.0273641,0.02182214],
+                [-0.03153391,0.01518593],
+                [-0.03412248,0.00778823],
+                [-0.035,0],
+                [-0.03412248,-0.00778823],
+                [-0.03153391,-0.01518593],
+                [-0.0273641,-0.02182214],
+                [-0.02182214,-0.0273641],
+                [-0.01518593,-0.03153391],
+                [-0.00778823,-0.03412248],
+                [0,-0.035],
+                [0.00778823,-0.03412248],
+                [0.01518593,-0.03153391],
+                [0.02182214,-0.0273641],
+                [0.0273641,-0.02182214],
+                [0.03153391,-0.01518593],
+                [0.03412248,-0.00778823]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.00877435,0.00200269],
+                  [0.00810872,0.00390495],
+                  [0.00703648,0.00561141],
+                  [0.00561141,0.00703648],
+                  [0.00390495,0.00810872],
+                  [0.00200269,0.00877435],
+                  [0,0.009],
+                  [-0.00200269,0.00877435],
+                  [-0.00390495,0.00810872],
+                  [-0.00561141,0.00703648],
+                  [-0.00703648,0.00561141],
+                  [-0.00810872,0.00390495],
+                  [-0.00877435,0.00200269],
+                  [-0.009,0],
+                  [-0.00877435,-0.00200269],
+                  [-0.00810872,-0.00390495],
+                  [-0.00703648,-0.00561141],
+                  [-0.00561141,-0.00703648],
+                  [-0.00390495,-0.00810872],
+                  [-0.00200269,-0.00877435],
+                  [0,-0.009],
+                  [0.00200269,-0.00877435],
+                  [0.00390495,-0.00810872],
+                  [0.00561141,-0.00703648],
+                  [0.00703648,-0.00561141],
+                  [0.00810872,-0.00390495],
+                  [0.00877435,-0.00200269]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "wheel-0.098-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.frame",
+            "parent": "trolley",
+            "transform": {
+              "position": [0.098,0.019,0.173]
+            }
+          },
+          {
+            "id": "roller-0.098-1",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.track-roller",
+            "parent": "wheel-0.098-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.02],
+                [0,0,0.02]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.035,0],
+                [0.03412248,0.00778823],
+                [0.03153391,0.01518593],
+                [0.0273641,0.02182214],
+                [0.02182214,0.0273641],
+                [0.01518593,0.03153391],
+                [0.00778823,0.03412248],
+                [0,0.035],
+                [-0.00778823,0.03412248],
+                [-0.01518593,0.03153391],
+                [-0.02182214,0.0273641],
+                [-0.0273641,0.02182214],
+                [-0.03153391,0.01518593],
+                [-0.03412248,0.00778823],
+                [-0.035,0],
+                [-0.03412248,-0.00778823],
+                [-0.03153391,-0.01518593],
+                [-0.0273641,-0.02182214],
+                [-0.02182214,-0.0273641],
+                [-0.01518593,-0.03153391],
+                [-0.00778823,-0.03412248],
+                [0,-0.035],
+                [0.00778823,-0.03412248],
+                [0.01518593,-0.03153391],
+                [0.02182214,-0.0273641],
+                [0.0273641,-0.02182214],
+                [0.03153391,-0.01518593],
+                [0.03412248,-0.00778823]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.00877435,0.00200269],
+                  [0.00810872,0.00390495],
+                  [0.00703648,0.00561141],
+                  [0.00561141,0.00703648],
+                  [0.00390495,0.00810872],
+                  [0.00200269,0.00877435],
+                  [0,0.009],
+                  [-0.00200269,0.00877435],
+                  [-0.00390495,0.00810872],
+                  [-0.00561141,0.00703648],
+                  [-0.00703648,0.00561141],
+                  [-0.00810872,0.00390495],
+                  [-0.00877435,0.00200269],
+                  [-0.009,0],
+                  [-0.00877435,-0.00200269],
+                  [-0.00810872,-0.00390495],
+                  [-0.00703648,-0.00561141],
+                  [-0.00561141,-0.00703648],
+                  [-0.00390495,-0.00810872],
+                  [-0.00200269,-0.00877435],
+                  [0,-0.009],
+                  [0.00200269,-0.00877435],
+                  [0.00390495,-0.00810872],
+                  [0.00561141,-0.00703648],
+                  [0.00703648,-0.00561141],
+                  [0.00810872,-0.00390495],
+                  [0.00877435,-0.00200269]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aac0cc"
+            }
+          },
+          {
+            "id": "hook-line",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.frame",
+            "parent": "trolley",
+            "transform": {
+              "position": [0,-0.061,0]
+            }
+          },
+          {
+            "id": "hoist-line--0.033",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.hoist-line",
+            "parent": "hook-line",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.033],
+              "end": [0,-0.619,-0.033],
+              "radius": 0.005,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#344850"
+            }
+          },
+          {
+            "id": "hoist-line-0.033",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.hoist-line",
+            "parent": "hook-line",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.033],
+              "end": [0,-0.619,0.033],
+              "radius": 0.005,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#344850"
+            }
+          },
+          {
+            "id": "lower-hook",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.frame",
+            "parent": "hook-line",
+            "transform": {
+              "position": [0,-0.651,0]
+            }
+          },
+          {
+            "id": "pulley-block",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.pulley-block-housing",
+            "parent": "lower-hook",
+            "geometry": {
+              "type": "box",
+              "size": [0.098,0.089,0.069]
+            },
+            "appearance": {
+              "color": "#eeb85b"
+            },
+            "transform": {
+              "position": [0,0.036,0]
+            }
+          },
+          {
+            "id": "hook",
+            "semanticType": "equipment.lattice-hammerhead-tower-crane-jib-with-trolley.curved-load-hook",
+            "parent": "lower-hook",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.009],
+                [0,0,0.009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.014,0.013],
+                [0.018,0.013],
+                [0.023,-0.021],
+                [0.052,-0.053],
+                [0.054,-0.079],
+                [0.037,-0.108],
+                [0.011,-0.125],
+                [-0.024,-0.126],
+                [-0.055,-0.102],
+                [-0.057,-0.073],
+                [-0.037,-0.053],
+                [-0.027,-0.068],
+                [-0.034,-0.088],
+                [-0.02,-0.102],
+                [0.01,-0.102],
+                [0.028,-0.079],
+                [0.024,-0.057],
+                [-0.006,-0.033]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7b939e"
+            }
+          }
+        ],
+        "anchors": {
+          "root-dock": {
+            "node": "jib-root",
+            "position": [0,0,0],
+            "direction": [-1,0,0],
+            "kind": "mount"
+          },
+          "trolley-reference": {
+            "node": "trolley",
+            "position": [0,-0.057,0],
+            "direction": [0,-1,0],
+            "kind": "reference"
+          },
+          "load-hook": {
+            "node": "lower-hook",
+            "position": [0,-0.102,0],
+            "direction": [0,-1,0],
+            "kind": "load"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "travel",
+            "label": "小车沿臂行程",
+            "unit": "m",
+            "value": 0,
+            "min": -0.61,
+            "max": 2.54,
+            "targets": [
+              {
+                "node": "trolley",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "hook-swivel",
+            "label": "吊钩回转",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "lower-hook",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

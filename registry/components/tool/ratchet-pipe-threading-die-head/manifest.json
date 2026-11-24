@@ -1,0 +1,1065 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.ratchet-pipe-threading-die-head",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "棘轮式管螺纹套丝头",
+  "summary": "可换带孔套丝头、四组板牙、双侧排屑窗、棘轮转架及横向加力手柄。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.ratchet-pipe-threading-die-head",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "套丝头",
+    "管螺纹",
+    "threading-die",
+    "pipe-tool",
+    "施工工具",
+    "tool"
+  ],
+  "anchors": [
+    "pipe-entry",
+    "pipe-exit",
+    "grip"
+  ],
+  "ai": {
+    "intent": "使用独立套丝工具表示管材中心线与工作板牙。",
+    "editableParts": [
+      "die-angle",
+      "reverser-angle"
+    ],
+    "qualityChecks": [
+      "中心孔轴线跟随转架且保持与外框同心。",
+      "板牙沿四个方向排布。",
+      "调换棘轮方向时机架与工作孔保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ratchet-pipe-threading-die-head",
+      "title": "棘轮式管螺纹套丝头",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fixed-frame",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.annular-outer-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.027],
+                [0,0,0.022]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.067,0],
+                [0.06617512,0.01048111],
+                [0.06372079,0.02070414],
+                [0.05969744,0.03041736],
+                [0.05420414,0.03938161],
+                [0.04737615,0.04737615],
+                [0.03938161,0.05420414],
+                [0.03041736,0.05969744],
+                [0.02070414,0.06372079],
+                [0.01048111,0.06617512],
+                [0,0.067],
+                [-0.01048111,0.06617512],
+                [-0.02070414,0.06372079],
+                [-0.03041736,0.05969744],
+                [-0.03938161,0.05420414],
+                [-0.04737615,0.04737615],
+                [-0.05420414,0.03938161],
+                [-0.05969744,0.03041736],
+                [-0.06372079,0.02070414],
+                [-0.06617512,0.01048111],
+                [-0.067,0],
+                [-0.06617512,-0.01048111],
+                [-0.06372079,-0.02070414],
+                [-0.05969744,-0.03041736],
+                [-0.05420414,-0.03938161],
+                [-0.04737615,-0.04737615],
+                [-0.03938161,-0.05420414],
+                [-0.03041736,-0.05969744],
+                [-0.02070414,-0.06372079],
+                [-0.01048111,-0.06617512],
+                [0,-0.067],
+                [0.01048111,-0.06617512],
+                [0.02070414,-0.06372079],
+                [0.03041736,-0.05969744],
+                [0.03938161,-0.05420414],
+                [0.04737615,-0.04737615],
+                [0.05420414,-0.03938161],
+                [0.05969744,-0.03041736],
+                [0.06372079,-0.02070414],
+                [0.06617512,-0.01048111]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.051,0],
+                  [0.05037211,0.00797816],
+                  [0.04850388,0.01575987],
+                  [0.04544133,0.02315352],
+                  [0.04125987,0.02997705],
+                  [0.03606245,0.03606245],
+                  [0.02997705,0.04125987],
+                  [0.02315352,0.04544133],
+                  [0.01575987,0.04850388],
+                  [0.00797816,0.05037211],
+                  [0,0.051],
+                  [-0.00797816,0.05037211],
+                  [-0.01575987,0.04850388],
+                  [-0.02315352,0.04544133],
+                  [-0.02997705,0.04125987],
+                  [-0.03606245,0.03606245],
+                  [-0.04125987,0.02997705],
+                  [-0.04544133,0.02315352],
+                  [-0.04850388,0.01575987],
+                  [-0.05037211,0.00797816],
+                  [-0.051,0],
+                  [-0.05037211,-0.00797816],
+                  [-0.04850388,-0.01575987],
+                  [-0.04544133,-0.02315352],
+                  [-0.04125987,-0.02997705],
+                  [-0.03606245,-0.03606245],
+                  [-0.02997705,-0.04125987],
+                  [-0.02315352,-0.04544133],
+                  [-0.01575987,-0.04850388],
+                  [-0.00797816,-0.05037211],
+                  [0,-0.051],
+                  [0.00797816,-0.05037211],
+                  [0.01575987,-0.04850388],
+                  [0.02315352,-0.04544133],
+                  [0.02997705,-0.04125987],
+                  [0.03606245,-0.03606245],
+                  [0.04125987,-0.02997705],
+                  [0.04544133,-0.02315352],
+                  [0.04850388,-0.01575987],
+                  [0.05037211,-0.00797816]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#57a1a4"
+            }
+          },
+          {
+            "id": "handle-socket-body",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.handle-socket-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.063,0.039,0.049]
+            },
+            "appearance": {
+              "color": "#57a1a4"
+            },
+            "transform": {
+              "position": [0.078,0,0]
+            }
+          },
+          {
+            "id": "handle-socket",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.handle-socket",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.106,0,0],
+                [0.134,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.018,0],
+                [0.01738666,0.00465874],
+                [0.01558846,0.009],
+                [0.01272792,0.01272792],
+                [0.009,0.01558846],
+                [0.00465874,0.01738666],
+                [0,0.018],
+                [-0.00465874,0.01738666],
+                [-0.009,0.01558846],
+                [-0.01272792,0.01272792],
+                [-0.01558846,0.009],
+                [-0.01738666,0.00465874],
+                [-0.018,0],
+                [-0.01738666,-0.00465874],
+                [-0.01558846,-0.009],
+                [-0.01272792,-0.01272792],
+                [-0.009,-0.01558846],
+                [-0.00465874,-0.01738666],
+                [0,-0.018],
+                [0.00465874,-0.01738666],
+                [0.009,-0.01558846],
+                [0.01272792,-0.01272792],
+                [0.01558846,-0.009],
+                [0.01738666,-0.00465874]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.012,0],
+                  [0.01159111,0.00310583],
+                  [0.0103923,0.006],
+                  [0.00848528,0.00848528],
+                  [0.006,0.0103923],
+                  [0.00310583,0.01159111],
+                  [0,0.012],
+                  [-0.00310583,0.01159111],
+                  [-0.006,0.0103923],
+                  [-0.00848528,0.00848528],
+                  [-0.0103923,0.006],
+                  [-0.01159111,0.00310583],
+                  [-0.012,0],
+                  [-0.01159111,-0.00310583],
+                  [-0.0103923,-0.006],
+                  [-0.00848528,-0.00848528],
+                  [-0.006,-0.0103923],
+                  [-0.00310583,-0.01159111],
+                  [0,-0.012],
+                  [0.00310583,-0.01159111],
+                  [0.006,-0.0103923],
+                  [0.00848528,-0.00848528],
+                  [0.0103923,-0.006],
+                  [0.01159111,-0.00310583]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#47555e"
+            }
+          },
+          {
+            "id": "handle-shaft",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.handle-shaft",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.121,0,0],
+              "end": [0.314,0,0],
+              "radius": 0.0118,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "handle-sleeve",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.handle-sleeve",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.264,0,0],
+              "end": [0.353,0,0],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#2e353c"
+            }
+          },
+          {
+            "id": "die-rotor",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "ratchet-ring",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.die-mount-ring",
+            "parent": "die-rotor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.026],
+                [0,0,0.017]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.0518,0],
+                [0.05116226,0.00810331],
+                [0.04926473,0.01600708],
+                [0.04615414,0.02351671],
+                [0.04190708,0.03044728],
+                [0.03662813,0.03662813],
+                [0.03044728,0.04190708],
+                [0.02351671,0.04615414],
+                [0.01600708,0.04926473],
+                [0.00810331,0.05116226],
+                [0,0.0518],
+                [-0.00810331,0.05116226],
+                [-0.01600708,0.04926473],
+                [-0.02351671,0.04615414],
+                [-0.03044728,0.04190708],
+                [-0.03662813,0.03662813],
+                [-0.04190708,0.03044728],
+                [-0.04615414,0.02351671],
+                [-0.04926473,0.01600708],
+                [-0.05116226,0.00810331],
+                [-0.0518,0],
+                [-0.05116226,-0.00810331],
+                [-0.04926473,-0.01600708],
+                [-0.04615414,-0.02351671],
+                [-0.04190708,-0.03044728],
+                [-0.03662813,-0.03662813],
+                [-0.03044728,-0.04190708],
+                [-0.02351671,-0.04615414],
+                [-0.01600708,-0.04926473],
+                [-0.00810331,-0.05116226],
+                [0,-0.0518],
+                [0.00810331,-0.05116226],
+                [0.01600708,-0.04926473],
+                [0.02351671,-0.04615414],
+                [0.03044728,-0.04190708],
+                [0.03662813,-0.03662813],
+                [0.04190708,-0.03044728],
+                [0.04615414,-0.02351671],
+                [0.04926473,-0.01600708],
+                [0.05116226,-0.00810331]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.032,0],
+                  [0.03160603,0.0050059],
+                  [0.03043381,0.00988854],
+                  [0.02851221,0.0145277],
+                  [0.02588854,0.01880913],
+                  [0.02262742,0.02262742],
+                  [0.01880913,0.02588854],
+                  [0.0145277,0.02851221],
+                  [0.00988854,0.03043381],
+                  [0.0050059,0.03160603],
+                  [0,0.032],
+                  [-0.0050059,0.03160603],
+                  [-0.00988854,0.03043381],
+                  [-0.0145277,0.02851221],
+                  [-0.01880913,0.02588854],
+                  [-0.02262742,0.02262742],
+                  [-0.02588854,0.01880913],
+                  [-0.02851221,0.0145277],
+                  [-0.03043381,0.00988854],
+                  [-0.03160603,0.0050059],
+                  [-0.032,0],
+                  [-0.03160603,-0.0050059],
+                  [-0.03043381,-0.00988854],
+                  [-0.02851221,-0.0145277],
+                  [-0.02588854,-0.01880913],
+                  [-0.02262742,-0.02262742],
+                  [-0.01880913,-0.02588854],
+                  [-0.0145277,-0.02851221],
+                  [-0.00988854,-0.03043381],
+                  [-0.0050059,-0.03160603],
+                  [0,-0.032],
+                  [0.0050059,-0.03160603],
+                  [0.00988854,-0.03043381],
+                  [0.0145277,-0.02851221],
+                  [0.01880913,-0.02588854],
+                  [0.02262742,-0.02262742],
+                  [0.02588854,-0.01880913],
+                  [0.02851221,-0.0145277],
+                  [0.03043381,-0.00988854],
+                  [0.03160603,-0.0050059]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "retainer-face",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.four-chaser-retainer",
+            "parent": "die-rotor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.016],
+                [0,0,0.028]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.024999999999999998,-0.051],
+                [0.024999999999999998,-0.051],
+                [0.051,-0.024999999999999998],
+                [0.051,0.024999999999999998],
+                [0.024999999999999998,0.051],
+                [-0.024999999999999998,0.051],
+                [-0.051,0.024999999999999998],
+                [-0.051,-0.024999999999999998]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0215,0],
+                  [0.02108688,0.00419444],
+                  [0.01986341,0.00822769],
+                  [0.0178766,0.01194476],
+                  [0.0152028,0.0152028],
+                  [0.01194476,0.0178766],
+                  [0.00822769,0.01986341],
+                  [0.00419444,0.02108688],
+                  [0,0.0215],
+                  [-0.00419444,0.02108688],
+                  [-0.00822769,0.01986341],
+                  [-0.01194476,0.0178766],
+                  [-0.0152028,0.0152028],
+                  [-0.0178766,0.01194476],
+                  [-0.01986341,0.00822769],
+                  [-0.02108688,0.00419444],
+                  [-0.0215,0],
+                  [-0.02108688,-0.00419444],
+                  [-0.01986341,-0.00822769],
+                  [-0.0178766,-0.01194476],
+                  [-0.0152028,-0.0152028],
+                  [-0.01194476,-0.0178766],
+                  [-0.00822769,-0.01986341],
+                  [-0.00419444,-0.02108688],
+                  [0,-0.0215],
+                  [0.00419444,-0.02108688],
+                  [0.00822769,-0.01986341],
+                  [0.01194476,-0.0178766],
+                  [0.0152028,-0.0152028],
+                  [0.0178766,-0.01194476],
+                  [0.01986341,-0.00822769],
+                  [0.02108688,-0.00419444]
+                ],
+                [
+                  [0.03195584,0.02545584],
+                  [0.03156385,0.02767898],
+                  [0.03043513,0.02963396],
+                  [0.02870584,0.03108501],
+                  [0.02658456,0.03185709],
+                  [0.02432713,0.03185709],
+                  [0.02220584,0.03108501],
+                  [0.02047656,0.02963396],
+                  [0.01934784,0.02767898],
+                  [0.01895584,0.02545584],
+                  [0.01934784,0.02323271],
+                  [0.02047656,0.02127772],
+                  [0.02220584,0.01982668],
+                  [0.02432713,0.01905459],
+                  [0.02658456,0.01905459],
+                  [0.02870584,0.01982668],
+                  [0.03043513,0.02127772],
+                  [0.03156385,0.02323271]
+                ],
+                [
+                  [-0.01895584,0.02545584],
+                  [-0.01934784,0.02767898],
+                  [-0.02047656,0.02963396],
+                  [-0.02220584,0.03108501],
+                  [-0.02432713,0.03185709],
+                  [-0.02658456,0.03185709],
+                  [-0.02870584,0.03108501],
+                  [-0.03043513,0.02963396],
+                  [-0.03156385,0.02767898],
+                  [-0.03195584,0.02545584],
+                  [-0.03156385,0.02323271],
+                  [-0.03043513,0.02127772],
+                  [-0.02870584,0.01982668],
+                  [-0.02658456,0.01905459],
+                  [-0.02432713,0.01905459],
+                  [-0.02220584,0.01982668],
+                  [-0.02047656,0.02127772],
+                  [-0.01934784,0.02323271]
+                ],
+                [
+                  [-0.01895584,-0.02545584],
+                  [-0.01934784,-0.02323271],
+                  [-0.02047656,-0.02127772],
+                  [-0.02220584,-0.01982668],
+                  [-0.02432713,-0.01905459],
+                  [-0.02658456,-0.01905459],
+                  [-0.02870584,-0.01982668],
+                  [-0.03043513,-0.02127772],
+                  [-0.03156385,-0.02323271],
+                  [-0.03195584,-0.02545584],
+                  [-0.03156385,-0.02767898],
+                  [-0.03043513,-0.02963396],
+                  [-0.02870584,-0.03108501],
+                  [-0.02658456,-0.03185709],
+                  [-0.02432713,-0.03185709],
+                  [-0.02220584,-0.03108501],
+                  [-0.02047656,-0.02963396],
+                  [-0.01934784,-0.02767898]
+                ],
+                [
+                  [0.03195584,-0.02545584],
+                  [0.03156385,-0.02323271],
+                  [0.03043513,-0.02127772],
+                  [0.02870584,-0.01982668],
+                  [0.02658456,-0.01905459],
+                  [0.02432713,-0.01905459],
+                  [0.02220584,-0.01982668],
+                  [0.02047656,-0.02127772],
+                  [0.01934784,-0.02323271],
+                  [0.01895584,-0.02545584],
+                  [0.01934784,-0.02767898],
+                  [0.02047656,-0.02963396],
+                  [0.02220584,-0.03108501],
+                  [0.02432713,-0.03185709],
+                  [0.02658456,-0.03185709],
+                  [0.02870584,-0.03108501],
+                  [0.03043513,-0.02963396],
+                  [0.03156385,-0.02767898]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#47555e"
+            }
+          },
+          {
+            "id": "chaser-0",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.frame",
+            "parent": "die-rotor",
+            "transform": {
+              "position": [0.025,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "die-block-0",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-chaser",
+            "parent": "chaser-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.014,0.029]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0.001,0,0]
+            }
+          },
+          {
+            "id": "chaser-tooth-0-0",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,-0.009]
+            }
+          },
+          {
+            "id": "chaser-tooth-0-1",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,-0.003999999999999999]
+            }
+          },
+          {
+            "id": "chaser-tooth-0-2",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.0010000000000000009]
+            }
+          },
+          {
+            "id": "chaser-tooth-0-3",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.006]
+            }
+          },
+          {
+            "id": "chaser-tooth-0-4",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.011000000000000001]
+            }
+          },
+          {
+            "id": "retainer-screw-0",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.die-retainer-screw",
+            "parent": "chaser-0",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.013,0,0.025],
+              "end": [0.013,0,0.032],
+              "radius": 0.0045,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "chaser-1",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.frame",
+            "parent": "die-rotor",
+            "transform": {
+              "position": [1.5308084989341916e-18,0.025,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "die-block-1",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-chaser",
+            "parent": "chaser-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.014,0.029]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0.001,0,0]
+            }
+          },
+          {
+            "id": "chaser-tooth-1-0",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,-0.009]
+            }
+          },
+          {
+            "id": "chaser-tooth-1-1",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,-0.003999999999999999]
+            }
+          },
+          {
+            "id": "chaser-tooth-1-2",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.0010000000000000009]
+            }
+          },
+          {
+            "id": "chaser-tooth-1-3",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.006]
+            }
+          },
+          {
+            "id": "chaser-tooth-1-4",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.011000000000000001]
+            }
+          },
+          {
+            "id": "retainer-screw-1",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.die-retainer-screw",
+            "parent": "chaser-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.013,0,0.025],
+              "end": [0.013,0,0.032],
+              "radius": 0.0045,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "chaser-2",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.frame",
+            "parent": "die-rotor",
+            "transform": {
+              "position": [-0.025,3.061616997868383e-18,0],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "die-block-2",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-chaser",
+            "parent": "chaser-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.014,0.029]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0.001,0,0]
+            }
+          },
+          {
+            "id": "chaser-tooth-2-0",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,-0.009]
+            }
+          },
+          {
+            "id": "chaser-tooth-2-1",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,-0.003999999999999999]
+            }
+          },
+          {
+            "id": "chaser-tooth-2-2",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.0010000000000000009]
+            }
+          },
+          {
+            "id": "chaser-tooth-2-3",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.006]
+            }
+          },
+          {
+            "id": "chaser-tooth-2-4",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.011000000000000001]
+            }
+          },
+          {
+            "id": "retainer-screw-2",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.die-retainer-screw",
+            "parent": "chaser-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.013,0,0.025],
+              "end": [0.013,0,0.032],
+              "radius": 0.0045,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "chaser-3",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.frame",
+            "parent": "die-rotor",
+            "transform": {
+              "position": [-4.592425496802574e-18,-0.025,0],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "die-block-3",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-chaser",
+            "parent": "chaser-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.014,0.029]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0.001,0,0]
+            }
+          },
+          {
+            "id": "chaser-tooth-3-0",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,-0.009]
+            }
+          },
+          {
+            "id": "chaser-tooth-3-1",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,-0.003999999999999999]
+            }
+          },
+          {
+            "id": "chaser-tooth-3-2",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.0010000000000000009]
+            }
+          },
+          {
+            "id": "chaser-tooth-3-3",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.006]
+            }
+          },
+          {
+            "id": "chaser-tooth-3-4",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.threading-tooth",
+            "parent": "chaser-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.008,0.0026]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.0068,0,0.011000000000000001]
+            }
+          },
+          {
+            "id": "retainer-screw-3",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.die-retainer-screw",
+            "parent": "chaser-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.013,0,0.025],
+              "end": [0.013,0,0.032],
+              "radius": 0.0045,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "reverser",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.frame",
+            "transform": {
+              "position": [0.054,-0.017,0.024]
+            }
+          },
+          {
+            "id": "reverser-tab",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.reversing-ratchet-tab",
+            "parent": "reverser",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,0.011,0.006]
+            },
+            "appearance": {
+              "color": "#d89a40"
+            },
+            "transform": {
+              "position": [0.007,-0.004,0.002]
+            }
+          },
+          {
+            "id": "reverser-pivot",
+            "semanticType": "tool.ratchet-pipe-threading-die-head.latch-pivot",
+            "parent": "reverser",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.004],
+              "end": [0,0,0.009],
+              "radius": 0.005,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          }
+        ],
+        "anchors": {
+          "pipe-entry": {
+            "node": "die-rotor",
+            "position": [0,0,0.028],
+            "direction": [0,0,1],
+            "kind": "work"
+          },
+          "pipe-exit": {
+            "node": "die-rotor",
+            "position": [0,0,-0.026],
+            "direction": [0,0,-1],
+            "kind": "work"
+          },
+          "grip": {
+            "node": "handle-sleeve",
+            "position": [0.308,0,0],
+            "direction": [1,0,0],
+            "kind": "grip"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "die-angle",
+            "label": "套丝环转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "die-rotor",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "reverser-angle",
+            "label": "棘轮换向拨杆",
+            "unit": "deg",
+            "value": 0,
+            "min": -20,
+            "max": 35,
+            "targets": [
+              {
+                "node": "reverser",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

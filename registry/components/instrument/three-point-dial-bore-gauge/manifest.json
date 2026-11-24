@@ -1,0 +1,1175 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.three-point-dial-bore-gauge",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "三点接触式内径比较仪",
+  "summary": "指针表、立杆、测量头、滑动触杆、两侧定心触点和独立内孔参考。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.three-point-dial-bore-gauge",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "内径量表",
+    "内径比较仪",
+    "bore-gauge",
+    "contact-measurement",
+    "工程检测",
+    "instrument"
+  ],
+  "anchors": [
+    "fixed-contact",
+    "moving-contact",
+    "readout"
+  ],
+  "ai": {
+    "intent": "为孔内尺寸或装配间隙的数字检测提供独立触头与表头位置。",
+    "editableParts": [
+      "probe-travel"
+    ],
+    "qualityChecks": [
+      "活动触头与固定触头保持同轴。",
+      "表针随测头在示意范围内偏转。",
+      "定位座和把手保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "three-point-dial-bore-gauge",
+      "title": "三点接触式内径比较仪",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "dial",
+            "semanticType": "instrument.three-point-dial-bore-gauge.frame",
+            "transform": {
+              "position": [0,0.391,0]
+            }
+          },
+          {
+            "id": "dial-body",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-case",
+            "parent": "dial",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.014],
+                [0,0,0.006]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.034,0],
+                [0.0333467,0.00663307],
+                [0.0314119,0.01301124],
+                [0.02826997,0.01888939],
+                [0.02404163,0.02404163],
+                [0.01888939,0.02826997],
+                [0.01301124,0.0314119],
+                [0.00663307,0.0333467],
+                [0,0.034],
+                [-0.00663307,0.0333467],
+                [-0.01301124,0.0314119],
+                [-0.01888939,0.02826997],
+                [-0.02404163,0.02404163],
+                [-0.02826997,0.01888939],
+                [-0.0314119,0.01301124],
+                [-0.0333467,0.00663307],
+                [-0.034,0],
+                [-0.0333467,-0.00663307],
+                [-0.0314119,-0.01301124],
+                [-0.02826997,-0.01888939],
+                [-0.02404163,-0.02404163],
+                [-0.01888939,-0.02826997],
+                [-0.01301124,-0.0314119],
+                [-0.00663307,-0.0333467],
+                [0,-0.034],
+                [0.00663307,-0.0333467],
+                [0.01301124,-0.0314119],
+                [0.01888939,-0.02826997],
+                [0.02404163,-0.02404163],
+                [0.02826997,-0.01888939],
+                [0.0314119,-0.01301124],
+                [0.0333467,-0.00663307]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#758b95"
+            }
+          },
+          {
+            "id": "bezel",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-bezel",
+            "parent": "dial",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.005],
+                [0,0,0.014]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.037,0],
+                [0.03668346,0.00482947],
+                [0.03573926,0.0095763],
+                [0.03418354,0.01415929],
+                [0.03204294,0.0185],
+                [0.02935407,0.02252417],
+                [0.02616295,0.02616295],
+                [0.02252417,0.02935407],
+                [0.0185,0.03204294],
+                [0.01415929,0.03418354],
+                [0.0095763,0.03573926],
+                [0.00482947,0.03668346],
+                [0,0.037],
+                [-0.00482947,0.03668346],
+                [-0.0095763,0.03573926],
+                [-0.01415929,0.03418354],
+                [-0.0185,0.03204294],
+                [-0.02252417,0.02935407],
+                [-0.02616295,0.02616295],
+                [-0.02935407,0.02252417],
+                [-0.03204294,0.0185],
+                [-0.03418354,0.01415929],
+                [-0.03573926,0.0095763],
+                [-0.03668346,0.00482947],
+                [-0.037,0],
+                [-0.03668346,-0.00482947],
+                [-0.03573926,-0.0095763],
+                [-0.03418354,-0.01415929],
+                [-0.03204294,-0.0185],
+                [-0.02935407,-0.02252417],
+                [-0.02616295,-0.02616295],
+                [-0.02252417,-0.02935407],
+                [-0.0185,-0.03204294],
+                [-0.01415929,-0.03418354],
+                [-0.0095763,-0.03573926],
+                [-0.00482947,-0.03668346],
+                [0,-0.037],
+                [0.00482947,-0.03668346],
+                [0.0095763,-0.03573926],
+                [0.01415929,-0.03418354],
+                [0.0185,-0.03204294],
+                [0.02252417,-0.02935407],
+                [0.02616295,-0.02616295],
+                [0.02935407,-0.02252417],
+                [0.03204294,-0.0185],
+                [0.03418354,-0.01415929],
+                [0.03573926,-0.0095763],
+                [0.03668346,-0.00482947]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.032,0],
+                  [0.03172624,0.00417684],
+                  [0.03090963,0.00828221],
+                  [0.02956415,0.01224587],
+                  [0.02771281,0.016],
+                  [0.02538731,0.01948037],
+                  [0.02262742,0.02262742],
+                  [0.01948037,0.02538731],
+                  [0.016,0.02771281],
+                  [0.01224587,0.02956415],
+                  [0.00828221,0.03090963],
+                  [0.00417684,0.03172624],
+                  [0,0.032],
+                  [-0.00417684,0.03172624],
+                  [-0.00828221,0.03090963],
+                  [-0.01224587,0.02956415],
+                  [-0.016,0.02771281],
+                  [-0.01948037,0.02538731],
+                  [-0.02262742,0.02262742],
+                  [-0.02538731,0.01948037],
+                  [-0.02771281,0.016],
+                  [-0.02956415,0.01224587],
+                  [-0.03090963,0.00828221],
+                  [-0.03172624,0.00417684],
+                  [-0.032,0],
+                  [-0.03172624,-0.00417684],
+                  [-0.03090963,-0.00828221],
+                  [-0.02956415,-0.01224587],
+                  [-0.02771281,-0.016],
+                  [-0.02538731,-0.01948037],
+                  [-0.02262742,-0.02262742],
+                  [-0.01948037,-0.02538731],
+                  [-0.016,-0.02771281],
+                  [-0.01224587,-0.02956415],
+                  [-0.00828221,-0.03090963],
+                  [-0.00417684,-0.03172624],
+                  [0,-0.032],
+                  [0.00417684,-0.03172624],
+                  [0.00828221,-0.03090963],
+                  [0.01224587,-0.02956415],
+                  [0.016,-0.02771281],
+                  [0.01948037,-0.02538731],
+                  [0.02262742,-0.02262742],
+                  [0.02538731,-0.01948037],
+                  [0.02771281,-0.016],
+                  [0.02956415,-0.01224587],
+                  [0.03090963,-0.00828221],
+                  [0.03172624,-0.00417684]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "dial-face",
+            "semanticType": "instrument.three-point-dial-bore-gauge.scale-dial",
+            "parent": "dial",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.007],
+                [0,0,0.009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.031,0],
+                [0.03040434,0.0060478],
+                [0.02864027,0.01186319],
+                [0.02577556,0.01722268],
+                [0.02192031,0.02192031],
+                [0.01722268,0.02577556],
+                [0.01186319,0.02864027],
+                [0.0060478,0.03040434],
+                [0,0.031],
+                [-0.0060478,0.03040434],
+                [-0.01186319,0.02864027],
+                [-0.01722268,0.02577556],
+                [-0.02192031,0.02192031],
+                [-0.02577556,0.01722268],
+                [-0.02864027,0.01186319],
+                [-0.03040434,0.0060478],
+                [-0.031,0],
+                [-0.03040434,-0.0060478],
+                [-0.02864027,-0.01186319],
+                [-0.02577556,-0.01722268],
+                [-0.02192031,-0.02192031],
+                [-0.01722268,-0.02577556],
+                [-0.01186319,-0.02864027],
+                [-0.0060478,-0.03040434],
+                [0,-0.031],
+                [0.0060478,-0.03040434],
+                [0.01186319,-0.02864027],
+                [0.01722268,-0.02577556],
+                [0.02192031,-0.02192031],
+                [0.02577556,-0.01722268],
+                [0.02864027,-0.01186319],
+                [0.03040434,-0.0060478]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#e7eee9"
+            }
+          },
+          {
+            "id": "tick-0",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.025,0,0.0095],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tick-1",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.027655273536663857,0.004380165021126464,0.0095],
+              "rotation": [0,0,0.15707963267948966]
+            }
+          },
+          {
+            "id": "tick-2",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.0266295824562643,0.008652475842498527,0.0095],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "tick-3",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.024948182677274302,0.01271173399270731,0.0095],
+              "rotation": [0,0,0.47123889803846897]
+            }
+          },
+          {
+            "id": "tick-4",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.022652475842498528,0.016457987064189248,0.0095],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "tick-5",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.01767766952966369,0.017677669529663688,0.0095],
+              "rotation": [0,0,0.7853981633974483]
+            }
+          },
+          {
+            "id": "tick-6",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.016457987064189248,0.022652475842498528,0.0095],
+              "rotation": [0,0,0.9424777960769379]
+            }
+          },
+          {
+            "id": "tick-7",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.012711733992707312,0.0249481826772743,0.0095],
+              "rotation": [0,0,1.0995574287564276]
+            }
+          },
+          {
+            "id": "tick-8",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.008652475842498529,0.0266295824562643,0.0095],
+              "rotation": [0,0,1.2566370614359172]
+            }
+          },
+          {
+            "id": "tick-9",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.004380165021126466,0.027655273536663857,0.0095],
+              "rotation": [0,0,1.413716694115407]
+            }
+          },
+          {
+            "id": "tick-10",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [1.5308084989341916e-18,0.025,0.0095],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "tick-11",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.004380165021126463,0.027655273536663857,0.0095],
+              "rotation": [0,0,1.7278759594743862]
+            }
+          },
+          {
+            "id": "tick-12",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.008652475842498526,0.026629582456264303,0.0095],
+              "rotation": [0,0,1.8849555921538759]
+            }
+          },
+          {
+            "id": "tick-13",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.01271173399270731,0.024948182677274302,0.0095],
+              "rotation": [0,0,2.0420352248333655]
+            }
+          },
+          {
+            "id": "tick-14",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.016457987064189245,0.022652475842498528,0.0095],
+              "rotation": [0,0,2.199114857512855]
+            }
+          },
+          {
+            "id": "tick-15",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.017677669529663688,0.01767766952966369,0.0095],
+              "rotation": [0,0,2.356194490192345]
+            }
+          },
+          {
+            "id": "tick-16",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.022652475842498528,0.01645798706418925,0.0095],
+              "rotation": [0,0,2.5132741228718345]
+            }
+          },
+          {
+            "id": "tick-17",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.0249481826772743,0.012711733992707312,0.0095],
+              "rotation": [0,0,2.670353755551324]
+            }
+          },
+          {
+            "id": "tick-18",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.0266295824562643,0.00865247584249853,0.0095],
+              "rotation": [0,0,2.827433388230814]
+            }
+          },
+          {
+            "id": "tick-19",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.027655273536663857,0.004380165021126468,0.0095],
+              "rotation": [0,0,2.9845130209103035]
+            }
+          },
+          {
+            "id": "tick-20",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.025,3.061616997868383e-18,0.0095],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "tick-21",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.027655273536663857,-0.004380165021126461,0.0095],
+              "rotation": [0,0,3.2986722862692828]
+            }
+          },
+          {
+            "id": "tick-22",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.026629582456264303,-0.008652475842498524,0.0095],
+              "rotation": [0,0,3.4557519189487724]
+            }
+          },
+          {
+            "id": "tick-23",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.024948182677274302,-0.012711733992707308,0.0095],
+              "rotation": [0,0,3.612831551628262]
+            }
+          },
+          {
+            "id": "tick-24",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.022652475842498528,-0.016457987064189245,0.0095],
+              "rotation": [0,0,3.7699111843077517]
+            }
+          },
+          {
+            "id": "tick-25",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.01767766952966369,-0.017677669529663688,0.0095],
+              "rotation": [0,0,3.9269908169872414]
+            }
+          },
+          {
+            "id": "tick-26",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.01645798706418925,-0.022652475842498528,0.0095],
+              "rotation": [0,0,4.084070449666731]
+            }
+          },
+          {
+            "id": "tick-27",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.012711733992707313,-0.0249481826772743,0.0095],
+              "rotation": [0,0,4.241150082346221]
+            }
+          },
+          {
+            "id": "tick-28",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.008652475842498532,-0.0266295824562643,0.0095],
+              "rotation": [0,0,4.39822971502571]
+            }
+          },
+          {
+            "id": "tick-29",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-0.004380165021126469,-0.027655273536663857,0.0095],
+              "rotation": [0,0,4.5553093477052]
+            }
+          },
+          {
+            "id": "tick-30",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [-4.592425496802574e-18,-0.025,0.0095],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "tick-31",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.004380165021126459,-0.027655273536663857,0.0095],
+              "rotation": [0,0,4.869468613064179]
+            }
+          },
+          {
+            "id": "tick-32",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.008652475842498522,-0.026629582456264303,0.0095],
+              "rotation": [0,0,5.026548245743669]
+            }
+          },
+          {
+            "id": "tick-33",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.012711733992707306,-0.024948182677274305,0.0095],
+              "rotation": [0,0,5.183627878423159]
+            }
+          },
+          {
+            "id": "tick-34",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.01645798706418924,-0.02265247584249853,0.0095],
+              "rotation": [0,0,5.340707511102648]
+            }
+          },
+          {
+            "id": "tick-35",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.017677669529663684,-0.01767766952966369,0.0095],
+              "rotation": [0,0,5.497787143782138]
+            }
+          },
+          {
+            "id": "tick-36",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.022652475842498528,-0.016457987064189255,0.0095],
+              "rotation": [0,0,5.654866776461628]
+            }
+          },
+          {
+            "id": "tick-37",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.0249481826772743,-0.012711733992707315,0.0095],
+              "rotation": [0,0,5.811946409141117]
+            }
+          },
+          {
+            "id": "tick-38",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.0266295824562643,-0.008652475842498534,0.0095],
+              "rotation": [0,0,5.969026041820607]
+            }
+          },
+          {
+            "id": "tick-39",
+            "semanticType": "instrument.three-point-dial-bore-gauge.dial-mark",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0034,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0.027655273536663857,-0.004380165021126471,0.0095],
+              "rotation": [0,0,6.126105674500097]
+            }
+          },
+          {
+            "id": "pointer",
+            "semanticType": "instrument.three-point-dial-bore-gauge.frame",
+            "parent": "dial",
+            "transform": {
+              "position": [0,0,0.011],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "needle",
+            "semanticType": "instrument.three-point-dial-bore-gauge.measurement-pointer",
+            "parent": "pointer",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.001]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.006,-0.002],
+                [-0.003,-0.003],
+                [0.023,-0.0007],
+                [0.027,0],
+                [0.023,0.0007],
+                [-0.003,0.003]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#dca13f"
+            }
+          },
+          {
+            "id": "pointer-nut",
+            "semanticType": "instrument.three-point-dial-bore-gauge.pointer-axis",
+            "parent": "pointer",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.001],
+                [0,0,0.003]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.004,0],
+                [0.0038637,0.00103528],
+                [0.0034641,0.002],
+                [0.00282843,0.00282843],
+                [0.002,0.0034641],
+                [0.00103528,0.0038637],
+                [0,0.004],
+                [-0.00103528,0.0038637],
+                [-0.002,0.0034641],
+                [-0.00282843,0.00282843],
+                [-0.0034641,0.002],
+                [-0.0038637,0.00103528],
+                [-0.004,0],
+                [-0.0038637,-0.00103528],
+                [-0.0034641,-0.002],
+                [-0.00282843,-0.00282843],
+                [-0.002,-0.0034641],
+                [-0.00103528,-0.0038637],
+                [0,-0.004],
+                [0.00103528,-0.0038637],
+                [0.002,-0.0034641],
+                [0.00282843,-0.00282843],
+                [0.0034641,-0.002],
+                [0.0038637,-0.00103528]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#344751"
+            }
+          },
+          {
+            "id": "spine",
+            "semanticType": "instrument.three-point-dial-bore-gauge.bore-gauge-spine",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.03,0],
+              "end": [0,0.365,0],
+              "radius": 0.0085,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "grip",
+            "semanticType": "instrument.three-point-dial-bore-gauge.thermal-grip",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.166,0],
+              "end": [0,0.312,0],
+              "radius": 0.016,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#2e3940"
+            }
+          },
+          {
+            "id": "gauge-head",
+            "semanticType": "instrument.three-point-dial-bore-gauge.centering-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.051,0.031,0.041]
+            },
+            "appearance": {
+              "color": "#758b95"
+            },
+            "transform": {
+              "position": [0,0.024,0]
+            }
+          },
+          {
+            "id": "fixed-anvil",
+            "semanticType": "instrument.three-point-dial-bore-gauge.fixed-contact-anvil",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.066,0.025,0],
+              "end": [-0.019,0.025,0],
+              "radius": 0.0064,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "fixed-tip",
+            "semanticType": "instrument.three-point-dial-bore-gauge.fixed-contact-tip",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.007,
+              "segments": 18
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [-0.066,0.025,0]
+            }
+          },
+          {
+            "id": "probe",
+            "semanticType": "instrument.three-point-dial-bore-gauge.frame",
+            "transform": {
+              "position": [0.021,0.025,0]
+            }
+          },
+          {
+            "id": "plunger",
+            "semanticType": "instrument.three-point-dial-bore-gauge.moving-contact-plunger",
+            "parent": "probe",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0.035,0,0],
+              "radius": 0.0057,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "moving-tip",
+            "semanticType": "instrument.three-point-dial-bore-gauge.moving-contact-tip",
+            "parent": "probe",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0064,
+              "segments": 18
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.037,0,0]
+            }
+          },
+          {
+            "id": "centering-arm--1",
+            "semanticType": "instrument.three-point-dial-bore-gauge.centering-touch",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.002,0.017,-0.014],
+              "end": [0.012,0.011,-0.036],
+              "radius": 0.0058,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#6b838e"
+            }
+          },
+          {
+            "id": "centering-arm-1",
+            "semanticType": "instrument.three-point-dial-bore-gauge.centering-touch",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.002,0.017,0.014],
+              "end": [0.012,0.011,0.036],
+              "radius": 0.0058,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#6b838e"
+            }
+          }
+        ],
+        "anchors": {
+          "fixed-contact": {
+            "node": "fixed-tip",
+            "position": [-0.007,0,0],
+            "direction": [-1,0,0],
+            "kind": "contact"
+          },
+          "moving-contact": {
+            "node": "moving-tip",
+            "position": [0.0064,0,0],
+            "direction": [1,0,0],
+            "kind": "contact"
+          },
+          "readout": {
+            "node": "dial",
+            "position": [0,0,0.014],
+            "direction": [0,0,1],
+            "kind": "readout"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "probe-travel",
+            "label": "活动测头位移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.0031,
+            "max": 0.0046,
+            "targets": [
+              {
+                "node": "probe",
+                "property": "position",
+                "axis": "x"
+              },
+              {
+                "node": "pointer",
+                "property": "rotation",
+                "axis": "z",
+                "factor": -540
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,941 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.inspection-sediment-trap-chamber-with-lift-basket",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带提篮的工地沉砂检修井",
+  "summary": "带贯通侧口、井身、可翻检修格栅及可抽出的下部沉砂篮。",
+  "license": "Apache-2.0",
+  "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "沉砂井",
+    "检查井",
+    "sediment-trap",
+    "access-chamber",
+    "土建设施",
+    "site"
+  ],
+  "anchors": [
+    "inbound",
+    "outbound",
+    "grade",
+    "lift-eye"
+  ],
+  "ai": {
+    "intent": "独立用于工地排水及检修布置，定位两段管线衔接、口盖和沉砂维护部位。",
+    "editableParts": [
+      "cover-angle",
+      "basket-height"
+    ],
+    "qualityChecks": [
+      "两个管口保有贯通开口。",
+      "井盖和提篮各自可动。",
+      "井身及固定井口保持稳定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "inspection-sediment-trap-chamber-with-lift-basket",
+      "title": "带提篮的工地沉砂检修井",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bottom",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.chamber-floor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.704,0],
+                [0,-0.652,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.35100000000000003,-0.323],
+                [-0.35100000000000003,-0.323],
+                [-0.398,-0.276],
+                [-0.398,0.276],
+                [-0.35100000000000003,0.323],
+                [0.35100000000000003,0.323],
+                [0.398,0.276],
+                [0.398,-0.276]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#97afb9"
+            }
+          },
+          {
+            "id": "wall-lower",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.chamber-lower-shell",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.653,0],
+                [0,-0.341,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.35100000000000003,-0.323],
+                [-0.35100000000000003,-0.323],
+                [-0.398,-0.276],
+                [-0.398,0.276],
+                [-0.35100000000000003,0.323],
+                [0.35100000000000003,0.323],
+                [0.398,0.276],
+                [0.398,-0.276]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.312,-0.277],
+                  [-0.312,-0.277],
+                  [-0.352,-0.23700000000000002],
+                  [-0.352,0.23700000000000002],
+                  [-0.312,0.277],
+                  [0.312,0.277],
+                  [0.352,0.23700000000000002],
+                  [0.352,-0.23700000000000002]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            }
+          },
+          {
+            "id": "wall-upper",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.chamber-upper-shell",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.198,0],
+                [0,-0.028,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.35100000000000003,-0.323],
+                [-0.35100000000000003,-0.323],
+                [-0.398,-0.276],
+                [-0.398,0.276],
+                [-0.35100000000000003,0.323],
+                [0.35100000000000003,0.323],
+                [0.398,0.276],
+                [0.398,-0.276]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.312,-0.277],
+                  [-0.312,-0.277],
+                  [-0.352,-0.23700000000000002],
+                  [-0.352,0.23700000000000002],
+                  [-0.312,0.277],
+                  [0.312,0.277],
+                  [0.352,0.23700000000000002],
+                  [0.352,-0.23700000000000002]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            }
+          },
+          {
+            "id": "port-side-wall--1",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.chamber-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.731,0.143,0.045]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0,-0.2695,-0.3]
+            }
+          },
+          {
+            "id": "port-frame--1",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.frame",
+            "transform": {
+              "position": [-0.36,-0.265,0]
+            }
+          },
+          {
+            "id": "ported-wall--1",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.open-port-wall",
+            "parent": "port-frame--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.024,0,0],
+                [0.009,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.28099999999999997,-0.075],
+                [0.28099999999999997,-0.075],
+                [0.294,-0.062],
+                [0.294,0.064],
+                [0.28099999999999997,0.077],
+                [-0.28099999999999997,0.077],
+                [-0.294,0.064],
+                [-0.294,-0.062]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.061,0],
+                  [0.0594706,0.01357378],
+                  [0.0549591,0.02646691],
+                  [0.04769172,0.03803288],
+                  [0.03803288,0.04769172],
+                  [0.02646691,0.0549591],
+                  [0.01357378,0.0594706],
+                  [0,0.061],
+                  [-0.01357378,0.0594706],
+                  [-0.02646691,0.0549591],
+                  [-0.03803288,0.04769172],
+                  [-0.04769172,0.03803288],
+                  [-0.0549591,0.02646691],
+                  [-0.0594706,0.01357378],
+                  [-0.061,0],
+                  [-0.0594706,-0.01357378],
+                  [-0.0549591,-0.02646691],
+                  [-0.04769172,-0.03803288],
+                  [-0.03803288,-0.04769172],
+                  [-0.02646691,-0.0549591],
+                  [-0.01357378,-0.0594706],
+                  [0,-0.061],
+                  [0.01357378,-0.0594706],
+                  [0.02646691,-0.0549591],
+                  [0.03803288,-0.04769172],
+                  [0.04769172,-0.03803288],
+                  [0.0549591,-0.02646691],
+                  [0.0594706,-0.01357378]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            }
+          },
+          {
+            "id": "neck--1-frame",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.frame",
+            "transform": {
+              "position": [-0.38,-0.265,0]
+            }
+          },
+          {
+            "id": "neck--1",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.pipe-sleeve",
+            "parent": "neck--1-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.1,0,0],
+                [0,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.069,0],
+                [0.06805893,0.01135703],
+                [0.06526139,0.02240426],
+                [0.06068369,0.03284037],
+                [0.0544507,0.04238068],
+                [0.04673243,0.05076495],
+                [0.03773942,0.05776449],
+                [0.02771698,0.06318836],
+                [0.0169385,0.06688862],
+                [0.00569797,0.06876433],
+                [-0.00569797,0.06876433],
+                [-0.0169385,0.06688862],
+                [-0.02771698,0.06318836],
+                [-0.03773942,0.05776449],
+                [-0.04673243,0.05076495],
+                [-0.0544507,0.04238068],
+                [-0.06068369,0.03284037],
+                [-0.06526139,0.02240426],
+                [-0.06805893,0.01135703],
+                [-0.069,0],
+                [-0.06805893,-0.01135703],
+                [-0.06526139,-0.02240426],
+                [-0.06068369,-0.03284037],
+                [-0.0544507,-0.04238068],
+                [-0.04673243,-0.05076495],
+                [-0.03773942,-0.05776449],
+                [-0.02771698,-0.06318836],
+                [-0.0169385,-0.06688862],
+                [-0.00569797,-0.06876433],
+                [0.00569797,-0.06876433],
+                [0.0169385,-0.06688862],
+                [0.02771698,-0.06318836],
+                [0.03773942,-0.05776449],
+                [0.04673243,-0.05076495],
+                [0.0544507,-0.04238068],
+                [0.06068369,-0.03284037],
+                [0.06526139,-0.02240426],
+                [0.06805893,-0.01135703]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.055,0],
+                  [0.05424987,0.0090527],
+                  [0.05201995,0.01785847],
+                  [0.04837106,0.02617711],
+                  [0.04340273,0.0337817],
+                  [0.03725049,0.04046482],
+                  [0.03008215,0.04604416],
+                  [0.02209325,0.05036753],
+                  [0.0135017,0.05331701],
+                  [0.00454186,0.05481215],
+                  [-0.00454186,0.05481215],
+                  [-0.0135017,0.05331701],
+                  [-0.02209325,0.05036753],
+                  [-0.03008215,0.04604416],
+                  [-0.03725049,0.04046482],
+                  [-0.04340273,0.0337817],
+                  [-0.04837106,0.02617711],
+                  [-0.05201995,0.01785847],
+                  [-0.05424987,0.0090527],
+                  [-0.055,0],
+                  [-0.05424987,-0.0090527],
+                  [-0.05201995,-0.01785847],
+                  [-0.04837106,-0.02617711],
+                  [-0.04340273,-0.0337817],
+                  [-0.03725049,-0.04046482],
+                  [-0.03008215,-0.04604416],
+                  [-0.02209325,-0.05036753],
+                  [-0.0135017,-0.05331701],
+                  [-0.00454186,-0.05481215],
+                  [0.00454186,-0.05481215],
+                  [0.0135017,-0.05331701],
+                  [0.02209325,-0.05036753],
+                  [0.03008215,-0.04604416],
+                  [0.03725049,-0.04046482],
+                  [0.04340273,-0.0337817],
+                  [0.04837106,-0.02617711],
+                  [0.05201995,-0.01785847],
+                  [0.05424987,-0.0090527]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            }
+          },
+          {
+            "id": "port-side-wall-1",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.chamber-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.731,0.143,0.045]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0,-0.2695,0.3]
+            }
+          },
+          {
+            "id": "port-frame-1",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.frame",
+            "transform": {
+              "position": [0.36,-0.265,0]
+            }
+          },
+          {
+            "id": "ported-wall-1",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.open-port-wall",
+            "parent": "port-frame-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.009,0,0],
+                [0.024,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.28099999999999997,-0.075],
+                [0.28099999999999997,-0.075],
+                [0.294,-0.062],
+                [0.294,0.064],
+                [0.28099999999999997,0.077],
+                [-0.28099999999999997,0.077],
+                [-0.294,0.064],
+                [-0.294,-0.062]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.061,0],
+                  [0.0594706,0.01357378],
+                  [0.0549591,0.02646691],
+                  [0.04769172,0.03803288],
+                  [0.03803288,0.04769172],
+                  [0.02646691,0.0549591],
+                  [0.01357378,0.0594706],
+                  [0,0.061],
+                  [-0.01357378,0.0594706],
+                  [-0.02646691,0.0549591],
+                  [-0.03803288,0.04769172],
+                  [-0.04769172,0.03803288],
+                  [-0.0549591,0.02646691],
+                  [-0.0594706,0.01357378],
+                  [-0.061,0],
+                  [-0.0594706,-0.01357378],
+                  [-0.0549591,-0.02646691],
+                  [-0.04769172,-0.03803288],
+                  [-0.03803288,-0.04769172],
+                  [-0.02646691,-0.0549591],
+                  [-0.01357378,-0.0594706],
+                  [0,-0.061],
+                  [0.01357378,-0.0594706],
+                  [0.02646691,-0.0549591],
+                  [0.03803288,-0.04769172],
+                  [0.04769172,-0.03803288],
+                  [0.0549591,-0.02646691],
+                  [0.0594706,-0.01357378]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            }
+          },
+          {
+            "id": "neck-1-frame",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.frame",
+            "transform": {
+              "position": [0.38,-0.265,0]
+            }
+          },
+          {
+            "id": "neck-1",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.pipe-sleeve",
+            "parent": "neck-1-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.1,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.069,0],
+                [0.06805893,0.01135703],
+                [0.06526139,0.02240426],
+                [0.06068369,0.03284037],
+                [0.0544507,0.04238068],
+                [0.04673243,0.05076495],
+                [0.03773942,0.05776449],
+                [0.02771698,0.06318836],
+                [0.0169385,0.06688862],
+                [0.00569797,0.06876433],
+                [-0.00569797,0.06876433],
+                [-0.0169385,0.06688862],
+                [-0.02771698,0.06318836],
+                [-0.03773942,0.05776449],
+                [-0.04673243,0.05076495],
+                [-0.0544507,0.04238068],
+                [-0.06068369,0.03284037],
+                [-0.06526139,0.02240426],
+                [-0.06805893,0.01135703],
+                [-0.069,0],
+                [-0.06805893,-0.01135703],
+                [-0.06526139,-0.02240426],
+                [-0.06068369,-0.03284037],
+                [-0.0544507,-0.04238068],
+                [-0.04673243,-0.05076495],
+                [-0.03773942,-0.05776449],
+                [-0.02771698,-0.06318836],
+                [-0.0169385,-0.06688862],
+                [-0.00569797,-0.06876433],
+                [0.00569797,-0.06876433],
+                [0.0169385,-0.06688862],
+                [0.02771698,-0.06318836],
+                [0.03773942,-0.05776449],
+                [0.04673243,-0.05076495],
+                [0.0544507,-0.04238068],
+                [0.06068369,-0.03284037],
+                [0.06526139,-0.02240426],
+                [0.06805893,-0.01135703]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.055,0],
+                  [0.05424987,0.0090527],
+                  [0.05201995,0.01785847],
+                  [0.04837106,0.02617711],
+                  [0.04340273,0.0337817],
+                  [0.03725049,0.04046482],
+                  [0.03008215,0.04604416],
+                  [0.02209325,0.05036753],
+                  [0.0135017,0.05331701],
+                  [0.00454186,0.05481215],
+                  [-0.00454186,0.05481215],
+                  [-0.0135017,0.05331701],
+                  [-0.02209325,0.05036753],
+                  [-0.03008215,0.04604416],
+                  [-0.03725049,0.04046482],
+                  [-0.04340273,0.0337817],
+                  [-0.04837106,0.02617711],
+                  [-0.05201995,0.01785847],
+                  [-0.05424987,0.0090527],
+                  [-0.055,0],
+                  [-0.05424987,-0.0090527],
+                  [-0.05201995,-0.01785847],
+                  [-0.04837106,-0.02617711],
+                  [-0.04340273,-0.0337817],
+                  [-0.03725049,-0.04046482],
+                  [-0.03008215,-0.04604416],
+                  [-0.02209325,-0.05036753],
+                  [-0.0135017,-0.05331701],
+                  [-0.00454186,-0.05481215],
+                  [0.00454186,-0.05481215],
+                  [0.0135017,-0.05331701],
+                  [0.02209325,-0.05036753],
+                  [0.03008215,-0.04604416],
+                  [0.03725049,-0.04046482],
+                  [0.04340273,-0.0337817],
+                  [0.04837106,-0.02617711],
+                  [0.05201995,-0.01785847],
+                  [0.05424987,-0.0090527]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            }
+          },
+          {
+            "id": "rim",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.inspection-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.028,0],
+                [0,0.011,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.392,-0.354],
+                [-0.392,-0.354],
+                [-0.424,-0.32199999999999995],
+                [-0.424,0.32199999999999995],
+                [-0.392,0.354],
+                [0.392,0.354],
+                [0.424,0.32199999999999995],
+                [0.424,-0.32199999999999995]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.33299999999999996,-0.29],
+                  [-0.33299999999999996,-0.29],
+                  [-0.366,-0.257],
+                  [-0.366,0.257],
+                  [-0.33299999999999996,0.29],
+                  [0.33299999999999996,0.29],
+                  [0.366,0.257],
+                  [0.366,-0.257]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            }
+          },
+          {
+            "id": "grille",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.frame",
+            "transform": {
+              "position": [-0.365,0,0]
+            }
+          },
+          {
+            "id": "grille-border",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-border",
+            "parent": "grille",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.022,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.016,-0.291],
+                [-0.725,-0.291],
+                [-0.741,-0.27499999999999997],
+                [-0.741,0.27499999999999997],
+                [-0.725,0.291],
+                [-0.016,0.291],
+                [0,0.27499999999999997],
+                [0,-0.27499999999999997]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.045,-0.262],
+                  [-0.6910000000000001,-0.262],
+                  [-0.7040000000000001,-0.249],
+                  [-0.7040000000000001,0.249],
+                  [-0.6910000000000001,0.262],
+                  [-0.045,0.262],
+                  [-0.032,0.249],
+                  [-0.032,-0.249]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            }
+          },
+          {
+            "id": "grille-bar-0",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.047,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-1",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.106,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-2",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.16499999999999998,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-3",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.22399999999999998,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-4",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.283,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-5",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.34199999999999997,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-6",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.40099999999999997,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-7",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.45999999999999996,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-8",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.519,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-9",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.578,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-10",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.637,0.011,0]
+            }
+          },
+          {
+            "id": "grille-bar-11",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.grated-cover-rung",
+            "parent": "grille",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.019,0.559]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0.6960000000000001,0.011,0]
+            }
+          },
+          {
+            "id": "insert",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.frame",
+            "transform": {
+              "position": [0,-0.588,0]
+            }
+          },
+          {
+            "id": "insert-floor",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.sediment-catch-pan",
+            "parent": "insert",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.024,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.271,-0.223],
+                [-0.271,-0.223],
+                [-0.304,-0.19],
+                [-0.304,0.19],
+                [-0.271,0.223],
+                [0.271,0.223],
+                [0.304,0.19],
+                [0.304,-0.19]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#76b4c0"
+            }
+          },
+          {
+            "id": "insert-wall",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.filter-basket-wall",
+            "parent": "insert",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.022,0],
+                [0,0.109,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.268,-0.222],
+                [-0.268,-0.222],
+                [-0.302,-0.188],
+                [-0.302,0.188],
+                [-0.268,0.222],
+                [0.268,0.222],
+                [0.302,0.188],
+                [0.302,-0.188]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.26199999999999996,-0.209],
+                  [-0.26199999999999996,-0.209],
+                  [-0.289,-0.182],
+                  [-0.289,0.182],
+                  [-0.26199999999999996,0.209],
+                  [0.26199999999999996,0.209],
+                  [0.289,0.182],
+                  [0.289,-0.182]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#76b4c0"
+            }
+          },
+          {
+            "id": "lift-eye",
+            "semanticType": "site.inspection-sediment-trap-chamber-with-lift-basket.basket-handle",
+            "parent": "insert",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.101,0.101,0],
+                [-0.101,0.193,0],
+                [0.101,0.193,0],
+                [0.101,0.101,0]
+              ],
+              "radius": 0.007,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#97afb9"
+            }
+          }
+        ],
+        "anchors": {
+          "inbound": {
+            "node": "neck--1-frame",
+            "position": [-0.1,0,0],
+            "direction": [-1,0,0],
+            "kind": "fluid-port"
+          },
+          "outbound": {
+            "node": "neck-1-frame",
+            "position": [0.1,0,0],
+            "direction": [1,0,0],
+            "kind": "fluid-port"
+          },
+          "grade": {
+            "node": "rim",
+            "position": [0,0.011,0],
+            "direction": [0,1,0],
+            "kind": "mount"
+          },
+          "lift-eye": {
+            "node": "lift-eye",
+            "position": [0,0.193,0],
+            "direction": [0,1,0],
+            "kind": "service"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "cover-angle",
+            "label": "翻开格栅角度",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 102,
+            "targets": [
+              {
+                "node": "grille",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "basket-height",
+            "label": "沉砂篮上提",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.654,
+            "targets": [
+              {
+                "node": "insert",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

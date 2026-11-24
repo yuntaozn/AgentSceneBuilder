@@ -1,0 +1,1572 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.three-axis-vertical-cnc-milling-machine",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "三轴立式数控铣床本体",
+  "summary": "门式机座、双层正交滑台、可进给主轴、带孔工装台、独立防护门和外置操作单元。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.three-axis-vertical-cnc-milling-machine",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "立式铣床",
+    "数控机床",
+    "cnc-mill",
+    "vertical-mill",
+    "three-axis",
+    "自动化",
+    "equipment"
+  ],
+  "anchors": [
+    "fixture-face",
+    "cut-axis",
+    "cutter-tip",
+    "foundation"
+  ],
+  "ai": {
+    "intent": "独立复用立式数控设备，定位正交滑台、主轴工作端和维护门，供加工流程数字化建模。",
+    "editableParts": [
+      "door-angle--1",
+      "door-angle-1",
+      "feed-x",
+      "feed-z",
+      "head-height",
+      "cutter-angle"
+    ],
+    "qualityChecks": [
+      "主轴进给不改变两级台面滑动轴。",
+      "两扇防护门各自转动。",
+      "工装台和刀具轴对 Agent 保留独立锚点。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "three-axis-vertical-cnc-milling-machine",
+      "title": "三轴立式数控铣床本体",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.machine-base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.038,0],
+                [0,0.187,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.5780000000000001,-0.558],
+                [-0.5780000000000001,-0.558],
+                [-0.652,-0.48400000000000004],
+                [-0.652,0.48400000000000004],
+                [-0.5780000000000001,0.558],
+                [0.5780000000000001,0.558],
+                [0.652,0.48400000000000004],
+                [0.652,-0.48400000000000004]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.563,-0.478],
+                  [0.56348608,-0.47461921],
+                  [0.56490496,-0.47151231],
+                  [0.56714167,-0.46893101],
+                  [0.57001502,-0.46708442],
+                  [0.57329222,-0.46612214],
+                  [0.57670778,-0.46612214],
+                  [0.57998498,-0.46708442],
+                  [0.58285833,-0.46893101],
+                  [0.58509504,-0.47151231],
+                  [0.58651392,-0.47461921],
+                  [0.587,-0.478],
+                  [0.58651392,-0.48138079],
+                  [0.58509504,-0.48448769],
+                  [0.58285833,-0.48706899],
+                  [0.57998498,-0.48891558],
+                  [0.57670778,-0.48987786],
+                  [0.57329222,-0.48987786],
+                  [0.57001502,-0.48891558],
+                  [0.56714167,-0.48706899],
+                  [0.56490496,-0.48448769],
+                  [0.56348608,-0.48138079]
+                ],
+                [
+                  [0.563,0.478],
+                  [0.56348608,0.48138079],
+                  [0.56490496,0.48448769],
+                  [0.56714167,0.48706899],
+                  [0.57001502,0.48891558],
+                  [0.57329222,0.48987786],
+                  [0.57670778,0.48987786],
+                  [0.57998498,0.48891558],
+                  [0.58285833,0.48706899],
+                  [0.58509504,0.48448769],
+                  [0.58651392,0.48138079],
+                  [0.587,0.478],
+                  [0.58651392,0.47461921],
+                  [0.58509504,0.47151231],
+                  [0.58285833,0.46893101],
+                  [0.57998498,0.46708442],
+                  [0.57670778,0.46612214],
+                  [0.57329222,0.46612214],
+                  [0.57001502,0.46708442],
+                  [0.56714167,0.46893101],
+                  [0.56490496,0.47151231],
+                  [0.56348608,0.47461921]
+                ],
+                [
+                  [-0.587,-0.478],
+                  [-0.58651392,-0.47461921],
+                  [-0.58509504,-0.47151231],
+                  [-0.58285833,-0.46893101],
+                  [-0.57998498,-0.46708442],
+                  [-0.57670778,-0.46612214],
+                  [-0.57329222,-0.46612214],
+                  [-0.57001502,-0.46708442],
+                  [-0.56714167,-0.46893101],
+                  [-0.56490496,-0.47151231],
+                  [-0.56348608,-0.47461921],
+                  [-0.563,-0.478],
+                  [-0.56348608,-0.48138079],
+                  [-0.56490496,-0.48448769],
+                  [-0.56714167,-0.48706899],
+                  [-0.57001502,-0.48891558],
+                  [-0.57329222,-0.48987786],
+                  [-0.57670778,-0.48987786],
+                  [-0.57998498,-0.48891558],
+                  [-0.58285833,-0.48706899],
+                  [-0.58509504,-0.48448769],
+                  [-0.58651392,-0.48138079]
+                ],
+                [
+                  [-0.587,0.478],
+                  [-0.58651392,0.48138079],
+                  [-0.58509504,0.48448769],
+                  [-0.58285833,0.48706899],
+                  [-0.57998498,0.48891558],
+                  [-0.57670778,0.48987786],
+                  [-0.57329222,0.48987786],
+                  [-0.57001502,0.48891558],
+                  [-0.56714167,0.48706899],
+                  [-0.56490496,0.48448769],
+                  [-0.56348608,0.48138079],
+                  [-0.563,0.478],
+                  [-0.56348608,0.47461921],
+                  [-0.56490496,0.47151231],
+                  [-0.56714167,0.46893101],
+                  [-0.57001502,0.46708442],
+                  [-0.57329222,0.46612214],
+                  [-0.57670778,0.46612214],
+                  [-0.57998498,0.46708442],
+                  [-0.58285833,0.46893101],
+                  [-0.58509504,0.47151231],
+                  [-0.58651392,0.47461921]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#485962"
+            }
+          },
+          {
+            "id": "foot--0.55--0.463",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.isolated-machine-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.037,0.113]
+            },
+            "appearance": {
+              "color": "#6a838e"
+            },
+            "transform": {
+              "position": [-0.55,0.019,-0.463]
+            }
+          },
+          {
+            "id": "foot--0.55-0.463",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.isolated-machine-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.037,0.113]
+            },
+            "appearance": {
+              "color": "#6a838e"
+            },
+            "transform": {
+              "position": [-0.55,0.019,0.463]
+            }
+          },
+          {
+            "id": "foot-0.55--0.463",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.isolated-machine-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.037,0.113]
+            },
+            "appearance": {
+              "color": "#6a838e"
+            },
+            "transform": {
+              "position": [0.55,0.019,-0.463]
+            }
+          },
+          {
+            "id": "foot-0.55-0.463",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.isolated-machine-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.037,0.113]
+            },
+            "appearance": {
+              "color": "#6a838e"
+            },
+            "transform": {
+              "position": [0.55,0.019,0.463]
+            }
+          },
+          {
+            "id": "fixed-machine-column",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.frame",
+            "transform": {
+              "position": [-0.372,0.18,0]
+            }
+          },
+          {
+            "id": "base-column",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.machine-column",
+            "parent": "fixed-machine-column",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.01,0],
+                [0,1.35,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.145,-0.388],
+                [-0.145,-0.388],
+                [-0.213,-0.32],
+                [-0.213,0.32],
+                [-0.145,0.388],
+                [0.145,0.388],
+                [0.213,0.32],
+                [0.213,-0.32]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#5ea3aa"
+            }
+          },
+          {
+            "id": "vertical-guide--1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.z-axis-guide-rail",
+            "parent": "fixed-machine-column",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.863,0.031]
+            },
+            "appearance": {
+              "color": "#acc1ca"
+            },
+            "transform": {
+              "position": [0.226,0.822,-0.203]
+            }
+          },
+          {
+            "id": "vertical-guide-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.z-axis-guide-rail",
+            "parent": "fixed-machine-column",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.863,0.031]
+            },
+            "appearance": {
+              "color": "#acc1ca"
+            },
+            "transform": {
+              "position": [0.226,0.822,0.203]
+            }
+          },
+          {
+            "id": "head-slide",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.frame",
+            "parent": "fixed-machine-column",
+            "transform": {
+              "position": [0.218,0.764,0]
+            }
+          },
+          {
+            "id": "head-carriage",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.spindle-head-carriage",
+            "parent": "head-slide",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.162,0],
+                [0,0.173,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.0030000000000000027,-0.233],
+                [-0.196,-0.233],
+                [-0.23500000000000001,-0.194],
+                [-0.23500000000000001,0.194],
+                [-0.196,0.233],
+                [-0.0030000000000000027,0.233],
+                [0.036,0.194],
+                [0.036,-0.194]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#748b95"
+            }
+          },
+          {
+            "id": "head-drive",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.spindle-head-drive-case",
+            "parent": "head-slide",
+            "geometry": {
+              "type": "box",
+              "size": [0.222,0.226,0.275]
+            },
+            "appearance": {
+              "color": "#5ea3aa"
+            },
+            "transform": {
+              "position": [0.201,0.097,0]
+            }
+          },
+          {
+            "id": "spindle",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.frame",
+            "parent": "head-slide",
+            "transform": {
+              "position": [0.251,-0.065,0]
+            }
+          },
+          {
+            "id": "spindle-housing",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.motor-spindle-housing",
+            "parent": "spindle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.062,0],
+              "end": [0,0.105,0],
+              "radius": 0.071,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#748b95"
+            }
+          },
+          {
+            "id": "spindle-nose",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.spindle-bearing-nose",
+            "parent": "spindle",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.099,0],
+                [0,-0.058,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.059,0],
+                [0.05827361,0.00922963],
+                [0.05611233,0.018232],
+                [0.05256938,0.02678544],
+                [0.047732,0.03467933],
+                [0.0417193,0.0417193],
+                [0.03467933,0.047732],
+                [0.02678544,0.05256938],
+                [0.018232,0.05611233],
+                [0.00922963,0.05827361],
+                [0,0.059],
+                [-0.00922963,0.05827361],
+                [-0.018232,0.05611233],
+                [-0.02678544,0.05256938],
+                [-0.03467933,0.047732],
+                [-0.0417193,0.0417193],
+                [-0.047732,0.03467933],
+                [-0.05256938,0.02678544],
+                [-0.05611233,0.018232],
+                [-0.05827361,0.00922963],
+                [-0.059,0],
+                [-0.05827361,-0.00922963],
+                [-0.05611233,-0.018232],
+                [-0.05256938,-0.02678544],
+                [-0.047732,-0.03467933],
+                [-0.0417193,-0.0417193],
+                [-0.03467933,-0.047732],
+                [-0.02678544,-0.05256938],
+                [-0.018232,-0.05611233],
+                [-0.00922963,-0.05827361],
+                [0,-0.059],
+                [0.00922963,-0.05827361],
+                [0.018232,-0.05611233],
+                [0.02678544,-0.05256938],
+                [0.03467933,-0.047732],
+                [0.0417193,-0.0417193],
+                [0.047732,-0.03467933],
+                [0.05256938,-0.02678544],
+                [0.05611233,-0.018232],
+                [0.05827361,-0.00922963]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.021,0],
+                  [0.02074146,0.00328512],
+                  [0.01997219,0.00648936],
+                  [0.01871114,0.0095338],
+                  [0.01698936,0.01234349],
+                  [0.01484924,0.01484924],
+                  [0.01234349,0.01698936],
+                  [0.0095338,0.01871114],
+                  [0.00648936,0.01997219],
+                  [0.00328512,0.02074146],
+                  [0,0.021],
+                  [-0.00328512,0.02074146],
+                  [-0.00648936,0.01997219],
+                  [-0.0095338,0.01871114],
+                  [-0.01234349,0.01698936],
+                  [-0.01484924,0.01484924],
+                  [-0.01698936,0.01234349],
+                  [-0.01871114,0.0095338],
+                  [-0.01997219,0.00648936],
+                  [-0.02074146,0.00328512],
+                  [-0.021,0],
+                  [-0.02074146,-0.00328512],
+                  [-0.01997219,-0.00648936],
+                  [-0.01871114,-0.0095338],
+                  [-0.01698936,-0.01234349],
+                  [-0.01484924,-0.01484924],
+                  [-0.01234349,-0.01698936],
+                  [-0.0095338,-0.01871114],
+                  [-0.00648936,-0.01997219],
+                  [-0.00328512,-0.02074146],
+                  [0,-0.021],
+                  [0.00328512,-0.02074146],
+                  [0.00648936,-0.01997219],
+                  [0.0095338,-0.01871114],
+                  [0.01234349,-0.01698936],
+                  [0.01484924,-0.01484924],
+                  [0.01698936,-0.01234349],
+                  [0.01871114,-0.0095338],
+                  [0.01997219,-0.00648936],
+                  [0.02074146,-0.00328512]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#acc1ca"
+            }
+          },
+          {
+            "id": "spindle-tool",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.frame",
+            "parent": "spindle",
+            "transform": {
+              "position": [0,-0.096,0]
+            }
+          },
+          {
+            "id": "collet",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.tool-collet",
+            "parent": "spindle-tool",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.031,0],
+                [0,0.001,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.028,0],
+                [0.02738813,0.00582153],
+                [0.02557927,0.01138863],
+                [0.02265248,0.01645799],
+                [0.01873566,0.02080806],
+                [0.014,0.02424871],
+                [0.00865248,0.02662958],
+                [0.0029268,0.02784661],
+                [-0.0029268,0.02784661],
+                [-0.00865248,0.02662958],
+                [-0.014,0.02424871],
+                [-0.01873566,0.02080806],
+                [-0.02265248,0.01645799],
+                [-0.02557927,0.01138863],
+                [-0.02738813,0.00582153],
+                [-0.028,0],
+                [-0.02738813,-0.00582153],
+                [-0.02557927,-0.01138863],
+                [-0.02265248,-0.01645799],
+                [-0.01873566,-0.02080806],
+                [-0.014,-0.02424871],
+                [-0.00865248,-0.02662958],
+                [-0.0029268,-0.02784661],
+                [0.0029268,-0.02784661],
+                [0.00865248,-0.02662958],
+                [0.014,-0.02424871],
+                [0.01873566,-0.02080806],
+                [0.02265248,-0.01645799],
+                [0.02557927,-0.01138863],
+                [0.02738813,-0.00582153]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.012,0],
+                  [0.01173777,0.00249494],
+                  [0.01096255,0.00488084],
+                  [0.0097082,0.00705342],
+                  [0.00802957,0.00891774],
+                  [0.006,0.0103923],
+                  [0.0037082,0.01141268],
+                  [0.00125434,0.01193426],
+                  [-0.00125434,0.01193426],
+                  [-0.0037082,0.01141268],
+                  [-0.006,0.0103923],
+                  [-0.00802957,0.00891774],
+                  [-0.0097082,0.00705342],
+                  [-0.01096255,0.00488084],
+                  [-0.01173777,0.00249494],
+                  [-0.012,0],
+                  [-0.01173777,-0.00249494],
+                  [-0.01096255,-0.00488084],
+                  [-0.0097082,-0.00705342],
+                  [-0.00802957,-0.00891774],
+                  [-0.006,-0.0103923],
+                  [-0.0037082,-0.01141268],
+                  [-0.00125434,-0.01193426],
+                  [0.00125434,-0.01193426],
+                  [0.0037082,-0.01141268],
+                  [0.006,-0.0103923],
+                  [0.00802957,-0.00891774],
+                  [0.0097082,-0.00705342],
+                  [0.01096255,-0.00488084],
+                  [0.01173777,-0.00249494]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#485962"
+            }
+          },
+          {
+            "id": "end-mill",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.end-mill-shank",
+            "parent": "spindle-tool",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.09,0],
+              "end": [0,-0.018,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#acc1ca"
+            }
+          },
+          {
+            "id": "end-mill-flute-0",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.helical-tool-flute",
+            "parent": "spindle-tool",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.011,-0.087,0],
+                [0.01095382,-0.084,0.00100692],
+                [0.01081566,-0.081,0.00200539],
+                [0.01058668,-0.078,0.00298702],
+                [0.0102688,-0.075,0.00394356],
+                [0.0098647,-0.072,0.00486699],
+                [0.00937777,-0.069,0.00574956],
+                [0.00881209,-0.066,0.00658385],
+                [0.00817242,-0.063,0.00736285],
+                [0.00746413,-0.06,0.00808003],
+                [0.00669316,-0.057,0.00872936],
+                [0.00586599,-0.054,0.00930539],
+                [0.00498956,-0.051,0.00980328]
+              ],
+              "radius": 0.0016,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#485962"
+            }
+          },
+          {
+            "id": "end-mill-flute-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.helical-tool-flute",
+            "parent": "spindle-tool",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,-0.087,0.011],
+                [-0.00100692,-0.084,0.01095382],
+                [-0.00200539,-0.081,0.01081566],
+                [-0.00298702,-0.078,0.01058668],
+                [-0.00394356,-0.075,0.0102688],
+                [-0.00486699,-0.072,0.0098647],
+                [-0.00574956,-0.069,0.00937777],
+                [-0.00658385,-0.066,0.00881209],
+                [-0.00736285,-0.063,0.00817242],
+                [-0.00808003,-0.06,0.00746413],
+                [-0.00872936,-0.057,0.00669316],
+                [-0.00930539,-0.054,0.00586599],
+                [-0.00980328,-0.051,0.00498956]
+              ],
+              "radius": 0.0016,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#485962"
+            }
+          },
+          {
+            "id": "end-mill-flute-2",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.helical-tool-flute",
+            "parent": "spindle-tool",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.011,-0.087,0],
+                [-0.01095382,-0.084,-0.00100692],
+                [-0.01081566,-0.081,-0.00200539],
+                [-0.01058668,-0.078,-0.00298702],
+                [-0.0102688,-0.075,-0.00394356],
+                [-0.0098647,-0.072,-0.00486699],
+                [-0.00937777,-0.069,-0.00574956],
+                [-0.00881209,-0.066,-0.00658385],
+                [-0.00817242,-0.063,-0.00736285],
+                [-0.00746413,-0.06,-0.00808003],
+                [-0.00669316,-0.057,-0.00872936],
+                [-0.00586599,-0.054,-0.00930539],
+                [-0.00498956,-0.051,-0.00980328]
+              ],
+              "radius": 0.0016,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#485962"
+            }
+          },
+          {
+            "id": "end-mill-flute-3",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.helical-tool-flute",
+            "parent": "spindle-tool",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,-0.087,-0.011],
+                [0.00100692,-0.084,-0.01095382],
+                [0.00200539,-0.081,-0.01081566],
+                [0.00298702,-0.078,-0.01058668],
+                [0.00394356,-0.075,-0.0102688],
+                [0.00486699,-0.072,-0.0098647],
+                [0.00574956,-0.069,-0.00937777],
+                [0.00658385,-0.066,-0.00881209],
+                [0.00736285,-0.063,-0.00817242],
+                [0.00808003,-0.06,-0.00746413],
+                [0.00872936,-0.057,-0.00669316],
+                [0.00930539,-0.054,-0.00586599],
+                [0.00980328,-0.051,-0.00498956]
+              ],
+              "radius": 0.0016,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#485962"
+            }
+          },
+          {
+            "id": "table-rail-x--0.279",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.x-axis-guide-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.954,0.024,0.042]
+            },
+            "appearance": {
+              "color": "#acc1ca"
+            },
+            "transform": {
+              "position": [0.083,0.219,-0.279]
+            }
+          },
+          {
+            "id": "table-rail-x-0.279",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.x-axis-guide-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.954,0.024,0.042]
+            },
+            "appearance": {
+              "color": "#acc1ca"
+            },
+            "transform": {
+              "position": [0.083,0.219,0.279]
+            }
+          },
+          {
+            "id": "x-saddle",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.frame",
+            "transform": {
+              "position": [0.055,0.227,0]
+            }
+          },
+          {
+            "id": "saddle-body",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.longitudinal-saddle",
+            "parent": "x-saddle",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.076,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.252,-0.298],
+                [-0.252,-0.298],
+                [-0.29,-0.26],
+                [-0.29,0.26],
+                [-0.252,0.298],
+                [0.252,0.298],
+                [0.29,0.26],
+                [0.29,-0.26]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#43939b"
+            }
+          },
+          {
+            "id": "table-rail-z--0.203",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.transverse-guide-rail",
+            "parent": "x-saddle",
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.021,0.544]
+            },
+            "appearance": {
+              "color": "#acc1ca"
+            },
+            "transform": {
+              "position": [-0.203,0.08,0]
+            }
+          },
+          {
+            "id": "table-rail-z-0.203",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.transverse-guide-rail",
+            "parent": "x-saddle",
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.021,0.544]
+            },
+            "appearance": {
+              "color": "#acc1ca"
+            },
+            "transform": {
+              "position": [0.203,0.08,0]
+            }
+          },
+          {
+            "id": "z-slide",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.frame",
+            "parent": "x-saddle",
+            "transform": {
+              "position": [0,0.088,0]
+            }
+          },
+          {
+            "id": "table-face",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.fixture-table",
+            "parent": "z-slide",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.064,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.295,-0.253],
+                [-0.295,-0.253],
+                [-0.316,-0.232],
+                [-0.316,0.232],
+                [-0.295,0.253],
+                [0.295,0.253],
+                [0.316,0.232],
+                [0.316,-0.232]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.27,-0.186],
+                  [-0.27,-0.186],
+                  [-0.278,-0.178],
+                  [-0.278,-0.17],
+                  [-0.27,-0.162],
+                  [0.27,-0.162],
+                  [0.278,-0.17],
+                  [0.278,-0.178]
+                ],
+                [
+                  [0.27,-0.074],
+                  [-0.27,-0.074],
+                  [-0.278,-0.066],
+                  [-0.278,-0.057999999999999996],
+                  [-0.27,-0.049999999999999996],
+                  [0.27,-0.049999999999999996],
+                  [0.278,-0.057999999999999996],
+                  [0.278,-0.066]
+                ],
+                [
+                  [0.27,0.05],
+                  [-0.27,0.05],
+                  [-0.278,0.058],
+                  [-0.278,0.066],
+                  [-0.27,0.07400000000000001],
+                  [0.27,0.07400000000000001],
+                  [0.278,0.066],
+                  [0.278,0.058]
+                ],
+                [
+                  [0.27,0.16199999999999998],
+                  [-0.27,0.16199999999999998],
+                  [-0.278,0.16999999999999998],
+                  [-0.278,0.17799999999999996],
+                  [-0.27,0.18599999999999997],
+                  [0.27,0.18599999999999997],
+                  [0.278,0.17799999999999996],
+                  [0.278,0.16999999999999998]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#acc1ca"
+            }
+          },
+          {
+            "id": "catch-tray",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.coolant-return-tray",
+            "geometry": {
+              "type": "box",
+              "size": [1.039,0.021,0.907]
+            },
+            "appearance": {
+              "color": "#6a838e"
+            },
+            "transform": {
+              "position": [0.117,0.196,0]
+            }
+          },
+          {
+            "id": "guard",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.frame",
+            "transform": {
+              "position": [-0.047,0.195,0]
+            }
+          },
+          {
+            "id": "guard-side--1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.glazed-side-guard",
+            "parent": "guard",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.533],
+                [0,0,-0.501]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.48300000000000004,0],
+                [0.6209999999999999,0],
+                [0.6719999999999999,0.051],
+                [0.6719999999999999,1.2910000000000001],
+                [0.6209999999999999,1.342],
+                [-0.48300000000000004,1.342],
+                [-0.534,1.2910000000000001],
+                [-0.534,0.051]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.371,0.168],
+                  [0.5269999999999999,0.168],
+                  [0.567,0.20800000000000002],
+                  [0.567,1.1789999999999998],
+                  [0.5269999999999999,1.2189999999999999],
+                  [-0.371,1.2189999999999999],
+                  [-0.411,1.1789999999999998],
+                  [-0.411,0.20800000000000002]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5ea3aa"
+            }
+          },
+          {
+            "id": "guard-window--1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.side-guard-window",
+            "parent": "guard",
+            "geometry": {
+              "type": "box",
+              "size": [0.984,1.06,0.01]
+            },
+            "appearance": {
+              "color": "#b0c7d1",
+              "opacity": 0.23
+            },
+            "transform": {
+              "position": [0.078,0.692,-0.517]
+            }
+          },
+          {
+            "id": "guard-side-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.glazed-side-guard",
+            "parent": "guard",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.501],
+                [0,0,0.533]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.48300000000000004,0],
+                [0.6209999999999999,0],
+                [0.6719999999999999,0.051],
+                [0.6719999999999999,1.2910000000000001],
+                [0.6209999999999999,1.342],
+                [-0.48300000000000004,1.342],
+                [-0.534,1.2910000000000001],
+                [-0.534,0.051]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.371,0.168],
+                  [0.5269999999999999,0.168],
+                  [0.567,0.20800000000000002],
+                  [0.567,1.1789999999999998],
+                  [0.5269999999999999,1.2189999999999999],
+                  [-0.371,1.2189999999999999],
+                  [-0.411,1.1789999999999998],
+                  [-0.411,0.20800000000000002]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5ea3aa"
+            }
+          },
+          {
+            "id": "guard-window-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.side-guard-window",
+            "parent": "guard",
+            "geometry": {
+              "type": "box",
+              "size": [0.984,1.06,0.01]
+            },
+            "appearance": {
+              "color": "#b0c7d1",
+              "opacity": 0.23
+            },
+            "transform": {
+              "position": [0.078,0.692,0.517]
+            }
+          },
+          {
+            "id": "guard-cap",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.guard-front-header",
+            "parent": "guard",
+            "geometry": {
+              "type": "box",
+              "size": [0.085,0.097,1.061]
+            },
+            "appearance": {
+              "color": "#5ea3aa"
+            },
+            "transform": {
+              "position": [0.665,1.293,0]
+            }
+          },
+          {
+            "id": "door--1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.frame",
+            "transform": {
+              "position": [0.631,0.148,-0.501]
+            }
+          },
+          {
+            "id": "door-frame--1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.front-door-frame",
+            "parent": "door--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.006,0,0],
+                [0.014,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.033,0],
+                [-0.46099999999999997,0],
+                [-0.489,0.028],
+                [-0.489,1.134],
+                [-0.46099999999999997,1.162],
+                [-0.033,1.162],
+                [-0.005,1.134],
+                [-0.005,0.028]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.086,0.117],
+                  [-0.40599999999999997,0.117],
+                  [-0.429,0.14],
+                  [-0.429,1.0000000000000002],
+                  [-0.40599999999999997,1.0230000000000001],
+                  [-0.086,1.0230000000000001],
+                  [-0.063,1.0000000000000002],
+                  [-0.063,0.14]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5ea3aa"
+            }
+          },
+          {
+            "id": "door-pane--1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.front-door-view-glass",
+            "parent": "door--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.915,0.379]
+            },
+            "appearance": {
+              "color": "#abc7d3",
+              "opacity": 0.25
+            },
+            "transform": {
+              "position": [0.004,0.571,0.248]
+            }
+          },
+          {
+            "id": "door-grip--1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.front-door-grip",
+            "parent": "door--1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.018,0.462,0.433],
+                [0.058,0.474,0.432],
+                [0.058,0.647,0.432],
+                [0.018,0.657,0.433]
+              ],
+              "radius": 0.012,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#344751"
+            }
+          },
+          {
+            "id": "door-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.frame",
+            "transform": {
+              "position": [0.631,0.148,0.501]
+            }
+          },
+          {
+            "id": "door-frame-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.front-door-frame",
+            "parent": "door-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.006,0,0],
+                [0.014,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.45899999999999996,0],
+                [0.031000000000000003,0],
+                [0.0030000000000000027,0.028],
+                [0.0030000000000000027,1.134],
+                [0.031000000000000003,1.162],
+                [0.45899999999999996,1.162],
+                [0.487,1.134],
+                [0.487,0.028]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.40599999999999997,0.117],
+                  [0.086,0.117],
+                  [0.063,0.14],
+                  [0.063,1.0000000000000002],
+                  [0.086,1.0230000000000001],
+                  [0.40599999999999997,1.0230000000000001],
+                  [0.429,1.0000000000000002],
+                  [0.429,0.14]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5ea3aa"
+            }
+          },
+          {
+            "id": "door-pane-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.front-door-view-glass",
+            "parent": "door-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.915,0.379]
+            },
+            "appearance": {
+              "color": "#abc7d3",
+              "opacity": 0.25
+            },
+            "transform": {
+              "position": [0.004,0.571,-0.248]
+            }
+          },
+          {
+            "id": "door-grip-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.front-door-grip",
+            "parent": "door-1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.018,0.462,-0.433],
+                [0.058,0.474,-0.432],
+                [0.058,0.647,-0.432],
+                [0.018,0.657,-0.433]
+              ],
+              "radius": 0.012,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#344751"
+            }
+          },
+          {
+            "id": "console-arm",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.control-panel-support",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.618,0.995,-0.526],
+                [0.521,1.112,-0.654],
+                [0.634,1.13,-0.681]
+              ],
+              "radius": 0.022,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#748b95"
+            }
+          },
+          {
+            "id": "console",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.frame",
+            "transform": {
+              "position": [0.665,1.169,-0.681]
+            }
+          },
+          {
+            "id": "console-case",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.cnc-console",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.067,0.278,0.243]
+            },
+            "appearance": {
+              "color": "#485962"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "console-screen",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.cnc-screen",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.107,0.168]
+            },
+            "appearance": {
+              "color": "#8eadad"
+            },
+            "transform": {
+              "position": [0.036,0.068,0]
+            }
+          },
+          {
+            "id": "console-key-0-0",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.018,-0.068]
+            }
+          },
+          {
+            "id": "console-key-0-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.018,-0.037000000000000005]
+            }
+          },
+          {
+            "id": "console-key-0-2",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.018,-0.006000000000000005]
+            }
+          },
+          {
+            "id": "console-key-0-3",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.018,0.024999999999999994]
+            }
+          },
+          {
+            "id": "console-key-0-4",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#e1a74a"
+            },
+            "transform": {
+              "position": [0.037,-0.018,0.055999999999999994]
+            }
+          },
+          {
+            "id": "console-key-1-0",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.044,-0.068]
+            }
+          },
+          {
+            "id": "console-key-1-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.044,-0.037000000000000005]
+            }
+          },
+          {
+            "id": "console-key-1-2",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.044,-0.006000000000000005]
+            }
+          },
+          {
+            "id": "console-key-1-3",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.044,0.024999999999999994]
+            }
+          },
+          {
+            "id": "console-key-1-4",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#e1a74a"
+            },
+            "transform": {
+              "position": [0.037,-0.044,0.055999999999999994]
+            }
+          },
+          {
+            "id": "console-key-2-0",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.06999999999999999,-0.068]
+            }
+          },
+          {
+            "id": "console-key-2-1",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.06999999999999999,-0.037000000000000005]
+            }
+          },
+          {
+            "id": "console-key-2-2",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.06999999999999999,-0.006000000000000005]
+            }
+          },
+          {
+            "id": "console-key-2-3",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#dfeaec"
+            },
+            "transform": {
+              "position": [0.037,-0.06999999999999999,0.024999999999999994]
+            }
+          },
+          {
+            "id": "console-key-2-4",
+            "semanticType": "equipment.three-axis-vertical-cnc-milling-machine.console-key",
+            "parent": "console",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.016,0.015]
+            },
+            "appearance": {
+              "color": "#e1a74a"
+            },
+            "transform": {
+              "position": [0.037,-0.06999999999999999,0.055999999999999994]
+            }
+          }
+        ],
+        "anchors": {
+          "fixture-face": {
+            "node": "z-slide",
+            "position": [0,0.064,0],
+            "direction": [0,1,0],
+            "kind": "mount"
+          },
+          "cut-axis": {
+            "node": "spindle",
+            "position": [0,-0.099,0],
+            "direction": [0,-1,0],
+            "kind": "axis"
+          },
+          "cutter-tip": {
+            "node": "spindle-tool",
+            "position": [0,-0.09,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "foundation": {
+            "node": "base",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "door-angle--1",
+            "label": "机床门开角 -1",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 98,
+            "targets": [
+              {
+                "node": "door--1",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "door-angle-1",
+            "label": "机床门开角 1",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 98,
+            "targets": [
+              {
+                "node": "door-1",
+                "property": "rotation",
+                "axis": "y",
+                "factor": -0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "feed-x",
+            "label": "滑台 X 行程",
+            "unit": "m",
+            "value": 0,
+            "min": -0.193,
+            "max": 0.193,
+            "targets": [
+              {
+                "node": "x-saddle",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "feed-z",
+            "label": "滑台 Z 行程",
+            "unit": "m",
+            "value": 0,
+            "min": -0.144,
+            "max": 0.144,
+            "targets": [
+              {
+                "node": "z-slide",
+                "property": "position",
+                "axis": "z"
+              }
+            ]
+          },
+          {
+            "id": "head-height",
+            "label": "主轴头高度变化",
+            "unit": "m",
+            "value": 0,
+            "min": -0.3,
+            "max": 0.121,
+            "targets": [
+              {
+                "node": "head-slide",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "cutter-angle",
+            "label": "刀具转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "spindle-tool",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

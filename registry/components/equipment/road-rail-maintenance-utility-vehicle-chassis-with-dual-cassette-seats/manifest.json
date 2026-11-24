@@ -1,0 +1,3310 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "公铁两用检修车底盘与双桥座",
+  "summary": "带可开启驾驶门、四公路轮、平作业甲板和前后独立四孔轨轮桥座的移动工作底盘。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "公铁两用工程车底盘",
+    "轨轮接口底盘",
+    "road-rail vehicle chassis",
+    "dual cassette seats",
+    "公铁两用检修设备",
+    "road rail maintenance equipment"
+  ],
+  "anchors": [
+    "road-contact--1.034--1",
+    "road-contact--1.034-1",
+    "road-contact-1.026--1",
+    "road-contact-1.026-1",
+    "front-rail-cassette",
+    "rear-rail-cassette",
+    "service-deck"
+  ],
+  "ai": {
+    "intent": "搭载独立轨轮桥或工作甲板的检修底盘，前后桥可独立组合。",
+    "editableParts": [
+      "door-swing"
+    ],
+    "qualityChecks": [
+      "两轨轮桥座使用相同四孔阵列。",
+      "四个公路线接触参考点固定。",
+      "司机侧门可独立转动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats",
+      "title": "公铁两用检修车底盘与双桥座",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "chassis-deck",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.central-ladder-frame-deck-with-lightening-openings",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.481,0],
+                [0,0.579,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [1.377,-0.595],
+                [-1.377,-0.595],
+                [-1.45,-0.522],
+                [-1.45,0.522],
+                [-1.377,0.595],
+                [1.377,0.595],
+                [1.45,0.522],
+                [1.45,-0.522]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.867,-0.374],
+                  [0.633,-0.374],
+                  [0.589,-0.33],
+                  [0.589,0.33],
+                  [0.633,0.374],
+                  [0.867,0.374],
+                  [0.911,0.33],
+                  [0.911,-0.33]
+                ],
+                [
+                  [-0.12299999999999998,-0.374],
+                  [-0.35700000000000004,-0.374],
+                  [-0.401,-0.33],
+                  [-0.401,0.33],
+                  [-0.35700000000000004,0.374],
+                  [-0.12299999999999998,0.374],
+                  [-0.07899999999999999,0.33],
+                  [-0.07899999999999999,-0.33]
+                ],
+                [
+                  [-0.9039999999999999,-0.374],
+                  [-1.138,-0.374],
+                  [-1.182,-0.33],
+                  [-1.182,0.33],
+                  [-1.138,0.374],
+                  [-0.9039999999999999,0.374],
+                  [-0.8599999999999999,0.33],
+                  [-0.8599999999999999,-0.33]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "frame-rail--0.449",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.road-rail-vehicle-frame-longeron",
+            "geometry": {
+              "type": "box",
+              "size": [2.869,0.111,0.096]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0,0.481,-0.449]
+            }
+          },
+          {
+            "id": "frame-rail-0.449",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.road-rail-vehicle-frame-longeron",
+            "geometry": {
+              "type": "box",
+              "size": [2.869,0.111,0.096]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0,0.481,0.449]
+            }
+          },
+          {
+            "id": "cab-deck",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.protected-cab-floor",
+            "geometry": {
+              "type": "box",
+              "size": [1.251,0.068,1.151]
+            },
+            "appearance": {
+              "color": "#89aaba"
+            },
+            "transform": {
+              "position": [-0.594,0.636,0]
+            }
+          },
+          {
+            "id": "rear-floor",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.utility-vehicle-deck",
+            "geometry": {
+              "type": "box",
+              "size": [1.379,0.084,1.209]
+            },
+            "appearance": {
+              "color": "#89aaba"
+            },
+            "transform": {
+              "position": [0.748,0.629,0]
+            }
+          },
+          {
+            "id": "rear-rubrail--1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.long-deck-plated-rub-rail",
+            "geometry": {
+              "type": "box",
+              "size": [1.392,0.114,0.048]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0.739,0.696,-0.586]
+            }
+          },
+          {
+            "id": "deck-bolt-rail--1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.tool-deck-bolted-fixing-line",
+            "geometry": {
+              "type": "box",
+              "size": [1.184,0.034,0.037]
+            },
+            "appearance": {
+              "color": "#617b88"
+            },
+            "transform": {
+              "position": [0.759,0.684,-0.454]
+            }
+          },
+          {
+            "id": "rear-rubrail-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.long-deck-plated-rub-rail",
+            "geometry": {
+              "type": "box",
+              "size": [1.392,0.114,0.048]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0.739,0.696,0.586]
+            }
+          },
+          {
+            "id": "deck-bolt-rail-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.tool-deck-bolted-fixing-line",
+            "geometry": {
+              "type": "box",
+              "size": [1.184,0.034,0.037]
+            },
+            "appearance": {
+              "color": "#617b88"
+            },
+            "transform": {
+              "position": [0.759,0.684,0.454]
+            }
+          },
+          {
+            "id": "cab-column-and-sill--0.487",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.closed-cab-protection-rail",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-1.151,0.669,-0.487],
+                [-1.151,1.087,-0.487],
+                [-1.066,1.532,-0.487],
+                [-0.059,1.532,-0.487],
+                [-0.059,0.671,-0.487]
+              ],
+              "radius": 0.036,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#7cabaf"
+            }
+          },
+          {
+            "id": "cab-column-and-sill-0.487",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.closed-cab-protection-rail",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-1.151,0.669,0.487],
+                [-1.151,1.087,0.487],
+                [-1.066,1.532,0.487],
+                [-0.059,1.532,0.487],
+                [-0.059,0.671,0.487]
+              ],
+              "radius": 0.036,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#7cabaf"
+            }
+          },
+          {
+            "id": "cab-roof",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.rounded-utility-vehicle-roof",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.534,0],
+                [0,1.601,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [1.055,-0.548],
+                [0.02099999999999995,-0.548],
+                [-0.052000000000000046,-0.47500000000000003],
+                [-0.052000000000000046,0.47500000000000003],
+                [0.02099999999999995,0.548],
+                [1.055,0.548],
+                [1.128,0.47500000000000003],
+                [1.128,-0.47500000000000003]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#d9d9c9"
+            }
+          },
+          {
+            "id": "windshield-frame",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.actual-open-cab-window-perimeter",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.116,0,0],
+                [-1.091,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.429,1.075],
+                [0.429,1.075],
+                [0.473,1.119],
+                [0.473,1.4749999999999999],
+                [0.429,1.519],
+                [-0.429,1.519],
+                [-0.473,1.4749999999999999],
+                [-0.473,1.119]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.393,1.127],
+                  [0.393,1.127],
+                  [0.425,1.159],
+                  [0.425,1.447],
+                  [0.393,1.479],
+                  [-0.393,1.479],
+                  [-0.425,1.447],
+                  [-0.425,1.159]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "windshield",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.slight-translucent-fitted-windshield",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.104,0,0],
+                [-1.096,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.391,1.13],
+                [0.391,1.13],
+                [0.421,1.16],
+                [0.421,1.446],
+                [0.391,1.476],
+                [-0.391,1.476],
+                [-0.421,1.446],
+                [-0.421,1.16]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#739bab",
+              "opacity": 0.57
+            }
+          },
+          {
+            "id": "side-cab-door",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.frame",
+            "transform": {
+              "position": [-1.099,0.671,0.511]
+            }
+          },
+          {
+            "id": "swing-door",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.true-windowed-side-cab-door",
+            "parent": "side-cab-door",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.033]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0],
+                [0.967,0],
+                [0.967,0.848],
+                [0.084,0.848],
+                [0,0.464]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.16,0.432],
+                  [0.846,0.432],
+                  [0.887,0.473],
+                  [0.887,0.735],
+                  [0.846,0.776],
+                  [0.16,0.776],
+                  [0.119,0.735],
+                  [0.119,0.473]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#89aaba"
+            }
+          },
+          {
+            "id": "handle",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.side-door-release",
+            "parent": "side-cab-door",
+            "geometry": {
+              "type": "box",
+              "size": [0.109,0.031,0.042]
+            },
+            "appearance": {
+              "color": "#617b88"
+            },
+            "transform": {
+              "position": [0.801,0.384,0.035]
+            }
+          },
+          {
+            "id": "seat",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.single-operator-seat",
+            "geometry": {
+              "type": "box",
+              "size": [0.31,0.116,0.366]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.624,0.834,0.04]
+            }
+          },
+          {
+            "id": "seat-back",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.single-operator-backrest",
+            "geometry": {
+              "type": "box",
+              "size": [0.103,0.359,0.348]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.437,1.003,0.04]
+            }
+          },
+          {
+            "id": "vehicle-axle--1.034",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.frame",
+            "transform": {
+              "position": [-1.034,0.294,0]
+            }
+          },
+          {
+            "id": "beam-axle--1.034",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.underbody-wheel-axle",
+            "parent": "vehicle-axle--1.034",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.617],
+              "end": [0,0,0.617],
+              "radius": 0.037,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "road-wheel--1.034--1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.frame",
+            "parent": "vehicle-axle--1.034",
+            "transform": {
+              "position": [0,0,-0.653]
+            }
+          },
+          {
+            "id": "tire--1.034--1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.road-tire-with-annular-centre",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.088],
+                [0,0,0.088]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.294,0],
+                [0.29274585,0.0271269],
+                [0.28899409,0.05402236],
+                [0.28277674,0.08045692],
+                [0.27414684,0.10620505],
+                [0.26317801,0.13104708],
+                [0.24996384,0.15477106],
+                [0.23461706,0.17717458],
+                [0.21726862,0.19806652],
+                [0.19806652,0.21726862],
+                [0.17717458,0.23461706],
+                [0.15477106,0.24996384],
+                [0.13104708,0.26317801],
+                [0.10620505,0.27414684],
+                [0.08045692,0.28277674],
+                [0.05402236,0.28899409],
+                [0.0271269,0.29274585],
+                [0,0.294],
+                [-0.0271269,0.29274585],
+                [-0.05402236,0.28899409],
+                [-0.08045692,0.28277674],
+                [-0.10620505,0.27414684],
+                [-0.13104708,0.26317801],
+                [-0.15477106,0.24996384],
+                [-0.17717458,0.23461706],
+                [-0.19806652,0.21726862],
+                [-0.21726862,0.19806652],
+                [-0.23461706,0.17717458],
+                [-0.24996384,0.15477106],
+                [-0.26317801,0.13104708],
+                [-0.27414684,0.10620505],
+                [-0.28277674,0.08045692],
+                [-0.28899409,0.05402236],
+                [-0.29274585,0.0271269],
+                [-0.294,0],
+                [-0.29274585,-0.0271269],
+                [-0.28899409,-0.05402236],
+                [-0.28277674,-0.08045692],
+                [-0.27414684,-0.10620505],
+                [-0.26317801,-0.13104708],
+                [-0.24996384,-0.15477106],
+                [-0.23461706,-0.17717458],
+                [-0.21726862,-0.19806652],
+                [-0.19806652,-0.21726862],
+                [-0.17717458,-0.23461706],
+                [-0.15477106,-0.24996384],
+                [-0.13104708,-0.26317801],
+                [-0.10620505,-0.27414684],
+                [-0.08045692,-0.28277674],
+                [-0.05402236,-0.28899409],
+                [-0.0271269,-0.29274585],
+                [0,-0.294],
+                [0.0271269,-0.29274585],
+                [0.05402236,-0.28899409],
+                [0.08045692,-0.28277674],
+                [0.10620505,-0.27414684],
+                [0.13104708,-0.26317801],
+                [0.15477106,-0.24996384],
+                [0.17717458,-0.23461706],
+                [0.19806652,-0.21726862],
+                [0.21726862,-0.19806652],
+                [0.23461706,-0.17717458],
+                [0.24996384,-0.15477106],
+                [0.26317801,-0.13104708],
+                [0.27414684,-0.10620505],
+                [0.28277674,-0.08045692],
+                [0.28899409,-0.05402236],
+                [0.29274585,-0.0271269]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.171,0],
+                  [0.17027054,0.01577789],
+                  [0.1680884,0.03142117],
+                  [0.16447218,0.04679637],
+                  [0.15945275,0.06177232],
+                  [0.15307292,0.07622126],
+                  [0.14538713,0.0900199],
+                  [0.13646095,0.10305052],
+                  [0.12637052,0.11520196],
+                  [0.11520196,0.12637052],
+                  [0.10305052,0.13646095],
+                  [0.0900199,0.14538713],
+                  [0.07622126,0.15307292],
+                  [0.06177232,0.15945275],
+                  [0.04679637,0.16447218],
+                  [0.03142117,0.1680884],
+                  [0.01577789,0.17027054],
+                  [0,0.171],
+                  [-0.01577789,0.17027054],
+                  [-0.03142117,0.1680884],
+                  [-0.04679637,0.16447218],
+                  [-0.06177232,0.15945275],
+                  [-0.07622126,0.15307292],
+                  [-0.0900199,0.14538713],
+                  [-0.10305052,0.13646095],
+                  [-0.11520196,0.12637052],
+                  [-0.12637052,0.11520196],
+                  [-0.13646095,0.10305052],
+                  [-0.14538713,0.0900199],
+                  [-0.15307292,0.07622126],
+                  [-0.15945275,0.06177232],
+                  [-0.16447218,0.04679637],
+                  [-0.1680884,0.03142117],
+                  [-0.17027054,0.01577789],
+                  [-0.171,0],
+                  [-0.17027054,-0.01577789],
+                  [-0.1680884,-0.03142117],
+                  [-0.16447218,-0.04679637],
+                  [-0.15945275,-0.06177232],
+                  [-0.15307292,-0.07622126],
+                  [-0.14538713,-0.0900199],
+                  [-0.13646095,-0.10305052],
+                  [-0.12637052,-0.11520196],
+                  [-0.11520196,-0.12637052],
+                  [-0.10305052,-0.13646095],
+                  [-0.0900199,-0.14538713],
+                  [-0.07622126,-0.15307292],
+                  [-0.06177232,-0.15945275],
+                  [-0.04679637,-0.16447218],
+                  [-0.03142117,-0.1680884],
+                  [-0.01577789,-0.17027054],
+                  [0,-0.171],
+                  [0.01577789,-0.17027054],
+                  [0.03142117,-0.1680884],
+                  [0.04679637,-0.16447218],
+                  [0.06177232,-0.15945275],
+                  [0.07622126,-0.15307292],
+                  [0.0900199,-0.14538713],
+                  [0.10305052,-0.13646095],
+                  [0.11520196,-0.12637052],
+                  [0.12637052,-0.11520196],
+                  [0.13646095,-0.10305052],
+                  [0.14538713,-0.0900199],
+                  [0.15307292,-0.07622126],
+                  [0.15945275,-0.06177232],
+                  [0.16447218,-0.04679637],
+                  [0.1680884,-0.03142117],
+                  [0.17027054,-0.01577789]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#58656b"
+            }
+          },
+          {
+            "id": "rim--1.034--1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.machined-rim-around-bearing-cap",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.09],
+                [0,0,0.09]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.172,0],
+                [0.1709185,0.01925789],
+                [0.1676876,0.0382736],
+                [0.16234793,0.056808],
+                [0.15496665,0.074628],
+                [0.14563656,0.09150952],
+                [0.13447501,0.10724025],
+                [0.12162237,0.12162237],
+                [0.10724025,0.13447501],
+                [0.09150952,0.14563656],
+                [0.074628,0.15496665],
+                [0.056808,0.16234793],
+                [0.0382736,0.1676876],
+                [0.01925789,0.1709185],
+                [0,0.172],
+                [-0.01925789,0.1709185],
+                [-0.0382736,0.1676876],
+                [-0.056808,0.16234793],
+                [-0.074628,0.15496665],
+                [-0.09150952,0.14563656],
+                [-0.10724025,0.13447501],
+                [-0.12162237,0.12162237],
+                [-0.13447501,0.10724025],
+                [-0.14563656,0.09150952],
+                [-0.15496665,0.074628],
+                [-0.16234793,0.056808],
+                [-0.1676876,0.0382736],
+                [-0.1709185,0.01925789],
+                [-0.172,0],
+                [-0.1709185,-0.01925789],
+                [-0.1676876,-0.0382736],
+                [-0.16234793,-0.056808],
+                [-0.15496665,-0.074628],
+                [-0.14563656,-0.09150952],
+                [-0.13447501,-0.10724025],
+                [-0.12162237,-0.12162237],
+                [-0.10724025,-0.13447501],
+                [-0.09150952,-0.14563656],
+                [-0.074628,-0.15496665],
+                [-0.056808,-0.16234793],
+                [-0.0382736,-0.1676876],
+                [-0.01925789,-0.1709185],
+                [0,-0.172],
+                [0.01925789,-0.1709185],
+                [0.0382736,-0.1676876],
+                [0.056808,-0.16234793],
+                [0.074628,-0.15496665],
+                [0.09150952,-0.14563656],
+                [0.10724025,-0.13447501],
+                [0.12162237,-0.12162237],
+                [0.13447501,-0.10724025],
+                [0.14563656,-0.09150952],
+                [0.15496665,-0.074628],
+                [0.16234793,-0.056808],
+                [0.1676876,-0.0382736],
+                [0.1709185,-0.01925789]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.048,0],
+                  [0.04769819,0.00537429],
+                  [0.04679654,0.010681],
+                  [0.0453064,0.01585339],
+                  [0.04324651,0.02082642],
+                  [0.04064276,0.02553754],
+                  [0.03752791,0.02992751],
+                  [0.03394113,0.03394113],
+                  [0.02992751,0.03752791],
+                  [0.02553754,0.04064276],
+                  [0.02082642,0.04324651],
+                  [0.01585339,0.0453064],
+                  [0.010681,0.04679654],
+                  [0.00537429,0.04769819],
+                  [0,0.048],
+                  [-0.00537429,0.04769819],
+                  [-0.010681,0.04679654],
+                  [-0.01585339,0.0453064],
+                  [-0.02082642,0.04324651],
+                  [-0.02553754,0.04064276],
+                  [-0.02992751,0.03752791],
+                  [-0.03394113,0.03394113],
+                  [-0.03752791,0.02992751],
+                  [-0.04064276,0.02553754],
+                  [-0.04324651,0.02082642],
+                  [-0.0453064,0.01585339],
+                  [-0.04679654,0.010681],
+                  [-0.04769819,0.00537429],
+                  [-0.048,0],
+                  [-0.04769819,-0.00537429],
+                  [-0.04679654,-0.010681],
+                  [-0.0453064,-0.01585339],
+                  [-0.04324651,-0.02082642],
+                  [-0.04064276,-0.02553754],
+                  [-0.03752791,-0.02992751],
+                  [-0.03394113,-0.03394113],
+                  [-0.02992751,-0.03752791],
+                  [-0.02553754,-0.04064276],
+                  [-0.02082642,-0.04324651],
+                  [-0.01585339,-0.0453064],
+                  [-0.010681,-0.04679654],
+                  [-0.00537429,-0.04769819],
+                  [0,-0.048],
+                  [0.00537429,-0.04769819],
+                  [0.010681,-0.04679654],
+                  [0.01585339,-0.0453064],
+                  [0.02082642,-0.04324651],
+                  [0.02553754,-0.04064276],
+                  [0.02992751,-0.03752791],
+                  [0.03394113,-0.03394113],
+                  [0.03752791,-0.02992751],
+                  [0.04064276,-0.02553754],
+                  [0.04324651,-0.02082642],
+                  [0.0453064,-0.01585339],
+                  [0.04679654,-0.010681],
+                  [0.04769819,-0.00537429]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "tread--1.034--1-0",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.294,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tread--1.034--1-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,0.090851,0],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "tread--1.034--1-2",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,0.17280886,0],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "tread--1.034--1-3",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,0.237851,0],
+              "rotation": [0,0,0.9424777960769379]
+            }
+          },
+          {
+            "id": "tread--1.034--1-4",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,0.27961062,0],
+              "rotation": [0,0,1.2566370614359172]
+            }
+          },
+          {
+            "id": "tread--1.034--1-5",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,0.294,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "tread--1.034--1-6",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,0.27961062,0],
+              "rotation": [0,0,1.8849555921538759]
+            }
+          },
+          {
+            "id": "tread--1.034--1-7",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,0.237851,0],
+              "rotation": [0,0,2.199114857512855]
+            }
+          },
+          {
+            "id": "tread--1.034--1-8",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,0.17280886,0],
+              "rotation": [0,0,2.5132741228718345]
+            }
+          },
+          {
+            "id": "tread--1.034--1-9",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,0.090851,0],
+              "rotation": [0,0,2.827433388230814]
+            }
+          },
+          {
+            "id": "tread--1.034--1-10",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.294,0,0],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "tread--1.034--1-11",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,-0.090851,0],
+              "rotation": [0,0,3.455751918948772]
+            }
+          },
+          {
+            "id": "tread--1.034--1-12",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,-0.17280886,0],
+              "rotation": [0,0,3.7699111843077517]
+            }
+          },
+          {
+            "id": "tread--1.034--1-13",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,-0.237851,0],
+              "rotation": [0,0,4.084070449666731]
+            }
+          },
+          {
+            "id": "tread--1.034--1-14",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,-0.27961062,0],
+              "rotation": [0,0,4.39822971502571]
+            }
+          },
+          {
+            "id": "tread--1.034--1-15",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,-0.294,0],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "tread--1.034--1-16",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,-0.27961062,0],
+              "rotation": [0,0,5.026548245743669]
+            }
+          },
+          {
+            "id": "tread--1.034--1-17",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,-0.237851,0],
+              "rotation": [0,0,5.340707511102648]
+            }
+          },
+          {
+            "id": "tread--1.034--1-18",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,-0.17280886,0],
+              "rotation": [0,0,5.654866776461628]
+            }
+          },
+          {
+            "id": "tread--1.034--1-19",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,-0.090851,0],
+              "rotation": [0,0,5.969026041820607]
+            }
+          },
+          {
+            "id": "road-wheel--1.034-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.frame",
+            "parent": "vehicle-axle--1.034",
+            "transform": {
+              "position": [0,0,0.653]
+            }
+          },
+          {
+            "id": "tire--1.034-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.road-tire-with-annular-centre",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.088],
+                [0,0,0.088]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.294,0],
+                [0.29274585,0.0271269],
+                [0.28899409,0.05402236],
+                [0.28277674,0.08045692],
+                [0.27414684,0.10620505],
+                [0.26317801,0.13104708],
+                [0.24996384,0.15477106],
+                [0.23461706,0.17717458],
+                [0.21726862,0.19806652],
+                [0.19806652,0.21726862],
+                [0.17717458,0.23461706],
+                [0.15477106,0.24996384],
+                [0.13104708,0.26317801],
+                [0.10620505,0.27414684],
+                [0.08045692,0.28277674],
+                [0.05402236,0.28899409],
+                [0.0271269,0.29274585],
+                [0,0.294],
+                [-0.0271269,0.29274585],
+                [-0.05402236,0.28899409],
+                [-0.08045692,0.28277674],
+                [-0.10620505,0.27414684],
+                [-0.13104708,0.26317801],
+                [-0.15477106,0.24996384],
+                [-0.17717458,0.23461706],
+                [-0.19806652,0.21726862],
+                [-0.21726862,0.19806652],
+                [-0.23461706,0.17717458],
+                [-0.24996384,0.15477106],
+                [-0.26317801,0.13104708],
+                [-0.27414684,0.10620505],
+                [-0.28277674,0.08045692],
+                [-0.28899409,0.05402236],
+                [-0.29274585,0.0271269],
+                [-0.294,0],
+                [-0.29274585,-0.0271269],
+                [-0.28899409,-0.05402236],
+                [-0.28277674,-0.08045692],
+                [-0.27414684,-0.10620505],
+                [-0.26317801,-0.13104708],
+                [-0.24996384,-0.15477106],
+                [-0.23461706,-0.17717458],
+                [-0.21726862,-0.19806652],
+                [-0.19806652,-0.21726862],
+                [-0.17717458,-0.23461706],
+                [-0.15477106,-0.24996384],
+                [-0.13104708,-0.26317801],
+                [-0.10620505,-0.27414684],
+                [-0.08045692,-0.28277674],
+                [-0.05402236,-0.28899409],
+                [-0.0271269,-0.29274585],
+                [0,-0.294],
+                [0.0271269,-0.29274585],
+                [0.05402236,-0.28899409],
+                [0.08045692,-0.28277674],
+                [0.10620505,-0.27414684],
+                [0.13104708,-0.26317801],
+                [0.15477106,-0.24996384],
+                [0.17717458,-0.23461706],
+                [0.19806652,-0.21726862],
+                [0.21726862,-0.19806652],
+                [0.23461706,-0.17717458],
+                [0.24996384,-0.15477106],
+                [0.26317801,-0.13104708],
+                [0.27414684,-0.10620505],
+                [0.28277674,-0.08045692],
+                [0.28899409,-0.05402236],
+                [0.29274585,-0.0271269]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.171,0],
+                  [0.17027054,0.01577789],
+                  [0.1680884,0.03142117],
+                  [0.16447218,0.04679637],
+                  [0.15945275,0.06177232],
+                  [0.15307292,0.07622126],
+                  [0.14538713,0.0900199],
+                  [0.13646095,0.10305052],
+                  [0.12637052,0.11520196],
+                  [0.11520196,0.12637052],
+                  [0.10305052,0.13646095],
+                  [0.0900199,0.14538713],
+                  [0.07622126,0.15307292],
+                  [0.06177232,0.15945275],
+                  [0.04679637,0.16447218],
+                  [0.03142117,0.1680884],
+                  [0.01577789,0.17027054],
+                  [0,0.171],
+                  [-0.01577789,0.17027054],
+                  [-0.03142117,0.1680884],
+                  [-0.04679637,0.16447218],
+                  [-0.06177232,0.15945275],
+                  [-0.07622126,0.15307292],
+                  [-0.0900199,0.14538713],
+                  [-0.10305052,0.13646095],
+                  [-0.11520196,0.12637052],
+                  [-0.12637052,0.11520196],
+                  [-0.13646095,0.10305052],
+                  [-0.14538713,0.0900199],
+                  [-0.15307292,0.07622126],
+                  [-0.15945275,0.06177232],
+                  [-0.16447218,0.04679637],
+                  [-0.1680884,0.03142117],
+                  [-0.17027054,0.01577789],
+                  [-0.171,0],
+                  [-0.17027054,-0.01577789],
+                  [-0.1680884,-0.03142117],
+                  [-0.16447218,-0.04679637],
+                  [-0.15945275,-0.06177232],
+                  [-0.15307292,-0.07622126],
+                  [-0.14538713,-0.0900199],
+                  [-0.13646095,-0.10305052],
+                  [-0.12637052,-0.11520196],
+                  [-0.11520196,-0.12637052],
+                  [-0.10305052,-0.13646095],
+                  [-0.0900199,-0.14538713],
+                  [-0.07622126,-0.15307292],
+                  [-0.06177232,-0.15945275],
+                  [-0.04679637,-0.16447218],
+                  [-0.03142117,-0.1680884],
+                  [-0.01577789,-0.17027054],
+                  [0,-0.171],
+                  [0.01577789,-0.17027054],
+                  [0.03142117,-0.1680884],
+                  [0.04679637,-0.16447218],
+                  [0.06177232,-0.15945275],
+                  [0.07622126,-0.15307292],
+                  [0.0900199,-0.14538713],
+                  [0.10305052,-0.13646095],
+                  [0.11520196,-0.12637052],
+                  [0.12637052,-0.11520196],
+                  [0.13646095,-0.10305052],
+                  [0.14538713,-0.0900199],
+                  [0.15307292,-0.07622126],
+                  [0.15945275,-0.06177232],
+                  [0.16447218,-0.04679637],
+                  [0.1680884,-0.03142117],
+                  [0.17027054,-0.01577789]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#58656b"
+            }
+          },
+          {
+            "id": "rim--1.034-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.machined-rim-around-bearing-cap",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.09],
+                [0,0,0.09]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.172,0],
+                [0.1709185,0.01925789],
+                [0.1676876,0.0382736],
+                [0.16234793,0.056808],
+                [0.15496665,0.074628],
+                [0.14563656,0.09150952],
+                [0.13447501,0.10724025],
+                [0.12162237,0.12162237],
+                [0.10724025,0.13447501],
+                [0.09150952,0.14563656],
+                [0.074628,0.15496665],
+                [0.056808,0.16234793],
+                [0.0382736,0.1676876],
+                [0.01925789,0.1709185],
+                [0,0.172],
+                [-0.01925789,0.1709185],
+                [-0.0382736,0.1676876],
+                [-0.056808,0.16234793],
+                [-0.074628,0.15496665],
+                [-0.09150952,0.14563656],
+                [-0.10724025,0.13447501],
+                [-0.12162237,0.12162237],
+                [-0.13447501,0.10724025],
+                [-0.14563656,0.09150952],
+                [-0.15496665,0.074628],
+                [-0.16234793,0.056808],
+                [-0.1676876,0.0382736],
+                [-0.1709185,0.01925789],
+                [-0.172,0],
+                [-0.1709185,-0.01925789],
+                [-0.1676876,-0.0382736],
+                [-0.16234793,-0.056808],
+                [-0.15496665,-0.074628],
+                [-0.14563656,-0.09150952],
+                [-0.13447501,-0.10724025],
+                [-0.12162237,-0.12162237],
+                [-0.10724025,-0.13447501],
+                [-0.09150952,-0.14563656],
+                [-0.074628,-0.15496665],
+                [-0.056808,-0.16234793],
+                [-0.0382736,-0.1676876],
+                [-0.01925789,-0.1709185],
+                [0,-0.172],
+                [0.01925789,-0.1709185],
+                [0.0382736,-0.1676876],
+                [0.056808,-0.16234793],
+                [0.074628,-0.15496665],
+                [0.09150952,-0.14563656],
+                [0.10724025,-0.13447501],
+                [0.12162237,-0.12162237],
+                [0.13447501,-0.10724025],
+                [0.14563656,-0.09150952],
+                [0.15496665,-0.074628],
+                [0.16234793,-0.056808],
+                [0.1676876,-0.0382736],
+                [0.1709185,-0.01925789]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.048,0],
+                  [0.04769819,0.00537429],
+                  [0.04679654,0.010681],
+                  [0.0453064,0.01585339],
+                  [0.04324651,0.02082642],
+                  [0.04064276,0.02553754],
+                  [0.03752791,0.02992751],
+                  [0.03394113,0.03394113],
+                  [0.02992751,0.03752791],
+                  [0.02553754,0.04064276],
+                  [0.02082642,0.04324651],
+                  [0.01585339,0.0453064],
+                  [0.010681,0.04679654],
+                  [0.00537429,0.04769819],
+                  [0,0.048],
+                  [-0.00537429,0.04769819],
+                  [-0.010681,0.04679654],
+                  [-0.01585339,0.0453064],
+                  [-0.02082642,0.04324651],
+                  [-0.02553754,0.04064276],
+                  [-0.02992751,0.03752791],
+                  [-0.03394113,0.03394113],
+                  [-0.03752791,0.02992751],
+                  [-0.04064276,0.02553754],
+                  [-0.04324651,0.02082642],
+                  [-0.0453064,0.01585339],
+                  [-0.04679654,0.010681],
+                  [-0.04769819,0.00537429],
+                  [-0.048,0],
+                  [-0.04769819,-0.00537429],
+                  [-0.04679654,-0.010681],
+                  [-0.0453064,-0.01585339],
+                  [-0.04324651,-0.02082642],
+                  [-0.04064276,-0.02553754],
+                  [-0.03752791,-0.02992751],
+                  [-0.03394113,-0.03394113],
+                  [-0.02992751,-0.03752791],
+                  [-0.02553754,-0.04064276],
+                  [-0.02082642,-0.04324651],
+                  [-0.01585339,-0.0453064],
+                  [-0.010681,-0.04679654],
+                  [-0.00537429,-0.04769819],
+                  [0,-0.048],
+                  [0.00537429,-0.04769819],
+                  [0.010681,-0.04679654],
+                  [0.01585339,-0.0453064],
+                  [0.02082642,-0.04324651],
+                  [0.02553754,-0.04064276],
+                  [0.02992751,-0.03752791],
+                  [0.03394113,-0.03394113],
+                  [0.03752791,-0.02992751],
+                  [0.04064276,-0.02553754],
+                  [0.04324651,-0.02082642],
+                  [0.0453064,-0.01585339],
+                  [0.04679654,-0.010681],
+                  [0.04769819,-0.00537429]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "tread--1.034-1-0",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.294,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tread--1.034-1-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,0.090851,0],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "tread--1.034-1-2",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,0.17280886,0],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "tread--1.034-1-3",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,0.237851,0],
+              "rotation": [0,0,0.9424777960769379]
+            }
+          },
+          {
+            "id": "tread--1.034-1-4",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,0.27961062,0],
+              "rotation": [0,0,1.2566370614359172]
+            }
+          },
+          {
+            "id": "tread--1.034-1-5",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,0.294,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "tread--1.034-1-6",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,0.27961062,0],
+              "rotation": [0,0,1.8849555921538759]
+            }
+          },
+          {
+            "id": "tread--1.034-1-7",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,0.237851,0],
+              "rotation": [0,0,2.199114857512855]
+            }
+          },
+          {
+            "id": "tread--1.034-1-8",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,0.17280886,0],
+              "rotation": [0,0,2.5132741228718345]
+            }
+          },
+          {
+            "id": "tread--1.034-1-9",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,0.090851,0],
+              "rotation": [0,0,2.827433388230814]
+            }
+          },
+          {
+            "id": "tread--1.034-1-10",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.294,0,0],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "tread--1.034-1-11",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,-0.090851,0],
+              "rotation": [0,0,3.455751918948772]
+            }
+          },
+          {
+            "id": "tread--1.034-1-12",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,-0.17280886,0],
+              "rotation": [0,0,3.7699111843077517]
+            }
+          },
+          {
+            "id": "tread--1.034-1-13",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,-0.237851,0],
+              "rotation": [0,0,4.084070449666731]
+            }
+          },
+          {
+            "id": "tread--1.034-1-14",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,-0.27961062,0],
+              "rotation": [0,0,4.39822971502571]
+            }
+          },
+          {
+            "id": "tread--1.034-1-15",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,-0.294,0],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "tread--1.034-1-16",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,-0.27961062,0],
+              "rotation": [0,0,5.026548245743669]
+            }
+          },
+          {
+            "id": "tread--1.034-1-17",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,-0.237851,0],
+              "rotation": [0,0,5.340707511102648]
+            }
+          },
+          {
+            "id": "tread--1.034-1-18",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,-0.17280886,0],
+              "rotation": [0,0,5.654866776461628]
+            }
+          },
+          {
+            "id": "tread--1.034-1-19",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,-0.090851,0],
+              "rotation": [0,0,5.969026041820607]
+            }
+          },
+          {
+            "id": "vehicle-axle-1.026",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.frame",
+            "transform": {
+              "position": [1.026,0.294,0]
+            }
+          },
+          {
+            "id": "beam-axle-1.026",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.underbody-wheel-axle",
+            "parent": "vehicle-axle-1.026",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.617],
+              "end": [0,0,0.617],
+              "radius": 0.037,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "road-wheel-1.026--1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.frame",
+            "parent": "vehicle-axle-1.026",
+            "transform": {
+              "position": [0,0,-0.653]
+            }
+          },
+          {
+            "id": "tire-1.026--1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.road-tire-with-annular-centre",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.088],
+                [0,0,0.088]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.294,0],
+                [0.29274585,0.0271269],
+                [0.28899409,0.05402236],
+                [0.28277674,0.08045692],
+                [0.27414684,0.10620505],
+                [0.26317801,0.13104708],
+                [0.24996384,0.15477106],
+                [0.23461706,0.17717458],
+                [0.21726862,0.19806652],
+                [0.19806652,0.21726862],
+                [0.17717458,0.23461706],
+                [0.15477106,0.24996384],
+                [0.13104708,0.26317801],
+                [0.10620505,0.27414684],
+                [0.08045692,0.28277674],
+                [0.05402236,0.28899409],
+                [0.0271269,0.29274585],
+                [0,0.294],
+                [-0.0271269,0.29274585],
+                [-0.05402236,0.28899409],
+                [-0.08045692,0.28277674],
+                [-0.10620505,0.27414684],
+                [-0.13104708,0.26317801],
+                [-0.15477106,0.24996384],
+                [-0.17717458,0.23461706],
+                [-0.19806652,0.21726862],
+                [-0.21726862,0.19806652],
+                [-0.23461706,0.17717458],
+                [-0.24996384,0.15477106],
+                [-0.26317801,0.13104708],
+                [-0.27414684,0.10620505],
+                [-0.28277674,0.08045692],
+                [-0.28899409,0.05402236],
+                [-0.29274585,0.0271269],
+                [-0.294,0],
+                [-0.29274585,-0.0271269],
+                [-0.28899409,-0.05402236],
+                [-0.28277674,-0.08045692],
+                [-0.27414684,-0.10620505],
+                [-0.26317801,-0.13104708],
+                [-0.24996384,-0.15477106],
+                [-0.23461706,-0.17717458],
+                [-0.21726862,-0.19806652],
+                [-0.19806652,-0.21726862],
+                [-0.17717458,-0.23461706],
+                [-0.15477106,-0.24996384],
+                [-0.13104708,-0.26317801],
+                [-0.10620505,-0.27414684],
+                [-0.08045692,-0.28277674],
+                [-0.05402236,-0.28899409],
+                [-0.0271269,-0.29274585],
+                [0,-0.294],
+                [0.0271269,-0.29274585],
+                [0.05402236,-0.28899409],
+                [0.08045692,-0.28277674],
+                [0.10620505,-0.27414684],
+                [0.13104708,-0.26317801],
+                [0.15477106,-0.24996384],
+                [0.17717458,-0.23461706],
+                [0.19806652,-0.21726862],
+                [0.21726862,-0.19806652],
+                [0.23461706,-0.17717458],
+                [0.24996384,-0.15477106],
+                [0.26317801,-0.13104708],
+                [0.27414684,-0.10620505],
+                [0.28277674,-0.08045692],
+                [0.28899409,-0.05402236],
+                [0.29274585,-0.0271269]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.171,0],
+                  [0.17027054,0.01577789],
+                  [0.1680884,0.03142117],
+                  [0.16447218,0.04679637],
+                  [0.15945275,0.06177232],
+                  [0.15307292,0.07622126],
+                  [0.14538713,0.0900199],
+                  [0.13646095,0.10305052],
+                  [0.12637052,0.11520196],
+                  [0.11520196,0.12637052],
+                  [0.10305052,0.13646095],
+                  [0.0900199,0.14538713],
+                  [0.07622126,0.15307292],
+                  [0.06177232,0.15945275],
+                  [0.04679637,0.16447218],
+                  [0.03142117,0.1680884],
+                  [0.01577789,0.17027054],
+                  [0,0.171],
+                  [-0.01577789,0.17027054],
+                  [-0.03142117,0.1680884],
+                  [-0.04679637,0.16447218],
+                  [-0.06177232,0.15945275],
+                  [-0.07622126,0.15307292],
+                  [-0.0900199,0.14538713],
+                  [-0.10305052,0.13646095],
+                  [-0.11520196,0.12637052],
+                  [-0.12637052,0.11520196],
+                  [-0.13646095,0.10305052],
+                  [-0.14538713,0.0900199],
+                  [-0.15307292,0.07622126],
+                  [-0.15945275,0.06177232],
+                  [-0.16447218,0.04679637],
+                  [-0.1680884,0.03142117],
+                  [-0.17027054,0.01577789],
+                  [-0.171,0],
+                  [-0.17027054,-0.01577789],
+                  [-0.1680884,-0.03142117],
+                  [-0.16447218,-0.04679637],
+                  [-0.15945275,-0.06177232],
+                  [-0.15307292,-0.07622126],
+                  [-0.14538713,-0.0900199],
+                  [-0.13646095,-0.10305052],
+                  [-0.12637052,-0.11520196],
+                  [-0.11520196,-0.12637052],
+                  [-0.10305052,-0.13646095],
+                  [-0.0900199,-0.14538713],
+                  [-0.07622126,-0.15307292],
+                  [-0.06177232,-0.15945275],
+                  [-0.04679637,-0.16447218],
+                  [-0.03142117,-0.1680884],
+                  [-0.01577789,-0.17027054],
+                  [0,-0.171],
+                  [0.01577789,-0.17027054],
+                  [0.03142117,-0.1680884],
+                  [0.04679637,-0.16447218],
+                  [0.06177232,-0.15945275],
+                  [0.07622126,-0.15307292],
+                  [0.0900199,-0.14538713],
+                  [0.10305052,-0.13646095],
+                  [0.11520196,-0.12637052],
+                  [0.12637052,-0.11520196],
+                  [0.13646095,-0.10305052],
+                  [0.14538713,-0.0900199],
+                  [0.15307292,-0.07622126],
+                  [0.15945275,-0.06177232],
+                  [0.16447218,-0.04679637],
+                  [0.1680884,-0.03142117],
+                  [0.17027054,-0.01577789]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#58656b"
+            }
+          },
+          {
+            "id": "rim-1.026--1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.machined-rim-around-bearing-cap",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.09],
+                [0,0,0.09]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.172,0],
+                [0.1709185,0.01925789],
+                [0.1676876,0.0382736],
+                [0.16234793,0.056808],
+                [0.15496665,0.074628],
+                [0.14563656,0.09150952],
+                [0.13447501,0.10724025],
+                [0.12162237,0.12162237],
+                [0.10724025,0.13447501],
+                [0.09150952,0.14563656],
+                [0.074628,0.15496665],
+                [0.056808,0.16234793],
+                [0.0382736,0.1676876],
+                [0.01925789,0.1709185],
+                [0,0.172],
+                [-0.01925789,0.1709185],
+                [-0.0382736,0.1676876],
+                [-0.056808,0.16234793],
+                [-0.074628,0.15496665],
+                [-0.09150952,0.14563656],
+                [-0.10724025,0.13447501],
+                [-0.12162237,0.12162237],
+                [-0.13447501,0.10724025],
+                [-0.14563656,0.09150952],
+                [-0.15496665,0.074628],
+                [-0.16234793,0.056808],
+                [-0.1676876,0.0382736],
+                [-0.1709185,0.01925789],
+                [-0.172,0],
+                [-0.1709185,-0.01925789],
+                [-0.1676876,-0.0382736],
+                [-0.16234793,-0.056808],
+                [-0.15496665,-0.074628],
+                [-0.14563656,-0.09150952],
+                [-0.13447501,-0.10724025],
+                [-0.12162237,-0.12162237],
+                [-0.10724025,-0.13447501],
+                [-0.09150952,-0.14563656],
+                [-0.074628,-0.15496665],
+                [-0.056808,-0.16234793],
+                [-0.0382736,-0.1676876],
+                [-0.01925789,-0.1709185],
+                [0,-0.172],
+                [0.01925789,-0.1709185],
+                [0.0382736,-0.1676876],
+                [0.056808,-0.16234793],
+                [0.074628,-0.15496665],
+                [0.09150952,-0.14563656],
+                [0.10724025,-0.13447501],
+                [0.12162237,-0.12162237],
+                [0.13447501,-0.10724025],
+                [0.14563656,-0.09150952],
+                [0.15496665,-0.074628],
+                [0.16234793,-0.056808],
+                [0.1676876,-0.0382736],
+                [0.1709185,-0.01925789]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.048,0],
+                  [0.04769819,0.00537429],
+                  [0.04679654,0.010681],
+                  [0.0453064,0.01585339],
+                  [0.04324651,0.02082642],
+                  [0.04064276,0.02553754],
+                  [0.03752791,0.02992751],
+                  [0.03394113,0.03394113],
+                  [0.02992751,0.03752791],
+                  [0.02553754,0.04064276],
+                  [0.02082642,0.04324651],
+                  [0.01585339,0.0453064],
+                  [0.010681,0.04679654],
+                  [0.00537429,0.04769819],
+                  [0,0.048],
+                  [-0.00537429,0.04769819],
+                  [-0.010681,0.04679654],
+                  [-0.01585339,0.0453064],
+                  [-0.02082642,0.04324651],
+                  [-0.02553754,0.04064276],
+                  [-0.02992751,0.03752791],
+                  [-0.03394113,0.03394113],
+                  [-0.03752791,0.02992751],
+                  [-0.04064276,0.02553754],
+                  [-0.04324651,0.02082642],
+                  [-0.0453064,0.01585339],
+                  [-0.04679654,0.010681],
+                  [-0.04769819,0.00537429],
+                  [-0.048,0],
+                  [-0.04769819,-0.00537429],
+                  [-0.04679654,-0.010681],
+                  [-0.0453064,-0.01585339],
+                  [-0.04324651,-0.02082642],
+                  [-0.04064276,-0.02553754],
+                  [-0.03752791,-0.02992751],
+                  [-0.03394113,-0.03394113],
+                  [-0.02992751,-0.03752791],
+                  [-0.02553754,-0.04064276],
+                  [-0.02082642,-0.04324651],
+                  [-0.01585339,-0.0453064],
+                  [-0.010681,-0.04679654],
+                  [-0.00537429,-0.04769819],
+                  [0,-0.048],
+                  [0.00537429,-0.04769819],
+                  [0.010681,-0.04679654],
+                  [0.01585339,-0.0453064],
+                  [0.02082642,-0.04324651],
+                  [0.02553754,-0.04064276],
+                  [0.02992751,-0.03752791],
+                  [0.03394113,-0.03394113],
+                  [0.03752791,-0.02992751],
+                  [0.04064276,-0.02553754],
+                  [0.04324651,-0.02082642],
+                  [0.0453064,-0.01585339],
+                  [0.04679654,-0.010681],
+                  [0.04769819,-0.00537429]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "tread-1.026--1-0",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.294,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tread-1.026--1-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,0.090851,0],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "tread-1.026--1-2",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,0.17280886,0],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "tread-1.026--1-3",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,0.237851,0],
+              "rotation": [0,0,0.9424777960769379]
+            }
+          },
+          {
+            "id": "tread-1.026--1-4",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,0.27961062,0],
+              "rotation": [0,0,1.2566370614359172]
+            }
+          },
+          {
+            "id": "tread-1.026--1-5",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,0.294,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "tread-1.026--1-6",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,0.27961062,0],
+              "rotation": [0,0,1.8849555921538759]
+            }
+          },
+          {
+            "id": "tread-1.026--1-7",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,0.237851,0],
+              "rotation": [0,0,2.199114857512855]
+            }
+          },
+          {
+            "id": "tread-1.026--1-8",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,0.17280886,0],
+              "rotation": [0,0,2.5132741228718345]
+            }
+          },
+          {
+            "id": "tread-1.026--1-9",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,0.090851,0],
+              "rotation": [0,0,2.827433388230814]
+            }
+          },
+          {
+            "id": "tread-1.026--1-10",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.294,0,0],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "tread-1.026--1-11",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,-0.090851,0],
+              "rotation": [0,0,3.455751918948772]
+            }
+          },
+          {
+            "id": "tread-1.026--1-12",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,-0.17280886,0],
+              "rotation": [0,0,3.7699111843077517]
+            }
+          },
+          {
+            "id": "tread-1.026--1-13",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,-0.237851,0],
+              "rotation": [0,0,4.084070449666731]
+            }
+          },
+          {
+            "id": "tread-1.026--1-14",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,-0.27961062,0],
+              "rotation": [0,0,4.39822971502571]
+            }
+          },
+          {
+            "id": "tread-1.026--1-15",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,-0.294,0],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "tread-1.026--1-16",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,-0.27961062,0],
+              "rotation": [0,0,5.026548245743669]
+            }
+          },
+          {
+            "id": "tread-1.026--1-17",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,-0.237851,0],
+              "rotation": [0,0,5.340707511102648]
+            }
+          },
+          {
+            "id": "tread-1.026--1-18",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,-0.17280886,0],
+              "rotation": [0,0,5.654866776461628]
+            }
+          },
+          {
+            "id": "tread-1.026--1-19",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,-0.090851,0],
+              "rotation": [0,0,5.969026041820607]
+            }
+          },
+          {
+            "id": "road-wheel-1.026-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.frame",
+            "parent": "vehicle-axle-1.026",
+            "transform": {
+              "position": [0,0,0.653]
+            }
+          },
+          {
+            "id": "tire-1.026-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.road-tire-with-annular-centre",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.088],
+                [0,0,0.088]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.294,0],
+                [0.29274585,0.0271269],
+                [0.28899409,0.05402236],
+                [0.28277674,0.08045692],
+                [0.27414684,0.10620505],
+                [0.26317801,0.13104708],
+                [0.24996384,0.15477106],
+                [0.23461706,0.17717458],
+                [0.21726862,0.19806652],
+                [0.19806652,0.21726862],
+                [0.17717458,0.23461706],
+                [0.15477106,0.24996384],
+                [0.13104708,0.26317801],
+                [0.10620505,0.27414684],
+                [0.08045692,0.28277674],
+                [0.05402236,0.28899409],
+                [0.0271269,0.29274585],
+                [0,0.294],
+                [-0.0271269,0.29274585],
+                [-0.05402236,0.28899409],
+                [-0.08045692,0.28277674],
+                [-0.10620505,0.27414684],
+                [-0.13104708,0.26317801],
+                [-0.15477106,0.24996384],
+                [-0.17717458,0.23461706],
+                [-0.19806652,0.21726862],
+                [-0.21726862,0.19806652],
+                [-0.23461706,0.17717458],
+                [-0.24996384,0.15477106],
+                [-0.26317801,0.13104708],
+                [-0.27414684,0.10620505],
+                [-0.28277674,0.08045692],
+                [-0.28899409,0.05402236],
+                [-0.29274585,0.0271269],
+                [-0.294,0],
+                [-0.29274585,-0.0271269],
+                [-0.28899409,-0.05402236],
+                [-0.28277674,-0.08045692],
+                [-0.27414684,-0.10620505],
+                [-0.26317801,-0.13104708],
+                [-0.24996384,-0.15477106],
+                [-0.23461706,-0.17717458],
+                [-0.21726862,-0.19806652],
+                [-0.19806652,-0.21726862],
+                [-0.17717458,-0.23461706],
+                [-0.15477106,-0.24996384],
+                [-0.13104708,-0.26317801],
+                [-0.10620505,-0.27414684],
+                [-0.08045692,-0.28277674],
+                [-0.05402236,-0.28899409],
+                [-0.0271269,-0.29274585],
+                [0,-0.294],
+                [0.0271269,-0.29274585],
+                [0.05402236,-0.28899409],
+                [0.08045692,-0.28277674],
+                [0.10620505,-0.27414684],
+                [0.13104708,-0.26317801],
+                [0.15477106,-0.24996384],
+                [0.17717458,-0.23461706],
+                [0.19806652,-0.21726862],
+                [0.21726862,-0.19806652],
+                [0.23461706,-0.17717458],
+                [0.24996384,-0.15477106],
+                [0.26317801,-0.13104708],
+                [0.27414684,-0.10620505],
+                [0.28277674,-0.08045692],
+                [0.28899409,-0.05402236],
+                [0.29274585,-0.0271269]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.171,0],
+                  [0.17027054,0.01577789],
+                  [0.1680884,0.03142117],
+                  [0.16447218,0.04679637],
+                  [0.15945275,0.06177232],
+                  [0.15307292,0.07622126],
+                  [0.14538713,0.0900199],
+                  [0.13646095,0.10305052],
+                  [0.12637052,0.11520196],
+                  [0.11520196,0.12637052],
+                  [0.10305052,0.13646095],
+                  [0.0900199,0.14538713],
+                  [0.07622126,0.15307292],
+                  [0.06177232,0.15945275],
+                  [0.04679637,0.16447218],
+                  [0.03142117,0.1680884],
+                  [0.01577789,0.17027054],
+                  [0,0.171],
+                  [-0.01577789,0.17027054],
+                  [-0.03142117,0.1680884],
+                  [-0.04679637,0.16447218],
+                  [-0.06177232,0.15945275],
+                  [-0.07622126,0.15307292],
+                  [-0.0900199,0.14538713],
+                  [-0.10305052,0.13646095],
+                  [-0.11520196,0.12637052],
+                  [-0.12637052,0.11520196],
+                  [-0.13646095,0.10305052],
+                  [-0.14538713,0.0900199],
+                  [-0.15307292,0.07622126],
+                  [-0.15945275,0.06177232],
+                  [-0.16447218,0.04679637],
+                  [-0.1680884,0.03142117],
+                  [-0.17027054,0.01577789],
+                  [-0.171,0],
+                  [-0.17027054,-0.01577789],
+                  [-0.1680884,-0.03142117],
+                  [-0.16447218,-0.04679637],
+                  [-0.15945275,-0.06177232],
+                  [-0.15307292,-0.07622126],
+                  [-0.14538713,-0.0900199],
+                  [-0.13646095,-0.10305052],
+                  [-0.12637052,-0.11520196],
+                  [-0.11520196,-0.12637052],
+                  [-0.10305052,-0.13646095],
+                  [-0.0900199,-0.14538713],
+                  [-0.07622126,-0.15307292],
+                  [-0.06177232,-0.15945275],
+                  [-0.04679637,-0.16447218],
+                  [-0.03142117,-0.1680884],
+                  [-0.01577789,-0.17027054],
+                  [0,-0.171],
+                  [0.01577789,-0.17027054],
+                  [0.03142117,-0.1680884],
+                  [0.04679637,-0.16447218],
+                  [0.06177232,-0.15945275],
+                  [0.07622126,-0.15307292],
+                  [0.0900199,-0.14538713],
+                  [0.10305052,-0.13646095],
+                  [0.11520196,-0.12637052],
+                  [0.12637052,-0.11520196],
+                  [0.13646095,-0.10305052],
+                  [0.14538713,-0.0900199],
+                  [0.15307292,-0.07622126],
+                  [0.15945275,-0.06177232],
+                  [0.16447218,-0.04679637],
+                  [0.1680884,-0.03142117],
+                  [0.17027054,-0.01577789]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#58656b"
+            }
+          },
+          {
+            "id": "rim-1.026-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.machined-rim-around-bearing-cap",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.09],
+                [0,0,0.09]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.172,0],
+                [0.1709185,0.01925789],
+                [0.1676876,0.0382736],
+                [0.16234793,0.056808],
+                [0.15496665,0.074628],
+                [0.14563656,0.09150952],
+                [0.13447501,0.10724025],
+                [0.12162237,0.12162237],
+                [0.10724025,0.13447501],
+                [0.09150952,0.14563656],
+                [0.074628,0.15496665],
+                [0.056808,0.16234793],
+                [0.0382736,0.1676876],
+                [0.01925789,0.1709185],
+                [0,0.172],
+                [-0.01925789,0.1709185],
+                [-0.0382736,0.1676876],
+                [-0.056808,0.16234793],
+                [-0.074628,0.15496665],
+                [-0.09150952,0.14563656],
+                [-0.10724025,0.13447501],
+                [-0.12162237,0.12162237],
+                [-0.13447501,0.10724025],
+                [-0.14563656,0.09150952],
+                [-0.15496665,0.074628],
+                [-0.16234793,0.056808],
+                [-0.1676876,0.0382736],
+                [-0.1709185,0.01925789],
+                [-0.172,0],
+                [-0.1709185,-0.01925789],
+                [-0.1676876,-0.0382736],
+                [-0.16234793,-0.056808],
+                [-0.15496665,-0.074628],
+                [-0.14563656,-0.09150952],
+                [-0.13447501,-0.10724025],
+                [-0.12162237,-0.12162237],
+                [-0.10724025,-0.13447501],
+                [-0.09150952,-0.14563656],
+                [-0.074628,-0.15496665],
+                [-0.056808,-0.16234793],
+                [-0.0382736,-0.1676876],
+                [-0.01925789,-0.1709185],
+                [0,-0.172],
+                [0.01925789,-0.1709185],
+                [0.0382736,-0.1676876],
+                [0.056808,-0.16234793],
+                [0.074628,-0.15496665],
+                [0.09150952,-0.14563656],
+                [0.10724025,-0.13447501],
+                [0.12162237,-0.12162237],
+                [0.13447501,-0.10724025],
+                [0.14563656,-0.09150952],
+                [0.15496665,-0.074628],
+                [0.16234793,-0.056808],
+                [0.1676876,-0.0382736],
+                [0.1709185,-0.01925789]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.048,0],
+                  [0.04769819,0.00537429],
+                  [0.04679654,0.010681],
+                  [0.0453064,0.01585339],
+                  [0.04324651,0.02082642],
+                  [0.04064276,0.02553754],
+                  [0.03752791,0.02992751],
+                  [0.03394113,0.03394113],
+                  [0.02992751,0.03752791],
+                  [0.02553754,0.04064276],
+                  [0.02082642,0.04324651],
+                  [0.01585339,0.0453064],
+                  [0.010681,0.04679654],
+                  [0.00537429,0.04769819],
+                  [0,0.048],
+                  [-0.00537429,0.04769819],
+                  [-0.010681,0.04679654],
+                  [-0.01585339,0.0453064],
+                  [-0.02082642,0.04324651],
+                  [-0.02553754,0.04064276],
+                  [-0.02992751,0.03752791],
+                  [-0.03394113,0.03394113],
+                  [-0.03752791,0.02992751],
+                  [-0.04064276,0.02553754],
+                  [-0.04324651,0.02082642],
+                  [-0.0453064,0.01585339],
+                  [-0.04679654,0.010681],
+                  [-0.04769819,0.00537429],
+                  [-0.048,0],
+                  [-0.04769819,-0.00537429],
+                  [-0.04679654,-0.010681],
+                  [-0.0453064,-0.01585339],
+                  [-0.04324651,-0.02082642],
+                  [-0.04064276,-0.02553754],
+                  [-0.03752791,-0.02992751],
+                  [-0.03394113,-0.03394113],
+                  [-0.02992751,-0.03752791],
+                  [-0.02553754,-0.04064276],
+                  [-0.02082642,-0.04324651],
+                  [-0.01585339,-0.0453064],
+                  [-0.010681,-0.04679654],
+                  [-0.00537429,-0.04769819],
+                  [0,-0.048],
+                  [0.00537429,-0.04769819],
+                  [0.010681,-0.04679654],
+                  [0.01585339,-0.0453064],
+                  [0.02082642,-0.04324651],
+                  [0.02553754,-0.04064276],
+                  [0.02992751,-0.03752791],
+                  [0.03394113,-0.03394113],
+                  [0.03752791,-0.02992751],
+                  [0.04064276,-0.02553754],
+                  [0.04324651,-0.02082642],
+                  [0.0453064,-0.01585339],
+                  [0.04679654,-0.010681],
+                  [0.04769819,-0.00537429]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "tread-1.026-1-0",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.294,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tread-1.026-1-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,0.090851,0],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "tread-1.026-1-2",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,0.17280886,0],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "tread-1.026-1-3",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,0.237851,0],
+              "rotation": [0,0,0.9424777960769379]
+            }
+          },
+          {
+            "id": "tread-1.026-1-4",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,0.27961062,0],
+              "rotation": [0,0,1.2566370614359172]
+            }
+          },
+          {
+            "id": "tread-1.026-1-5",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,0.294,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "tread-1.026-1-6",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,0.27961062,0],
+              "rotation": [0,0,1.8849555921538759]
+            }
+          },
+          {
+            "id": "tread-1.026-1-7",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,0.237851,0],
+              "rotation": [0,0,2.199114857512855]
+            }
+          },
+          {
+            "id": "tread-1.026-1-8",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,0.17280886,0],
+              "rotation": [0,0,2.5132741228718345]
+            }
+          },
+          {
+            "id": "tread-1.026-1-9",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,0.090851,0],
+              "rotation": [0,0,2.827433388230814]
+            }
+          },
+          {
+            "id": "tread-1.026-1-10",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.294,0,0],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "tread-1.026-1-11",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,-0.090851,0],
+              "rotation": [0,0,3.455751918948772]
+            }
+          },
+          {
+            "id": "tread-1.026-1-12",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,-0.17280886,0],
+              "rotation": [0,0,3.7699111843077517]
+            }
+          },
+          {
+            "id": "tread-1.026-1-13",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,-0.237851,0],
+              "rotation": [0,0,4.084070449666731]
+            }
+          },
+          {
+            "id": "tread-1.026-1-14",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,-0.27961062,0],
+              "rotation": [0,0,4.39822971502571]
+            }
+          },
+          {
+            "id": "tread-1.026-1-15",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,-0.294,0],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "tread-1.026-1-16",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,-0.27961062,0],
+              "rotation": [0,0,5.026548245743669]
+            }
+          },
+          {
+            "id": "tread-1.026-1-17",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,-0.237851,0],
+              "rotation": [0,0,5.340707511102648]
+            }
+          },
+          {
+            "id": "tread-1.026-1-18",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,-0.17280886,0],
+              "rotation": [0,0,5.654866776461628]
+            }
+          },
+          {
+            "id": "tread-1.026-1-19",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,-0.090851,0],
+              "rotation": [0,0,5.969026041820607]
+            }
+          },
+          {
+            "id": "rail-dock-plate--1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.drilled-underframe-cassette-seat",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.42,0],
+                [0,0.472,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [1.467,-0.647],
+                [1.271,-0.647],
+                [1.238,-0.614],
+                [1.238,0.614],
+                [1.271,0.647],
+                [1.467,0.647],
+                [1.5,0.614],
+                [1.5,-0.614]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [1.434,-0.492],
+                  [1.43446493,-0.48817095],
+                  [1.4358327,-0.48456443],
+                  [1.43802383,-0.48139004],
+                  [1.44091096,-0.47883226],
+                  [1.44432632,-0.47703974],
+                  [1.44807141,-0.47611666],
+                  [1.45192859,-0.47611666],
+                  [1.45567368,-0.47703974],
+                  [1.45908904,-0.47883226],
+                  [1.46197617,-0.48139004],
+                  [1.4641673,-0.48456443],
+                  [1.46553507,-0.48817095],
+                  [1.466,-0.492],
+                  [1.46553507,-0.49582905],
+                  [1.4641673,-0.49943557],
+                  [1.46197617,-0.50260996],
+                  [1.45908904,-0.50516774],
+                  [1.45567368,-0.50696026],
+                  [1.45192859,-0.50788334],
+                  [1.44807141,-0.50788334],
+                  [1.44432632,-0.50696026],
+                  [1.44091096,-0.50516774],
+                  [1.43802383,-0.50260996],
+                  [1.4358327,-0.49943557],
+                  [1.43446493,-0.49582905]
+                ],
+                [
+                  [1.434,0.492],
+                  [1.43446493,0.49582905],
+                  [1.4358327,0.49943557],
+                  [1.43802383,0.50260996],
+                  [1.44091096,0.50516774],
+                  [1.44432632,0.50696026],
+                  [1.44807141,0.50788334],
+                  [1.45192859,0.50788334],
+                  [1.45567368,0.50696026],
+                  [1.45908904,0.50516774],
+                  [1.46197617,0.50260996],
+                  [1.4641673,0.49943557],
+                  [1.46553507,0.49582905],
+                  [1.466,0.492],
+                  [1.46553507,0.48817095],
+                  [1.4641673,0.48456443],
+                  [1.46197617,0.48139004],
+                  [1.45908904,0.47883226],
+                  [1.45567368,0.47703974],
+                  [1.45192859,0.47611666],
+                  [1.44807141,0.47611666],
+                  [1.44432632,0.47703974],
+                  [1.44091096,0.47883226],
+                  [1.43802383,0.48139004],
+                  [1.4358327,0.48456443],
+                  [1.43446493,0.48817095]
+                ],
+                [
+                  [1.272,-0.492],
+                  [1.27246493,-0.48817095],
+                  [1.2738327,-0.48456443],
+                  [1.27602383,-0.48139004],
+                  [1.27891096,-0.47883226],
+                  [1.28232632,-0.47703974],
+                  [1.28607141,-0.47611666],
+                  [1.28992859,-0.47611666],
+                  [1.29367368,-0.47703974],
+                  [1.29708904,-0.47883226],
+                  [1.29997617,-0.48139004],
+                  [1.3021673,-0.48456443],
+                  [1.30353507,-0.48817095],
+                  [1.304,-0.492],
+                  [1.30353507,-0.49582905],
+                  [1.3021673,-0.49943557],
+                  [1.29997617,-0.50260996],
+                  [1.29708904,-0.50516774],
+                  [1.29367368,-0.50696026],
+                  [1.28992859,-0.50788334],
+                  [1.28607141,-0.50788334],
+                  [1.28232632,-0.50696026],
+                  [1.27891096,-0.50516774],
+                  [1.27602383,-0.50260996],
+                  [1.2738327,-0.49943557],
+                  [1.27246493,-0.49582905]
+                ],
+                [
+                  [1.272,0.492],
+                  [1.27246493,0.49582905],
+                  [1.2738327,0.49943557],
+                  [1.27602383,0.50260996],
+                  [1.27891096,0.50516774],
+                  [1.28232632,0.50696026],
+                  [1.28607141,0.50788334],
+                  [1.28992859,0.50788334],
+                  [1.29367368,0.50696026],
+                  [1.29708904,0.50516774],
+                  [1.29997617,0.50260996],
+                  [1.3021673,0.49943557],
+                  [1.30353507,0.49582905],
+                  [1.304,0.492],
+                  [1.30353507,0.48817095],
+                  [1.3021673,0.48456443],
+                  [1.29997617,0.48139004],
+                  [1.29708904,0.47883226],
+                  [1.29367368,0.47703974],
+                  [1.28992859,0.47611666],
+                  [1.28607141,0.47611666],
+                  [1.28232632,0.47703974],
+                  [1.27891096,0.47883226],
+                  [1.27602383,0.48139004],
+                  [1.2738327,0.48456443],
+                  [1.27246493,0.48817095]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#7cabaf"
+            }
+          },
+          {
+            "id": "rail-dock-plate-1",
+            "semanticType": "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats.drilled-underframe-cassette-seat",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.42,0],
+                [0,0.472,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-1.271,-0.647],
+                [-1.467,-0.647],
+                [-1.5,-0.614],
+                [-1.5,0.614],
+                [-1.467,0.647],
+                [-1.271,0.647],
+                [-1.238,0.614],
+                [-1.238,-0.614]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-1.304,-0.492],
+                  [-1.30353507,-0.48817095],
+                  [-1.3021673,-0.48456443],
+                  [-1.29997617,-0.48139004],
+                  [-1.29708904,-0.47883226],
+                  [-1.29367368,-0.47703974],
+                  [-1.28992859,-0.47611666],
+                  [-1.28607141,-0.47611666],
+                  [-1.28232632,-0.47703974],
+                  [-1.27891096,-0.47883226],
+                  [-1.27602383,-0.48139004],
+                  [-1.2738327,-0.48456443],
+                  [-1.27246493,-0.48817095],
+                  [-1.272,-0.492],
+                  [-1.27246493,-0.49582905],
+                  [-1.2738327,-0.49943557],
+                  [-1.27602383,-0.50260996],
+                  [-1.27891096,-0.50516774],
+                  [-1.28232632,-0.50696026],
+                  [-1.28607141,-0.50788334],
+                  [-1.28992859,-0.50788334],
+                  [-1.29367368,-0.50696026],
+                  [-1.29708904,-0.50516774],
+                  [-1.29997617,-0.50260996],
+                  [-1.3021673,-0.49943557],
+                  [-1.30353507,-0.49582905]
+                ],
+                [
+                  [-1.304,0.492],
+                  [-1.30353507,0.49582905],
+                  [-1.3021673,0.49943557],
+                  [-1.29997617,0.50260996],
+                  [-1.29708904,0.50516774],
+                  [-1.29367368,0.50696026],
+                  [-1.28992859,0.50788334],
+                  [-1.28607141,0.50788334],
+                  [-1.28232632,0.50696026],
+                  [-1.27891096,0.50516774],
+                  [-1.27602383,0.50260996],
+                  [-1.2738327,0.49943557],
+                  [-1.27246493,0.49582905],
+                  [-1.272,0.492],
+                  [-1.27246493,0.48817095],
+                  [-1.2738327,0.48456443],
+                  [-1.27602383,0.48139004],
+                  [-1.27891096,0.47883226],
+                  [-1.28232632,0.47703974],
+                  [-1.28607141,0.47611666],
+                  [-1.28992859,0.47611666],
+                  [-1.29367368,0.47703974],
+                  [-1.29708904,0.47883226],
+                  [-1.29997617,0.48139004],
+                  [-1.3021673,0.48456443],
+                  [-1.30353507,0.48817095]
+                ],
+                [
+                  [-1.466,-0.492],
+                  [-1.46553507,-0.48817095],
+                  [-1.4641673,-0.48456443],
+                  [-1.46197617,-0.48139004],
+                  [-1.45908904,-0.47883226],
+                  [-1.45567368,-0.47703974],
+                  [-1.45192859,-0.47611666],
+                  [-1.44807141,-0.47611666],
+                  [-1.44432632,-0.47703974],
+                  [-1.44091096,-0.47883226],
+                  [-1.43802383,-0.48139004],
+                  [-1.4358327,-0.48456443],
+                  [-1.43446493,-0.48817095],
+                  [-1.434,-0.492],
+                  [-1.43446493,-0.49582905],
+                  [-1.4358327,-0.49943557],
+                  [-1.43802383,-0.50260996],
+                  [-1.44091096,-0.50516774],
+                  [-1.44432632,-0.50696026],
+                  [-1.44807141,-0.50788334],
+                  [-1.45192859,-0.50788334],
+                  [-1.45567368,-0.50696026],
+                  [-1.45908904,-0.50516774],
+                  [-1.46197617,-0.50260996],
+                  [-1.4641673,-0.49943557],
+                  [-1.46553507,-0.49582905]
+                ],
+                [
+                  [-1.466,0.492],
+                  [-1.46553507,0.49582905],
+                  [-1.4641673,0.49943557],
+                  [-1.46197617,0.50260996],
+                  [-1.45908904,0.50516774],
+                  [-1.45567368,0.50696026],
+                  [-1.45192859,0.50788334],
+                  [-1.44807141,0.50788334],
+                  [-1.44432632,0.50696026],
+                  [-1.44091096,0.50516774],
+                  [-1.43802383,0.50260996],
+                  [-1.4358327,0.49943557],
+                  [-1.43446493,0.49582905],
+                  [-1.434,0.492],
+                  [-1.43446493,0.48817095],
+                  [-1.4358327,0.48456443],
+                  [-1.43802383,0.48139004],
+                  [-1.44091096,0.47883226],
+                  [-1.44432632,0.47703974],
+                  [-1.44807141,0.47611666],
+                  [-1.45192859,0.47611666],
+                  [-1.45567368,0.47703974],
+                  [-1.45908904,0.47883226],
+                  [-1.46197617,0.48139004],
+                  [-1.4641673,0.48456443],
+                  [-1.46553507,0.48817095]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#7cabaf"
+            }
+          }
+        ],
+        "anchors": {
+          "road-contact--1.034--1": {
+            "node": "road-wheel--1.034--1",
+            "position": [0,-0.294,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-road-contact"
+          },
+          "road-contact--1.034-1": {
+            "node": "road-wheel--1.034-1",
+            "position": [0,-0.294,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-road-contact"
+          },
+          "road-contact-1.026--1": {
+            "node": "road-wheel-1.026--1",
+            "position": [0,-0.294,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-road-contact"
+          },
+          "road-contact-1.026-1": {
+            "node": "road-wheel-1.026-1",
+            "position": [0,-0.294,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-road-contact"
+          },
+          "front-rail-cassette": {
+            "position": [-1.369,0.42,0],
+            "direction": [0,-1,0],
+            "kind": "road-rail-axle-cassette-seat"
+          },
+          "rear-rail-cassette": {
+            "position": [1.369,0.42,0],
+            "direction": [0,-1,0],
+            "kind": "road-rail-axle-cassette-seat"
+          },
+          "service-deck": {
+            "position": [0.732,0.671,0],
+            "direction": [0,1,0],
+            "kind": "service-vehicle-load-deck"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "door-swing",
+            "label": "检修车门角度",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 75,
+            "targets": [
+              {
+                "node": "side-cab-door",
+                "property": "rotation",
+                "axis": "y",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

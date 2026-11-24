@@ -1,0 +1,1333 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "低平板运输挂车承载底架",
+  "summary": "低位箱梁载台、两条独立折叠坡道、可展开支承边梁，以及鹅颈与轮组的固定对接口。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "低平板挂车",
+    "重载挂车底架",
+    "low-bed-deck",
+    "folding-loading-ramps",
+    "重载运输",
+    "heavy-transport"
+  ],
+  "anchors": [
+    "ramp-toe--1",
+    "deck-edge--1",
+    "ramp-toe-1",
+    "deck-edge-1",
+    "neck-dock",
+    "bogie-dock",
+    "cargo-deck"
+  ],
+  "ai": {
+    "intent": "单独布置低平板挂车车架，通过前部、轮组和承载面锚点分别挂装鹅颈、摆臂轮组和货物。",
+    "editableParts": [
+      "ramp--1-angle",
+      "ramp-1-angle",
+      "side-extension"
+    ],
+    "qualityChecks": [
+      "两条坡道可分开折叠与落下。",
+      "系固槽实际贯穿。",
+      "两侧承托面保持水平并对称展开。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "low-bed-equipment-semitrailer-deck-with-folding-ramps",
+      "title": "低平板运输挂车承载底架",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "main-rail--1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.frame",
+            "transform": {
+              "position": [0,0.496,-0.677]
+            }
+          },
+          {
+            "id": "rail--1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.open-flanged-longitudinal-deck-stringer",
+            "parent": "main-rail--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-2.887,0,0],
+                [2.6,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.131,-0.124],
+                [-0.131,-0.124],
+                [-0.131,-0.085],
+                [0.084,-0.085],
+                [0.084,0.086],
+                [-0.131,0.086],
+                [-0.131,0.124],
+                [0.131,0.124]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            }
+          },
+          {
+            "id": "width-slide--1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.frame",
+            "transform": {
+              "position": [0,0,-1.038]
+            }
+          },
+          {
+            "id": "outer-seat--1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.extending-load-deck-edge",
+            "parent": "width-slide--1",
+            "geometry": {
+              "type": "box",
+              "size": [4.731,0.083,0.117]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            },
+            "transform": {
+              "position": [0.01,0.594,0]
+            }
+          },
+          {
+            "id": "outreach--1--1.94",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.horizontal-sliding-extension-sleeve-member",
+            "parent": "width-slide--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.081,0.374]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [-1.94,0.531,0.122]
+            }
+          },
+          {
+            "id": "outreach--1--0.685",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.horizontal-sliding-extension-sleeve-member",
+            "parent": "width-slide--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.081,0.374]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [-0.685,0.531,0.122]
+            }
+          },
+          {
+            "id": "outreach--1-0.685",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.horizontal-sliding-extension-sleeve-member",
+            "parent": "width-slide--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.081,0.374]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [0.685,0.531,0.122]
+            }
+          },
+          {
+            "id": "outreach--1-1.94",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.horizontal-sliding-extension-sleeve-member",
+            "parent": "width-slide--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.081,0.374]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [1.94,0.531,0.122]
+            }
+          },
+          {
+            "id": "load-ramp--1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.frame",
+            "transform": {
+              "position": [-2.887,0.64,-0.649]
+            }
+          },
+          {
+            "id": "ramp--1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.slotted-articulating-loading-ramp-deck",
+            "parent": "load-ramp--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.048,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [1.404,-0.247],
+                [0.04,-0.247],
+                [0,-0.207],
+                [0,0.207],
+                [0.04,0.247],
+                [1.404,0.247],
+                [1.444,0.207],
+                [1.444,-0.207]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [1.321,-0.138],
+                  [1.306,-0.138],
+                  [1.296,-0.128],
+                  [1.296,0.128],
+                  [1.306,0.138],
+                  [1.321,0.138],
+                  [1.331,0.128],
+                  [1.331,-0.128]
+                ],
+                [
+                  [1.182,-0.138],
+                  [1.167,-0.138],
+                  [1.157,-0.128],
+                  [1.157,0.128],
+                  [1.167,0.138],
+                  [1.182,0.138],
+                  [1.192,0.128],
+                  [1.192,-0.128]
+                ],
+                [
+                  [1.043,-0.138],
+                  [1.028,-0.138],
+                  [1.018,-0.128],
+                  [1.018,0.128],
+                  [1.028,0.138],
+                  [1.043,0.138],
+                  [1.053,0.128],
+                  [1.053,-0.128]
+                ],
+                [
+                  [0.9039999999999999,-0.138],
+                  [0.8889999999999999,-0.138],
+                  [0.8789999999999999,-0.128],
+                  [0.8789999999999999,0.128],
+                  [0.8889999999999999,0.138],
+                  [0.9039999999999999,0.138],
+                  [0.9139999999999999,0.128],
+                  [0.9139999999999999,-0.128]
+                ],
+                [
+                  [0.7649999999999999,-0.138],
+                  [0.7499999999999999,-0.138],
+                  [0.7399999999999999,-0.128],
+                  [0.7399999999999999,0.128],
+                  [0.7499999999999999,0.138],
+                  [0.7649999999999999,0.138],
+                  [0.7749999999999999,0.128],
+                  [0.7749999999999999,-0.128]
+                ],
+                [
+                  [0.6259999999999999,-0.138],
+                  [0.6109999999999999,-0.138],
+                  [0.6009999999999999,-0.128],
+                  [0.6009999999999999,0.128],
+                  [0.6109999999999999,0.138],
+                  [0.6259999999999999,0.138],
+                  [0.6359999999999999,0.128],
+                  [0.6359999999999999,-0.128]
+                ],
+                [
+                  [0.4869999999999999,-0.138],
+                  [0.47199999999999986,-0.138],
+                  [0.46199999999999986,-0.128],
+                  [0.46199999999999986,0.128],
+                  [0.47199999999999986,0.138],
+                  [0.4869999999999999,0.138],
+                  [0.4969999999999999,0.128],
+                  [0.4969999999999999,-0.128]
+                ],
+                [
+                  [0.34799999999999986,-0.138],
+                  [0.33299999999999985,-0.138],
+                  [0.32299999999999984,-0.128],
+                  [0.32299999999999984,0.128],
+                  [0.33299999999999985,0.138],
+                  [0.34799999999999986,0.138],
+                  [0.3579999999999999,0.128],
+                  [0.3579999999999999,-0.128]
+                ],
+                [
+                  [0.20899999999999985,-0.138],
+                  [0.19399999999999987,-0.138],
+                  [0.18399999999999986,-0.128],
+                  [0.18399999999999986,0.128],
+                  [0.19399999999999987,0.138],
+                  [0.20899999999999985,0.138],
+                  [0.21899999999999986,0.128],
+                  [0.21899999999999986,-0.128]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            }
+          },
+          {
+            "id": "ramp-rib--1--0.187",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.under-ramp-folding-stiffener",
+            "parent": "load-ramp--1",
+            "geometry": {
+              "type": "box",
+              "size": [1.292,0.071,0.033]
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            },
+            "transform": {
+              "position": [-0.705,-0.061,-0.187]
+            }
+          },
+          {
+            "id": "ramp-rib--1-0.187",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.under-ramp-folding-stiffener",
+            "parent": "load-ramp--1",
+            "geometry": {
+              "type": "box",
+              "size": [1.292,0.071,0.033]
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            },
+            "transform": {
+              "position": [-0.705,-0.061,0.187]
+            }
+          },
+          {
+            "id": "ramp-pin--1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.fixed-loading-ramp-axis",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-2.887,0.638,-0.921],
+              "end": [-2.887,0.638,-0.377],
+              "radius": 0.024,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            }
+          },
+          {
+            "id": "main-rail-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.frame",
+            "transform": {
+              "position": [0,0.496,0.677]
+            }
+          },
+          {
+            "id": "rail-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.open-flanged-longitudinal-deck-stringer",
+            "parent": "main-rail-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-2.887,0,0],
+                [2.6,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.131,-0.124],
+                [0.131,-0.124],
+                [0.131,-0.085],
+                [-0.084,-0.085],
+                [-0.084,0.086],
+                [0.131,0.086],
+                [0.131,0.124],
+                [-0.131,0.124]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            }
+          },
+          {
+            "id": "width-slide-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.frame",
+            "transform": {
+              "position": [0,0,1.038]
+            }
+          },
+          {
+            "id": "outer-seat-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.extending-load-deck-edge",
+            "parent": "width-slide-1",
+            "geometry": {
+              "type": "box",
+              "size": [4.731,0.083,0.117]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            },
+            "transform": {
+              "position": [0.01,0.594,0]
+            }
+          },
+          {
+            "id": "outreach-1--1.94",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.horizontal-sliding-extension-sleeve-member",
+            "parent": "width-slide-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.081,0.374]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [-1.94,0.531,-0.122]
+            }
+          },
+          {
+            "id": "outreach-1--0.685",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.horizontal-sliding-extension-sleeve-member",
+            "parent": "width-slide-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.081,0.374]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [-0.685,0.531,-0.122]
+            }
+          },
+          {
+            "id": "outreach-1-0.685",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.horizontal-sliding-extension-sleeve-member",
+            "parent": "width-slide-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.081,0.374]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [0.685,0.531,-0.122]
+            }
+          },
+          {
+            "id": "outreach-1-1.94",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.horizontal-sliding-extension-sleeve-member",
+            "parent": "width-slide-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.081,0.374]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [1.94,0.531,-0.122]
+            }
+          },
+          {
+            "id": "load-ramp-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.frame",
+            "transform": {
+              "position": [-2.887,0.64,0.649]
+            }
+          },
+          {
+            "id": "ramp-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.slotted-articulating-loading-ramp-deck",
+            "parent": "load-ramp-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.048,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [1.404,-0.247],
+                [0.04,-0.247],
+                [0,-0.207],
+                [0,0.207],
+                [0.04,0.247],
+                [1.404,0.247],
+                [1.444,0.207],
+                [1.444,-0.207]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [1.321,-0.138],
+                  [1.306,-0.138],
+                  [1.296,-0.128],
+                  [1.296,0.128],
+                  [1.306,0.138],
+                  [1.321,0.138],
+                  [1.331,0.128],
+                  [1.331,-0.128]
+                ],
+                [
+                  [1.182,-0.138],
+                  [1.167,-0.138],
+                  [1.157,-0.128],
+                  [1.157,0.128],
+                  [1.167,0.138],
+                  [1.182,0.138],
+                  [1.192,0.128],
+                  [1.192,-0.128]
+                ],
+                [
+                  [1.043,-0.138],
+                  [1.028,-0.138],
+                  [1.018,-0.128],
+                  [1.018,0.128],
+                  [1.028,0.138],
+                  [1.043,0.138],
+                  [1.053,0.128],
+                  [1.053,-0.128]
+                ],
+                [
+                  [0.9039999999999999,-0.138],
+                  [0.8889999999999999,-0.138],
+                  [0.8789999999999999,-0.128],
+                  [0.8789999999999999,0.128],
+                  [0.8889999999999999,0.138],
+                  [0.9039999999999999,0.138],
+                  [0.9139999999999999,0.128],
+                  [0.9139999999999999,-0.128]
+                ],
+                [
+                  [0.7649999999999999,-0.138],
+                  [0.7499999999999999,-0.138],
+                  [0.7399999999999999,-0.128],
+                  [0.7399999999999999,0.128],
+                  [0.7499999999999999,0.138],
+                  [0.7649999999999999,0.138],
+                  [0.7749999999999999,0.128],
+                  [0.7749999999999999,-0.128]
+                ],
+                [
+                  [0.6259999999999999,-0.138],
+                  [0.6109999999999999,-0.138],
+                  [0.6009999999999999,-0.128],
+                  [0.6009999999999999,0.128],
+                  [0.6109999999999999,0.138],
+                  [0.6259999999999999,0.138],
+                  [0.6359999999999999,0.128],
+                  [0.6359999999999999,-0.128]
+                ],
+                [
+                  [0.4869999999999999,-0.138],
+                  [0.47199999999999986,-0.138],
+                  [0.46199999999999986,-0.128],
+                  [0.46199999999999986,0.128],
+                  [0.47199999999999986,0.138],
+                  [0.4869999999999999,0.138],
+                  [0.4969999999999999,0.128],
+                  [0.4969999999999999,-0.128]
+                ],
+                [
+                  [0.34799999999999986,-0.138],
+                  [0.33299999999999985,-0.138],
+                  [0.32299999999999984,-0.128],
+                  [0.32299999999999984,0.128],
+                  [0.33299999999999985,0.138],
+                  [0.34799999999999986,0.138],
+                  [0.3579999999999999,0.128],
+                  [0.3579999999999999,-0.128]
+                ],
+                [
+                  [0.20899999999999985,-0.138],
+                  [0.19399999999999987,-0.138],
+                  [0.18399999999999986,-0.128],
+                  [0.18399999999999986,0.128],
+                  [0.19399999999999987,0.138],
+                  [0.20899999999999985,0.138],
+                  [0.21899999999999986,0.128],
+                  [0.21899999999999986,-0.128]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            }
+          },
+          {
+            "id": "ramp-rib-1--0.187",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.under-ramp-folding-stiffener",
+            "parent": "load-ramp-1",
+            "geometry": {
+              "type": "box",
+              "size": [1.292,0.071,0.033]
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            },
+            "transform": {
+              "position": [-0.705,-0.061,-0.187]
+            }
+          },
+          {
+            "id": "ramp-rib-1-0.187",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.under-ramp-folding-stiffener",
+            "parent": "load-ramp-1",
+            "geometry": {
+              "type": "box",
+              "size": [1.292,0.071,0.033]
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            },
+            "transform": {
+              "position": [-0.705,-0.061,0.187]
+            }
+          },
+          {
+            "id": "ramp-pin-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.fixed-loading-ramp-axis",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-2.887,0.638,0.377],
+              "end": [-2.887,0.638,0.921],
+              "radius": 0.024,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            }
+          },
+          {
+            "id": "crossmember-0",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.repeated-load-deck-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.141,1.941]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [-2.575,0.497,0]
+            }
+          },
+          {
+            "id": "crossmember-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.repeated-load-deck-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.141,1.941]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [-2.036,0.497,0]
+            }
+          },
+          {
+            "id": "crossmember-2",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.repeated-load-deck-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.141,1.941]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [-1.497,0.497,0]
+            }
+          },
+          {
+            "id": "crossmember-3",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.repeated-load-deck-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.141,1.941]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [-0.9580000000000002,0.497,0]
+            }
+          },
+          {
+            "id": "crossmember-4",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.repeated-load-deck-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.141,1.941]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [-0.41900000000000004,0.497,0]
+            }
+          },
+          {
+            "id": "crossmember-5",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.repeated-load-deck-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.141,1.941]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [0.1200000000000001,0.497,0]
+            }
+          },
+          {
+            "id": "crossmember-6",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.repeated-load-deck-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.141,1.941]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [0.6589999999999998,0.497,0]
+            }
+          },
+          {
+            "id": "crossmember-7",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.repeated-load-deck-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.141,1.941]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [1.198,0.497,0]
+            }
+          },
+          {
+            "id": "crossmember-8",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.repeated-load-deck-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.141,1.941]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [1.737,0.497,0]
+            }
+          },
+          {
+            "id": "crossmember-9",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.repeated-load-deck-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.141,1.941]
+            },
+            "appearance": {
+              "color": "#c1d3db"
+            },
+            "transform": {
+              "position": [2.276,0.497,0]
+            }
+          },
+          {
+            "id": "deck",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.transport-deck-with-side-lashing-slots",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.614,0],
+                [0,0.65,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [2.834,-1.001],
+                [-2.5429999999999997,-1.001],
+                [-2.5959999999999996,-0.9479999999999998],
+                [-2.5959999999999996,0.9479999999999998],
+                [-2.5429999999999997,1.001],
+                [2.834,1.001],
+                [2.887,0.9479999999999998],
+                [2.887,-0.9479999999999998]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [2.3930000000000002,-0.931],
+                  [2.3070000000000004,-0.931],
+                  [2.2990000000000004,-0.923],
+                  [2.2990000000000004,-0.909],
+                  [2.3070000000000004,-0.901],
+                  [2.3930000000000002,-0.901],
+                  [2.4010000000000002,-0.909],
+                  [2.4010000000000002,-0.923]
+                ],
+                [
+                  [1.7029999999999998,-0.931],
+                  [1.6169999999999998,-0.931],
+                  [1.6089999999999998,-0.923],
+                  [1.6089999999999998,-0.909],
+                  [1.6169999999999998,-0.901],
+                  [1.7029999999999998,-0.901],
+                  [1.7109999999999999,-0.909],
+                  [1.7109999999999999,-0.923]
+                ],
+                [
+                  [1.013,-0.931],
+                  [0.9269999999999999,-0.931],
+                  [0.9189999999999999,-0.923],
+                  [0.9189999999999999,-0.909],
+                  [0.9269999999999999,-0.901],
+                  [1.013,-0.901],
+                  [1.021,-0.909],
+                  [1.021,-0.923]
+                ],
+                [
+                  [0.043,-0.931],
+                  [-0.043,-0.931],
+                  [-0.051,-0.923],
+                  [-0.051,-0.909],
+                  [-0.043,-0.901],
+                  [0.043,-0.901],
+                  [0.051,-0.909],
+                  [0.051,-0.923]
+                ],
+                [
+                  [-0.9269999999999999,-0.931],
+                  [-1.013,-0.931],
+                  [-1.021,-0.923],
+                  [-1.021,-0.909],
+                  [-1.013,-0.901],
+                  [-0.9269999999999999,-0.901],
+                  [-0.9189999999999999,-0.909],
+                  [-0.9189999999999999,-0.923]
+                ],
+                [
+                  [-1.617,-0.931],
+                  [-1.703,-0.931],
+                  [-1.711,-0.923],
+                  [-1.711,-0.909],
+                  [-1.703,-0.901],
+                  [-1.617,-0.901],
+                  [-1.609,-0.909],
+                  [-1.609,-0.923]
+                ],
+                [
+                  [-2.307,-0.931],
+                  [-2.393,-0.931],
+                  [-2.401,-0.923],
+                  [-2.401,-0.909],
+                  [-2.393,-0.901],
+                  [-2.307,-0.901],
+                  [-2.299,-0.909],
+                  [-2.299,-0.923]
+                ],
+                [
+                  [2.3930000000000002,0.901],
+                  [2.3070000000000004,0.901],
+                  [2.2990000000000004,0.909],
+                  [2.2990000000000004,0.923],
+                  [2.3070000000000004,0.931],
+                  [2.3930000000000002,0.931],
+                  [2.4010000000000002,0.923],
+                  [2.4010000000000002,0.909]
+                ],
+                [
+                  [1.7029999999999998,0.901],
+                  [1.6169999999999998,0.901],
+                  [1.6089999999999998,0.909],
+                  [1.6089999999999998,0.923],
+                  [1.6169999999999998,0.931],
+                  [1.7029999999999998,0.931],
+                  [1.7109999999999999,0.923],
+                  [1.7109999999999999,0.909]
+                ],
+                [
+                  [1.013,0.901],
+                  [0.9269999999999999,0.901],
+                  [0.9189999999999999,0.909],
+                  [0.9189999999999999,0.923],
+                  [0.9269999999999999,0.931],
+                  [1.013,0.931],
+                  [1.021,0.923],
+                  [1.021,0.909]
+                ],
+                [
+                  [0.043,0.901],
+                  [-0.043,0.901],
+                  [-0.051,0.909],
+                  [-0.051,0.923],
+                  [-0.043,0.931],
+                  [0.043,0.931],
+                  [0.051,0.923],
+                  [0.051,0.909]
+                ],
+                [
+                  [-0.9269999999999999,0.901],
+                  [-1.013,0.901],
+                  [-1.021,0.909],
+                  [-1.021,0.923],
+                  [-1.013,0.931],
+                  [-0.9269999999999999,0.931],
+                  [-0.9189999999999999,0.923],
+                  [-0.9189999999999999,0.909]
+                ],
+                [
+                  [-1.617,0.901],
+                  [-1.703,0.901],
+                  [-1.711,0.909],
+                  [-1.711,0.923],
+                  [-1.703,0.931],
+                  [-1.617,0.931],
+                  [-1.609,0.923],
+                  [-1.609,0.909]
+                ],
+                [
+                  [-2.307,0.901],
+                  [-2.393,0.901],
+                  [-2.401,0.909],
+                  [-2.401,0.923],
+                  [-2.393,0.931],
+                  [-2.307,0.931],
+                  [-2.299,0.923],
+                  [-2.299,0.909]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            }
+          },
+          {
+            "id": "neck-dock-axis",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.frame",
+            "transform": {
+              "position": [2.596,0.593,0]
+            }
+          },
+          {
+            "id": "receiver--1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.frame",
+            "parent": "neck-dock-axis",
+            "transform": {
+              "position": [-0.089,0,-0.481]
+            }
+          },
+          {
+            "id": "docking-cheek--1-0",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.real-cross-pin-bored-female-neck-jaw",
+            "parent": "receiver--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.124],
+                [0,0,-0.062]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.15899999999999997,-0.087],
+                [0.107,-0.087],
+                [0.124,-0.06999999999999999],
+                [0.124,0.06999999999999999],
+                [0.107,0.087],
+                [-0.15899999999999997,0.087],
+                [-0.176,0.06999999999999999],
+                [-0.176,-0.06999999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.093,0],
+                  [0.09238703,0.00661498],
+                  [0.090569,0.0130047],
+                  [0.08760782,0.01895156],
+                  [0.08360432,0.02425304],
+                  [0.07869485,0.02872862],
+                  [0.07304658,0.03222588],
+                  [0.06685187,0.03462572],
+                  [0.06032166,0.03584643],
+                  [0.05367834,0.03584643],
+                  [0.04714813,0.03462572],
+                  [0.04095342,0.03222588],
+                  [0.03530515,0.02872862],
+                  [0.03039568,0.02425304],
+                  [0.02639218,0.01895156],
+                  [0.023431,0.0130047],
+                  [0.02161297,0.00661498],
+                  [0.021,0],
+                  [0.02161297,-0.00661498],
+                  [0.023431,-0.0130047],
+                  [0.02639218,-0.01895156],
+                  [0.03039568,-0.02425304],
+                  [0.03530515,-0.02872862],
+                  [0.04095342,-0.03222588],
+                  [0.04714813,-0.03462572],
+                  [0.05367834,-0.03584643],
+                  [0.06032166,-0.03584643],
+                  [0.06685187,-0.03462572],
+                  [0.07304658,-0.03222588],
+                  [0.07869485,-0.02872862],
+                  [0.08360432,-0.02425304],
+                  [0.08760782,-0.01895156],
+                  [0.090569,-0.0130047],
+                  [0.09238703,-0.00661498]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            }
+          },
+          {
+            "id": "docking-cheek--1-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.real-cross-pin-bored-female-neck-jaw",
+            "parent": "receiver--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.062],
+                [0,0,0.124]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.15899999999999997,-0.087],
+                [0.107,-0.087],
+                [0.124,-0.06999999999999999],
+                [0.124,0.06999999999999999],
+                [0.107,0.087],
+                [-0.15899999999999997,0.087],
+                [-0.176,0.06999999999999999],
+                [-0.176,-0.06999999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.093,0],
+                  [0.09238703,0.00661498],
+                  [0.090569,0.0130047],
+                  [0.08760782,0.01895156],
+                  [0.08360432,0.02425304],
+                  [0.07869485,0.02872862],
+                  [0.07304658,0.03222588],
+                  [0.06685187,0.03462572],
+                  [0.06032166,0.03584643],
+                  [0.05367834,0.03584643],
+                  [0.04714813,0.03462572],
+                  [0.04095342,0.03222588],
+                  [0.03530515,0.02872862],
+                  [0.03039568,0.02425304],
+                  [0.02639218,0.01895156],
+                  [0.023431,0.0130047],
+                  [0.02161297,0.00661498],
+                  [0.021,0],
+                  [0.02161297,-0.00661498],
+                  [0.023431,-0.0130047],
+                  [0.02639218,-0.01895156],
+                  [0.03039568,-0.02425304],
+                  [0.03530515,-0.02872862],
+                  [0.04095342,-0.03222588],
+                  [0.04714813,-0.03462572],
+                  [0.05367834,-0.03584643],
+                  [0.06032166,-0.03584643],
+                  [0.06685187,-0.03462572],
+                  [0.07304658,-0.03222588],
+                  [0.07869485,-0.02872862],
+                  [0.08360432,-0.02425304],
+                  [0.08760782,-0.01895156],
+                  [0.090569,-0.0130047],
+                  [0.09238703,-0.00661498]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            }
+          },
+          {
+            "id": "receiver-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.frame",
+            "parent": "neck-dock-axis",
+            "transform": {
+              "position": [-0.089,0,0.481]
+            }
+          },
+          {
+            "id": "docking-cheek-1-0",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.real-cross-pin-bored-female-neck-jaw",
+            "parent": "receiver-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.124],
+                [0,0,-0.062]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.15899999999999997,-0.087],
+                [0.107,-0.087],
+                [0.124,-0.06999999999999999],
+                [0.124,0.06999999999999999],
+                [0.107,0.087],
+                [-0.15899999999999997,0.087],
+                [-0.176,0.06999999999999999],
+                [-0.176,-0.06999999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.093,0],
+                  [0.09238703,0.00661498],
+                  [0.090569,0.0130047],
+                  [0.08760782,0.01895156],
+                  [0.08360432,0.02425304],
+                  [0.07869485,0.02872862],
+                  [0.07304658,0.03222588],
+                  [0.06685187,0.03462572],
+                  [0.06032166,0.03584643],
+                  [0.05367834,0.03584643],
+                  [0.04714813,0.03462572],
+                  [0.04095342,0.03222588],
+                  [0.03530515,0.02872862],
+                  [0.03039568,0.02425304],
+                  [0.02639218,0.01895156],
+                  [0.023431,0.0130047],
+                  [0.02161297,0.00661498],
+                  [0.021,0],
+                  [0.02161297,-0.00661498],
+                  [0.023431,-0.0130047],
+                  [0.02639218,-0.01895156],
+                  [0.03039568,-0.02425304],
+                  [0.03530515,-0.02872862],
+                  [0.04095342,-0.03222588],
+                  [0.04714813,-0.03462572],
+                  [0.05367834,-0.03584643],
+                  [0.06032166,-0.03584643],
+                  [0.06685187,-0.03462572],
+                  [0.07304658,-0.03222588],
+                  [0.07869485,-0.02872862],
+                  [0.08360432,-0.02425304],
+                  [0.08760782,-0.01895156],
+                  [0.090569,-0.0130047],
+                  [0.09238703,-0.00661498]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            }
+          },
+          {
+            "id": "docking-cheek-1-1",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.real-cross-pin-bored-female-neck-jaw",
+            "parent": "receiver-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.062],
+                [0,0,0.124]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.15899999999999997,-0.087],
+                [0.107,-0.087],
+                [0.124,-0.06999999999999999],
+                [0.124,0.06999999999999999],
+                [0.107,0.087],
+                [-0.15899999999999997,0.087],
+                [-0.176,0.06999999999999999],
+                [-0.176,-0.06999999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.093,0],
+                  [0.09238703,0.00661498],
+                  [0.090569,0.0130047],
+                  [0.08760782,0.01895156],
+                  [0.08360432,0.02425304],
+                  [0.07869485,0.02872862],
+                  [0.07304658,0.03222588],
+                  [0.06685187,0.03462572],
+                  [0.06032166,0.03584643],
+                  [0.05367834,0.03584643],
+                  [0.04714813,0.03462572],
+                  [0.04095342,0.03222588],
+                  [0.03530515,0.02872862],
+                  [0.03039568,0.02425304],
+                  [0.02639218,0.01895156],
+                  [0.023431,0.0130047],
+                  [0.02161297,0.00661498],
+                  [0.021,0],
+                  [0.02161297,-0.00661498],
+                  [0.023431,-0.0130047],
+                  [0.02639218,-0.01895156],
+                  [0.03039568,-0.02425304],
+                  [0.03530515,-0.02872862],
+                  [0.04095342,-0.03222588],
+                  [0.04714813,-0.03462572],
+                  [0.05367834,-0.03584643],
+                  [0.06032166,-0.03584643],
+                  [0.06685187,-0.03462572],
+                  [0.07304658,-0.03222588],
+                  [0.07869485,-0.02872862],
+                  [0.08360432,-0.02425304],
+                  [0.08760782,-0.01895156],
+                  [0.090569,-0.0130047],
+                  [0.09238703,-0.00661498]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            }
+          },
+          {
+            "id": "rocker-crossbeam",
+            "semanticType": "equipment.low-bed-equipment-semitrailer-deck-with-folding-ramps.bolt-on-bogie-location-crossmember",
+            "geometry": {
+              "type": "box",
+              "size": [0.405,0.105,1.513]
+            },
+            "appearance": {
+              "color": "#97b4c0"
+            },
+            "transform": {
+              "position": [-1.603,0.513,0]
+            }
+          }
+        ],
+        "anchors": {
+          "ramp-toe--1": {
+            "node": "ramp--1",
+            "position": [-1.444,0,0],
+            "direction": [-1,0,0],
+            "kind": "reference"
+          },
+          "deck-edge--1": {
+            "node": "outer-seat--1",
+            "position": [0,0.041,-0.059],
+            "direction": [0,1,0],
+            "kind": "mount"
+          },
+          "ramp-toe-1": {
+            "node": "ramp-1",
+            "position": [-1.444,0,0],
+            "direction": [-1,0,0],
+            "kind": "reference"
+          },
+          "deck-edge-1": {
+            "node": "outer-seat-1",
+            "position": [0,0.041,0.059],
+            "direction": [0,1,0],
+            "kind": "mount"
+          },
+          "neck-dock": {
+            "node": "neck-dock-axis",
+            "position": [0.113,0,0],
+            "direction": [1,0,0],
+            "kind": "mount"
+          },
+          "bogie-dock": {
+            "node": "rocker-crossbeam",
+            "position": [0,-0.0525,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "cargo-deck": {
+            "node": "deck",
+            "position": [0,0.65,0],
+            "direction": [0,1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "ramp--1-angle",
+            "label": "装车坡道角 左",
+            "unit": "deg",
+            "value": -64,
+            "min": -78,
+            "max": 25,
+            "targets": [
+              {
+                "node": "load-ramp--1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "ramp-1-angle",
+            "label": "装车坡道角 右",
+            "unit": "deg",
+            "value": -64,
+            "min": -78,
+            "max": 25,
+            "targets": [
+              {
+                "node": "load-ramp-1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "side-extension",
+            "label": "承载边梁总展开宽度",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.346,
+            "targets": [
+              {
+                "node": "width-slide--1",
+                "property": "position",
+                "axis": "z",
+                "factor": -0.5
+              },
+              {
+                "node": "width-slide-1",
+                "property": "position",
+                "axis": "z",
+                "factor": 0.5
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

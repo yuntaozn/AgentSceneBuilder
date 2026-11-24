@@ -1,0 +1,2195 @@
+{
+  "schemaVersion": "0.1",
+  "id": "inspection.two-storey-structural-monitoring",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "两层混凝土框架智能检测",
+  "summary": "两层两跨混凝土框架的教学加载模型。演示应变、相对位移、加速度和倾角采样及持续超限报警。",
+  "license": "Apache-2.0",
+  "semanticType": "inspection.two-storey-structural-monitoring",
+  "capabilities": [
+    "inspect-structure",
+    "monitoring",
+    "load-preview",
+    "measurement-series"
+  ],
+  "tags": [
+    "智能检测",
+    "结构监测",
+    "教学",
+    "两层框架",
+    "应变",
+    "位移",
+    "加速度",
+    "倾角",
+    "测点",
+    "报警"
+  ],
+  "dependencies": [
+    "instrument.bonded-foil-strain-gauge@0.1.0",
+    "instrument.telescoping-reference-stand@0.1.0",
+    "instrument.contact-displacement-gauge@0.1.0",
+    "instrument.triaxial-accelerometer@0.1.0",
+    "instrument.surface-inclinometer@0.1.0",
+    "instrument.four-channel-sensor-junction@0.1.0",
+    "instrument.wireless-measurement-node@0.1.0"
+  ],
+  "anchors": [
+    "strain-axis-target",
+    "strain-gauge.mount",
+    "strain-gauge.measure-axis",
+    "strain-gauge.terminal-1",
+    "strain-gauge.terminal-2",
+    "strain-mount-target",
+    "deflection-axis-target",
+    "deflection-contact",
+    "reference-stand.floor",
+    "reference-stand.instrument-seat",
+    "displacement-gauge.reference",
+    "displacement-gauge.tip",
+    "displacement-gauge.measure-axis",
+    "displacement-gauge.signal-out",
+    "ground-reference",
+    "accelerometer.mount",
+    "accelerometer.axis-x",
+    "accelerometer.axis-y",
+    "accelerometer.axis-z",
+    "accelerometer.signal-out",
+    "acceleration-axis-target",
+    "accelerometer-mount-target",
+    "inclinometer.mount",
+    "inclinometer.rotation-axis",
+    "inclinometer.signal-out",
+    "inclinometer.zero-face",
+    "inclination-axis-target",
+    "inclinometer-mount-target",
+    "acquisition-unit.mount",
+    "acquisition-unit.bus-out",
+    "acquisition-unit.input-1",
+    "acquisition-unit.input-2",
+    "acquisition-unit.input-3",
+    "acquisition-unit.input-4",
+    "gateway.mount",
+    "gateway.bus-in",
+    "gateway.antenna-base",
+    "load-position"
+  ],
+  "ai": {
+    "intent": "按同一测点 ID 获取安装坐标、测轴、采样时间、读数和持续超限报警。",
+    "editableParts": [
+      "parameters.monitoring.loadRatios",
+      "parameters.monitoring.points",
+      "parameters.monitoring.motions"
+    ],
+    "qualityChecks": [
+      "位移参考支架固定在地面，接触探杆随梁跨中运动。",
+      "显示变形的比例独立于数值采样。",
+      "试验信号按同一时钟生成，所有阈值属于本教学工况。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-storey-structural-monitoring",
+      "title": "两层混凝土框架智能检测",
+      "description": "两层两跨混凝土框架的教学加载模型。演示应变、相对位移、加速度和倾角采样及持续超限报警。",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "foundation-platform",
+            "semanticType": "structure.reinforced-concrete-frame.foundation",
+            "geometry": {
+              "type": "box",
+              "size": [10.7,0.2,5.8]
+            },
+            "appearance": {
+              "color": "#667981"
+            },
+            "transform": {
+              "position": [0,0.1,0.1]
+            }
+          },
+          {
+            "id": "floor-1-column-0-0",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [-4.5,1.775,-1.8]
+            }
+          },
+          {
+            "id": "floor-1-column-0-1",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [0,1.775,-1.8]
+            }
+          },
+          {
+            "id": "floor-1-column-0-2",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [4.5,1.775,-1.8]
+            }
+          },
+          {
+            "id": "floor-1-long-beam-0-0",
+            "semanticType": "structure.reinforced-concrete-frame.longitudinal-beam",
+            "geometry": {
+              "type": "box",
+              "size": [4.5,0.48,0.36]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [-2.25,3.28,-1.8]
+            }
+          },
+          {
+            "id": "floor-1-long-beam-0-1",
+            "semanticType": "structure.reinforced-concrete-frame.longitudinal-beam",
+            "geometry": {
+              "type": "box",
+              "size": [4.5,0.48,0.36]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [2.25,3.28,-1.8]
+            }
+          },
+          {
+            "id": "floor-1-column-1-0",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [-4.5,1.775,1.8]
+            }
+          },
+          {
+            "id": "tilt-column-origin",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.2,1.8]
+            }
+          },
+          {
+            "id": "floor-1-column-1-1",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "parent": "tilt-column-origin",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [0,1.575,0]
+            }
+          },
+          {
+            "id": "floor-1-column-1-2",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [4.5,1.775,1.8]
+            }
+          },
+          {
+            "id": "floor-1-long-beam-1-1",
+            "semanticType": "structure.reinforced-concrete-frame.longitudinal-beam",
+            "geometry": {
+              "type": "box",
+              "size": [4.5,0.48,0.36]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [2.25,3.28,1.8]
+            }
+          },
+          {
+            "id": "floor-1-cross-beam-0",
+            "semanticType": "structure.reinforced-concrete-frame.cross-beam",
+            "geometry": {
+              "type": "box",
+              "size": [0.32,0.42,3.6]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [-4.5,3.31,0]
+            }
+          },
+          {
+            "id": "floor-1-cross-beam-1",
+            "semanticType": "structure.reinforced-concrete-frame.cross-beam",
+            "geometry": {
+              "type": "box",
+              "size": [0.32,0.42,3.6]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [0,3.31,0]
+            }
+          },
+          {
+            "id": "floor-1-cross-beam-2",
+            "semanticType": "structure.reinforced-concrete-frame.cross-beam",
+            "geometry": {
+              "type": "box",
+              "size": [0.32,0.42,3.6]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [4.5,3.31,0]
+            }
+          },
+          {
+            "id": "floor-1-deck-0",
+            "semanticType": "structure.reinforced-concrete-frame.slab",
+            "geometry": {
+              "type": "box",
+              "size": [4.48,0.18,3.45]
+            },
+            "appearance": {
+              "color": "#b4babc"
+            },
+            "transform": {
+              "position": [-2.25,3.6,-0.03]
+            }
+          },
+          {
+            "id": "vibration-deck",
+            "semanticType": "structure.reinforced-concrete-frame.slab",
+            "geometry": {
+              "type": "box",
+              "size": [4.48,0.18,3.45]
+            },
+            "appearance": {
+              "color": "#b4babc"
+            },
+            "transform": {
+              "position": [2.25,3.6,-0.03]
+            }
+          },
+          {
+            "id": "floor-2-column-0-0",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [-4.5,5.075,-1.8]
+            }
+          },
+          {
+            "id": "floor-2-column-0-1",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [0,5.075,-1.8]
+            }
+          },
+          {
+            "id": "floor-2-column-0-2",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [4.5,5.075,-1.8]
+            }
+          },
+          {
+            "id": "floor-2-long-beam-0-0",
+            "semanticType": "structure.reinforced-concrete-frame.longitudinal-beam",
+            "geometry": {
+              "type": "box",
+              "size": [4.5,0.48,0.36]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [-2.25,6.58,-1.8]
+            }
+          },
+          {
+            "id": "floor-2-long-beam-0-1",
+            "semanticType": "structure.reinforced-concrete-frame.longitudinal-beam",
+            "geometry": {
+              "type": "box",
+              "size": [4.5,0.48,0.36]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [2.25,6.58,-1.8]
+            }
+          },
+          {
+            "id": "floor-2-column-1-0",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [-4.5,5.075,1.8]
+            }
+          },
+          {
+            "id": "floor-2-column-1-1",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [0,5.075,1.8]
+            }
+          },
+          {
+            "id": "floor-2-column-1-2",
+            "semanticType": "structure.reinforced-concrete-frame.column",
+            "geometry": {
+              "type": "box",
+              "size": [0.4,3.15,0.38]
+            },
+            "appearance": {
+              "color": "#a1a9ac"
+            },
+            "transform": {
+              "position": [4.5,5.075,1.8]
+            }
+          },
+          {
+            "id": "floor-2-long-beam-1-0",
+            "semanticType": "structure.reinforced-concrete-frame.longitudinal-beam",
+            "geometry": {
+              "type": "box",
+              "size": [4.5,0.48,0.36]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [-2.25,6.58,1.8]
+            }
+          },
+          {
+            "id": "floor-2-long-beam-1-1",
+            "semanticType": "structure.reinforced-concrete-frame.longitudinal-beam",
+            "geometry": {
+              "type": "box",
+              "size": [4.5,0.48,0.36]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [2.25,6.58,1.8]
+            }
+          },
+          {
+            "id": "floor-2-cross-beam-0",
+            "semanticType": "structure.reinforced-concrete-frame.cross-beam",
+            "geometry": {
+              "type": "box",
+              "size": [0.32,0.42,3.6]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [-4.5,6.609999999999999,0]
+            }
+          },
+          {
+            "id": "floor-2-cross-beam-1",
+            "semanticType": "structure.reinforced-concrete-frame.cross-beam",
+            "geometry": {
+              "type": "box",
+              "size": [0.32,0.42,3.6]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [0,6.609999999999999,0]
+            }
+          },
+          {
+            "id": "floor-2-cross-beam-2",
+            "semanticType": "structure.reinforced-concrete-frame.cross-beam",
+            "geometry": {
+              "type": "box",
+              "size": [0.32,0.42,3.6]
+            },
+            "appearance": {
+              "color": "#8a979c"
+            },
+            "transform": {
+              "position": [4.5,6.609999999999999,0]
+            }
+          },
+          {
+            "id": "floor-2-deck-0",
+            "semanticType": "structure.reinforced-concrete-frame.slab",
+            "geometry": {
+              "type": "box",
+              "size": [4.48,0.18,3.45]
+            },
+            "appearance": {
+              "color": "#b4babc"
+            },
+            "transform": {
+              "position": [-2.25,6.8999999999999995,-0.03]
+            }
+          },
+          {
+            "id": "floor-2-deck-1",
+            "semanticType": "structure.reinforced-concrete-frame.slab",
+            "geometry": {
+              "type": "box",
+              "size": [4.48,0.18,3.45]
+            },
+            "appearance": {
+              "color": "#b4babc"
+            },
+            "transform": {
+              "position": [2.25,6.8999999999999995,-0.03]
+            }
+          },
+          {
+            "id": "loaded-beam",
+            "semanticType": "structure.reinforced-concrete-frame.loaded-beam",
+            "geometry": {
+              "type": "sweep",
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [-0.18,-0.24],
+                [0.18,-0.24],
+                [0.18,0.24],
+                [-0.18,0.24]
+              ],
+              "points": [
+                [-4.5,3.28,1.8],
+                [-4.05,3.28,1.8],
+                [-3.6,3.28,1.8],
+                [-3.15,3.28,1.8],
+                [-2.7,3.28,1.8],
+                [-2.25,3.28,1.8],
+                [-1.8,3.28,1.8],
+                [-1.35,3.28,1.8],
+                [-0.9,3.28,1.8],
+                [-0.45,3.28,1.8],
+                [0,3.28,1.8]
+              ]
+            },
+            "appearance": {
+              "color": "#a1a8ab"
+            }
+          },
+          {
+            "id": "strain-target",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-2.7,3.1399999999999997,1.98]
+            }
+          },
+          {
+            "id": "strain-gauge",
+            "semanticType": "core.group",
+            "parent": "strain-target",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "strain-gauge.carrier",
+            "semanticType": "instrument.strain.foil.carrier",
+            "material": "polyimide",
+            "appearance": {
+              "color": "#edb74f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.0018,0.044]
+            },
+            "transform": {
+              "position": [0,0.0009,0]
+            },
+            "parent": "strain-gauge"
+          },
+          {
+            "id": "strain-gauge.trace",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.0003,0.001]
+            },
+            "transform": {
+              "position": [0,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 10,
+              "start": [0,0,-0.0135],
+              "step": [0,0,0.003]
+            },
+            "parent": "strain-gauge"
+          },
+          {
+            "id": "strain-gauge.return-left",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.001,0.0003,0.004]
+            },
+            "transform": {
+              "position": [0,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 5,
+              "start": [-0.026,0,-0.012],
+              "step": [0,0,0.006]
+            },
+            "parent": "strain-gauge"
+          },
+          {
+            "id": "strain-gauge.return-right",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.001,0.0003,0.004]
+            },
+            "transform": {
+              "position": [0,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [0.026,0,-0.009],
+              "step": [0,0,0.006]
+            },
+            "parent": "strain-gauge"
+          },
+          {
+            "id": "strain-gauge.pad",
+            "semanticType": "instrument.strain.foil.solder-pad",
+            "material": "alloy",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.0008,0.006]
+            },
+            "transform": {
+              "position": [0.032,0.0022,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0,-0.0135],
+              "step": [0,0,0.027]
+            },
+            "parent": "strain-gauge"
+          },
+          {
+            "id": "strain-gauge.pad-trace",
+            "semanticType": "instrument.strain.foil.trace",
+            "material": "alloy",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0003,0.001]
+            },
+            "transform": {
+              "position": [0.029,0.00195,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 2,
+              "start": [0,0,-0.0135],
+              "step": [0,0,0.027]
+            },
+            "parent": "strain-gauge"
+          },
+          {
+            "id": "span-midpoint",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-2.25,3.04,1.8]
+            }
+          },
+          {
+            "id": "reference-stand",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-2.25,0.2,1.8],
+              "scale": [1,1.3290488431876606,1]
+            }
+          },
+          {
+            "id": "reference-stand.outrigger-0",
+            "semanticType": "instrument.mount.reference-stand.outrigger",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [0.31,0.025,0],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "reference-stand.pad-0",
+            "semanticType": "instrument.mount.reference-stand.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.31,0,0],
+              "end": [0.31,0.027,0],
+              "radius": 0.042,
+              "radialSegments": 24
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "reference-stand.outrigger-1",
+            "semanticType": "instrument.mount.reference-stand.outrigger",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [-0.15499999999999994,0.025,0.268467875173176],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "reference-stand.pad-1",
+            "semanticType": "instrument.mount.reference-stand.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.15499999999999994,0,0.268467875173176],
+              "end": [-0.15499999999999994,0.027,0.268467875173176],
+              "radius": 0.042,
+              "radialSegments": 24
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "reference-stand.outrigger-2",
+            "semanticType": "instrument.mount.reference-stand.outrigger",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [-0.15500000000000014,0.025,-0.26846787517317594],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "reference-stand.pad-2",
+            "semanticType": "instrument.mount.reference-stand.foot",
+            "material": "rubber",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.15500000000000014,0,-0.26846787517317594],
+              "end": [-0.15500000000000014,0.027,-0.26846787517317594],
+              "radius": 0.042,
+              "radialSegments": 24
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "reference-stand.lower-mast",
+            "semanticType": "instrument.mount.reference-stand.mast",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.1,0],
+                [0,1.25,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.035,0],
+                [0.033286978070330375,0.01081559480312316],
+                [0.028315594803123165,0.020572483830236563],
+                [0.020572483830236563,0.028315594803123165],
+                [0.010815594803123161,0.033286978070330375],
+                [2.1431318985078684e-18,0.035],
+                [-0.010815594803123158,0.03328697807033038],
+                [-0.02057248383023656,0.028315594803123165],
+                [-0.02831559480312316,0.020572483830236566],
+                [-0.033286978070330375,0.010815594803123163],
+                [-0.035,4.286263797015737e-18],
+                [-0.03328697807033038,-0.010815594803123142],
+                [-0.028315594803123165,-0.02057248383023656],
+                [-0.020572483830236566,-0.02831559480312316],
+                [-0.010815594803123166,-0.033286978070330375],
+                [-6.429395695523605e-18,-0.035],
+                [0.010815594803123154,-0.03328697807033038],
+                [0.020572483830236556,-0.028315594803123168],
+                [0.02831559480312316,-0.02057248383023657],
+                [0.033286978070330375,-0.010815594803123168]
+              ],
+              "holes": [
+                [
+                  [0.027,0],
+                  [0.025678525939969145,0.00834345884812358],
+                  [0.02184345884812358,0.015870201811896776],
+                  [0.015870201811896776,0.02184345884812358],
+                  [0.008343458848123582,0.025678525939969145],
+                  [1.6532731788489268e-18,0.027],
+                  [-0.008343458848123578,0.02567852593996915],
+                  [-0.015870201811896772,0.02184345884812358],
+                  [-0.021843458848123578,0.015870201811896776],
+                  [-0.025678525939969145,0.008343458848123583],
+                  [-0.027,3.3065463576978537e-18],
+                  [-0.025678525939969152,-0.008343458848123566],
+                  [-0.02184345884812358,-0.015870201811896772],
+                  [-0.015870201811896776,-0.021843458848123578],
+                  [-0.008343458848123583,-0.025678525939969145],
+                  [-4.95981953654678e-18,-0.027],
+                  [0.008343458848123575,-0.02567852593996915],
+                  [0.01587020181189677,-0.021843458848123585],
+                  [0.021843458848123578,-0.01587020181189678],
+                  [0.025678525939969145,-0.008343458848123585]
+                ]
+              ]
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "reference-stand.extension",
+            "semanticType": "instrument.mount.reference-stand.extension",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.93,0],
+              "end": [0,1.925,0],
+              "radius": 0.023,
+              "radialSegments": 24
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "reference-stand.lock-collar",
+            "semanticType": "instrument.mount.reference-stand.lock",
+            "material": "steel",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,1.19,0],
+              "end": [0,1.26,0],
+              "radius": 0.043,
+              "radialSegments": 24
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "reference-stand.knob",
+            "semanticType": "instrument.mount.reference-stand.knob",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.04,1.23,0],
+              "end": [0.087,1.23,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "reference-stand.top-plate",
+            "semanticType": "instrument.mount.reference-stand.plate",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.02,0.14]
+            },
+            "transform": {
+              "position": [0,1.935,0]
+            },
+            "parent": "reference-stand"
+          },
+          {
+            "id": "displacement-gauge",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [-2.25,2.785,1.8]
+            }
+          },
+          {
+            "id": "displacement-gauge.mount-foot",
+            "semanticType": "instrument.displacement.contact.reference-flange",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.021,0],
+              "radius": 0.046,
+              "radialSegments": 24
+            },
+            "parent": "displacement-gauge"
+          },
+          {
+            "id": "displacement-gauge.body",
+            "semanticType": "instrument.displacement.contact.body",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#ec8b58"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.021,0],
+                [0,0.184,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.031,0],
+                [0.02948275200514976,0.00957952682562337],
+                [0.02507952682562337,0.018221342821066668],
+                [0.018221342821066668,0.02507952682562337],
+                [0.009579526825623371,0.02948275200514976],
+                [1.8982025386783975e-18,0.031],
+                [-0.009579526825623368,0.029482752005149764],
+                [-0.018221342821066664,0.02507952682562337],
+                [-0.025079526825623366,0.01822134282106667],
+                [-0.02948275200514976,0.009579526825623373],
+                [-0.031,3.796405077356795e-18],
+                [-0.029482752005149767,-0.009579526825623354],
+                [-0.02507952682562337,-0.018221342821066664],
+                [-0.01822134282106667,-0.025079526825623366],
+                [-0.009579526825623375,-0.02948275200514976],
+                [-5.694607616035192e-18,-0.031],
+                [0.009579526825623364,-0.029482752005149764],
+                [0.01822134282106666,-0.025079526825623373],
+                [0.025079526825623366,-0.018221342821066674],
+                [0.02948275200514976,-0.009579526825623377]
+              ],
+              "holes": [
+                [
+                  [0.012,0],
+                  [0.011412678195541842,0.0037082039324993687],
+                  [0.00970820393249937,0.007053423027509678],
+                  [0.007053423027509678,0.00970820393249937],
+                  [0.0037082039324993696,0.011412678195541842],
+                  [7.347880794884119e-19,0.012],
+                  [-0.0037082039324993683,0.011412678195541844],
+                  [-0.0070534230275096765,0.00970820393249937],
+                  [-0.009708203932499368,0.007053423027509679],
+                  [-0.011412678195541842,0.00370820393249937],
+                  [-0.012,1.4695761589768239e-18],
+                  [-0.011412678195541846,-0.0037082039324993626],
+                  [-0.00970820393249937,-0.0070534230275096765],
+                  [-0.007053423027509679,-0.009708203932499368],
+                  [-0.003708203932499371,-0.011412678195541842],
+                  [-2.2043642384652355e-18,-0.012],
+                  [0.003708203932499367,-0.011412678195541844],
+                  [0.007053423027509675,-0.009708203932499371],
+                  [0.009708203932499368,-0.007053423027509681],
+                  [0.011412678195541842,-0.0037082039324993713]
+                ]
+              ]
+            },
+            "parent": "displacement-gauge"
+          },
+          {
+            "id": "displacement-gauge.guide",
+            "semanticType": "instrument.displacement.contact.guide",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.184,0],
+                [0,0.2,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [0.025,0],
+                [0.02377641290737884,0.007725424859373685],
+                [0.02022542485937369,0.014694631307311828],
+                [0.014694631307311828,0.02022542485937369],
+                [0.007725424859373687,0.02377641290737884],
+                [1.5308084989341916e-18,0.025],
+                [-0.007725424859373684,0.023776412907378842],
+                [-0.014694631307311827,0.02022542485937369],
+                [-0.020225424859373686,0.014694631307311832],
+                [-0.02377641290737884,0.007725424859373688],
+                [-0.025,3.061616997868383e-18],
+                [-0.023776412907378846,-0.007725424859373673],
+                [-0.02022542485937369,-0.014694631307311827],
+                [-0.014694631307311832,-0.020225424859373686],
+                [-0.007725424859373689,-0.02377641290737884],
+                [-4.592425496802574e-18,-0.025],
+                [0.007725424859373681,-0.023776412907378842],
+                [0.014694631307311823,-0.02022542485937369],
+                [0.020225424859373686,-0.014694631307311835],
+                [0.02377641290737884,-0.007725424859373691]
+              ],
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.008559508646656382,0.0027811529493745263],
+                  [0.007281152949374527,0.005290067270632258],
+                  [0.005290067270632258,0.007281152949374527],
+                  [0.0027811529493745268,0.008559508646656382],
+                  [5.510910596163089e-19,0.009],
+                  [-0.002781152949374526,0.008559508646656382],
+                  [-0.005290067270632257,0.007281152949374527],
+                  [-0.007281152949374525,0.005290067270632259],
+                  [-0.008559508646656382,0.002781152949374527],
+                  [-0.009,1.1021821192326178e-18],
+                  [-0.008559508646656383,-0.002781152949374522],
+                  [-0.007281152949374527,-0.005290067270632257],
+                  [-0.005290067270632259,-0.007281152949374525],
+                  [-0.002781152949374528,-0.008559508646656382],
+                  [-1.6532731788489266e-18,-0.009],
+                  [0.002781152949374525,-0.008559508646656382],
+                  [0.005290067270632256,-0.007281152949374528],
+                  [0.007281152949374525,-0.0052900672706322595],
+                  [0.008559508646656382,-0.0027811529493745285]
+                ]
+              ]
+            },
+            "parent": "displacement-gauge"
+          },
+          {
+            "id": "displacement-gauge.cable-port",
+            "semanticType": "instrument.displacement.contact.connector",
+            "material": "polymer",
+            "appearance": {
+              "color": "#31454e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.075,0.028],
+              "end": [0,0.075,0.055],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "parent": "displacement-gauge"
+          },
+          {
+            "id": "displacement-gauge.sliding-stem",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "displacement-gauge"
+          },
+          {
+            "id": "displacement-gauge.probe-rod",
+            "semanticType": "instrument.displacement.contact.rod",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.13,0],
+              "end": [0,0.243,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "parent": "displacement-gauge.sliding-stem"
+          },
+          {
+            "id": "displacement-gauge.probe-tip",
+            "semanticType": "instrument.displacement.contact.tip",
+            "material": "steel",
+            "appearance": {
+              "color": "#d2a14f"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.009,
+              "segments": 16
+            },
+            "transform": {
+              "position": [0,0.246,0]
+            },
+            "parent": "displacement-gauge.sliding-stem"
+          },
+          {
+            "id": "accelerometer",
+            "semanticType": "core.group",
+            "parent": "vibration-deck",
+            "transform": {
+              "position": [-0.9,0.09,1.31]
+            }
+          },
+          {
+            "id": "accelerometer.stud",
+            "semanticType": "instrument.acceleration.triaxial.threaded-stud",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,0.001,0],
+              "radius": 0.005,
+              "radialSegments": 24
+            },
+            "parent": "accelerometer"
+          },
+          {
+            "id": "accelerometer.base",
+            "semanticType": "instrument.acceleration.triaxial.base",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.042,0.007,0.044]
+            },
+            "transform": {
+              "position": [0,0.0035,0]
+            },
+            "parent": "accelerometer"
+          },
+          {
+            "id": "accelerometer.housing",
+            "semanticType": "instrument.acceleration.triaxial.housing",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#6fcbc1"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.035,0.031,0.036]
+            },
+            "transform": {
+              "position": [0,0.0225,0]
+            },
+            "parent": "accelerometer"
+          },
+          {
+            "id": "accelerometer.axis-mark-x",
+            "semanticType": "instrument.acceleration.triaxial.mark",
+            "material": "polymer",
+            "appearance": {
+              "color": "#e8a77d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.001,0.002]
+            },
+            "transform": {
+              "position": [-0.003,0.0385,0.006]
+            },
+            "parent": "accelerometer"
+          },
+          {
+            "id": "accelerometer.axis-mark-z",
+            "semanticType": "instrument.acceleration.triaxial.mark",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d6eaeb"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.002,0.001,0.019]
+            },
+            "transform": {
+              "position": [-0.011,0.0385,-0.003]
+            },
+            "parent": "accelerometer"
+          },
+          {
+            "id": "accelerometer.signal-port",
+            "semanticType": "instrument.acceleration.triaxial.connector",
+            "material": "steel",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.019,0.017],
+              "end": [0,0.019,0.035],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "parent": "accelerometer"
+          },
+          {
+            "id": "inclinometer",
+            "semanticType": "core.group",
+            "parent": "tilt-column-origin",
+            "transform": {
+              "position": [0,1.32,0.19],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "inclinometer.body",
+            "semanticType": "instrument.tilt.surface.body",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#729ee5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.026,0.055]
+            },
+            "transform": {
+              "position": [0,0.013,0]
+            },
+            "parent": "inclinometer"
+          },
+          {
+            "id": "inclinometer.left-ear",
+            "semanticType": "instrument.tilt.surface.mounting-ear",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.044,0,0],
+                [-0.044,0.003,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.01,-0.014],
+                [0.01,-0.014],
+                [0.01,0.014],
+                [-0.01,0.014]
+              ],
+              "holes": [
+                [
+                  [0.0035,0],
+                  [0.0033286978070330374,0.001081559480312316],
+                  [0.002831559480312316,0.002057248383023656],
+                  [0.002057248383023656,0.002831559480312316],
+                  [0.0010815594803123161,0.0033286978070330374],
+                  [2.1431318985078682e-19,0.0035],
+                  [-0.0010815594803123157,0.003328697807033038],
+                  [-0.0020572483830236556,0.002831559480312316],
+                  [-0.002831559480312316,0.0020572483830236564],
+                  [-0.0033286978070330374,0.0010815594803123163],
+                  [-0.0035,4.2862637970157364e-19],
+                  [-0.0033286978070330383,-0.0010815594803123142],
+                  [-0.002831559480312316,-0.0020572483830236556],
+                  [-0.0020572483830236564,-0.002831559480312316],
+                  [-0.0010815594803123166,-0.0033286978070330374],
+                  [-6.429395695523604e-19,-0.0035],
+                  [0.0010815594803123153,-0.003328697807033038],
+                  [0.002057248383023655,-0.0028315594803123164],
+                  [0.002831559480312316,-0.002057248383023657],
+                  [0.0033286978070330374,-0.0010815594803123168]
+                ]
+              ]
+            },
+            "parent": "inclinometer"
+          },
+          {
+            "id": "inclinometer.right-ear",
+            "semanticType": "instrument.tilt.surface.mounting-ear",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.044,0,0],
+                [0.044,0.003,0]
+              ],
+              "up": [0,0,1],
+              "closedProfile": true,
+              "profile": [
+                [-0.01,-0.014],
+                [0.01,-0.014],
+                [0.01,0.014],
+                [-0.01,0.014]
+              ],
+              "holes": [
+                [
+                  [0.0035,0],
+                  [0.0033286978070330374,0.001081559480312316],
+                  [0.002831559480312316,0.002057248383023656],
+                  [0.002057248383023656,0.002831559480312316],
+                  [0.0010815594803123161,0.0033286978070330374],
+                  [2.1431318985078682e-19,0.0035],
+                  [-0.0010815594803123157,0.003328697807033038],
+                  [-0.0020572483830236556,0.002831559480312316],
+                  [-0.002831559480312316,0.0020572483830236564],
+                  [-0.0033286978070330374,0.0010815594803123163],
+                  [-0.0035,4.2862637970157364e-19],
+                  [-0.0033286978070330383,-0.0010815594803123142],
+                  [-0.002831559480312316,-0.0020572483830236556],
+                  [-0.0020572483830236564,-0.002831559480312316],
+                  [-0.0010815594803123166,-0.0033286978070330374],
+                  [-6.429395695523604e-19,-0.0035],
+                  [0.0010815594803123153,-0.003328697807033038],
+                  [0.002057248383023655,-0.0028315594803123164],
+                  [0.002831559480312316,-0.002057248383023657],
+                  [0.0033286978070330374,-0.0010815594803123168]
+                ]
+              ]
+            },
+            "parent": "inclinometer"
+          },
+          {
+            "id": "inclinometer.zero-mark",
+            "semanticType": "instrument.tilt.surface.zero-mark",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d6eaeb"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.036,0.001,0.005]
+            },
+            "transform": {
+              "position": [0,0.0265,0]
+            },
+            "parent": "inclinometer"
+          },
+          {
+            "id": "inclinometer.connector",
+            "semanticType": "instrument.tilt.surface.connector",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.014,-0.027],
+              "end": [0,0.014,-0.045],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "parent": "inclinometer"
+          },
+          {
+            "id": "station-top",
+            "semanticType": "inspection.monitoring-station.bench",
+            "geometry": {
+              "type": "box",
+              "size": [1.02,0.07,0.55]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [3.02,0.98,2.32]
+            }
+          },
+          {
+            "id": "station-leg-0-0",
+            "semanticType": "inspection.monitoring-station.leg",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,0.76,0.055]
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            },
+            "transform": {
+              "position": [2.58,0.58,2.13]
+            }
+          },
+          {
+            "id": "station-leg-0-1",
+            "semanticType": "inspection.monitoring-station.leg",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,0.76,0.055]
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            },
+            "transform": {
+              "position": [2.58,0.58,2.51]
+            }
+          },
+          {
+            "id": "station-leg-1-0",
+            "semanticType": "inspection.monitoring-station.leg",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,0.76,0.055]
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            },
+            "transform": {
+              "position": [3.46,0.58,2.13]
+            }
+          },
+          {
+            "id": "station-leg-1-1",
+            "semanticType": "inspection.monitoring-station.leg",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,0.76,0.055]
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            },
+            "transform": {
+              "position": [3.46,0.58,2.51]
+            }
+          },
+          {
+            "id": "acquisition-unit",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [2.87,1.015,2.32]
+            }
+          },
+          {
+            "id": "acquisition-unit.mount-plate",
+            "semanticType": "instrument.signal.junction-box.base",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#8399a5"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.18,0.005,0.11]
+            },
+            "transform": {
+              "position": [0,0.0025,0]
+            },
+            "parent": "acquisition-unit"
+          },
+          {
+            "id": "acquisition-unit.enclosure",
+            "semanticType": "instrument.signal.junction-box.shell",
+            "material": "polymer",
+            "appearance": {
+              "color": "#307785"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.155,0.044,0.091]
+            },
+            "transform": {
+              "position": [0,0.027,0]
+            },
+            "parent": "acquisition-unit"
+          },
+          {
+            "id": "acquisition-unit.cover",
+            "semanticType": "instrument.signal.junction-box.cover",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d6eaeb"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.159,0.008,0.095]
+            },
+            "transform": {
+              "position": [0,0.053,0]
+            },
+            "parent": "acquisition-unit"
+          },
+          {
+            "id": "acquisition-unit.input-gland",
+            "semanticType": "instrument.signal.junction-box.gland",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.03,0.044],
+                [0,0.03,0.066]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.009,0],
+                [0.008559508646656382,0.0027811529493745263],
+                [0.007281152949374527,0.005290067270632258],
+                [0.005290067270632258,0.007281152949374527],
+                [0.0027811529493745268,0.008559508646656382],
+                [5.510910596163089e-19,0.009],
+                [-0.002781152949374526,0.008559508646656382],
+                [-0.005290067270632257,0.007281152949374527],
+                [-0.007281152949374525,0.005290067270632259],
+                [-0.008559508646656382,0.002781152949374527],
+                [-0.009,1.1021821192326178e-18],
+                [-0.008559508646656383,-0.002781152949374522],
+                [-0.007281152949374527,-0.005290067270632257],
+                [-0.005290067270632259,-0.007281152949374525],
+                [-0.002781152949374528,-0.008559508646656382],
+                [-1.6532731788489266e-18,-0.009],
+                [0.002781152949374525,-0.008559508646656382],
+                [0.005290067270632256,-0.007281152949374528],
+                [0.007281152949374525,-0.0052900672706322595],
+                [0.008559508646656382,-0.0027811529493745285]
+              ],
+              "holes": [
+                [
+                  [0.005,0],
+                  [0.004755282581475768,0.0015450849718747371],
+                  [0.004045084971874737,0.0029389262614623658],
+                  [0.0029389262614623658,0.004045084971874737],
+                  [0.0015450849718747373,0.004755282581475768],
+                  [3.061616997868383e-19,0.005],
+                  [-0.0015450849718747367,0.004755282581475768],
+                  [-0.0029389262614623653,0.004045084971874737],
+                  [-0.004045084971874737,0.002938926261462366],
+                  [-0.004755282581475768,0.0015450849718747375],
+                  [-0.005,6.123233995736766e-19],
+                  [-0.004755282581475769,-0.0015450849718747345],
+                  [-0.004045084971874737,-0.0029389262614623653],
+                  [-0.002938926261462366,-0.004045084971874737],
+                  [-0.0015450849718747378,-0.004755282581475768],
+                  [-9.184850993605148e-19,-0.005],
+                  [0.0015450849718747362,-0.004755282581475768],
+                  [0.0029389262614623645,-0.004045084971874738],
+                  [0.004045084971874737,-0.002938926261462367],
+                  [0.004755282581475768,-0.0015450849718747382]
+                ]
+              ]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 4,
+              "start": [-0.057,0,0],
+              "step": [0.038,0,0]
+            },
+            "parent": "acquisition-unit"
+          },
+          {
+            "id": "acquisition-unit.output-gland",
+            "semanticType": "instrument.signal.junction-box.gland",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.03,-0.044],
+                [0,0.03,-0.068]
+              ],
+              "up": [0,1,0],
+              "closedProfile": true,
+              "profile": [
+                [0.009,0],
+                [0.008559508646656382,0.0027811529493745263],
+                [0.007281152949374527,0.005290067270632258],
+                [0.005290067270632258,0.007281152949374527],
+                [0.0027811529493745268,0.008559508646656382],
+                [5.510910596163089e-19,0.009],
+                [-0.002781152949374526,0.008559508646656382],
+                [-0.005290067270632257,0.007281152949374527],
+                [-0.007281152949374525,0.005290067270632259],
+                [-0.008559508646656382,0.002781152949374527],
+                [-0.009,1.1021821192326178e-18],
+                [-0.008559508646656383,-0.002781152949374522],
+                [-0.007281152949374527,-0.005290067270632257],
+                [-0.005290067270632259,-0.007281152949374525],
+                [-0.002781152949374528,-0.008559508646656382],
+                [-1.6532731788489266e-18,-0.009],
+                [0.002781152949374525,-0.008559508646656382],
+                [0.005290067270632256,-0.007281152949374528],
+                [0.007281152949374525,-0.0052900672706322595],
+                [0.008559508646656382,-0.0027811529493745285]
+              ],
+              "holes": [
+                [
+                  [0.005,0],
+                  [0.004755282581475768,0.0015450849718747371],
+                  [0.004045084971874737,0.0029389262614623658],
+                  [0.0029389262614623658,0.004045084971874737],
+                  [0.0015450849718747373,0.004755282581475768],
+                  [3.061616997868383e-19,0.005],
+                  [-0.0015450849718747367,0.004755282581475768],
+                  [-0.0029389262614623653,0.004045084971874737],
+                  [-0.004045084971874737,0.002938926261462366],
+                  [-0.004755282581475768,0.0015450849718747375],
+                  [-0.005,6.123233995736766e-19],
+                  [-0.004755282581475769,-0.0015450849718747345],
+                  [-0.004045084971874737,-0.0029389262614623653],
+                  [-0.002938926261462366,-0.004045084971874737],
+                  [-0.0015450849718747378,-0.004755282581475768],
+                  [-9.184850993605148e-19,-0.005],
+                  [0.0015450849718747362,-0.004755282581475768],
+                  [0.0029389262614623645,-0.004045084971874738],
+                  [0.004045084971874737,-0.002938926261462367],
+                  [0.004755282581475768,-0.0015450849718747382]
+                ]
+              ]
+            },
+            "parent": "acquisition-unit"
+          },
+          {
+            "id": "gateway",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [3.29,1.015,2.32]
+            }
+          },
+          {
+            "id": "gateway.sole",
+            "semanticType": "instrument.signal.telemetry.mount",
+            "material": "aluminum",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.17,0.009,0.106]
+            },
+            "transform": {
+              "position": [0,0.0045,0]
+            },
+            "parent": "gateway"
+          },
+          {
+            "id": "gateway.housing",
+            "semanticType": "instrument.signal.telemetry.housing",
+            "material": "polymer",
+            "appearance": {
+              "color": "#307785"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.052,0.094]
+            },
+            "transform": {
+              "position": [0,0.035,0]
+            },
+            "parent": "gateway"
+          },
+          {
+            "id": "gateway.label-panel",
+            "semanticType": "instrument.signal.telemetry.panel",
+            "material": "polymer",
+            "appearance": {
+              "color": "#d6eaeb"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.065,0.002,0.026]
+            },
+            "transform": {
+              "position": [-0.018,0.062,0]
+            },
+            "parent": "gateway"
+          },
+          {
+            "id": "gateway.status",
+            "semanticType": "instrument.signal.telemetry.status",
+            "material": "polymer",
+            "appearance": {
+              "color": "#97dbc6"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.003,0.007]
+            },
+            "transform": {
+              "position": [-0.036,0.065,0.012]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 3,
+              "start": [0,0,0],
+              "step": [0.016,0,0]
+            },
+            "parent": "gateway"
+          },
+          {
+            "id": "gateway.bus-socket",
+            "semanticType": "instrument.signal.telemetry.port",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.031,0.045],
+              "end": [0,0.031,0.067],
+              "radius": 0.01,
+              "radialSegments": 24
+            },
+            "parent": "gateway"
+          },
+          {
+            "id": "gateway.antenna-hub",
+            "semanticType": "instrument.signal.telemetry.hub",
+            "material": "steel",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.052,0.049,-0.034],
+              "end": [0.052,0.066,-0.034],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "parent": "gateway"
+          },
+          {
+            "id": "gateway.antenna-pivot",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0.052,0.065,-0.034]
+            },
+            "parent": "gateway"
+          },
+          {
+            "id": "gateway.antenna",
+            "semanticType": "instrument.signal.telemetry.antenna",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.17,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            },
+            "parent": "gateway.antenna-pivot"
+          },
+          {
+            "id": "gateway.antenna-cap",
+            "semanticType": "instrument.signal.telemetry.cap",
+            "material": "polymer",
+            "appearance": {
+              "color": "#4f646d"
+            },
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.006,
+              "segments": 16
+            },
+            "transform": {
+              "position": [0,0.17,0]
+            },
+            "parent": "gateway.antenna-pivot"
+          }
+        ],
+        "anchors": {
+          "strain-axis-target": {
+            "node": "strain-target",
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "measurement-target"
+          },
+          "strain-gauge.mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "node": "strain-gauge"
+          },
+          "strain-gauge.measure-axis": {
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "measurement-axis",
+            "node": "strain-gauge"
+          },
+          "strain-gauge.terminal-1": {
+            "position": [0.0375,0.0022,-0.0135],
+            "direction": [1,0,0],
+            "node": "strain-gauge"
+          },
+          "strain-gauge.terminal-2": {
+            "position": [0.0375,0.0022,0.0135],
+            "direction": [1,0,0],
+            "node": "strain-gauge"
+          },
+          "strain-mount-target": {
+            "node": "strain-target",
+            "position": [0,0,0],
+            "direction": [0,0,1],
+            "kind": "mounting-face"
+          },
+          "deflection-axis-target": {
+            "node": "span-midpoint",
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "measurement-target"
+          },
+          "deflection-contact": {
+            "node": "span-midpoint",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "contact-face"
+          },
+          "reference-stand.floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "node": "reference-stand"
+          },
+          "reference-stand.instrument-seat": {
+            "node": "reference-stand.top-plate",
+            "onGeometry": {
+              "type": "box",
+              "fraction": [0,0.5,0]
+            },
+            "direction": [0,1,0]
+          },
+          "displacement-gauge.reference": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "node": "displacement-gauge"
+          },
+          "displacement-gauge.tip": {
+            "node": "displacement-gauge.probe-tip",
+            "position": [0,0.009,0],
+            "direction": [0,1,0],
+            "kind": "contact-tip"
+          },
+          "displacement-gauge.measure-axis": {
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "measurement-axis",
+            "node": "displacement-gauge"
+          },
+          "displacement-gauge.signal-out": {
+            "position": [0,0.075,0.055],
+            "direction": [0,0,1],
+            "node": "displacement-gauge"
+          },
+          "ground-reference": {
+            "node": "foundation-platform",
+            "position": [-2.25,0.1,1.7],
+            "direction": [0,1,0],
+            "kind": "reference-surface"
+          },
+          "accelerometer.mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "node": "accelerometer"
+          },
+          "accelerometer.axis-x": {
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "measurement-axis",
+            "node": "accelerometer"
+          },
+          "accelerometer.axis-y": {
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "measurement-axis",
+            "node": "accelerometer"
+          },
+          "accelerometer.axis-z": {
+            "position": [0,0,0],
+            "direction": [0,0,1],
+            "kind": "measurement-axis",
+            "node": "accelerometer"
+          },
+          "accelerometer.signal-out": {
+            "position": [0,0.019,0.035],
+            "direction": [0,0,1],
+            "node": "accelerometer"
+          },
+          "acceleration-axis-target": {
+            "node": "vibration-deck",
+            "position": [-0.9,0.09,1.31],
+            "direction": [0,1,0],
+            "kind": "measurement-target"
+          },
+          "accelerometer-mount-target": {
+            "node": "vibration-deck",
+            "position": [-0.9,0.09,1.31],
+            "direction": [0,1,0],
+            "kind": "mounting-face"
+          },
+          "inclinometer.mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "node": "inclinometer"
+          },
+          "inclinometer.rotation-axis": {
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "measurement-axis",
+            "node": "inclinometer"
+          },
+          "inclinometer.signal-out": {
+            "position": [0,0.014,-0.045],
+            "direction": [0,0,-1],
+            "node": "inclinometer"
+          },
+          "inclinometer.zero-face": {
+            "position": [0,0.026,0],
+            "direction": [0,1,0],
+            "node": "inclinometer"
+          },
+          "inclination-axis-target": {
+            "node": "tilt-column-origin",
+            "position": [0,1.32,0.19],
+            "direction": [1,0,0],
+            "kind": "measurement-target"
+          },
+          "inclinometer-mount-target": {
+            "node": "tilt-column-origin",
+            "position": [0,1.32,0.19],
+            "direction": [0,0,1],
+            "kind": "mounting-face"
+          },
+          "acquisition-unit.mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "node": "acquisition-unit"
+          },
+          "acquisition-unit.bus-out": {
+            "node": "acquisition-unit.output-gland",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            }
+          },
+          "acquisition-unit.input-1": {
+            "node": "acquisition-unit.input-gland",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            },
+            "occurrence": {
+              "index": 0
+            }
+          },
+          "acquisition-unit.input-2": {
+            "node": "acquisition-unit.input-gland",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            },
+            "occurrence": {
+              "index": 1
+            }
+          },
+          "acquisition-unit.input-3": {
+            "node": "acquisition-unit.input-gland",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            },
+            "occurrence": {
+              "index": 2
+            }
+          },
+          "acquisition-unit.input-4": {
+            "node": "acquisition-unit.input-gland",
+            "onGeometry": {
+              "type": "sweep-end",
+              "end": "end"
+            },
+            "occurrence": {
+              "index": 3
+            }
+          },
+          "gateway.mount": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "node": "gateway"
+          },
+          "gateway.bus-in": {
+            "position": [0,0.031,0.067],
+            "direction": [0,0,1],
+            "node": "gateway"
+          },
+          "gateway.antenna-base": {
+            "node": "gateway.antenna-pivot",
+            "position": [0,0,0],
+            "direction": [0,1,0]
+          },
+          "load-position": {
+            "node": "loaded-beam",
+            "position": [-2.25,3.5199999999999996,1.8],
+            "direction": [0,-1,0],
+            "kind": "loading-direction"
+          }
+        },
+        "attachments": [
+          {
+            "id": "strain-gauge-adhesive",
+            "from": "strain-gauge.mount",
+            "to": "strain-mount-target",
+            "contract": {
+              "gapTolerance": 0.001,
+              "direction": "opposed"
+            }
+          },
+          {
+            "id": "reference-stand-on-foundation",
+            "from": "reference-stand.floor",
+            "to": "ground-reference",
+            "contract": {
+              "gapTolerance": 0.001,
+              "direction": "opposed"
+            }
+          },
+          {
+            "id": "displacement-gauge-seat",
+            "from": "displacement-gauge.reference",
+            "to": "reference-stand.instrument-seat",
+            "contract": {
+              "gapTolerance": 0.001,
+              "direction": "opposed"
+            }
+          },
+          {
+            "id": "probe-tip-to-beam",
+            "from": "displacement-gauge.tip",
+            "to": "deflection-contact",
+            "contract": {
+              "gapTolerance": 0.001,
+              "direction": "opposed"
+            }
+          },
+          {
+            "id": "accelerometer-stud",
+            "from": "accelerometer.mount",
+            "to": "accelerometer-mount-target",
+            "contract": {
+              "gapTolerance": 0.001,
+              "direction": "opposed"
+            }
+          },
+          {
+            "id": "inclinometer-plate",
+            "from": "inclinometer.mount",
+            "to": "inclinometer-mount-target",
+            "contract": {
+              "gapTolerance": 0.001,
+              "direction": "opposed"
+            }
+          }
+        ],
+        "monitoring": {
+          "id": "service-load-cycle",
+          "label": "逐级加载、稳载与卸载",
+          "stepSeconds": 0.25,
+          "displayScale": 8,
+          "loadRatios": [0,0,0.02,0.1,0.24,0.44,0.66,0.83,0.96,1,1,1,1,1,0.93,0.78,0.58,0.36,0.18,0.06,0,0,0],
+          "motions": [
+            {
+              "node": "loaded-beam",
+              "pathOffsets": [
+                [0,0,0],
+                [0,-0.0037082,0],
+                [0,-0.00705342,0],
+                [0,-0.0097082,0],
+                [0,-0.01141268,0],
+                [0,-0.012,0],
+                [0,-0.01141268,0],
+                [0,-0.0097082,0],
+                [0,-0.00705342,0],
+                [0,-0.0037082,0],
+                [0,0,0]
+              ]
+            },
+            {
+              "node": "strain-target",
+              "position": [0,-0.01141268,0]
+            },
+            {
+              "node": "span-midpoint",
+              "position": [0,-0.012,0]
+            },
+            {
+              "node": "displacement-gauge.sliding-stem",
+              "position": [0,-0.012,0]
+            },
+            {
+              "node": "vibration-deck",
+              "position": [0,-0.006,0]
+            },
+            {
+              "node": "tilt-column-origin",
+              "rotation": [0.009,0,0]
+            }
+          ],
+          "points": [
+            {
+              "id": "S-01",
+              "label": "一层梁下缘应变",
+              "kind": "strain",
+              "sensor": "strain-gauge.measure-axis",
+              "target": "strain-axis-target",
+              "member": "loaded-beam",
+              "fullLoadValue": 210,
+              "limit": 160,
+              "holdSeconds": 0.5
+            },
+            {
+              "id": "D-01",
+              "label": "一层梁跨中相对位移",
+              "kind": "displacement",
+              "sensor": "displacement-gauge.tip",
+              "target": "deflection-axis-target",
+              "member": "loaded-beam",
+              "reference": "reference-stand.instrument-seat",
+              "limit": 9,
+              "holdSeconds": 0.75
+            },
+            {
+              "id": "A-01",
+              "label": "右跨楼板竖向加速度",
+              "kind": "acceleration",
+              "sensor": "accelerometer.axis-y",
+              "target": "acceleration-axis-target",
+              "limit": 0.007,
+              "holdSeconds": 0.25
+            },
+            {
+              "id": "T-01",
+              "label": "前排中柱倾角",
+              "kind": "tilt",
+              "sensor": "inclinometer.rotation-axis",
+              "target": "inclination-axis-target",
+              "member": "floor-1-column-1-1",
+              "orientation": "inclinometer.zero-face",
+              "limit": 0.45,
+              "holdSeconds": 0.5
+            }
+          ]
+        }
+      }
+    }
+  }
+}

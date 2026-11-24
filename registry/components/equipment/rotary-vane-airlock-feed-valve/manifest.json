@@ -1,0 +1,1202 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.rotary-vane-airlock-feed-valve",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "六叶转子散料旋转给料阀",
+  "summary": "上下贯通法兰、分段开口筒体、六叶转子、减速机和可抽出的端盖。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.rotary-vane-airlock-feed-valve",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "星形卸料阀",
+    "旋转给料",
+    "rotary-airlock",
+    "rotor",
+    "散料设备",
+    "bulk-handling"
+  ],
+  "anchors": [
+    "outlet",
+    "inlet",
+    "service-cover"
+  ],
+  "ai": {
+    "intent": "作为独立散料给料阀，连接料斗和下方溜管，旋转转子查看六个叶格的交替分料。",
+    "editableParts": [
+      "rotor-angle",
+      "cover-withdrawal"
+    ],
+    "qualityChecks": [
+      "上下法兰都是实孔，壳体在对应料口留出开口。",
+      "转子旋转时两个流路锚点保持固定。",
+      "检修端盖可以单独离开转子。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rotary-vane-airlock-feed-valve",
+      "title": "六叶转子散料旋转给料阀",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rotor",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "shell-0",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.open-rotor-drum-section",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.213,0,0],
+                [0.213,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.13673865,0.12312003],
+                [0.14582254,0.11221314],
+                [0.15403863,0.10063846],
+                [0.16133804,0.08846488],
+                [0.16767733,0.07576485],
+                [0.17301877,0.06261394],
+                [0.17733057,0.04909042],
+                [0.18058707,0.03527476],
+                [0.18276891,0.02124917],
+                [0.18386308,0.00709714],
+                [0.18386308,-0.00709714],
+                [0.18276891,-0.02124917],
+                [0.18058707,-0.03527476],
+                [0.17733057,-0.04909042],
+                [0.17301877,-0.06261394],
+                [0.16767733,-0.07576485],
+                [0.16133804,-0.08846488],
+                [0.15403863,-0.10063846],
+                [0.14582254,-0.11221314],
+                [0.13673865,-0.12312003],
+                [0.12187575,-0.10973742],
+                [0.12997226,-0.10001606],
+                [0.1372953,-0.0896995],
+                [0.1438013,-0.07884914],
+                [0.14945153,-0.06752954],
+                [0.15421238,-0.05580808],
+                [0.15805551,-0.0437545],
+                [0.16095804,-0.03144054],
+                [0.16290272,-0.01893948],
+                [0.16387796,-0.00632571],
+                [0.16387796,0.00632571],
+                [0.16290272,0.01893948],
+                [0.16095804,0.03144054],
+                [0.15805551,0.0437545],
+                [0.15421238,0.05580808],
+                [0.14945153,0.06752954],
+                [0.1438013,0.07884914],
+                [0.1372953,0.0896995],
+                [0.12997226,0.10001606],
+                [0.12187575,0.10973742]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            }
+          },
+          {
+            "id": "shell-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.open-rotor-drum-section",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.213,0,0],
+                [0.213,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.13673865,-0.12312003],
+                [-0.14582254,-0.11221314],
+                [-0.15403863,-0.10063846],
+                [-0.16133804,-0.08846488],
+                [-0.16767733,-0.07576485],
+                [-0.17301877,-0.06261394],
+                [-0.17733057,-0.04909042],
+                [-0.18058707,-0.03527476],
+                [-0.18276891,-0.02124917],
+                [-0.18386308,-0.00709714],
+                [-0.18386308,0.00709714],
+                [-0.18276891,0.02124917],
+                [-0.18058707,0.03527476],
+                [-0.17733057,0.04909042],
+                [-0.17301877,0.06261394],
+                [-0.16767733,0.07576485],
+                [-0.16133804,0.08846488],
+                [-0.15403863,0.10063846],
+                [-0.14582254,0.11221314],
+                [-0.13673865,0.12312003],
+                [-0.12187575,0.10973742],
+                [-0.12997226,0.10001606],
+                [-0.1372953,0.0896995],
+                [-0.1438013,0.07884914],
+                [-0.14945153,0.06752954],
+                [-0.15421238,0.05580808],
+                [-0.15805551,0.0437545],
+                [-0.16095804,0.03144054],
+                [-0.16290272,0.01893948],
+                [-0.16387796,0.00632571],
+                [-0.16387796,-0.00632571],
+                [-0.16290272,-0.01893948],
+                [-0.16095804,-0.03144054],
+                [-0.15805551,-0.0437545],
+                [-0.15421238,-0.05580808],
+                [-0.14945153,-0.06752954],
+                [-0.1438013,-0.07884914],
+                [-0.1372953,-0.0896995],
+                [-0.12997226,-0.10001606],
+                [-0.12187575,-0.10973742]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            }
+          },
+          {
+            "id": "flange--1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.open-square-flange",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.229,0],
+                [0,-0.21100000000000002,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.212,-0.161],
+                [-0.212,-0.161],
+                [-0.225,-0.148],
+                [-0.225,0.148],
+                [-0.212,0.161],
+                [0.212,0.161],
+                [0.225,0.148],
+                [0.225,-0.148]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.1815,-0.1225],
+                  [-0.1815,-0.1225],
+                  [-0.1905,-0.1135],
+                  [-0.1905,0.1135],
+                  [-0.1815,0.1225],
+                  [0.1815,0.1225],
+                  [0.1905,0.1135],
+                  [0.1905,-0.1135]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "throat-side--1--1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.throat-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.389,0.12200000000000001,0.017]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0,-0.1765,-0.124]
+            }
+          },
+          {
+            "id": "throat-side--1-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.throat-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.389,0.12200000000000001,0.017]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0,-0.1765,0.124]
+            }
+          },
+          {
+            "id": "throat-end--1--1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.throat-end-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.126,0.244]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [-0.192,-0.174,0]
+            }
+          },
+          {
+            "id": "throat-end--1-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.throat-end-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.126,0.244]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0.192,-0.174,0]
+            }
+          },
+          {
+            "id": "flange-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.open-square-flange",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.229,0],
+                [0,0.247,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.212,-0.161],
+                [-0.212,-0.161],
+                [-0.225,-0.148],
+                [-0.225,0.148],
+                [-0.212,0.161],
+                [0.212,0.161],
+                [0.225,0.148],
+                [0.225,-0.148]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.1815,-0.1225],
+                  [-0.1815,-0.1225],
+                  [-0.1905,-0.1135],
+                  [-0.1905,0.1135],
+                  [-0.1815,0.1225],
+                  [0.1815,0.1225],
+                  [0.1905,0.1135],
+                  [0.1905,-0.1135]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "throat-side-1--1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.throat-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.389,0.12200000000000001,0.017]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0,0.1765,-0.124]
+            }
+          },
+          {
+            "id": "throat-side-1-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.throat-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.389,0.12200000000000001,0.017]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0,0.1765,0.124]
+            }
+          },
+          {
+            "id": "throat-end-1--1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.throat-end-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.126,0.244]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [-0.192,0.174,0]
+            }
+          },
+          {
+            "id": "throat-end-1-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.throat-end-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.126,0.244]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0.192,0.174,0]
+            }
+          },
+          {
+            "id": "rotor-shaft",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.rotor-shaft",
+            "parent": "rotor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.281,0,0],
+              "end": [0.289,0,0],
+              "radius": 0.034,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "vane-0",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.frame",
+            "parent": "rotor",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "vane-web-0",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.rotor-vane",
+            "parent": "vane-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.372,0.126,0.011]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            },
+            "transform": {
+              "position": [0,0.096,0]
+            }
+          },
+          {
+            "id": "vane-tip-0",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.replaceable-tip-seal",
+            "parent": "vane-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.378,0.008,0.018]
+            },
+            "appearance": {
+              "color": "#48636e"
+            },
+            "transform": {
+              "position": [0,0.161,0]
+            }
+          },
+          {
+            "id": "vane-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.frame",
+            "parent": "rotor",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [1.0471975511965976,0,0]
+            }
+          },
+          {
+            "id": "vane-web-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.rotor-vane",
+            "parent": "vane-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.372,0.126,0.011]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            },
+            "transform": {
+              "position": [0,0.096,0]
+            }
+          },
+          {
+            "id": "vane-tip-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.replaceable-tip-seal",
+            "parent": "vane-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.378,0.008,0.018]
+            },
+            "appearance": {
+              "color": "#48636e"
+            },
+            "transform": {
+              "position": [0,0.161,0]
+            }
+          },
+          {
+            "id": "vane-2",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.frame",
+            "parent": "rotor",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [2.0943951023931953,0,0]
+            }
+          },
+          {
+            "id": "vane-web-2",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.rotor-vane",
+            "parent": "vane-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.372,0.126,0.011]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            },
+            "transform": {
+              "position": [0,0.096,0]
+            }
+          },
+          {
+            "id": "vane-tip-2",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.replaceable-tip-seal",
+            "parent": "vane-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.378,0.008,0.018]
+            },
+            "appearance": {
+              "color": "#48636e"
+            },
+            "transform": {
+              "position": [0,0.161,0]
+            }
+          },
+          {
+            "id": "vane-3",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.frame",
+            "parent": "rotor",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "vane-web-3",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.rotor-vane",
+            "parent": "vane-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.372,0.126,0.011]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            },
+            "transform": {
+              "position": [0,0.096,0]
+            }
+          },
+          {
+            "id": "vane-tip-3",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.replaceable-tip-seal",
+            "parent": "vane-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.378,0.008,0.018]
+            },
+            "appearance": {
+              "color": "#48636e"
+            },
+            "transform": {
+              "position": [0,0.161,0]
+            }
+          },
+          {
+            "id": "vane-4",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.frame",
+            "parent": "rotor",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [4.1887902047863905,0,0]
+            }
+          },
+          {
+            "id": "vane-web-4",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.rotor-vane",
+            "parent": "vane-4",
+            "geometry": {
+              "type": "box",
+              "size": [0.372,0.126,0.011]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            },
+            "transform": {
+              "position": [0,0.096,0]
+            }
+          },
+          {
+            "id": "vane-tip-4",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.replaceable-tip-seal",
+            "parent": "vane-4",
+            "geometry": {
+              "type": "box",
+              "size": [0.378,0.008,0.018]
+            },
+            "appearance": {
+              "color": "#48636e"
+            },
+            "transform": {
+              "position": [0,0.161,0]
+            }
+          },
+          {
+            "id": "vane-5",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.frame",
+            "parent": "rotor",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [5.235987755982989,0,0]
+            }
+          },
+          {
+            "id": "vane-web-5",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.rotor-vane",
+            "parent": "vane-5",
+            "geometry": {
+              "type": "box",
+              "size": [0.372,0.126,0.011]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            },
+            "transform": {
+              "position": [0,0.096,0]
+            }
+          },
+          {
+            "id": "vane-tip-5",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.replaceable-tip-seal",
+            "parent": "vane-5",
+            "geometry": {
+              "type": "box",
+              "size": [0.378,0.008,0.018]
+            },
+            "appearance": {
+              "color": "#48636e"
+            },
+            "transform": {
+              "position": [0,0.161,0]
+            }
+          },
+          {
+            "id": "end-plate--1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.frame",
+            "transform": {
+              "position": [-0.208,0,0]
+            }
+          },
+          {
+            "id": "end-ring--1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.perforated-end-cover",
+            "parent": "end-plate--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.024,0,0],
+                [0,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.193,0],
+                [0.19062385,0.03019185],
+                [0.18355391,0.05964028],
+                [0.17196426,0.08762017],
+                [0.15614028,0.11344255],
+                [0.13647161,0.13647161],
+                [0.11344255,0.15614028],
+                [0.08762017,0.17196426],
+                [0.05964028,0.18355391],
+                [0.03019185,0.19062385],
+                [0,0.193],
+                [-0.03019185,0.19062385],
+                [-0.05964028,0.18355391],
+                [-0.08762017,0.17196426],
+                [-0.11344255,0.15614028],
+                [-0.13647161,0.13647161],
+                [-0.15614028,0.11344255],
+                [-0.17196426,0.08762017],
+                [-0.18355391,0.05964028],
+                [-0.19062385,0.03019185],
+                [-0.193,0],
+                [-0.19062385,-0.03019185],
+                [-0.18355391,-0.05964028],
+                [-0.17196426,-0.08762017],
+                [-0.15614028,-0.11344255],
+                [-0.13647161,-0.13647161],
+                [-0.11344255,-0.15614028],
+                [-0.08762017,-0.17196426],
+                [-0.05964028,-0.18355391],
+                [-0.03019185,-0.19062385],
+                [0,-0.193],
+                [0.03019185,-0.19062385],
+                [0.05964028,-0.18355391],
+                [0.08762017,-0.17196426],
+                [0.11344255,-0.15614028],
+                [0.13647161,-0.13647161],
+                [0.15614028,-0.11344255],
+                [0.17196426,-0.08762017],
+                [0.18355391,-0.05964028],
+                [0.19062385,-0.03019185]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.045,0],
+                  [0.04444598,0.00703955],
+                  [0.04279754,0.01390576],
+                  [0.04009529,0.02042957],
+                  [0.03640576,0.02645034],
+                  [0.03181981,0.03181981],
+                  [0.02645034,0.03640576],
+                  [0.02042957,0.04009529],
+                  [0.01390576,0.04279754],
+                  [0.00703955,0.04444598],
+                  [0,0.045],
+                  [-0.00703955,0.04444598],
+                  [-0.01390576,0.04279754],
+                  [-0.02042957,0.04009529],
+                  [-0.02645034,0.03640576],
+                  [-0.03181981,0.03181981],
+                  [-0.03640576,0.02645034],
+                  [-0.04009529,0.02042957],
+                  [-0.04279754,0.01390576],
+                  [-0.04444598,0.00703955],
+                  [-0.045,0],
+                  [-0.04444598,-0.00703955],
+                  [-0.04279754,-0.01390576],
+                  [-0.04009529,-0.02042957],
+                  [-0.03640576,-0.02645034],
+                  [-0.03181981,-0.03181981],
+                  [-0.02645034,-0.03640576],
+                  [-0.02042957,-0.04009529],
+                  [-0.01390576,-0.04279754],
+                  [-0.00703955,-0.04444598],
+                  [0,-0.045],
+                  [0.00703955,-0.04444598],
+                  [0.01390576,-0.04279754],
+                  [0.02042957,-0.04009529],
+                  [0.02645034,-0.03640576],
+                  [0.03181981,-0.03181981],
+                  [0.03640576,-0.02645034],
+                  [0.04009529,-0.02042957],
+                  [0.04279754,-0.01390576],
+                  [0.04444598,-0.00703955]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#96b1bc"
+            }
+          },
+          {
+            "id": "end-bolt--1-0",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.022,0.169,0],
+              "end": [-0.037,0.169,0],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt--1-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.022,0.11950104602052655,0.11950104602052652],
+              "end": [-0.037,0.11950104602052655,0.11950104602052652],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt--1-2",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.022,1.0348265452795135e-17,0.169],
+              "end": [-0.037,1.0348265452795135e-17,0.169],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt--1-3",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.022,-0.11950104602052652,0.11950104602052655],
+              "end": [-0.037,-0.11950104602052652,0.11950104602052655],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt--1-4",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.022,-0.169,2.069653090559027e-17],
+              "end": [-0.037,-0.169,2.069653090559027e-17],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt--1-5",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.022,-0.11950104602052657,-0.11950104602052652],
+              "end": [-0.037,-0.11950104602052657,-0.11950104602052652],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt--1-6",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.022,-3.10447963583854e-17,-0.169],
+              "end": [-0.037,-3.10447963583854e-17,-0.169],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt--1-7",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.022,0.11950104602052651,-0.11950104602052657],
+              "end": [-0.037,0.11950104602052651,-0.11950104602052657],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-plate-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.frame",
+            "transform": {
+              "position": [0.208,0,0]
+            }
+          },
+          {
+            "id": "end-ring-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.perforated-end-cover",
+            "parent": "end-plate-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.024,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.193,0],
+                [0.19062385,0.03019185],
+                [0.18355391,0.05964028],
+                [0.17196426,0.08762017],
+                [0.15614028,0.11344255],
+                [0.13647161,0.13647161],
+                [0.11344255,0.15614028],
+                [0.08762017,0.17196426],
+                [0.05964028,0.18355391],
+                [0.03019185,0.19062385],
+                [0,0.193],
+                [-0.03019185,0.19062385],
+                [-0.05964028,0.18355391],
+                [-0.08762017,0.17196426],
+                [-0.11344255,0.15614028],
+                [-0.13647161,0.13647161],
+                [-0.15614028,0.11344255],
+                [-0.17196426,0.08762017],
+                [-0.18355391,0.05964028],
+                [-0.19062385,0.03019185],
+                [-0.193,0],
+                [-0.19062385,-0.03019185],
+                [-0.18355391,-0.05964028],
+                [-0.17196426,-0.08762017],
+                [-0.15614028,-0.11344255],
+                [-0.13647161,-0.13647161],
+                [-0.11344255,-0.15614028],
+                [-0.08762017,-0.17196426],
+                [-0.05964028,-0.18355391],
+                [-0.03019185,-0.19062385],
+                [0,-0.193],
+                [0.03019185,-0.19062385],
+                [0.05964028,-0.18355391],
+                [0.08762017,-0.17196426],
+                [0.11344255,-0.15614028],
+                [0.13647161,-0.13647161],
+                [0.15614028,-0.11344255],
+                [0.17196426,-0.08762017],
+                [0.18355391,-0.05964028],
+                [0.19062385,-0.03019185]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.045,0],
+                  [0.04444598,0.00703955],
+                  [0.04279754,0.01390576],
+                  [0.04009529,0.02042957],
+                  [0.03640576,0.02645034],
+                  [0.03181981,0.03181981],
+                  [0.02645034,0.03640576],
+                  [0.02042957,0.04009529],
+                  [0.01390576,0.04279754],
+                  [0.00703955,0.04444598],
+                  [0,0.045],
+                  [-0.00703955,0.04444598],
+                  [-0.01390576,0.04279754],
+                  [-0.02042957,0.04009529],
+                  [-0.02645034,0.03640576],
+                  [-0.03181981,0.03181981],
+                  [-0.03640576,0.02645034],
+                  [-0.04009529,0.02042957],
+                  [-0.04279754,0.01390576],
+                  [-0.04444598,0.00703955],
+                  [-0.045,0],
+                  [-0.04444598,-0.00703955],
+                  [-0.04279754,-0.01390576],
+                  [-0.04009529,-0.02042957],
+                  [-0.03640576,-0.02645034],
+                  [-0.03181981,-0.03181981],
+                  [-0.02645034,-0.03640576],
+                  [-0.02042957,-0.04009529],
+                  [-0.01390576,-0.04279754],
+                  [-0.00703955,-0.04444598],
+                  [0,-0.045],
+                  [0.00703955,-0.04444598],
+                  [0.01390576,-0.04279754],
+                  [0.02042957,-0.04009529],
+                  [0.02645034,-0.03640576],
+                  [0.03181981,-0.03181981],
+                  [0.03640576,-0.02645034],
+                  [0.04009529,-0.02042957],
+                  [0.04279754,-0.01390576],
+                  [0.04444598,-0.00703955]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#96b1bc"
+            }
+          },
+          {
+            "id": "end-bolt-1-0",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.022,0.169,0],
+              "end": [0.037,0.169,0],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt-1-1",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.022,0.11950104602052655,0.11950104602052652],
+              "end": [0.037,0.11950104602052655,0.11950104602052652],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt-1-2",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.022,1.0348265452795135e-17,0.169],
+              "end": [0.037,1.0348265452795135e-17,0.169],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt-1-3",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.022,-0.11950104602052652,0.11950104602052655],
+              "end": [0.037,-0.11950104602052652,0.11950104602052655],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt-1-4",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.022,-0.169,2.069653090559027e-17],
+              "end": [0.037,-0.169,2.069653090559027e-17],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt-1-5",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.022,-0.11950104602052657,-0.11950104602052652],
+              "end": [0.037,-0.11950104602052657,-0.11950104602052652],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt-1-6",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.022,-3.10447963583854e-17,-0.169],
+              "end": [0.037,-3.10447963583854e-17,-0.169],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "end-bolt-1-7",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.end-cover-retainer",
+            "parent": "end-plate-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.022,0.11950104602052651,-0.11950104602052657],
+              "end": [0.037,0.11950104602052651,-0.11950104602052657],
+              "radius": 0.009,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "gear-reducer",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.sealed-drive-reducer",
+            "geometry": {
+              "type": "box",
+              "size": [0.109,0.181,0.157]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [-0.285,0,0]
+            }
+          },
+          {
+            "id": "motor",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.rotor-drive-motor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.463,0,0],
+              "end": [-0.334,0,0],
+              "radius": 0.064,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#96b1bc"
+            }
+          },
+          {
+            "id": "motor-fan-cap",
+            "semanticType": "equipment.rotary-vane-airlock-feed-valve.vented-motor-cap",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.478,0,0],
+                [-0.457,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.066,0],
+                [0.06473183,0.01287596],
+                [0.06097605,0.02525711],
+                [0.05487699,0.03666764],
+                [0.04666905,0.04666905],
+                [0.03666764,0.05487699],
+                [0.02525711,0.06097605],
+                [0.01287596,0.06473183],
+                [0,0.066],
+                [-0.01287596,0.06473183],
+                [-0.02525711,0.06097605],
+                [-0.03666764,0.05487699],
+                [-0.04666905,0.04666905],
+                [-0.05487699,0.03666764],
+                [-0.06097605,0.02525711],
+                [-0.06473183,0.01287596],
+                [-0.066,0],
+                [-0.06473183,-0.01287596],
+                [-0.06097605,-0.02525711],
+                [-0.05487699,-0.03666764],
+                [-0.04666905,-0.04666905],
+                [-0.03666764,-0.05487699],
+                [-0.02525711,-0.06097605],
+                [-0.01287596,-0.06473183],
+                [0,-0.066],
+                [0.01287596,-0.06473183],
+                [0.02525711,-0.06097605],
+                [0.03666764,-0.05487699],
+                [0.04666905,-0.04666905],
+                [0.05487699,-0.03666764],
+                [0.06097605,-0.02525711],
+                [0.06473183,-0.01287596]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#48636e"
+            }
+          }
+        ],
+        "anchors": {
+          "outlet": {
+            "node": "flange--1",
+            "position": [0,-0.229,0],
+            "direction": [0,-1,0],
+            "kind": "bulk-flow"
+          },
+          "inlet": {
+            "node": "flange-1",
+            "position": [0,0.247,0],
+            "direction": [0,1,0],
+            "kind": "bulk-flow"
+          },
+          "service-cover": {
+            "node": "end-plate-1",
+            "position": [0.024,0,0],
+            "direction": [1,0,0],
+            "kind": "service"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "rotor-angle",
+            "label": "转子角位置",
+            "unit": "deg",
+            "value": 12,
+            "min": 0,
+            "max": 360,
+            "targets": [
+              {
+                "node": "rotor",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "cover-withdrawal",
+            "label": "检修端盖抽出",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.24,
+            "targets": [
+              {
+                "node": "end-plate-1",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

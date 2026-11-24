@@ -1,0 +1,438 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.portable-vibration-analyzer-with-contact-probe",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "便携振动分析仪与接触探头",
+  "summary": "手持仪表、插座、可单独调整的接触式加速度探头、探针尖端和固定线束接口。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "振动分析仪",
+    "接触探头",
+    "vibration-analyzer",
+    "contact-probe",
+    "测量",
+    "instrument"
+  ],
+  "anchors": [
+    "measurement-point",
+    "monitor-input",
+    "display-face"
+  ],
+  "ai": {
+    "intent": "复用便携式振动检测设备，标记接触测点、探针方向和仪表读取面。",
+    "editableParts": [
+      "tip-extension",
+      "probe-angle"
+    ],
+    "qualityChecks": [
+      "测针和接触点随探头运动。",
+      "线缆仪表侧入口固定。",
+      "显示与手持外壳组成独立设备。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "portable-vibration-analyzer-with-contact-probe",
+      "title": "便携振动分析仪与接触探头",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "device-case",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.shock-protected-case",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.108,0],
+                [0,0.108,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.057999999999999996,-0.043],
+                [-0.057999999999999996,-0.043],
+                [-0.071,-0.03],
+                [-0.071,0.03],
+                [-0.057999999999999996,0.043],
+                [0.057999999999999996,0.043],
+                [0.071,0.03],
+                [0.071,-0.03]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#5ea4aa"
+            }
+          },
+          {
+            "id": "bumper--1",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.side-rubber-bumper",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.181,0.06]
+            },
+            "appearance": {
+              "color": "#293940"
+            },
+            "transform": {
+              "position": [-0.07,0,0]
+            }
+          },
+          {
+            "id": "bumper-1",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.side-rubber-bumper",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.181,0.06]
+            },
+            "appearance": {
+              "color": "#293940"
+            },
+            "transform": {
+              "position": [0.07,0,0]
+            }
+          },
+          {
+            "id": "front-bezel",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.front-control-panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.115,0.186,0.01]
+            },
+            "appearance": {
+              "color": "#55646c"
+            },
+            "transform": {
+              "position": [0,0,0.043]
+            }
+          },
+          {
+            "id": "display",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.vibration-waveform-screen",
+            "geometry": {
+              "type": "box",
+              "size": [0.098,0.089,0.004]
+            },
+            "appearance": {
+              "color": "#8eafaa"
+            },
+            "transform": {
+              "position": [0,0.038,0.049]
+            }
+          },
+          {
+            "id": "waveform",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.display-waveform",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.037,0.038,0.052],
+                [-0.027999999999999997,0.047,0.052],
+                [-0.022,0.027,0.052],
+                [-0.015,0.059,0.052],
+                [-0.007999999999999997,0.023,0.052],
+                [0.0010000000000000009,0.05,0.052],
+                [0.008,0.012999999999999998,0.052],
+                [0.016,0.041999999999999996,0.052],
+                [0.027000000000000003,0.033,0.052],
+                [0.038,0.046,0.052]
+              ],
+              "radius": 0.0013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#627d77"
+            }
+          },
+          {
+            "id": "key-0",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.navigation-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.014,0.005]
+            },
+            "appearance": {
+              "color": "#dea84a"
+            },
+            "transform": {
+              "position": [-0.038,-0.054,0.051]
+            }
+          },
+          {
+            "id": "key-1",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.navigation-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.014,0.005]
+            },
+            "appearance": {
+              "color": "#68808c"
+            },
+            "transform": {
+              "position": [-0.013,-0.054,0.051]
+            }
+          },
+          {
+            "id": "key-2",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.navigation-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.014,0.005]
+            },
+            "appearance": {
+              "color": "#68808c"
+            },
+            "transform": {
+              "position": [0.013,-0.054,0.051]
+            }
+          },
+          {
+            "id": "key-3",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.navigation-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.014,0.005]
+            },
+            "appearance": {
+              "color": "#68808c"
+            },
+            "transform": {
+              "position": [0.038,-0.054,0.051]
+            }
+          },
+          {
+            "id": "instrument-input",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.frame",
+            "transform": {
+              "position": [-0.02,0.106,-0.001]
+            }
+          },
+          {
+            "id": "body-socket",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.accelerometer-signal-socket",
+            "parent": "instrument-input",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.019,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.013,0],
+                [0.01271592,0.00270285],
+                [0.01187609,0.00528758],
+                [0.01051722,0.00764121],
+                [0.0086987,0.00966088],
+                [0.0065,0.01125833],
+                [0.00401722,0.01236373],
+                [0.00135887,0.01292878],
+                [-0.00135887,0.01292878],
+                [-0.00401722,0.01236373],
+                [-0.0065,0.01125833],
+                [-0.0086987,0.00966088],
+                [-0.01051722,0.00764121],
+                [-0.01187609,0.00528758],
+                [-0.01271592,0.00270285],
+                [-0.013,0],
+                [-0.01271592,-0.00270285],
+                [-0.01187609,-0.00528758],
+                [-0.01051722,-0.00764121],
+                [-0.0086987,-0.00966088],
+                [-0.0065,-0.01125833],
+                [-0.00401722,-0.01236373],
+                [-0.00135887,-0.01292878],
+                [0.00135887,-0.01292878],
+                [0.00401722,-0.01236373],
+                [0.0065,-0.01125833],
+                [0.0086987,-0.00966088],
+                [0.01051722,-0.00764121],
+                [0.01187609,-0.00528758],
+                [0.01271592,-0.00270285]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.005,0],
+                  [0.00489074,0.00103956],
+                  [0.00456773,0.00203368],
+                  [0.00404508,0.00293893],
+                  [0.00334565,0.00371572],
+                  [0.0025,0.00433013],
+                  [0.00154508,0.00475528],
+                  [0.00052264,0.00497261],
+                  [-0.00052264,0.00497261],
+                  [-0.00154508,0.00475528],
+                  [-0.0025,0.00433013],
+                  [-0.00334565,0.00371572],
+                  [-0.00404508,0.00293893],
+                  [-0.00456773,0.00203368],
+                  [-0.00489074,0.00103956],
+                  [-0.005,0],
+                  [-0.00489074,-0.00103956],
+                  [-0.00456773,-0.00203368],
+                  [-0.00404508,-0.00293893],
+                  [-0.00334565,-0.00371572],
+                  [-0.0025,-0.00433013],
+                  [-0.00154508,-0.00475528],
+                  [-0.00052264,-0.00497261],
+                  [0.00052264,-0.00497261],
+                  [0.00154508,-0.00475528],
+                  [0.0025,-0.00433013],
+                  [0.00334565,-0.00371572],
+                  [0.00404508,-0.00293893],
+                  [0.00456773,-0.00203368],
+                  [0.00489074,-0.00103956]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aabec9"
+            }
+          },
+          {
+            "id": "lead",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.sensor-cable",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.02,0.125,-0.001],
+                [-0.016,0.194,0.018],
+                [0.049,0.217,0.026],
+                [0.137,0.185,0.03],
+                [0.207,0.137,0.032],
+                [0.238,0.107,0.032]
+              ],
+              "radius": 0.0043,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#293940"
+            }
+          },
+          {
+            "id": "probe",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.frame",
+            "transform": {
+              "position": [0.24,0.109,0.032],
+              "rotation": [0,0,-0.4363323129985824]
+            }
+          },
+          {
+            "id": "probe-grip",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.probe-grip",
+            "parent": "probe",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0.083,0,0],
+              "radius": 0.016,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#354650"
+            }
+          },
+          {
+            "id": "sensor-case",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.accelerometer-head",
+            "parent": "probe",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.078,0,0],
+              "end": [0.106,0,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aabec9"
+            }
+          },
+          {
+            "id": "pin",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.frame",
+            "parent": "probe",
+            "transform": {
+              "position": [0.104,0,0]
+            }
+          },
+          {
+            "id": "tip",
+            "semanticType": "instrument.portable-vibration-analyzer-with-contact-probe.taper-accelerometer-probe",
+            "parent": "pin",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,0],
+              "end": [0.036,0,0],
+              "startRadius": 0.007,
+              "endRadius": 0.0019,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#aabec9"
+            }
+          }
+        ],
+        "anchors": {
+          "measurement-point": {
+            "node": "pin",
+            "position": [0.036,0,0],
+            "direction": [1,0,0],
+            "kind": "contact"
+          },
+          "monitor-input": {
+            "node": "instrument-input",
+            "position": [0,0.019,0],
+            "direction": [0,1,0],
+            "kind": "electrical"
+          },
+          "display-face": {
+            "node": "display",
+            "position": [0,0,0.002],
+            "direction": [0,0,1],
+            "kind": "readout"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "tip-extension",
+            "label": "测针伸出量",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.01,
+            "targets": [
+              {
+                "node": "pin",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "probe-angle",
+            "label": "探头转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -37,
+            "max": 29,
+            "targets": [
+              {
+                "node": "probe",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

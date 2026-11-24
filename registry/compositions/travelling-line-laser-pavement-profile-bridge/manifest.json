@@ -1,0 +1,857 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.travelling-line-laser-pavement-profile-bridge",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "横移线激光路面轮廓检测架",
+  "summary": "带横向中空导轨、皮带导滑座、升降激光头、测距轮和铰接支腿的独立检测架。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "路面轮廓仪",
+    "线激光",
+    "laser-profilometer",
+    "transverse-profile",
+    "工程检测",
+    "inspection"
+  ],
+  "anchors": [
+    "crossbeam-origin",
+    "profile-line",
+    "contact-wheel"
+  ],
+  "ai": {
+    "intent": "在道路检测模型中调用带横移轴的独立激光扫描仪，引用光学锚点和测距轮位置。",
+    "editableParts": [
+      "laser-travel",
+      "sensor-height",
+      "fold-legs"
+    ],
+    "qualityChecks": [
+      "调高或横移时光轴始终竖直向下。",
+      "固定导轨基准独立于滑座。",
+      "支腿折叠和检测头运动可分开设置。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "travelling-line-laser-pavement-profile-bridge",
+      "title": "横移线激光路面轮廓检测架",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail-axis",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.frame",
+            "transform": {
+              "position": [0,0.329,0]
+            }
+          },
+          {
+            "id": "hollow-cross-beam",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.laser-gantry-guiding-crossbeam",
+            "parent": "rail-axis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.649,0,0],
+                [0.649,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.045,-0.036],
+                [0.045,-0.036],
+                [0.054,-0.026999999999999996],
+                [0.054,0.026999999999999996],
+                [0.045,0.036],
+                [-0.045,0.036],
+                [-0.054,0.026999999999999996],
+                [-0.054,-0.026999999999999996]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.037,-0.028],
+                  [0.037,-0.028],
+                  [0.043,-0.022],
+                  [0.043,0.022],
+                  [0.037,0.028],
+                  [-0.037,0.028],
+                  [-0.043,0.022],
+                  [-0.043,-0.022]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            }
+          },
+          {
+            "id": "terminal--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.belt-rail-end-gear-cover",
+            "parent": "rail-axis",
+            "geometry": {
+              "type": "box",
+              "size": [0.092,0.095,0.121]
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            },
+            "transform": {
+              "position": [-0.608,0.002,0]
+            }
+          },
+          {
+            "id": "guide--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.linear-carriage-rail",
+            "parent": "rail-axis",
+            "geometry": {
+              "type": "box",
+              "size": [1.152,0.015,0.012]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            },
+            "transform": {
+              "position": [0,0.036,-0.021]
+            }
+          },
+          {
+            "id": "support--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.frame",
+            "transform": {
+              "position": [-0.608,0.308,0]
+            }
+          },
+          {
+            "id": "support-hinge--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.support-leg-pivot",
+            "parent": "support--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.068],
+              "end": [0,0,0.068],
+              "radius": 0.015,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "leg--1--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.angled-tube-strut",
+            "parent": "support--1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,-0.046],
+                [0.016,-0.126,-0.094],
+                [-0.043,-0.234,-0.137]
+              ],
+              "radius": 0.018,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            }
+          },
+          {
+            "id": "floor-pad--1--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.support-shoe",
+            "parent": "support--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.113,0.019,0.109]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            },
+            "transform": {
+              "position": [-0.046,-0.298,-0.138]
+            }
+          },
+          {
+            "id": "pad-spindle--1--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.height-stop-stem",
+            "parent": "support--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.07,0.025]
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            },
+            "transform": {
+              "position": [-0.046,-0.262,-0.138]
+            }
+          },
+          {
+            "id": "leg--1-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.angled-tube-strut",
+            "parent": "support--1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,0.046],
+                [0.016,-0.126,0.094],
+                [-0.043,-0.234,0.137]
+              ],
+              "radius": 0.018,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            }
+          },
+          {
+            "id": "floor-pad--1-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.support-shoe",
+            "parent": "support--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.113,0.019,0.109]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            },
+            "transform": {
+              "position": [-0.046,-0.298,0.138]
+            }
+          },
+          {
+            "id": "pad-spindle--1-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.height-stop-stem",
+            "parent": "support--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.07,0.025]
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            },
+            "transform": {
+              "position": [-0.046,-0.262,0.138]
+            }
+          },
+          {
+            "id": "terminal-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.belt-rail-end-gear-cover",
+            "parent": "rail-axis",
+            "geometry": {
+              "type": "box",
+              "size": [0.092,0.095,0.121]
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            },
+            "transform": {
+              "position": [0.608,0.002,0]
+            }
+          },
+          {
+            "id": "guide-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.linear-carriage-rail",
+            "parent": "rail-axis",
+            "geometry": {
+              "type": "box",
+              "size": [1.152,0.015,0.012]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            },
+            "transform": {
+              "position": [0,0.036,0.021]
+            }
+          },
+          {
+            "id": "support-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.frame",
+            "transform": {
+              "position": [0.608,0.308,0]
+            }
+          },
+          {
+            "id": "support-hinge-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.support-leg-pivot",
+            "parent": "support-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.068],
+              "end": [0,0,0.068],
+              "radius": 0.015,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "leg-1--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.angled-tube-strut",
+            "parent": "support-1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,-0.046],
+                [-0.016,-0.126,-0.094],
+                [0.043,-0.234,-0.137]
+              ],
+              "radius": 0.018,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            }
+          },
+          {
+            "id": "floor-pad-1--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.support-shoe",
+            "parent": "support-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.113,0.019,0.109]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            },
+            "transform": {
+              "position": [0.046,-0.298,-0.138]
+            }
+          },
+          {
+            "id": "pad-spindle-1--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.height-stop-stem",
+            "parent": "support-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.07,0.025]
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            },
+            "transform": {
+              "position": [0.046,-0.262,-0.138]
+            }
+          },
+          {
+            "id": "leg-1-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.angled-tube-strut",
+            "parent": "support-1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,0.046],
+                [-0.016,-0.126,0.094],
+                [0.043,-0.234,0.137]
+              ],
+              "radius": 0.018,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            }
+          },
+          {
+            "id": "floor-pad-1-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.support-shoe",
+            "parent": "support-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.113,0.019,0.109]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            },
+            "transform": {
+              "position": [0.046,-0.298,0.138]
+            }
+          },
+          {
+            "id": "pad-spindle-1-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.height-stop-stem",
+            "parent": "support-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.07,0.025]
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            },
+            "transform": {
+              "position": [0.046,-0.262,0.138]
+            }
+          },
+          {
+            "id": "belt--1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.belt-drive-straight-run",
+            "parent": "rail-axis",
+            "geometry": {
+              "type": "box",
+              "size": [1.143,0.007,0.013]
+            },
+            "appearance": {
+              "color": "#485e6c"
+            },
+            "transform": {
+              "position": [0,0.058,-0.016]
+            }
+          },
+          {
+            "id": "belt-1",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.belt-drive-straight-run",
+            "parent": "rail-axis",
+            "geometry": {
+              "type": "box",
+              "size": [1.143,0.007,0.013]
+            },
+            "appearance": {
+              "color": "#485e6c"
+            },
+            "transform": {
+              "position": [0,0.058,0.016]
+            }
+          },
+          {
+            "id": "slider",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.frame",
+            "parent": "rail-axis",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "carriage",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.guided-laser-carriage",
+            "parent": "slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.158,0.026,0.104]
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            },
+            "transform": {
+              "position": [0,0.055,0]
+            }
+          },
+          {
+            "id": "carriage-branch--0.048",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.support-saddle-cheek",
+            "parent": "slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.141,0.077,0.016]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            },
+            "transform": {
+              "position": [0,0.016,-0.048]
+            }
+          },
+          {
+            "id": "carriage-branch-0.048",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.support-saddle-cheek",
+            "parent": "slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.141,0.077,0.016]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            },
+            "transform": {
+              "position": [0,0.016,0.048]
+            }
+          },
+          {
+            "id": "vertical-guide",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.sensor-height-guide",
+            "parent": "slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.109,0.12,0.034]
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            },
+            "transform": {
+              "position": [0,-0.077,0.062]
+            }
+          },
+          {
+            "id": "laser-head",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.frame",
+            "parent": "slider",
+            "transform": {
+              "position": [0,-0.107,0.067]
+            }
+          },
+          {
+            "id": "laser-shell",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.line-laser-transceiver",
+            "parent": "laser-head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.034,0],
+                [0,0.026,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.07,-0.049],
+                [-0.07,-0.049],
+                [-0.083,-0.036000000000000004],
+                [-0.083,0.036000000000000004],
+                [-0.07,0.049],
+                [0.07,0.049],
+                [0.083,0.036000000000000004],
+                [0.083,-0.036000000000000004]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            }
+          },
+          {
+            "id": "laser-aperture",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.rectangular-laser-window",
+            "parent": "laser-head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.04,0],
+                [0,-0.033,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.05,-0.012],
+                [-0.05,-0.012],
+                [-0.056,-0.006],
+                [-0.056,0.009],
+                [-0.05,0.015],
+                [0.05,0.015],
+                [0.056,0.009],
+                [0.056,-0.006]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#87bcc9"
+            }
+          },
+          {
+            "id": "measure-wheel-frame",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.frame",
+            "transform": {
+              "position": [0,0.056,0.216]
+            }
+          },
+          {
+            "id": "measure-wheel-tire",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.rubber-wheel-tread",
+            "parent": "measure-wheel-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.0165,0,0],
+                [0.0165,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.056,0],
+                [0.05531055,0.00876033],
+                [0.05325916,0.01730495],
+                [0.04989637,0.02542347],
+                [0.04530495,0.03291597],
+                [0.03959798,0.03959798],
+                [0.03291597,0.04530495],
+                [0.02542347,0.04989637],
+                [0.01730495,0.05325916],
+                [0.00876033,0.05531055],
+                [0,0.056],
+                [-0.00876033,0.05531055],
+                [-0.01730495,0.05325916],
+                [-0.02542347,0.04989637],
+                [-0.03291597,0.04530495],
+                [-0.03959798,0.03959798],
+                [-0.04530495,0.03291597],
+                [-0.04989637,0.02542347],
+                [-0.05325916,0.01730495],
+                [-0.05531055,0.00876033],
+                [-0.056,0],
+                [-0.05531055,-0.00876033],
+                [-0.05325916,-0.01730495],
+                [-0.04989637,-0.02542347],
+                [-0.04530495,-0.03291597],
+                [-0.03959798,-0.03959798],
+                [-0.03291597,-0.04530495],
+                [-0.02542347,-0.04989637],
+                [-0.01730495,-0.05325916],
+                [-0.00876033,-0.05531055],
+                [0,-0.056],
+                [0.00876033,-0.05531055],
+                [0.01730495,-0.05325916],
+                [0.02542347,-0.04989637],
+                [0.03291597,-0.04530495],
+                [0.03959798,-0.03959798],
+                [0.04530495,-0.03291597],
+                [0.04989637,-0.02542347],
+                [0.05325916,-0.01730495],
+                [0.05531055,-0.00876033]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.04088,0],
+                  [0.0403767,0.00639504],
+                  [0.03887919,0.01263261],
+                  [0.03642435,0.01855913],
+                  [0.03307261,0.02402866],
+                  [0.02890653,0.02890653],
+                  [0.02402866,0.03307261],
+                  [0.01855913,0.03642435],
+                  [0.01263261,0.03887919],
+                  [0.00639504,0.0403767],
+                  [0,0.04088],
+                  [-0.00639504,0.0403767],
+                  [-0.01263261,0.03887919],
+                  [-0.01855913,0.03642435],
+                  [-0.02402866,0.03307261],
+                  [-0.02890653,0.02890653],
+                  [-0.03307261,0.02402866],
+                  [-0.03642435,0.01855913],
+                  [-0.03887919,0.01263261],
+                  [-0.0403767,0.00639504],
+                  [-0.04088,0],
+                  [-0.0403767,-0.00639504],
+                  [-0.03887919,-0.01263261],
+                  [-0.03642435,-0.01855913],
+                  [-0.03307261,-0.02402866],
+                  [-0.02890653,-0.02890653],
+                  [-0.02402866,-0.03307261],
+                  [-0.01855913,-0.03642435],
+                  [-0.01263261,-0.03887919],
+                  [-0.00639504,-0.0403767],
+                  [0,-0.04088],
+                  [0.00639504,-0.0403767],
+                  [0.01263261,-0.03887919],
+                  [0.01855913,-0.03642435],
+                  [0.02402866,-0.03307261],
+                  [0.02890653,-0.02890653],
+                  [0.03307261,-0.02402866],
+                  [0.03642435,-0.01855913],
+                  [0.03887919,-0.01263261],
+                  [0.0403767,-0.00639504]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#40545d"
+            }
+          },
+          {
+            "id": "measure-wheel-hub",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.wheel-hub",
+            "parent": "measure-wheel-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.0105,0,0],
+                [0.0105,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.042,0],
+                [0.04119298,0.00819379],
+                [0.03880294,0.0160727],
+                [0.03492172,0.02333395],
+                [0.02969848,0.02969848],
+                [0.02333395,0.03492172],
+                [0.0160727,0.03880294],
+                [0.00819379,0.04119298],
+                [0,0.042],
+                [-0.00819379,0.04119298],
+                [-0.0160727,0.03880294],
+                [-0.02333395,0.03492172],
+                [-0.02969848,0.02969848],
+                [-0.03492172,0.02333395],
+                [-0.03880294,0.0160727],
+                [-0.04119298,0.00819379],
+                [-0.042,0],
+                [-0.04119298,-0.00819379],
+                [-0.03880294,-0.0160727],
+                [-0.03492172,-0.02333395],
+                [-0.02969848,-0.02969848],
+                [-0.02333395,-0.03492172],
+                [-0.0160727,-0.03880294],
+                [-0.00819379,-0.04119298],
+                [0,-0.042],
+                [0.00819379,-0.04119298],
+                [0.0160727,-0.03880294],
+                [0.02333395,-0.03492172],
+                [0.02969848,-0.02969848],
+                [0.03492172,-0.02333395],
+                [0.03880294,-0.0160727],
+                [0.04119298,-0.00819379]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.01008,0],
+                  [0.00988632,0.00196651],
+                  [0.00931271,0.00385745],
+                  [0.00838121,0.00560015],
+                  [0.00712764,0.00712764],
+                  [0.00560015,0.00838121],
+                  [0.00385745,0.00931271],
+                  [0.00196651,0.00988632],
+                  [0,0.01008],
+                  [-0.00196651,0.00988632],
+                  [-0.00385745,0.00931271],
+                  [-0.00560015,0.00838121],
+                  [-0.00712764,0.00712764],
+                  [-0.00838121,0.00560015],
+                  [-0.00931271,0.00385745],
+                  [-0.00988632,0.00196651],
+                  [-0.01008,0],
+                  [-0.00988632,-0.00196651],
+                  [-0.00931271,-0.00385745],
+                  [-0.00838121,-0.00560015],
+                  [-0.00712764,-0.00712764],
+                  [-0.00560015,-0.00838121],
+                  [-0.00385745,-0.00931271],
+                  [-0.00196651,-0.00988632],
+                  [0,-0.01008],
+                  [0.00196651,-0.00988632],
+                  [0.00385745,-0.00931271],
+                  [0.00560015,-0.00838121],
+                  [0.00712764,-0.00712764],
+                  [0.00838121,-0.00560015],
+                  [0.00931271,-0.00385745],
+                  [0.00988632,-0.00196651]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "measure-wheel-cap",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.wheel-bearing-cap",
+            "parent": "measure-wheel-frame",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.0245,0,0],
+              "end": [0.0245,0,0],
+              "radius": 0.015680000000000003,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            }
+          },
+          {
+            "id": "measure-link",
+            "semanticType": "instrument.travelling-line-laser-pavement-profile-bridge.measuring-wheel-arm",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.02,0.313,0.04],
+                [0.047,0.199,0.122],
+                [0.021,0.063,0.215]
+              ],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          }
+        ],
+        "anchors": {
+          "crossbeam-origin": {
+            "node": "rail-axis",
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "reference"
+          },
+          "profile-line": {
+            "node": "laser-aperture",
+            "position": [0,-0.04,0],
+            "direction": [0,-1,0],
+            "kind": "optical"
+          },
+          "contact-wheel": {
+            "node": "measure-wheel-frame",
+            "position": [0,-0.056,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "laser-travel",
+            "label": "横向扫描位移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.496,
+            "max": 0.496,
+            "targets": [
+              {
+                "node": "slider",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "sensor-height",
+            "label": "传感头高度调整",
+            "unit": "m",
+            "value": 0,
+            "min": -0.047,
+            "max": 0.057,
+            "targets": [
+              {
+                "node": "laser-head",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "fold-legs",
+            "label": "左右支脚折叠角",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 46,
+            "targets": [
+              {
+                "node": "support--1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "support-1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

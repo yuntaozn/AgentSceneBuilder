@@ -1,6 +1,8 @@
 # AgentSceneBuilder Editor 产品设计
 
-Editor 是完整的参数化数字建模工作台，不是课件播放器、GLB 查看器或 JSON 调试页。
+Editor 用于复核和调整 AI 大模型生成的 CompositionSpec，并将调整后的模型交回 Agent 的检查和构建流程。
+
+本文保留阶段设计和后续设想。当前支持的操作见[编辑器说明](../apps/editor/README.md)。
 
 ## 核心工作区
 
@@ -25,10 +27,10 @@ Editor 是完整的参数化数字建模工作台，不是课件播放器、GLB 
 
 - 编辑参数化原型，展开实例默认只用于选择、检查和定位。
 - 修改必须保留 ID、语义、层级、重复规则和连接关系。
-- 人工修改与 Agent 修改使用同一种 changeset。
+- 人工调参与 Agent 改动使用同一份 CompositionSpec。
 - 删除、改名和改层级前检查引用关系。
 - 视图显隐和隔离属于本地工作状态，不直接污染模型数据。
-- JSON 是专家入口，不是普通用户的主要编辑方式。
+- 编辑器提供 JSON 源稿视图和可视化调参，两者都使用 CompositionSpec。
 
 ## 功能阶段
 

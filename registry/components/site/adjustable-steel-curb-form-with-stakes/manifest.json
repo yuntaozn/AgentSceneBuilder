@@ -1,0 +1,883 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.adjustable-steel-curb-form-with-stakes",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可调标高钢制路缘模板",
+  "summary": "长条成型面、后侧可调支脚、贯通插桩孔、端部开孔连接片。",
+  "license": "Apache-2.0",
+  "semanticType": "site.adjustable-steel-curb-form-with-stakes",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "路缘模板",
+    "调坡支脚",
+    "curb-form",
+    "adjustable-stake",
+    "沟槽施工",
+    "excavation"
+  ],
+  "anchors": [
+    "stake--1",
+    "stake-0",
+    "stake-1",
+    "next-segment",
+    "previous-segment",
+    "curb-contact"
+  ],
+  "ai": {
+    "intent": "用可重复拼装的路缘模板段表达混凝土边界，在固定桩周围调整成型面标高。",
+    "editableParts": [
+      "form-elevation",
+      "stake-depth"
+    ],
+    "qualityChecks": [
+      "插桩定位孔真实贯通。",
+      "两端接续方向相反。",
+      "模板标高和入桩深度分开控制。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "adjustable-steel-curb-form-with-stakes",
+      "title": "可调标高钢制路缘模板",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "form",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.frame",
+            "transform": {
+              "position": [0,0.055,0]
+            }
+          },
+          {
+            "id": "form-face",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.curb-concrete-contact-face",
+            "parent": "form",
+            "geometry": {
+              "type": "box",
+              "size": [1.895,0.231,0.024]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.116,0]
+            }
+          },
+          {
+            "id": "return-0",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.folded-form-back-return",
+            "parent": "form",
+            "geometry": {
+              "type": "box",
+              "size": [1.895,0.028,0.107]
+            },
+            "appearance": {
+              "color": "#90abb8"
+            },
+            "transform": {
+              "position": [0,0.016,0.051]
+            }
+          },
+          {
+            "id": "return-1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.folded-form-back-return",
+            "parent": "form",
+            "geometry": {
+              "type": "box",
+              "size": [1.895,0.028,0.107]
+            },
+            "appearance": {
+              "color": "#90abb8"
+            },
+            "transform": {
+              "position": [0,0.217,0.051]
+            }
+          },
+          {
+            "id": "bracket--1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.frame",
+            "parent": "form",
+            "transform": {
+              "position": [-0.698,0.106,0.081]
+            }
+          },
+          {
+            "id": "bracket-web--1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.stake-bracket-web",
+            "parent": "bracket--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.027,0,0],
+                [0.027,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.012,-0.109],
+                [-0.157,-0.109],
+                [-0.157,-0.064],
+                [-0.041,0.087],
+                [-0.012,0.087]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "stake-collar--1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.frame",
+            "parent": "form",
+            "transform": {
+              "position": [-0.698,0.018,0.217]
+            }
+          },
+          {
+            "id": "collar--1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.perforated-stake-guide",
+            "parent": "stake-collar--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.013,0],
+                [0,0.025,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.032,0],
+                [0.03119769,0.00712067],
+                [0.028831,0.01388428],
+                [0.02501861,0.01995167],
+                [0.01995167,0.02501861],
+                [0.01388428,0.028831],
+                [0.00712067,0.03119769],
+                [0,0.032],
+                [-0.00712067,0.03119769],
+                [-0.01388428,0.028831],
+                [-0.01995167,0.02501861],
+                [-0.02501861,0.01995167],
+                [-0.028831,0.01388428],
+                [-0.03119769,0.00712067],
+                [-0.032,0],
+                [-0.03119769,-0.00712067],
+                [-0.028831,-0.01388428],
+                [-0.02501861,-0.01995167],
+                [-0.01995167,-0.02501861],
+                [-0.01388428,-0.028831],
+                [-0.00712067,-0.03119769],
+                [0,-0.032],
+                [0.00712067,-0.03119769],
+                [0.01388428,-0.028831],
+                [0.01995167,-0.02501861],
+                [0.02501861,-0.01995167],
+                [0.028831,-0.01388428],
+                [0.03119769,-0.00712067]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.014,0],
+                  [0.01364899,0.00311529],
+                  [0.01261356,0.00607437],
+                  [0.01094564,0.00872886],
+                  [0.00872886,0.01094564],
+                  [0.00607437,0.01261356],
+                  [0.00311529,0.01364899],
+                  [0,0.014],
+                  [-0.00311529,0.01364899],
+                  [-0.00607437,0.01261356],
+                  [-0.00872886,0.01094564],
+                  [-0.01094564,0.00872886],
+                  [-0.01261356,0.00607437],
+                  [-0.01364899,0.00311529],
+                  [-0.014,0],
+                  [-0.01364899,-0.00311529],
+                  [-0.01261356,-0.00607437],
+                  [-0.01094564,-0.00872886],
+                  [-0.00872886,-0.01094564],
+                  [-0.00607437,-0.01261356],
+                  [-0.00311529,-0.01364899],
+                  [0,-0.014],
+                  [0.00311529,-0.01364899],
+                  [0.00607437,-0.01261356],
+                  [0.00872886,-0.01094564],
+                  [0.01094564,-0.00872886],
+                  [0.01261356,-0.00607437],
+                  [0.01364899,-0.00311529]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "stake--1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.frame",
+            "transform": {
+              "position": [-0.698,0.006,0.217]
+            }
+          },
+          {
+            "id": "stake-shank--1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.locating-stake",
+            "parent": "stake--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.173,0],
+              "end": [0,0.197,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#425967"
+            }
+          },
+          {
+            "id": "stake-point--1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.driven-stake-tip",
+            "parent": "stake--1",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,-0.215,0],
+              "end": [0,-0.173,0],
+              "startRadius": 0.002,
+              "endRadius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#425967"
+            }
+          },
+          {
+            "id": "stake-cap--1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.stake-strike-cap",
+            "parent": "stake--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.194,0],
+              "end": [0,0.209,0],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#e8b651"
+            }
+          },
+          {
+            "id": "bracket-0",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.frame",
+            "parent": "form",
+            "transform": {
+              "position": [0,0.106,0.081]
+            }
+          },
+          {
+            "id": "bracket-web-0",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.stake-bracket-web",
+            "parent": "bracket-0",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.027,0,0],
+                [0.027,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.012,-0.109],
+                [-0.157,-0.109],
+                [-0.157,-0.064],
+                [-0.041,0.087],
+                [-0.012,0.087]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "stake-collar-0",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.frame",
+            "parent": "form",
+            "transform": {
+              "position": [0,0.018,0.217]
+            }
+          },
+          {
+            "id": "collar-0",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.perforated-stake-guide",
+            "parent": "stake-collar-0",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.013,0],
+                [0,0.025,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.032,0],
+                [0.03119769,0.00712067],
+                [0.028831,0.01388428],
+                [0.02501861,0.01995167],
+                [0.01995167,0.02501861],
+                [0.01388428,0.028831],
+                [0.00712067,0.03119769],
+                [0,0.032],
+                [-0.00712067,0.03119769],
+                [-0.01388428,0.028831],
+                [-0.01995167,0.02501861],
+                [-0.02501861,0.01995167],
+                [-0.028831,0.01388428],
+                [-0.03119769,0.00712067],
+                [-0.032,0],
+                [-0.03119769,-0.00712067],
+                [-0.028831,-0.01388428],
+                [-0.02501861,-0.01995167],
+                [-0.01995167,-0.02501861],
+                [-0.01388428,-0.028831],
+                [-0.00712067,-0.03119769],
+                [0,-0.032],
+                [0.00712067,-0.03119769],
+                [0.01388428,-0.028831],
+                [0.01995167,-0.02501861],
+                [0.02501861,-0.01995167],
+                [0.028831,-0.01388428],
+                [0.03119769,-0.00712067]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.014,0],
+                  [0.01364899,0.00311529],
+                  [0.01261356,0.00607437],
+                  [0.01094564,0.00872886],
+                  [0.00872886,0.01094564],
+                  [0.00607437,0.01261356],
+                  [0.00311529,0.01364899],
+                  [0,0.014],
+                  [-0.00311529,0.01364899],
+                  [-0.00607437,0.01261356],
+                  [-0.00872886,0.01094564],
+                  [-0.01094564,0.00872886],
+                  [-0.01261356,0.00607437],
+                  [-0.01364899,0.00311529],
+                  [-0.014,0],
+                  [-0.01364899,-0.00311529],
+                  [-0.01261356,-0.00607437],
+                  [-0.01094564,-0.00872886],
+                  [-0.00872886,-0.01094564],
+                  [-0.00607437,-0.01261356],
+                  [-0.00311529,-0.01364899],
+                  [0,-0.014],
+                  [0.00311529,-0.01364899],
+                  [0.00607437,-0.01261356],
+                  [0.00872886,-0.01094564],
+                  [0.01094564,-0.00872886],
+                  [0.01261356,-0.00607437],
+                  [0.01364899,-0.00311529]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "stake-0",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.frame",
+            "transform": {
+              "position": [0,0.006,0.217]
+            }
+          },
+          {
+            "id": "stake-shank-0",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.locating-stake",
+            "parent": "stake-0",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.173,0],
+              "end": [0,0.197,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#425967"
+            }
+          },
+          {
+            "id": "stake-point-0",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.driven-stake-tip",
+            "parent": "stake-0",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,-0.215,0],
+              "end": [0,-0.173,0],
+              "startRadius": 0.002,
+              "endRadius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#425967"
+            }
+          },
+          {
+            "id": "stake-cap-0",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.stake-strike-cap",
+            "parent": "stake-0",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.194,0],
+              "end": [0,0.209,0],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#e8b651"
+            }
+          },
+          {
+            "id": "bracket-1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.frame",
+            "parent": "form",
+            "transform": {
+              "position": [0.698,0.106,0.081]
+            }
+          },
+          {
+            "id": "bracket-web-1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.stake-bracket-web",
+            "parent": "bracket-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.027,0,0],
+                [0.027,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.012,-0.109],
+                [-0.157,-0.109],
+                [-0.157,-0.064],
+                [-0.041,0.087],
+                [-0.012,0.087]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "stake-collar-1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.frame",
+            "parent": "form",
+            "transform": {
+              "position": [0.698,0.018,0.217]
+            }
+          },
+          {
+            "id": "collar-1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.perforated-stake-guide",
+            "parent": "stake-collar-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.013,0],
+                [0,0.025,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.032,0],
+                [0.03119769,0.00712067],
+                [0.028831,0.01388428],
+                [0.02501861,0.01995167],
+                [0.01995167,0.02501861],
+                [0.01388428,0.028831],
+                [0.00712067,0.03119769],
+                [0,0.032],
+                [-0.00712067,0.03119769],
+                [-0.01388428,0.028831],
+                [-0.01995167,0.02501861],
+                [-0.02501861,0.01995167],
+                [-0.028831,0.01388428],
+                [-0.03119769,0.00712067],
+                [-0.032,0],
+                [-0.03119769,-0.00712067],
+                [-0.028831,-0.01388428],
+                [-0.02501861,-0.01995167],
+                [-0.01995167,-0.02501861],
+                [-0.01388428,-0.028831],
+                [-0.00712067,-0.03119769],
+                [0,-0.032],
+                [0.00712067,-0.03119769],
+                [0.01388428,-0.028831],
+                [0.01995167,-0.02501861],
+                [0.02501861,-0.01995167],
+                [0.028831,-0.01388428],
+                [0.03119769,-0.00712067]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.014,0],
+                  [0.01364899,0.00311529],
+                  [0.01261356,0.00607437],
+                  [0.01094564,0.00872886],
+                  [0.00872886,0.01094564],
+                  [0.00607437,0.01261356],
+                  [0.00311529,0.01364899],
+                  [0,0.014],
+                  [-0.00311529,0.01364899],
+                  [-0.00607437,0.01261356],
+                  [-0.00872886,0.01094564],
+                  [-0.01094564,0.00872886],
+                  [-0.01261356,0.00607437],
+                  [-0.01364899,0.00311529],
+                  [-0.014,0],
+                  [-0.01364899,-0.00311529],
+                  [-0.01261356,-0.00607437],
+                  [-0.01094564,-0.00872886],
+                  [-0.00872886,-0.01094564],
+                  [-0.00607437,-0.01261356],
+                  [-0.00311529,-0.01364899],
+                  [0,-0.014],
+                  [0.00311529,-0.01364899],
+                  [0.00607437,-0.01261356],
+                  [0.00872886,-0.01094564],
+                  [0.01094564,-0.00872886],
+                  [0.01261356,-0.00607437],
+                  [0.01364899,-0.00311529]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "stake-1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.frame",
+            "transform": {
+              "position": [0.698,0.006,0.217]
+            }
+          },
+          {
+            "id": "stake-shank-1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.locating-stake",
+            "parent": "stake-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.173,0],
+              "end": [0,0.197,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#425967"
+            }
+          },
+          {
+            "id": "stake-point-1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.driven-stake-tip",
+            "parent": "stake-1",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,-0.215,0],
+              "end": [0,-0.173,0],
+              "startRadius": 0.002,
+              "endRadius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#425967"
+            }
+          },
+          {
+            "id": "stake-cap-1",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.stake-strike-cap",
+            "parent": "stake-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.194,0],
+              "end": [0,0.209,0],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#e8b651"
+            }
+          },
+          {
+            "id": "end-join-left",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.splice-bar-with-slots",
+            "parent": "form",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.013],
+                [0,0,0.035]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.949,0.037],
+                [-0.853,0.037],
+                [-0.84,0.049999999999999996],
+                [-0.84,0.181],
+                [-0.853,0.194],
+                [-0.949,0.194],
+                [-0.962,0.181],
+                [-0.962,0.049999999999999996]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.91,0.075],
+                  [-0.9104513,0.07900538],
+                  [-0.91178256,0.08280991],
+                  [-0.91392703,0.08622282],
+                  [-0.91677718,0.08907297],
+                  [-0.92019009,0.09121744],
+                  [-0.92399462,0.0925487],
+                  [-0.928,0.093],
+                  [-0.93200538,0.0925487],
+                  [-0.93580991,0.09121744],
+                  [-0.93922282,0.08907297],
+                  [-0.94207297,0.08622282],
+                  [-0.94421744,0.08280991],
+                  [-0.9455487,0.07900538],
+                  [-0.946,0.075],
+                  [-0.9455487,0.07099462],
+                  [-0.94421744,0.06719009],
+                  [-0.94207297,0.06377718],
+                  [-0.93922282,0.06092703],
+                  [-0.93580991,0.05878256],
+                  [-0.93200538,0.0574513],
+                  [-0.928,0.057],
+                  [-0.92399462,0.0574513],
+                  [-0.92019009,0.05878256],
+                  [-0.91677718,0.06092703],
+                  [-0.91392703,0.06377718],
+                  [-0.91178256,0.06719009],
+                  [-0.9104513,0.07099462]
+                ],
+                [
+                  [-0.91,0.152],
+                  [-0.9104513,0.15600538],
+                  [-0.91178256,0.15980991],
+                  [-0.91392703,0.16322282],
+                  [-0.91677718,0.16607297],
+                  [-0.92019009,0.16821744],
+                  [-0.92399462,0.1695487],
+                  [-0.928,0.17],
+                  [-0.93200538,0.1695487],
+                  [-0.93580991,0.16821744],
+                  [-0.93922282,0.16607297],
+                  [-0.94207297,0.16322282],
+                  [-0.94421744,0.15980991],
+                  [-0.9455487,0.15600538],
+                  [-0.946,0.152],
+                  [-0.9455487,0.14799462],
+                  [-0.94421744,0.14419009],
+                  [-0.94207297,0.14077718],
+                  [-0.93922282,0.13792703],
+                  [-0.93580991,0.13578256],
+                  [-0.93200538,0.1344513],
+                  [-0.928,0.134],
+                  [-0.92399462,0.1344513],
+                  [-0.92019009,0.13578256],
+                  [-0.91677718,0.13792703],
+                  [-0.91392703,0.14077718],
+                  [-0.91178256,0.14419009],
+                  [-0.9104513,0.14799462]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "end-join-right",
+            "semanticType": "site.adjustable-steel-curb-form-with-stakes.splice-bar-with-slots",
+            "parent": "form",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.013],
+                [0,0,0.035]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.855,0.037],
+                [0.951,0.037],
+                [0.964,0.049999999999999996],
+                [0.964,0.181],
+                [0.951,0.194],
+                [0.855,0.194],
+                [0.842,0.181],
+                [0.842,0.049999999999999996]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.946,0.075],
+                  [0.9455487,0.07900538],
+                  [0.94421744,0.08280991],
+                  [0.94207297,0.08622282],
+                  [0.93922282,0.08907297],
+                  [0.93580991,0.09121744],
+                  [0.93200538,0.0925487],
+                  [0.928,0.093],
+                  [0.92399462,0.0925487],
+                  [0.92019009,0.09121744],
+                  [0.91677718,0.08907297],
+                  [0.91392703,0.08622282],
+                  [0.91178256,0.08280991],
+                  [0.9104513,0.07900538],
+                  [0.91,0.075],
+                  [0.9104513,0.07099462],
+                  [0.91178256,0.06719009],
+                  [0.91392703,0.06377718],
+                  [0.91677718,0.06092703],
+                  [0.92019009,0.05878256],
+                  [0.92399462,0.0574513],
+                  [0.928,0.057],
+                  [0.93200538,0.0574513],
+                  [0.93580991,0.05878256],
+                  [0.93922282,0.06092703],
+                  [0.94207297,0.06377718],
+                  [0.94421744,0.06719009],
+                  [0.9455487,0.07099462]
+                ],
+                [
+                  [0.946,0.152],
+                  [0.9455487,0.15600538],
+                  [0.94421744,0.15980991],
+                  [0.94207297,0.16322282],
+                  [0.93922282,0.16607297],
+                  [0.93580991,0.16821744],
+                  [0.93200538,0.1695487],
+                  [0.928,0.17],
+                  [0.92399462,0.1695487],
+                  [0.92019009,0.16821744],
+                  [0.91677718,0.16607297],
+                  [0.91392703,0.16322282],
+                  [0.91178256,0.15980991],
+                  [0.9104513,0.15600538],
+                  [0.91,0.152],
+                  [0.9104513,0.14799462],
+                  [0.91178256,0.14419009],
+                  [0.91392703,0.14077718],
+                  [0.91677718,0.13792703],
+                  [0.92019009,0.13578256],
+                  [0.92399462,0.1344513],
+                  [0.928,0.134],
+                  [0.93200538,0.1344513],
+                  [0.93580991,0.13578256],
+                  [0.93922282,0.13792703],
+                  [0.94207297,0.14077718],
+                  [0.94421744,0.14419009],
+                  [0.9455487,0.14799462]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          }
+        ],
+        "anchors": {
+          "stake--1": {
+            "node": "stake--1",
+            "position": [0,-0.215,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "stake-0": {
+            "node": "stake-0",
+            "position": [0,-0.215,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "stake-1": {
+            "node": "stake-1",
+            "position": [0,-0.215,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "next-segment": {
+            "node": "form",
+            "position": [0.964,0.116,0.023],
+            "direction": [1,0,0],
+            "kind": "form-splice"
+          },
+          "previous-segment": {
+            "node": "form",
+            "position": [-0.962,0.116,0.023],
+            "direction": [-1,0,0],
+            "kind": "form-splice"
+          },
+          "curb-contact": {
+            "node": "form",
+            "position": [0,0.115,-0.012],
+            "direction": [0,0,-1],
+            "kind": "contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "form-elevation",
+            "label": "成型面高度调整",
+            "unit": "m",
+            "value": 0,
+            "min": -0.035,
+            "max": 0.065,
+            "targets": [
+              {
+                "node": "form",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "stake-depth",
+            "label": "插桩深度",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.1,
+            "targets": [
+              {
+                "node": "stake--1",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              },
+              {
+                "node": "stake-0",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              },
+              {
+                "node": "stake-1",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

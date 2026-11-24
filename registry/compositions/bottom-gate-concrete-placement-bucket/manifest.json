@@ -1,0 +1,912 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.bottom-gate-concrete-placement-bucket",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "底门式混凝土吊斗",
+  "summary": "带真实空腔漏斗、回转起吊横梁、对开底门与四点落地框的独立混凝土吊罐。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.bottom-gate-concrete-placement-bucket",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "混凝土吊斗",
+    "浇筑吊斗",
+    "concrete-bucket",
+    "bottom-gate",
+    "施工设备",
+    "equipment"
+  ],
+  "anchors": [
+    "support--0.265--0.26",
+    "support--0.265-0.26",
+    "support-0.265--0.26",
+    "support-0.265-0.26",
+    "door-tip--1",
+    "door-tip-1",
+    "lifting-eye",
+    "discharge",
+    "fill"
+  ],
+  "ai": {
+    "intent": "独立表达吊运浇筑设备的悬挂接口、空料斗、出料口与开门位置。",
+    "editableParts": [
+      "gate-angle",
+      "lifting-bail-angle"
+    ],
+    "qualityChecks": [
+      "两扇底门绕各自边轴对称转动。",
+      "进料和出料锚点位于固定漏斗轴线上。",
+      "吊梁摆动不带动底架。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "bottom-gate-concrete-placement-bucket",
+      "title": "底门式混凝土吊斗",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bucket-shell",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.open-bucket-shell",
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 48,
+              "capStart": false,
+              "capEnd": false,
+              "sections": [
+                {
+                  "center": [0,0.303,0],
+                  "axisX": [0.154,0,0],
+                  "axisZ": [0,0,-0.154]
+                },
+                {
+                  "center": [0,0.409,0],
+                  "axisX": [0.205,0,0],
+                  "axisZ": [0,0,-0.205]
+                },
+                {
+                  "center": [0,0.708,0],
+                  "axisX": [0.366,0,0],
+                  "axisZ": [0,0,-0.366]
+                },
+                {
+                  "center": [0,0.986,0],
+                  "axisX": [0.439,0,0],
+                  "axisZ": [0,0,-0.439]
+                },
+                {
+                  "center": [0,1.065,0],
+                  "axisX": [0.449,0,0],
+                  "axisZ": [0,0,-0.449]
+                },
+                {
+                  "center": [0,1.065,0],
+                  "axisX": [0.436,0,0],
+                  "axisZ": [0,0,-0.436]
+                },
+                {
+                  "center": [0,0.986,0],
+                  "axisX": [0.426,0,0],
+                  "axisZ": [0,0,-0.426]
+                },
+                {
+                  "center": [0,0.708,0],
+                  "axisX": [0.353,0,0],
+                  "axisZ": [0,0,-0.353]
+                },
+                {
+                  "center": [0,0.409,0],
+                  "axisX": [0.19199999999999998,0,0],
+                  "axisZ": [0,0,-0.19199999999999998]
+                },
+                {
+                  "center": [0,0.303,0],
+                  "axisX": [0.141,0,0],
+                  "axisZ": [0,0,-0.141]
+                },
+                {
+                  "center": [0,0.303,0],
+                  "axisX": [0.154,0,0],
+                  "axisZ": [0,0,-0.154]
+                }
+              ]
+            },
+            "appearance": {
+              "color": "#e1a044"
+            }
+          },
+          {
+            "id": "rim",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.top-rim",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.05,0],
+                [0,1.077,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.468,0],
+                [0.4639962,0.06108626],
+                [0.45205329,0.12112731],
+                [0.43237562,0.17909585],
+                [0.40529989,0.234],
+                [0.37128936,0.28490035],
+                [0.33092597,0.33092597],
+                [0.28490035,0.37128936],
+                [0.234,0.40529989],
+                [0.17909585,0.43237562],
+                [0.12112731,0.45205329],
+                [0.06108626,0.4639962],
+                [0,0.468],
+                [-0.06108626,0.4639962],
+                [-0.12112731,0.45205329],
+                [-0.17909585,0.43237562],
+                [-0.234,0.40529989],
+                [-0.28490035,0.37128936],
+                [-0.33092597,0.33092597],
+                [-0.37128936,0.28490035],
+                [-0.40529989,0.234],
+                [-0.43237562,0.17909585],
+                [-0.45205329,0.12112731],
+                [-0.4639962,0.06108626],
+                [-0.468,0],
+                [-0.4639962,-0.06108626],
+                [-0.45205329,-0.12112731],
+                [-0.43237562,-0.17909585],
+                [-0.40529989,-0.234],
+                [-0.37128936,-0.28490035],
+                [-0.33092597,-0.33092597],
+                [-0.28490035,-0.37128936],
+                [-0.234,-0.40529989],
+                [-0.17909585,-0.43237562],
+                [-0.12112731,-0.45205329],
+                [-0.06108626,-0.4639962],
+                [0,-0.468],
+                [0.06108626,-0.4639962],
+                [0.12112731,-0.45205329],
+                [0.17909585,-0.43237562],
+                [0.234,-0.40529989],
+                [0.28490035,-0.37128936],
+                [0.33092597,-0.33092597],
+                [0.37128936,-0.28490035],
+                [0.40529989,-0.234],
+                [0.43237562,-0.17909585],
+                [0.45205329,-0.12112731],
+                [0.4639962,-0.06108626]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.435,0],
+                  [0.43127851,0.05677889],
+                  [0.42017773,0.11258628],
+                  [0.4018876,0.16646729],
+                  [0.37672105,0.2175],
+                  [0.3451087,0.26481122],
+                  [0.30759145,0.30759145],
+                  [0.26481122,0.3451087],
+                  [0.2175,0.37672105],
+                  [0.16646729,0.4018876],
+                  [0.11258628,0.42017773],
+                  [0.05677889,0.43127851],
+                  [0,0.435],
+                  [-0.05677889,0.43127851],
+                  [-0.11258628,0.42017773],
+                  [-0.16646729,0.4018876],
+                  [-0.2175,0.37672105],
+                  [-0.26481122,0.3451087],
+                  [-0.30759145,0.30759145],
+                  [-0.3451087,0.26481122],
+                  [-0.37672105,0.2175],
+                  [-0.4018876,0.16646729],
+                  [-0.42017773,0.11258628],
+                  [-0.43127851,0.05677889],
+                  [-0.435,0],
+                  [-0.43127851,-0.05677889],
+                  [-0.42017773,-0.11258628],
+                  [-0.4018876,-0.16646729],
+                  [-0.37672105,-0.2175],
+                  [-0.3451087,-0.26481122],
+                  [-0.30759145,-0.30759145],
+                  [-0.26481122,-0.3451087],
+                  [-0.2175,-0.37672105],
+                  [-0.16646729,-0.4018876],
+                  [-0.11258628,-0.42017773],
+                  [-0.05677889,-0.43127851],
+                  [0,-0.435],
+                  [0.05677889,-0.43127851],
+                  [0.11258628,-0.42017773],
+                  [0.16646729,-0.4018876],
+                  [0.2175,-0.37672105],
+                  [0.26481122,-0.3451087],
+                  [0.30759145,-0.30759145],
+                  [0.3451087,-0.26481122],
+                  [0.37672105,-0.2175],
+                  [0.4018876,-0.16646729],
+                  [0.42017773,-0.11258628],
+                  [0.43127851,-0.05677889]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#677f8b"
+            }
+          },
+          {
+            "id": "discharge-flange",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.discharge-flange",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.288,0],
+                [0,0.318,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.171,0],
+                [0.16889471,0.02675029],
+                [0.16263066,0.05284191],
+                [0.15236212,0.07763238],
+                [0.13834191,0.10051128],
+                [0.12091526,0.12091526],
+                [0.10051128,0.13834191],
+                [0.07763238,0.15236212],
+                [0.05284191,0.16263066],
+                [0.02675029,0.16889471],
+                [0,0.171],
+                [-0.02675029,0.16889471],
+                [-0.05284191,0.16263066],
+                [-0.07763238,0.15236212],
+                [-0.10051128,0.13834191],
+                [-0.12091526,0.12091526],
+                [-0.13834191,0.10051128],
+                [-0.15236212,0.07763238],
+                [-0.16263066,0.05284191],
+                [-0.16889471,0.02675029],
+                [-0.171,0],
+                [-0.16889471,-0.02675029],
+                [-0.16263066,-0.05284191],
+                [-0.15236212,-0.07763238],
+                [-0.13834191,-0.10051128],
+                [-0.12091526,-0.12091526],
+                [-0.10051128,-0.13834191],
+                [-0.07763238,-0.15236212],
+                [-0.05284191,-0.16263066],
+                [-0.02675029,-0.16889471],
+                [0,-0.171],
+                [0.02675029,-0.16889471],
+                [0.05284191,-0.16263066],
+                [0.07763238,-0.15236212],
+                [0.10051128,-0.13834191],
+                [0.12091526,-0.12091526],
+                [0.13834191,-0.10051128],
+                [0.15236212,-0.07763238],
+                [0.16263066,-0.05284191],
+                [0.16889471,-0.02675029]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.137,0],
+                  [0.1353133,0.02143152],
+                  [0.13029474,0.04233533],
+                  [0.12206789,0.0621967],
+                  [0.11083533,0.08052658],
+                  [0.09687363,0.09687363],
+                  [0.08052658,0.11083533],
+                  [0.0621967,0.12206789],
+                  [0.04233533,0.13029474],
+                  [0.02143152,0.1353133],
+                  [0,0.137],
+                  [-0.02143152,0.1353133],
+                  [-0.04233533,0.13029474],
+                  [-0.0621967,0.12206789],
+                  [-0.08052658,0.11083533],
+                  [-0.09687363,0.09687363],
+                  [-0.11083533,0.08052658],
+                  [-0.12206789,0.0621967],
+                  [-0.13029474,0.04233533],
+                  [-0.1353133,0.02143152],
+                  [-0.137,0],
+                  [-0.1353133,-0.02143152],
+                  [-0.13029474,-0.04233533],
+                  [-0.12206789,-0.0621967],
+                  [-0.11083533,-0.08052658],
+                  [-0.09687363,-0.09687363],
+                  [-0.08052658,-0.11083533],
+                  [-0.0621967,-0.12206789],
+                  [-0.04233533,-0.13029474],
+                  [-0.02143152,-0.1353133],
+                  [0,-0.137],
+                  [0.02143152,-0.1353133],
+                  [0.04233533,-0.13029474],
+                  [0.0621967,-0.12206789],
+                  [0.08052658,-0.11083533],
+                  [0.09687363,-0.09687363],
+                  [0.11083533,-0.08052658],
+                  [0.12206789,-0.0621967],
+                  [0.13029474,-0.04233533],
+                  [0.1353133,-0.02143152]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#718893"
+            }
+          },
+          {
+            "id": "stand--0.265--0.26",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.ground-stand",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.265,0.04,-0.26],
+                [-0.265,0.49,-0.26],
+                [-0.21995,0.631,-0.2158]
+              ],
+              "radius": 0.022,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#677f8b"
+            }
+          },
+          {
+            "id": "foot--0.265--0.26",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.foot-plate",
+            "geometry": {
+              "type": "box",
+              "size": [0.096,0.02,0.081]
+            },
+            "appearance": {
+              "color": "#aebec7"
+            },
+            "transform": {
+              "position": [-0.265,0.012,-0.26]
+            }
+          },
+          {
+            "id": "stand--0.265-0.26",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.ground-stand",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.265,0.04,0.26],
+                [-0.265,0.49,0.26],
+                [-0.21995,0.631,0.2158]
+              ],
+              "radius": 0.022,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#677f8b"
+            }
+          },
+          {
+            "id": "foot--0.265-0.26",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.foot-plate",
+            "geometry": {
+              "type": "box",
+              "size": [0.096,0.02,0.081]
+            },
+            "appearance": {
+              "color": "#aebec7"
+            },
+            "transform": {
+              "position": [-0.265,0.012,0.26]
+            }
+          },
+          {
+            "id": "stand-0.265--0.26",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.ground-stand",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.265,0.04,-0.26],
+                [0.265,0.49,-0.26],
+                [0.21995,0.631,-0.2158]
+              ],
+              "radius": 0.022,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#677f8b"
+            }
+          },
+          {
+            "id": "foot-0.265--0.26",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.foot-plate",
+            "geometry": {
+              "type": "box",
+              "size": [0.096,0.02,0.081]
+            },
+            "appearance": {
+              "color": "#aebec7"
+            },
+            "transform": {
+              "position": [0.265,0.012,-0.26]
+            }
+          },
+          {
+            "id": "stand-0.265-0.26",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.ground-stand",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.265,0.04,0.26],
+                [0.265,0.49,0.26],
+                [0.21995,0.631,0.2158]
+              ],
+              "radius": 0.022,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#677f8b"
+            }
+          },
+          {
+            "id": "foot-0.265-0.26",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.foot-plate",
+            "geometry": {
+              "type": "box",
+              "size": [0.096,0.02,0.081]
+            },
+            "appearance": {
+              "color": "#aebec7"
+            },
+            "transform": {
+              "position": [0.265,0.012,0.26]
+            }
+          },
+          {
+            "id": "base-crossrail--1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.base-crossrail",
+            "geometry": {
+              "type": "box",
+              "size": [0.574,0.041,0.042]
+            },
+            "appearance": {
+              "color": "#718893"
+            },
+            "transform": {
+              "position": [0,0.08,-0.26]
+            }
+          },
+          {
+            "id": "base-crossrail-1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.base-crossrail",
+            "geometry": {
+              "type": "box",
+              "size": [0.574,0.041,0.042]
+            },
+            "appearance": {
+              "color": "#718893"
+            },
+            "transform": {
+              "position": [0,0.08,0.26]
+            }
+          },
+          {
+            "id": "gate--1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.frame",
+            "transform": {
+              "position": [-0.153,0.295,0]
+            }
+          },
+          {
+            "id": "gate-leaf--1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.gate-leaf",
+            "parent": "gate--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.025,0],
+                [0,-0.005,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.016,-0.113],
+                [-0.073,-0.124],
+                [-0.144,-0.116],
+                [-0.156,-0.078],
+                [-0.156,0.078],
+                [-0.144,0.116],
+                [-0.073,0.124],
+                [-0.016,0.113]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#aebec7"
+            }
+          },
+          {
+            "id": "gate-stiffener--1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.gate-stiffener",
+            "parent": "gate--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.12,0.032,0.028]
+            },
+            "appearance": {
+              "color": "#677f8b"
+            },
+            "transform": {
+              "position": [0.077,-0.025,0]
+            }
+          },
+          {
+            "id": "gate-shaft--1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.gate-pivot-pin",
+            "parent": "gate--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.158],
+              "end": [0,0,0.158],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aebec7"
+            }
+          },
+          {
+            "id": "gate-pivot-bracket--1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.gate-pivot-ear",
+            "geometry": {
+              "type": "box",
+              "size": [0.059,0.053,0.292]
+            },
+            "appearance": {
+              "color": "#677f8b"
+            },
+            "transform": {
+              "position": [-0.159,0.308,0]
+            }
+          },
+          {
+            "id": "gate-1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.frame",
+            "transform": {
+              "position": [0.153,0.295,0]
+            }
+          },
+          {
+            "id": "gate-leaf-1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.gate-leaf",
+            "parent": "gate-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.025,0],
+                [0,-0.005,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.016,-0.113],
+                [0.073,-0.124],
+                [0.144,-0.116],
+                [0.156,-0.078],
+                [0.156,0.078],
+                [0.144,0.116],
+                [0.073,0.124],
+                [0.016,0.113]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#aebec7"
+            }
+          },
+          {
+            "id": "gate-stiffener-1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.gate-stiffener",
+            "parent": "gate-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.12,0.032,0.028]
+            },
+            "appearance": {
+              "color": "#677f8b"
+            },
+            "transform": {
+              "position": [-0.077,-0.025,0]
+            }
+          },
+          {
+            "id": "gate-shaft-1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.gate-pivot-pin",
+            "parent": "gate-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.158],
+              "end": [0,0,0.158],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aebec7"
+            }
+          },
+          {
+            "id": "gate-pivot-bracket-1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.gate-pivot-ear",
+            "geometry": {
+              "type": "box",
+              "size": [0.059,0.053,0.292]
+            },
+            "appearance": {
+              "color": "#677f8b"
+            },
+            "transform": {
+              "position": [0.159,0.308,0]
+            }
+          },
+          {
+            "id": "lifting-bail",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.frame",
+            "transform": {
+              "position": [0,1.013,0]
+            }
+          },
+          {
+            "id": "bail-arch",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.lifting-bail",
+            "parent": "lifting-bail",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,-0.44],
+                [0,0.29,-0.427],
+                [0,0.437,-0.144],
+                [0,0.437,0.144],
+                [0,0.292,0.426],
+                [0,0,0.44]
+              ],
+              "radius": 0.024,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#677f8b"
+            }
+          },
+          {
+            "id": "bail-pin--1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.bail-pivot-pin",
+            "parent": "lifting-bail",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.405],
+              "end": [0,0,-0.475],
+              "radius": 0.019,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aebec7"
+            }
+          },
+          {
+            "id": "bail-pin-1",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.bail-pivot-pin",
+            "parent": "lifting-bail",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.405],
+              "end": [0,0,0.475],
+              "radius": 0.019,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aebec7"
+            }
+          },
+          {
+            "id": "lifting-eye-frame",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.frame",
+            "parent": "lifting-bail",
+            "transform": {
+              "position": [0,0.473,0]
+            }
+          },
+          {
+            "id": "lifting-eye",
+            "semanticType": "equipment.bottom-gate-concrete-placement-bucket.lifting-eye",
+            "parent": "lifting-eye-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.016,0,0],
+                [0.016,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.05,0],
+                [0.04924039,0.00868241],
+                [0.04698463,0.01710101],
+                [0.04330127,0.025],
+                [0.03830222,0.03213938],
+                [0.03213938,0.03830222],
+                [0.025,0.04330127],
+                [0.01710101,0.04698463],
+                [0.00868241,0.04924039],
+                [0,0.05],
+                [-0.00868241,0.04924039],
+                [-0.01710101,0.04698463],
+                [-0.025,0.04330127],
+                [-0.03213938,0.03830222],
+                [-0.03830222,0.03213938],
+                [-0.04330127,0.025],
+                [-0.04698463,0.01710101],
+                [-0.04924039,0.00868241],
+                [-0.05,0],
+                [-0.04924039,-0.00868241],
+                [-0.04698463,-0.01710101],
+                [-0.04330127,-0.025],
+                [-0.03830222,-0.03213938],
+                [-0.03213938,-0.03830222],
+                [-0.025,-0.04330127],
+                [-0.01710101,-0.04698463],
+                [-0.00868241,-0.04924039],
+                [0,-0.05],
+                [0.00868241,-0.04924039],
+                [0.01710101,-0.04698463],
+                [0.025,-0.04330127],
+                [0.03213938,-0.03830222],
+                [0.03830222,-0.03213938],
+                [0.04330127,-0.025],
+                [0.04698463,-0.01710101],
+                [0.04924039,-0.00868241]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.027,0],
+                  [0.02658981,0.0046885],
+                  [0.0253717,0.00923454],
+                  [0.02338269,0.0135],
+                  [0.0206832,0.01735527],
+                  [0.01735527,0.0206832],
+                  [0.0135,0.02338269],
+                  [0.00923454,0.0253717],
+                  [0.0046885,0.02658981],
+                  [0,0.027],
+                  [-0.0046885,0.02658981],
+                  [-0.00923454,0.0253717],
+                  [-0.0135,0.02338269],
+                  [-0.01735527,0.0206832],
+                  [-0.0206832,0.01735527],
+                  [-0.02338269,0.0135],
+                  [-0.0253717,0.00923454],
+                  [-0.02658981,0.0046885],
+                  [-0.027,0],
+                  [-0.02658981,-0.0046885],
+                  [-0.0253717,-0.00923454],
+                  [-0.02338269,-0.0135],
+                  [-0.0206832,-0.01735527],
+                  [-0.01735527,-0.0206832],
+                  [-0.0135,-0.02338269],
+                  [-0.00923454,-0.0253717],
+                  [-0.0046885,-0.02658981],
+                  [0,-0.027],
+                  [0.0046885,-0.02658981],
+                  [0.00923454,-0.0253717],
+                  [0.0135,-0.02338269],
+                  [0.01735527,-0.0206832],
+                  [0.0206832,-0.01735527],
+                  [0.02338269,-0.0135],
+                  [0.0253717,-0.00923454],
+                  [0.02658981,-0.0046885]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#677f8b"
+            }
+          }
+        ],
+        "anchors": {
+          "support--0.265--0.26": {
+            "node": "stand--0.265--0.26",
+            "position": [-0.265,0.002,-0.26],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "support--0.265-0.26": {
+            "node": "stand--0.265-0.26",
+            "position": [-0.265,0.002,0.26],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "support-0.265--0.26": {
+            "node": "stand-0.265--0.26",
+            "position": [0.265,0.002,-0.26],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "support-0.265-0.26": {
+            "node": "stand-0.265-0.26",
+            "position": [0.265,0.002,0.26],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "door-tip--1": {
+            "node": "gate--1",
+            "position": [0.151,-0.01,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "door-tip-1": {
+            "node": "gate-1",
+            "position": [-0.151,-0.01,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "lifting-eye": {
+            "node": "lifting-eye",
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "load"
+          },
+          "discharge": {
+            "node": "discharge-flange",
+            "position": [0,0.288,0],
+            "direction": [0,-1,0],
+            "kind": "flow"
+          },
+          "fill": {
+            "node": "rim",
+            "position": [0,1.077,0],
+            "direction": [0,1,0],
+            "kind": "load"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "gate-angle",
+            "label": "底门开度",
+            "unit": "deg",
+            "value": 0,
+            "min": -70,
+            "max": 0,
+            "targets": [
+              {
+                "node": "gate--1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "gate-1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": -0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "lifting-bail-angle",
+            "label": "吊梁倾转",
+            "unit": "deg",
+            "value": 0,
+            "min": -30,
+            "max": 30,
+            "targets": [
+              {
+                "node": "lifting-bail",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

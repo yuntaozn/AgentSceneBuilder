@@ -1,0 +1,232 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.double-ended-quarter-turn-container-corner-twistlock",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双头四分之一转箱房角件扭锁",
+  "summary": "中间承板、上下长形锁头、共同竖轴和带明显标度的侧部手柄。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.double-ended-quarter-turn-container-corner-twistlock",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "箱体扭锁",
+    "角件连接",
+    "container-twistlock",
+    "quarter-turn-lock",
+    "临建和箱式模块",
+    "temporary-building"
+  ],
+  "anchors": [
+    "lower-seat",
+    "upper-seat",
+    "operation"
+  ],
+  "ai": {
+    "intent": "装在两箱体角件之间，插装与旋转锁定使用同一位置基准。",
+    "editableParts": [
+      "lock-turn"
+    ],
+    "qualityChecks": [
+      "承板位置保持固定。",
+      "两个锁头同轴联动。",
+      "上下角件方向成对。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "double-ended-quarter-turn-container-corner-twistlock",
+      "title": "双头四分之一转箱房角件扭锁",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "plate",
+            "semanticType": "construction.double-ended-quarter-turn-container-corner-twistlock.intermediate-bearing-twistlock-plate",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.041,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.05199999999999999,-0.059],
+                [-0.05199999999999999,-0.059],
+                [-0.071,-0.039999999999999994],
+                [-0.071,0.039999999999999994],
+                [-0.05199999999999999,0.059],
+                [0.05199999999999999,0.059],
+                [0.071,0.039999999999999994],
+                [0.071,-0.039999999999999994]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.017,-0.021],
+                  [-0.017,-0.021],
+                  [-0.025,-0.013000000000000001],
+                  [-0.025,0.013000000000000001],
+                  [-0.017,0.021],
+                  [0.017,0.021],
+                  [0.025,0.013000000000000001],
+                  [0.025,-0.013000000000000001]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9fb7c3"
+            }
+          },
+          {
+            "id": "rotation",
+            "semanticType": "construction.double-ended-quarter-turn-container-corner-twistlock.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "shaft",
+            "semanticType": "construction.double-ended-quarter-turn-container-corner-twistlock.common-twistlock-axis",
+            "parent": "rotation",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.061,0],
+              "end": [0,0.112,0],
+              "radius": 0.016,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bfd2da"
+            }
+          },
+          {
+            "id": "bottom",
+            "semanticType": "construction.double-ended-quarter-turn-container-corner-twistlock.rotary-oblong-lock-head",
+            "parent": "rotation",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.061,0],
+                [0,-0.032,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.03,-0.021],
+                [-0.03,-0.021],
+                [-0.037,-0.014000000000000002],
+                [-0.037,0.014000000000000002],
+                [-0.03,0.021],
+                [0.03,0.021],
+                [0.037,0.014000000000000002],
+                [0.037,-0.014000000000000002]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#83bcc7"
+            }
+          },
+          {
+            "id": "top",
+            "semanticType": "construction.double-ended-quarter-turn-container-corner-twistlock.rotary-oblong-lock-head",
+            "parent": "rotation",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.077,0],
+                [0,0.106,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.03,-0.021],
+                [-0.03,-0.021],
+                [-0.037,-0.014000000000000002],
+                [-0.037,0.014000000000000002],
+                [-0.03,0.021],
+                [0.03,0.021],
+                [0.037,0.014000000000000002],
+                [0.037,-0.014000000000000002]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#83bcc7"
+            }
+          },
+          {
+            "id": "handle",
+            "semanticType": "construction.double-ended-quarter-turn-container-corner-twistlock.compact-twistlock-handle",
+            "parent": "rotation",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.018,0],
+              "end": [0.113,0.018,0],
+              "radius": 0.0078,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bfd2da"
+            }
+          },
+          {
+            "id": "tip",
+            "semanticType": "construction.double-ended-quarter-turn-container-corner-twistlock.contrasting-handed-operating-handle",
+            "parent": "rotation",
+            "geometry": {
+              "type": "box",
+              "size": [0.03,0.014,0.016]
+            },
+            "appearance": {
+              "color": "#ebc477"
+            },
+            "transform": {
+              "position": [0.108,0.018,0]
+            }
+          }
+        ],
+        "anchors": {
+          "lower-seat": {
+            "node": "plate",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "corner-twistlock"
+          },
+          "upper-seat": {
+            "node": "plate",
+            "position": [0,0.041,0],
+            "direction": [0,1,0],
+            "kind": "corner-twistlock"
+          },
+          "operation": {
+            "node": "tip",
+            "position": [0.012,0,0],
+            "direction": [1,0,0],
+            "kind": "control"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "lock-turn",
+            "label": "锁头与手柄转角",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 90,
+            "targets": [
+              {
+                "node": "rotation",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

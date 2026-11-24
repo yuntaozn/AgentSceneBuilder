@@ -1,0 +1,298 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.v-notch-channel-flow-measurement-weir-box",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带 V 形堰口的渠道测流箱",
+  "summary": "开顶计量槽、V 形实孔堰板、进出口、固定水位参照和可移探针座。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "V 形堰",
+    "堰槽测量",
+    "v-notch-weir",
+    "channel-flow",
+    "工程检测",
+    "instrument"
+  ],
+  "anchors": [
+    "upstream",
+    "downstream",
+    "notch-datum",
+    "level-point"
+  ],
+  "ai": {
+    "intent": "在水力测量数字模型中直接调用独立开槽体和 V 形堰口。",
+    "editableParts": [
+      "gauge-height"
+    ],
+    "qualityChecks": [
+      "堰板缺口由实际轮廓构成。",
+      "测针位置随高度控制改变。",
+      "槽底和进出方向保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "v-notch-channel-flow-measurement-weir-box",
+      "title": "带 V 形堰口的渠道测流箱",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "channel-floor",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.measuring-channel-floor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.028,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.524,-0.186],
+                [-0.524,-0.186],
+                [-0.553,-0.157],
+                [-0.553,0.157],
+                [-0.524,0.186],
+                [0.524,0.186],
+                [0.553,0.157],
+                [0.553,-0.157]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#97afb9"
+            }
+          },
+          {
+            "id": "side--1",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.clear-channel-side",
+            "geometry": {
+              "type": "box",
+              "size": [1.035,0.268,0.022]
+            },
+            "appearance": {
+              "color": "#b3d0d5",
+              "opacity": 0.43
+            },
+            "transform": {
+              "position": [0,0.151,-0.164]
+            }
+          },
+          {
+            "id": "trim--1",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.upper-channel-brace",
+            "geometry": {
+              "type": "box",
+              "size": [1.059,0.018,0.034]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0,0.286,-0.164]
+            }
+          },
+          {
+            "id": "side-1",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.clear-channel-side",
+            "geometry": {
+              "type": "box",
+              "size": [1.035,0.268,0.022]
+            },
+            "appearance": {
+              "color": "#b3d0d5",
+              "opacity": 0.43
+            },
+            "transform": {
+              "position": [0,0.151,0.164]
+            }
+          },
+          {
+            "id": "trim-1",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.upper-channel-brace",
+            "geometry": {
+              "type": "box",
+              "size": [1.059,0.018,0.034]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            },
+            "transform": {
+              "position": [0,0.286,0.164]
+            }
+          },
+          {
+            "id": "weir",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.notched-measurement-plate",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.115,0,0],
+                [0.127,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.164,0.024],
+                [0.164,0.024],
+                [0.164,0.258],
+                [0.099,0.258],
+                [0,0.133],
+                [-0.099,0.258],
+                [-0.164,0.258]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#76b4c0"
+            }
+          },
+          {
+            "id": "instrument-crossbar",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.probe-support-bar",
+            "geometry": {
+              "type": "box",
+              "size": [0.042,0.027,0.337]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [-0.146,0.296,0]
+            }
+          },
+          {
+            "id": "probe",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.frame",
+            "transform": {
+              "position": [-0.148,0.318,0]
+            }
+          },
+          {
+            "id": "measure-head",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.level-head",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.053,0.044,0.049]
+            },
+            "appearance": {
+              "color": "#76b4c0"
+            },
+            "transform": {
+              "position": [0,0.023,0]
+            }
+          },
+          {
+            "id": "measure-stylus",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.contact-height-probe",
+            "parent": "probe",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.167,0],
+              "end": [0,0.019,0],
+              "radius": 0.0047,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            }
+          },
+          {
+            "id": "tip",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.float-reference-tip",
+            "parent": "probe",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.009,
+              "segments": 18
+            },
+            "appearance": {
+              "color": "#edb758"
+            },
+            "transform": {
+              "position": [0,-0.167,0]
+            }
+          },
+          {
+            "id": "end-ledge--1",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.channel-connection-ledger",
+            "geometry": {
+              "type": "box",
+              "size": [0.059,0.026,0.344]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [-0.526,0.013,0]
+            }
+          },
+          {
+            "id": "end-ledge-1",
+            "semanticType": "instrument.v-notch-channel-flow-measurement-weir-box.channel-connection-ledger",
+            "geometry": {
+              "type": "box",
+              "size": [0.059,0.026,0.344]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.526,0.013,0]
+            }
+          }
+        ],
+        "anchors": {
+          "upstream": {
+            "node": "channel-floor",
+            "position": [-0.553,0.024,0],
+            "direction": [-1,0,0],
+            "kind": "flow"
+          },
+          "downstream": {
+            "node": "channel-floor",
+            "position": [0.553,0.024,0],
+            "direction": [1,0,0],
+            "kind": "flow"
+          },
+          "notch-datum": {
+            "node": "weir",
+            "position": [0.122,0.133,0],
+            "direction": [0,1,0],
+            "kind": "reference"
+          },
+          "level-point": {
+            "node": "tip",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "gauge-height",
+            "label": "测针高度位移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.029,
+            "max": 0.055,
+            "targets": [
+              {
+                "node": "probe",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

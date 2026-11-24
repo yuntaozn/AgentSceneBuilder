@@ -1,0 +1,1021 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.digital-caliper-with-depth-blade",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带内外测爪及深度尺的数显卡尺",
+  "summary": "实尺梁、防脱导槽、带显示器活动尺框、外测与内测两组测爪，以及随尺框抽出的深度尺。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.digital-caliper-with-depth-blade",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "数显卡尺",
+    "游标卡尺",
+    "digital-caliper",
+    "depth-measurement",
+    "计量",
+    "instrument"
+  ],
+  "anchors": [
+    "outside-fixed",
+    "outside-moving",
+    "inside-fixed",
+    "inside-moving",
+    "depth-tip",
+    "depth-base"
+  ],
+  "ai": {
+    "intent": "为 Agent 提供独立量具模型和三类测量接口，按尺框行程表达开合。",
+    "editableParts": [
+      "caliper-travel"
+    ],
+    "qualityChecks": [
+      "外测和内测动尺爪随尺框移动。",
+      "深度接触点跟随尺框，深度基准留在尺梁。",
+      "动尺框通过榫槽套在主尺上。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "digital-caliper-with-depth-blade",
+      "title": "带内外测爪及深度尺的数显卡尺",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "beam",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.caliper-beam",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.0038,0],
+                [0,0.0038,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.030000000000000002,-0.012],
+                [-0.23800000000000002,-0.012],
+                [-0.24300000000000002,-0.007],
+                [-0.24300000000000002,0.007],
+                [-0.23800000000000002,0.012],
+                [0.030000000000000002,0.012],
+                [0.035,0.007],
+                [0.035,-0.007]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            }
+          },
+          {
+            "id": "scale-0",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.008]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.011,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-1",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.0155,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-2",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.019999999999999997,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-3",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.024499999999999997,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-4",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.028999999999999998,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-5",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.008]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.0335,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-6",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.03799999999999999,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-7",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.042499999999999996,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-8",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.047,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-9",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.05149999999999999,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-10",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.008]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.055999999999999994,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-11",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.0605,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-12",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.06499999999999999,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-13",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.06949999999999999,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-14",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.074,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-15",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.008]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.07849999999999999,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-16",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.08299999999999999,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-17",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.0875,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-18",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.09199999999999998,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-19",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.09649999999999999,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-20",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.008]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.10099999999999999,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-21",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.10549999999999998,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-22",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.10999999999999999,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-23",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.11449999999999999,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-24",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.11899999999999998,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-25",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.008]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.12349999999999998,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-26",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.128,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-27",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.1325,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-28",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.137,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-29",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.1415,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-30",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.008]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.146,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-31",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.1505,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-32",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.155,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-33",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.1595,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-34",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.164,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-35",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.008]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.1685,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-36",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.173,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-37",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.1775,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-38",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.182,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-39",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.1865,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-40",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.008]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.191,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-41",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.1955,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-42",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.19999999999999998,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-43",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.2045,0.004,0.004]
+            }
+          },
+          {
+            "id": "scale-44",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.beam-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.00065,0.0005,0.004]
+            },
+            "appearance": {
+              "color": "#6e828d"
+            },
+            "transform": {
+              "position": [0.209,0.004,0.004]
+            }
+          },
+          {
+            "id": "fixed-outer",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.fixed-outer-jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.005,0],
+                [0,0.005,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.032,-0.008],
+                [0,-0.008],
+                [-0.001,-0.054],
+                [0.004,-0.061],
+                [0.013,-0.059],
+                [0.022,-0.043],
+                [0.031,-0.022]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            }
+          },
+          {
+            "id": "fixed-inner",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.fixed-inner-jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.031,0.009],
+                [-0.003,0.009],
+                [-0.003,0.037],
+                [0.004,0.042],
+                [0.011,0.039],
+                [0.017,0.028]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            }
+          },
+          {
+            "id": "slider",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.frame",
+            "transform": {
+              "position": [0.023,0,0]
+            }
+          },
+          {
+            "id": "guide-frame",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.hollow-caliper-frame",
+            "parent": "slider",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.011,0,0],
+                [0.07,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.025,-0.008],
+                [0.022,-0.008],
+                [0.022,0.015],
+                [-0.025,0.015]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.013,-0.004],
+                  [0.013,-0.004],
+                  [0.013,0.004],
+                  [-0.013,0.004]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#526068"
+            }
+          },
+          {
+            "id": "moving-outer",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.moving-outer-jaw",
+            "parent": "slider",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.005,0],
+                [0,0.005,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,-0.009],
+                [-0.027,-0.009],
+                [-0.026,-0.028],
+                [-0.017,-0.047],
+                [-0.007,-0.061],
+                [0,-0.06]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            }
+          },
+          {
+            "id": "moving-inner",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.moving-inner-jaw",
+            "parent": "slider",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0.009],
+                [-0.035,0.009],
+                [-0.019,0.024],
+                [-0.01,0.039],
+                [0,0.041],
+                [0.002,0.036]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            }
+          },
+          {
+            "id": "screen-recess",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.display-bezel",
+            "parent": "slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.051,0.0035,0.032]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.027,0.016,0]
+            }
+          },
+          {
+            "id": "display-cover",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.lcd-window",
+            "parent": "slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.043,0.0028,0.018]
+            },
+            "appearance": {
+              "color": "#a3b6a1"
+            },
+            "transform": {
+              "position": [0.029,0.018,0.004]
+            }
+          },
+          {
+            "id": "button-0",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.mode-key",
+            "parent": "slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.0024,0.005]
+            },
+            "appearance": {
+              "color": "#c67355"
+            },
+            "transform": {
+              "position": [0.013,0.018,-0.009]
+            }
+          },
+          {
+            "id": "button-1",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.mode-key",
+            "parent": "slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.0024,0.005]
+            },
+            "appearance": {
+              "color": "#3d9196"
+            },
+            "transform": {
+              "position": [0.027,0.018,-0.009]
+            }
+          },
+          {
+            "id": "button-2",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.mode-key",
+            "parent": "slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.0024,0.005]
+            },
+            "appearance": {
+              "color": "#3d9196"
+            },
+            "transform": {
+              "position": [0.041,0.018,-0.009]
+            }
+          },
+          {
+            "id": "lock-screw",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.slider-lock-screw",
+            "parent": "slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.057,0,0.023],
+              "end": [0.057,0,0.034],
+              "radius": 0.004,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            }
+          },
+          {
+            "id": "thumb-roller",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.thumbnut",
+            "parent": "slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.07,-0.008,-0.016],
+              "end": [0.07,0.005,-0.016],
+              "radius": 0.01,
+              "radialSegments": 32
+            },
+            "appearance": {
+              "color": "#637985"
+            }
+          },
+          {
+            "id": "depth-blade",
+            "semanticType": "instrument.digital-caliper-with-depth-blade.sliding-depth-blade",
+            "parent": "slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.224,0.0029,0.005]
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            },
+            "transform": {
+              "position": [0.109,-0.0057,0]
+            }
+          }
+        ],
+        "anchors": {
+          "outside-fixed": {
+            "node": "fixed-outer",
+            "position": [0.001,0,-0.05],
+            "direction": [1,0,0],
+            "kind": "contact"
+          },
+          "outside-moving": {
+            "node": "moving-outer",
+            "position": [0,0,-0.05],
+            "direction": [-1,0,0],
+            "kind": "contact"
+          },
+          "inside-fixed": {
+            "node": "fixed-inner",
+            "position": [0.003,0,0.033],
+            "direction": [-1,0,0],
+            "kind": "contact"
+          },
+          "inside-moving": {
+            "node": "moving-inner",
+            "position": [-0.001,0,0.033],
+            "direction": [1,0,0],
+            "kind": "contact"
+          },
+          "depth-tip": {
+            "node": "depth-blade",
+            "position": [0.112,0,0],
+            "direction": [1,0,0],
+            "kind": "contact"
+          },
+          "depth-base": {
+            "node": "beam",
+            "position": [0.243,-0.0057,0],
+            "direction": [1,0,0],
+            "kind": "reference"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "caliper-travel",
+            "label": "尺框开度变化",
+            "unit": "m",
+            "value": 0,
+            "min": -0.02,
+            "max": 0.139,
+            "targets": [
+              {
+                "node": "slider",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

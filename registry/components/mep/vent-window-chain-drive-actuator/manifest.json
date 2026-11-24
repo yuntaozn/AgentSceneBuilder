@@ -1,0 +1,876 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.vent-window-chain-drive-actuator",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "通风窗电动链式开窗器",
+  "summary": "多孔机壳、可动链头、前后支座、带孔端接片和可编辑伸出行程。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.vent-window-chain-drive-actuator",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "链式开窗器",
+    "窗执行器",
+    "window-chain-drive",
+    "vent-operator",
+    "机电构件",
+    "mep"
+  ],
+  "anchors": [
+    "mount--1",
+    "mount-1",
+    "chain-end",
+    "chain-axis"
+  ],
+  "ai": {
+    "intent": "为通风窗或屋面翻板提供独立链式驱动器和端接轴孔。",
+    "editableParts": [
+      "chain-travel"
+    ],
+    "qualityChecks": [
+      "链头沿导向轴运动。",
+      "两个安装脚保持固定。",
+      "活动端连接眼有真实通孔。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "vent-window-chain-drive-actuator",
+      "title": "通风窗电动链式开窗器",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "actuator-body",
+            "semanticType": "mep.vent-window-chain-drive-actuator.long-actuator-housing",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.009,0],
+                [0,0.057,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.212,-0.122],
+                [-0.212,-0.122],
+                [-0.224,-0.11],
+                [-0.224,0.017],
+                [-0.212,0.029],
+                [0.212,0.029],
+                [0.224,0.017],
+                [0.224,-0.11]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "service-cover",
+            "semanticType": "mep.vent-window-chain-drive-actuator.actuator-cover",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.052,0],
+                [0,0.063,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.208,-0.121],
+                [-0.208,-0.121],
+                [-0.218,-0.111],
+                [-0.218,0.018000000000000002],
+                [-0.208,0.028],
+                [0.208,0.028],
+                [0.218,0.018000000000000002],
+                [0.218,-0.111]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.151,0],
+                  [0.15144049,0.00278115],
+                  [0.15271885,0.00529007],
+                  [0.15470993,0.00728115],
+                  [0.15721885,0.00855951],
+                  [0.16,0.009],
+                  [0.16278115,0.00855951],
+                  [0.16529007,0.00728115],
+                  [0.16728115,0.00529007],
+                  [0.16855951,0.00278115],
+                  [0.169,0],
+                  [0.16855951,-0.00278115],
+                  [0.16728115,-0.00529007],
+                  [0.16529007,-0.00728115],
+                  [0.16278115,-0.00855951],
+                  [0.16,-0.009],
+                  [0.15721885,-0.00855951],
+                  [0.15470993,-0.00728115],
+                  [0.15271885,-0.00529007],
+                  [0.15144049,-0.00278115]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#748995"
+            }
+          },
+          {
+            "id": "mount-ear--1",
+            "semanticType": "mep.vent-window-chain-drive-actuator.frame",
+            "transform": {
+              "position": [-0.177,0,0]
+            }
+          },
+          {
+            "id": "mount-plate--1",
+            "semanticType": "mep.vent-window-chain-drive-actuator.slotted-window-mount",
+            "parent": "mount-ear--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.025,-0.051],
+                [-0.025,-0.051],
+                [-0.035,-0.040999999999999995],
+                [-0.035,0.040999999999999995],
+                [-0.025,0.051],
+                [0.025,0.051],
+                [0.035,0.040999999999999995],
+                [0.035,-0.040999999999999995]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.002,-0.042],
+                  [-0.002,-0.042],
+                  [-0.006,-0.038000000000000006],
+                  [-0.006,-0.020000000000000004],
+                  [-0.002,-0.016000000000000004],
+                  [0.002,-0.016000000000000004],
+                  [0.006,-0.020000000000000004],
+                  [0.006,-0.038000000000000006]
+                ],
+                [
+                  [0.002,0.016],
+                  [-0.002,0.016],
+                  [-0.006,0.02],
+                  [-0.006,0.03799999999999999],
+                  [-0.002,0.041999999999999996],
+                  [0.002,0.041999999999999996],
+                  [0.006,0.03799999999999999],
+                  [0.006,0.02]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#597381"
+            }
+          },
+          {
+            "id": "mount-ear-1",
+            "semanticType": "mep.vent-window-chain-drive-actuator.frame",
+            "transform": {
+              "position": [0.177,0,0]
+            }
+          },
+          {
+            "id": "mount-plate-1",
+            "semanticType": "mep.vent-window-chain-drive-actuator.slotted-window-mount",
+            "parent": "mount-ear-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.025,-0.051],
+                [-0.025,-0.051],
+                [-0.035,-0.040999999999999995],
+                [-0.035,0.040999999999999995],
+                [-0.025,0.051],
+                [0.025,0.051],
+                [0.035,0.040999999999999995],
+                [0.035,-0.040999999999999995]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.002,-0.042],
+                  [-0.002,-0.042],
+                  [-0.006,-0.038000000000000006],
+                  [-0.006,-0.020000000000000004],
+                  [-0.002,-0.016000000000000004],
+                  [0.002,-0.016000000000000004],
+                  [0.006,-0.020000000000000004],
+                  [0.006,-0.038000000000000006]
+                ],
+                [
+                  [0.002,0.016],
+                  [-0.002,0.016],
+                  [-0.006,0.02],
+                  [-0.006,0.03799999999999999],
+                  [-0.002,0.041999999999999996],
+                  [0.002,0.041999999999999996],
+                  [0.006,0.03799999999999999],
+                  [0.006,0.02]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#597381"
+            }
+          },
+          {
+            "id": "chain-guide",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-exit-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.054,0.027,0.04]
+            },
+            "appearance": {
+              "color": "#485964"
+            },
+            "transform": {
+              "position": [0.182,0.033,0.029]
+            }
+          },
+          {
+            "id": "chain-head",
+            "semanticType": "mep.vent-window-chain-drive-actuator.frame",
+            "transform": {
+              "position": [0.182,0.033,0.092]
+            }
+          },
+          {
+            "id": "connection-ear",
+            "semanticType": "mep.vent-window-chain-drive-actuator.actuator-eye",
+            "parent": "chain-head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.007,0,0],
+                [0.007,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.005000000000000001,-0.012],
+                [-0.005000000000000001,-0.012],
+                [-0.014,-0.003000000000000001],
+                [-0.014,0.055],
+                [-0.005000000000000001,0.064],
+                [0.005000000000000001,0.064],
+                [0.014,0.055],
+                [0.014,-0.003000000000000001]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0038,0.046],
+                  [-0.00361401,0.04717426],
+                  [-0.00307426,0.04823358],
+                  [-0.00223358,0.04907426],
+                  [-0.00117426,0.04961401],
+                  [0,0.0498],
+                  [0.00117426,0.04961401],
+                  [0.00223358,0.04907426],
+                  [0.00307426,0.04823358],
+                  [0.00361401,0.04717426],
+                  [0.0038,0.046],
+                  [0.00361401,0.04482574],
+                  [0.00307426,0.04376642],
+                  [0.00223358,0.04292574],
+                  [0.00117426,0.04238599],
+                  [0,0.0422],
+                  [-0.00117426,0.04238599],
+                  [-0.00223358,0.04292574],
+                  [-0.00307426,0.04376642],
+                  [-0.00361401,0.04482574]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-slider",
+            "semanticType": "mep.vent-window-chain-drive-actuator.frame",
+            "transform": {
+              "position": [0.182,0.033,0.047]
+            }
+          },
+          {
+            "id": "chain-plate-0",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.153]
+            }
+          },
+          {
+            "id": "joint-0",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.153],
+              "end": [0.01,0,-0.153],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-1",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.1408]
+            }
+          },
+          {
+            "id": "joint-1",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.1408],
+              "end": [0.01,0,-0.1408],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-2",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.1286]
+            }
+          },
+          {
+            "id": "joint-2",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.1286],
+              "end": [0.01,0,-0.1286],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-3",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.1164]
+            }
+          },
+          {
+            "id": "joint-3",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.1164],
+              "end": [0.01,0,-0.1164],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-4",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.10419999999999999]
+            }
+          },
+          {
+            "id": "joint-4",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.10419999999999999],
+              "end": [0.01,0,-0.10419999999999999],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-5",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.092]
+            }
+          },
+          {
+            "id": "joint-5",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.092],
+              "end": [0.01,0,-0.092],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-6",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.0798]
+            }
+          },
+          {
+            "id": "joint-6",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.0798],
+              "end": [0.01,0,-0.0798],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-7",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.0676]
+            }
+          },
+          {
+            "id": "joint-7",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.0676],
+              "end": [0.01,0,-0.0676],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-8",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.05539999999999999]
+            }
+          },
+          {
+            "id": "joint-8",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.05539999999999999],
+              "end": [0.01,0,-0.05539999999999999],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-9",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.04319999999999999]
+            }
+          },
+          {
+            "id": "joint-9",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.04319999999999999],
+              "end": [0.01,0,-0.04319999999999999],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-10",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.030999999999999986]
+            }
+          },
+          {
+            "id": "joint-10",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.030999999999999986],
+              "end": [0.01,0,-0.030999999999999986],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-11",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.018799999999999983]
+            }
+          },
+          {
+            "id": "joint-11",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.018799999999999983],
+              "end": [0.01,0,-0.018799999999999983],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-12",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,-0.006599999999999995]
+            }
+          },
+          {
+            "id": "joint-12",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,-0.006599999999999995],
+              "end": [0.01,0,-0.006599999999999995],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-13",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,0.005600000000000022]
+            }
+          },
+          {
+            "id": "joint-13",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,0.005600000000000022],
+              "end": [0.01,0,0.005600000000000022],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-14",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,0.01780000000000001]
+            }
+          },
+          {
+            "id": "joint-14",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,0.01780000000000001],
+              "end": [0.01,0,0.01780000000000001],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-15",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,0.030000000000000027]
+            }
+          },
+          {
+            "id": "joint-15",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,0.030000000000000027],
+              "end": [0.01,0,0.030000000000000027],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "chain-plate-16",
+            "semanticType": "mep.vent-window-chain-drive-actuator.articulating-chain-segment",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#6a818e"
+            },
+            "transform": {
+              "position": [0,0,0.042200000000000015]
+            }
+          },
+          {
+            "id": "joint-16",
+            "semanticType": "mep.vent-window-chain-drive-actuator.chain-pivot-pin",
+            "parent": "chain-slider",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01,0,0.042200000000000015],
+              "end": [0.01,0,0.042200000000000015],
+              "radius": 0.0027,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          }
+        ],
+        "anchors": {
+          "mount--1": {
+            "node": "mount-ear--1",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "mount-1": {
+            "node": "mount-ear-1",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "chain-end": {
+            "node": "chain-head",
+            "position": [0,0.046,0],
+            "direction": [1,0,0],
+            "kind": "pin"
+          },
+          "chain-axis": {
+            "node": "chain-guide",
+            "position": [0,0,0.02],
+            "direction": [0,0,1],
+            "kind": "axis"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "chain-travel",
+            "label": "链节伸出量",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.149,
+            "targets": [
+              {
+                "node": "chain-head",
+                "property": "position",
+                "axis": "z"
+              },
+              {
+                "node": "chain-slider",
+                "property": "position",
+                "axis": "z"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

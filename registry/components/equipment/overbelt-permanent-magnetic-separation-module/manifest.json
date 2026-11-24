@@ -1,0 +1,655 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.overbelt-permanent-magnetic-separation-module",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "悬置自卸式带式磁选机",
+  "summary": "开放悬挂框、真实环形短皮带、两端滚筒和固定磁块，可调整安装倾角。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.overbelt-permanent-magnetic-separation-module",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "带式磁选机",
+    "悬挂除铁器",
+    "magnetic-separator",
+    "overbelt-magnet",
+    "建筑材料回收",
+    "material-recycling"
+  ],
+  "anchors": [
+    "hanger--1--0.267",
+    "hanger--1-0.267",
+    "hanger-1--0.267",
+    "hanger-1-0.267",
+    "pickup-plane",
+    "ferrous-discharge",
+    "hanging-reference"
+  ],
+  "ai": {
+    "intent": "单独安装在骨料输送带上方，按吸取平面、四吊点和侧向落料位置组织回收设备。",
+    "editableParts": [
+      "separator-slope"
+    ],
+    "qualityChecks": [
+      "上置磁块与真实闭合带面独立。",
+      "工作锚点随整机倾角。",
+      "固定安装基准可用于挂装。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "overbelt-permanent-magnetic-separation-module",
+      "title": "悬置自卸式带式磁选机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "suspended-head",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "rail--1",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.suspended-conveyor-sidebeam",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.101,0.754]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            },
+            "transform": {
+              "position": [-0.339,0.154,0]
+            }
+          },
+          {
+            "id": "lifting-lug--1--0.267",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.drilled-overhead-suspension-lug",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.28],
+                [0,0,-0.254]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.35700000000000004,0.196],
+                [-0.32100000000000006,0.196],
+                [-0.31000000000000005,0.20700000000000002],
+                [-0.31000000000000005,0.289],
+                [-0.32100000000000006,0.3],
+                [-0.35700000000000004,0.3],
+                [-0.36800000000000005,0.289],
+                [-0.36800000000000005,0.20700000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.328,0.251],
+                  [-0.32834559,0.25373559],
+                  [-0.32936063,0.25629929],
+                  [-0.33098135,0.25853002],
+                  [-0.33310591,0.26028761],
+                  [-0.33560081,0.26146162],
+                  [-0.3383093,0.26197829],
+                  [-0.34106119,0.26180516],
+                  [-0.34368357,0.2609531],
+                  [-0.34601166,0.25947565],
+                  [-0.34789919,0.25746564],
+                  [-0.34922754,0.25504937],
+                  [-0.34991326,0.25237867],
+                  [-0.34991326,0.24962133],
+                  [-0.34922754,0.24695063],
+                  [-0.34789919,0.24453436],
+                  [-0.34601166,0.24252435],
+                  [-0.34368357,0.2410469],
+                  [-0.34106119,0.24019484],
+                  [-0.3383093,0.24002171],
+                  [-0.33560081,0.24053838],
+                  [-0.33310591,0.24171239],
+                  [-0.33098135,0.24346998],
+                  [-0.32936063,0.24570071],
+                  [-0.32834559,0.24826441]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "lifting-lug--1-0.267",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.drilled-overhead-suspension-lug",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.254],
+                [0,0,0.28]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.35700000000000004,0.196],
+                [-0.32100000000000006,0.196],
+                [-0.31000000000000005,0.20700000000000002],
+                [-0.31000000000000005,0.289],
+                [-0.32100000000000006,0.3],
+                [-0.35700000000000004,0.3],
+                [-0.36800000000000005,0.289],
+                [-0.36800000000000005,0.20700000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.328,0.251],
+                  [-0.32834559,0.25373559],
+                  [-0.32936063,0.25629929],
+                  [-0.33098135,0.25853002],
+                  [-0.33310591,0.26028761],
+                  [-0.33560081,0.26146162],
+                  [-0.3383093,0.26197829],
+                  [-0.34106119,0.26180516],
+                  [-0.34368357,0.2609531],
+                  [-0.34601166,0.25947565],
+                  [-0.34789919,0.25746564],
+                  [-0.34922754,0.25504937],
+                  [-0.34991326,0.25237867],
+                  [-0.34991326,0.24962133],
+                  [-0.34922754,0.24695063],
+                  [-0.34789919,0.24453436],
+                  [-0.34601166,0.24252435],
+                  [-0.34368357,0.2410469],
+                  [-0.34106119,0.24019484],
+                  [-0.3383093,0.24002171],
+                  [-0.33560081,0.24053838],
+                  [-0.33310591,0.24171239],
+                  [-0.33098135,0.24346998],
+                  [-0.32936063,0.24570071],
+                  [-0.32834559,0.24826441]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "rail-1",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.suspended-conveyor-sidebeam",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.101,0.754]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            },
+            "transform": {
+              "position": [0.339,0.154,0]
+            }
+          },
+          {
+            "id": "lifting-lug-1--0.267",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.drilled-overhead-suspension-lug",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.28],
+                [0,0,-0.254]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.321,0.196],
+                [0.357,0.196],
+                [0.368,0.20700000000000002],
+                [0.368,0.289],
+                [0.357,0.3],
+                [0.321,0.3],
+                [0.31,0.289],
+                [0.31,0.20700000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.35,0.251],
+                  [0.34965441,0.25373559],
+                  [0.34863937,0.25629929],
+                  [0.34701865,0.25853002],
+                  [0.34489409,0.26028761],
+                  [0.34239919,0.26146162],
+                  [0.3396907,0.26197829],
+                  [0.33693881,0.26180516],
+                  [0.33431643,0.2609531],
+                  [0.33198834,0.25947565],
+                  [0.33010081,0.25746564],
+                  [0.32877246,0.25504937],
+                  [0.32808674,0.25237867],
+                  [0.32808674,0.24962133],
+                  [0.32877246,0.24695063],
+                  [0.33010081,0.24453436],
+                  [0.33198834,0.24252435],
+                  [0.33431643,0.2410469],
+                  [0.33693881,0.24019484],
+                  [0.3396907,0.24002171],
+                  [0.34239919,0.24053838],
+                  [0.34489409,0.24171239],
+                  [0.34701865,0.24346998],
+                  [0.34863937,0.24570071],
+                  [0.34965441,0.24826441]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "lifting-lug-1-0.267",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.drilled-overhead-suspension-lug",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.254],
+                [0,0,0.28]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.321,0.196],
+                [0.357,0.196],
+                [0.368,0.20700000000000002],
+                [0.368,0.289],
+                [0.357,0.3],
+                [0.321,0.3],
+                [0.31,0.289],
+                [0.31,0.20700000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.35,0.251],
+                  [0.34965441,0.25373559],
+                  [0.34863937,0.25629929],
+                  [0.34701865,0.25853002],
+                  [0.34489409,0.26028761],
+                  [0.34239919,0.26146162],
+                  [0.3396907,0.26197829],
+                  [0.33693881,0.26180516],
+                  [0.33431643,0.2609531],
+                  [0.33198834,0.25947565],
+                  [0.33010081,0.25746564],
+                  [0.32877246,0.25504937],
+                  [0.32808674,0.25237867],
+                  [0.32808674,0.24962133],
+                  [0.32877246,0.24695063],
+                  [0.33010081,0.24453436],
+                  [0.33198834,0.24252435],
+                  [0.33431643,0.2410469],
+                  [0.33693881,0.24019484],
+                  [0.3396907,0.24002171],
+                  [0.34239919,0.24053838],
+                  [0.34489409,0.24171239],
+                  [0.34701865,0.24346998],
+                  [0.34863937,0.24570071],
+                  [0.34965441,0.24826441]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "belt",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.closed-self-cleaning-belt-loop",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.294,0,0],
+                [0.294,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.29,0.023],
+                [-0.29850876,0.02374442],
+                [-0.30675899,0.02595506],
+                [-0.3145,0.02956476],
+                [-0.32149659,0.03446382],
+                [-0.32753618,0.04050341],
+                [-0.33243524,0.0475],
+                [-0.33604494,0.05524101],
+                [-0.33825558,0.06349124],
+                [-0.339,0.072],
+                [-0.33825558,0.08050876],
+                [-0.33604494,0.08875899],
+                [-0.33243524,0.0965],
+                [-0.32753618,0.10349659],
+                [-0.32149659,0.10953618],
+                [-0.3145,0.11443524],
+                [-0.30675899,0.11804494],
+                [-0.29850876,0.12025558],
+                [-0.29,0.121],
+                [0.29,0.121],
+                [0.29850876,0.12025558],
+                [0.30675899,0.11804494],
+                [0.3145,0.11443524],
+                [0.32149659,0.10953618],
+                [0.32753618,0.10349659],
+                [0.33243524,0.0965],
+                [0.33604494,0.08875899],
+                [0.33825558,0.08050876],
+                [0.339,0.072],
+                [0.33825558,0.06349124],
+                [0.33604494,0.05524101],
+                [0.33243524,0.0475],
+                [0.32753618,0.04050341],
+                [0.32149659,0.03446382],
+                [0.3145,0.02956476],
+                [0.30675899,0.02595506],
+                [0.29850876,0.02374442],
+                [0.29,0.023]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.29,0.029],
+                  [-0.29746687,0.02965327],
+                  [-0.30470687,0.03159322],
+                  [-0.3115,0.03476091],
+                  [-0.31763987,0.03906009],
+                  [-0.32293991,0.04436013],
+                  [-0.32723909,0.0505],
+                  [-0.33040678,0.05729313],
+                  [-0.33234673,0.06453313],
+                  [-0.333,0.072],
+                  [-0.33234673,0.07946687],
+                  [-0.33040678,0.08670687],
+                  [-0.32723909,0.0935],
+                  [-0.32293991,0.09963987],
+                  [-0.31763987,0.10493991],
+                  [-0.3115,0.10923909],
+                  [-0.30470687,0.11240678],
+                  [-0.29746687,0.11434673],
+                  [-0.29,0.115],
+                  [0.29,0.115],
+                  [0.29746687,0.11434673],
+                  [0.30470687,0.11240678],
+                  [0.3115,0.10923909],
+                  [0.31763987,0.10493991],
+                  [0.32293991,0.09963987],
+                  [0.32723909,0.0935],
+                  [0.33040678,0.08670687],
+                  [0.33234673,0.07946687],
+                  [0.333,0.072],
+                  [0.33234673,0.06453313],
+                  [0.33040678,0.05729313],
+                  [0.32723909,0.0505],
+                  [0.32293991,0.04436013],
+                  [0.31763987,0.03906009],
+                  [0.3115,0.03476091],
+                  [0.30470687,0.03159322],
+                  [0.29746687,0.02965327],
+                  [0.29,0.029]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5b7580"
+            }
+          },
+          {
+            "id": "guide-roller--0.29",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.belt-return-end-roller",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.301,0.072,-0.29],
+              "end": [0.304,0.072,-0.29],
+              "radius": 0.042,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "roller-axle--0.29",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.through-drive-roller-axis",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.359,0.072,-0.29],
+              "end": [0.359,0.072,-0.29],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            }
+          },
+          {
+            "id": "guide-roller-0.29",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.belt-return-end-roller",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.301,0.072,0.29],
+              "end": [0.304,0.072,0.29],
+              "radius": 0.042,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "roller-axle-0.29",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.through-drive-roller-axis",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.359,0.072,0.29],
+              "end": [0.359,0.072,0.29],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            }
+          },
+          {
+            "id": "magnetic-core",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.stationary-magnetic-cassette",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.524,0.055,0.337]
+            },
+            "appearance": {
+              "color": "#ebc06d"
+            },
+            "transform": {
+              "position": [0,0.079,0.025]
+            }
+          },
+          {
+            "id": "upper-guard",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.magnet-lifting-crossplate",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.691,0.043,0.159]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            },
+            "transform": {
+              "position": [0,0.188,0]
+            }
+          },
+          {
+            "id": "motor",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.magnetic-belt-drive-head",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.127,0.106,0.125]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            },
+            "transform": {
+              "position": [-0.417,0.11,0.274]
+            }
+          },
+          {
+            "id": "cleat--0.204",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.non-magnetic-cleat",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.557,0.016,0.014]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.022,-0.204]
+            }
+          },
+          {
+            "id": "cleat--0.087",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.non-magnetic-cleat",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.557,0.016,0.014]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.022,-0.087]
+            }
+          },
+          {
+            "id": "cleat-0.03",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.non-magnetic-cleat",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.557,0.016,0.014]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.022,0.03]
+            }
+          },
+          {
+            "id": "cleat-0.147",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.non-magnetic-cleat",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.557,0.016,0.014]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.022,0.147]
+            }
+          },
+          {
+            "id": "cleat-0.264",
+            "semanticType": "equipment.overbelt-permanent-magnetic-separation-module.non-magnetic-cleat",
+            "parent": "suspended-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.557,0.016,0.014]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.022,0.264]
+            }
+          }
+        ],
+        "anchors": {
+          "hanger--1--0.267": {
+            "node": "lifting-lug--1--0.267",
+            "position": [-0.339,0.251,-0.267],
+            "direction": [0,1,0],
+            "kind": "lift"
+          },
+          "hanger--1-0.267": {
+            "node": "lifting-lug--1-0.267",
+            "position": [-0.339,0.251,0.267],
+            "direction": [0,1,0],
+            "kind": "lift"
+          },
+          "hanger-1--0.267": {
+            "node": "lifting-lug-1--0.267",
+            "position": [0.339,0.251,-0.267],
+            "direction": [0,1,0],
+            "kind": "lift"
+          },
+          "hanger-1-0.267": {
+            "node": "lifting-lug-1-0.267",
+            "position": [0.339,0.251,0.267],
+            "direction": [0,1,0],
+            "kind": "lift"
+          },
+          "pickup-plane": {
+            "node": "belt",
+            "position": [0,0.018,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "ferrous-discharge": {
+            "node": "belt",
+            "position": [0,0.044,0.341],
+            "direction": [0,0,1],
+            "kind": "bulk-flow"
+          },
+          "hanging-reference": {
+            "position": [0,0.226,0],
+            "direction": [0,1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "separator-slope",
+            "label": "悬置分选带倾角",
+            "unit": "deg",
+            "value": 0,
+            "min": -16,
+            "max": 16,
+            "targets": [
+              {
+                "node": "suspended-head",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

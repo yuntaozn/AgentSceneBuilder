@@ -1,0 +1,1170 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.skid-mounted-hydraulic-power-pack",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "橇装电动液压动力站",
+  "summary": "可拆检修盖、油箱、外置电机与叶片泵、吸回油接口、压力表、方向阀和四角橇架。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.skid-mounted-hydraulic-power-pack",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "液压动力站",
+    "液压油站",
+    "hydraulic-power-pack",
+    "fluid-power",
+    "施工设备",
+    "equipment"
+  ],
+  "anchors": [
+    "pressure-out",
+    "tank-return",
+    "fill",
+    "base"
+  ],
+  "ai": {
+    "intent": "在液压设备装配中调用独立动力站和压力、回油接口。",
+    "editableParts": [
+      "tank-inspection",
+      "valve-angle"
+    ],
+    "qualityChecks": [
+      "固定橇架和外部液压接口保持静止。",
+      "油箱盖与换向阀分别可编辑。",
+      "箱体开盖后可查看内壁与储油空腔。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "skid-mounted-hydraulic-power-pack",
+      "title": "橇装电动液压动力站",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "skid",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.power-skid",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.027,0],
+                [0,0.063,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.313,-0.226],
+                [-0.313,-0.226],
+                [-0.351,-0.188],
+                [-0.351,0.188],
+                [-0.313,0.226],
+                [0.313,0.226],
+                [0.351,0.188],
+                [0.351,-0.188]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.25999999999999995,-0.168],
+                  [-0.25999999999999995,-0.168],
+                  [-0.288,-0.14],
+                  [-0.288,0.14],
+                  [-0.25999999999999995,0.168],
+                  [0.25999999999999995,0.168],
+                  [0.288,0.14],
+                  [0.288,-0.14]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "tank-floor",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.oil-tank-floor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.063,0],
+                [0,0.088,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.26599999999999996,-0.175],
+                [-0.21800000000000005,-0.175],
+                [-0.24700000000000005,-0.146],
+                [-0.24700000000000005,0.146],
+                [-0.21800000000000005,0.175],
+                [0.26599999999999996,0.175],
+                [0.295,0.146],
+                [0.295,-0.146]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#409097"
+            }
+          },
+          {
+            "id": "tank-wall",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.oil-tank-wall",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.088,0],
+                [0,0.279,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.26599999999999996,-0.175],
+                [-0.21800000000000005,-0.175],
+                [-0.24700000000000005,-0.146],
+                [-0.24700000000000005,0.146],
+                [-0.21800000000000005,0.175],
+                [0.26599999999999996,0.175],
+                [0.295,0.146],
+                [0.295,-0.146]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.258,-0.158],
+                  [-0.21,-0.158],
+                  [-0.22899999999999998,-0.139],
+                  [-0.22899999999999998,0.139],
+                  [-0.21,0.158],
+                  [0.258,0.158],
+                  [0.277,0.139],
+                  [0.277,-0.139]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#409097"
+            }
+          },
+          {
+            "id": "fixed-lid",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.reservoir-fixed-deck",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.277,0],
+                [0,0.291,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.27199999999999996,-0.179],
+                [-0.23000000000000007,-0.179],
+                [-0.25300000000000006,-0.156],
+                [-0.25300000000000006,0.07400000000000004],
+                [-0.23000000000000007,0.09700000000000003],
+                [0.27199999999999996,0.09700000000000003],
+                [0.295,0.07400000000000004],
+                [0.295,-0.156]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.091,-0.095],
+                  [0.09181778,-0.08878834],
+                  [0.09421539,-0.083],
+                  [0.09802944,-0.07802944],
+                  [0.103,-0.07421539],
+                  [0.10878834,-0.07181778],
+                  [0.115,-0.071],
+                  [0.12121166,-0.07181778],
+                  [0.127,-0.07421539],
+                  [0.13197056,-0.07802944],
+                  [0.13578461,-0.083],
+                  [0.13818222,-0.08878834],
+                  [0.139,-0.095],
+                  [0.13818222,-0.10121166],
+                  [0.13578461,-0.107],
+                  [0.13197056,-0.11197056],
+                  [0.127,-0.11578461],
+                  [0.12121166,-0.11818222],
+                  [0.115,-0.119],
+                  [0.10878834,-0.11818222],
+                  [0.103,-0.11578461],
+                  [0.09802944,-0.11197056],
+                  [0.09421539,-0.107],
+                  [0.09181778,-0.10121166]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "inspection-lid",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.frame",
+            "transform": {
+              "position": [0,0.277,0.099]
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.reservoir-service-lid",
+            "parent": "inspection-lid",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.014,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.27899999999999997,0],
+                [-0.23700000000000004,0],
+                [-0.25300000000000006,0.016],
+                [-0.25300000000000006,0.066],
+                [-0.23700000000000004,0.082],
+                [0.27899999999999997,0.082],
+                [0.295,0.066],
+                [0.295,0.016]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#6f848e"
+            }
+          },
+          {
+            "id": "grip-location",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.frame",
+            "parent": "inspection-lid",
+            "transform": {
+              "position": [0.159,0,0.048]
+            }
+          },
+          {
+            "id": "lid-grip",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.reservoir-grip",
+            "parent": "grip-location",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.014,0],
+                [0,0.025,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.029,0],
+                [0.02844277,0.00565762],
+                [0.02679251,0.01109782],
+                [0.02411262,0.01611154],
+                [0.0205061,0.0205061],
+                [0.01611154,0.02411262],
+                [0.01109782,0.02679251],
+                [0.00565762,0.02844277],
+                [0,0.029],
+                [-0.00565762,0.02844277],
+                [-0.01109782,0.02679251],
+                [-0.01611154,0.02411262],
+                [-0.0205061,0.0205061],
+                [-0.02411262,0.01611154],
+                [-0.02679251,0.01109782],
+                [-0.02844277,0.00565762],
+                [-0.029,0],
+                [-0.02844277,-0.00565762],
+                [-0.02679251,-0.01109782],
+                [-0.02411262,-0.01611154],
+                [-0.0205061,-0.0205061],
+                [-0.01611154,-0.02411262],
+                [-0.01109782,-0.02679251],
+                [-0.00565762,-0.02844277],
+                [0,-0.029],
+                [0.00565762,-0.02844277],
+                [0.01109782,-0.02679251],
+                [0.01611154,-0.02411262],
+                [0.0205061,-0.0205061],
+                [0.02411262,-0.01611154],
+                [0.02679251,-0.01109782],
+                [0.02844277,-0.00565762]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#303f49"
+            }
+          },
+          {
+            "id": "cover-hinge",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.reservoir-cover-hinge",
+            "parent": "inspection-lid",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.253,0,0],
+              "end": [0.205,0,0],
+              "radius": 0.0059,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "motor-mount",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-mount-plate",
+            "geometry": {
+              "type": "box",
+              "size": [0.288,0.028,0.201]
+            },
+            "appearance": {
+              "color": "#6f848e"
+            },
+            "transform": {
+              "position": [-0.106,0.302,0]
+            }
+          },
+          {
+            "id": "motor",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.frame",
+            "transform": {
+              "position": [-0.246,0.386,0]
+            }
+          },
+          {
+            "id": "motor-body",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.electric-motor",
+            "parent": "motor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0.19,0,0],
+              "radius": 0.063,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#409097"
+            }
+          },
+          {
+            "id": "motor-fin-0",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,0.062,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-1",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,0.0536935750346352,0.030999999999999996],
+              "rotation": [0.5235987755982988,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-2",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,0.031000000000000007,0.05369357503463519],
+              "rotation": [1.0471975511965976,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-3",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,3.796405077356795e-18,0.062],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-4",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,-0.030999999999999986,0.0536935750346352],
+              "rotation": [2.0943951023931953,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-5",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,-0.0536935750346352,0.030999999999999996],
+              "rotation": [2.6179938779914944,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-6",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,-0.062,7.59281015471359e-18],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-7",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,-0.05369357503463519,-0.031000000000000007],
+              "rotation": [3.6651914291880923,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-8",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,-0.031000000000000028,-0.053693575034635184],
+              "rotation": [4.1887902047863905,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-9",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,-1.1389215232070384e-17,-0.062],
+              "rotation": [4.71238898038469,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-10",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,0.031000000000000007,-0.05369357503463519],
+              "rotation": [5.235987755982989,0,0]
+            }
+          },
+          {
+            "id": "motor-fin-11",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-cooling-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.156,0.009,0.01]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.095,0.05369357503463518,-0.031000000000000028],
+              "rotation": [5.759586531581287,0,0]
+            }
+          },
+          {
+            "id": "motor-cover",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-air-cover",
+            "parent": "motor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.021,0,0],
+                [0.001,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.064,0],
+                [0.06277026,0.01248578],
+                [0.05912829,0.02449174],
+                [0.05321406,0.03555649],
+                [0.04525483,0.04525483],
+                [0.03555649,0.05321406],
+                [0.02449174,0.05912829],
+                [0.01248578,0.06277026],
+                [0,0.064],
+                [-0.01248578,0.06277026],
+                [-0.02449174,0.05912829],
+                [-0.03555649,0.05321406],
+                [-0.04525483,0.04525483],
+                [-0.05321406,0.03555649],
+                [-0.05912829,0.02449174],
+                [-0.06277026,0.01248578],
+                [-0.064,0],
+                [-0.06277026,-0.01248578],
+                [-0.05912829,-0.02449174],
+                [-0.05321406,-0.03555649],
+                [-0.04525483,-0.04525483],
+                [-0.03555649,-0.05321406],
+                [-0.02449174,-0.05912829],
+                [-0.01248578,-0.06277026],
+                [0,-0.064],
+                [0.01248578,-0.06277026],
+                [0.02449174,-0.05912829],
+                [0.03555649,-0.05321406],
+                [0.04525483,-0.04525483],
+                [0.05321406,-0.03555649],
+                [0.05912829,-0.02449174],
+                [0.06277026,-0.01248578]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#515e66"
+            }
+          },
+          {
+            "id": "terminal-box",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.power-terminal",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.078,0.039,0.053]
+            },
+            "appearance": {
+              "color": "#45525b"
+            },
+            "transform": {
+              "position": [0.086,0.068,0]
+            }
+          },
+          {
+            "id": "pump-unit",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.frame",
+            "transform": {
+              "position": [-0.047,0.386,0]
+            }
+          },
+          {
+            "id": "motor-coupling",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.motor-pump-coupling",
+            "parent": "pump-unit",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0.072,0,0],
+              "radius": 0.033,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "pump-case",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.pump-case",
+            "parent": "pump-unit",
+            "geometry": {
+              "type": "box",
+              "size": [0.094,0.078,0.085]
+            },
+            "appearance": {
+              "color": "#5ca0a6"
+            },
+            "transform": {
+              "position": [0.106,0,0]
+            }
+          },
+          {
+            "id": "tank-intake-line",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.reservoir-suction-line",
+            "parent": "pump-unit",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.106,-0.023,0.043],
+                [0.132,-0.053,0.104],
+                [0.145,-0.105,0.104],
+                [0.167,-0.135,0.097]
+              ],
+              "radius": 0.011,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "valve-bank",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.frame",
+            "transform": {
+              "position": [0.176,0.341,0.045]
+            }
+          },
+          {
+            "id": "control-valve",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.direction-valve-body",
+            "parent": "valve-bank",
+            "geometry": {
+              "type": "box",
+              "size": [0.131,0.082,0.089]
+            },
+            "appearance": {
+              "color": "#6f848e"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "high-pressure-line",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.high-pressure-line",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.058,0.405,-0.034],
+                [0.071,0.463,-0.053],
+                [0.162,0.464,-0.06],
+                [0.179,0.389,-0.001]
+              ],
+              "radius": 0.008,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "pressure-gauge",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.frame",
+            "parent": "valve-bank",
+            "transform": {
+              "position": [0.031,0.079,0.016]
+            }
+          },
+          {
+            "id": "gauge-stem",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.gauge-stem",
+            "parent": "pressure-gauge",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.027,0],
+              "end": [0,0.001,0],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "gauge-back",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.gauge-case",
+            "parent": "pressure-gauge",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.011],
+                [0,0,0.009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.029,0],
+                [0.02844277,0.00565762],
+                [0.02679251,0.01109782],
+                [0.02411262,0.01611154],
+                [0.0205061,0.0205061],
+                [0.01611154,0.02411262],
+                [0.01109782,0.02679251],
+                [0.00565762,0.02844277],
+                [0,0.029],
+                [-0.00565762,0.02844277],
+                [-0.01109782,0.02679251],
+                [-0.01611154,0.02411262],
+                [-0.0205061,0.0205061],
+                [-0.02411262,0.01611154],
+                [-0.02679251,0.01109782],
+                [-0.02844277,0.00565762],
+                [-0.029,0],
+                [-0.02844277,-0.00565762],
+                [-0.02679251,-0.01109782],
+                [-0.02411262,-0.01611154],
+                [-0.0205061,-0.0205061],
+                [-0.01611154,-0.02411262],
+                [-0.01109782,-0.02679251],
+                [-0.00565762,-0.02844277],
+                [0,-0.029],
+                [0.00565762,-0.02844277],
+                [0.01109782,-0.02679251],
+                [0.01611154,-0.02411262],
+                [0.0205061,-0.0205061],
+                [0.02411262,-0.01611154],
+                [0.02679251,-0.01109782],
+                [0.02844277,-0.00565762]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#515e66"
+            }
+          },
+          {
+            "id": "gauge-glass",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.gauge-lens",
+            "parent": "pressure-gauge",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.009],
+                [0,0,0.011]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.026,0],
+                [0.02550042,0.00507235],
+                [0.02402087,0.00994977],
+                [0.02161821,0.01444483],
+                [0.01838478,0.01838478],
+                [0.01444483,0.02161821],
+                [0.00994977,0.02402087],
+                [0.00507235,0.02550042],
+                [0,0.026],
+                [-0.00507235,0.02550042],
+                [-0.00994977,0.02402087],
+                [-0.01444483,0.02161821],
+                [-0.01838478,0.01838478],
+                [-0.02161821,0.01444483],
+                [-0.02402087,0.00994977],
+                [-0.02550042,0.00507235],
+                [-0.026,0],
+                [-0.02550042,-0.00507235],
+                [-0.02402087,-0.00994977],
+                [-0.02161821,-0.01444483],
+                [-0.01838478,-0.01838478],
+                [-0.01444483,-0.02161821],
+                [-0.00994977,-0.02402087],
+                [-0.00507235,-0.02550042],
+                [0,-0.026],
+                [0.00507235,-0.02550042],
+                [0.00994977,-0.02402087],
+                [0.01444483,-0.02161821],
+                [0.01838478,-0.01838478],
+                [0.02161821,-0.01444483],
+                [0.02402087,-0.00994977],
+                [0.02550042,-0.00507235]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#e8e6da"
+            }
+          },
+          {
+            "id": "pressure-pointer",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.pressure-pointer",
+            "parent": "pressure-gauge",
+            "geometry": {
+              "type": "box",
+              "size": [0.017,0.002,0.001]
+            },
+            "appearance": {
+              "color": "#d75d46"
+            },
+            "transform": {
+              "position": [0.006,0.008,0.0115],
+              "rotation": [0,0,0.5061454830783556]
+            }
+          },
+          {
+            "id": "pressure-port-frame",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.frame",
+            "parent": "valve-bank",
+            "transform": {
+              "position": [0.065,0.011,-0.012]
+            }
+          },
+          {
+            "id": "pressure-port",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.high-pressure-coupler",
+            "parent": "pressure-port-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.032,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.014,0],
+                [0.01382764,0.00219008],
+                [0.01331479,0.00432624],
+                [0.01247409,0.00635587],
+                [0.01132624,0.00822899],
+                [0.00989949,0.00989949],
+                [0.00822899,0.01132624],
+                [0.00635587,0.01247409],
+                [0.00432624,0.01331479],
+                [0.00219008,0.01382764],
+                [0,0.014],
+                [-0.00219008,0.01382764],
+                [-0.00432624,0.01331479],
+                [-0.00635587,0.01247409],
+                [-0.00822899,0.01132624],
+                [-0.00989949,0.00989949],
+                [-0.01132624,0.00822899],
+                [-0.01247409,0.00635587],
+                [-0.01331479,0.00432624],
+                [-0.01382764,0.00219008],
+                [-0.014,0],
+                [-0.01382764,-0.00219008],
+                [-0.01331479,-0.00432624],
+                [-0.01247409,-0.00635587],
+                [-0.01132624,-0.00822899],
+                [-0.00989949,-0.00989949],
+                [-0.00822899,-0.01132624],
+                [-0.00635587,-0.01247409],
+                [-0.00432624,-0.01331479],
+                [-0.00219008,-0.01382764],
+                [0,-0.014],
+                [0.00219008,-0.01382764],
+                [0.00432624,-0.01331479],
+                [0.00635587,-0.01247409],
+                [0.00822899,-0.01132624],
+                [0.00989949,-0.00989949],
+                [0.01132624,-0.00822899],
+                [0.01247409,-0.00635587],
+                [0.01331479,-0.00432624],
+                [0.01382764,-0.00219008]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0062,0],
+                  [0.00612367,0.00096989],
+                  [0.00589655,0.00191591],
+                  [0.00552424,0.00281474],
+                  [0.00501591,0.00364427],
+                  [0.00438406,0.00438406],
+                  [0.00364427,0.00501591],
+                  [0.00281474,0.00552424],
+                  [0.00191591,0.00589655],
+                  [0.00096989,0.00612367],
+                  [0,0.0062],
+                  [-0.00096989,0.00612367],
+                  [-0.00191591,0.00589655],
+                  [-0.00281474,0.00552424],
+                  [-0.00364427,0.00501591],
+                  [-0.00438406,0.00438406],
+                  [-0.00501591,0.00364427],
+                  [-0.00552424,0.00281474],
+                  [-0.00589655,0.00191591],
+                  [-0.00612367,0.00096989],
+                  [-0.0062,0],
+                  [-0.00612367,-0.00096989],
+                  [-0.00589655,-0.00191591],
+                  [-0.00552424,-0.00281474],
+                  [-0.00501591,-0.00364427],
+                  [-0.00438406,-0.00438406],
+                  [-0.00364427,-0.00501591],
+                  [-0.00281474,-0.00552424],
+                  [-0.00191591,-0.00589655],
+                  [-0.00096989,-0.00612367],
+                  [0,-0.0062],
+                  [0.00096989,-0.00612367],
+                  [0.00191591,-0.00589655],
+                  [0.00281474,-0.00552424],
+                  [0.00364427,-0.00501591],
+                  [0.00438406,-0.00438406],
+                  [0.00501591,-0.00364427],
+                  [0.00552424,-0.00281474],
+                  [0.00589655,-0.00191591],
+                  [0.00612367,-0.00096989]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "return-port-frame",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.frame",
+            "parent": "valve-bank",
+            "transform": {
+              "position": [0.064,-0.019,0.021]
+            }
+          },
+          {
+            "id": "return-port",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.fluid-return-port",
+            "parent": "return-port-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.034,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.015,0],
+                [0.01481533,0.00234652],
+                [0.01426585,0.00463525],
+                [0.0133651,0.00680986],
+                [0.01213525,0.00881678],
+                [0.0106066,0.0106066],
+                [0.00881678,0.01213525],
+                [0.00680986,0.0133651],
+                [0.00463525,0.01426585],
+                [0.00234652,0.01481533],
+                [0,0.015],
+                [-0.00234652,0.01481533],
+                [-0.00463525,0.01426585],
+                [-0.00680986,0.0133651],
+                [-0.00881678,0.01213525],
+                [-0.0106066,0.0106066],
+                [-0.01213525,0.00881678],
+                [-0.0133651,0.00680986],
+                [-0.01426585,0.00463525],
+                [-0.01481533,0.00234652],
+                [-0.015,0],
+                [-0.01481533,-0.00234652],
+                [-0.01426585,-0.00463525],
+                [-0.0133651,-0.00680986],
+                [-0.01213525,-0.00881678],
+                [-0.0106066,-0.0106066],
+                [-0.00881678,-0.01213525],
+                [-0.00680986,-0.0133651],
+                [-0.00463525,-0.01426585],
+                [-0.00234652,-0.01481533],
+                [0,-0.015],
+                [0.00234652,-0.01481533],
+                [0.00463525,-0.01426585],
+                [0.00680986,-0.0133651],
+                [0.00881678,-0.01213525],
+                [0.0106066,-0.0106066],
+                [0.01213525,-0.00881678],
+                [0.0133651,-0.00680986],
+                [0.01426585,-0.00463525],
+                [0.01481533,-0.00234652]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.007,0],
+                  [0.00691382,0.00109504],
+                  [0.0066574,0.00216312],
+                  [0.00623705,0.00317793],
+                  [0.00566312,0.0041145],
+                  [0.00494975,0.00494975],
+                  [0.0041145,0.00566312],
+                  [0.00317793,0.00623705],
+                  [0.00216312,0.0066574],
+                  [0.00109504,0.00691382],
+                  [0,0.007],
+                  [-0.00109504,0.00691382],
+                  [-0.00216312,0.0066574],
+                  [-0.00317793,0.00623705],
+                  [-0.0041145,0.00566312],
+                  [-0.00494975,0.00494975],
+                  [-0.00566312,0.0041145],
+                  [-0.00623705,0.00317793],
+                  [-0.0066574,0.00216312],
+                  [-0.00691382,0.00109504],
+                  [-0.007,0],
+                  [-0.00691382,-0.00109504],
+                  [-0.0066574,-0.00216312],
+                  [-0.00623705,-0.00317793],
+                  [-0.00566312,-0.0041145],
+                  [-0.00494975,-0.00494975],
+                  [-0.0041145,-0.00566312],
+                  [-0.00317793,-0.00623705],
+                  [-0.00216312,-0.0066574],
+                  [-0.00109504,-0.00691382],
+                  [0,-0.007],
+                  [0.00109504,-0.00691382],
+                  [0.00216312,-0.0066574],
+                  [0.00317793,-0.00623705],
+                  [0.0041145,-0.00566312],
+                  [0.00494975,-0.00494975],
+                  [0.00566312,-0.0041145],
+                  [0.00623705,-0.00317793],
+                  [0.0066574,-0.00216312],
+                  [0.00691382,-0.00109504]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "valve-lever",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.frame",
+            "parent": "valve-bank",
+            "transform": {
+              "position": [0.026,0.04,0.045]
+            }
+          },
+          {
+            "id": "valve-actuator",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.valve-lever",
+            "parent": "valve-lever",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,0],
+                [0,0.038,0.023],
+                [0,0.06,0.035]
+              ],
+              "radius": 0.0051,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "valve-grip",
+            "semanticType": "equipment.skid-mounted-hydraulic-power-pack.valve-grip",
+            "parent": "valve-lever",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.054,0.031],
+              "end": [0,0.072,0.044],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#dda144"
+            }
+          }
+        ],
+        "anchors": {
+          "pressure-out": {
+            "node": "pressure-port-frame",
+            "position": [0.032,0,0],
+            "direction": [1,0,0],
+            "kind": "fluid-port"
+          },
+          "tank-return": {
+            "node": "return-port-frame",
+            "position": [0.034,0,0],
+            "direction": [1,0,0],
+            "kind": "fluid-port"
+          },
+          "fill": {
+            "node": "fixed-lid",
+            "position": [-0.115,0.291,-0.095],
+            "direction": [0,1,0],
+            "kind": "service"
+          },
+          "base": {
+            "node": "skid",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "tank-inspection",
+            "label": "油箱检修盖角度",
+            "unit": "deg",
+            "value": 0,
+            "min": -68,
+            "max": 0,
+            "targets": [
+              {
+                "node": "inspection-lid",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "valve-angle",
+            "label": "换向杆角度",
+            "unit": "deg",
+            "value": 0,
+            "min": -30,
+            "max": 30,
+            "targets": [
+              {
+                "node": "valve-lever",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -6,7 +6,7 @@ This checklist prepares AgentSceneBuilder for a GitHub open source release. It d
 
 AgentSceneBuilder should be introduced as:
 
-> A renderer-neutral digital modeling kernel, open model registry, Skill, and CLI for AI Agents that need reusable 3D composition, spatial methods, dimensions, anchors, attachments, and web preview/editing for people.
+> Open-source digital modeling infrastructure for AI large language models. Agents use the Skill and CLI to find, compose, calculate and validate reusable 3D models. Browser previews support review and parameter adjustments.
 
 Avoid positioning it as:
 

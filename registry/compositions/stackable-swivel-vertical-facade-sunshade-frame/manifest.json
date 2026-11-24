@@ -1,0 +1,912 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.stackable-swivel-vertical-facade-sunshade-frame",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "可叠收竖轴转叶遮阳框",
+  "summary": "两道固定导轨、五片各带竖轴的遮阳翼、活动滑车与侧面收纳空间，可独立滑移和转叶。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "遮阳竖翼",
+    "外墙活动遮阳",
+    "sliding-sunshade",
+    "vertical-fins",
+    "维护及遮阳",
+    "facade-envelope"
+  ],
+  "anchors": [
+    "fin-0",
+    "fin-1",
+    "fin-2",
+    "fin-3",
+    "fin-4",
+    "wall"
+  ],
+  "ai": {
+    "intent": "可独立布置在建筑围护面外侧。先把翼片旋至近竖轴边向，再沿轨叠收。",
+    "editableParts": [
+      "gather",
+      "fin-angle"
+    ],
+    "qualityChecks": [
+      "各翼共享行轨但各自保留节点和正面锚点。",
+      "转向与叠收可分开设置。",
+      "安装边框在任何姿态均固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "stackable-swivel-vertical-facade-sunshade-frame",
+      "title": "可叠收竖轴转叶遮阳框",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rail-0.057",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "transform": {
+              "position": [0,0.057,0]
+            }
+          },
+          {
+            "id": "track-0.057",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.open-fixed-sunshade-track",
+            "parent": "rail-0.057",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.716,0,0],
+                [0.717,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.09,-0.018],
+                [0.044,-0.018],
+                [0.044,0.021],
+                [-0.09,0.021],
+                [-0.09,0.008],
+                [0.029,0.008],
+                [0.029,-0.006],
+                [-0.09,-0.006]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9db5c2"
+            }
+          },
+          {
+            "id": "rail-1.256",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "transform": {
+              "position": [0,1.256,0]
+            }
+          },
+          {
+            "id": "track-1.256",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.open-fixed-sunshade-track",
+            "parent": "rail-1.256",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.716,0,0],
+                [0.717,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.09,-0.018],
+                [0.044,-0.018],
+                [0.044,0.021],
+                [-0.09,0.021],
+                [-0.09,0.008],
+                [0.029,0.008],
+                [0.029,-0.006],
+                [-0.09,-0.006]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9db5c2"
+            }
+          },
+          {
+            "id": "wall-fin--1",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.perforated-wall-fixing-strip",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.028]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.717,0.021],
+                [-0.671,0.021],
+                [-0.661,0.031],
+                [-0.661,1.2879999999999998],
+                [-0.671,1.2979999999999998],
+                [-0.717,1.2979999999999998],
+                [-0.727,1.2879999999999998],
+                [-0.727,0.031]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.685,0.12],
+                  [-0.68530667,0.12232937],
+                  [-0.68620577,0.1245],
+                  [-0.68763604,0.12636396],
+                  [-0.6895,0.12779423],
+                  [-0.69167063,0.12869333],
+                  [-0.694,0.129],
+                  [-0.69632937,0.12869333],
+                  [-0.6985,0.12779423],
+                  [-0.70036396,0.12636396],
+                  [-0.70179423,0.1245],
+                  [-0.70269333,0.12232937],
+                  [-0.703,0.12],
+                  [-0.70269333,0.11767063],
+                  [-0.70179423,0.1155],
+                  [-0.70036396,0.11363604],
+                  [-0.6985,0.11220577],
+                  [-0.69632937,0.11130667],
+                  [-0.694,0.111],
+                  [-0.69167063,0.11130667],
+                  [-0.6895,0.11220577],
+                  [-0.68763604,0.11363604],
+                  [-0.68620577,0.1155],
+                  [-0.68530667,0.11767063]
+                ],
+                [
+                  [-0.685,1.2],
+                  [-0.68530667,1.20232937],
+                  [-0.68620577,1.2045],
+                  [-0.68763604,1.20636396],
+                  [-0.6895,1.20779423],
+                  [-0.69167063,1.20869333],
+                  [-0.694,1.209],
+                  [-0.69632937,1.20869333],
+                  [-0.6985,1.20779423],
+                  [-0.70036396,1.20636396],
+                  [-0.70179423,1.2045],
+                  [-0.70269333,1.20232937],
+                  [-0.703,1.2],
+                  [-0.70269333,1.19767063],
+                  [-0.70179423,1.1955],
+                  [-0.70036396,1.19363604],
+                  [-0.6985,1.19220577],
+                  [-0.69632937,1.19130667],
+                  [-0.694,1.191],
+                  [-0.69167063,1.19130667],
+                  [-0.6895,1.19220577],
+                  [-0.68763604,1.19363604],
+                  [-0.68620577,1.1955],
+                  [-0.68530667,1.19767063]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#81bac5"
+            }
+          },
+          {
+            "id": "wall-fin-1",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.perforated-wall-fixing-strip",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.028]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.6709999999999999,0.021],
+                [0.7169999999999999,0.021],
+                [0.7269999999999999,0.031],
+                [0.7269999999999999,1.2879999999999998],
+                [0.7169999999999999,1.2979999999999998],
+                [0.6709999999999999,1.2979999999999998],
+                [0.6609999999999999,1.2879999999999998],
+                [0.6609999999999999,0.031]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.703,0.12],
+                  [0.70269333,0.12232937],
+                  [0.70179423,0.1245],
+                  [0.70036396,0.12636396],
+                  [0.6985,0.12779423],
+                  [0.69632937,0.12869333],
+                  [0.694,0.129],
+                  [0.69167063,0.12869333],
+                  [0.6895,0.12779423],
+                  [0.68763604,0.12636396],
+                  [0.68620577,0.1245],
+                  [0.68530667,0.12232937],
+                  [0.685,0.12],
+                  [0.68530667,0.11767063],
+                  [0.68620577,0.1155],
+                  [0.68763604,0.11363604],
+                  [0.6895,0.11220577],
+                  [0.69167063,0.11130667],
+                  [0.694,0.111],
+                  [0.69632937,0.11130667],
+                  [0.6985,0.11220577],
+                  [0.70036396,0.11363604],
+                  [0.70179423,0.1155],
+                  [0.70269333,0.11767063]
+                ],
+                [
+                  [0.703,1.2],
+                  [0.70269333,1.20232937],
+                  [0.70179423,1.2045],
+                  [0.70036396,1.20636396],
+                  [0.6985,1.20779423],
+                  [0.69632937,1.20869333],
+                  [0.694,1.209],
+                  [0.69167063,1.20869333],
+                  [0.6895,1.20779423],
+                  [0.68763604,1.20636396],
+                  [0.68620577,1.2045],
+                  [0.68530667,1.20232937],
+                  [0.685,1.2],
+                  [0.68530667,1.19767063],
+                  [0.68620577,1.1955],
+                  [0.68763604,1.19363604],
+                  [0.6895,1.19220577],
+                  [0.69167063,1.19130667],
+                  [0.694,1.191],
+                  [0.69632937,1.19130667],
+                  [0.6985,1.19220577],
+                  [0.70036396,1.19363604],
+                  [0.70179423,1.1955],
+                  [0.70269333,1.19767063]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#81bac5"
+            }
+          },
+          {
+            "id": "slide-0",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "transform": {
+              "position": [-0.535,0,0.088]
+            }
+          },
+          {
+            "id": "blade-0",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "parent": "slide-0",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "fin-0",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.monolithic-extruded-shade-blade",
+            "parent": "blade-0",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.012],
+                [0,0,0.014]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.069,0.095],
+                [0.069,0.095],
+                [0.093,0.119],
+                [0.093,1.192],
+                [0.069,1.216],
+                [-0.069,1.216],
+                [-0.093,1.192],
+                [-0.093,0.119]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#81bac5"
+            }
+          },
+          {
+            "id": "fin-rib-0",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-fin-reinforcing-axis",
+            "parent": "blade-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,1.075,0.012]
+            },
+            "appearance": {
+              "color": "#9db5c2"
+            },
+            "transform": {
+              "position": [0,0.655,-0.013]
+            }
+          },
+          {
+            "id": "pivot-0",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.vertical-fin-pivot",
+            "parent": "blade-0",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.071,0],
+              "end": [0,1.248,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "slide-block-0-0.059",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-travel-dolly",
+            "parent": "slide-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.015,0.046]
+            },
+            "appearance": {
+              "color": "#5a7480"
+            },
+            "transform": {
+              "position": [0,0.059,-0.003]
+            }
+          },
+          {
+            "id": "slide-block-0-1.254",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-travel-dolly",
+            "parent": "slide-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.015,0.046]
+            },
+            "appearance": {
+              "color": "#5a7480"
+            },
+            "transform": {
+              "position": [0,1.254,-0.003]
+            }
+          },
+          {
+            "id": "slide-1",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "transform": {
+              "position": [-0.30900000000000005,0,0.088]
+            }
+          },
+          {
+            "id": "blade-1",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "parent": "slide-1",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "fin-1",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.monolithic-extruded-shade-blade",
+            "parent": "blade-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.012],
+                [0,0,0.014]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.069,0.095],
+                [0.069,0.095],
+                [0.093,0.119],
+                [0.093,1.192],
+                [0.069,1.216],
+                [-0.069,1.216],
+                [-0.093,1.192],
+                [-0.093,0.119]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "fin-rib-1",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-fin-reinforcing-axis",
+            "parent": "blade-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,1.075,0.012]
+            },
+            "appearance": {
+              "color": "#9db5c2"
+            },
+            "transform": {
+              "position": [0,0.655,-0.013]
+            }
+          },
+          {
+            "id": "pivot-1",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.vertical-fin-pivot",
+            "parent": "blade-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.071,0],
+              "end": [0,1.248,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "slide-block-1-0.059",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-travel-dolly",
+            "parent": "slide-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.015,0.046]
+            },
+            "appearance": {
+              "color": "#5a7480"
+            },
+            "transform": {
+              "position": [0,0.059,-0.003]
+            }
+          },
+          {
+            "id": "slide-block-1-1.254",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-travel-dolly",
+            "parent": "slide-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.015,0.046]
+            },
+            "appearance": {
+              "color": "#5a7480"
+            },
+            "transform": {
+              "position": [0,1.254,-0.003]
+            }
+          },
+          {
+            "id": "slide-2",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "transform": {
+              "position": [-0.08300000000000002,0,0.088]
+            }
+          },
+          {
+            "id": "blade-2",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "parent": "slide-2",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "fin-2",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.monolithic-extruded-shade-blade",
+            "parent": "blade-2",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.012],
+                [0,0,0.014]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.069,0.095],
+                [0.069,0.095],
+                [0.093,0.119],
+                [0.093,1.192],
+                [0.069,1.216],
+                [-0.069,1.216],
+                [-0.093,1.192],
+                [-0.093,0.119]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#81bac5"
+            }
+          },
+          {
+            "id": "fin-rib-2",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-fin-reinforcing-axis",
+            "parent": "blade-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,1.075,0.012]
+            },
+            "appearance": {
+              "color": "#9db5c2"
+            },
+            "transform": {
+              "position": [0,0.655,-0.013]
+            }
+          },
+          {
+            "id": "pivot-2",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.vertical-fin-pivot",
+            "parent": "blade-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.071,0],
+              "end": [0,1.248,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "slide-block-2-0.059",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-travel-dolly",
+            "parent": "slide-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.015,0.046]
+            },
+            "appearance": {
+              "color": "#5a7480"
+            },
+            "transform": {
+              "position": [0,0.059,-0.003]
+            }
+          },
+          {
+            "id": "slide-block-2-1.254",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-travel-dolly",
+            "parent": "slide-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.015,0.046]
+            },
+            "appearance": {
+              "color": "#5a7480"
+            },
+            "transform": {
+              "position": [0,1.254,-0.003]
+            }
+          },
+          {
+            "id": "slide-3",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "transform": {
+              "position": [0.14300000000000002,0,0.088]
+            }
+          },
+          {
+            "id": "blade-3",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "parent": "slide-3",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "fin-3",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.monolithic-extruded-shade-blade",
+            "parent": "blade-3",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.012],
+                [0,0,0.014]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.069,0.095],
+                [0.069,0.095],
+                [0.093,0.119],
+                [0.093,1.192],
+                [0.069,1.216],
+                [-0.069,1.216],
+                [-0.093,1.192],
+                [-0.093,0.119]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "fin-rib-3",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-fin-reinforcing-axis",
+            "parent": "blade-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,1.075,0.012]
+            },
+            "appearance": {
+              "color": "#9db5c2"
+            },
+            "transform": {
+              "position": [0,0.655,-0.013]
+            }
+          },
+          {
+            "id": "pivot-3",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.vertical-fin-pivot",
+            "parent": "blade-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.071,0],
+              "end": [0,1.248,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "slide-block-3-0.059",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-travel-dolly",
+            "parent": "slide-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.015,0.046]
+            },
+            "appearance": {
+              "color": "#5a7480"
+            },
+            "transform": {
+              "position": [0,0.059,-0.003]
+            }
+          },
+          {
+            "id": "slide-block-3-1.254",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-travel-dolly",
+            "parent": "slide-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.015,0.046]
+            },
+            "appearance": {
+              "color": "#5a7480"
+            },
+            "transform": {
+              "position": [0,1.254,-0.003]
+            }
+          },
+          {
+            "id": "slide-4",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "transform": {
+              "position": [0.369,0,0.088]
+            }
+          },
+          {
+            "id": "blade-4",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.frame",
+            "parent": "slide-4",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "fin-4",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.monolithic-extruded-shade-blade",
+            "parent": "blade-4",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.012],
+                [0,0,0.014]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.069,0.095],
+                [0.069,0.095],
+                [0.093,0.119],
+                [0.093,1.192],
+                [0.069,1.216],
+                [-0.069,1.216],
+                [-0.093,1.192],
+                [-0.093,0.119]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#81bac5"
+            }
+          },
+          {
+            "id": "fin-rib-4",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-fin-reinforcing-axis",
+            "parent": "blade-4",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,1.075,0.012]
+            },
+            "appearance": {
+              "color": "#9db5c2"
+            },
+            "transform": {
+              "position": [0,0.655,-0.013]
+            }
+          },
+          {
+            "id": "pivot-4",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.vertical-fin-pivot",
+            "parent": "blade-4",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.071,0],
+              "end": [0,1.248,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "slide-block-4-0.059",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-travel-dolly",
+            "parent": "slide-4",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.015,0.046]
+            },
+            "appearance": {
+              "color": "#5a7480"
+            },
+            "transform": {
+              "position": [0,0.059,-0.003]
+            }
+          },
+          {
+            "id": "slide-block-4-1.254",
+            "semanticType": "construction.stackable-swivel-vertical-facade-sunshade-frame.shade-travel-dolly",
+            "parent": "slide-4",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.015,0.046]
+            },
+            "appearance": {
+              "color": "#5a7480"
+            },
+            "transform": {
+              "position": [0,1.254,-0.003]
+            }
+          }
+        ],
+        "anchors": {
+          "fin-0": {
+            "node": "fin-0",
+            "position": [0,0.654,0.014],
+            "direction": [0,0,1],
+            "kind": "reference"
+          },
+          "fin-1": {
+            "node": "fin-1",
+            "position": [0,0.654,0.014],
+            "direction": [0,0,1],
+            "kind": "reference"
+          },
+          "fin-2": {
+            "node": "fin-2",
+            "position": [0,0.654,0.014],
+            "direction": [0,0,1],
+            "kind": "reference"
+          },
+          "fin-3": {
+            "node": "fin-3",
+            "position": [0,0.654,0.014],
+            "direction": [0,0,1],
+            "kind": "reference"
+          },
+          "fin-4": {
+            "node": "fin-4",
+            "position": [0,0.654,0.014],
+            "direction": [0,0,1],
+            "kind": "reference"
+          },
+          "wall": {
+            "node": "wall-fin--1",
+            "position": [-0.694,0.666,0],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "gather",
+            "label": "遮阳翼叠收行程",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.983,
+            "targets": [
+              {
+                "node": "slide-0",
+                "property": "position",
+                "axis": "x",
+                "factor": 1.0000000000000002
+              },
+              {
+                "node": "slide-1",
+                "property": "position",
+                "axis": "x",
+                "factor": 0.8179043743641913
+              },
+              {
+                "node": "slide-2",
+                "property": "position",
+                "axis": "x",
+                "factor": 0.6358087487283826
+              },
+              {
+                "node": "slide-3",
+                "property": "position",
+                "axis": "x",
+                "factor": 0.4537131230925737
+              },
+              {
+                "node": "slide-4",
+                "property": "position",
+                "axis": "x",
+                "factor": 0.271617497456765
+              }
+            ]
+          },
+          {
+            "id": "fin-angle",
+            "label": "各翼竖轴角度",
+            "unit": "deg",
+            "value": 32,
+            "min": 0,
+            "max": 92,
+            "targets": [
+              {
+                "node": "blade-0",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "blade-1",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "blade-2",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "blade-3",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "blade-4",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

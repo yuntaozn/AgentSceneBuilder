@@ -1,0 +1,1171 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.two-stage-telescopic-pedestrian-maintenance-gangway",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "两级伸缩式检修步桥",
+  "summary": "固定铰接座、套叠两段踏面、防滑齿、独立栏杆和移动端搁置参考。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "伸缩检修桥",
+    "检修走道",
+    "maintenance-gangway",
+    "telescopic-walkway",
+    "可动建筑构件",
+    "operable-building"
+  ],
+  "anchors": [
+    "wall",
+    "entrance",
+    "landing"
+  ],
+  "ai": {
+    "intent": "作为两段叠套的检修跨越件，读取固定铰点与活动支承端，用姿态表达过桥空间。",
+    "editableParts": [
+      "reach",
+      "slope"
+    ],
+    "qualityChecks": [
+      "内外段作用于不同的栏杆和踏面。",
+      "最大伸出保留桥段搭接。",
+      "外铰安装点不随伸缩移动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-stage-telescopic-pedestrian-maintenance-gangway",
+      "title": "两级伸缩式检修步桥",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-bracket",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.perforated-gangway-wall-hanger",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.028]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.41,-0.055],
+                [0.41,-0.055],
+                [0.436,-0.029],
+                [0.436,0.233],
+                [0.41,0.259],
+                [-0.41,0.259],
+                [-0.436,0.233],
+                [-0.436,-0.029]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.34,0.014],
+                  [-0.34043128,0.01768985],
+                  [-0.34170188,0.02118079],
+                  [-0.34374329,0.0242846],
+                  [-0.34644546,0.02683397],
+                  [-0.34966272,0.02869146],
+                  [-0.35322163,0.02975692],
+                  [-0.35693032,0.02997293],
+                  [-0.36058885,0.02932783],
+                  [-0.364,0.02785641],
+                  [-0.36697987,0.02563798],
+                  [-0.3693678,0.02279214],
+                  [-0.37103508,0.01947232],
+                  [-0.37189181,0.01585749],
+                  [-0.37189181,0.01214251],
+                  [-0.37103508,0.00852768],
+                  [-0.3693678,0.00520786],
+                  [-0.36697987,0.00236202],
+                  [-0.364,0.00014359],
+                  [-0.36058885,-0.00132783],
+                  [-0.35693032,-0.00197293],
+                  [-0.35322163,-0.00175692],
+                  [-0.34966272,-0.00069146],
+                  [-0.34644546,0.00116603],
+                  [-0.34374329,0.0037154],
+                  [-0.34170188,0.00681921],
+                  [-0.34043128,0.01031015]
+                ],
+                [
+                  [-0.34,0.185],
+                  [-0.34043128,0.18868985],
+                  [-0.34170188,0.19218079],
+                  [-0.34374329,0.1952846],
+                  [-0.34644546,0.19783397],
+                  [-0.34966272,0.19969146],
+                  [-0.35322163,0.20075692],
+                  [-0.35693032,0.20097293],
+                  [-0.36058885,0.20032783],
+                  [-0.364,0.19885641],
+                  [-0.36697987,0.19663798],
+                  [-0.3693678,0.19379214],
+                  [-0.37103508,0.19047232],
+                  [-0.37189181,0.18685749],
+                  [-0.37189181,0.18314251],
+                  [-0.37103508,0.17952768],
+                  [-0.3693678,0.17620786],
+                  [-0.36697987,0.17336202],
+                  [-0.364,0.17114359],
+                  [-0.36058885,0.16967217],
+                  [-0.35693032,0.16902707],
+                  [-0.35322163,0.16924308],
+                  [-0.34966272,0.17030854],
+                  [-0.34644546,0.17216603],
+                  [-0.34374329,0.1747154],
+                  [-0.34170188,0.17781921],
+                  [-0.34043128,0.18131015]
+                ],
+                [
+                  [0.372,0.014],
+                  [0.37156872,0.01768985],
+                  [0.37029812,0.02118079],
+                  [0.36825671,0.0242846],
+                  [0.36555454,0.02683397],
+                  [0.36233728,0.02869146],
+                  [0.35877837,0.02975692],
+                  [0.35506968,0.02997293],
+                  [0.35141115,0.02932783],
+                  [0.348,0.02785641],
+                  [0.34502013,0.02563798],
+                  [0.3426322,0.02279214],
+                  [0.34096492,0.01947232],
+                  [0.34010819,0.01585749],
+                  [0.34010819,0.01214251],
+                  [0.34096492,0.00852768],
+                  [0.3426322,0.00520786],
+                  [0.34502013,0.00236202],
+                  [0.348,0.00014359],
+                  [0.35141115,-0.00132783],
+                  [0.35506968,-0.00197293],
+                  [0.35877837,-0.00175692],
+                  [0.36233728,-0.00069146],
+                  [0.36555454,0.00116603],
+                  [0.36825671,0.0037154],
+                  [0.37029812,0.00681921],
+                  [0.37156872,0.01031015]
+                ],
+                [
+                  [0.372,0.185],
+                  [0.37156872,0.18868985],
+                  [0.37029812,0.19218079],
+                  [0.36825671,0.1952846],
+                  [0.36555454,0.19783397],
+                  [0.36233728,0.19969146],
+                  [0.35877837,0.20075692],
+                  [0.35506968,0.20097293],
+                  [0.35141115,0.20032783],
+                  [0.348,0.19885641],
+                  [0.34502013,0.19663798],
+                  [0.3426322,0.19379214],
+                  [0.34096492,0.19047232],
+                  [0.34010819,0.18685749],
+                  [0.34010819,0.18314251],
+                  [0.34096492,0.17952768],
+                  [0.3426322,0.17620786],
+                  [0.34502013,0.17336202],
+                  [0.348,0.17114359],
+                  [0.35141115,0.16967217],
+                  [0.35506968,0.16902707],
+                  [0.35877837,0.16924308],
+                  [0.36233728,0.17030854],
+                  [0.36555454,0.17216603],
+                  [0.36825671,0.1747154],
+                  [0.37029812,0.17781921],
+                  [0.37156872,0.18131015]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            }
+          },
+          {
+            "id": "bridge",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.frame",
+            "transform": {
+              "position": [0,0.219,0.057]
+            }
+          },
+          {
+            "id": "hinge-pin",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.gangway-root-bearing-axis",
+            "parent": "bridge",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.401,0,0],
+              "end": [0.401,0,0],
+              "radius": 0.021,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "inner-deck",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.frame",
+            "parent": "bridge",
+            "transform": {
+              "position": [0,-0.032,0.674]
+            }
+          },
+          {
+            "id": "deck-outer",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.continuous-non-slip-footway",
+            "parent": "bridge",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.014,0],
+                [0,0.036,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.361,0],
+                [-0.361,0],
+                [-0.39,0.029],
+                [-0.39,0.945],
+                [-0.361,0.974],
+                [0.361,0.974],
+                [0.39,0.945],
+                [0.39,0.029]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.328,0.128],
+                  [0.32830667,0.13032937],
+                  [0.32920577,0.1325],
+                  [0.33063604,0.13436396],
+                  [0.3325,0.13579423],
+                  [0.33467063,0.13669333],
+                  [0.337,0.137],
+                  [0.33932937,0.13669333],
+                  [0.3415,0.13579423],
+                  [0.34336396,0.13436396],
+                  [0.34479423,0.1325],
+                  [0.34569333,0.13032937],
+                  [0.346,0.128],
+                  [0.34569333,0.12567063],
+                  [0.34479423,0.1235],
+                  [0.34336396,0.12163604],
+                  [0.3415,0.12020577],
+                  [0.33932937,0.11930667],
+                  [0.337,0.119],
+                  [0.33467063,0.11930667],
+                  [0.3325,0.12020577],
+                  [0.33063604,0.12163604],
+                  [0.32920577,0.1235],
+                  [0.32830667,0.12567063]
+                ],
+                [
+                  [0.328,0.854],
+                  [0.32830667,0.85632937],
+                  [0.32920577,0.8585],
+                  [0.33063604,0.86036396],
+                  [0.3325,0.86179423],
+                  [0.33467063,0.86269333],
+                  [0.337,0.863],
+                  [0.33932937,0.86269333],
+                  [0.3415,0.86179423],
+                  [0.34336396,0.86036396],
+                  [0.34479423,0.8585],
+                  [0.34569333,0.85632937],
+                  [0.346,0.854],
+                  [0.34569333,0.85167063],
+                  [0.34479423,0.8495],
+                  [0.34336396,0.84763604],
+                  [0.3415,0.84620577],
+                  [0.33932937,0.84530667],
+                  [0.337,0.845],
+                  [0.33467063,0.84530667],
+                  [0.3325,0.84620577],
+                  [0.33063604,0.84763604],
+                  [0.32920577,0.8495],
+                  [0.32830667,0.85167063]
+                ],
+                [
+                  [-0.346,0.128],
+                  [-0.34569333,0.13032937],
+                  [-0.34479423,0.1325],
+                  [-0.34336396,0.13436396],
+                  [-0.3415,0.13579423],
+                  [-0.33932937,0.13669333],
+                  [-0.337,0.137],
+                  [-0.33467063,0.13669333],
+                  [-0.3325,0.13579423],
+                  [-0.33063604,0.13436396],
+                  [-0.32920577,0.1325],
+                  [-0.32830667,0.13032937],
+                  [-0.328,0.128],
+                  [-0.32830667,0.12567063],
+                  [-0.32920577,0.1235],
+                  [-0.33063604,0.12163604],
+                  [-0.3325,0.12020577],
+                  [-0.33467063,0.11930667],
+                  [-0.337,0.119],
+                  [-0.33932937,0.11930667],
+                  [-0.3415,0.12020577],
+                  [-0.34336396,0.12163604],
+                  [-0.34479423,0.1235],
+                  [-0.34569333,0.12567063]
+                ],
+                [
+                  [-0.346,0.854],
+                  [-0.34569333,0.85632937],
+                  [-0.34479423,0.8585],
+                  [-0.34336396,0.86036396],
+                  [-0.3415,0.86179423],
+                  [-0.33932937,0.86269333],
+                  [-0.337,0.863],
+                  [-0.33467063,0.86269333],
+                  [-0.3325,0.86179423],
+                  [-0.33063604,0.86036396],
+                  [-0.32920577,0.8585],
+                  [-0.32830667,0.85632937],
+                  [-0.328,0.854],
+                  [-0.32830667,0.85167063],
+                  [-0.32920577,0.8495],
+                  [-0.33063604,0.84763604],
+                  [-0.3325,0.84620577],
+                  [-0.33467063,0.84530667],
+                  [-0.337,0.845],
+                  [-0.33932937,0.84530667],
+                  [-0.3415,0.84620577],
+                  [-0.34336396,0.84763604],
+                  [-0.34479423,0.8495],
+                  [-0.34569333,0.85167063]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "anti-slip-outer-0",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.6970000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.088]
+            }
+          },
+          {
+            "id": "anti-slip-outer-1",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.6970000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.17755555555555555]
+            }
+          },
+          {
+            "id": "anti-slip-outer-2",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.6970000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.2671111111111111]
+            }
+          },
+          {
+            "id": "anti-slip-outer-3",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.6970000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.3566666666666666]
+            }
+          },
+          {
+            "id": "anti-slip-outer-4",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.6970000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.4462222222222222]
+            }
+          },
+          {
+            "id": "anti-slip-outer-5",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.6970000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.5357777777777777]
+            }
+          },
+          {
+            "id": "anti-slip-outer-6",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.6970000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.6253333333333332]
+            }
+          },
+          {
+            "id": "anti-slip-outer-7",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.6970000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.7148888888888888]
+            }
+          },
+          {
+            "id": "anti-slip-outer-8",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.6970000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.8044444444444444]
+            }
+          },
+          {
+            "id": "anti-slip-outer-9",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.6970000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.8939999999999999]
+            }
+          },
+          {
+            "id": "side-web-outer--1",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.nested-gangway-side-stringer",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,0.106,1.006]
+            },
+            "appearance": {
+              "color": "#80bac5"
+            },
+            "transform": {
+              "position": [-0.402,-0.023,0.487]
+            }
+          },
+          {
+            "id": "railing-stem-outer--1-0.105",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.bridge-safety-rail-stanchion",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.46,0.027]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [-0.402,0.253,0.105]
+            }
+          },
+          {
+            "id": "railing-stem-outer--1-0.895",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.bridge-safety-rail-stanchion",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.46,0.027]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [-0.402,0.253,0.895]
+            }
+          },
+          {
+            "id": "rail-outer--1-0.252",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.longitudinal-handrail",
+            "parent": "bridge",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.402,0.266,0.081],
+              "end": [-0.402,0.266,0.915],
+              "radius": 0.0125,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#80bac5"
+            }
+          },
+          {
+            "id": "rail-outer--1-0.472",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.longitudinal-handrail",
+            "parent": "bridge",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.402,0.486,0.081],
+              "end": [-0.402,0.486,0.915],
+              "radius": 0.0125,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#80bac5"
+            }
+          },
+          {
+            "id": "side-web-outer-1",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.nested-gangway-side-stringer",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,0.106,1.006]
+            },
+            "appearance": {
+              "color": "#80bac5"
+            },
+            "transform": {
+              "position": [0.402,-0.023,0.487]
+            }
+          },
+          {
+            "id": "railing-stem-outer-1-0.105",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.bridge-safety-rail-stanchion",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.46,0.027]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0.402,0.253,0.105]
+            }
+          },
+          {
+            "id": "railing-stem-outer-1-0.895",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.bridge-safety-rail-stanchion",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.46,0.027]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0.402,0.253,0.895]
+            }
+          },
+          {
+            "id": "rail-outer-1-0.252",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.longitudinal-handrail",
+            "parent": "bridge",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.402,0.266,0.081],
+              "end": [0.402,0.266,0.915],
+              "radius": 0.0125,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#80bac5"
+            }
+          },
+          {
+            "id": "rail-outer-1-0.472",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.longitudinal-handrail",
+            "parent": "bridge",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.402,0.486,0.081],
+              "end": [0.402,0.486,0.915],
+              "radius": 0.0125,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#80bac5"
+            }
+          },
+          {
+            "id": "deck-inner",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.continuous-non-slip-footway",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.014,0],
+                [0,0.036,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.312,0],
+                [-0.312,0],
+                [-0.341,0.029],
+                [-0.341,0.694],
+                [-0.312,0.723],
+                [0.312,0.723],
+                [0.341,0.694],
+                [0.341,0.029]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.279,0.128],
+                  [0.27930667,0.13032937],
+                  [0.28020577,0.1325],
+                  [0.28163604,0.13436396],
+                  [0.2835,0.13579423],
+                  [0.28567063,0.13669333],
+                  [0.288,0.137],
+                  [0.29032937,0.13669333],
+                  [0.2925,0.13579423],
+                  [0.29436396,0.13436396],
+                  [0.29579423,0.1325],
+                  [0.29669333,0.13032937],
+                  [0.297,0.128],
+                  [0.29669333,0.12567063],
+                  [0.29579423,0.1235],
+                  [0.29436396,0.12163604],
+                  [0.2925,0.12020577],
+                  [0.29032937,0.11930667],
+                  [0.288,0.119],
+                  [0.28567063,0.11930667],
+                  [0.2835,0.12020577],
+                  [0.28163604,0.12163604],
+                  [0.28020577,0.1235],
+                  [0.27930667,0.12567063]
+                ],
+                [
+                  [0.279,0.603],
+                  [0.27930667,0.60532937],
+                  [0.28020577,0.6075],
+                  [0.28163604,0.60936396],
+                  [0.2835,0.61079423],
+                  [0.28567063,0.61169333],
+                  [0.288,0.612],
+                  [0.29032937,0.61169333],
+                  [0.2925,0.61079423],
+                  [0.29436396,0.60936396],
+                  [0.29579423,0.6075],
+                  [0.29669333,0.60532937],
+                  [0.297,0.603],
+                  [0.29669333,0.60067063],
+                  [0.29579423,0.5985],
+                  [0.29436396,0.59663604],
+                  [0.2925,0.59520577],
+                  [0.29032937,0.59430667],
+                  [0.288,0.594],
+                  [0.28567063,0.59430667],
+                  [0.2835,0.59520577],
+                  [0.28163604,0.59663604],
+                  [0.28020577,0.5985],
+                  [0.27930667,0.60067063]
+                ],
+                [
+                  [-0.297,0.128],
+                  [-0.29669333,0.13032937],
+                  [-0.29579423,0.1325],
+                  [-0.29436396,0.13436396],
+                  [-0.2925,0.13579423],
+                  [-0.29032937,0.13669333],
+                  [-0.288,0.137],
+                  [-0.28567063,0.13669333],
+                  [-0.2835,0.13579423],
+                  [-0.28163604,0.13436396],
+                  [-0.28020577,0.1325],
+                  [-0.27930667,0.13032937],
+                  [-0.279,0.128],
+                  [-0.27930667,0.12567063],
+                  [-0.28020577,0.1235],
+                  [-0.28163604,0.12163604],
+                  [-0.2835,0.12020577],
+                  [-0.28567063,0.11930667],
+                  [-0.288,0.119],
+                  [-0.29032937,0.11930667],
+                  [-0.2925,0.12020577],
+                  [-0.29436396,0.12163604],
+                  [-0.29579423,0.1235],
+                  [-0.29669333,0.12567063]
+                ],
+                [
+                  [-0.297,0.603],
+                  [-0.29669333,0.60532937],
+                  [-0.29579423,0.6075],
+                  [-0.29436396,0.60936396],
+                  [-0.2925,0.61079423],
+                  [-0.29032937,0.61169333],
+                  [-0.288,0.612],
+                  [-0.28567063,0.61169333],
+                  [-0.2835,0.61079423],
+                  [-0.28163604,0.60936396],
+                  [-0.28020577,0.6075],
+                  [-0.27930667,0.60532937],
+                  [-0.279,0.603],
+                  [-0.27930667,0.60067063],
+                  [-0.28020577,0.5985],
+                  [-0.28163604,0.59663604],
+                  [-0.2835,0.59520577],
+                  [-0.28567063,0.59430667],
+                  [-0.288,0.594],
+                  [-0.29032937,0.59430667],
+                  [-0.2925,0.59520577],
+                  [-0.29436396,0.59663604],
+                  [-0.29579423,0.5985],
+                  [-0.29669333,0.60067063]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "anti-slip-inner-0",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.5990000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.088]
+            }
+          },
+          {
+            "id": "anti-slip-inner-1",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.5990000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.14966666666666667]
+            }
+          },
+          {
+            "id": "anti-slip-inner-2",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.5990000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.21133333333333332]
+            }
+          },
+          {
+            "id": "anti-slip-inner-3",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.5990000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.27299999999999996]
+            }
+          },
+          {
+            "id": "anti-slip-inner-4",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.5990000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.33466666666666667]
+            }
+          },
+          {
+            "id": "anti-slip-inner-5",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.5990000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.3963333333333333]
+            }
+          },
+          {
+            "id": "anti-slip-inner-6",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.5990000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.45799999999999996]
+            }
+          },
+          {
+            "id": "anti-slip-inner-7",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.5990000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.5196666666666666]
+            }
+          },
+          {
+            "id": "anti-slip-inner-8",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.5990000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.5813333333333333]
+            }
+          },
+          {
+            "id": "anti-slip-inner-9",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.raised-transverse-walkway-rib",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.5990000000000001,0.009,0.015]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.039,0.6429999999999999]
+            }
+          },
+          {
+            "id": "side-web-inner--1",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.nested-gangway-side-stringer",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,0.106,0.755]
+            },
+            "appearance": {
+              "color": "#80bac5"
+            },
+            "transform": {
+              "position": [-0.35300000000000004,-0.023,0.3615]
+            }
+          },
+          {
+            "id": "railing-stem-inner--1-0.105",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.bridge-safety-rail-stanchion",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.46,0.027]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [-0.35300000000000004,0.253,0.105]
+            }
+          },
+          {
+            "id": "railing-stem-inner--1-0.644",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.bridge-safety-rail-stanchion",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.46,0.027]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [-0.35300000000000004,0.253,0.644]
+            }
+          },
+          {
+            "id": "rail-inner--1-0.252",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.longitudinal-handrail",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.35300000000000004,0.266,0.081],
+              "end": [-0.35300000000000004,0.266,0.6639999999999999],
+              "radius": 0.0125,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#80bac5"
+            }
+          },
+          {
+            "id": "rail-inner--1-0.472",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.longitudinal-handrail",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.35300000000000004,0.486,0.081],
+              "end": [-0.35300000000000004,0.486,0.6639999999999999],
+              "radius": 0.0125,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#80bac5"
+            }
+          },
+          {
+            "id": "side-web-inner-1",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.nested-gangway-side-stringer",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,0.106,0.755]
+            },
+            "appearance": {
+              "color": "#80bac5"
+            },
+            "transform": {
+              "position": [0.35300000000000004,-0.023,0.3615]
+            }
+          },
+          {
+            "id": "railing-stem-inner-1-0.105",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.bridge-safety-rail-stanchion",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.46,0.027]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0.35300000000000004,0.253,0.105]
+            }
+          },
+          {
+            "id": "railing-stem-inner-1-0.644",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.bridge-safety-rail-stanchion",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.46,0.027]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0.35300000000000004,0.253,0.644]
+            }
+          },
+          {
+            "id": "rail-inner-1-0.252",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.longitudinal-handrail",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.35300000000000004,0.266,0.081],
+              "end": [0.35300000000000004,0.266,0.6639999999999999],
+              "radius": 0.0125,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#80bac5"
+            }
+          },
+          {
+            "id": "rail-inner-1-0.472",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.longitudinal-handrail",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.35300000000000004,0.486,0.081],
+              "end": [0.35300000000000004,0.486,0.6639999999999999],
+              "radius": 0.0125,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#80bac5"
+            }
+          },
+          {
+            "id": "tip-pad",
+            "semanticType": "construction.two-stage-telescopic-pedestrian-maintenance-gangway.nonskid-apron-end-pad",
+            "parent": "inner-deck",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.005,0],
+                [0,0.005,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.314,0.655],
+                [-0.314,0.655],
+                [-0.329,0.67],
+                [-0.329,0.749],
+                [-0.314,0.764],
+                [0.314,0.764],
+                [0.329,0.749],
+                [0.329,0.67]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            }
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "node": "wall-bracket",
+            "position": [0,0.108,0],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          },
+          "entrance": {
+            "node": "deck-outer",
+            "position": [0,0.036,0.039],
+            "direction": [0,0,-1],
+            "kind": "walkway"
+          },
+          "landing": {
+            "node": "deck-inner",
+            "position": [0,0.036,0.749],
+            "direction": [0,0,1],
+            "kind": "walkway"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "reach",
+            "label": "内桥板伸出量",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.264,
+            "targets": [
+              {
+                "node": "inner-deck",
+                "property": "position",
+                "axis": "z"
+              }
+            ]
+          },
+          {
+            "id": "slope",
+            "label": "整体步桥倾角",
+            "unit": "deg",
+            "value": 0,
+            "min": -11,
+            "max": 9,
+            "targets": [
+              {
+                "node": "bridge",
+                "property": "rotation",
+                "axis": "x",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -17,6 +17,8 @@ import {
 } from "./math.js";
 import { samplePath } from "./path.js";
 import { resolveMepRouteBindings } from "./mep-route-bindings.js";
+import { resolvePoseControls } from "./pose-controls.js";
+import { checkMonitoring } from "./monitoring.js";
 import { checkLocalAttachments } from "./connection-check.js";
 import { worldAnchorDefinition } from "./component.js";
 import { architecturalSweep } from "./architectural-geometry.js";
@@ -234,8 +236,17 @@ export function validateLight(light) {
 
 export function compileCompositionSpec(spec, { instanceId = spec?.id, transform, includeSource = false } = {}) {
   spec = resolveMepRouteBindings(spec);
-  const result = compile(spec, instanceId);
+  const result = compile(resolvePoseControls(spec), instanceId);
   if (includeSource) result.parameters = spec;
+  if (spec.monitoring !== undefined) {
+    checkMonitoring(spec, name => {
+      if (!Object.hasOwn(result.anchors, name)) return;
+      const anchor = result.anchors[name];
+      return worldAnchorDefinition(Array.isArray(anchor) ? { position: anchor } : anchor, transform);
+    }, (path, message, nodeId) => {
+      throw Object.assign(new Error(`${path}: ${message}`), { code: "MONITORING_INVALID", path, nodeId });
+    });
+  }
   if (spec.attachments !== undefined) {
     const warnings = [];
     checkLocalAttachments(spec, "", name => {

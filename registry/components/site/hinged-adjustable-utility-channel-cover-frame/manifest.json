@@ -1,0 +1,560 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.hinged-adjustable-utility-channel-cover-frame",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可调框式渠道检修盖板",
+  "summary": "带支承槽、两段可调整压框、翻盖铰轴、防滑条和带孔定位耳。",
+  "license": "Apache-2.0",
+  "semanticType": "site.hinged-adjustable-utility-channel-cover-frame",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "地沟盖板",
+    "渠道检修口",
+    "channel-cover",
+    "service-lid",
+    "土建设施",
+    "site"
+  ],
+  "anchors": [
+    "channel-datum",
+    "cover-pull"
+  ],
+  "ai": {
+    "intent": "为场地机电地沟留设独立检修盖板和调整支承框。",
+    "editableParts": [
+      "frame-width",
+      "cover-angle"
+    ],
+    "qualityChecks": [
+      "底框与盖板通过独立铰轴分组。",
+      "两边调节轨沿横向变化。",
+      "盖板开槽和轨上定位孔都具有贯通几何。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-adjustable-utility-channel-cover-frame",
+      "title": "可调框式渠道检修盖板",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "support-frame",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.channel-seating-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.043,0],
+                [0,-0.012,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.40900000000000003,-0.259],
+                [-0.40900000000000003,-0.259],
+                [-0.446,-0.222],
+                [-0.446,0.222],
+                [-0.40900000000000003,0.259],
+                [0.40900000000000003,0.259],
+                [0.446,0.222],
+                [0.446,-0.222]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.361,-0.202],
+                  [-0.361,-0.202],
+                  [-0.394,-0.169],
+                  [-0.394,0.169],
+                  [-0.361,0.202],
+                  [0.361,0.202],
+                  [0.394,0.169],
+                  [0.394,-0.169]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            }
+          },
+          {
+            "id": "side-rail--1",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.frame",
+            "transform": {
+              "position": [0,-0.015,-0.223]
+            }
+          },
+          {
+            "id": "angle-rail--1",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.lateral-adjustment-rail",
+            "parent": "side-rail--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.014,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.413,-0.027],
+                [-0.413,-0.027],
+                [-0.422,-0.018000000000000002],
+                [-0.422,0.018000000000000002],
+                [-0.413,0.027],
+                [0.413,0.027],
+                [0.422,0.018000000000000002],
+                [0.422,-0.018000000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.329,-0.005],
+                  [0.29900000000000004,-0.005],
+                  [0.29500000000000004,-0.001],
+                  [0.29500000000000004,0.001],
+                  [0.29900000000000004,0.005],
+                  [0.329,0.005],
+                  [0.333,0.001],
+                  [0.333,-0.001]
+                ],
+                [
+                  [0.015,-0.005],
+                  [-0.015,-0.005],
+                  [-0.019,-0.001],
+                  [-0.019,0.001],
+                  [-0.015,0.005],
+                  [0.015,0.005],
+                  [0.019,0.001],
+                  [0.019,-0.001]
+                ],
+                [
+                  [-0.299,-0.005],
+                  [-0.32899999999999996,-0.005],
+                  [-0.33299999999999996,-0.001],
+                  [-0.33299999999999996,0.001],
+                  [-0.32899999999999996,0.005],
+                  [-0.299,0.005],
+                  [-0.295,0.001],
+                  [-0.295,-0.001]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            }
+          },
+          {
+            "id": "side-rail-1",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.frame",
+            "transform": {
+              "position": [0,-0.015,0.223]
+            }
+          },
+          {
+            "id": "angle-rail-1",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.lateral-adjustment-rail",
+            "parent": "side-rail-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.014,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.413,-0.027],
+                [-0.413,-0.027],
+                [-0.422,-0.018000000000000002],
+                [-0.422,0.018000000000000002],
+                [-0.413,0.027],
+                [0.413,0.027],
+                [0.422,0.018000000000000002],
+                [0.422,-0.018000000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.329,-0.005],
+                  [0.29900000000000004,-0.005],
+                  [0.29500000000000004,-0.001],
+                  [0.29500000000000004,0.001],
+                  [0.29900000000000004,0.005],
+                  [0.329,0.005],
+                  [0.333,0.001],
+                  [0.333,-0.001]
+                ],
+                [
+                  [0.015,-0.005],
+                  [-0.015,-0.005],
+                  [-0.019,-0.001],
+                  [-0.019,0.001],
+                  [-0.015,0.005],
+                  [0.015,0.005],
+                  [0.019,0.001],
+                  [0.019,-0.001]
+                ],
+                [
+                  [-0.299,-0.005],
+                  [-0.32899999999999996,-0.005],
+                  [-0.33299999999999996,-0.001],
+                  [-0.33299999999999996,0.001],
+                  [-0.32899999999999996,0.005],
+                  [-0.299,0.005],
+                  [-0.295,0.001],
+                  [-0.295,-0.001]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.frame",
+            "transform": {
+              "position": [-0.399,-0.006,0]
+            }
+          },
+          {
+            "id": "cover-panel",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.channel-inspection-panel",
+            "parent": "lid",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.019,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.026,-0.227],
+                [-0.775,-0.227],
+                [-0.801,-0.201],
+                [-0.801,0.201],
+                [-0.775,0.227],
+                [-0.026,0.227],
+                [0,0.201],
+                [0,-0.201]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.726,-0.021],
+                  [-0.749,-0.021],
+                  [-0.757,-0.013000000000000001],
+                  [-0.757,0.013000000000000001],
+                  [-0.749,0.021],
+                  [-0.726,0.021],
+                  [-0.718,0.013000000000000001],
+                  [-0.718,-0.013000000000000001]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#76b4c0"
+            }
+          },
+          {
+            "id": "traction-0",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.05,0.021,0]
+            }
+          },
+          {
+            "id": "traction-1",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.10200000000000001,0.021,0]
+            }
+          },
+          {
+            "id": "traction-2",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.154,0.021,0]
+            }
+          },
+          {
+            "id": "traction-3",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.20600000000000002,0.021,0]
+            }
+          },
+          {
+            "id": "traction-4",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.258,0.021,0]
+            }
+          },
+          {
+            "id": "traction-5",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.31,0.021,0]
+            }
+          },
+          {
+            "id": "traction-6",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.362,0.021,0]
+            }
+          },
+          {
+            "id": "traction-7",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.414,0.021,0]
+            }
+          },
+          {
+            "id": "traction-8",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.46599999999999997,0.021,0]
+            }
+          },
+          {
+            "id": "traction-9",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.518,0.021,0]
+            }
+          },
+          {
+            "id": "traction-10",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.5700000000000001,0.021,0]
+            }
+          },
+          {
+            "id": "traction-11",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.622,0.021,0]
+            }
+          },
+          {
+            "id": "traction-12",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.674,0.021,0]
+            }
+          },
+          {
+            "id": "traction-13",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.anti-slip-rib",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.004,0.409]
+            },
+            "appearance": {
+              "color": "#97afb9"
+            },
+            "transform": {
+              "position": [0.726,0.021,0]
+            }
+          },
+          {
+            "id": "panel-pin--1",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.hinge-pin",
+            "parent": "lid",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.199],
+              "end": [0,0,-0.08100000000000002],
+              "radius": 0.0074,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            }
+          },
+          {
+            "id": "panel-pin-1",
+            "semanticType": "site.hinged-adjustable-utility-channel-cover-frame.hinge-pin",
+            "parent": "lid",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.08100000000000002],
+              "end": [0,0,0.199],
+              "radius": 0.0074,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aac1cc"
+            }
+          }
+        ],
+        "anchors": {
+          "channel-datum": {
+            "node": "support-frame",
+            "position": [0,0.012,0],
+            "direction": [0,1,0],
+            "kind": "mount"
+          },
+          "cover-pull": {
+            "node": "lid",
+            "position": [0.737,0.019,0],
+            "direction": [0,1,0],
+            "kind": "grip"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "frame-width",
+            "label": "两侧限位宽度",
+            "unit": "m",
+            "value": 0,
+            "min": -0.025,
+            "max": 0.037,
+            "targets": [
+              {
+                "node": "side-rail--1",
+                "property": "position",
+                "axis": "z",
+                "factor": -0.5
+              },
+              {
+                "node": "side-rail-1",
+                "property": "position",
+                "axis": "z",
+                "factor": 0.5
+              }
+            ]
+          },
+          {
+            "id": "cover-angle",
+            "label": "检修盖翻转",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 105,
+            "targets": [
+              {
+                "node": "lid",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

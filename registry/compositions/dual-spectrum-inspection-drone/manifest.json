@@ -1,0 +1,1447 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.dual-spectrum-inspection-drone",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "建筑巡检双光四旋翼无人机",
+  "summary": "可独立复用的四旋翼无人机，包含机身、旋翼、电机、起落架、可拆电池和双轴云台。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.dual-spectrum-inspection-drone",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose",
+    "animate"
+  ],
+  "tags": [
+    "施工设备",
+    "检测设备",
+    "外墙巡检",
+    "无人机",
+    "单体模型",
+    "双光",
+    "红外",
+    "热像",
+    "drone",
+    "quadrotor"
+  ],
+  "anchors": [
+    "camera-mount",
+    "rgb-view",
+    "ir-view",
+    "battery-dock",
+    "ground",
+    "front-left-shaft",
+    "front-right-shaft",
+    "rear-left-shaft",
+    "rear-right-shaft"
+  ],
+  "dependencies": [
+    "instrument.dual-spectrum-inspection-gimbal-camera-head@0.1.0"
+  ],
+  "ai": {
+    "intent": "将无人机本体作为独立设备复用，通过可见光与红外光轴控制镜头方向，并按需调节电池位置。",
+    "editableParts": [
+      "camera-yaw",
+      "camera-pitch",
+      "battery-travel"
+    ],
+    "qualityChecks": [
+      "对比独立镜头在云台旋转后的光轴。",
+      "云台旋转不移动旋翼和机身。",
+      "机身保留机载设备本体，巡检立面由示例场景加入。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "dual-spectrum-inspection-drone",
+      "title": "建筑巡检双光四旋翼无人机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lower-frame",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.lower-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.035,0],
+                [0,0.019,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.12,-0.14],
+                [-0.08,-0.19],
+                [0.08,-0.19],
+                [0.12,-0.14],
+                [0.12,0.144],
+                [0.076,0.203],
+                [-0.076,0.203],
+                [-0.12,0.144]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "shell",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.shell",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.019,0],
+                [0,0.067,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.103,-0.142],
+                [-0.063,-0.17],
+                [0.063,-0.17],
+                [0.103,-0.142],
+                [0.103,0.098],
+                [0.072,0.153],
+                [-0.072,0.153],
+                [-0.103,0.098]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "battery-tray",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.battery-tray",
+            "transform": {
+              "position": [0,0.044,-0.165]
+            }
+          },
+          {
+            "id": "battery",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.slide-in-battery",
+            "parent": "battery-tray",
+            "geometry": {
+              "type": "box",
+              "size": [0.132,0.055,0.153]
+            },
+            "appearance": {
+              "color": "#72858b"
+            },
+            "transform": {
+              "position": [0,0.023,-0.026]
+            }
+          },
+          {
+            "id": "battery-latch",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.latch",
+            "parent": "battery-tray",
+            "geometry": {
+              "type": "box",
+              "size": [0.075,0.031,0.019]
+            },
+            "appearance": {
+              "color": "#e9a637"
+            },
+            "transform": {
+              "position": [0,0.03,-0.11]
+            }
+          },
+          {
+            "id": "navigation-window",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.front-sensor-window",
+            "geometry": {
+              "type": "box",
+              "size": [0.094,0.035,0.021]
+            },
+            "appearance": {
+              "color": "#23292d"
+            },
+            "transform": {
+              "position": [0,0.026,0.196]
+            }
+          },
+          {
+            "id": "roof-antenna",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.antenna",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.065,0.01],
+              "end": [0,0.103,0.01],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "skid-strut-front-0",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.landing-strut",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.08,-0.034,0.122],
+              "end": [-0.176,-0.225,0.181],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "skid-strut-rear-0",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.landing-strut",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.08,-0.034,-0.122],
+              "end": [-0.176,-0.225,-0.181],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "skid-0",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.landing-skid",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.176,-0.225,-0.247],
+              "end": [-0.176,-0.225,0.265],
+              "radius": 0.015,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "skid-pad-0-0",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.skid-pad",
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.017,0.051]
+            },
+            "appearance": {
+              "color": "#23292d"
+            },
+            "transform": {
+              "position": [-0.176,-0.24,-0.21]
+            }
+          },
+          {
+            "id": "skid-pad-0-1",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.skid-pad",
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.017,0.051]
+            },
+            "appearance": {
+              "color": "#23292d"
+            },
+            "transform": {
+              "position": [-0.176,-0.24,0.217]
+            }
+          },
+          {
+            "id": "skid-strut-front-1",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.landing-strut",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.08,-0.034,0.122],
+              "end": [0.176,-0.225,0.181],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "skid-strut-rear-1",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.landing-strut",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.08,-0.034,-0.122],
+              "end": [0.176,-0.225,-0.181],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "skid-1",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.landing-skid",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.176,-0.225,-0.247],
+              "end": [0.176,-0.225,0.265],
+              "radius": 0.015,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "skid-pad-1-0",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.skid-pad",
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.017,0.051]
+            },
+            "appearance": {
+              "color": "#23292d"
+            },
+            "transform": {
+              "position": [0.176,-0.24,-0.21]
+            }
+          },
+          {
+            "id": "skid-pad-1-1",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.skid-pad",
+            "geometry": {
+              "type": "box",
+              "size": [0.062,0.017,0.051]
+            },
+            "appearance": {
+              "color": "#23292d"
+            },
+            "transform": {
+              "position": [0.176,-0.24,0.217]
+            }
+          },
+          {
+            "id": "front-left-arm",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.rotor-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.09,0.005,0.123],
+                [-0.37,0.035,0.375]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.024,-0.017],
+                [0.024,-0.017],
+                [0.024,0.017],
+                [-0.024,0.017]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "front-left-motor",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.motor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.37,0.018,0.375],
+              "end": [-0.37,0.08,0.375],
+              "radius": 0.049,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "front-left-motor-cap",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.motor-cap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.37,0.078,0.375],
+              "end": [-0.37,0.091,0.375],
+              "radius": 0.042,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "front-left-light",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.arm-indicator",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.017,0.024]
+            },
+            "appearance": {
+              "color": "#d66957"
+            },
+            "transform": {
+              "position": [-0.37,0.04,0.42]
+            }
+          },
+          {
+            "id": "front-left-rotor",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.front-left-rotor",
+            "transform": {
+              "position": [-0.37,0.098,0.375]
+            }
+          },
+          {
+            "id": "front-left-hub",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.rotor-hub",
+            "parent": "front-left-rotor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.007,0],
+              "end": [0,0.013,0],
+              "radius": 0.025,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "front-left-blade-a",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.propeller",
+            "parent": "front-left-rotor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.021,-0.011],
+                [0.073,-0.016],
+                [0.146,-0.008],
+                [0.171,0.005],
+                [0.158,0.012],
+                [0.057,0.014],
+                [0.021,0.007]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "front-left-blade-b",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.propeller",
+            "parent": "front-left-rotor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.021,0.011],
+                [-0.073,0.016],
+                [-0.146,0.008],
+                [-0.171,-0.005],
+                [-0.158,-0.012],
+                [-0.057,-0.014],
+                [-0.021,-0.007]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "front-right-arm",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.rotor-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.09,0.005,0.123],
+                [0.37,0.035,0.375]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.024,-0.017],
+                [0.024,-0.017],
+                [0.024,0.017],
+                [-0.024,0.017]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "front-right-motor",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.motor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.37,0.018,0.375],
+              "end": [0.37,0.08,0.375],
+              "radius": 0.049,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "front-right-motor-cap",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.motor-cap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.37,0.078,0.375],
+              "end": [0.37,0.091,0.375],
+              "radius": 0.042,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "front-right-light",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.arm-indicator",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.017,0.024]
+            },
+            "appearance": {
+              "color": "#d66957"
+            },
+            "transform": {
+              "position": [0.37,0.04,0.42]
+            }
+          },
+          {
+            "id": "front-right-rotor",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.front-right-rotor",
+            "transform": {
+              "position": [0.37,0.098,0.375]
+            }
+          },
+          {
+            "id": "front-right-hub",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.rotor-hub",
+            "parent": "front-right-rotor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.007,0],
+              "end": [0,0.013,0],
+              "radius": 0.025,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "front-right-blade-a",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.propeller",
+            "parent": "front-right-rotor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.021,-0.011],
+                [0.073,-0.016],
+                [0.146,-0.008],
+                [0.171,0.005],
+                [0.158,0.012],
+                [0.057,0.014],
+                [0.021,0.007]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "front-right-blade-b",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.propeller",
+            "parent": "front-right-rotor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.021,0.011],
+                [-0.073,0.016],
+                [-0.146,0.008],
+                [-0.171,-0.005],
+                [-0.158,-0.012],
+                [-0.057,-0.014],
+                [-0.021,-0.007]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "rear-left-arm",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.rotor-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.09,0.005,-0.123],
+                [-0.37,0.035,-0.375]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.024,-0.017],
+                [0.024,-0.017],
+                [0.024,0.017],
+                [-0.024,0.017]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "rear-left-motor",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.motor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.37,0.018,-0.375],
+              "end": [-0.37,0.08,-0.375],
+              "radius": 0.049,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "rear-left-motor-cap",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.motor-cap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.37,0.078,-0.375],
+              "end": [-0.37,0.091,-0.375],
+              "radius": 0.042,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "rear-left-light",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.arm-indicator",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.017,0.024]
+            },
+            "appearance": {
+              "color": "#68bb81"
+            },
+            "transform": {
+              "position": [-0.37,0.04,-0.42]
+            }
+          },
+          {
+            "id": "rear-left-rotor",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.rear-left-rotor",
+            "transform": {
+              "position": [-0.37,0.098,-0.375]
+            }
+          },
+          {
+            "id": "rear-left-hub",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.rotor-hub",
+            "parent": "rear-left-rotor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.007,0],
+              "end": [0,0.013,0],
+              "radius": 0.025,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "rear-left-blade-a",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.propeller",
+            "parent": "rear-left-rotor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.021,-0.011],
+                [0.073,-0.016],
+                [0.146,-0.008],
+                [0.171,0.005],
+                [0.158,0.012],
+                [0.057,0.014],
+                [0.021,0.007]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "rear-left-blade-b",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.propeller",
+            "parent": "rear-left-rotor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.021,0.011],
+                [-0.073,0.016],
+                [-0.146,0.008],
+                [-0.171,-0.005],
+                [-0.158,-0.012],
+                [-0.057,-0.014],
+                [-0.021,-0.007]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "rear-right-arm",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.rotor-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.09,0.005,-0.123],
+                [0.37,0.035,-0.375]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.024,-0.017],
+                [0.024,-0.017],
+                [0.024,0.017],
+                [-0.024,0.017]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "rear-right-motor",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.motor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.37,0.018,-0.375],
+              "end": [0.37,0.08,-0.375],
+              "radius": 0.049,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "rear-right-motor-cap",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.motor-cap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.37,0.078,-0.375],
+              "end": [0.37,0.091,-0.375],
+              "radius": 0.042,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "rear-right-light",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.arm-indicator",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.017,0.024]
+            },
+            "appearance": {
+              "color": "#68bb81"
+            },
+            "transform": {
+              "position": [0.37,0.04,-0.42]
+            }
+          },
+          {
+            "id": "rear-right-rotor",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.rear-right-rotor",
+            "transform": {
+              "position": [0.37,0.098,-0.375]
+            }
+          },
+          {
+            "id": "rear-right-hub",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.rotor-hub",
+            "parent": "rear-right-rotor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.007,0],
+              "end": [0,0.013,0],
+              "radius": 0.025,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "rear-right-blade-a",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.propeller",
+            "parent": "rear-right-rotor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.021,-0.011],
+                [0.073,-0.016],
+                [0.146,-0.008],
+                [0.171,0.005],
+                [0.158,0.012],
+                [0.057,0.014],
+                [0.021,0.007]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "rear-right-blade-b",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.propeller",
+            "parent": "rear-right-rotor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.021,0.011],
+                [-0.073,0.016],
+                [-0.146,0.008],
+                [-0.171,-0.005],
+                [-0.158,-0.012],
+                [-0.057,-0.014],
+                [-0.021,-0.007]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "camera-mount",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.camera-mount",
+            "transform": {
+              "position": [0,-0.041,0.09]
+            }
+          },
+          {
+            "id": "gimbal-top-adapter",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.mount",
+            "material": "steel",
+            "appearance": {
+              "color": "#83999e"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.023,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.0615,-0.046],
+                [0.0615,-0.046],
+                [0.0615,0.046],
+                [-0.0615,0.046]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.036000000000000004,0],
+                  [-0.03617037086855466,0.0012940952255126037],
+                  [-0.03666987298107781,0.0024999999999999996],
+                  [-0.03746446609406726,0.0035355339059327372],
+                  [-0.0385,0.004330127018922193],
+                  [-0.0397059047744874,0.004829629131445342],
+                  [-0.041,0.005],
+                  [-0.042294095225512605,0.004829629131445342],
+                  [-0.0435,0.004330127018922193],
+                  [-0.04453553390593274,0.003535533905932738],
+                  [-0.045330127018922195,0.0024999999999999996],
+                  [-0.045829629131445344,0.0012940952255126052],
+                  [-0.046,6.123233995736766e-19],
+                  [-0.045829629131445344,-0.001294095225512604],
+                  [-0.045330127018922195,-0.0024999999999999988],
+                  [-0.04453553390593274,-0.0035355339059327355],
+                  [-0.043500000000000004,-0.004330127018922192],
+                  [-0.042294095225512605,-0.004829629131445342],
+                  [-0.041,-0.005],
+                  [-0.0397059047744874,-0.004829629131445342],
+                  [-0.0385,-0.004330127018922193],
+                  [-0.03746446609406726,-0.0035355339059327385],
+                  [-0.03666987298107781,-0.0025000000000000022],
+                  [-0.03617037086855466,-0.0012940952255126078]
+                ],
+                [
+                  [0.046,0],
+                  [0.045829629131445344,0.0012940952255126037],
+                  [0.045330127018922195,0.0024999999999999996],
+                  [0.04453553390593274,0.0035355339059327372],
+                  [0.043500000000000004,0.004330127018922193],
+                  [0.042294095225512605,0.004829629131445342],
+                  [0.041,0.005],
+                  [0.0397059047744874,0.004829629131445342],
+                  [0.038500000000000006,0.004330127018922193],
+                  [0.03746446609406726,0.003535533905932738],
+                  [0.03666987298107781,0.0024999999999999996],
+                  [0.03617037086855466,0.0012940952255126052],
+                  [0.036000000000000004,6.123233995736766e-19],
+                  [0.03617037086855466,-0.001294095225512604],
+                  [0.03666987298107781,-0.0024999999999999988],
+                  [0.03746446609406726,-0.0035355339059327355],
+                  [0.0385,-0.004330127018922192],
+                  [0.0397059047744874,-0.004829629131445342],
+                  [0.041,-0.005],
+                  [0.042294095225512605,-0.004829629131445342],
+                  [0.043500000000000004,-0.004330127018922193],
+                  [0.04453553390593274,-0.0035355339059327385],
+                  [0.045330127018922195,-0.0025000000000000022],
+                  [0.045829629131445344,-0.0012940952255126078]
+                ]
+              ]
+            },
+            "parent": "camera-mount",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "instrument.building-inspection.dual-optical-gimbal.mount"
+            }
+          },
+          {
+            "id": "gimbal-yaw-base",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.group",
+            "transform": {
+              "position": [0,-0.023,0]
+            },
+            "parent": "camera-mount",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "core.group"
+            }
+          },
+          {
+            "id": "gimbal-yaw-pivot",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.collar",
+            "material": "steel",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.039,0],
+              "end": [0,0,0],
+              "radius": 0.026,
+              "radialSegments": 22
+            },
+            "parent": "gimbal-yaw-base",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "instrument.building-inspection.dual-optical-gimbal.collar"
+            }
+          },
+          {
+            "id": "gimbal-fork-yoke-0",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.pitch-yoke",
+            "material": "steel",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.095,0.068]
+            },
+            "transform": {
+              "position": [-0.069,-0.072,0]
+            },
+            "parent": "gimbal-yaw-base",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "instrument.building-inspection.dual-optical-gimbal.pitch-yoke"
+            }
+          },
+          {
+            "id": "gimbal-fork-yoke-1",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.pitch-yoke",
+            "material": "steel",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.095,0.068]
+            },
+            "transform": {
+              "position": [0.069,-0.072,0]
+            },
+            "parent": "gimbal-yaw-base",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "instrument.building-inspection.dual-optical-gimbal.pitch-yoke"
+            }
+          },
+          {
+            "id": "gimbal-pitch-pivot",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.shaft",
+            "material": "steel",
+            "appearance": {
+              "color": "#83999e"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.08,-0.1,0],
+              "end": [0.08,-0.1,0],
+              "radius": 0.009,
+              "radialSegments": 22
+            },
+            "parent": "gimbal-yaw-base",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "instrument.building-inspection.dual-optical-gimbal.shaft"
+            }
+          },
+          {
+            "id": "gimbal-pitch-base",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.group",
+            "transform": {
+              "position": [0,-0.1,0]
+            },
+            "parent": "gimbal-yaw-base",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "core.group"
+            }
+          },
+          {
+            "id": "gimbal-dual-camera-body",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.lens-housing",
+            "material": "polymer",
+            "appearance": {
+              "color": "#657d80"
+            },
+            "geometry": {
+              "type": "box",
+              "size": [0.131,0.078,0.071]
+            },
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "gimbal-pitch-base",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "instrument.building-inspection.dual-optical-gimbal.lens-housing"
+            }
+          },
+          {
+            "id": "gimbal-optic-rim-0",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.lens-barrel",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.033,0,0.033],
+                [-0.033,0,0.055]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.024,0],
+                [0.02318221983093764,0.006211657082460498],
+                [0.02078460969082653,0.011999999999999999],
+                [0.016970562748477143,0.01697056274847714],
+                [0.012000000000000004,0.020784609690826527],
+                [0.006211657082460498,0.02318221983093764],
+                [1.4695761589768239e-18,0.024],
+                [-0.006211657082460495,0.02318221983093764],
+                [-0.011999999999999995,0.02078460969082653],
+                [-0.01697056274847714,0.016970562748477143],
+                [-0.02078460969082653,0.011999999999999999],
+                [-0.02318221983093764,0.006211657082460504],
+                [-0.024,2.9391523179536477e-18],
+                [-0.02318221983093764,-0.006211657082460499],
+                [-0.02078460969082653,-0.011999999999999993],
+                [-0.01697056274847715,-0.016970562748477133],
+                [-0.01200000000000001,-0.020784609690826523],
+                [-0.006211657082460495,-0.02318221983093764],
+                [-4.408728476930471e-18,-0.024],
+                [0.006211657082460487,-0.023182219830937642],
+                [0.012000000000000004,-0.020784609690826527],
+                [0.016970562748477136,-0.016970562748477146],
+                [0.02078460969082652,-0.01200000000000001],
+                [0.023182219830937635,-0.006211657082460518]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.016,0],
+                  [0.015454813220625094,0.004141104721640332],
+                  [0.013856406460551019,0.007999999999999998],
+                  [0.011313708498984762,0.01131370849898476],
+                  [0.008000000000000002,0.013856406460551017],
+                  [0.004141104721640332,0.015454813220625094],
+                  [9.797174393178825e-19,0.016],
+                  [-0.0041411047216403304,0.015454813220625094],
+                  [-0.007999999999999997,0.013856406460551019],
+                  [-0.01131370849898476,0.011313708498984762],
+                  [-0.013856406460551019,0.007999999999999998],
+                  [-0.015454813220625092,0.0041411047216403365],
+                  [-0.016,1.959434878635765e-18],
+                  [-0.015454813220625094,-0.004141104721640333],
+                  [-0.01385640646055102,-0.007999999999999995],
+                  [-0.011313708498984767,-0.011313708498984755],
+                  [-0.008000000000000007,-0.013856406460551016],
+                  [-0.0041411047216403304,-0.015454813220625094],
+                  [-2.9391523179536477e-18,-0.016],
+                  [0.004141104721640325,-0.015454813220625096],
+                  [0.008000000000000002,-0.013856406460551017],
+                  [0.011313708498984758,-0.011313708498984764],
+                  [0.013856406460551014,-0.008000000000000007],
+                  [0.015454813220625089,-0.004141104721640345]
+                ]
+              ]
+            },
+            "parent": "gimbal-pitch-base",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "instrument.building-inspection.dual-optical-gimbal.lens-barrel"
+            }
+          },
+          {
+            "id": "gimbal-lens-0",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.optic",
+            "material": "glass",
+            "appearance": {
+              "color": "#99b6b4"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.033,0,0.049],
+              "end": [-0.033,0,0.054],
+              "radius": 0.0158,
+              "radialSegments": 22
+            },
+            "parent": "gimbal-pitch-base",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "instrument.building-inspection.dual-optical-gimbal.optic"
+            }
+          },
+          {
+            "id": "gimbal-optic-rim-1",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.lens-barrel",
+            "material": "polymer",
+            "appearance": {
+              "color": "#506775"
+            },
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.033,0,0.033],
+                [0.033,0,0.055]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.023,0],
+                [0.02221629400464857,0.005952838037357977],
+                [0.01991858428704209,0.011499999999999998],
+                [0.016263455967290594,0.01626345596729059],
+                [0.011500000000000002,0.019918584287042088],
+                [0.005952838037357977,0.02221629400464857],
+                [1.4083438190194562e-18,0.023],
+                [-0.005952838037357975,0.02221629400464857],
+                [-0.011499999999999995,0.01991858428704209],
+                [-0.01626345596729059,0.016263455967290594],
+                [-0.01991858428704209,0.011499999999999998],
+                [-0.022216294004648567,0.005952838037357983],
+                [-0.023,2.8166876380389123e-18],
+                [-0.02221629400464857,-0.005952838037357978],
+                [-0.01991858428704209,-0.011499999999999993],
+                [-0.0162634559672906,-0.016263455967290584],
+                [-0.01150000000000001,-0.019918584287042084],
+                [-0.005952838037357975,-0.02221629400464857],
+                [-4.2250314570583685e-18,-0.023],
+                [0.005952838037357967,-0.022216294004648574],
+                [0.011500000000000002,-0.019918584287042088],
+                [0.016263455967290587,-0.016263455967290598],
+                [0.01991858428704208,-0.01150000000000001],
+                [0.022216294004648567,-0.005952838037357996]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.016,0],
+                  [0.015454813220625094,0.004141104721640332],
+                  [0.013856406460551019,0.007999999999999998],
+                  [0.011313708498984762,0.01131370849898476],
+                  [0.008000000000000002,0.013856406460551017],
+                  [0.004141104721640332,0.015454813220625094],
+                  [9.797174393178825e-19,0.016],
+                  [-0.0041411047216403304,0.015454813220625094],
+                  [-0.007999999999999997,0.013856406460551019],
+                  [-0.01131370849898476,0.011313708498984762],
+                  [-0.013856406460551019,0.007999999999999998],
+                  [-0.015454813220625092,0.0041411047216403365],
+                  [-0.016,1.959434878635765e-18],
+                  [-0.015454813220625094,-0.004141104721640333],
+                  [-0.01385640646055102,-0.007999999999999995],
+                  [-0.011313708498984767,-0.011313708498984755],
+                  [-0.008000000000000007,-0.013856406460551016],
+                  [-0.0041411047216403304,-0.015454813220625094],
+                  [-2.9391523179536477e-18,-0.016],
+                  [0.004141104721640325,-0.015454813220625096],
+                  [0.008000000000000002,-0.013856406460551017],
+                  [0.011313708498984758,-0.011313708498984764],
+                  [0.013856406460551014,-0.008000000000000007],
+                  [0.015454813220625089,-0.004141104721640345]
+                ]
+              ]
+            },
+            "parent": "gimbal-pitch-base",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "instrument.building-inspection.dual-optical-gimbal.lens-barrel"
+            }
+          },
+          {
+            "id": "gimbal-lens-1",
+            "semanticType": "equipment.dual-spectrum-inspection-drone.gimbal.optic",
+            "material": "glass",
+            "appearance": {
+              "color": "#6e9399"
+            },
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.033,0,0.049],
+              "end": [0.033,0,0.054],
+              "radius": 0.0158,
+              "radialSegments": 22
+            },
+            "parent": "gimbal-pitch-base",
+            "metadata": {
+              "sourceComponent": "instrument.dual-spectrum-inspection-gimbal-camera-head",
+              "sourceSemanticType": "instrument.building-inspection.dual-optical-gimbal.optic"
+            }
+          }
+        ],
+        "anchors": {
+          "camera-mount": {
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "node": "camera-mount",
+            "kind": "gimbal-mount"
+          },
+          "rgb-view": {
+            "node": "gimbal-pitch-base",
+            "position": [-0.033,0,0.055],
+            "direction": [0,0,1],
+            "kind": "rgb-optical-axis"
+          },
+          "ir-view": {
+            "node": "gimbal-pitch-base",
+            "position": [0.033,0,0.055],
+            "direction": [0,0,1],
+            "kind": "ir-optical-axis"
+          },
+          "battery-dock": {
+            "node": "battery-tray",
+            "position": [0,0.023,-0.026],
+            "direction": [0,0,1],
+            "kind": "battery-dock"
+          },
+          "ground": {
+            "node": "skid-pad-0-0",
+            "position": [0,-0.0085,0],
+            "direction": [0,-1,0],
+            "kind": "ground-contact"
+          },
+          "front-left-shaft": {
+            "node": "front-left-rotor",
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "rotor-axis"
+          },
+          "front-right-shaft": {
+            "node": "front-right-rotor",
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "rotor-axis"
+          },
+          "rear-left-shaft": {
+            "node": "rear-left-rotor",
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "rotor-axis"
+          },
+          "rear-right-shaft": {
+            "node": "rear-right-rotor",
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "rotor-axis"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "camera-yaw",
+            "label": "云台水平转角",
+            "unit": "°",
+            "value": 0,
+            "min": -80,
+            "max": 80,
+            "targets": [
+              {
+                "node": "gimbal-yaw-base",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "camera-pitch",
+            "label": "云台俯仰角",
+            "unit": "°",
+            "value": 0,
+            "min": -30,
+            "max": 75,
+            "targets": [
+              {
+                "node": "gimbal-pitch-base",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "battery-travel",
+            "label": "电池抽出行程",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.14,
+            "targets": [
+              {
+                "node": "battery-tray",
+                "property": "position",
+                "axis": "z",
+                "factor": -1
+              }
+            ]
+          }
+        ],
+        "animations": [
+          {
+            "id": "spin-front-left",
+            "target": "front-left-rotor",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,6.283185307179586,0],
+            "duration": 0.85,
+            "loop": true,
+            "space": "local"
+          },
+          {
+            "id": "spin-front-right",
+            "target": "front-right-rotor",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-6.283185307179586,0],
+            "duration": 0.85,
+            "loop": true,
+            "space": "local"
+          },
+          {
+            "id": "spin-rear-left",
+            "target": "rear-left-rotor",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,-6.283185307179586,0],
+            "duration": 0.85,
+            "loop": true,
+            "space": "local"
+          },
+          {
+            "id": "spin-rear-right",
+            "target": "rear-right-rotor",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,6.283185307179586,0],
+            "duration": 0.85,
+            "loop": true,
+            "space": "local"
+          },
+          {
+            "id": "pan-camera",
+            "target": "gimbal-yaw-base",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0.55,0],
+            "duration": 1.2,
+            "loop": false,
+            "space": "local"
+          },
+          {
+            "id": "remove-battery",
+            "target": "battery-tray",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0,-0.14],
+            "duration": 1.1,
+            "loop": false
+          }
+        ]
+      }
+    }
+  }
+}

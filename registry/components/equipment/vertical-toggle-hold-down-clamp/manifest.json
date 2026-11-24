@@ -1,0 +1,545 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.vertical-toggle-hold-down-clamp",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "立式焊装肘节压紧夹具",
+  "summary": "有贯通安装槽、叉形压杆、翻起把手、独立压紧螺栓和橡胶压脚的焊装定位夹具。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.vertical-toggle-hold-down-clamp",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "快速夹具",
+    "压紧夹具",
+    "toggle-clamp",
+    "workholding",
+    "机械基础件",
+    "machine-element"
+  ],
+  "anchors": [
+    "clamp-contact",
+    "clamp-mount",
+    "handle-grip"
+  ],
+  "ai": {
+    "intent": "为工装夹具提供带安装孔与可调压脚的独立模块。",
+    "editableParts": [
+      "open-angle",
+      "pad-adjust"
+    ],
+    "qualityChecks": [
+      "压脚跟随压臂绕固定销转动。",
+      "调节螺栓只改变压脚在压臂上的高度。",
+      "安装槽为贯通孔。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "vertical-toggle-hold-down-clamp",
+      "title": "立式焊装肘节压紧夹具",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mount-plate",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.mount-plate",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.006,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.05,-0.033],
+                [-0.041999999999999996,-0.033],
+                [-0.048999999999999995,-0.026000000000000002],
+                [-0.048999999999999995,0.026000000000000002],
+                [-0.041999999999999996,0.033],
+                [0.05,0.033],
+                [0.057,0.026000000000000002],
+                [0.057,-0.026000000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.043,-0.0245],
+                  [0.033,-0.0245],
+                  [0.031,-0.0225],
+                  [0.031,-0.019500000000000003],
+                  [0.033,-0.0175],
+                  [0.043,-0.0175],
+                  [0.045,-0.019500000000000003],
+                  [0.045,-0.0225]
+                ],
+                [
+                  [0.043,0.0175],
+                  [0.033,0.0175],
+                  [0.031,0.019500000000000003],
+                  [0.031,0.0225],
+                  [0.033,0.0245],
+                  [0.043,0.0245],
+                  [0.045,0.0225],
+                  [0.045,0.019500000000000003]
+                ],
+                [
+                  [-0.025,-0.0245],
+                  [-0.034999999999999996,-0.0245],
+                  [-0.037,-0.0225],
+                  [-0.037,-0.019500000000000003],
+                  [-0.034999999999999996,-0.0175],
+                  [-0.025,-0.0175],
+                  [-0.023,-0.019500000000000003],
+                  [-0.023,-0.0225]
+                ],
+                [
+                  [-0.025,0.0175],
+                  [-0.034999999999999996,0.0175],
+                  [-0.037,0.019500000000000003],
+                  [-0.037,0.0225],
+                  [-0.034999999999999996,0.0245],
+                  [-0.025,0.0245],
+                  [-0.023,0.0225],
+                  [-0.023,0.019500000000000003]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "base-ear--1",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.pivot-ear",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.0205],
+                [0,0,-0.0125]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.035,0.006],
+                [0.02,0.006],
+                [0.014,0.035],
+                [-0.011,0.051],
+                [-0.032,0.045]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0008,0.032],
+                  [0.00056507,0.03348328],
+                  [-0.00011672,0.03482137],
+                  [-0.00117863,0.03588328],
+                  [-0.00251672,0.03656507],
+                  [-0.004,0.0368],
+                  [-0.00548328,0.03656507],
+                  [-0.00682137,0.03588328],
+                  [-0.00788328,0.03482137],
+                  [-0.00856507,0.03348328],
+                  [-0.0088,0.032],
+                  [-0.00856507,0.03051672],
+                  [-0.00788328,0.02917863],
+                  [-0.00682137,0.02811672],
+                  [-0.00548328,0.02743493],
+                  [-0.004,0.0272],
+                  [-0.00251672,0.02743493],
+                  [-0.00117863,0.02811672],
+                  [-0.00011672,0.02917863],
+                  [0.00056507,0.03051672]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5f727d"
+            }
+          },
+          {
+            "id": "base-ear-1",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.pivot-ear",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.0125],
+                [0,0,0.0205]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.035,0.006],
+                [0.02,0.006],
+                [0.014,0.035],
+                [-0.011,0.051],
+                [-0.032,0.045]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0008,0.032],
+                  [0.00056507,0.03348328],
+                  [-0.00011672,0.03482137],
+                  [-0.00117863,0.03588328],
+                  [-0.00251672,0.03656507],
+                  [-0.004,0.0368],
+                  [-0.00548328,0.03656507],
+                  [-0.00682137,0.03588328],
+                  [-0.00788328,0.03482137],
+                  [-0.00856507,0.03348328],
+                  [-0.0088,0.032],
+                  [-0.00856507,0.03051672],
+                  [-0.00788328,0.02917863],
+                  [-0.00682137,0.02811672],
+                  [-0.00548328,0.02743493],
+                  [-0.004,0.0272],
+                  [-0.00251672,0.02743493],
+                  [-0.00117863,0.02811672],
+                  [-0.00011672,0.02917863],
+                  [0.00056507,0.03051672]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5f727d"
+            }
+          },
+          {
+            "id": "clamp-arm",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.frame",
+            "transform": {
+              "position": [-0.004,0.032,0]
+            }
+          },
+          {
+            "id": "arm-strap--1",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.arm-strap",
+            "parent": "clamp-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.013500000000000002],
+                [0,0,-0.007500000000000001]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.011,-0.008],
+                [0.113,-0.008],
+                [0.117,0.004],
+                [0.1,0.01],
+                [-0.011,0.01]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0046,0],
+                  [0.00424985,0.00176034],
+                  [0.00325269,0.00325269],
+                  [0.00176034,0.00424985],
+                  [0,0.0046],
+                  [-0.00176034,0.00424985],
+                  [-0.00325269,0.00325269],
+                  [-0.00424985,0.00176034],
+                  [-0.0046,0],
+                  [-0.00424985,-0.00176034],
+                  [-0.00325269,-0.00325269],
+                  [-0.00176034,-0.00424985],
+                  [0,-0.0046],
+                  [0.00176034,-0.00424985],
+                  [0.00325269,-0.00325269],
+                  [0.00424985,-0.00176034]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "arm-strap-1",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.arm-strap",
+            "parent": "clamp-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.007500000000000001],
+                [0,0,0.013500000000000002]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.011,-0.008],
+                [0.113,-0.008],
+                [0.117,0.004],
+                [0.1,0.01],
+                [-0.011,0.01]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0046,0],
+                  [0.00424985,0.00176034],
+                  [0.00325269,0.00325269],
+                  [0.00176034,0.00424985],
+                  [0,0.0046],
+                  [-0.00176034,0.00424985],
+                  [-0.00325269,0.00325269],
+                  [-0.00424985,0.00176034],
+                  [-0.0046,0],
+                  [-0.00424985,-0.00176034],
+                  [-0.00325269,-0.00325269],
+                  [-0.00176034,-0.00424985],
+                  [0,-0.0046],
+                  [0.00176034,-0.00424985],
+                  [0.00325269,-0.00325269],
+                  [0.00424985,-0.00176034]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "clamp-pivot",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.arm-pivot-pin",
+            "parent": "clamp-arm",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.024],
+              "end": [0,0,0.024],
+              "radius": 0.0045,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#5f727d"
+            }
+          },
+          {
+            "id": "spindle-crosshead",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.spindle-crosshead",
+            "parent": "clamp-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.005,0],
+                [0,0.011,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.093,-0.016],
+                [-0.118,-0.016],
+                [-0.121,-0.013000000000000001],
+                [-0.121,0.013000000000000001],
+                [-0.118,0.016],
+                [-0.093,0.016],
+                [-0.09,0.013000000000000001],
+                [-0.09,-0.013000000000000001]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.1104,0],
+                  [-0.11013571,0.00166869],
+                  [-0.10936869,0.00317404],
+                  [-0.10817404,0.00436869],
+                  [-0.10666869,0.00513571],
+                  [-0.105,0.0054],
+                  [-0.10333131,0.00513571],
+                  [-0.10182596,0.00436869],
+                  [-0.10063131,0.00317404],
+                  [-0.09986429,0.00166869],
+                  [-0.0996,0],
+                  [-0.09986429,-0.00166869],
+                  [-0.10063131,-0.00317404],
+                  [-0.10182596,-0.00436869],
+                  [-0.10333131,-0.00513571],
+                  [-0.105,-0.0054],
+                  [-0.10666869,-0.00513571],
+                  [-0.10817404,-0.00436869],
+                  [-0.10936869,-0.00317404],
+                  [-0.11013571,-0.00166869]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "spindle",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.frame",
+            "parent": "clamp-arm",
+            "transform": {
+              "position": [0.105,0,0]
+            }
+          },
+          {
+            "id": "spindle-shaft",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.threaded-spindle",
+            "parent": "spindle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.035,0],
+              "end": [0,0.029,0],
+              "radius": 0.0049,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "spindle-locknut",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.spindle-locknut",
+            "parent": "spindle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.011,0],
+              "end": [0,0.019,0],
+              "radius": 0.009,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "pad-swivel",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.pad-swivel",
+            "parent": "spindle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.042,0],
+              "end": [0,-0.032,0],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#5f727d"
+            }
+          },
+          {
+            "id": "contact-pad",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.rubber-pressure-pad",
+            "parent": "spindle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.048,0],
+              "end": [0,-0.04,0],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#34343e"
+            }
+          },
+          {
+            "id": "handle",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.frame",
+            "parent": "clamp-arm",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,0,1.3962634015954636]
+            }
+          },
+          {
+            "id": "handle-core",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.handle-bent-core",
+            "parent": "handle",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,0],
+                [0.043,0,0],
+                [0.084,0.017,0],
+                [0.137,0.019,0]
+              ],
+              "radius": 0.005,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "handle-sleeve",
+            "semanticType": "equipment.vertical-toggle-hold-down-clamp.handle-sleeve",
+            "parent": "handle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.086,0.018,0],
+              "end": [0.142,0.019,0],
+              "radius": 0.0085,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#b94940"
+            }
+          }
+        ],
+        "anchors": {
+          "clamp-contact": {
+            "node": "contact-pad",
+            "position": [0,-0.048,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "clamp-mount": {
+            "node": "mount-plate",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "handle-grip": {
+            "node": "handle-sleeve",
+            "position": [0.119,0.019,0],
+            "direction": [0,1,0],
+            "kind": "grip"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "open-angle",
+            "label": "夹臂开度",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 64,
+            "targets": [
+              {
+                "node": "clamp-arm",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "handle",
+                "property": "rotation",
+                "axis": "z",
+                "factor": -0.026179938779914945
+              }
+            ]
+          },
+          {
+            "id": "pad-adjust",
+            "label": "压脚调距",
+            "unit": "m",
+            "value": 0,
+            "min": -0.013,
+            "max": 0.015,
+            "targets": [
+              {
+                "node": "spindle",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

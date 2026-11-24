@@ -1,0 +1,1191 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.two-stage-telescopic-loading-bay-belt-conveyor",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "装卸口两级伸缩皮带机",
+  "summary": "带固定底架、俯仰主槽、两段套叠输送架、三条带面和可随前端运动的转运接头。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "伸缩皮带机",
+    "装车伸缩输送",
+    "telescopic-belt-conveyor",
+    "truck-loader",
+    "装卸设备",
+    "loading-dock"
+  ],
+  "anchors": [
+    "foundation",
+    "parcel-inlet",
+    "parcel-discharge",
+    "accessory-flange"
+  ],
+  "ai": {
+    "intent": "作为伸入车厢的独立装车输送机，调整两段伸出量及俯仰，为末端转接件提供随动锚点。",
+    "editableParts": [
+      "loader-extension",
+      "deck-tilt"
+    ],
+    "qualityChecks": [
+      "两段滑架最大伸出仍和各自前级套叠。",
+      "出料端随伸缩及俯仰改变。",
+      "底架固定，伸缩运动不作用于进料端。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-stage-telescopic-loading-bay-belt-conveyor",
+      "title": "装卸口两级伸缩皮带机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "skid",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.fixed-reinforced-skid",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.045,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.41000000000000003,-0.68],
+                [-0.41000000000000003,-0.68],
+                [-0.459,-0.631],
+                [-0.459,0.38500000000000006],
+                [-0.41000000000000003,0.43400000000000005],
+                [0.41000000000000003,0.43400000000000005],
+                [0.459,0.38500000000000006],
+                [0.459,-0.631]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.335,-0.588],
+                  [-0.335,-0.588],
+                  [-0.377,-0.5459999999999999],
+                  [-0.377,0.3000000000000001],
+                  [-0.335,0.3420000000000001],
+                  [0.335,0.3420000000000001],
+                  [0.377,0.3000000000000001],
+                  [0.377,-0.5459999999999999]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#99b3bf"
+            }
+          },
+          {
+            "id": "main-stand--1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.fixed-pivot-pedestal",
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.563,0.261]
+            },
+            "appearance": {
+              "color": "#82b9c5"
+            },
+            "transform": {
+              "position": [-0.316,0.304,0.024]
+            }
+          },
+          {
+            "id": "stiffener--1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.skid-lengthwise-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.09,1.08]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [-0.312,0.061,-0.123]
+            }
+          },
+          {
+            "id": "main-stand-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.fixed-pivot-pedestal",
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.563,0.261]
+            },
+            "appearance": {
+              "color": "#82b9c5"
+            },
+            "transform": {
+              "position": [0.316,0.304,0.024]
+            }
+          },
+          {
+            "id": "stiffener-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.skid-lengthwise-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.09,1.08]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [0.312,0.061,-0.123]
+            }
+          },
+          {
+            "id": "tilt",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.frame",
+            "transform": {
+              "position": [0,0.592,0.014]
+            }
+          },
+          {
+            "id": "tilt-hinge",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.transverse-deck-pivot",
+            "parent": "tilt",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.345,0,0],
+              "end": [0.345,0,0],
+              "radius": 0.022,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "fixed-stage",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.frame",
+            "parent": "tilt",
+            "transform": {
+              "position": [0,0,-0.648]
+            }
+          },
+          {
+            "id": "middle-stage",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.frame",
+            "parent": "tilt",
+            "transform": {
+              "position": [0,0.064,-0.48]
+            }
+          },
+          {
+            "id": "tip-stage",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.frame",
+            "parent": "middle-stage",
+            "transform": {
+              "position": [0,0.064,0.111]
+            }
+          },
+          {
+            "id": "base-belt",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.endless-belt-loop",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.2695,0,0],
+                [0.2695,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-1.57,-0.015],
+                [-1.57427946,-0.01464539],
+                [-1.57844219,-0.01359125],
+                [-1.58237463,-0.01186632],
+                [-1.58596953,-0.00951765],
+                [-1.58912882,-0.00660932],
+                [-1.59176633,-0.00322065],
+                [-1.59381011,0.00055592],
+                [-1.59520441,0.00461738],
+                [-1.5959112,0.00885294],
+                [-1.5959112,0.01314706],
+                [-1.59520441,0.01738262],
+                [-1.59381011,0.02144408],
+                [-1.59176633,0.02522065],
+                [-1.58912882,0.02860932],
+                [-1.58596953,0.03151765],
+                [-1.58237463,0.03386632],
+                [-1.57844219,0.03559125],
+                [-1.57427946,0.03664539],
+                [-1.57,0.037],
+                [0,0.037],
+                [0.00427946,0.03664539],
+                [0.00844219,0.03559125],
+                [0.01237463,0.03386632],
+                [0.01596953,0.03151765],
+                [0.01912882,0.02860932],
+                [0.02176633,0.02522065],
+                [0.02381011,0.02144408],
+                [0.02520441,0.01738262],
+                [0.0259112,0.01314706],
+                [0.0259112,0.00885294],
+                [0.02520441,0.00461738],
+                [0.02381011,0.00055592],
+                [0.02176633,-0.00322065],
+                [0.01912882,-0.00660932],
+                [0.01596953,-0.00951765],
+                [0.01237463,-0.01186632],
+                [0.00844219,-0.01359125],
+                [0.00427946,-0.01464539],
+                [0,-0.015]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-1.57,-0.009],
+                  [-1.57329189,-0.00872723],
+                  [-1.57649399,-0.00791634],
+                  [-1.57951895,-0.00658948],
+                  [-1.58228425,-0.00478281],
+                  [-1.58471448,-0.00254563],
+                  [-1.58674333,0.00006104],
+                  [-1.58831547,0.00296609],
+                  [-1.58938801,0.00609029],
+                  [-1.58993169,0.00934841],
+                  [-1.58993169,0.01265159],
+                  [-1.58938801,0.01590971],
+                  [-1.58831547,0.01903391],
+                  [-1.58674333,0.02193896],
+                  [-1.58471448,0.02454563],
+                  [-1.58228425,0.02678281],
+                  [-1.57951895,0.02858948],
+                  [-1.57649399,0.02991634],
+                  [-1.57329189,0.03072723],
+                  [-1.57,0.031],
+                  [0,0.031],
+                  [0.00329189,0.03072723],
+                  [0.00649399,0.02991634],
+                  [0.00951895,0.02858948],
+                  [0.01228425,0.02678281],
+                  [0.01471448,0.02454563],
+                  [0.01674333,0.02193896],
+                  [0.01831547,0.01903391],
+                  [0.01938801,0.01590971],
+                  [0.01993169,0.01265159],
+                  [0.01993169,0.00934841],
+                  [0.01938801,0.00609029],
+                  [0.01831547,0.00296609],
+                  [0.01674333,0.00006104],
+                  [0.01471448,-0.00254563],
+                  [0.01228425,-0.00478281],
+                  [0.00951895,-0.00658948],
+                  [0.00649399,-0.00791634],
+                  [0.00329189,-0.00872723],
+                  [0,-0.009]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#405157"
+            }
+          },
+          {
+            "id": "base-belt-end-roller-0",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-end-roller",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.261415,0.011,0],
+              "end": [0.261415,0.011,0],
+              "radius": 0.019,
+              "radialSegments": 30
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "base-belt-shaft-0",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.end-roller-shaft",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.29850000000000004,0.011,0],
+              "end": [0.29850000000000004,0.011,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "base-belt-end-roller-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-end-roller",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.261415,0.011,1.57],
+              "end": [0.261415,0.011,1.57],
+              "radius": 0.019,
+              "radialSegments": 30
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "base-belt-shaft-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.end-roller-shaft",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.29850000000000004,0.011,1.57],
+              "end": [0.29850000000000004,0.011,1.57],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "base-rail--1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.nested-stage-side-rail",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.122,1.6640000000000001]
+            },
+            "appearance": {
+              "color": "#82b9c5"
+            },
+            "transform": {
+              "position": [-0.3,-0.041,0.785]
+            }
+          },
+          {
+            "id": "base-flange--1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.rail-slide-ledge",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.056,0.029,1.6340000000000001]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [-0.285,-0.108,0.785]
+            }
+          },
+          {
+            "id": "base-rail-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.nested-stage-side-rail",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.122,1.6640000000000001]
+            },
+            "appearance": {
+              "color": "#82b9c5"
+            },
+            "transform": {
+              "position": [0.3,-0.041,0.785]
+            }
+          },
+          {
+            "id": "base-flange-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.rail-slide-ledge",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.056,0.029,1.6340000000000001]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [0.285,-0.108,0.785]
+            }
+          },
+          {
+            "id": "base-idler-0.18",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-support-idler",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.2605,0.026,0.18],
+              "end": [0.2605,0.026,0.18],
+              "radius": 0.0075,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "base-idler-0.7693",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-support-idler",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.2605,0.026,0.7693],
+              "end": [0.2605,0.026,0.7693],
+              "radius": 0.0075,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "base-idler-1.455",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-support-idler",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.2605,0.026,1.455],
+              "end": [0.2605,0.026,1.455],
+              "radius": 0.0075,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "middle-belt",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.endless-belt-loop",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.229,0,0],
+                [0.229,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-1.518,-0.014],
+                [-1.52211486,-0.01365903],
+                [-1.52611749,-0.01264543],
+                [-1.52989868,-0.01098684],
+                [-1.53335532,-0.00872851],
+                [-1.5363931,-0.00593204],
+                [-1.53892916,-0.0026737],
+                [-1.54089433,0.00095761],
+                [-1.54223501,0.00486286],
+                [-1.54291461,0.00893552],
+                [-1.54291461,0.01306448],
+                [-1.54223501,0.01713714],
+                [-1.54089433,0.02104239],
+                [-1.53892916,0.0246737],
+                [-1.5363931,0.02793204],
+                [-1.53335532,0.03072851],
+                [-1.52989868,0.03298684],
+                [-1.52611749,0.03464543],
+                [-1.52211486,0.03565903],
+                [-1.518,0.036],
+                [0,0.036],
+                [0.00411486,0.03565903],
+                [0.00811749,0.03464543],
+                [0.01189868,0.03298684],
+                [0.01535532,0.03072851],
+                [0.0183931,0.02793204],
+                [0.02092916,0.0246737],
+                [0.02289433,0.02104239],
+                [0.02423501,0.01713714],
+                [0.02491461,0.01306448],
+                [0.02491461,0.00893552],
+                [0.02423501,0.00486286],
+                [0.02289433,0.00095761],
+                [0.02092916,-0.0026737],
+                [0.0183931,-0.00593204],
+                [0.01535532,-0.00872851],
+                [0.01189868,-0.01098684],
+                [0.00811749,-0.01264543],
+                [0.00411486,-0.01365903],
+                [0,-0.014]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-1.518,-0.008],
+                  [-1.5211273,-0.00774086],
+                  [-1.52416929,-0.00697053],
+                  [-1.527043,-0.00571],
+                  [-1.52967004,-0.00399367],
+                  [-1.53197875,-0.00186835],
+                  [-1.53390616,0.00060798],
+                  [-1.53539969,0.00336779],
+                  [-1.53641861,0.00633578],
+                  [-1.53693511,0.00943099],
+                  [-1.53693511,0.01256901],
+                  [-1.53641861,0.01566422],
+                  [-1.53539969,0.01863221],
+                  [-1.53390616,0.02139202],
+                  [-1.53197875,0.02386835],
+                  [-1.52967004,0.02599367],
+                  [-1.527043,0.02771],
+                  [-1.52416929,0.02897053],
+                  [-1.5211273,0.02974086],
+                  [-1.518,0.03],
+                  [0,0.03],
+                  [0.0031273,0.02974086],
+                  [0.00616929,0.02897053],
+                  [0.009043,0.02771],
+                  [0.01167004,0.02599367],
+                  [0.01397875,0.02386835],
+                  [0.01590616,0.02139202],
+                  [0.01739969,0.01863221],
+                  [0.01841861,0.01566422],
+                  [0.01893511,0.01256901],
+                  [0.01893511,0.00943099],
+                  [0.01841861,0.00633578],
+                  [0.01739969,0.00336779],
+                  [0.01590616,0.00060798],
+                  [0.01397875,-0.00186835],
+                  [0.01167004,-0.00399367],
+                  [0.009043,-0.00571],
+                  [0.00616929,-0.00697053],
+                  [0.0031273,-0.00774086],
+                  [0,-0.008]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#405157"
+            }
+          },
+          {
+            "id": "middle-belt-end-roller-0",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-end-roller",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.22213,0.011,0],
+              "end": [0.22213,0.011,0],
+              "radius": 0.018000000000000002,
+              "radialSegments": 30
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "middle-belt-shaft-0",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.end-roller-shaft",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.258,0.011,0],
+              "end": [0.258,0.011,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "middle-belt-end-roller-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-end-roller",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.22213,0.011,1.518],
+              "end": [0.22213,0.011,1.518],
+              "radius": 0.018000000000000002,
+              "radialSegments": 30
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "middle-belt-shaft-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.end-roller-shaft",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.258,0.011,1.518],
+              "end": [0.258,0.011,1.518],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "middle-rail--1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.nested-stage-side-rail",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.122,1.612]
+            },
+            "appearance": {
+              "color": "#99b3bf"
+            },
+            "transform": {
+              "position": [-0.2615,-0.041,0.759]
+            }
+          },
+          {
+            "id": "middle-flange--1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.rail-slide-ledge",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.056,0.029,1.582]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [-0.2465,-0.108,0.759]
+            }
+          },
+          {
+            "id": "middle-rail-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.nested-stage-side-rail",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.122,1.612]
+            },
+            "appearance": {
+              "color": "#99b3bf"
+            },
+            "transform": {
+              "position": [0.2615,-0.041,0.759]
+            }
+          },
+          {
+            "id": "middle-flange-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.rail-slide-ledge",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.056,0.029,1.582]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [0.2465,-0.108,0.759]
+            }
+          },
+          {
+            "id": "middle-idler-0.18",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-support-idler",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.22,0.026,0.18],
+              "end": [0.22,0.026,0.18],
+              "radius": 0.0075,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "middle-idler-0.74382",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-support-idler",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.22,0.026,0.74382],
+              "end": [0.22,0.026,0.74382],
+              "radius": 0.0075,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "middle-idler-1.403",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-support-idler",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.22,0.026,1.403],
+              "end": [0.22,0.026,1.403],
+              "radius": 0.0075,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "tip-belt",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.endless-belt-loop",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.196,0,0],
+                [0.196,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-1.48,-0.013],
+                [-1.48395027,-0.01267267],
+                [-1.48779279,-0.01169961],
+                [-1.49142274,-0.01010737],
+                [-1.49474111,-0.00793937],
+                [-1.49765737,-0.00525476],
+                [-1.500092,-0.00212676],
+                [-1.50197856,0.00135931],
+                [-1.50326561,0.00510835],
+                [-1.50391803,0.0090181],
+                [-1.50391803,0.0129819],
+                [-1.50326561,0.01689165],
+                [-1.50197856,0.02064069],
+                [-1.500092,0.02412676],
+                [-1.49765737,0.02725476],
+                [-1.49474111,0.02993937],
+                [-1.49142274,0.03210737],
+                [-1.48779279,0.03369961],
+                [-1.48395027,0.03467267],
+                [-1.48,0.035],
+                [0,0.035],
+                [0.00395027,0.03467267],
+                [0.00779279,0.03369961],
+                [0.01142274,0.03210737],
+                [0.01474111,0.02993937],
+                [0.01765737,0.02725476],
+                [0.020092,0.02412676],
+                [0.02197856,0.02064069],
+                [0.02326561,0.01689165],
+                [0.02391803,0.0129819],
+                [0.02391803,0.0090181],
+                [0.02326561,0.00510835],
+                [0.02197856,0.00135931],
+                [0.020092,-0.00212676],
+                [0.01765737,-0.00525476],
+                [0.01474111,-0.00793937],
+                [0.01142274,-0.01010737],
+                [0.00779279,-0.01169961],
+                [0.00395027,-0.01267267],
+                [0,-0.013]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-1.48,-0.007],
+                  [-1.4829627,-0.0067545],
+                  [-1.48584459,-0.00602471],
+                  [-1.48856705,-0.00483053],
+                  [-1.49105583,-0.00320453],
+                  [-1.49324303,-0.00119107],
+                  [-1.495069,0.00115493],
+                  [-1.49648392,0.00376948],
+                  [-1.4974492,0.00658126],
+                  [-1.49793852,0.00951357],
+                  [-1.49793852,0.01248643],
+                  [-1.4974492,0.01541874],
+                  [-1.49648392,0.01823052],
+                  [-1.495069,0.02084507],
+                  [-1.49324303,0.02319107],
+                  [-1.49105583,0.02520453],
+                  [-1.48856705,0.02683053],
+                  [-1.48584459,0.02802471],
+                  [-1.4829627,0.0287545],
+                  [-1.48,0.029],
+                  [0,0.029],
+                  [0.0029627,0.0287545],
+                  [0.00584459,0.02802471],
+                  [0.00856705,0.02683053],
+                  [0.01105583,0.02520453],
+                  [0.01324303,0.02319107],
+                  [0.015069,0.02084507],
+                  [0.01648392,0.01823052],
+                  [0.0174492,0.01541874],
+                  [0.01793852,0.01248643],
+                  [0.01793852,0.00951357],
+                  [0.0174492,0.00658126],
+                  [0.01648392,0.00376948],
+                  [0.015069,0.00115493],
+                  [0.01324303,-0.00119107],
+                  [0.01105583,-0.00320453],
+                  [0.00856705,-0.00483053],
+                  [0.00584459,-0.00602471],
+                  [0.0029627,-0.0067545],
+                  [0,-0.007]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#405157"
+            }
+          },
+          {
+            "id": "tip-belt-end-roller-0",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-end-roller",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.19012,0.011,0],
+              "end": [0.19012,0.011,0],
+              "radius": 0.017,
+              "radialSegments": 30
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "tip-belt-shaft-0",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.end-roller-shaft",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.225,0.011,0],
+              "end": [0.225,0.011,0],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "tip-belt-end-roller-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-end-roller",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.19012,0.011,1.48],
+              "end": [0.19012,0.011,1.48],
+              "radius": 0.017,
+              "radialSegments": 30
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "tip-belt-shaft-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.end-roller-shaft",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.225,0.011,1.48],
+              "end": [0.225,0.011,1.48],
+              "radius": 0.009,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "tip-rail--1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.nested-stage-side-rail",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.122,1.574]
+            },
+            "appearance": {
+              "color": "#99b3bf"
+            },
+            "transform": {
+              "position": [-0.2255,-0.041,0.74]
+            }
+          },
+          {
+            "id": "tip-flange--1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.rail-slide-ledge",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.056,0.029,1.544]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [-0.21050000000000002,-0.108,0.74]
+            }
+          },
+          {
+            "id": "tip-rail-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.nested-stage-side-rail",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.122,1.574]
+            },
+            "appearance": {
+              "color": "#99b3bf"
+            },
+            "transform": {
+              "position": [0.2255,-0.041,0.74]
+            }
+          },
+          {
+            "id": "tip-flange-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.rail-slide-ledge",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.056,0.029,1.544]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [0.21050000000000002,-0.108,0.74]
+            }
+          },
+          {
+            "id": "tip-idler-0.18",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-support-idler",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.187,0.026,0.18],
+              "end": [0.187,0.026,0.18],
+              "radius": 0.0075,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "tip-idler-0.7252",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-support-idler",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.187,0.026,0.7252],
+              "end": [0.187,0.026,0.7252],
+              "radius": 0.0075,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "tip-idler-1.365",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.belt-support-idler",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.187,0.026,1.365],
+              "end": [0.187,0.026,1.365],
+              "radius": 0.0075,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "mid-backstop",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.guarded-belt-transition",
+            "parent": "middle-stage",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.05],
+                [0,0,-0.022]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.211,0.012],
+                [0.211,0.012],
+                [0.218,0.019],
+                [0.218,0.042],
+                [0.211,0.049],
+                [-0.211,0.049],
+                [-0.218,0.042],
+                [-0.218,0.019]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "tip-backstop",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.guarded-belt-transition",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.05],
+                [0,0,-0.022]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.179,0.012],
+                [0.179,0.012],
+                [0.186,0.019],
+                [0.186,0.042],
+                [0.179,0.049],
+                [-0.179,0.049],
+                [-0.186,0.042],
+                [-0.186,0.019]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "base-motor",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.conveyor-gear-motor",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.174,0.135,0.144]
+            },
+            "appearance": {
+              "color": "#82b9c5"
+            },
+            "transform": {
+              "position": [-0.384,-0.006,0.11]
+            }
+          },
+          {
+            "id": "base-cover",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.gear-motor-end-cap",
+            "parent": "fixed-stage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.487,-0.006,0.11],
+              "end": [-0.463,-0.006,0.11],
+              "radius": 0.06,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "output-bracket--1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.discharge-accessory-clevis",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.065,0.073]
+            },
+            "appearance": {
+              "color": "#eab54d"
+            },
+            "transform": {
+              "position": [-0.226,-0.026,1.497]
+            }
+          },
+          {
+            "id": "output-bracket-1",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.discharge-accessory-clevis",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.039,0.065,0.073]
+            },
+            "appearance": {
+              "color": "#eab54d"
+            },
+            "transform": {
+              "position": [0.226,-0.026,1.497]
+            }
+          },
+          {
+            "id": "front-guard",
+            "semanticType": "equipment.two-stage-telescopic-loading-bay-belt-conveyor.discharge-contact-rail",
+            "parent": "tip-stage",
+            "geometry": {
+              "type": "box",
+              "size": [0.449,0.036,0.043]
+            },
+            "appearance": {
+              "color": "#4b616d"
+            },
+            "transform": {
+              "position": [0,-0.043,1.52]
+            }
+          }
+        ],
+        "anchors": {
+          "foundation": {
+            "node": "skid",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "parcel-inlet": {
+            "node": "fixed-stage",
+            "position": [0,0.037,-0.025],
+            "direction": [0,0,-1],
+            "kind": "conveyor-feed"
+          },
+          "parcel-discharge": {
+            "node": "tip-stage",
+            "position": [0,0.035,1.542],
+            "direction": [0,0,1],
+            "kind": "conveyor-feed"
+          },
+          "accessory-flange": {
+            "node": "front-guard",
+            "position": [0,0,0.022],
+            "direction": [0,0,1],
+            "kind": "conveyor-accessory"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "loader-extension",
+            "label": "两级伸缩机总行程",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 1.48,
+            "targets": [
+              {
+                "node": "middle-stage",
+                "property": "position",
+                "axis": "z",
+                "factor": 0.5608108108108107
+              },
+              {
+                "node": "tip-stage",
+                "property": "position",
+                "axis": "z",
+                "factor": 0.4391891891891892
+              }
+            ]
+          },
+          {
+            "id": "deck-tilt",
+            "label": "伸缩输送槽俯仰",
+            "unit": "deg",
+            "value": 0,
+            "min": -14,
+            "max": 8,
+            "targets": [
+              {
+                "node": "tilt",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

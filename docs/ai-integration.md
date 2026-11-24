@@ -1,27 +1,25 @@
 # AI 接入设计
 
-AgentSceneBuilder 第一优先级是给 AI 使用。
-
-人类界面可以存在，但不是核心入口。
+AgentSceneBuilder 是面向 AI 大模型的数字建模基础设施。宿主 Agent 理解任务和约束，通过 Skill 找到合适的建模能力，调用 CLI 构建和检查模型，并根据结构化结果修正输入。静态模型库和编辑器提供可视化复核与调参界面。
 
 ## 接入形态
 
 ### CLI
 
-适合 Codex、CI、本地脚本和普通命令行 Agent。
-
-CLI 是当前最重要的 Agent 调用入口。约定：
+CLI 是 Codex、YuntaoCode 等宿主中的 Agent 调用本项目的主要入口，也可供 CI 和脚本调用。
 
 - stdout 只输出一个 JSON 对象；
 - 成功返回 `{ "ok": true, ... }`；
-- 失败返回 `{ "ok": false, "error": ... }` 并使用非 0 退出码；
-- proposal 只表达建议，不自动替 Agent 做领域决策。
+- 失败返回 `ok: false` 并退出 2。检查命令通过 `issues` 提供批量诊断，其他命令的执行错误通常通过 `error` 返回；
+- proposal 提供可审阅的候选变更，由 Agent 或宿主决定是否应用。
 
-首选入口：
+从仓库根目录运行下列命令可直接获取 JSON 输出。
 
 ```bash
 node packages/cli/src/agentscene.mjs component list
 node packages/cli/src/agentscene.mjs component describe core.composition
+node packages/cli/src/agentscene.mjs registry search --domain equipment --kind composition 无人机
+node packages/cli/src/agentscene.mjs composition check registry/compositions/dual-spectrum-inspection-drone/manifest.json
 node packages/cli/src/agentscene.mjs component build examples/digital-modeling/independent-foundation.json
 node packages/cli/src/agentscene.mjs scene build examples/digital-modeling/composed-scene.json
 node packages/cli/src/agentscene.mjs scene analyze-spatial examples/digital-modeling/composed-scene.json
@@ -51,9 +49,9 @@ Skill 负责说明“什么时候使用 AgentSceneBuilder、怎样调用 CLI、�
 
 Codex 插件骨架见 `docs/host-plugin-packaging.md`。当前项目根目录可以作为插件根，`.codex-plugin/plugin.json` 提供插件身份，`skills/agentscene-builder/SKILL.md` 作为很薄的 wrapper，真实使用规则仍以仓库根部 `SKILL.md` 为准。
 
-### HTTP
+### 静态 Web 复核
 
-适合人类使用的网站、模型库和可视化编辑器。HTTP 是静态 Web 或应用层部署方式，不作为 Agent 首要调用协议。
+HTTP 用于提供静态模型库和编辑器页面。浏览器中的预览和调参读取与 Agent 一致的模型数据，便于复核结构、外观和参数。
 
 ### YuntaoCode Provider
 
@@ -73,18 +71,18 @@ AgentSceneBuilder 只负责：
 - 模型库条目检索与复用建议；
 - 空间、路径、重复、锚点和连接计算；
 - 可审阅的 proposal；
-- 静态 Web 编辑器/模型库的人类查看与调参入口。
+- 使用同一份模型数据的浏览器复核与调参界面。
 
 ## AI 使用策略
 
 推荐给 AI 的工作方式：
 
 1. 读取用户目标和当前项目结构。
-2. 搜索 registry，并读取候选条目的 `agent` 上下文。
-3. 使用 CompositionSpec 表达模型结构。
-4. 使用 CLI 构建、查询、测量或生成空间 proposal。
-5. 审阅 proposal 后再决定是否应用。
-6. 需要人类查看时，打开静态模型库或 Editor。
+2. 用 `registry search` 搜索条目。按结果的 `manifestPath` 读取模型源清单，并在 `registry/registry.json` 中读取该条目的 `agent` 上下文。
+3. 优先复用独立构件或单体模型，再用 CompositionSpec 或场景实例表达组合。
+4. 运行 CLI 检查，根据 `issues[].path` 修正输入并复查，然后构建、查询、测量或生成空间 proposal。
+5. 审阅 proposal 后再决定是否应用。需要可视化核对时，打开静态模型库或编辑器。
+6. 将模型源稿与检查结果交给宿主，供后续任务继续使用。
 7. 将有复用价值的模型或方法沉淀回 registry。
 
 ## 避免的问题

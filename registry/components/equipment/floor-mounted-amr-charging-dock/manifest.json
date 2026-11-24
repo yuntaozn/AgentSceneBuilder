@@ -1,0 +1,558 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.floor-mounted-amr-charging-dock",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "移动机器人地装充电座",
+  "summary": "地脚安装板、后部设备箱、两侧对中导向楔、短行程弹簧触座与独立接电口。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.floor-mounted-amr-charging-dock",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "充电座",
+    "AMR 充电",
+    "charging-dock",
+    "docking-contacts",
+    "自动化",
+    "machine-element"
+  ],
+  "anchors": [
+    "robot-contact",
+    "installation",
+    "power"
+  ],
+  "ai": {
+    "intent": "为移动机器人复用独立充电底座，以充电触点和安装面为对接基准。",
+    "editableParts": [
+      "contact-travel"
+    ],
+    "qualityChecks": [
+      "两触点在同一可移动座上。",
+      "浮动行程不改变底座与导向楔。",
+      "底板螺栓孔贯通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "floor-mounted-amr-charging-dock",
+      "title": "移动机器人地装充电座",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mount-foot",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.dock-mounting-foot",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.017,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.175,-0.223],
+                [-0.13,-0.223],
+                [-0.161,-0.192],
+                [-0.161,0.192],
+                [-0.13,0.223],
+                [0.175,0.223],
+                [0.206,0.192],
+                [0.206,-0.192]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.1649,-0.182],
+                  [0.1652475,-0.17980598],
+                  [0.16625598,-0.17782672],
+                  [0.16782672,-0.17625598],
+                  [0.16980598,-0.1752475],
+                  [0.172,-0.1749],
+                  [0.17419402,-0.1752475],
+                  [0.17617328,-0.17625598],
+                  [0.17774402,-0.17782672],
+                  [0.1787525,-0.17980598],
+                  [0.1791,-0.182],
+                  [0.1787525,-0.18419402],
+                  [0.17774402,-0.18617328],
+                  [0.17617328,-0.18774402],
+                  [0.17419402,-0.1887525],
+                  [0.172,-0.1891],
+                  [0.16980598,-0.1887525],
+                  [0.16782672,-0.18774402],
+                  [0.16625598,-0.18617328],
+                  [0.1652475,-0.18419402]
+                ],
+                [
+                  [0.1649,0.182],
+                  [0.1652475,0.18419402],
+                  [0.16625598,0.18617328],
+                  [0.16782672,0.18774402],
+                  [0.16980598,0.1887525],
+                  [0.172,0.1891],
+                  [0.17419402,0.1887525],
+                  [0.17617328,0.18774402],
+                  [0.17774402,0.18617328],
+                  [0.1787525,0.18419402],
+                  [0.1791,0.182],
+                  [0.1787525,0.17980598],
+                  [0.17774402,0.17782672],
+                  [0.17617328,0.17625598],
+                  [0.17419402,0.1752475],
+                  [0.172,0.1749],
+                  [0.16980598,0.1752475],
+                  [0.16782672,0.17625598],
+                  [0.16625598,0.17782672],
+                  [0.1652475,0.17980598]
+                ],
+                [
+                  [-0.1311,-0.182],
+                  [-0.1307525,-0.17980598],
+                  [-0.12974402,-0.17782672],
+                  [-0.12817328,-0.17625598],
+                  [-0.12619402,-0.1752475],
+                  [-0.124,-0.1749],
+                  [-0.12180598,-0.1752475],
+                  [-0.11982672,-0.17625598],
+                  [-0.11825598,-0.17782672],
+                  [-0.1172475,-0.17980598],
+                  [-0.1169,-0.182],
+                  [-0.1172475,-0.18419402],
+                  [-0.11825598,-0.18617328],
+                  [-0.11982672,-0.18774402],
+                  [-0.12180598,-0.1887525],
+                  [-0.124,-0.1891],
+                  [-0.12619402,-0.1887525],
+                  [-0.12817328,-0.18774402],
+                  [-0.12974402,-0.18617328],
+                  [-0.1307525,-0.18419402]
+                ],
+                [
+                  [-0.1311,0.182],
+                  [-0.1307525,0.18419402],
+                  [-0.12974402,0.18617328],
+                  [-0.12817328,0.18774402],
+                  [-0.12619402,0.1887525],
+                  [-0.124,0.1891],
+                  [-0.12180598,0.1887525],
+                  [-0.11982672,0.18774402],
+                  [-0.11825598,0.18617328],
+                  [-0.1172475,0.18419402],
+                  [-0.1169,0.182],
+                  [-0.1172475,0.17980598],
+                  [-0.11825598,0.17782672],
+                  [-0.11982672,0.17625598],
+                  [-0.12180598,0.1752475],
+                  [-0.124,0.1749],
+                  [-0.12619402,0.1752475],
+                  [-0.12817328,0.17625598],
+                  [-0.12974402,0.17782672],
+                  [-0.1307525,0.17980598]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#6a7d88"
+            }
+          },
+          {
+            "id": "charger-box",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.wall-charger-cabinet",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.019,0],
+                [0,0.345,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.147,-0.183],
+                [-0.0050000000000000044,-0.183],
+                [-0.035,-0.153],
+                [-0.035,0.153],
+                [-0.0050000000000000044,0.183],
+                [0.147,0.183],
+                [0.177,0.153],
+                [0.177,-0.153]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#e4edef"
+            }
+          },
+          {
+            "id": "guide--1",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.frame",
+            "transform": {
+              "position": [0,0,-0.154]
+            }
+          },
+          {
+            "id": "dock-guide--1",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.low-entry-wedge",
+            "parent": "guide--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.017,0],
+                [0,0.044,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.03,-0.054],
+                [-0.114,-0.054],
+                [-0.157,-0.034],
+                [-0.157,0.034],
+                [-0.095,0.05],
+                [0.03,0.055]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#418f9b"
+            }
+          },
+          {
+            "id": "guide-bar--1",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.guide-bumper",
+            "parent": "guide--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.124,0.017,0.038]
+            },
+            "appearance": {
+              "color": "#2d3d46"
+            },
+            "transform": {
+              "position": [0.056,0.035,0.029]
+            }
+          },
+          {
+            "id": "guide-1",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.frame",
+            "transform": {
+              "position": [0,0,0.154]
+            }
+          },
+          {
+            "id": "dock-guide-1",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.low-entry-wedge",
+            "parent": "guide-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.017,0],
+                [0,0.044,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.03,-0.054],
+                [-0.114,-0.054],
+                [-0.157,-0.034],
+                [-0.157,0.034],
+                [-0.095,0.05],
+                [0.03,0.055]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#418f9b"
+            }
+          },
+          {
+            "id": "guide-bar-1",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.guide-bumper",
+            "parent": "guide-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.124,0.017,0.038]
+            },
+            "appearance": {
+              "color": "#2d3d46"
+            },
+            "transform": {
+              "position": [0.056,0.035,-0.029]
+            }
+          },
+          {
+            "id": "contact-frame",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.floating-contact-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.071,0.071,0.127]
+            },
+            "appearance": {
+              "color": "#5d9faa"
+            },
+            "transform": {
+              "position": [0.045,0.088,0]
+            }
+          },
+          {
+            "id": "charging-carriage",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.frame",
+            "transform": {
+              "position": [0.057,0.088,0]
+            }
+          },
+          {
+            "id": "slider",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.floating-insulator",
+            "parent": "charging-carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.049,0.054,0.095]
+            },
+            "appearance": {
+              "color": "#425059"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "contact-0",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.spring-metallized-contact",
+            "parent": "charging-carriage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.016,0,-0.019],
+              "end": [0.045,0,-0.019],
+              "radius": 0.0082,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#dea24b"
+            }
+          },
+          {
+            "id": "plunger-0",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.contact-plunger",
+            "parent": "charging-carriage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.035,0,-0.019],
+              "end": [-0.022,0,-0.019],
+              "radius": 0.0054,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#aabaC3"
+            }
+          },
+          {
+            "id": "contact-1",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.spring-metallized-contact",
+            "parent": "charging-carriage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.016,0,0.019],
+              "end": [0.045,0,0.019],
+              "radius": 0.0082,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#dea24b"
+            }
+          },
+          {
+            "id": "plunger-1",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.contact-plunger",
+            "parent": "charging-carriage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.035,0,0.019],
+              "end": [-0.022,0,0.019],
+              "radius": 0.0054,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#aabaC3"
+            }
+          },
+          {
+            "id": "warning-panel",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.dock-status-panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.084,0.142]
+            },
+            "appearance": {
+              "color": "#4f5c64"
+            },
+            "transform": {
+              "position": [0.039,0.252,0]
+            }
+          },
+          {
+            "id": "status-lamp",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.dock-status-light",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.018,0.059]
+            },
+            "appearance": {
+              "color": "#86c2aa"
+            },
+            "transform": {
+              "position": [0.044,0.273,0]
+            }
+          },
+          {
+            "id": "mains-axis",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.frame",
+            "transform": {
+              "position": [-0.166,0.081,-0.172]
+            }
+          },
+          {
+            "id": "mains",
+            "semanticType": "equipment.floor-mounted-amr-charging-dock.power-gland",
+            "parent": "mains-axis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.008],
+                [0,0,0.025]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.014,0],
+                [0.01382764,0.00219008],
+                [0.01331479,0.00432624],
+                [0.01247409,0.00635587],
+                [0.01132624,0.00822899],
+                [0.00989949,0.00989949],
+                [0.00822899,0.01132624],
+                [0.00635587,0.01247409],
+                [0.00432624,0.01331479],
+                [0.00219008,0.01382764],
+                [0,0.014],
+                [-0.00219008,0.01382764],
+                [-0.00432624,0.01331479],
+                [-0.00635587,0.01247409],
+                [-0.00822899,0.01132624],
+                [-0.00989949,0.00989949],
+                [-0.01132624,0.00822899],
+                [-0.01247409,0.00635587],
+                [-0.01331479,0.00432624],
+                [-0.01382764,0.00219008],
+                [-0.014,0],
+                [-0.01382764,-0.00219008],
+                [-0.01331479,-0.00432624],
+                [-0.01247409,-0.00635587],
+                [-0.01132624,-0.00822899],
+                [-0.00989949,-0.00989949],
+                [-0.00822899,-0.01132624],
+                [-0.00635587,-0.01247409],
+                [-0.00432624,-0.01331479],
+                [-0.00219008,-0.01382764],
+                [0,-0.014],
+                [0.00219008,-0.01382764],
+                [0.00432624,-0.01331479],
+                [0.00635587,-0.01247409],
+                [0.00822899,-0.01132624],
+                [0.00989949,-0.00989949],
+                [0.01132624,-0.00822899],
+                [0.01247409,-0.00635587],
+                [0.01331479,-0.00432624],
+                [0.01382764,-0.00219008]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.006,0],
+                  [0.00592613,0.00093861],
+                  [0.00570634,0.0018541],
+                  [0.00534604,0.00272394],
+                  [0.0048541,0.00352671],
+                  [0.00424264,0.00424264],
+                  [0.00352671,0.0048541],
+                  [0.00272394,0.00534604],
+                  [0.0018541,0.00570634],
+                  [0.00093861,0.00592613],
+                  [0,0.006],
+                  [-0.00093861,0.00592613],
+                  [-0.0018541,0.00570634],
+                  [-0.00272394,0.00534604],
+                  [-0.00352671,0.0048541],
+                  [-0.00424264,0.00424264],
+                  [-0.0048541,0.00352671],
+                  [-0.00534604,0.00272394],
+                  [-0.00570634,0.0018541],
+                  [-0.00592613,0.00093861],
+                  [-0.006,0],
+                  [-0.00592613,-0.00093861],
+                  [-0.00570634,-0.0018541],
+                  [-0.00534604,-0.00272394],
+                  [-0.0048541,-0.00352671],
+                  [-0.00424264,-0.00424264],
+                  [-0.00352671,-0.0048541],
+                  [-0.00272394,-0.00534604],
+                  [-0.0018541,-0.00570634],
+                  [-0.00093861,-0.00592613],
+                  [0,-0.006],
+                  [0.00093861,-0.00592613],
+                  [0.0018541,-0.00570634],
+                  [0.00272394,-0.00534604],
+                  [0.00352671,-0.0048541],
+                  [0.00424264,-0.00424264],
+                  [0.0048541,-0.00352671],
+                  [0.00534604,-0.00272394],
+                  [0.00570634,-0.0018541],
+                  [0.00592613,-0.00093861]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#6a7d88"
+            }
+          }
+        ],
+        "anchors": {
+          "robot-contact": {
+            "node": "charging-carriage",
+            "position": [0.045,0,0],
+            "direction": [1,0,0],
+            "kind": "electrical"
+          },
+          "installation": {
+            "node": "mount-foot",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "power": {
+            "node": "mains-axis",
+            "position": [0,0,0.025],
+            "direction": [0,0,1],
+            "kind": "electrical"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "contact-travel",
+            "label": "弹性触头压缩",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.013,
+            "targets": [
+              {
+                "node": "charging-carriage",
+                "property": "position",
+                "axis": "x",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

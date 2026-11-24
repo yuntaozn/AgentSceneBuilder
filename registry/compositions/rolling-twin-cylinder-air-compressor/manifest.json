@@ -1,0 +1,1677 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.rolling-twin-cylinder-air-compressor",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "移动双缸空气压缩机",
+  "summary": "水平储气罐、双缸散热片、护罩内双轮传动、小车支撑与可调出气减压旋钮。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.rolling-twin-cylinder-air-compressor",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "压缩机",
+    "空压机",
+    "air-compressor",
+    "pneumatic",
+    "施工设备",
+    "equipment"
+  ],
+  "anchors": [
+    "drain",
+    "air-out",
+    "operator-handle",
+    "ground"
+  ],
+  "ai": {
+    "intent": "在气动设备场景中提供独立压缩机及压缩空气接头。",
+    "editableParts": [
+      "regulator-angle"
+    ],
+    "qualityChecks": [
+      "储气桶两端为圆拱封头。",
+      "传动轮可从护罩开口看到。",
+      "压缩空气出气口具有开孔。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rolling-twin-cylinder-air-compressor",
+      "title": "移动双缸空气压缩机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "receiver",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.frame",
+            "transform": {
+              "position": [0,0.238,0]
+            }
+          },
+          {
+            "id": "receiver-barrel",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.air-receiver",
+            "parent": "receiver",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.368,0,0],
+              "end": [0.341,0,0],
+              "radius": 0.155,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#3b9195"
+            }
+          },
+          {
+            "id": "receiver-end--1-0",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.dished-receiver-end",
+            "parent": "receiver",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [-0.368,0,0],
+              "end": [-0.40399999999999997,0,0],
+              "startRadius": 0.155,
+              "endRadius": 0.143,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#3b9195"
+            }
+          },
+          {
+            "id": "receiver-end--1-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.dished-receiver-end",
+            "parent": "receiver",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [-0.40399999999999997,0,0],
+              "end": [-0.435,0,0],
+              "startRadius": 0.143,
+              "endRadius": 0.116,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#3b9195"
+            }
+          },
+          {
+            "id": "receiver-end--1-2",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.dished-receiver-end",
+            "parent": "receiver",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [-0.435,0,0],
+              "end": [-0.452,0,0],
+              "startRadius": 0.116,
+              "endRadius": 0.073,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#3b9195"
+            }
+          },
+          {
+            "id": "receiver-end--1-3",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.dished-receiver-end",
+            "parent": "receiver",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [-0.452,0,0],
+              "end": [-0.45799999999999996,0,0],
+              "startRadius": 0.073,
+              "endRadius": 0.022,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#3b9195"
+            }
+          },
+          {
+            "id": "receiver-end-1-0",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.dished-receiver-end",
+            "parent": "receiver",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0.341,0,0],
+              "end": [0.377,0,0],
+              "startRadius": 0.155,
+              "endRadius": 0.143,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#3b9195"
+            }
+          },
+          {
+            "id": "receiver-end-1-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.dished-receiver-end",
+            "parent": "receiver",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0.377,0,0],
+              "end": [0.40800000000000003,0,0],
+              "startRadius": 0.143,
+              "endRadius": 0.116,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#3b9195"
+            }
+          },
+          {
+            "id": "receiver-end-1-2",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.dished-receiver-end",
+            "parent": "receiver",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0.40800000000000003,0,0],
+              "end": [0.42500000000000004,0,0],
+              "startRadius": 0.116,
+              "endRadius": 0.073,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#3b9195"
+            }
+          },
+          {
+            "id": "receiver-end-1-3",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.dished-receiver-end",
+            "parent": "receiver",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0.42500000000000004,0,0],
+              "end": [0.43100000000000005,0,0],
+              "startRadius": 0.073,
+              "endRadius": 0.022,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#3b9195"
+            }
+          },
+          {
+            "id": "drain-valve",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.receiver-drain",
+            "parent": "receiver",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.185,0],
+                [0,-0.152,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.016,0],
+                [0.01545481,0.0041411],
+                [0.01385641,0.008],
+                [0.01131371,0.01131371],
+                [0.008,0.01385641],
+                [0.0041411,0.01545481],
+                [0,0.016],
+                [-0.0041411,0.01545481],
+                [-0.008,0.01385641],
+                [-0.01131371,0.01131371],
+                [-0.01385641,0.008],
+                [-0.01545481,0.0041411],
+                [-0.016,0],
+                [-0.01545481,-0.0041411],
+                [-0.01385641,-0.008],
+                [-0.01131371,-0.01131371],
+                [-0.008,-0.01385641],
+                [-0.0041411,-0.01545481],
+                [0,-0.016],
+                [0.0041411,-0.01545481],
+                [0.008,-0.01385641],
+                [0.01131371,-0.01131371],
+                [0.01385641,-0.008],
+                [0.01545481,-0.0041411]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.003,0],
+                  [0.00289778,0.00077646],
+                  [0.00259808,0.0015],
+                  [0.00212132,0.00212132],
+                  [0.0015,0.00259808],
+                  [0.00077646,0.00289778],
+                  [0,0.003],
+                  [-0.00077646,0.00289778],
+                  [-0.0015,0.00259808],
+                  [-0.00212132,0.00212132],
+                  [-0.00259808,0.0015],
+                  [-0.00289778,0.00077646],
+                  [-0.003,0],
+                  [-0.00289778,-0.00077646],
+                  [-0.00259808,-0.0015],
+                  [-0.00212132,-0.00212132],
+                  [-0.0015,-0.00259808],
+                  [-0.00077646,-0.00289778],
+                  [0,-0.003],
+                  [0.00077646,-0.00289778],
+                  [0.0015,-0.00259808],
+                  [0.00212132,-0.00212132],
+                  [0.00259808,-0.0015],
+                  [0.00289778,-0.00077646]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "wheel--1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.frame",
+            "transform": {
+              "position": [-0.3,0.11,-0.19]
+            }
+          },
+          {
+            "id": "wheel-tire--1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.rubber-tire",
+            "parent": "wheel--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.027],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.11,0],
+                [0.10832885,0.0191013],
+                [0.10336619,0.03762222],
+                [0.09526279,0.055],
+                [0.08426489,0.07070664],
+                [0.07070664,0.08426489],
+                [0.055,0.09526279],
+                [0.03762222,0.10336619],
+                [0.0191013,0.10832885],
+                [0,0.11],
+                [-0.0191013,0.10832885],
+                [-0.03762222,0.10336619],
+                [-0.055,0.09526279],
+                [-0.07070664,0.08426489],
+                [-0.08426489,0.07070664],
+                [-0.09526279,0.055],
+                [-0.10336619,0.03762222],
+                [-0.10832885,0.0191013],
+                [-0.11,0],
+                [-0.10832885,-0.0191013],
+                [-0.10336619,-0.03762222],
+                [-0.09526279,-0.055],
+                [-0.08426489,-0.07070664],
+                [-0.07070664,-0.08426489],
+                [-0.055,-0.09526279],
+                [-0.03762222,-0.10336619],
+                [-0.0191013,-0.10832885],
+                [0,-0.11],
+                [0.0191013,-0.10832885],
+                [0.03762222,-0.10336619],
+                [0.055,-0.09526279],
+                [0.07070664,-0.08426489],
+                [0.08426489,-0.07070664],
+                [0.09526279,-0.055],
+                [0.10336619,-0.03762222],
+                [0.10832885,-0.0191013]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.063,0],
+                  [0.06204289,0.01093984],
+                  [0.05920064,0.02154727],
+                  [0.0545596,0.0315],
+                  [0.0482608,0.04049562],
+                  [0.04049562,0.0482608],
+                  [0.0315,0.0545596],
+                  [0.02154727,0.05920064],
+                  [0.01093984,0.06204289],
+                  [0,0.063],
+                  [-0.01093984,0.06204289],
+                  [-0.02154727,0.05920064],
+                  [-0.0315,0.0545596],
+                  [-0.04049562,0.0482608],
+                  [-0.0482608,0.04049562],
+                  [-0.0545596,0.0315],
+                  [-0.05920064,0.02154727],
+                  [-0.06204289,0.01093984],
+                  [-0.063,0],
+                  [-0.06204289,-0.01093984],
+                  [-0.05920064,-0.02154727],
+                  [-0.0545596,-0.0315],
+                  [-0.0482608,-0.04049562],
+                  [-0.04049562,-0.0482608],
+                  [-0.0315,-0.0545596],
+                  [-0.02154727,-0.05920064],
+                  [-0.01093984,-0.06204289],
+                  [0,-0.063],
+                  [0.01093984,-0.06204289],
+                  [0.02154727,-0.05920064],
+                  [0.0315,-0.0545596],
+                  [0.04049562,-0.0482608],
+                  [0.0482608,-0.04049562],
+                  [0.0545596,-0.0315],
+                  [0.05920064,-0.02154727],
+                  [0.06204289,-0.01093984]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#2e353c"
+            }
+          },
+          {
+            "id": "wheel-hub--1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.wheel-hub",
+            "parent": "wheel--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.025],
+                [0,0,0.025]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.063,0],
+                [0.06178947,0.01229069],
+                [0.05820441,0.02410906],
+                [0.05238259,0.03500092],
+                [0.04454773,0.04454773],
+                [0.03500092,0.05238259],
+                [0.02410906,0.05820441],
+                [0.01229069,0.06178947],
+                [0,0.063],
+                [-0.01229069,0.06178947],
+                [-0.02410906,0.05820441],
+                [-0.03500092,0.05238259],
+                [-0.04454773,0.04454773],
+                [-0.05238259,0.03500092],
+                [-0.05820441,0.02410906],
+                [-0.06178947,0.01229069],
+                [-0.063,0],
+                [-0.06178947,-0.01229069],
+                [-0.05820441,-0.02410906],
+                [-0.05238259,-0.03500092],
+                [-0.04454773,-0.04454773],
+                [-0.03500092,-0.05238259],
+                [-0.02410906,-0.05820441],
+                [-0.01229069,-0.06178947],
+                [0,-0.063],
+                [0.01229069,-0.06178947],
+                [0.02410906,-0.05820441],
+                [0.03500092,-0.05238259],
+                [0.04454773,-0.04454773],
+                [0.05238259,-0.03500092],
+                [0.05820441,-0.02410906],
+                [0.06178947,-0.01229069]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.012,0],
+                  [0.01176942,0.00234108],
+                  [0.01108655,0.0045922],
+                  [0.00997764,0.00666684],
+                  [0.00848528,0.00848528],
+                  [0.00666684,0.00997764],
+                  [0.0045922,0.01108655],
+                  [0.00234108,0.01176942],
+                  [0,0.012],
+                  [-0.00234108,0.01176942],
+                  [-0.0045922,0.01108655],
+                  [-0.00666684,0.00997764],
+                  [-0.00848528,0.00848528],
+                  [-0.00997764,0.00666684],
+                  [-0.01108655,0.0045922],
+                  [-0.01176942,0.00234108],
+                  [-0.012,0],
+                  [-0.01176942,-0.00234108],
+                  [-0.01108655,-0.0045922],
+                  [-0.00997764,-0.00666684],
+                  [-0.00848528,-0.00848528],
+                  [-0.00666684,-0.00997764],
+                  [-0.0045922,-0.01108655],
+                  [-0.00234108,-0.01176942],
+                  [0,-0.012],
+                  [0.00234108,-0.01176942],
+                  [0.0045922,-0.01108655],
+                  [0.00666684,-0.00997764],
+                  [0.00848528,-0.00848528],
+                  [0.00997764,-0.00666684],
+                  [0.01108655,-0.0045922],
+                  [0.01176942,-0.00234108]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "wheel-bolt--1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.wheel-bolt",
+            "parent": "wheel--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.029],
+              "end": [0,0,0.029],
+              "radius": 0.011,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "support-foot--1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.support-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.11,0.08,0.065]
+            },
+            "appearance": {
+              "color": "#546069"
+            },
+            "transform": {
+              "position": [0.307,0.04,-0.08]
+            }
+          },
+          {
+            "id": "pull-rail--1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.transport-handle",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.22,0.285,-0.083],
+                [0.443,0.404,-0.108],
+                [0.495,0.557,-0.126]
+              ],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#47555e"
+            }
+          },
+          {
+            "id": "wheel-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.frame",
+            "transform": {
+              "position": [-0.3,0.11,0.19]
+            }
+          },
+          {
+            "id": "wheel-tire-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.rubber-tire",
+            "parent": "wheel-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.027],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.11,0],
+                [0.10832885,0.0191013],
+                [0.10336619,0.03762222],
+                [0.09526279,0.055],
+                [0.08426489,0.07070664],
+                [0.07070664,0.08426489],
+                [0.055,0.09526279],
+                [0.03762222,0.10336619],
+                [0.0191013,0.10832885],
+                [0,0.11],
+                [-0.0191013,0.10832885],
+                [-0.03762222,0.10336619],
+                [-0.055,0.09526279],
+                [-0.07070664,0.08426489],
+                [-0.08426489,0.07070664],
+                [-0.09526279,0.055],
+                [-0.10336619,0.03762222],
+                [-0.10832885,0.0191013],
+                [-0.11,0],
+                [-0.10832885,-0.0191013],
+                [-0.10336619,-0.03762222],
+                [-0.09526279,-0.055],
+                [-0.08426489,-0.07070664],
+                [-0.07070664,-0.08426489],
+                [-0.055,-0.09526279],
+                [-0.03762222,-0.10336619],
+                [-0.0191013,-0.10832885],
+                [0,-0.11],
+                [0.0191013,-0.10832885],
+                [0.03762222,-0.10336619],
+                [0.055,-0.09526279],
+                [0.07070664,-0.08426489],
+                [0.08426489,-0.07070664],
+                [0.09526279,-0.055],
+                [0.10336619,-0.03762222],
+                [0.10832885,-0.0191013]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.063,0],
+                  [0.06204289,0.01093984],
+                  [0.05920064,0.02154727],
+                  [0.0545596,0.0315],
+                  [0.0482608,0.04049562],
+                  [0.04049562,0.0482608],
+                  [0.0315,0.0545596],
+                  [0.02154727,0.05920064],
+                  [0.01093984,0.06204289],
+                  [0,0.063],
+                  [-0.01093984,0.06204289],
+                  [-0.02154727,0.05920064],
+                  [-0.0315,0.0545596],
+                  [-0.04049562,0.0482608],
+                  [-0.0482608,0.04049562],
+                  [-0.0545596,0.0315],
+                  [-0.05920064,0.02154727],
+                  [-0.06204289,0.01093984],
+                  [-0.063,0],
+                  [-0.06204289,-0.01093984],
+                  [-0.05920064,-0.02154727],
+                  [-0.0545596,-0.0315],
+                  [-0.0482608,-0.04049562],
+                  [-0.04049562,-0.0482608],
+                  [-0.0315,-0.0545596],
+                  [-0.02154727,-0.05920064],
+                  [-0.01093984,-0.06204289],
+                  [0,-0.063],
+                  [0.01093984,-0.06204289],
+                  [0.02154727,-0.05920064],
+                  [0.0315,-0.0545596],
+                  [0.04049562,-0.0482608],
+                  [0.0482608,-0.04049562],
+                  [0.0545596,-0.0315],
+                  [0.05920064,-0.02154727],
+                  [0.06204289,-0.01093984]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#2e353c"
+            }
+          },
+          {
+            "id": "wheel-hub-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.wheel-hub",
+            "parent": "wheel-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.025],
+                [0,0,0.025]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.063,0],
+                [0.06178947,0.01229069],
+                [0.05820441,0.02410906],
+                [0.05238259,0.03500092],
+                [0.04454773,0.04454773],
+                [0.03500092,0.05238259],
+                [0.02410906,0.05820441],
+                [0.01229069,0.06178947],
+                [0,0.063],
+                [-0.01229069,0.06178947],
+                [-0.02410906,0.05820441],
+                [-0.03500092,0.05238259],
+                [-0.04454773,0.04454773],
+                [-0.05238259,0.03500092],
+                [-0.05820441,0.02410906],
+                [-0.06178947,0.01229069],
+                [-0.063,0],
+                [-0.06178947,-0.01229069],
+                [-0.05820441,-0.02410906],
+                [-0.05238259,-0.03500092],
+                [-0.04454773,-0.04454773],
+                [-0.03500092,-0.05238259],
+                [-0.02410906,-0.05820441],
+                [-0.01229069,-0.06178947],
+                [0,-0.063],
+                [0.01229069,-0.06178947],
+                [0.02410906,-0.05820441],
+                [0.03500092,-0.05238259],
+                [0.04454773,-0.04454773],
+                [0.05238259,-0.03500092],
+                [0.05820441,-0.02410906],
+                [0.06178947,-0.01229069]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.012,0],
+                  [0.01176942,0.00234108],
+                  [0.01108655,0.0045922],
+                  [0.00997764,0.00666684],
+                  [0.00848528,0.00848528],
+                  [0.00666684,0.00997764],
+                  [0.0045922,0.01108655],
+                  [0.00234108,0.01176942],
+                  [0,0.012],
+                  [-0.00234108,0.01176942],
+                  [-0.0045922,0.01108655],
+                  [-0.00666684,0.00997764],
+                  [-0.00848528,0.00848528],
+                  [-0.00997764,0.00666684],
+                  [-0.01108655,0.0045922],
+                  [-0.01176942,0.00234108],
+                  [-0.012,0],
+                  [-0.01176942,-0.00234108],
+                  [-0.01108655,-0.0045922],
+                  [-0.00997764,-0.00666684],
+                  [-0.00848528,-0.00848528],
+                  [-0.00666684,-0.00997764],
+                  [-0.0045922,-0.01108655],
+                  [-0.00234108,-0.01176942],
+                  [0,-0.012],
+                  [0.00234108,-0.01176942],
+                  [0.0045922,-0.01108655],
+                  [0.00666684,-0.00997764],
+                  [0.00848528,-0.00848528],
+                  [0.00997764,-0.00666684],
+                  [0.01108655,-0.0045922],
+                  [0.01176942,-0.00234108]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "wheel-bolt-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.wheel-bolt",
+            "parent": "wheel-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.029],
+              "end": [0,0,0.029],
+              "radius": 0.011,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "support-foot-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.support-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.11,0.08,0.065]
+            },
+            "appearance": {
+              "color": "#546069"
+            },
+            "transform": {
+              "position": [0.307,0.04,0.08]
+            }
+          },
+          {
+            "id": "pull-rail-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.transport-handle",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.22,0.285,0.083],
+                [0.443,0.404,0.108],
+                [0.495,0.557,0.126]
+              ],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#47555e"
+            }
+          },
+          {
+            "id": "pull-grip",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.transport-grip",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.495,0.557,-0.135],
+              "end": [0.495,0.557,0.135],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#2e353c"
+            }
+          },
+          {
+            "id": "drive-deck",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.drive-deck",
+            "geometry": {
+              "type": "box",
+              "size": [0.59,0.035,0.257]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [-0.028,0.395,0]
+            }
+          },
+          {
+            "id": "pump-crankcase",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.pump-crankcase",
+            "geometry": {
+              "type": "box",
+              "size": [0.137,0.141,0.132]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [-0.182,0.481,0]
+            }
+          },
+          {
+            "id": "cylinder--1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.frame",
+            "transform": {
+              "position": [-0.182,0.504,-0.043],
+              "rotation": [-0.5759586531581288,0,0]
+            }
+          },
+          {
+            "id": "cylinder-core--1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cylinder-core",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.101,0.146,0.092]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0,0.073,0]
+            }
+          },
+          {
+            "id": "cylinder-fin--1-0",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.026,0]
+            }
+          },
+          {
+            "id": "cylinder-fin--1-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.037,0]
+            }
+          },
+          {
+            "id": "cylinder-fin--1-2",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.048,0]
+            }
+          },
+          {
+            "id": "cylinder-fin--1-3",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.059,0]
+            }
+          },
+          {
+            "id": "cylinder-fin--1-4",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.06999999999999999,0]
+            }
+          },
+          {
+            "id": "cylinder-fin--1-5",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.08099999999999999,0]
+            }
+          },
+          {
+            "id": "cylinder-fin--1-6",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.092,0]
+            }
+          },
+          {
+            "id": "cylinder-fin--1-7",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.103,0]
+            }
+          },
+          {
+            "id": "cylinder-fin--1-8",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.11399999999999999,0]
+            }
+          },
+          {
+            "id": "cylinder-fin--1-9",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.12499999999999999,0]
+            }
+          },
+          {
+            "id": "head-cap--1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cylinder-head-cover",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.114,0.027,0.105]
+            },
+            "appearance": {
+              "color": "#546069"
+            },
+            "transform": {
+              "position": [0,0.151,0]
+            }
+          },
+          {
+            "id": "air-filter--1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.intake-filter",
+            "parent": "cylinder--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.091,0.151,0],
+              "end": [-0.055,0.151,0],
+              "radius": 0.021,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#2e353c"
+            }
+          },
+          {
+            "id": "cylinder-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.frame",
+            "transform": {
+              "position": [-0.182,0.504,0.043],
+              "rotation": [0.5759586531581288,0,0]
+            }
+          },
+          {
+            "id": "cylinder-core-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cylinder-core",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.101,0.146,0.092]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0,0.073,0]
+            }
+          },
+          {
+            "id": "cylinder-fin-1-0",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.026,0]
+            }
+          },
+          {
+            "id": "cylinder-fin-1-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.037,0]
+            }
+          },
+          {
+            "id": "cylinder-fin-1-2",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.048,0]
+            }
+          },
+          {
+            "id": "cylinder-fin-1-3",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.059,0]
+            }
+          },
+          {
+            "id": "cylinder-fin-1-4",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.06999999999999999,0]
+            }
+          },
+          {
+            "id": "cylinder-fin-1-5",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.08099999999999999,0]
+            }
+          },
+          {
+            "id": "cylinder-fin-1-6",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.092,0]
+            }
+          },
+          {
+            "id": "cylinder-fin-1-7",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.103,0]
+            }
+          },
+          {
+            "id": "cylinder-fin-1-8",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.11399999999999999,0]
+            }
+          },
+          {
+            "id": "cylinder-fin-1-9",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cooling-fin",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.122,0.004,0.118]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.12499999999999999,0]
+            }
+          },
+          {
+            "id": "head-cap-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.cylinder-head-cover",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.114,0.027,0.105]
+            },
+            "appearance": {
+              "color": "#546069"
+            },
+            "transform": {
+              "position": [0,0.151,0]
+            }
+          },
+          {
+            "id": "air-filter-1",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.intake-filter",
+            "parent": "cylinder-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.091,0.151,0],
+              "end": [-0.055,0.151,0],
+              "radius": 0.021,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#2e353c"
+            }
+          },
+          {
+            "id": "drive-motor",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.drive-motor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.165,0.489,-0.104],
+              "end": [0.165,0.489,0.117],
+              "radius": 0.084,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#47555e"
+            }
+          },
+          {
+            "id": "belt-case",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.belt-case",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.13],
+                [0,0,0.181]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.259,0.413],
+                [0.24099999999999996,0.413],
+                [0.27999999999999997,0.45199999999999996],
+                [0.27999999999999997,0.573],
+                [0.24099999999999996,0.612],
+                [-0.259,0.612],
+                [-0.298,0.573],
+                [-0.298,0.45199999999999996]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.242,0.482],
+                  [-0.2,0.482],
+                  [-0.187,0.495],
+                  [-0.187,0.5319999999999999],
+                  [-0.2,0.5449999999999999],
+                  [-0.242,0.5449999999999999],
+                  [-0.255,0.5319999999999999],
+                  [-0.255,0.495]
+                ],
+                [
+                  [-0.127,0.482],
+                  [-0.085,0.482],
+                  [-0.07200000000000001,0.495],
+                  [-0.07200000000000001,0.5319999999999999],
+                  [-0.085,0.5449999999999999],
+                  [-0.127,0.5449999999999999],
+                  [-0.14,0.5319999999999999],
+                  [-0.14,0.495]
+                ],
+                [
+                  [-0.012000000000000002,0.482],
+                  [0.030000000000000006,0.482],
+                  [0.043000000000000003,0.495],
+                  [0.043000000000000003,0.5319999999999999],
+                  [0.030000000000000006,0.5449999999999999],
+                  [-0.012000000000000002,0.5449999999999999],
+                  [-0.025,0.5319999999999999],
+                  [-0.025,0.495]
+                ],
+                [
+                  [0.103,0.482],
+                  [0.145,0.482],
+                  [0.158,0.495],
+                  [0.158,0.5319999999999999],
+                  [0.145,0.5449999999999999],
+                  [0.103,0.5449999999999999],
+                  [0.09,0.5319999999999999],
+                  [0.09,0.495]
+                ],
+                [
+                  [0.218,0.482],
+                  [0.26,0.482],
+                  [0.273,0.495],
+                  [0.273,0.5319999999999999],
+                  [0.26,0.5449999999999999],
+                  [0.218,0.5449999999999999],
+                  [0.205,0.5319999999999999],
+                  [0.205,0.495]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#d69434"
+            }
+          },
+          {
+            "id": "flywheel",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.frame",
+            "transform": {
+              "position": [-0.182,0.503,0]
+            }
+          },
+          {
+            "id": "pump-sheave",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.pump-sheave",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.139],
+                [0,0,0.161]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.086,0],
+                [0.08469347,0.01493374],
+                [0.08081357,0.02941373],
+                [0.07447818,0.043],
+                [0.06587982,0.05527973],
+                [0.05527973,0.06587982],
+                [0.043,0.07447818],
+                [0.02941373,0.08081357],
+                [0.01493374,0.08469347],
+                [0,0.086],
+                [-0.01493374,0.08469347],
+                [-0.02941373,0.08081357],
+                [-0.043,0.07447818],
+                [-0.05527973,0.06587982],
+                [-0.06587982,0.05527973],
+                [-0.07447818,0.043],
+                [-0.08081357,0.02941373],
+                [-0.08469347,0.01493374],
+                [-0.086,0],
+                [-0.08469347,-0.01493374],
+                [-0.08081357,-0.02941373],
+                [-0.07447818,-0.043],
+                [-0.06587982,-0.05527973],
+                [-0.05527973,-0.06587982],
+                [-0.043,-0.07447818],
+                [-0.02941373,-0.08081357],
+                [-0.01493374,-0.08469347],
+                [0,-0.086],
+                [0.01493374,-0.08469347],
+                [0.02941373,-0.08081357],
+                [0.043,-0.07447818],
+                [0.05527973,-0.06587982],
+                [0.06587982,-0.05527973],
+                [0.07447818,-0.043],
+                [0.08081357,-0.02941373],
+                [0.08469347,-0.01493374]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.014,0],
+                  [0.01378731,0.00243107],
+                  [0.0131557,0.00478828],
+                  [0.01212436,0.007],
+                  [0.01072462,0.00899903],
+                  [0.00899903,0.01072462],
+                  [0.007,0.01212436],
+                  [0.00478828,0.0131557],
+                  [0.00243107,0.01378731],
+                  [0,0.014],
+                  [-0.00243107,0.01378731],
+                  [-0.00478828,0.0131557],
+                  [-0.007,0.01212436],
+                  [-0.00899903,0.01072462],
+                  [-0.01072462,0.00899903],
+                  [-0.01212436,0.007],
+                  [-0.0131557,0.00478828],
+                  [-0.01378731,0.00243107],
+                  [-0.014,0],
+                  [-0.01378731,-0.00243107],
+                  [-0.0131557,-0.00478828],
+                  [-0.01212436,-0.007],
+                  [-0.01072462,-0.00899903],
+                  [-0.00899903,-0.01072462],
+                  [-0.007,-0.01212436],
+                  [-0.00478828,-0.0131557],
+                  [-0.00243107,-0.01378731],
+                  [0,-0.014],
+                  [0.00243107,-0.01378731],
+                  [0.00478828,-0.0131557],
+                  [0.007,-0.01212436],
+                  [0.00899903,-0.01072462],
+                  [0.01072462,-0.00899903],
+                  [0.01212436,-0.007],
+                  [0.0131557,-0.00478828],
+                  [0.01378731,-0.00243107]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "motor-pulley",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.frame",
+            "transform": {
+              "position": [0.165,0.489,0]
+            }
+          },
+          {
+            "id": "motor-sheave",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.motor-sheave",
+            "parent": "motor-pulley",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.139],
+                [0,0,0.161]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.045,0],
+                [0.04387176,0.01001344],
+                [0.0405436,0.01952477],
+                [0.03518242,0.02805704],
+                [0.02805704,0.03518242],
+                [0.01952477,0.0405436],
+                [0.01001344,0.04387176],
+                [0,0.045],
+                [-0.01001344,0.04387176],
+                [-0.01952477,0.0405436],
+                [-0.02805704,0.03518242],
+                [-0.03518242,0.02805704],
+                [-0.0405436,0.01952477],
+                [-0.04387176,0.01001344],
+                [-0.045,0],
+                [-0.04387176,-0.01001344],
+                [-0.0405436,-0.01952477],
+                [-0.03518242,-0.02805704],
+                [-0.02805704,-0.03518242],
+                [-0.01952477,-0.0405436],
+                [-0.01001344,-0.04387176],
+                [0,-0.045],
+                [0.01001344,-0.04387176],
+                [0.01952477,-0.0405436],
+                [0.02805704,-0.03518242],
+                [0.03518242,-0.02805704],
+                [0.0405436,-0.01952477],
+                [0.04387176,-0.01001344]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.01,0],
+                  [0.00974928,0.00222521],
+                  [0.00900969,0.00433884],
+                  [0.00781831,0.0062349],
+                  [0.0062349,0.00781831],
+                  [0.00433884,0.00900969],
+                  [0.00222521,0.00974928],
+                  [0,0.01],
+                  [-0.00222521,0.00974928],
+                  [-0.00433884,0.00900969],
+                  [-0.0062349,0.00781831],
+                  [-0.00781831,0.0062349],
+                  [-0.00900969,0.00433884],
+                  [-0.00974928,0.00222521],
+                  [-0.01,0],
+                  [-0.00974928,-0.00222521],
+                  [-0.00900969,-0.00433884],
+                  [-0.00781831,-0.0062349],
+                  [-0.0062349,-0.00781831],
+                  [-0.00433884,-0.00900969],
+                  [-0.00222521,-0.00974928],
+                  [0,-0.01],
+                  [0.00222521,-0.00974928],
+                  [0.00433884,-0.00900969],
+                  [0.0062349,-0.00781831],
+                  [0.00781831,-0.0062349],
+                  [0.00900969,-0.00433884],
+                  [0.00974928,-0.00222521]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "delivery-pipe",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.delivery-pipe",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.218,0.637,-0.112],
+                [-0.313,0.601,-0.136],
+                [-0.33,0.373,-0.147],
+                [-0.285,0.333,-0.11]
+              ],
+              "radius": 0.008,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "pressure-manifold",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.pressure-manifold",
+            "geometry": {
+              "type": "box",
+              "size": [0.107,0.071,0.092]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.309,0.445,-0.073]
+            }
+          },
+          {
+            "id": "regulator",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.frame",
+            "transform": {
+              "position": [0.309,0.478,-0.073]
+            }
+          },
+          {
+            "id": "regulator-knob",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.pressure-adjustment-knob",
+            "parent": "regulator",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.042,0],
+              "radius": 0.024,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#2e353c"
+            }
+          },
+          {
+            "id": "knob-marker",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.knob-reference-mark",
+            "parent": "regulator",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.003,0.016]
+            },
+            "appearance": {
+              "color": "#ad4f43"
+            },
+            "transform": {
+              "position": [0.008,0.043,0.004]
+            }
+          },
+          {
+            "id": "regulated-outlet-mount",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.frame",
+            "transform": {
+              "position": [0.357,0.444,-0.073]
+            }
+          },
+          {
+            "id": "regulated-outlet",
+            "semanticType": "equipment.rolling-twin-cylinder-air-compressor.compressed-air-port",
+            "parent": "regulated-outlet-mount",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.037,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.019,0],
+                [0.01863492,0.00370672],
+                [0.01755371,0.00727099],
+                [0.01579792,0.01055583],
+                [0.01343503,0.01343503],
+                [0.01055583,0.01579792],
+                [0.00727099,0.01755371],
+                [0.00370672,0.01863492],
+                [0,0.019],
+                [-0.00370672,0.01863492],
+                [-0.00727099,0.01755371],
+                [-0.01055583,0.01579792],
+                [-0.01343503,0.01343503],
+                [-0.01579792,0.01055583],
+                [-0.01755371,0.00727099],
+                [-0.01863492,0.00370672],
+                [-0.019,0],
+                [-0.01863492,-0.00370672],
+                [-0.01755371,-0.00727099],
+                [-0.01579792,-0.01055583],
+                [-0.01343503,-0.01343503],
+                [-0.01055583,-0.01579792],
+                [-0.00727099,-0.01755371],
+                [-0.00370672,-0.01863492],
+                [0,-0.019],
+                [0.00370672,-0.01863492],
+                [0.00727099,-0.01755371],
+                [0.01055583,-0.01579792],
+                [0.01343503,-0.01343503],
+                [0.01579792,-0.01055583],
+                [0.01755371,-0.00727099],
+                [0.01863492,-0.00370672]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.007,0],
+                  [0.0068655,0.00136563],
+                  [0.00646716,0.00267878],
+                  [0.00582029,0.00388899],
+                  [0.00494975,0.00494975],
+                  [0.00388899,0.00582029],
+                  [0.00267878,0.00646716],
+                  [0.00136563,0.0068655],
+                  [0,0.007],
+                  [-0.00136563,0.0068655],
+                  [-0.00267878,0.00646716],
+                  [-0.00388899,0.00582029],
+                  [-0.00494975,0.00494975],
+                  [-0.00582029,0.00388899],
+                  [-0.00646716,0.00267878],
+                  [-0.0068655,0.00136563],
+                  [-0.007,0],
+                  [-0.0068655,-0.00136563],
+                  [-0.00646716,-0.00267878],
+                  [-0.00582029,-0.00388899],
+                  [-0.00494975,-0.00494975],
+                  [-0.00388899,-0.00582029],
+                  [-0.00267878,-0.00646716],
+                  [-0.00136563,-0.0068655],
+                  [0,-0.007],
+                  [0.00136563,-0.0068655],
+                  [0.00267878,-0.00646716],
+                  [0.00388899,-0.00582029],
+                  [0.00494975,-0.00494975],
+                  [0.00582029,-0.00388899],
+                  [0.00646716,-0.00267878],
+                  [0.0068655,-0.00136563]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          }
+        ],
+        "anchors": {
+          "drain": {
+            "node": "drain-valve",
+            "position": [0,-0.185,0],
+            "direction": [0,-1,0],
+            "kind": "service"
+          },
+          "air-out": {
+            "node": "regulated-outlet-mount",
+            "position": [0.037,0,0],
+            "direction": [1,0,0],
+            "kind": "pneumatic"
+          },
+          "operator-handle": {
+            "node": "pull-grip",
+            "position": [0.495,0.557,0],
+            "direction": [0,1,0],
+            "kind": "grip"
+          },
+          "ground": {
+            "node": "drive-deck",
+            "position": [0,-0.395,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "regulator-angle",
+            "label": "减压旋钮转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -120,
+            "max": 120,
+            "targets": [
+              {
+                "node": "regulator",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

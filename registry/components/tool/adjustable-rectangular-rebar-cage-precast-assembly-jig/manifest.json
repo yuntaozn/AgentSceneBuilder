@@ -1,0 +1,525 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "矩形钢筋笼可调预制装配胎架",
+  "summary": "独立槽轨底架、两道可调定位横架、四个可读角点与组合限位板。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "钢筋笼胎架",
+    "预制梁配筋胎架",
+    "rebar-cage-jig",
+    "rectangular-cage",
+    "预制生产工具",
+    "prefabrication"
+  ],
+  "anchors": [
+    "corner--1--1",
+    "corner--1-1",
+    "corner-1--1",
+    "corner-1-1",
+    "floor"
+  ],
+  "ai": {
+    "intent": "独立定义矩形钢筋笼的四角和架距，Agent 可读取四个定位点后组合钢筋及梁模。",
+    "editableParts": [
+      "cage-width",
+      "row-spacing"
+    ],
+    "qualityChecks": [
+      "两方向增量各自对称。",
+      "定位点随各自夹架。",
+      "底架和纵轨固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "adjustable-rectangular-rebar-cage-precast-assembly-jig",
+      "title": "矩形钢筋笼可调预制装配胎架",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "skid",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.full-length-frame-bed",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.009,0],
+                [0,0.042,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.32,-0.683],
+                [-0.32,-0.683],
+                [-0.368,-0.635],
+                [-0.368,0.635],
+                [-0.32,0.683],
+                [0.32,0.683],
+                [0.368,0.635],
+                [0.368,-0.635]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.254,-0.59],
+                  [-0.254,-0.59],
+                  [-0.288,-0.5559999999999999],
+                  [-0.288,0.5559999999999999],
+                  [-0.254,0.59],
+                  [0.254,0.59],
+                  [0.288,0.5559999999999999],
+                  [0.288,-0.5559999999999999]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db6c2"
+            }
+          },
+          {
+            "id": "rail--1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.long-fixture-slide-track",
+            "geometry": {
+              "type": "box",
+              "size": [0.047,0.056,1.255]
+            },
+            "appearance": {
+              "color": "#82bbc5"
+            },
+            "transform": {
+              "position": [-0.268,0.079,0]
+            }
+          },
+          {
+            "id": "rail-1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.long-fixture-slide-track",
+            "geometry": {
+              "type": "box",
+              "size": [0.047,0.056,1.255]
+            },
+            "appearance": {
+              "color": "#82bbc5"
+            },
+            "transform": {
+              "position": [0.268,0.079,0]
+            }
+          },
+          {
+            "id": "stanchion-row--1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.frame",
+            "transform": {
+              "position": [0,0,-0.382]
+            }
+          },
+          {
+            "id": "crossrail--1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.widthwise-jig-crossrail",
+            "parent": "stanchion-row--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.59,0.047,0.052]
+            },
+            "appearance": {
+              "color": "#9db6c2"
+            },
+            "transform": {
+              "position": [0,0.112,0]
+            }
+          },
+          {
+            "id": "jig-holder--1--1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.frame",
+            "parent": "stanchion-row--1",
+            "transform": {
+              "position": [-0.187,0.132,0]
+            }
+          },
+          {
+            "id": "foot--1--1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.short-axis-travel-holder",
+            "parent": "jig-holder--1--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.046,0.088]
+            },
+            "appearance": {
+              "color": "#82bbc5"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "pillar--1--1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.vertical-reinforcement-corner-guide",
+            "parent": "jig-holder--1--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.362,0.042]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.202,0]
+            }
+          },
+          {
+            "id": "bar-support--1--1-0.058",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.adjustable-cage-rest",
+            "parent": "jig-holder--1--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.028,0.052]
+            },
+            "appearance": {
+              "color": "#eac071"
+            },
+            "transform": {
+              "position": [0.029,0.058,0]
+            }
+          },
+          {
+            "id": "bar-support--1--1-0.348",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.adjustable-cage-rest",
+            "parent": "jig-holder--1--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.028,0.052]
+            },
+            "appearance": {
+              "color": "#eac071"
+            },
+            "transform": {
+              "position": [0.029,0.348,0]
+            }
+          },
+          {
+            "id": "jig-holder--1-1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.frame",
+            "parent": "stanchion-row--1",
+            "transform": {
+              "position": [0.187,0.132,0]
+            }
+          },
+          {
+            "id": "foot--1-1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.short-axis-travel-holder",
+            "parent": "jig-holder--1-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.046,0.088]
+            },
+            "appearance": {
+              "color": "#82bbc5"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "pillar--1-1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.vertical-reinforcement-corner-guide",
+            "parent": "jig-holder--1-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.362,0.042]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.202,0]
+            }
+          },
+          {
+            "id": "bar-support--1-1-0.058",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.adjustable-cage-rest",
+            "parent": "jig-holder--1-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.028,0.052]
+            },
+            "appearance": {
+              "color": "#eac071"
+            },
+            "transform": {
+              "position": [-0.029,0.058,0]
+            }
+          },
+          {
+            "id": "bar-support--1-1-0.348",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.adjustable-cage-rest",
+            "parent": "jig-holder--1-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.028,0.052]
+            },
+            "appearance": {
+              "color": "#eac071"
+            },
+            "transform": {
+              "position": [-0.029,0.348,0]
+            }
+          },
+          {
+            "id": "stanchion-row-1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.frame",
+            "transform": {
+              "position": [0,0,0.382]
+            }
+          },
+          {
+            "id": "crossrail-1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.widthwise-jig-crossrail",
+            "parent": "stanchion-row-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.59,0.047,0.052]
+            },
+            "appearance": {
+              "color": "#9db6c2"
+            },
+            "transform": {
+              "position": [0,0.112,0]
+            }
+          },
+          {
+            "id": "jig-holder-1--1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.frame",
+            "parent": "stanchion-row-1",
+            "transform": {
+              "position": [-0.187,0.132,0]
+            }
+          },
+          {
+            "id": "foot-1--1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.short-axis-travel-holder",
+            "parent": "jig-holder-1--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.046,0.088]
+            },
+            "appearance": {
+              "color": "#82bbc5"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "pillar-1--1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.vertical-reinforcement-corner-guide",
+            "parent": "jig-holder-1--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.362,0.042]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.202,0]
+            }
+          },
+          {
+            "id": "bar-support-1--1-0.058",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.adjustable-cage-rest",
+            "parent": "jig-holder-1--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.028,0.052]
+            },
+            "appearance": {
+              "color": "#eac071"
+            },
+            "transform": {
+              "position": [0.029,0.058,0]
+            }
+          },
+          {
+            "id": "bar-support-1--1-0.348",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.adjustable-cage-rest",
+            "parent": "jig-holder-1--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.028,0.052]
+            },
+            "appearance": {
+              "color": "#eac071"
+            },
+            "transform": {
+              "position": [0.029,0.348,0]
+            }
+          },
+          {
+            "id": "jig-holder-1-1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.frame",
+            "parent": "stanchion-row-1",
+            "transform": {
+              "position": [0.187,0.132,0]
+            }
+          },
+          {
+            "id": "foot-1-1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.short-axis-travel-holder",
+            "parent": "jig-holder-1-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.046,0.088]
+            },
+            "appearance": {
+              "color": "#82bbc5"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "pillar-1-1",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.vertical-reinforcement-corner-guide",
+            "parent": "jig-holder-1-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.362,0.042]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.202,0]
+            }
+          },
+          {
+            "id": "bar-support-1-1-0.058",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.adjustable-cage-rest",
+            "parent": "jig-holder-1-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.028,0.052]
+            },
+            "appearance": {
+              "color": "#eac071"
+            },
+            "transform": {
+              "position": [-0.029,0.058,0]
+            }
+          },
+          {
+            "id": "bar-support-1-1-0.348",
+            "semanticType": "tool.adjustable-rectangular-rebar-cage-precast-assembly-jig.adjustable-cage-rest",
+            "parent": "jig-holder-1-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.097,0.028,0.052]
+            },
+            "appearance": {
+              "color": "#eac071"
+            },
+            "transform": {
+              "position": [-0.029,0.348,0]
+            }
+          }
+        ],
+        "anchors": {
+          "corner--1--1": {
+            "node": "jig-holder--1--1",
+            "position": [0.016,0.348,0],
+            "direction": [0,1,0],
+            "kind": "rebar-reference"
+          },
+          "corner--1-1": {
+            "node": "jig-holder--1-1",
+            "position": [-0.016,0.348,0],
+            "direction": [0,1,0],
+            "kind": "rebar-reference"
+          },
+          "corner-1--1": {
+            "node": "jig-holder-1--1",
+            "position": [0.016,0.348,0],
+            "direction": [0,1,0],
+            "kind": "rebar-reference"
+          },
+          "corner-1-1": {
+            "node": "jig-holder-1-1",
+            "position": [-0.016,0.348,0],
+            "direction": [0,1,0],
+            "kind": "rebar-reference"
+          },
+          "floor": {
+            "node": "skid",
+            "position": [0,0.009,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "cage-width",
+            "label": "钢筋笼定位宽度增量",
+            "unit": "m",
+            "value": 0,
+            "min": -0.125,
+            "max": 0.156,
+            "targets": [
+              {
+                "node": "jig-holder--1--1",
+                "property": "position",
+                "axis": "x",
+                "factor": -0.5
+              },
+              {
+                "node": "jig-holder--1-1",
+                "property": "position",
+                "axis": "x",
+                "factor": 0.5
+              },
+              {
+                "node": "jig-holder-1--1",
+                "property": "position",
+                "axis": "x",
+                "factor": -0.5
+              },
+              {
+                "node": "jig-holder-1-1",
+                "property": "position",
+                "axis": "x",
+                "factor": 0.5
+              }
+            ]
+          },
+          {
+            "id": "row-spacing",
+            "label": "两道夹持架距离增量",
+            "unit": "m",
+            "value": 0,
+            "min": -0.272,
+            "max": 0.233,
+            "targets": [
+              {
+                "node": "stanchion-row--1",
+                "property": "position",
+                "axis": "z",
+                "factor": -0.5
+              },
+              {
+                "node": "stanchion-row-1",
+                "property": "position",
+                "axis": "z",
+                "factor": 0.5
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

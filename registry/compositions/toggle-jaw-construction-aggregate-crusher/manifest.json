@@ -1,0 +1,1142 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.toggle-jaw-construction-aggregate-crusher",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "带可动颚板的建筑骨料颚式破碎机",
+  "summary": "支承底架、空腔料口、固定齿颚和可摆齿颚、驱动飞轮以及下部排料口。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "颚式破碎机",
+    "骨料破碎机",
+    "jaw-crusher",
+    "toggle-jaw",
+    "建筑材料回收",
+    "material-recycling"
+  ],
+  "anchors": [
+    "feed",
+    "discharge",
+    "movable-jaw-end"
+  ],
+  "ai": {
+    "intent": "独立表达建筑骨料破碎机的几何与维护位置，按进料、出料和活动颚工作空间配接设备。",
+    "editableParts": [
+      "jaw-closing",
+      "flywheel-angle"
+    ],
+    "qualityChecks": [
+      "顶部及底部为实际开口。",
+      "固定颚和活动颚各有齿列。",
+      "飞轮和活动颚可分别检查。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "toggle-jaw-construction-aggregate-crusher",
+      "title": "带可动颚板的建筑骨料颚式破碎机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.pierced-skid-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.012,0],
+                [0,0.048,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.34400000000000003,-0.282],
+                [-0.34400000000000003,-0.282],
+                [-0.381,-0.24499999999999997],
+                [-0.381,0.24499999999999997],
+                [-0.34400000000000003,0.282],
+                [0.34400000000000003,0.282],
+                [0.381,0.24499999999999997],
+                [0.381,-0.24499999999999997]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.25699999999999995,-0.181],
+                  [-0.25699999999999995,-0.181],
+                  [-0.283,-0.155],
+                  [-0.283,0.155],
+                  [-0.25699999999999995,0.181],
+                  [0.25699999999999995,0.181],
+                  [0.283,0.155],
+                  [0.283,-0.155]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            }
+          },
+          {
+            "id": "cheek--1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.crusher-chamber-sidewall",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.269,0,0],
+                [-0.233,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.235,0.159],
+                [-0.238,0.159],
+                [-0.226,0.516],
+                [-0.2,0.645],
+                [-0.152,0.705],
+                [0.182,0.699],
+                [0.238,0.566]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#80b9c5",
+              "opacity": 1
+            }
+          },
+          {
+            "id": "frame-base--1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.base-support-column",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.226,0.503]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            },
+            "transform": {
+              "position": [-0.247,0.124,0]
+            }
+          },
+          {
+            "id": "cheek-1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.crusher-chamber-sidewall",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.233,0,0],
+                [0.269,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.235,0.159],
+                [-0.238,0.159],
+                [-0.226,0.516],
+                [-0.2,0.645],
+                [-0.152,0.705],
+                [0.182,0.699],
+                [0.238,0.566]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a2cbd3",
+              "opacity": 0.55
+            }
+          },
+          {
+            "id": "frame-base-1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.base-support-column",
+            "geometry": {
+              "type": "box",
+              "size": [0.066,0.226,0.503]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            },
+            "transform": {
+              "position": [0.247,0.124,0]
+            }
+          },
+          {
+            "id": "feed-lip",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.open-top-feed-lip",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.678,0],
+                [0,0.703,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.24500000000000002,-0.23],
+                [-0.24500000000000002,-0.23],
+                [-0.277,-0.198],
+                [-0.277,0.199],
+                [-0.24500000000000002,0.231],
+                [0.24500000000000002,0.231],
+                [0.277,0.199],
+                [0.277,-0.198]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.218,-0.188],
+                  [-0.218,-0.188],
+                  [-0.239,-0.167],
+                  [-0.239,0.167],
+                  [-0.218,0.188],
+                  [0.218,0.188],
+                  [0.239,0.167],
+                  [0.239,-0.167]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            }
+          },
+          {
+            "id": "fixed-jaw",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.ribbed-stationary-crushing-jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.228,0,0],
+                [0.228,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.071,0.156],
+                [-0.121,0.156],
+                [-0.199,0.641],
+                [-0.152,0.644],
+                [-0.127,0.48]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "stationary-rib-0",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.stationary-corrugation",
+            "geometry": {
+              "type": "box",
+              "size": [0.45,0.017,0.027]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            },
+            "transform": {
+              "position": [0,0.187,0.06623899999999999]
+            }
+          },
+          {
+            "id": "stationary-rib-1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.stationary-corrugation",
+            "geometry": {
+              "type": "box",
+              "size": [0.45,0.017,0.027]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            },
+            "transform": {
+              "position": [0,0.23299999999999998,0.074013]
+            }
+          },
+          {
+            "id": "stationary-rib-2",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.stationary-corrugation",
+            "geometry": {
+              "type": "box",
+              "size": [0.45,0.017,0.027]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            },
+            "transform": {
+              "position": [0,0.279,0.081787]
+            }
+          },
+          {
+            "id": "stationary-rib-3",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.stationary-corrugation",
+            "geometry": {
+              "type": "box",
+              "size": [0.45,0.017,0.027]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            },
+            "transform": {
+              "position": [0,0.325,0.089561]
+            }
+          },
+          {
+            "id": "stationary-rib-4",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.stationary-corrugation",
+            "geometry": {
+              "type": "box",
+              "size": [0.45,0.017,0.027]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            },
+            "transform": {
+              "position": [0,0.371,0.097335]
+            }
+          },
+          {
+            "id": "stationary-rib-5",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.stationary-corrugation",
+            "geometry": {
+              "type": "box",
+              "size": [0.45,0.017,0.027]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            },
+            "transform": {
+              "position": [0,0.417,0.10510900000000001]
+            }
+          },
+          {
+            "id": "stationary-rib-6",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.stationary-corrugation",
+            "geometry": {
+              "type": "box",
+              "size": [0.45,0.017,0.027]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            },
+            "transform": {
+              "position": [0,0.463,0.11288300000000001]
+            }
+          },
+          {
+            "id": "stationary-rib-7",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.stationary-corrugation",
+            "geometry": {
+              "type": "box",
+              "size": [0.45,0.017,0.027]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            },
+            "transform": {
+              "position": [0,0.509,0.120657]
+            }
+          },
+          {
+            "id": "stationary-rib-8",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.stationary-corrugation",
+            "geometry": {
+              "type": "box",
+              "size": [0.45,0.017,0.027]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            },
+            "transform": {
+              "position": [0,0.5549999999999999,0.128431]
+            }
+          },
+          {
+            "id": "jaw",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.frame",
+            "transform": {
+              "position": [0,0.644,-0.164]
+            }
+          },
+          {
+            "id": "moving-jaw",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.swinging-ribbed-jaw-plate",
+            "parent": "jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.231,0,0],
+                [0.231,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.039,-0.018],
+                [-0.02,-0.005],
+                [-0.093,-0.468],
+                [-0.051,-0.49],
+                [-0.014,-0.383]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            }
+          },
+          {
+            "id": "moving-rib-0",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.movable-jaw-tooth-rib",
+            "parent": "jaw",
+            "geometry": {
+              "type": "box",
+              "size": [0.447,0.017,0.023]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,-0.41,0.07057]
+            }
+          },
+          {
+            "id": "moving-rib-1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.movable-jaw-tooth-rib",
+            "parent": "jaw",
+            "geometry": {
+              "type": "box",
+              "size": [0.447,0.017,0.023]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,-0.364,0.069328]
+            }
+          },
+          {
+            "id": "moving-rib-2",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.movable-jaw-tooth-rib",
+            "parent": "jaw",
+            "geometry": {
+              "type": "box",
+              "size": [0.447,0.017,0.023]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,-0.31799999999999995,0.06808600000000001]
+            }
+          },
+          {
+            "id": "moving-rib-3",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.movable-jaw-tooth-rib",
+            "parent": "jaw",
+            "geometry": {
+              "type": "box",
+              "size": [0.447,0.017,0.023]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,-0.27199999999999996,0.066844]
+            }
+          },
+          {
+            "id": "moving-rib-4",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.movable-jaw-tooth-rib",
+            "parent": "jaw",
+            "geometry": {
+              "type": "box",
+              "size": [0.447,0.017,0.023]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,-0.22599999999999998,0.065602]
+            }
+          },
+          {
+            "id": "moving-rib-5",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.movable-jaw-tooth-rib",
+            "parent": "jaw",
+            "geometry": {
+              "type": "box",
+              "size": [0.447,0.017,0.023]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,-0.18,0.06436]
+            }
+          },
+          {
+            "id": "moving-rib-6",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.movable-jaw-tooth-rib",
+            "parent": "jaw",
+            "geometry": {
+              "type": "box",
+              "size": [0.447,0.017,0.023]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,-0.13399999999999995,0.06311800000000001]
+            }
+          },
+          {
+            "id": "moving-rib-7",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.movable-jaw-tooth-rib",
+            "parent": "jaw",
+            "geometry": {
+              "type": "box",
+              "size": [0.447,0.017,0.023]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,-0.08799999999999997,0.061876]
+            }
+          },
+          {
+            "id": "moving-rib-8",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.movable-jaw-tooth-rib",
+            "parent": "jaw",
+            "geometry": {
+              "type": "box",
+              "size": [0.447,0.017,0.023]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,-0.04199999999999998,0.060634]
+            }
+          },
+          {
+            "id": "flywheel",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.frame",
+            "transform": {
+              "position": [0,0.609,-0.163]
+            }
+          },
+          {
+            "id": "eccentric-shaft",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.crusher-drive-shaft",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.355,0,0],
+              "end": [0.353,0,0],
+              "radius": 0.026,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "wheel--1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.open-flywheel-rim",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.35600000000000004,0,0],
+                [-0.3,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.139,0],
+                [0.13785881,0.01777493],
+                [0.13445399,0.03525799],
+                [0.12884143,0.05216211],
+                [0.1211133,0.06820974],
+                [0.11139649,0.08313736],
+                [0.09985056,0.09669987],
+                [0.08666508,0.10867458],
+                [0.07205657,0.11886484],
+                [0.05626488,0.12710335],
+                [0.03954933,0.13325483],
+                [0.02218439,0.13721827],
+                [0.00445517,0.13892858],
+                [-0.0133472,0.1383577],
+                [-0.03093041,0.13551498],
+                [-0.04800574,0.13044711],
+                [-0.06429282,0.1232373],
+                [-0.07952422,0.11400394],
+                [-0.09344982,0.10289864],
+                [-0.10584099,0.09010375],
+                [-0.11649425,0.07582935],
+                [-0.12523467,0.06030984],
+                [-0.13191875,0.04380004],
+                [-0.13643672,0.02657105],
+                [-0.13871441,0.00890576],
+                [-0.13871441,-0.00890576],
+                [-0.13643672,-0.02657105],
+                [-0.13191875,-0.04380004],
+                [-0.12523467,-0.06030984],
+                [-0.11649425,-0.07582935],
+                [-0.10584099,-0.09010375],
+                [-0.09344982,-0.10289864],
+                [-0.07952422,-0.11400394],
+                [-0.06429282,-0.1232373],
+                [-0.04800574,-0.13044711],
+                [-0.03093041,-0.13551498],
+                [-0.0133472,-0.1383577],
+                [0.00445517,-0.13892858],
+                [0.02218439,-0.13721827],
+                [0.03954933,-0.13325483],
+                [0.05626488,-0.12710335],
+                [0.07205657,-0.11886484],
+                [0.08666508,-0.10867458],
+                [0.09985056,-0.09669987],
+                [0.11139649,-0.08313736],
+                [0.1211133,-0.06820974],
+                [0.12884143,-0.05216211],
+                [0.13445399,-0.03525799],
+                [0.13785881,-0.01777493]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.097,0],
+                  [0.09620363,0.01240408],
+                  [0.0938276,0.02460449],
+                  [0.08991093,0.0364009],
+                  [0.08451791,0.0475996],
+                  [0.07773712,0.05801672],
+                  [0.06967989,0.06748121],
+                  [0.06047851,0.07583765],
+                  [0.05028408,0.08294885],
+                  [0.03926398,0.08869802],
+                  [0.02759918,0.09299078],
+                  [0.01548119,0.09575663],
+                  [0.003109,0.09695016],
+                  [-0.00931423,0.09655177],
+                  [-0.02158453,0.09456801],
+                  [-0.03350041,0.09103144],
+                  [-0.04486621,0.08600013],
+                  [-0.05549532,0.07955671],
+                  [-0.06521319,0.07180697],
+                  [-0.07386026,0.06287815],
+                  [-0.08129455,0.05291689],
+                  [-0.08739398,0.04208672],
+                  [-0.09205841,0.0305655],
+                  [-0.09521124,0.01854239],
+                  [-0.0968007,0.00621481],
+                  [-0.0968007,-0.00621481],
+                  [-0.09521124,-0.01854239],
+                  [-0.09205841,-0.0305655],
+                  [-0.08739398,-0.04208672],
+                  [-0.08129455,-0.05291689],
+                  [-0.07386026,-0.06287815],
+                  [-0.06521319,-0.07180697],
+                  [-0.05549532,-0.07955671],
+                  [-0.04486621,-0.08600013],
+                  [-0.03350041,-0.09103144],
+                  [-0.02158453,-0.09456801],
+                  [-0.00931423,-0.09655177],
+                  [0.003109,-0.09695016],
+                  [0.01548119,-0.09575663],
+                  [0.02759918,-0.09299078],
+                  [0.03926398,-0.08869802],
+                  [0.05028408,-0.08294885],
+                  [0.06047851,-0.07583765],
+                  [0.06967989,-0.06748121],
+                  [0.07773712,-0.05801672],
+                  [0.08451791,-0.0475996],
+                  [0.08991093,-0.0364009],
+                  [0.0938276,-0.02460449],
+                  [0.09620363,-0.01240408]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            }
+          },
+          {
+            "id": "wheel-boss--1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.drive-flywheel-hub",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.362,0,0],
+                [-0.29400000000000004,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.049,0],
+                [0.04805848,0.00955943],
+                [0.0452701,0.01875149],
+                [0.04074201,0.02722294],
+                [0.03464823,0.03464823],
+                [0.02722294,0.04074201],
+                [0.01875149,0.0452701],
+                [0.00955943,0.04805848],
+                [0,0.049],
+                [-0.00955943,0.04805848],
+                [-0.01875149,0.0452701],
+                [-0.02722294,0.04074201],
+                [-0.03464823,0.03464823],
+                [-0.04074201,0.02722294],
+                [-0.0452701,0.01875149],
+                [-0.04805848,0.00955943],
+                [-0.049,0],
+                [-0.04805848,-0.00955943],
+                [-0.0452701,-0.01875149],
+                [-0.04074201,-0.02722294],
+                [-0.03464823,-0.03464823],
+                [-0.02722294,-0.04074201],
+                [-0.01875149,-0.0452701],
+                [-0.00955943,-0.04805848],
+                [0,-0.049],
+                [0.00955943,-0.04805848],
+                [0.01875149,-0.0452701],
+                [0.02722294,-0.04074201],
+                [0.03464823,-0.03464823],
+                [0.04074201,-0.02722294],
+                [0.0452701,-0.01875149],
+                [0.04805848,-0.00955943]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.027,0],
+                  [0.0264812,0.00526744],
+                  [0.02494475,0.01033245],
+                  [0.02244968,0.0150004],
+                  [0.01909188,0.01909188],
+                  [0.0150004,0.02244968],
+                  [0.01033245,0.02494475],
+                  [0.00526744,0.0264812],
+                  [0,0.027],
+                  [-0.00526744,0.0264812],
+                  [-0.01033245,0.02494475],
+                  [-0.0150004,0.02244968],
+                  [-0.01909188,0.01909188],
+                  [-0.02244968,0.0150004],
+                  [-0.02494475,0.01033245],
+                  [-0.0264812,0.00526744],
+                  [-0.027,0],
+                  [-0.0264812,-0.00526744],
+                  [-0.02494475,-0.01033245],
+                  [-0.02244968,-0.0150004],
+                  [-0.01909188,-0.01909188],
+                  [-0.0150004,-0.02244968],
+                  [-0.01033245,-0.02494475],
+                  [-0.00526744,-0.0264812],
+                  [0,-0.027],
+                  [0.00526744,-0.0264812],
+                  [0.01033245,-0.02494475],
+                  [0.0150004,-0.02244968],
+                  [0.01909188,-0.01909188],
+                  [0.02244968,-0.0150004],
+                  [0.02494475,-0.01033245],
+                  [0.0264812,-0.00526744]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            }
+          },
+          {
+            "id": "spoke--1-0",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.flywheel-spoke",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.062,0.022]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [-0.328,0.076,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "spoke--1-1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.flywheel-spoke",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.062,0.022]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [-0.328,4.653657836759942e-18,0.076],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "spoke--1-2",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.flywheel-spoke",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.062,0.022]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [-0.328,-0.076,9.307315673519884e-18],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "spoke--1-3",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.flywheel-spoke",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.062,0.022]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [-0.328,-1.3960973510279826e-17,-0.076],
+              "rotation": [4.71238898038469,0,0]
+            }
+          },
+          {
+            "id": "wheel-1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.open-flywheel-rim",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.3,0,0],
+                [0.35600000000000004,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.139,0],
+                [0.13785881,0.01777493],
+                [0.13445399,0.03525799],
+                [0.12884143,0.05216211],
+                [0.1211133,0.06820974],
+                [0.11139649,0.08313736],
+                [0.09985056,0.09669987],
+                [0.08666508,0.10867458],
+                [0.07205657,0.11886484],
+                [0.05626488,0.12710335],
+                [0.03954933,0.13325483],
+                [0.02218439,0.13721827],
+                [0.00445517,0.13892858],
+                [-0.0133472,0.1383577],
+                [-0.03093041,0.13551498],
+                [-0.04800574,0.13044711],
+                [-0.06429282,0.1232373],
+                [-0.07952422,0.11400394],
+                [-0.09344982,0.10289864],
+                [-0.10584099,0.09010375],
+                [-0.11649425,0.07582935],
+                [-0.12523467,0.06030984],
+                [-0.13191875,0.04380004],
+                [-0.13643672,0.02657105],
+                [-0.13871441,0.00890576],
+                [-0.13871441,-0.00890576],
+                [-0.13643672,-0.02657105],
+                [-0.13191875,-0.04380004],
+                [-0.12523467,-0.06030984],
+                [-0.11649425,-0.07582935],
+                [-0.10584099,-0.09010375],
+                [-0.09344982,-0.10289864],
+                [-0.07952422,-0.11400394],
+                [-0.06429282,-0.1232373],
+                [-0.04800574,-0.13044711],
+                [-0.03093041,-0.13551498],
+                [-0.0133472,-0.1383577],
+                [0.00445517,-0.13892858],
+                [0.02218439,-0.13721827],
+                [0.03954933,-0.13325483],
+                [0.05626488,-0.12710335],
+                [0.07205657,-0.11886484],
+                [0.08666508,-0.10867458],
+                [0.09985056,-0.09669987],
+                [0.11139649,-0.08313736],
+                [0.1211133,-0.06820974],
+                [0.12884143,-0.05216211],
+                [0.13445399,-0.03525799],
+                [0.13785881,-0.01777493]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.097,0],
+                  [0.09620363,0.01240408],
+                  [0.0938276,0.02460449],
+                  [0.08991093,0.0364009],
+                  [0.08451791,0.0475996],
+                  [0.07773712,0.05801672],
+                  [0.06967989,0.06748121],
+                  [0.06047851,0.07583765],
+                  [0.05028408,0.08294885],
+                  [0.03926398,0.08869802],
+                  [0.02759918,0.09299078],
+                  [0.01548119,0.09575663],
+                  [0.003109,0.09695016],
+                  [-0.00931423,0.09655177],
+                  [-0.02158453,0.09456801],
+                  [-0.03350041,0.09103144],
+                  [-0.04486621,0.08600013],
+                  [-0.05549532,0.07955671],
+                  [-0.06521319,0.07180697],
+                  [-0.07386026,0.06287815],
+                  [-0.08129455,0.05291689],
+                  [-0.08739398,0.04208672],
+                  [-0.09205841,0.0305655],
+                  [-0.09521124,0.01854239],
+                  [-0.0968007,0.00621481],
+                  [-0.0968007,-0.00621481],
+                  [-0.09521124,-0.01854239],
+                  [-0.09205841,-0.0305655],
+                  [-0.08739398,-0.04208672],
+                  [-0.08129455,-0.05291689],
+                  [-0.07386026,-0.06287815],
+                  [-0.06521319,-0.07180697],
+                  [-0.05549532,-0.07955671],
+                  [-0.04486621,-0.08600013],
+                  [-0.03350041,-0.09103144],
+                  [-0.02158453,-0.09456801],
+                  [-0.00931423,-0.09655177],
+                  [0.003109,-0.09695016],
+                  [0.01548119,-0.09575663],
+                  [0.02759918,-0.09299078],
+                  [0.03926398,-0.08869802],
+                  [0.05028408,-0.08294885],
+                  [0.06047851,-0.07583765],
+                  [0.06967989,-0.06748121],
+                  [0.07773712,-0.05801672],
+                  [0.08451791,-0.0475996],
+                  [0.08991093,-0.0364009],
+                  [0.0938276,-0.02460449],
+                  [0.09620363,-0.01240408]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#80b9c5"
+            }
+          },
+          {
+            "id": "wheel-boss-1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.drive-flywheel-hub",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.29400000000000004,0,0],
+                [0.362,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.049,0],
+                [0.04805848,0.00955943],
+                [0.0452701,0.01875149],
+                [0.04074201,0.02722294],
+                [0.03464823,0.03464823],
+                [0.02722294,0.04074201],
+                [0.01875149,0.0452701],
+                [0.00955943,0.04805848],
+                [0,0.049],
+                [-0.00955943,0.04805848],
+                [-0.01875149,0.0452701],
+                [-0.02722294,0.04074201],
+                [-0.03464823,0.03464823],
+                [-0.04074201,0.02722294],
+                [-0.0452701,0.01875149],
+                [-0.04805848,0.00955943],
+                [-0.049,0],
+                [-0.04805848,-0.00955943],
+                [-0.0452701,-0.01875149],
+                [-0.04074201,-0.02722294],
+                [-0.03464823,-0.03464823],
+                [-0.02722294,-0.04074201],
+                [-0.01875149,-0.0452701],
+                [-0.00955943,-0.04805848],
+                [0,-0.049],
+                [0.00955943,-0.04805848],
+                [0.01875149,-0.0452701],
+                [0.02722294,-0.04074201],
+                [0.03464823,-0.03464823],
+                [0.04074201,-0.02722294],
+                [0.0452701,-0.01875149],
+                [0.04805848,-0.00955943]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.027,0],
+                  [0.0264812,0.00526744],
+                  [0.02494475,0.01033245],
+                  [0.02244968,0.0150004],
+                  [0.01909188,0.01909188],
+                  [0.0150004,0.02244968],
+                  [0.01033245,0.02494475],
+                  [0.00526744,0.0264812],
+                  [0,0.027],
+                  [-0.00526744,0.0264812],
+                  [-0.01033245,0.02494475],
+                  [-0.0150004,0.02244968],
+                  [-0.01909188,0.01909188],
+                  [-0.02244968,0.0150004],
+                  [-0.02494475,0.01033245],
+                  [-0.0264812,0.00526744],
+                  [-0.027,0],
+                  [-0.0264812,-0.00526744],
+                  [-0.02494475,-0.01033245],
+                  [-0.02244968,-0.0150004],
+                  [-0.01909188,-0.01909188],
+                  [-0.0150004,-0.02244968],
+                  [-0.01033245,-0.02494475],
+                  [-0.00526744,-0.0264812],
+                  [0,-0.027],
+                  [0.00526744,-0.0264812],
+                  [0.01033245,-0.02494475],
+                  [0.0150004,-0.02244968],
+                  [0.01909188,-0.01909188],
+                  [0.02244968,-0.0150004],
+                  [0.02494475,-0.01033245],
+                  [0.0264812,-0.00526744]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9ab4c1"
+            }
+          },
+          {
+            "id": "spoke-1-0",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.flywheel-spoke",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.062,0.022]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0.328,0.076,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "spoke-1-1",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.flywheel-spoke",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.062,0.022]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0.328,4.653657836759942e-18,0.076],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "spoke-1-2",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.flywheel-spoke",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.062,0.022]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0.328,-0.076,9.307315673519884e-18],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "spoke-1-3",
+            "semanticType": "equipment.toggle-jaw-construction-aggregate-crusher.flywheel-spoke",
+            "parent": "flywheel",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.062,0.022]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0.328,-1.3960973510279826e-17,-0.076],
+              "rotation": [4.71238898038469,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "feed": {
+            "node": "feed-lip",
+            "position": [0,0.703,0],
+            "direction": [0,1,0],
+            "kind": "bulk-flow"
+          },
+          "discharge": {
+            "node": "base",
+            "position": [0,0.048,0],
+            "direction": [0,-1,0],
+            "kind": "bulk-flow"
+          },
+          "movable-jaw-end": {
+            "node": "moving-jaw",
+            "position": [0,-0.46,0.093],
+            "direction": [0,0,1],
+            "kind": "reference"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "jaw-closing",
+            "label": "活动颚合拢角",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 9.4,
+            "targets": [
+              {
+                "node": "jaw",
+                "property": "rotation",
+                "axis": "x",
+                "factor": -0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "flywheel-angle",
+            "label": "飞轮角位置",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 360,
+            "targets": [
+              {
+                "node": "flywheel",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

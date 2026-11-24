@@ -1,0 +1,652 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "三测头位置可调包裹扫描门架",
+  "summary": "可升降横梁及上、左、右三个方向测头，带独立扫描参考位置与可安装通孔底。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "包裹尺寸扫描架",
+    "三向测量光电门",
+    "parcel dimensioning portal",
+    "three scan axes",
+    "包裹输送分拣",
+    "parcel sorting and conveying"
+  ],
+  "anchors": [
+    "vertical-optic",
+    "lateral-optic--1",
+    "lateral-optic-1",
+    "line-datum"
+  ],
+  "ai": {
+    "intent": "在输送和分拣模型上布置可单独控制的包裹尺寸检测门架。",
+    "editableParts": [
+      "beam-height",
+      "scanner-offset",
+      "side-scan-height--1",
+      "side-scan-height-1"
+    ],
+    "qualityChecks": [
+      "三个光学方向分别标注。",
+      "两个侧测头独立于上横梁，横梁与上测头又可分别微调。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "adjustable-three-head-parcel-dimensioning-scan-portal",
+      "title": "三测头位置可调包裹扫描门架",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mounting-foot--0.36",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.portal-floor-base-with-four-open-anchor-holes",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.026,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.133,-0.44599999999999995],
+                [-0.133,-0.44599999999999995],
+                [-0.151,-0.42799999999999994],
+                [-0.151,-0.292],
+                [-0.133,-0.27399999999999997],
+                [0.133,-0.27399999999999997],
+                [0.151,-0.292],
+                [0.151,-0.42799999999999994]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.094,-0.415],
+                  [0.09440889,-0.41189417],
+                  [0.0956077,-0.409],
+                  [0.09751472,-0.40651472],
+                  [0.1,-0.4046077],
+                  [0.10289417,-0.40340889],
+                  [0.106,-0.403],
+                  [0.10910583,-0.40340889],
+                  [0.112,-0.4046077],
+                  [0.11448528,-0.40651472],
+                  [0.1163923,-0.409],
+                  [0.11759111,-0.41189417],
+                  [0.118,-0.415],
+                  [0.11759111,-0.41810583],
+                  [0.1163923,-0.421],
+                  [0.11448528,-0.42348528],
+                  [0.112,-0.4253923],
+                  [0.10910583,-0.42659111],
+                  [0.106,-0.427],
+                  [0.10289417,-0.42659111],
+                  [0.1,-0.4253923],
+                  [0.09751472,-0.42348528],
+                  [0.0956077,-0.421],
+                  [0.09440889,-0.41810583]
+                ],
+                [
+                  [0.094,-0.305],
+                  [0.09440889,-0.30189417],
+                  [0.0956077,-0.299],
+                  [0.09751472,-0.29651472],
+                  [0.1,-0.2946077],
+                  [0.10289417,-0.29340889],
+                  [0.106,-0.293],
+                  [0.10910583,-0.29340889],
+                  [0.112,-0.2946077],
+                  [0.11448528,-0.29651472],
+                  [0.1163923,-0.299],
+                  [0.11759111,-0.30189417],
+                  [0.118,-0.305],
+                  [0.11759111,-0.30810583],
+                  [0.1163923,-0.311],
+                  [0.11448528,-0.31348528],
+                  [0.112,-0.3153923],
+                  [0.10910583,-0.31659111],
+                  [0.106,-0.317],
+                  [0.10289417,-0.31659111],
+                  [0.1,-0.3153923],
+                  [0.09751472,-0.31348528],
+                  [0.0956077,-0.311],
+                  [0.09440889,-0.30810583]
+                ],
+                [
+                  [-0.118,-0.415],
+                  [-0.11759111,-0.41189417],
+                  [-0.1163923,-0.409],
+                  [-0.11448528,-0.40651472],
+                  [-0.112,-0.4046077],
+                  [-0.10910583,-0.40340889],
+                  [-0.106,-0.403],
+                  [-0.10289417,-0.40340889],
+                  [-0.1,-0.4046077],
+                  [-0.09751472,-0.40651472],
+                  [-0.0956077,-0.409],
+                  [-0.09440889,-0.41189417],
+                  [-0.094,-0.415],
+                  [-0.09440889,-0.41810583],
+                  [-0.0956077,-0.421],
+                  [-0.09751472,-0.42348528],
+                  [-0.1,-0.4253923],
+                  [-0.10289417,-0.42659111],
+                  [-0.106,-0.427],
+                  [-0.10910583,-0.42659111],
+                  [-0.112,-0.4253923],
+                  [-0.11448528,-0.42348528],
+                  [-0.1163923,-0.421],
+                  [-0.11759111,-0.41810583]
+                ],
+                [
+                  [-0.118,-0.305],
+                  [-0.11759111,-0.30189417],
+                  [-0.1163923,-0.299],
+                  [-0.11448528,-0.29651472],
+                  [-0.112,-0.2946077],
+                  [-0.10910583,-0.29340889],
+                  [-0.106,-0.293],
+                  [-0.10289417,-0.29340889],
+                  [-0.1,-0.2946077],
+                  [-0.09751472,-0.29651472],
+                  [-0.0956077,-0.299],
+                  [-0.09440889,-0.30189417],
+                  [-0.094,-0.305],
+                  [-0.09440889,-0.30810583],
+                  [-0.0956077,-0.311],
+                  [-0.09751472,-0.31348528],
+                  [-0.1,-0.3153923],
+                  [-0.10289417,-0.31659111],
+                  [-0.106,-0.317],
+                  [-0.10910583,-0.31659111],
+                  [-0.112,-0.3153923],
+                  [-0.11448528,-0.31348528],
+                  [-0.1163923,-0.311],
+                  [-0.11759111,-0.30810583]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c9d7da"
+            }
+          },
+          {
+            "id": "fixed-post--0.36",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.scan-portal-height-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.076,1.479,0.058]
+            },
+            "appearance": {
+              "color": "#86a9b6"
+            },
+            "transform": {
+              "position": [0,0.758,-0.36]
+            }
+          },
+          {
+            "id": "rail--0.36",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.vertical-scan-head-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.042,1.39,0.023]
+            },
+            "appearance": {
+              "color": "#617a85"
+            },
+            "transform": {
+              "position": [0,0.753,-0.33228]
+            }
+          },
+          {
+            "id": "post-top--0.36",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.protected-height-stop",
+            "geometry": {
+              "type": "box",
+              "size": [0.087,0.028,0.066]
+            },
+            "appearance": {
+              "color": "#d7aa63"
+            },
+            "transform": {
+              "position": [0,1.488,-0.36]
+            }
+          },
+          {
+            "id": "mounting-foot-0.36",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.portal-floor-base-with-four-open-anchor-holes",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.026,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.133,0.274],
+                [-0.133,0.274],
+                [-0.151,0.29200000000000004],
+                [-0.151,0.428],
+                [-0.133,0.446],
+                [0.133,0.446],
+                [0.151,0.428],
+                [0.151,0.29200000000000004]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.094,0.305],
+                  [0.09440889,0.30810583],
+                  [0.0956077,0.311],
+                  [0.09751472,0.31348528],
+                  [0.1,0.3153923],
+                  [0.10289417,0.31659111],
+                  [0.106,0.317],
+                  [0.10910583,0.31659111],
+                  [0.112,0.3153923],
+                  [0.11448528,0.31348528],
+                  [0.1163923,0.311],
+                  [0.11759111,0.30810583],
+                  [0.118,0.305],
+                  [0.11759111,0.30189417],
+                  [0.1163923,0.299],
+                  [0.11448528,0.29651472],
+                  [0.112,0.2946077],
+                  [0.10910583,0.29340889],
+                  [0.106,0.293],
+                  [0.10289417,0.29340889],
+                  [0.1,0.2946077],
+                  [0.09751472,0.29651472],
+                  [0.0956077,0.299],
+                  [0.09440889,0.30189417]
+                ],
+                [
+                  [0.094,0.415],
+                  [0.09440889,0.41810583],
+                  [0.0956077,0.421],
+                  [0.09751472,0.42348528],
+                  [0.1,0.4253923],
+                  [0.10289417,0.42659111],
+                  [0.106,0.427],
+                  [0.10910583,0.42659111],
+                  [0.112,0.4253923],
+                  [0.11448528,0.42348528],
+                  [0.1163923,0.421],
+                  [0.11759111,0.41810583],
+                  [0.118,0.415],
+                  [0.11759111,0.41189417],
+                  [0.1163923,0.409],
+                  [0.11448528,0.40651472],
+                  [0.112,0.4046077],
+                  [0.10910583,0.40340889],
+                  [0.106,0.403],
+                  [0.10289417,0.40340889],
+                  [0.1,0.4046077],
+                  [0.09751472,0.40651472],
+                  [0.0956077,0.409],
+                  [0.09440889,0.41189417]
+                ],
+                [
+                  [-0.118,0.305],
+                  [-0.11759111,0.30810583],
+                  [-0.1163923,0.311],
+                  [-0.11448528,0.31348528],
+                  [-0.112,0.3153923],
+                  [-0.10910583,0.31659111],
+                  [-0.106,0.317],
+                  [-0.10289417,0.31659111],
+                  [-0.1,0.3153923],
+                  [-0.09751472,0.31348528],
+                  [-0.0956077,0.311],
+                  [-0.09440889,0.30810583],
+                  [-0.094,0.305],
+                  [-0.09440889,0.30189417],
+                  [-0.0956077,0.299],
+                  [-0.09751472,0.29651472],
+                  [-0.1,0.2946077],
+                  [-0.10289417,0.29340889],
+                  [-0.106,0.293],
+                  [-0.10910583,0.29340889],
+                  [-0.112,0.2946077],
+                  [-0.11448528,0.29651472],
+                  [-0.1163923,0.299],
+                  [-0.11759111,0.30189417]
+                ],
+                [
+                  [-0.118,0.415],
+                  [-0.11759111,0.41810583],
+                  [-0.1163923,0.421],
+                  [-0.11448528,0.42348528],
+                  [-0.112,0.4253923],
+                  [-0.10910583,0.42659111],
+                  [-0.106,0.427],
+                  [-0.10289417,0.42659111],
+                  [-0.1,0.4253923],
+                  [-0.09751472,0.42348528],
+                  [-0.0956077,0.421],
+                  [-0.09440889,0.41810583],
+                  [-0.094,0.415],
+                  [-0.09440889,0.41189417],
+                  [-0.0956077,0.409],
+                  [-0.09751472,0.40651472],
+                  [-0.1,0.4046077],
+                  [-0.10289417,0.40340889],
+                  [-0.106,0.403],
+                  [-0.10910583,0.40340889],
+                  [-0.112,0.4046077],
+                  [-0.11448528,0.40651472],
+                  [-0.1163923,0.409],
+                  [-0.11759111,0.41189417]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c9d7da"
+            }
+          },
+          {
+            "id": "fixed-post-0.36",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.scan-portal-height-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.076,1.479,0.058]
+            },
+            "appearance": {
+              "color": "#86a9b6"
+            },
+            "transform": {
+              "position": [0,0.758,0.36]
+            }
+          },
+          {
+            "id": "rail-0.36",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.vertical-scan-head-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.042,1.39,0.023]
+            },
+            "appearance": {
+              "color": "#617a85"
+            },
+            "transform": {
+              "position": [0,0.753,0.33228]
+            }
+          },
+          {
+            "id": "post-top-0.36",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.protected-height-stop",
+            "geometry": {
+              "type": "box",
+              "size": [0.087,0.028,0.066]
+            },
+            "appearance": {
+              "color": "#d7aa63"
+            },
+            "transform": {
+              "position": [0,1.488,0.36]
+            }
+          },
+          {
+            "id": "adjusting-top-beam",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.frame",
+            "transform": {
+              "position": [0,1.381,0]
+            }
+          },
+          {
+            "id": "top-profile",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.adjustable-scanner-bridge-member",
+            "parent": "adjusting-top-beam",
+            "geometry": {
+              "type": "box",
+              "size": [0.074,0.064,0.793]
+            },
+            "appearance": {
+              "color": "#86a9b6"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "top-scanner-offset",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.frame",
+            "parent": "adjusting-top-beam",
+            "transform": {
+              "position": [0,-0.059,0]
+            }
+          },
+          {
+            "id": "top-scanner",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.overhead-scan-head",
+            "parent": "top-scanner-offset",
+            "geometry": {
+              "type": "box",
+              "size": [0.091,0.057,0.138]
+            },
+            "appearance": {
+              "color": "#78aaae"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "top-optic-window",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.overhead-scanner-optical-face",
+            "parent": "top-scanner-offset",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,0.006,0.105]
+            },
+            "appearance": {
+              "color": "#4b888e"
+            },
+            "transform": {
+              "position": [0,-0.03,0]
+            }
+          },
+          {
+            "id": "adjusting-side-scanner--1",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.frame",
+            "transform": {
+              "position": [0,0.868,-0.295]
+            }
+          },
+          {
+            "id": "side-scanner-head--1",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.vertical-sliding-side-scanner-head",
+            "parent": "adjusting-side-scanner--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.112,0.067]
+            },
+            "appearance": {
+              "color": "#78aaae"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "rear-slide-collar--1",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.guide-rail-slide-collar",
+            "parent": "adjusting-side-scanner--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.051,0.118,0.034]
+            },
+            "appearance": {
+              "color": "#617a85"
+            },
+            "transform": {
+              "position": [0,0,-0.041]
+            }
+          },
+          {
+            "id": "lens-window--1",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.side-depth-scan-optical-face",
+            "parent": "adjusting-side-scanner--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.048,0.074,0.005]
+            },
+            "appearance": {
+              "color": "#4b888e"
+            },
+            "transform": {
+              "position": [0,0,0.036]
+            }
+          },
+          {
+            "id": "adjusting-side-scanner-1",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.frame",
+            "transform": {
+              "position": [0,0.868,0.295]
+            }
+          },
+          {
+            "id": "side-scanner-head-1",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.vertical-sliding-side-scanner-head",
+            "parent": "adjusting-side-scanner-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.112,0.067]
+            },
+            "appearance": {
+              "color": "#78aaae"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "rear-slide-collar-1",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.guide-rail-slide-collar",
+            "parent": "adjusting-side-scanner-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.051,0.118,0.034]
+            },
+            "appearance": {
+              "color": "#617a85"
+            },
+            "transform": {
+              "position": [0,0,0.041]
+            }
+          },
+          {
+            "id": "lens-window-1",
+            "semanticType": "instrument.adjustable-three-head-parcel-dimensioning-scan-portal.side-depth-scan-optical-face",
+            "parent": "adjusting-side-scanner-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.048,0.074,0.005]
+            },
+            "appearance": {
+              "color": "#4b888e"
+            },
+            "transform": {
+              "position": [0,0,-0.036]
+            }
+          }
+        ],
+        "anchors": {
+          "vertical-optic": {
+            "node": "top-scanner-offset",
+            "position": [0,-0.033,0],
+            "direction": [0,-1,0],
+            "kind": "optical"
+          },
+          "lateral-optic--1": {
+            "node": "adjusting-side-scanner--1",
+            "position": [0,0,0.0385],
+            "direction": [0,0,1],
+            "kind": "optical"
+          },
+          "lateral-optic-1": {
+            "node": "adjusting-side-scanner-1",
+            "position": [0,0,-0.0385],
+            "direction": [0,0,-1],
+            "kind": "optical"
+          },
+          "line-datum": {
+            "position": [0,0.72,0],
+            "direction": [0,1,0],
+            "kind": "parcel-scan-zone"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "beam-height",
+            "label": "扫描横梁抬升",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.095,
+            "targets": [
+              {
+                "node": "adjusting-top-beam",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "scanner-offset",
+            "label": "上测头横向位置",
+            "unit": "m",
+            "value": 0,
+            "min": -0.163,
+            "max": 0.163,
+            "targets": [
+              {
+                "node": "top-scanner-offset",
+                "property": "position",
+                "axis": "z"
+              }
+            ]
+          },
+          {
+            "id": "side-scan-height--1",
+            "label": "左测头调高",
+            "unit": "m",
+            "value": 0,
+            "min": -0.115,
+            "max": 0.259,
+            "targets": [
+              {
+                "node": "adjusting-side-scanner--1",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "side-scan-height-1",
+            "label": "右测头调高",
+            "unit": "m",
+            "value": 0,
+            "min": -0.115,
+            "max": 0.259,
+            "targets": [
+              {
+                "node": "adjusting-side-scanner-1",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

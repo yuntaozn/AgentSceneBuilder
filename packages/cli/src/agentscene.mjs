@@ -9,6 +9,7 @@ import {
   analyzeHumanPoseRig,
   analyzeHumanReach,
   analyzeHumanModelQuality,
+  analyzeMonitoring,
   analyzeGlbReferenceBytes,
   analyzePath,
   applyCompositionChangesetProposal,
@@ -43,6 +44,7 @@ const supportedCommands = [
   "component describe <id>",
   "component build <instance.json|manifest.json>",
   "composition check <composition.json|manifest.json|-> [--source-ranges] [--reject-duplicate-keys]",
+  "composition monitor <composition.json|manifest.json> [pointId]",
   "reference analyze-glb <model.glb> [options.json|json]",
   "human-geometry profile [request.json|json]",
   "human-geometry generate-part [request.json|json]",
@@ -287,6 +289,20 @@ export function run(argv = process.argv.slice(2), io = {}) {
       }
       writeJson(stdout, result);
       return result.ok ? 0 : 2;
+    }
+
+    if (group === "composition" && action === "monitor") {
+      if (!args[0] || args.length > 2) throw new Error("composition monitor requires a document path and optionally one point ID");
+      const input = readJsonFile(args[0]);
+      const result = checkComposition(input);
+      if (!result.ok) {
+        writeJson(stdout, result);
+        return 2;
+      }
+      const source = isCompositionManifest(input) ? input.editor.document : input;
+      const document = source.component ? source : { id: source.id, component: "core.composition", parameters: source };
+      writeJson(stdout, { ok: true, analysis: analyzeMonitoring(document, registry, { pointId: args[1] }) });
+      return 0;
     }
 
     if (group === "composition" && action === "analyze-human-quality") {

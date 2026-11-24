@@ -1,0 +1,266 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.pivoting-telescopic-conveyor-nose-transfer-chute",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "伸缩皮带机铰接过渡滑板",
+  "summary": "独立出料转接件，带配对横向安装座、连续底板、内收导向和转接角调节。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.pivoting-telescopic-conveyor-nose-transfer-chute",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "装车过渡滑板",
+    "皮带机鼻端",
+    "transfer-chute",
+    "conveyor-accessory",
+    "装卸设备",
+    "loading-dock"
+  ],
+  "anchors": [
+    "carrier",
+    "transition-end"
+  ],
+  "ai": {
+    "intent": "在伸缩皮带机末端独立安装过渡滑板，调整接料位置和末端夹角。",
+    "editableParts": [
+      "chute-tilt"
+    ],
+    "qualityChecks": [
+      "配接面使用逆向法向。",
+      "滑板角度变化时，安装座锚点保持不动。",
+      "连续底板与外侧导向共同定义包裹通过宽度。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "pivoting-telescopic-conveyor-nose-transfer-chute",
+      "title": "伸缩皮带机铰接过渡滑板",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "receiver",
+            "semanticType": "equipment.pivoting-telescopic-conveyor-nose-transfer-chute.carriage-coupler",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.032]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.213,-0.037],
+                [0.213,-0.037],
+                [0.224,-0.026],
+                [0.224,0.027],
+                [0.213,0.038],
+                [-0.213,0.038],
+                [-0.224,0.027],
+                [-0.224,-0.026]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.172,0],
+                  [-0.17244558,0.00309906],
+                  [-0.17374621,0.00594705],
+                  [-0.17579653,0.00831325],
+                  [-0.17843043,0.01000595],
+                  [-0.18143454,0.01088804],
+                  [-0.18456546,0.01088804],
+                  [-0.18756957,0.01000595],
+                  [-0.19020347,0.00831325],
+                  [-0.19225379,0.00594705],
+                  [-0.19355442,0.00309906],
+                  [-0.194,0],
+                  [-0.19355442,-0.00309906],
+                  [-0.19225379,-0.00594705],
+                  [-0.19020347,-0.00831325],
+                  [-0.18756957,-0.01000595],
+                  [-0.18456546,-0.01088804],
+                  [-0.18143454,-0.01088804],
+                  [-0.17843043,-0.01000595],
+                  [-0.17579653,-0.00831325],
+                  [-0.17374621,-0.00594705],
+                  [-0.17244558,-0.00309906]
+                ],
+                [
+                  [0.194,0],
+                  [0.19355442,0.00309906],
+                  [0.19225379,0.00594705],
+                  [0.19020347,0.00831325],
+                  [0.18756957,0.01000595],
+                  [0.18456546,0.01088804],
+                  [0.18143454,0.01088804],
+                  [0.17843043,0.01000595],
+                  [0.17579653,0.00831325],
+                  [0.17374621,0.00594705],
+                  [0.17244558,0.00309906],
+                  [0.172,0],
+                  [0.17244558,-0.00309906],
+                  [0.17374621,-0.00594705],
+                  [0.17579653,-0.00831325],
+                  [0.17843043,-0.01000595],
+                  [0.18143454,-0.01088804],
+                  [0.18456546,-0.01088804],
+                  [0.18756957,-0.01000595],
+                  [0.19020347,-0.00831325],
+                  [0.19225379,-0.00594705],
+                  [0.19355442,-0.00309906]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#99b3bf"
+            }
+          },
+          {
+            "id": "chute",
+            "semanticType": "equipment.pivoting-telescopic-conveyor-nose-transfer-chute.frame",
+            "transform": {
+              "position": [0,0.061,0.034]
+            }
+          },
+          {
+            "id": "tray",
+            "semanticType": "equipment.pivoting-telescopic-conveyor-nose-transfer-chute.parcel-transfer-face",
+            "parent": "chute",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.013,0],
+                [0,0.003,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.208,-0.066],
+                [-0.208,-0.066],
+                [-0.174,0.282],
+                [-0.162,0.305],
+                [0.162,0.305],
+                [0.174,0.282]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "guide--1",
+            "semanticType": "equipment.pivoting-telescopic-conveyor-nose-transfer-chute.tapered-side-guide",
+            "parent": "chute",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.063,0.258]
+            },
+            "appearance": {
+              "color": "#82b9c5"
+            },
+            "transform": {
+              "position": [-0.197,0.018,0.126],
+              "rotation": [0,0.10471975511965978,0]
+            }
+          },
+          {
+            "id": "hinge--1",
+            "semanticType": "equipment.pivoting-telescopic-conveyor-nose-transfer-chute.transverse-chute-pivot",
+            "parent": "chute",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.173,0,0],
+              "end": [-0.231,0,0],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "guide-1",
+            "semanticType": "equipment.pivoting-telescopic-conveyor-nose-transfer-chute.tapered-side-guide",
+            "parent": "chute",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.063,0.258]
+            },
+            "appearance": {
+              "color": "#82b9c5"
+            },
+            "transform": {
+              "position": [0.197,0.018,0.126],
+              "rotation": [0,-0.10471975511965978,0]
+            }
+          },
+          {
+            "id": "hinge-1",
+            "semanticType": "equipment.pivoting-telescopic-conveyor-nose-transfer-chute.transverse-chute-pivot",
+            "parent": "chute",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.173,0,0],
+              "end": [0.231,0,0],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "wear-strip",
+            "semanticType": "equipment.pivoting-telescopic-conveyor-nose-transfer-chute.replaceable-lip-wear-strip",
+            "parent": "chute",
+            "geometry": {
+              "type": "box",
+              "size": [0.339,0.012,0.04]
+            },
+            "appearance": {
+              "color": "#4b616d"
+            },
+            "transform": {
+              "position": [0,-0.003,0.291]
+            }
+          }
+        ],
+        "anchors": {
+          "carrier": {
+            "node": "receiver",
+            "position": [0,0,0],
+            "direction": [0,0,-1],
+            "kind": "conveyor-accessory"
+          },
+          "transition-end": {
+            "node": "tray",
+            "position": [0,0.003,0.305],
+            "direction": [0,0,1],
+            "kind": "conveyor-feed"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "chute-tilt",
+            "label": "过渡滑板俯仰",
+            "unit": "deg",
+            "value": 0,
+            "min": -11,
+            "max": 45,
+            "targets": [
+              {
+                "node": "chute",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

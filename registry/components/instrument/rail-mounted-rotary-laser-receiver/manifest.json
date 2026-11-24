@@ -1,0 +1,444 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.rail-mounted-rotary-laser-receiver",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带标尺导夹的旋转激光接收器",
+  "summary": "带激光感光窗、独立控制面板、背部滑夹和可进给夹紧螺杆的测量接收器。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.rail-mounted-rotary-laser-receiver",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "激光接收器",
+    "标尺夹",
+    "laser-receiver",
+    "surveying",
+    "测量",
+    "instrument"
+  ],
+  "anchors": [
+    "laser-sensor",
+    "reference-height",
+    "fixed-rod-face",
+    "moving-rod-face"
+  ],
+  "ai": {
+    "intent": "与旋转激光仪、检验标尺组合使用，作为独立测量接收件暴露感光窗和标高基准。",
+    "editableParts": [
+      "clip-width"
+    ],
+    "qualityChecks": [
+      "基准高度与感光窗中心一致。",
+      "调节夹具不改变光学位置。",
+      "固定与活动夹面相对。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rail-mounted-rotary-laser-receiver",
+      "title": "带标尺导夹的旋转激光接收器",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rear-shell",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.receiver-back-shell",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.104,0],
+                [0,0.104,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.034,-0.021],
+                [-0.034,-0.021],
+                [-0.042,-0.013000000000000001],
+                [-0.042,0.013000000000000001],
+                [-0.034,0.021],
+                [0.034,0.021],
+                [0.042,0.013000000000000001],
+                [0.042,-0.013000000000000001]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7e949e"
+            }
+          },
+          {
+            "id": "face",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.receiver-faceplate",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.019],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.026,-0.096],
+                [0.026,-0.096],
+                [0.037,-0.085],
+                [0.037,0.085],
+                [0.026,0.096],
+                [-0.026,0.096],
+                [-0.037,0.085],
+                [-0.037,-0.085]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.019000000000000003,0.014],
+                  [0.019000000000000003,0.014],
+                  [0.025,0.02],
+                  [0.025,0.072],
+                  [0.019000000000000003,0.078],
+                  [-0.019000000000000003,0.078],
+                  [-0.025,0.072],
+                  [-0.025,0.02]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#e2ad5d"
+            }
+          },
+          {
+            "id": "sensor-window-back",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.optical-array",
+            "geometry": {
+              "type": "box",
+              "size": [0.048,0.06,0.004]
+            },
+            "appearance": {
+              "color": "#303843"
+            },
+            "transform": {
+              "position": [0,0.046,0.019]
+            }
+          },
+          {
+            "id": "sensor-window",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.optical-window",
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.059,0.003]
+            },
+            "appearance": {
+              "color": "#783f45"
+            },
+            "transform": {
+              "position": [0,0.046,0.023]
+            }
+          },
+          {
+            "id": "sensor-cell-0",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.optical-segment",
+            "geometry": {
+              "type": "box",
+              "size": [0.032,0.005,0.0007]
+            },
+            "appearance": {
+              "color": "#a96060"
+            },
+            "transform": {
+              "position": [0,0.024,0.0247]
+            }
+          },
+          {
+            "id": "sensor-cell-1",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.optical-segment",
+            "geometry": {
+              "type": "box",
+              "size": [0.032,0.005,0.0007]
+            },
+            "appearance": {
+              "color": "#a96060"
+            },
+            "transform": {
+              "position": [0,0.035,0.0247]
+            }
+          },
+          {
+            "id": "sensor-cell-2",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.optical-segment",
+            "geometry": {
+              "type": "box",
+              "size": [0.032,0.005,0.0007]
+            },
+            "appearance": {
+              "color": "#a96060"
+            },
+            "transform": {
+              "position": [0,0.046,0.0247]
+            }
+          },
+          {
+            "id": "sensor-cell-3",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.optical-segment",
+            "geometry": {
+              "type": "box",
+              "size": [0.032,0.005,0.0007]
+            },
+            "appearance": {
+              "color": "#a96060"
+            },
+            "transform": {
+              "position": [0,0.057,0.0247]
+            }
+          },
+          {
+            "id": "sensor-cell-4",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.optical-segment",
+            "geometry": {
+              "type": "box",
+              "size": [0.032,0.005,0.0007]
+            },
+            "appearance": {
+              "color": "#a96060"
+            },
+            "transform": {
+              "position": [0,0.068,0.0247]
+            }
+          },
+          {
+            "id": "lcd-window",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.direction-display",
+            "geometry": {
+              "type": "box",
+              "size": [0.048,0.035,0.004]
+            },
+            "appearance": {
+              "color": "#8fae9f"
+            },
+            "transform": {
+              "position": [0,-0.027,0.029]
+            }
+          },
+          {
+            "id": "key-0",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.function-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.013,0.005]
+            },
+            "appearance": {
+              "color": "#40939b"
+            },
+            "transform": {
+              "position": [-0.019,-0.059,0.03]
+            }
+          },
+          {
+            "id": "key-1",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.function-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.013,0.005]
+            },
+            "appearance": {
+              "color": "#303843"
+            },
+            "transform": {
+              "position": [0,-0.059,0.03]
+            }
+          },
+          {
+            "id": "key-2",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.function-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.013,0.005]
+            },
+            "appearance": {
+              "color": "#303843"
+            },
+            "transform": {
+              "position": [0.019,-0.059,0.03]
+            }
+          },
+          {
+            "id": "slide-clamp",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.frame",
+            "transform": {
+              "position": [0,0,-0.029]
+            }
+          },
+          {
+            "id": "clamp-body",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.rod-clamp-body",
+            "parent": "slide-clamp",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.036],
+                [0,0,-0.018]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.032,-0.064],
+                [0.032,-0.064],
+                [0.04,-0.056],
+                [0.04,0.053],
+                [0.032,0.061],
+                [-0.032,0.061],
+                [-0.04,0.053],
+                [-0.04,-0.056]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#5ca3aa"
+            }
+          },
+          {
+            "id": "fixed-finger",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.clamp-fixed-finger",
+            "parent": "slide-clamp",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.077,0.043]
+            },
+            "appearance": {
+              "color": "#40939b"
+            },
+            "transform": {
+              "position": [-0.038,0,-0.056]
+            }
+          },
+          {
+            "id": "fixed-pad",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.reference-pad",
+            "parent": "slide-clamp",
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.064,0.021]
+            },
+            "appearance": {
+              "color": "#303843"
+            },
+            "transform": {
+              "position": [-0.027,0,-0.063]
+            }
+          },
+          {
+            "id": "jaw-travel",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.frame",
+            "parent": "slide-clamp",
+            "transform": {
+              "position": [0.037,0,-0.064]
+            }
+          },
+          {
+            "id": "moving-finger",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.clamp-moving-finger",
+            "parent": "jaw-travel",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.067,0.036]
+            },
+            "appearance": {
+              "color": "#40939b"
+            },
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "moving-pad",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.moving-pad",
+            "parent": "jaw-travel",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.054,0.025]
+            },
+            "appearance": {
+              "color": "#303843"
+            },
+            "transform": {
+              "position": [-0.012,0,0]
+            }
+          },
+          {
+            "id": "chamfered-bolt",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.clamp-screw",
+            "parent": "jaw-travel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.027,0,0],
+              "end": [0.028,0,0],
+              "radius": 0.0064,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aaBDC8"
+            }
+          },
+          {
+            "id": "knob",
+            "semanticType": "instrument.rail-mounted-rotary-laser-receiver.clamp-knob",
+            "parent": "jaw-travel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.025,0,0],
+              "end": [0.047,0,0],
+              "radius": 0.014,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#303843"
+            }
+          }
+        ],
+        "anchors": {
+          "laser-sensor": {
+            "node": "sensor-window",
+            "position": [0,0,0.002],
+            "direction": [0,0,1],
+            "kind": "optical-target"
+          },
+          "reference-height": {
+            "node": "face",
+            "position": [0,0.046,0.026],
+            "direction": [1,0,0],
+            "kind": "reference"
+          },
+          "fixed-rod-face": {
+            "node": "fixed-pad",
+            "position": [0.0025,0,0],
+            "direction": [1,0,0],
+            "kind": "contact"
+          },
+          "moving-rod-face": {
+            "node": "moving-pad",
+            "position": [-0.002,0,0],
+            "direction": [-1,0,0],
+            "kind": "contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "clip-width",
+            "label": "标尺夹开口变化",
+            "unit": "m",
+            "value": 0,
+            "min": -0.021,
+            "max": 0.018,
+            "targets": [
+              {
+                "node": "jaw-travel",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

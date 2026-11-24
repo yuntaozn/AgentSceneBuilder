@@ -1,0 +1,380 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.dual-hook-side-shifting-forklift-attachment-carriage",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "双挂轨侧移式叉车属具载架",
+  "summary": "固定挂轨内框、独立可横移的双轨外框、油缸与止挡，属具锚点和挂轨一起侧移。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "叉车侧移架",
+    "叉车通用双挂轨",
+    "side-shift fork carriage",
+    "dual hook rails",
+    "叉车属具",
+    "forklift attachment"
+  ],
+  "anchors": [
+    "vehicle-frame",
+    "tool-face",
+    "upper-hook-rail",
+    "lower-hook-rail"
+  ],
+  "ai": {
+    "intent": "把点式属具锚点挂到带双轨的叉车载架上，让所接属具跟随侧移。",
+    "editableParts": [
+      "side-shift"
+    ],
+    "qualityChecks": [
+      "两道形状明确的挂轨随外载架运动。",
+      "内框、油缸筒和底座锚点仍固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "dual-hook-side-shifting-forklift-attachment-carriage",
+      "title": "双挂轨侧移式叉车属具载架",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fixed-frame",
+            "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage.windowed-side-shift-base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.092,0,0],
+                [0.103,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.41500000000000004,-0.256],
+                [0.41500000000000004,-0.256],
+                [0.453,-0.218],
+                [0.453,0.218],
+                [0.41500000000000004,0.256],
+                [-0.41500000000000004,0.256],
+                [-0.453,0.218],
+                [-0.453,-0.218]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.39,-0.113],
+                  [-0.08800000000000001,-0.113],
+                  [-0.068,-0.093],
+                  [-0.068,0.093],
+                  [-0.08800000000000001,0.113],
+                  [-0.39,0.113],
+                  [-0.41000000000000003,0.093],
+                  [-0.41000000000000003,-0.093]
+                ],
+                [
+                  [0.08799999999999998,-0.113],
+                  [0.39,-0.113],
+                  [0.41000000000000003,-0.093],
+                  [0.41000000000000003,0.093],
+                  [0.39,0.113],
+                  [0.08799999999999998,0.113],
+                  [0.06799999999999998,0.093],
+                  [0.06799999999999998,-0.093]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#82a5b4"
+            }
+          },
+          {
+            "id": "limit-cheek--1",
+            "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage.end-stop-cheek-with-guide-pin-hole",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.48900000000000005],
+                [0,0,-0.447]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.051000000000000004,-0.235],
+                [0.17600000000000002,-0.235],
+                [0.199,-0.212],
+                [0.199,0.212],
+                [0.17600000000000002,0.235],
+                [0.051000000000000004,0.235],
+                [0.028,0.212],
+                [0.028,-0.212]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.152,0],
+                  [0.15140434,0.0060478],
+                  [0.14964027,0.01186319],
+                  [0.14677556,0.01722268],
+                  [0.14292031,0.02192031],
+                  [0.13822268,0.02577556],
+                  [0.13286319,0.02864027],
+                  [0.1270478,0.03040434],
+                  [0.121,0.031],
+                  [0.1149522,0.03040434],
+                  [0.10913681,0.02864027],
+                  [0.10377732,0.02577556],
+                  [0.09907969,0.02192031],
+                  [0.09522444,0.01722268],
+                  [0.09235973,0.01186319],
+                  [0.09059566,0.0060478],
+                  [0.09,0],
+                  [0.09059566,-0.0060478],
+                  [0.09235973,-0.01186319],
+                  [0.09522444,-0.01722268],
+                  [0.09907969,-0.02192031],
+                  [0.10377732,-0.02577556],
+                  [0.10913681,-0.02864027],
+                  [0.1149522,-0.03040434],
+                  [0.121,-0.031],
+                  [0.1270478,-0.03040434],
+                  [0.13286319,-0.02864027],
+                  [0.13822268,-0.02577556],
+                  [0.14292031,-0.02192031],
+                  [0.14677556,-0.01722268],
+                  [0.14964027,-0.01186319],
+                  [0.15140434,-0.0060478]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#59727e"
+            }
+          },
+          {
+            "id": "limit-cheek-1",
+            "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage.end-stop-cheek-with-guide-pin-hole",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.447],
+                [0,0,0.48900000000000005]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.051000000000000004,-0.235],
+                [0.17600000000000002,-0.235],
+                [0.199,-0.212],
+                [0.199,0.212],
+                [0.17600000000000002,0.235],
+                [0.051000000000000004,0.235],
+                [0.028,0.212],
+                [0.028,-0.212]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.152,0],
+                  [0.15140434,0.0060478],
+                  [0.14964027,0.01186319],
+                  [0.14677556,0.01722268],
+                  [0.14292031,0.02192031],
+                  [0.13822268,0.02577556],
+                  [0.13286319,0.02864027],
+                  [0.1270478,0.03040434],
+                  [0.121,0.031],
+                  [0.1149522,0.03040434],
+                  [0.10913681,0.02864027],
+                  [0.10377732,0.02577556],
+                  [0.09907969,0.02192031],
+                  [0.09522444,0.01722268],
+                  [0.09235973,0.01186319],
+                  [0.09059566,0.0060478],
+                  [0.09,0],
+                  [0.09059566,-0.0060478],
+                  [0.09235973,-0.01186319],
+                  [0.09522444,-0.01722268],
+                  [0.09907969,-0.02192031],
+                  [0.10377732,-0.02577556],
+                  [0.10913681,-0.02864027],
+                  [0.1149522,-0.03040434],
+                  [0.121,-0.031],
+                  [0.1270478,-0.03040434],
+                  [0.13286319,-0.02864027],
+                  [0.13822268,-0.02577556],
+                  [0.14292031,-0.02192031],
+                  [0.14677556,-0.01722268],
+                  [0.14964027,-0.01186319],
+                  [0.15140434,-0.0060478]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#59727e"
+            }
+          },
+          {
+            "id": "fixed-transverse-ram",
+            "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage.side-shift-cylinder-barrel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.12,0,-0.417],
+              "end": [0.12,0,0.108],
+              "radius": 0.035,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#59727e"
+            }
+          },
+          {
+            "id": "moving-rail-frame",
+            "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage.frame",
+            "transform": {
+              "position": [0.158,0,0]
+            }
+          },
+          {
+            "id": "offset-piston-rod",
+            "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage.side-shift-piston",
+            "parent": "moving-rail-frame",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.076],
+              "end": [0,0,0.339],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c6d6da"
+            }
+          },
+          {
+            "id": "formed-rail--1",
+            "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage.hook-engagement-angle-section",
+            "parent": "moving-rail-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.516],
+                [0,0,0.516]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.046,-0.23],
+                [0.047,-0.23],
+                [0.047,-0.158],
+                [0.008,-0.158],
+                [0.008,-0.188],
+                [-0.046,-0.188]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#c6d6da"
+            }
+          },
+          {
+            "id": "moving-web--1",
+            "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage.rail-web-and-tool-frame-upright",
+            "parent": "moving-rail-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.047,0.36,0.052]
+            },
+            "appearance": {
+              "color": "#82a5b4"
+            },
+            "transform": {
+              "position": [-0.056,0,-0.476]
+            }
+          },
+          {
+            "id": "formed-rail-1",
+            "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage.hook-engagement-angle-section",
+            "parent": "moving-rail-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.516],
+                [0,0,0.516]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.046,0.158],
+                [0.047,0.158],
+                [0.047,0.23],
+                [0.008,0.23],
+                [0.008,0.2],
+                [-0.046,0.2]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#c6d6da"
+            }
+          },
+          {
+            "id": "moving-web-1",
+            "semanticType": "equipment.dual-hook-side-shifting-forklift-attachment-carriage.rail-web-and-tool-frame-upright",
+            "parent": "moving-rail-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.047,0.36,0.052]
+            },
+            "appearance": {
+              "color": "#82a5b4"
+            },
+            "transform": {
+              "position": [-0.056,0,0.476]
+            }
+          }
+        ],
+        "anchors": {
+          "vehicle-frame": {
+            "position": [-0.092,0,0],
+            "direction": [-1,0,0],
+            "kind": "forklift-frame-seat"
+          },
+          "tool-face": {
+            "node": "moving-rail-frame",
+            "position": [0.047,0,0],
+            "direction": [1,0,0],
+            "kind": "fork-carriage-tool-face"
+          },
+          "upper-hook-rail": {
+            "node": "moving-rail-frame",
+            "position": [0.047,0.194,0],
+            "direction": [1,0,0],
+            "kind": "fork-carriage-upper-rail"
+          },
+          "lower-hook-rail": {
+            "node": "moving-rail-frame",
+            "position": [0.047,-0.194,0],
+            "direction": [1,0,0],
+            "kind": "fork-carriage-lower-rail"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "side-shift",
+            "label": "属具侧移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.12,
+            "max": 0.12,
+            "targets": [
+              {
+                "node": "moving-rail-frame",
+                "property": "position",
+                "axis": "z"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

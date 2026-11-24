@@ -1,0 +1,913 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.sliding-four-probe-pavement-deflection-sensor-beam",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "四探头可调式路面弯沉传感梁",
+  "summary": "与导向落锤头配接的空心传感梁、四只滑动探头和独立的统一触地点基准。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "弯沉传感梁",
+    "位移测头",
+    "deflection-sensor-beam",
+    "sliding-probe",
+    "工程检测",
+    "inspection"
+  ],
+  "anchors": [
+    "contact-1",
+    "contact-2",
+    "contact-3",
+    "contact-4",
+    "head-flange"
+  ],
+  "ai": {
+    "intent": "单独布置路面位移测点梁，或与落锤头通过对向端面连接。可把四个输出锚点作为数字检测参考。",
+    "editableParts": [
+      "probe-pitch-offset",
+      "probe-retract"
+    ],
+    "qualityChecks": [
+      "间距控制移动三个滑座，首个基准探头固定。",
+      "测点锚点处于相同基准高度。",
+      "配接锚点不随测头和间距变化。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "sliding-four-probe-pavement-deflection-sensor-beam",
+      "title": "四探头可调式路面弯沉传感梁",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "interface",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.sensor-beam-flange",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.021]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.096,-0.022],
+                [0.096,-0.022],
+                [0.104,-0.013999999999999999],
+                [0.104,0.015],
+                [0.096,0.023],
+                [-0.096,0.023],
+                [-0.104,0.015],
+                [-0.104,-0.013999999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.067,0],
+                  [-0.06728355,0.00197213],
+                  [-0.06811123,0.00378449],
+                  [-0.06941597,0.00529025],
+                  [-0.07109209,0.00636742],
+                  [-0.0730038,0.00692875],
+                  [-0.0749962,0.00692875],
+                  [-0.07690791,0.00636742],
+                  [-0.07858403,0.00529025],
+                  [-0.07988877,0.00378449],
+                  [-0.08071645,0.00197213],
+                  [-0.081,0],
+                  [-0.08071645,-0.00197213],
+                  [-0.07988877,-0.00378449],
+                  [-0.07858403,-0.00529025],
+                  [-0.07690791,-0.00636742],
+                  [-0.0749962,-0.00692875],
+                  [-0.0730038,-0.00692875],
+                  [-0.07109209,-0.00636742],
+                  [-0.06941597,-0.00529025],
+                  [-0.06811123,-0.00378449],
+                  [-0.06728355,-0.00197213]
+                ],
+                [
+                  [0.081,0],
+                  [0.08071645,0.00197213],
+                  [0.07988877,0.00378449],
+                  [0.07858403,0.00529025],
+                  [0.07690791,0.00636742],
+                  [0.0749962,0.00692875],
+                  [0.0730038,0.00692875],
+                  [0.07109209,0.00636742],
+                  [0.06941597,0.00529025],
+                  [0.06811123,0.00378449],
+                  [0.06728355,0.00197213],
+                  [0.067,0],
+                  [0.06728355,-0.00197213],
+                  [0.06811123,-0.00378449],
+                  [0.06941597,-0.00529025],
+                  [0.07109209,-0.00636742],
+                  [0.0730038,-0.00692875],
+                  [0.0749962,-0.00692875],
+                  [0.07690791,-0.00636742],
+                  [0.07858403,-0.00529025],
+                  [0.07988877,-0.00378449],
+                  [0.08071645,-0.00197213]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            }
+          },
+          {
+            "id": "beam",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.hollow-guided-beam",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.018],
+                [0,0,0.793]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.035,-0.021],
+                [0.035,-0.021],
+                [0.041,-0.015000000000000001],
+                [0.041,0.028000000000000004],
+                [0.035,0.034],
+                [-0.035,0.034],
+                [-0.041,0.028000000000000004],
+                [-0.041,-0.015000000000000001]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.030000000000000002,-0.014],
+                  [0.030000000000000002,-0.014],
+                  [0.034,-0.01],
+                  [0.034,0.023000000000000003],
+                  [0.030000000000000002,0.027000000000000003],
+                  [-0.030000000000000002,0.027000000000000003],
+                  [-0.034,0.023000000000000003],
+                  [-0.034,-0.01]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            }
+          },
+          {
+            "id": "side-track--1",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.probe-guide-strip",
+            "geometry": {
+              "type": "box",
+              "size": [0.017,0.019,0.753]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            },
+            "transform": {
+              "position": [-0.042,-0.009,0.396]
+            }
+          },
+          {
+            "id": "side-track-1",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.probe-guide-strip",
+            "geometry": {
+              "type": "box",
+              "size": [0.017,0.019,0.753]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            },
+            "transform": {
+              "position": [0.042,-0.009,0.396]
+            }
+          },
+          {
+            "id": "end-cap",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.beam-termination",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.789],
+                [0,0,0.81]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.036,-0.022],
+                [0.036,-0.022],
+                [0.043,-0.015],
+                [0.043,0.029000000000000005],
+                [0.036,0.036000000000000004],
+                [-0.036,0.036000000000000004],
+                [-0.043,0.029000000000000005],
+                [-0.043,-0.015]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            }
+          },
+          {
+            "id": "probe-carriage-0",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.frame",
+            "transform": {
+              "position": [0,0,0.121]
+            }
+          },
+          {
+            "id": "probe-slide-0",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.guide-surround",
+            "parent": "probe-carriage-0",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.027],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.047,-0.028],
+                [0.047,-0.028],
+                [0.055,-0.02],
+                [0.055,0.03300000000000001],
+                [0.047,0.04100000000000001],
+                [-0.047,0.04100000000000001],
+                [-0.055,0.03300000000000001],
+                [-0.055,-0.02]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.039,-0.014],
+                  [0.039,-0.014],
+                  [0.045,-0.008],
+                  [0.045,0.030000000000000006],
+                  [0.039,0.036000000000000004],
+                  [-0.039,0.036000000000000004],
+                  [-0.045,0.030000000000000006],
+                  [-0.045,-0.008]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "probe-housing-0",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.vertical-probe-housing",
+            "parent": "probe-carriage-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.056,0.052,0.041]
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            },
+            "transform": {
+              "position": [0,-0.047,0]
+            }
+          },
+          {
+            "id": "sleeve-0",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.probe-cylinder",
+            "parent": "probe-carriage-0",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.028,0],
+              "end": [0,-0.072,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            }
+          },
+          {
+            "id": "probe-tip-0",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.frame",
+            "parent": "probe-carriage-0",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "probe-shaft-0",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.spring-loaded-support-shaft",
+            "parent": "probe-tip-0",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.05,0],
+              "end": [0,-0.083,0],
+              "radius": 0.0056,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "probe-foot-0",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.ground-reference-foot",
+            "parent": "probe-tip-0",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.088,0],
+                [0,-0.081,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.012,0],
+                [0.01176942,0.00234108],
+                [0.01108655,0.0045922],
+                [0.00997764,0.00666684],
+                [0.00848528,0.00848528],
+                [0.00666684,0.00997764],
+                [0.0045922,0.01108655],
+                [0.00234108,0.01176942],
+                [0,0.012],
+                [-0.00234108,0.01176942],
+                [-0.0045922,0.01108655],
+                [-0.00666684,0.00997764],
+                [-0.00848528,0.00848528],
+                [-0.00997764,0.00666684],
+                [-0.01108655,0.0045922],
+                [-0.01176942,0.00234108],
+                [-0.012,0],
+                [-0.01176942,-0.00234108],
+                [-0.01108655,-0.0045922],
+                [-0.00997764,-0.00666684],
+                [-0.00848528,-0.00848528],
+                [-0.00666684,-0.00997764],
+                [-0.0045922,-0.01108655],
+                [-0.00234108,-0.01176942],
+                [0,-0.012],
+                [0.00234108,-0.01176942],
+                [0.0045922,-0.01108655],
+                [0.00666684,-0.00997764],
+                [0.00848528,-0.00848528],
+                [0.00997764,-0.00666684],
+                [0.01108655,-0.0045922],
+                [0.01176942,-0.00234108]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#ebba5b"
+            }
+          },
+          {
+            "id": "probe-carriage-1",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.frame",
+            "transform": {
+              "position": [0,0,0.266]
+            }
+          },
+          {
+            "id": "probe-slide-1",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.guide-surround",
+            "parent": "probe-carriage-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.027],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.047,-0.028],
+                [0.047,-0.028],
+                [0.055,-0.02],
+                [0.055,0.03300000000000001],
+                [0.047,0.04100000000000001],
+                [-0.047,0.04100000000000001],
+                [-0.055,0.03300000000000001],
+                [-0.055,-0.02]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.039,-0.014],
+                  [0.039,-0.014],
+                  [0.045,-0.008],
+                  [0.045,0.030000000000000006],
+                  [0.039,0.036000000000000004],
+                  [-0.039,0.036000000000000004],
+                  [-0.045,0.030000000000000006],
+                  [-0.045,-0.008]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "probe-housing-1",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.vertical-probe-housing",
+            "parent": "probe-carriage-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.056,0.052,0.041]
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            },
+            "transform": {
+              "position": [0,-0.047,0]
+            }
+          },
+          {
+            "id": "sleeve-1",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.probe-cylinder",
+            "parent": "probe-carriage-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.028,0],
+              "end": [0,-0.072,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            }
+          },
+          {
+            "id": "probe-tip-1",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.frame",
+            "parent": "probe-carriage-1",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "probe-shaft-1",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.spring-loaded-support-shaft",
+            "parent": "probe-tip-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.05,0],
+              "end": [0,-0.083,0],
+              "radius": 0.0056,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "probe-foot-1",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.ground-reference-foot",
+            "parent": "probe-tip-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.088,0],
+                [0,-0.081,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.012,0],
+                [0.01176942,0.00234108],
+                [0.01108655,0.0045922],
+                [0.00997764,0.00666684],
+                [0.00848528,0.00848528],
+                [0.00666684,0.00997764],
+                [0.0045922,0.01108655],
+                [0.00234108,0.01176942],
+                [0,0.012],
+                [-0.00234108,0.01176942],
+                [-0.0045922,0.01108655],
+                [-0.00666684,0.00997764],
+                [-0.00848528,0.00848528],
+                [-0.00997764,0.00666684],
+                [-0.01108655,0.0045922],
+                [-0.01176942,0.00234108],
+                [-0.012,0],
+                [-0.01176942,-0.00234108],
+                [-0.01108655,-0.0045922],
+                [-0.00997764,-0.00666684],
+                [-0.00848528,-0.00848528],
+                [-0.00666684,-0.00997764],
+                [-0.0045922,-0.01108655],
+                [-0.00234108,-0.01176942],
+                [0,-0.012],
+                [0.00234108,-0.01176942],
+                [0.0045922,-0.01108655],
+                [0.00666684,-0.00997764],
+                [0.00848528,-0.00848528],
+                [0.00997764,-0.00666684],
+                [0.01108655,-0.0045922],
+                [0.01176942,-0.00234108]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#ebba5b"
+            }
+          },
+          {
+            "id": "probe-carriage-2",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.frame",
+            "transform": {
+              "position": [0,0,0.411]
+            }
+          },
+          {
+            "id": "probe-slide-2",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.guide-surround",
+            "parent": "probe-carriage-2",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.027],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.047,-0.028],
+                [0.047,-0.028],
+                [0.055,-0.02],
+                [0.055,0.03300000000000001],
+                [0.047,0.04100000000000001],
+                [-0.047,0.04100000000000001],
+                [-0.055,0.03300000000000001],
+                [-0.055,-0.02]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.039,-0.014],
+                  [0.039,-0.014],
+                  [0.045,-0.008],
+                  [0.045,0.030000000000000006],
+                  [0.039,0.036000000000000004],
+                  [-0.039,0.036000000000000004],
+                  [-0.045,0.030000000000000006],
+                  [-0.045,-0.008]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "probe-housing-2",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.vertical-probe-housing",
+            "parent": "probe-carriage-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.056,0.052,0.041]
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            },
+            "transform": {
+              "position": [0,-0.047,0]
+            }
+          },
+          {
+            "id": "sleeve-2",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.probe-cylinder",
+            "parent": "probe-carriage-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.028,0],
+              "end": [0,-0.072,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            }
+          },
+          {
+            "id": "probe-tip-2",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.frame",
+            "parent": "probe-carriage-2",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "probe-shaft-2",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.spring-loaded-support-shaft",
+            "parent": "probe-tip-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.05,0],
+              "end": [0,-0.083,0],
+              "radius": 0.0056,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "probe-foot-2",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.ground-reference-foot",
+            "parent": "probe-tip-2",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.088,0],
+                [0,-0.081,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.012,0],
+                [0.01176942,0.00234108],
+                [0.01108655,0.0045922],
+                [0.00997764,0.00666684],
+                [0.00848528,0.00848528],
+                [0.00666684,0.00997764],
+                [0.0045922,0.01108655],
+                [0.00234108,0.01176942],
+                [0,0.012],
+                [-0.00234108,0.01176942],
+                [-0.0045922,0.01108655],
+                [-0.00666684,0.00997764],
+                [-0.00848528,0.00848528],
+                [-0.00997764,0.00666684],
+                [-0.01108655,0.0045922],
+                [-0.01176942,0.00234108],
+                [-0.012,0],
+                [-0.01176942,-0.00234108],
+                [-0.01108655,-0.0045922],
+                [-0.00997764,-0.00666684],
+                [-0.00848528,-0.00848528],
+                [-0.00666684,-0.00997764],
+                [-0.0045922,-0.01108655],
+                [-0.00234108,-0.01176942],
+                [0,-0.012],
+                [0.00234108,-0.01176942],
+                [0.0045922,-0.01108655],
+                [0.00666684,-0.00997764],
+                [0.00848528,-0.00848528],
+                [0.00997764,-0.00666684],
+                [0.01108655,-0.0045922],
+                [0.01176942,-0.00234108]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#ebba5b"
+            }
+          },
+          {
+            "id": "probe-carriage-3",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.frame",
+            "transform": {
+              "position": [0,0,0.5559999999999999]
+            }
+          },
+          {
+            "id": "probe-slide-3",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.guide-surround",
+            "parent": "probe-carriage-3",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.027],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.047,-0.028],
+                [0.047,-0.028],
+                [0.055,-0.02],
+                [0.055,0.03300000000000001],
+                [0.047,0.04100000000000001],
+                [-0.047,0.04100000000000001],
+                [-0.055,0.03300000000000001],
+                [-0.055,-0.02]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.039,-0.014],
+                  [0.039,-0.014],
+                  [0.045,-0.008],
+                  [0.045,0.030000000000000006],
+                  [0.039,0.036000000000000004],
+                  [-0.039,0.036000000000000004],
+                  [-0.045,0.030000000000000006],
+                  [-0.045,-0.008]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "probe-housing-3",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.vertical-probe-housing",
+            "parent": "probe-carriage-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.056,0.052,0.041]
+            },
+            "appearance": {
+              "color": "#9ab4c0"
+            },
+            "transform": {
+              "position": [0,-0.047,0]
+            }
+          },
+          {
+            "id": "sleeve-3",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.probe-cylinder",
+            "parent": "probe-carriage-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.028,0],
+              "end": [0,-0.072,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#7eb8c4"
+            }
+          },
+          {
+            "id": "probe-tip-3",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.frame",
+            "parent": "probe-carriage-3",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "probe-shaft-3",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.spring-loaded-support-shaft",
+            "parent": "probe-tip-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.05,0],
+              "end": [0,-0.083,0],
+              "radius": 0.0056,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#b1c6d0"
+            }
+          },
+          {
+            "id": "probe-foot-3",
+            "semanticType": "instrument.sliding-four-probe-pavement-deflection-sensor-beam.ground-reference-foot",
+            "parent": "probe-tip-3",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.088,0],
+                [0,-0.081,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.012,0],
+                [0.01176942,0.00234108],
+                [0.01108655,0.0045922],
+                [0.00997764,0.00666684],
+                [0.00848528,0.00848528],
+                [0.00666684,0.00997764],
+                [0.0045922,0.01108655],
+                [0.00234108,0.01176942],
+                [0,0.012],
+                [-0.00234108,0.01176942],
+                [-0.0045922,0.01108655],
+                [-0.00666684,0.00997764],
+                [-0.00848528,0.00848528],
+                [-0.00997764,0.00666684],
+                [-0.01108655,0.0045922],
+                [-0.01176942,0.00234108],
+                [-0.012,0],
+                [-0.01176942,-0.00234108],
+                [-0.01108655,-0.0045922],
+                [-0.00997764,-0.00666684],
+                [-0.00848528,-0.00848528],
+                [-0.00666684,-0.00997764],
+                [-0.0045922,-0.01108655],
+                [-0.00234108,-0.01176942],
+                [0,-0.012],
+                [0.00234108,-0.01176942],
+                [0.0045922,-0.01108655],
+                [0.00666684,-0.00997764],
+                [0.00848528,-0.00848528],
+                [0.00997764,-0.00666684],
+                [0.01108655,-0.0045922],
+                [0.01176942,-0.00234108]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#ebba5b"
+            }
+          }
+        ],
+        "anchors": {
+          "contact-1": {
+            "node": "probe-foot-0",
+            "position": [0,-0.088,0],
+            "direction": [0,-1,0],
+            "kind": "measurement"
+          },
+          "contact-2": {
+            "node": "probe-foot-1",
+            "position": [0,-0.088,0],
+            "direction": [0,-1,0],
+            "kind": "measurement"
+          },
+          "contact-3": {
+            "node": "probe-foot-2",
+            "position": [0,-0.088,0],
+            "direction": [0,-1,0],
+            "kind": "measurement"
+          },
+          "contact-4": {
+            "node": "probe-foot-3",
+            "position": [0,-0.088,0],
+            "direction": [0,-1,0],
+            "kind": "measurement"
+          },
+          "head-flange": {
+            "node": "interface",
+            "position": [0,0,0],
+            "direction": [0,0,-1],
+            "kind": "sensor-beam"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "probe-pitch-offset",
+            "label": "探头间距增量",
+            "unit": "m",
+            "value": 0,
+            "min": -0.063,
+            "max": 0.068,
+            "targets": [
+              {
+                "node": "probe-carriage-1",
+                "property": "position",
+                "axis": "z",
+                "factor": 1
+              },
+              {
+                "node": "probe-carriage-2",
+                "property": "position",
+                "axis": "z",
+                "factor": 2
+              },
+              {
+                "node": "probe-carriage-3",
+                "property": "position",
+                "axis": "z",
+                "factor": 3
+              }
+            ]
+          },
+          {
+            "id": "probe-retract",
+            "label": "四个测头收回",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.023,
+            "targets": [
+              {
+                "node": "probe-tip-0",
+                "property": "position",
+                "axis": "y"
+              },
+              {
+                "node": "probe-tip-1",
+                "property": "position",
+                "axis": "y"
+              },
+              {
+                "node": "probe-tip-2",
+                "property": "position",
+                "axis": "y"
+              },
+              {
+                "node": "probe-tip-3",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

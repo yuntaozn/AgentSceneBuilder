@@ -1,0 +1,409 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.adjustable-pipe-wrench",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可调开口管钳",
+  "summary": "固定齿颚和滑移钩颚围出夹持区，带导套、调节螺母和独立握柄。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.adjustable-pipe-wrench",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "施工工具",
+    "管路安装",
+    "管钳",
+    "pipe wrench",
+    "夹持"
+  ],
+  "anchors": [
+    "grip",
+    "fixed-contact",
+    "moving-contact"
+  ],
+  "ai": {
+    "intent": "按钳口锚点计算夹持间隙，并指明握持点。",
+    "editableParts": [
+      "jaw-travel"
+    ],
+    "qualityChecks": [
+      "活动齿颚随 jaw-travel 平移，固定齿颚随主体保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "adjustable-pipe-wrench",
+      "title": "可调开口管钳",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "forged-stock",
+            "semanticType": "tool.adjustable-pipe-wrench.stock",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.008,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.255,-0.012],
+                [-0.232,-0.015],
+                [-0.051,-0.008],
+                [0.035,-0.008],
+                [0.045,0.012],
+                [0.018,0.022],
+                [-0.049,0.018],
+                [-0.235,0.012]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#af5045"
+            }
+          },
+          {
+            "id": "grip",
+            "semanticType": "tool.adjustable-pipe-wrench.grip",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.254,0,0],
+              "end": [-0.16,0,0],
+              "radius": 0.015,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#23292d"
+            }
+          },
+          {
+            "id": "fixed-jaw",
+            "semanticType": "tool.adjustable-pipe-wrench.fixed-jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.01,0],
+                [0,0.01,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.012,0.012],
+                [0.038,0.012],
+                [0.038,0.067],
+                [0.025,0.067],
+                [0.012,0.042]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "moving-jaw",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "sliding-hook",
+            "semanticType": "tool.adjustable-pipe-wrench.hook-jaw",
+            "parent": "moving-jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.008,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.013,-0.008],
+                [0.088,-0.008],
+                [0.088,0.067],
+                [0.06,0.067],
+                [0.06,0.017],
+                [0.013,0.017]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "adjustment-collar",
+            "semanticType": "tool.adjustable-pipe-wrench.adjustment-collar",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.021,0,0],
+              "end": [0.041,0,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "fixed-tooth-0",
+            "semanticType": "tool.adjustable-pipe-wrench.tooth",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.01,0],
+                [0,0.01,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.037,0.029],
+                [0.042,0.032],
+                [0.037,0.035]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "hook-tooth-0",
+            "semanticType": "tool.adjustable-pipe-wrench.tooth",
+            "parent": "moving-jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.008,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.061,0.029],
+                [0.056,0.031],
+                [0.061,0.035]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "fixed-tooth-1",
+            "semanticType": "tool.adjustable-pipe-wrench.tooth",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.01,0],
+                [0,0.01,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.037,0.036000000000000004],
+                [0.042,0.03900000000000001],
+                [0.037,0.042]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "hook-tooth-1",
+            "semanticType": "tool.adjustable-pipe-wrench.tooth",
+            "parent": "moving-jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.008,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.061,0.036000000000000004],
+                [0.056,0.038000000000000006],
+                [0.061,0.042]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "fixed-tooth-2",
+            "semanticType": "tool.adjustable-pipe-wrench.tooth",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.01,0],
+                [0,0.01,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.037,0.043000000000000003],
+                [0.042,0.046000000000000006],
+                [0.037,0.049]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "hook-tooth-2",
+            "semanticType": "tool.adjustable-pipe-wrench.tooth",
+            "parent": "moving-jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.008,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.061,0.043000000000000003],
+                [0.056,0.045000000000000005],
+                [0.061,0.049]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "fixed-tooth-3",
+            "semanticType": "tool.adjustable-pipe-wrench.tooth",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.01,0],
+                [0,0.01,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.037,0.05],
+                [0.042,0.053000000000000005],
+                [0.037,0.056]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "hook-tooth-3",
+            "semanticType": "tool.adjustable-pipe-wrench.tooth",
+            "parent": "moving-jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.008,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.061,0.05],
+                [0.056,0.052000000000000005],
+                [0.061,0.056]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "fixed-tooth-4",
+            "semanticType": "tool.adjustable-pipe-wrench.tooth",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.01,0],
+                [0,0.01,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.037,0.057],
+                [0.042,0.060000000000000005],
+                [0.037,0.063]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "hook-tooth-4",
+            "semanticType": "tool.adjustable-pipe-wrench.tooth",
+            "parent": "moving-jaw",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.008,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.061,0.057],
+                [0.056,0.059000000000000004],
+                [0.061,0.063]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          }
+        ],
+        "anchors": {
+          "grip": {
+            "node": "grip",
+            "position": [-0.211,0,0],
+            "direction": [1,0,0],
+            "kind": "hand-grip"
+          },
+          "fixed-contact": {
+            "node": "fixed-jaw",
+            "position": [0.042,0,0.046],
+            "direction": [1,0,0],
+            "kind": "jaw-contact"
+          },
+          "moving-contact": {
+            "node": "moving-jaw",
+            "position": [0.056,0,0.046],
+            "direction": [-1,0,0],
+            "kind": "jaw-contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "jaw-travel",
+            "label": "活动钳口行程",
+            "unit": "mm",
+            "value": 8,
+            "min": 0,
+            "max": 25,
+            "targets": [
+              {
+                "node": "moving-jaw",
+                "property": "position",
+                "axis": "x",
+                "factor": 0.001
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

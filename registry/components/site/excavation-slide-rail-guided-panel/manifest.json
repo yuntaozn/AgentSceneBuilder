@@ -1,0 +1,531 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.excavation-slide-rail-guided-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "滑轨式沟槽支护滑动侧板",
+  "summary": "带独立开口吊眼、双导滑边、矩形加强肋和底部插入斜口，可与滑轨柱拼装。",
+  "license": "Apache-2.0",
+  "semanticType": "site.excavation-slide-rail-guided-panel",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "滑轨支护板",
+    "滑动侧板",
+    "slide-rail-panel",
+    "guide-tongue",
+    "沟槽施工",
+    "excavation"
+  ],
+  "anchors": [
+    "left-guide",
+    "left-lift",
+    "right-guide",
+    "right-lift",
+    "ground-plane"
+  ],
+  "ai": {
+    "intent": "作为独立可插入侧板，与双导槽滑轨柱结合表达沟槽支护剖面和开挖过程。",
+    "editableParts": [
+      "left-guide",
+      "left-lift",
+      "right-guide",
+      "right-lift",
+      "ground-plane"
+    ],
+    "qualityChecks": [
+      "滑边中心线与相邻滑轨开口对应。",
+      "两个开孔吊耳位于板顶。",
+      "底部斜边进入方向向下。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "excavation-slide-rail-guided-panel",
+      "title": "滑轨式沟槽支护滑动侧板",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "site.excavation-slide-rail-guided-panel.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "outer",
+            "semanticType": "site.excavation-slide-rail-guided-panel.outer-shoring-skin",
+            "parent": "panel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.039],
+                [0,0,-0.023]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.712,0.111],
+                [0.712,0.111],
+                [0.738,0.137],
+                [0.738,1.29],
+                [0.712,1.316],
+                [-0.712,1.316],
+                [-0.738,1.29],
+                [-0.738,0.137]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#aac0c8"
+            }
+          },
+          {
+            "id": "inner",
+            "semanticType": "site.excavation-slide-rail-guided-panel.inner-shoring-skin",
+            "parent": "panel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.023],
+                [0,0,0.039]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.712,0.111],
+                [0.712,0.111],
+                [0.738,0.137],
+                [0.738,1.29],
+                [0.712,1.316],
+                [-0.712,1.316],
+                [-0.738,1.29],
+                [-0.738,0.137]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "bevel",
+            "semanticType": "site.excavation-slide-rail-guided-panel.bottom-entry-bevel",
+            "parent": "panel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.726],
+                [0,0,0.726]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0.035],
+                [0.039,0.11],
+                [0.039,0.126],
+                [-0.039,0.126],
+                [-0.039,0.11]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "ridge--0.723",
+            "semanticType": "site.excavation-slide-rail-guided-panel.vertical-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,1.151,0.057]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [-0.723,0.709,0]
+            }
+          },
+          {
+            "id": "ridge--0.455",
+            "semanticType": "site.excavation-slide-rail-guided-panel.vertical-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,1.151,0.057]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [-0.455,0.709,0]
+            }
+          },
+          {
+            "id": "ridge-0",
+            "semanticType": "site.excavation-slide-rail-guided-panel.vertical-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,1.151,0.057]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.709,0]
+            }
+          },
+          {
+            "id": "ridge-0.455",
+            "semanticType": "site.excavation-slide-rail-guided-panel.vertical-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,1.151,0.057]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0.455,0.709,0]
+            }
+          },
+          {
+            "id": "ridge-0.723",
+            "semanticType": "site.excavation-slide-rail-guided-panel.vertical-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,1.151,0.057]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0.723,0.709,0]
+            }
+          },
+          {
+            "id": "rib-0.139",
+            "semanticType": "site.excavation-slide-rail-guided-panel.horizontal-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [1.426,0.041,0.058]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.139,0]
+            }
+          },
+          {
+            "id": "rib-0.408",
+            "semanticType": "site.excavation-slide-rail-guided-panel.horizontal-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [1.426,0.041,0.058]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.408,0]
+            }
+          },
+          {
+            "id": "rib-0.711",
+            "semanticType": "site.excavation-slide-rail-guided-panel.horizontal-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [1.426,0.041,0.058]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.711,0]
+            }
+          },
+          {
+            "id": "rib-1.01",
+            "semanticType": "site.excavation-slide-rail-guided-panel.horizontal-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [1.426,0.041,0.058]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,1.01,0]
+            }
+          },
+          {
+            "id": "rib-1.288",
+            "semanticType": "site.excavation-slide-rail-guided-panel.horizontal-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [1.426,0.041,0.058]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,1.288,0]
+            }
+          },
+          {
+            "id": "guide--1",
+            "semanticType": "site.excavation-slide-rail-guided-panel.frame",
+            "parent": "panel",
+            "transform": {
+              "position": [-0.785,0,0]
+            }
+          },
+          {
+            "id": "guide-tongue--1",
+            "semanticType": "site.excavation-slide-rail-guided-panel.captured-guide-tongue",
+            "parent": "guide--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.12,1.126,0.084]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.721,0]
+            }
+          },
+          {
+            "id": "guide-neck--1",
+            "semanticType": "site.excavation-slide-rail-guided-panel.guide-neck",
+            "parent": "guide--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,1.136,0.041]
+            },
+            "appearance": {
+              "color": "#90abb8"
+            },
+            "transform": {
+              "position": [0.038,0.721,0]
+            }
+          },
+          {
+            "id": "lift-lug--1",
+            "semanticType": "site.excavation-slide-rail-guided-panel.frame",
+            "parent": "panel",
+            "transform": {
+              "position": [-0.511,1.307,0]
+            }
+          },
+          {
+            "id": "lug--1",
+            "semanticType": "site.excavation-slide-rail-guided-panel.perforated-lifting-lug",
+            "parent": "lift-lug--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.016],
+                [0,0,0.016]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.033,-0.023],
+                [0.033,-0.023],
+                [0.049,-0.006999999999999999],
+                [0.049,0.076],
+                [0.033,0.092],
+                [-0.033,0.092],
+                [-0.049,0.076],
+                [-0.049,-0.006999999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.023,0.047],
+                  [0.02233166,0.05250426],
+                  [0.02036549,0.05768863],
+                  [0.01721575,0.06225182],
+                  [0.01306549,0.06592863],
+                  [0.00815591,0.06850537],
+                  [0.00277234,0.0698323],
+                  [-0.00277234,0.0698323],
+                  [-0.00815591,0.06850537],
+                  [-0.01306549,0.06592863],
+                  [-0.01721575,0.06225182],
+                  [-0.02036549,0.05768863],
+                  [-0.02233166,0.05250426],
+                  [-0.023,0.047],
+                  [-0.02233166,0.04149574],
+                  [-0.02036549,0.03631137],
+                  [-0.01721575,0.03174818],
+                  [-0.01306549,0.02807137],
+                  [-0.00815591,0.02549463],
+                  [-0.00277234,0.0241677],
+                  [0.00277234,0.0241677],
+                  [0.00815591,0.02549463],
+                  [0.01306549,0.02807137],
+                  [0.01721575,0.03174818],
+                  [0.02036549,0.03631137],
+                  [0.02233166,0.04149574]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "guide-1",
+            "semanticType": "site.excavation-slide-rail-guided-panel.frame",
+            "parent": "panel",
+            "transform": {
+              "position": [0.785,0,0]
+            }
+          },
+          {
+            "id": "guide-tongue-1",
+            "semanticType": "site.excavation-slide-rail-guided-panel.captured-guide-tongue",
+            "parent": "guide-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.12,1.126,0.084]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.721,0]
+            }
+          },
+          {
+            "id": "guide-neck-1",
+            "semanticType": "site.excavation-slide-rail-guided-panel.guide-neck",
+            "parent": "guide-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,1.136,0.041]
+            },
+            "appearance": {
+              "color": "#90abb8"
+            },
+            "transform": {
+              "position": [-0.038,0.721,0]
+            }
+          },
+          {
+            "id": "lift-lug-1",
+            "semanticType": "site.excavation-slide-rail-guided-panel.frame",
+            "parent": "panel",
+            "transform": {
+              "position": [0.511,1.307,0]
+            }
+          },
+          {
+            "id": "lug-1",
+            "semanticType": "site.excavation-slide-rail-guided-panel.perforated-lifting-lug",
+            "parent": "lift-lug-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.016],
+                [0,0,0.016]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.033,-0.023],
+                [0.033,-0.023],
+                [0.049,-0.006999999999999999],
+                [0.049,0.076],
+                [0.033,0.092],
+                [-0.033,0.092],
+                [-0.049,0.076],
+                [-0.049,-0.006999999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.023,0.047],
+                  [0.02233166,0.05250426],
+                  [0.02036549,0.05768863],
+                  [0.01721575,0.06225182],
+                  [0.01306549,0.06592863],
+                  [0.00815591,0.06850537],
+                  [0.00277234,0.0698323],
+                  [-0.00277234,0.0698323],
+                  [-0.00815591,0.06850537],
+                  [-0.01306549,0.06592863],
+                  [-0.01721575,0.06225182],
+                  [-0.02036549,0.05768863],
+                  [-0.02233166,0.05250426],
+                  [-0.023,0.047],
+                  [-0.02233166,0.04149574],
+                  [-0.02036549,0.03631137],
+                  [-0.01721575,0.03174818],
+                  [-0.01306549,0.02807137],
+                  [-0.00815591,0.02549463],
+                  [-0.00277234,0.0241677],
+                  [0.00277234,0.0241677],
+                  [0.00815591,0.02549463],
+                  [0.01306549,0.02807137],
+                  [0.01721575,0.03174818],
+                  [0.02036549,0.03631137],
+                  [0.02233166,0.04149574]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          }
+        ],
+        "anchors": {
+          "left-guide": {
+            "node": "guide--1",
+            "position": [0,0.725,0],
+            "direction": [-1,0,0],
+            "kind": "slide-guide"
+          },
+          "left-lift": {
+            "node": "lift-lug--1",
+            "position": [0,0.047,0],
+            "direction": [0,1,0],
+            "kind": "lift"
+          },
+          "right-guide": {
+            "node": "guide-1",
+            "position": [0,0.725,0],
+            "direction": [1,0,0],
+            "kind": "slide-guide"
+          },
+          "right-lift": {
+            "node": "lift-lug-1",
+            "position": [0,0.047,0],
+            "direction": [0,1,0],
+            "kind": "lift"
+          },
+          "ground-plane": {
+            "node": "panel",
+            "position": [0,0.035,0],
+            "direction": [0,-1,0],
+            "kind": "reference"
+          }
+        }
+      }
+    }
+  }
+}

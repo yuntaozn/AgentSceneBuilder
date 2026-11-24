@@ -1,0 +1,1638 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.induced-draft-cooling-tower-with-open-louver-basin",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "带开敞百叶水盘的引风式冷却塔",
+  "summary": "承水底盘、透空百叶、填料片组、顶部开放风圈和独立水路接口。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "冷却塔",
+    "引风冷却塔",
+    "induced-draft-cooling-tower",
+    "louver-basin",
+    "冷热源设备",
+    "hvac-plant"
+  ],
+  "anchors": [
+    "air-exhaust",
+    "water-in",
+    "water-out",
+    "mount"
+  ],
+  "ai": {
+    "intent": "在建筑冷热源模型中调用独立塔体，按固定供回水和轴向排风位置布置。",
+    "editableParts": [
+      "fan-angle"
+    ],
+    "qualityChecks": [
+      "塔顶和供回水口具有实际开孔。",
+      "下部百叶有实际间隙。",
+      "风扇转位不移动外壳和管路接口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "induced-draft-cooling-tower-with-open-louver-basin",
+      "title": "带开敞百叶水盘的引风式冷却塔",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "basin-floor",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.water-collection-pan-floor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.012,0],
+                [0,0.041,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.375,-0.337],
+                [-0.375,-0.337],
+                [-0.414,-0.29800000000000004],
+                [-0.414,0.29800000000000004],
+                [-0.375,0.337],
+                [0.375,0.337],
+                [0.414,0.29800000000000004],
+                [0.414,-0.29800000000000004]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.03,0],
+                  [-0.02963065,0.00469303],
+                  [-0.0285317,0.00927051],
+                  [-0.0267302,0.01361971],
+                  [-0.02427051,0.01763356],
+                  [-0.0212132,0.0212132],
+                  [-0.01763356,0.02427051],
+                  [-0.01361971,0.0267302],
+                  [-0.00927051,0.0285317],
+                  [-0.00469303,0.02963065],
+                  [0,0.03],
+                  [0.00469303,0.02963065],
+                  [0.00927051,0.0285317],
+                  [0.01361971,0.0267302],
+                  [0.01763356,0.02427051],
+                  [0.0212132,0.0212132],
+                  [0.02427051,0.01763356],
+                  [0.0267302,0.01361971],
+                  [0.0285317,0.00927051],
+                  [0.02963065,0.00469303],
+                  [0.03,0],
+                  [0.02963065,-0.00469303],
+                  [0.0285317,-0.00927051],
+                  [0.0267302,-0.01361971],
+                  [0.02427051,-0.01763356],
+                  [0.0212132,-0.0212132],
+                  [0.01763356,-0.02427051],
+                  [0.01361971,-0.0267302],
+                  [0.00927051,-0.0285317],
+                  [0.00469303,-0.02963065],
+                  [0,-0.03],
+                  [-0.00469303,-0.02963065],
+                  [-0.00927051,-0.0285317],
+                  [-0.01361971,-0.0267302],
+                  [-0.01763356,-0.02427051],
+                  [-0.0212132,-0.0212132],
+                  [-0.02427051,-0.01763356],
+                  [-0.0267302,-0.01361971],
+                  [-0.0285317,-0.00927051],
+                  [-0.02963065,-0.00469303]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          },
+          {
+            "id": "basin-wall",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.open-sump-perimeter",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.038,0],
+                [0,0.147,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.375,-0.337],
+                [-0.375,-0.337],
+                [-0.414,-0.29800000000000004],
+                [-0.414,0.29800000000000004],
+                [-0.375,0.337],
+                [0.375,0.337],
+                [0.414,0.29800000000000004],
+                [0.414,-0.29800000000000004]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.353,-0.302],
+                  [-0.353,-0.302],
+                  [-0.386,-0.269],
+                  [-0.386,0.269],
+                  [-0.353,0.302],
+                  [0.353,0.302],
+                  [0.386,0.269],
+                  [0.386,-0.269]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#80b9c6"
+            }
+          },
+          {
+            "id": "corner--1--0.299",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.cooling-tower-structural-post",
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.697,0.047]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            },
+            "transform": {
+              "position": [-0.378,0.427,-0.299]
+            }
+          },
+          {
+            "id": "corner--1-0.299",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.cooling-tower-structural-post",
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.697,0.047]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            },
+            "transform": {
+              "position": [-0.378,0.427,0.299]
+            }
+          },
+          {
+            "id": "louver--1-0",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [-0.397,0.165,0],
+              "rotation": [0,0,0.4]
+            }
+          },
+          {
+            "id": "louver--1-1",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [-0.397,0.2,0],
+              "rotation": [0,0,0.4]
+            }
+          },
+          {
+            "id": "louver--1-2",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [-0.397,0.23500000000000001,0],
+              "rotation": [0,0,0.4]
+            }
+          },
+          {
+            "id": "louver--1-3",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [-0.397,0.27,0],
+              "rotation": [0,0,0.4]
+            }
+          },
+          {
+            "id": "louver--1-4",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [-0.397,0.30500000000000005,0],
+              "rotation": [0,0,0.4]
+            }
+          },
+          {
+            "id": "louver--1-5",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [-0.397,0.34,0],
+              "rotation": [0,0,0.4]
+            }
+          },
+          {
+            "id": "louver--1-6",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [-0.397,0.375,0],
+              "rotation": [0,0,0.4]
+            }
+          },
+          {
+            "id": "louver--1-7",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [-0.397,0.41000000000000003,0],
+              "rotation": [0,0,0.4]
+            }
+          },
+          {
+            "id": "louver--1-8",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [-0.397,0.44500000000000006,0],
+              "rotation": [0,0,0.4]
+            }
+          },
+          {
+            "id": "louver--1-9",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [-0.397,0.4800000000000001,0],
+              "rotation": [0,0,0.4]
+            }
+          },
+          {
+            "id": "corner-1--0.299",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.cooling-tower-structural-post",
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.697,0.047]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            },
+            "transform": {
+              "position": [0.378,0.427,-0.299]
+            }
+          },
+          {
+            "id": "corner-1-0.299",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.cooling-tower-structural-post",
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.697,0.047]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            },
+            "transform": {
+              "position": [0.378,0.427,0.299]
+            }
+          },
+          {
+            "id": "louver-1-0",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [0.397,0.165,0],
+              "rotation": [0,0,-0.4]
+            }
+          },
+          {
+            "id": "louver-1-1",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [0.397,0.2,0],
+              "rotation": [0,0,-0.4]
+            }
+          },
+          {
+            "id": "louver-1-2",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [0.397,0.23500000000000001,0],
+              "rotation": [0,0,-0.4]
+            }
+          },
+          {
+            "id": "louver-1-3",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [0.397,0.27,0],
+              "rotation": [0,0,-0.4]
+            }
+          },
+          {
+            "id": "louver-1-4",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [0.397,0.30500000000000005,0],
+              "rotation": [0,0,-0.4]
+            }
+          },
+          {
+            "id": "louver-1-5",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [0.397,0.34,0],
+              "rotation": [0,0,-0.4]
+            }
+          },
+          {
+            "id": "louver-1-6",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [0.397,0.375,0],
+              "rotation": [0,0,-0.4]
+            }
+          },
+          {
+            "id": "louver-1-7",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [0.397,0.41000000000000003,0],
+              "rotation": [0,0,-0.4]
+            }
+          },
+          {
+            "id": "louver-1-8",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [0.397,0.44500000000000006,0],
+              "rotation": [0,0,-0.4]
+            }
+          },
+          {
+            "id": "louver-1-9",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.sloped-air-intake-louver",
+            "geometry": {
+              "type": "box",
+              "size": [0.052,0.024,0.566]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            },
+            "transform": {
+              "position": [0.397,0.4800000000000001,0],
+              "rotation": [0,0,-0.4]
+            }
+          },
+          {
+            "id": "back",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.back-vertical-wall",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.314],
+                [0,0,-0.289]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.347,0.144],
+                [0.347,0.144],
+                [0.382,0.179],
+                [0.382,0.665],
+                [0.347,0.7000000000000001],
+                [-0.347,0.7000000000000001],
+                [-0.382,0.665],
+                [-0.382,0.179]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.029,0.633],
+                  [0.02860448,0.63777324],
+                  [0.0274287,0.64241628],
+                  [0.02550474,0.64680247],
+                  [0.02288507,0.65081217],
+                  [0.01964117,0.65433599],
+                  [0.0158615,0.65727783],
+                  [0.01164917,0.65955743],
+                  [0.00711908,0.66111261],
+                  [0.0023948,0.66190095],
+                  [-0.0023948,0.66190095],
+                  [-0.00711908,0.66111261],
+                  [-0.01164917,0.65955743],
+                  [-0.0158615,0.65727783],
+                  [-0.01964117,0.65433599],
+                  [-0.02288507,0.65081217],
+                  [-0.02550474,0.64680247],
+                  [-0.0274287,0.64241628],
+                  [-0.02860448,0.63777324],
+                  [-0.029,0.633],
+                  [-0.02860448,0.62822676],
+                  [-0.0274287,0.62358372],
+                  [-0.02550474,0.61919753],
+                  [-0.02288507,0.61518783],
+                  [-0.01964117,0.61166401],
+                  [-0.0158615,0.60872217],
+                  [-0.01164917,0.60644257],
+                  [-0.00711908,0.60488739],
+                  [-0.0023948,0.60409905],
+                  [0.0023948,0.60409905],
+                  [0.00711908,0.60488739],
+                  [0.01164917,0.60644257],
+                  [0.0158615,0.60872217],
+                  [0.01964117,0.61166401],
+                  [0.02288507,0.61518783],
+                  [0.02550474,0.61919753],
+                  [0.0274287,0.62358372],
+                  [0.02860448,0.62822676]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#80b9c6"
+            }
+          },
+          {
+            "id": "front-clear",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.transparent-tower-side-access-panel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.289],
+                [0,0,0.313]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.34800000000000003,0.144],
+                [0.34800000000000003,0.144],
+                [0.384,0.18],
+                [0.384,0.665],
+                [0.34800000000000003,0.7010000000000001],
+                [-0.34800000000000003,0.7010000000000001],
+                [-0.384,0.665],
+                [-0.384,0.18]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a3ced7",
+              "opacity": 0.57
+            }
+          },
+          {
+            "id": "fill-0",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#bac9bf"
+            },
+            "transform": {
+              "position": [0,0.487,-0.252],
+              "rotation": [0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-1",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#c6d3c8"
+            },
+            "transform": {
+              "position": [0,0.487,-0.216],
+              "rotation": [-0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-2",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#bac9bf"
+            },
+            "transform": {
+              "position": [0,0.487,-0.18],
+              "rotation": [0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-3",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#c6d3c8"
+            },
+            "transform": {
+              "position": [0,0.487,-0.14400000000000002],
+              "rotation": [-0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-4",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#bac9bf"
+            },
+            "transform": {
+              "position": [0,0.487,-0.10800000000000001],
+              "rotation": [0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-5",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#c6d3c8"
+            },
+            "transform": {
+              "position": [0,0.487,-0.07200000000000001],
+              "rotation": [-0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-6",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#bac9bf"
+            },
+            "transform": {
+              "position": [0,0.487,-0.03600000000000003],
+              "rotation": [0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-7",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#c6d3c8"
+            },
+            "transform": {
+              "position": [0,0.487,0],
+              "rotation": [-0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-8",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#bac9bf"
+            },
+            "transform": {
+              "position": [0,0.487,0.035999999999999976],
+              "rotation": [0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-9",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#c6d3c8"
+            },
+            "transform": {
+              "position": [0,0.487,0.07199999999999995],
+              "rotation": [-0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-10",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#bac9bf"
+            },
+            "transform": {
+              "position": [0,0.487,0.10799999999999998],
+              "rotation": [0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-11",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#c6d3c8"
+            },
+            "transform": {
+              "position": [0,0.487,0.14399999999999996],
+              "rotation": [-0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-12",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#bac9bf"
+            },
+            "transform": {
+              "position": [0,0.487,0.17999999999999994],
+              "rotation": [0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-13",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#c6d3c8"
+            },
+            "transform": {
+              "position": [0,0.487,0.21599999999999997],
+              "rotation": [-0.11,0,0]
+            }
+          },
+          {
+            "id": "fill-14",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.evaporative-fill-pack-sheet",
+            "geometry": {
+              "type": "box",
+              "size": [0.684,0.195,0.01]
+            },
+            "appearance": {
+              "color": "#bac9bf"
+            },
+            "transform": {
+              "position": [0,0.487,0.252],
+              "rotation": [0.11,0,0]
+            }
+          },
+          {
+            "id": "upper-cover",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.circular-fan-opening",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.693,0],
+                [0,0.723,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.34500000000000003,-0.321],
+                [-0.34500000000000003,-0.321],
+                [-0.394,-0.272],
+                [-0.394,0.272],
+                [-0.34500000000000003,0.321],
+                [0.34500000000000003,0.321],
+                [0.394,0.272],
+                [0.394,-0.272]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.245,0],
+                  [-0.24374298,0.02478624],
+                  [-0.23998484,0.04931814],
+                  [-0.23376412,0.07334397],
+                  [-0.22514466,0.09661718],
+                  [-0.21421492,0.11889898],
+                  [-0.20108704,0.13996071],
+                  [-0.18589574,0.15958626],
+                  [-0.1687969,0.17757423],
+                  [-0.14996597,0.19374006],
+                  [-0.12959618,0.20791784],
+                  [-0.10789657,0.21996211],
+                  [-0.08508979,0.22974927],
+                  [-0.06140987,0.23717889],
+                  [-0.03709981,0.24217474],
+                  [-0.01240905,0.24468554],
+                  [0.01240905,0.24468554],
+                  [0.03709981,0.24217474],
+                  [0.06140987,0.23717889],
+                  [0.08508979,0.22974927],
+                  [0.10789657,0.21996211],
+                  [0.12959618,0.20791784],
+                  [0.14996597,0.19374006],
+                  [0.1687969,0.17757423],
+                  [0.18589574,0.15958626],
+                  [0.20108704,0.13996071],
+                  [0.21421492,0.11889898],
+                  [0.22514466,0.09661718],
+                  [0.23376412,0.07334397],
+                  [0.23998484,0.04931814],
+                  [0.24374298,0.02478624],
+                  [0.245,0],
+                  [0.24374298,-0.02478624],
+                  [0.23998484,-0.04931814],
+                  [0.23376412,-0.07334397],
+                  [0.22514466,-0.09661718],
+                  [0.21421492,-0.11889898],
+                  [0.20108704,-0.13996071],
+                  [0.18589574,-0.15958626],
+                  [0.1687969,-0.17757423],
+                  [0.14996597,-0.19374006],
+                  [0.12959618,-0.20791784],
+                  [0.10789657,-0.21996211],
+                  [0.08508979,-0.22974927],
+                  [0.06140987,-0.23717889],
+                  [0.03709981,-0.24217474],
+                  [0.01240905,-0.24468554],
+                  [-0.01240905,-0.24468554],
+                  [-0.03709981,-0.24217474],
+                  [-0.06140987,-0.23717889],
+                  [-0.08508979,-0.22974927],
+                  [-0.10789657,-0.21996211],
+                  [-0.12959618,-0.20791784],
+                  [-0.14996597,-0.19374006],
+                  [-0.1687969,-0.17757423],
+                  [-0.18589574,-0.15958626],
+                  [-0.20108704,-0.13996071],
+                  [-0.21421492,-0.11889898],
+                  [-0.22514466,-0.09661718],
+                  [-0.23376412,-0.07334397],
+                  [-0.23998484,-0.04931814],
+                  [-0.24374298,-0.02478624]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#80b9c6"
+            }
+          },
+          {
+            "id": "fan-rim",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.actual-upper-vent-shroud",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.717,0],
+                [0,0.802,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.265,0],
+                [0.26372395,0.02597454],
+                [0.2599081,0.05169894],
+                [0.25358919,0.07692544],
+                [0.24482808,0.10141111],
+                [0.23370914,0.12492014],
+                [0.22033945,0.14722611],
+                [0.20484777,0.16811422],
+                [0.1873833,0.1873833],
+                [0.16811422,0.20484777],
+                [0.14722611,0.22033945],
+                [0.12492014,0.23370914],
+                [0.10141111,0.24482808],
+                [0.07692544,0.25358919],
+                [0.05169894,0.2599081],
+                [0.02597454,0.26372395],
+                [0,0.265],
+                [-0.02597454,0.26372395],
+                [-0.05169894,0.2599081],
+                [-0.07692544,0.25358919],
+                [-0.10141111,0.24482808],
+                [-0.12492014,0.23370914],
+                [-0.14722611,0.22033945],
+                [-0.16811422,0.20484777],
+                [-0.1873833,0.1873833],
+                [-0.20484777,0.16811422],
+                [-0.22033945,0.14722611],
+                [-0.23370914,0.12492014],
+                [-0.24482808,0.10141111],
+                [-0.25358919,0.07692544],
+                [-0.2599081,0.05169894],
+                [-0.26372395,0.02597454],
+                [-0.265,0],
+                [-0.26372395,-0.02597454],
+                [-0.2599081,-0.05169894],
+                [-0.25358919,-0.07692544],
+                [-0.24482808,-0.10141111],
+                [-0.23370914,-0.12492014],
+                [-0.22033945,-0.14722611],
+                [-0.20484777,-0.16811422],
+                [-0.1873833,-0.1873833],
+                [-0.16811422,-0.20484777],
+                [-0.14722611,-0.22033945],
+                [-0.12492014,-0.23370914],
+                [-0.10141111,-0.24482808],
+                [-0.07692544,-0.25358919],
+                [-0.05169894,-0.2599081],
+                [-0.02597454,-0.26372395],
+                [0,-0.265],
+                [0.02597454,-0.26372395],
+                [0.05169894,-0.2599081],
+                [0.07692544,-0.25358919],
+                [0.10141111,-0.24482808],
+                [0.12492014,-0.23370914],
+                [0.14722611,-0.22033945],
+                [0.16811422,-0.20484777],
+                [0.1873833,-0.1873833],
+                [0.20484777,-0.16811422],
+                [0.22033945,-0.14722611],
+                [0.23370914,-0.12492014],
+                [0.24482808,-0.10141111],
+                [0.25358919,-0.07692544],
+                [0.2599081,-0.05169894],
+                [0.26372395,-0.02597454]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.239,0],
+                  [0.23784915,0.0234261],
+                  [0.23440768,0.04662659],
+                  [0.22870874,0.06937804],
+                  [0.22080721,0.09146134],
+                  [0.21077918,0.11266382],
+                  [0.19872124,0.13278129],
+                  [0.1847495,0.15161999],
+                  [0.16899852,0.16899852],
+                  [0.15161999,0.1847495],
+                  [0.13278129,0.19872124],
+                  [0.11266382,0.21077918],
+                  [0.09146134,0.22080721],
+                  [0.06937804,0.22870874],
+                  [0.04662659,0.23440768],
+                  [0.0234261,0.23784915],
+                  [0,0.239],
+                  [-0.0234261,0.23784915],
+                  [-0.04662659,0.23440768],
+                  [-0.06937804,0.22870874],
+                  [-0.09146134,0.22080721],
+                  [-0.11266382,0.21077918],
+                  [-0.13278129,0.19872124],
+                  [-0.15161999,0.1847495],
+                  [-0.16899852,0.16899852],
+                  [-0.1847495,0.15161999],
+                  [-0.19872124,0.13278129],
+                  [-0.21077918,0.11266382],
+                  [-0.22080721,0.09146134],
+                  [-0.22870874,0.06937804],
+                  [-0.23440768,0.04662659],
+                  [-0.23784915,0.0234261],
+                  [-0.239,0],
+                  [-0.23784915,-0.0234261],
+                  [-0.23440768,-0.04662659],
+                  [-0.22870874,-0.06937804],
+                  [-0.22080721,-0.09146134],
+                  [-0.21077918,-0.11266382],
+                  [-0.19872124,-0.13278129],
+                  [-0.1847495,-0.15161999],
+                  [-0.16899852,-0.16899852],
+                  [-0.15161999,-0.1847495],
+                  [-0.13278129,-0.19872124],
+                  [-0.11266382,-0.21077918],
+                  [-0.09146134,-0.22080721],
+                  [-0.06937804,-0.22870874],
+                  [-0.04662659,-0.23440768],
+                  [-0.0234261,-0.23784915],
+                  [0,-0.239],
+                  [0.0234261,-0.23784915],
+                  [0.04662659,-0.23440768],
+                  [0.06937804,-0.22870874],
+                  [0.09146134,-0.22080721],
+                  [0.11266382,-0.21077918],
+                  [0.13278129,-0.19872124],
+                  [0.15161999,-0.1847495],
+                  [0.16899852,-0.16899852],
+                  [0.1847495,-0.15161999],
+                  [0.19872124,-0.13278129],
+                  [0.21077918,-0.11266382],
+                  [0.22080721,-0.09146134],
+                  [0.22870874,-0.06937804],
+                  [0.23440768,-0.04662659],
+                  [0.23784915,-0.0234261]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          },
+          {
+            "id": "fan",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.frame",
+            "transform": {
+              "position": [0,0.751,0]
+            }
+          },
+          {
+            "id": "draft-blade-0",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.frame",
+            "parent": "fan",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "draft-foil-0",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.curved-axial-fan-blade",
+            "parent": "draft-blade-0",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.009,0],
+                [0,0.009,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.02,-0.015],
+                [-0.06,-0.02],
+                [-0.19173,-0.014],
+                [-0.231,0.024],
+                [-0.20097,0.049],
+                [-0.13166999999999998,0.034],
+                [-0.023,0.017]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            }
+          },
+          {
+            "id": "draft-blade-1",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.frame",
+            "parent": "fan",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,1.2566370614359172,0]
+            }
+          },
+          {
+            "id": "draft-foil-1",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.curved-axial-fan-blade",
+            "parent": "draft-blade-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.009,0],
+                [0,0.009,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.02,-0.015],
+                [-0.06,-0.02],
+                [-0.19173,-0.014],
+                [-0.231,0.024],
+                [-0.20097,0.049],
+                [-0.13166999999999998,0.034],
+                [-0.023,0.017]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            }
+          },
+          {
+            "id": "draft-blade-2",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.frame",
+            "parent": "fan",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,2.5132741228718345,0]
+            }
+          },
+          {
+            "id": "draft-foil-2",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.curved-axial-fan-blade",
+            "parent": "draft-blade-2",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.009,0],
+                [0,0.009,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.02,-0.015],
+                [-0.06,-0.02],
+                [-0.19173,-0.014],
+                [-0.231,0.024],
+                [-0.20097,0.049],
+                [-0.13166999999999998,0.034],
+                [-0.023,0.017]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            }
+          },
+          {
+            "id": "draft-blade-3",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.frame",
+            "parent": "fan",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,3.7699111843077517,0]
+            }
+          },
+          {
+            "id": "draft-foil-3",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.curved-axial-fan-blade",
+            "parent": "draft-blade-3",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.009,0],
+                [0,0.009,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.02,-0.015],
+                [-0.06,-0.02],
+                [-0.19173,-0.014],
+                [-0.231,0.024],
+                [-0.20097,0.049],
+                [-0.13166999999999998,0.034],
+                [-0.023,0.017]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            }
+          },
+          {
+            "id": "draft-blade-4",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.frame",
+            "parent": "fan",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,5.026548245743669,0]
+            }
+          },
+          {
+            "id": "draft-foil-4",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.curved-axial-fan-blade",
+            "parent": "draft-blade-4",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.009,0],
+                [0,0.009,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.02,-0.015],
+                [-0.06,-0.02],
+                [-0.19173,-0.014],
+                [-0.231,0.024],
+                [-0.20097,0.049],
+                [-0.13166999999999998,0.034],
+                [-0.023,0.017]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            }
+          },
+          {
+            "id": "drive",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.axial-fan-drive-hub",
+            "parent": "fan",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.012,0],
+                [0,0.058,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.054,0],
+                [0.05339686,0.00804828],
+                [0.05160093,0.01591678],
+                [0.04865232,0.02342972],
+                [0.04461689,0.03041928],
+                [0.0395848,0.03672933],
+                [0.03366845,0.0422189],
+                [0.027,0.04676537],
+                [0.01972842,0.05026718],
+                [0.01201613,0.05264611],
+                [0.00403543,0.05384901],
+                [-0.00403543,0.05384901],
+                [-0.01201613,0.05264611],
+                [-0.01972842,0.05026718],
+                [-0.027,0.04676537],
+                [-0.03366845,0.0422189],
+                [-0.0395848,0.03672933],
+                [-0.04461689,0.03041928],
+                [-0.04865232,0.02342972],
+                [-0.05160093,0.01591678],
+                [-0.05339686,0.00804828],
+                [-0.054,0],
+                [-0.05339686,-0.00804828],
+                [-0.05160093,-0.01591678],
+                [-0.04865232,-0.02342972],
+                [-0.04461689,-0.03041928],
+                [-0.0395848,-0.03672933],
+                [-0.03366845,-0.0422189],
+                [-0.027,-0.04676537],
+                [-0.01972842,-0.05026718],
+                [-0.01201613,-0.05264611],
+                [-0.00403543,-0.05384901],
+                [0.00403543,-0.05384901],
+                [0.01201613,-0.05264611],
+                [0.01972842,-0.05026718],
+                [0.027,-0.04676537],
+                [0.03366845,-0.0422189],
+                [0.0395848,-0.03672933],
+                [0.04461689,-0.03041928],
+                [0.04865232,-0.02342972],
+                [0.05160093,-0.01591678],
+                [0.05339686,-0.00804828]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.016,0],
+                  [0.01582129,0.00238468],
+                  [0.01528916,0.00471608],
+                  [0.0144155,0.00694214],
+                  [0.01321982,0.00901312],
+                  [0.01172883,0.01088276],
+                  [0.00997584,0.0125093],
+                  [0.008,0.01385641],
+                  [0.00584546,0.01489398],
+                  [0.00356033,0.01559885],
+                  [0.00119568,0.01595526],
+                  [-0.00119568,0.01595526],
+                  [-0.00356033,0.01559885],
+                  [-0.00584546,0.01489398],
+                  [-0.008,0.01385641],
+                  [-0.00997584,0.0125093],
+                  [-0.01172883,0.01088276],
+                  [-0.01321982,0.00901312],
+                  [-0.0144155,0.00694214],
+                  [-0.01528916,0.00471608],
+                  [-0.01582129,0.00238468],
+                  [-0.016,0],
+                  [-0.01582129,-0.00238468],
+                  [-0.01528916,-0.00471608],
+                  [-0.0144155,-0.00694214],
+                  [-0.01321982,-0.00901312],
+                  [-0.01172883,-0.01088276],
+                  [-0.00997584,-0.0125093],
+                  [-0.008,-0.01385641],
+                  [-0.00584546,-0.01489398],
+                  [-0.00356033,-0.01559885],
+                  [-0.00119568,-0.01595526],
+                  [0.00119568,-0.01595526],
+                  [0.00356033,-0.01559885],
+                  [0.00584546,-0.01489398],
+                  [0.008,-0.01385641],
+                  [0.00997584,-0.0125093],
+                  [0.01172883,-0.01088276],
+                  [0.01321982,-0.00901312],
+                  [0.0144155,-0.00694214],
+                  [0.01528916,-0.00471608],
+                  [0.01582129,-0.00238468]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#80b9c6"
+            }
+          },
+          {
+            "id": "basin-outlet-axis",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.frame",
+            "transform": {
+              "position": [0,-0.01,0]
+            }
+          },
+          {
+            "id": "basin-outlet",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.hollow-flanged-port",
+            "parent": "basin-outlet-axis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.04,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.065,0],
+                [0.064274,0.00968775],
+                [0.06211223,0.01915909],
+                [0.05856298,0.02820244],
+                [0.05370552,0.0366158],
+                [0.04764837,0.04421123],
+                [0.04052684,0.05081905],
+                [0.0325,0.05629165],
+                [0.02374717,0.06050679],
+                [0.01446386,0.06337031],
+                [0.00485746,0.06481825],
+                [-0.00485746,0.06481825],
+                [-0.01446386,0.06337031],
+                [-0.02374717,0.06050679],
+                [-0.0325,0.05629165],
+                [-0.04052684,0.05081905],
+                [-0.04764837,0.04421123],
+                [-0.05370552,0.0366158],
+                [-0.05856298,0.02820244],
+                [-0.06211223,0.01915909],
+                [-0.064274,0.00968775],
+                [-0.065,0],
+                [-0.064274,-0.00968775],
+                [-0.06211223,-0.01915909],
+                [-0.05856298,-0.02820244],
+                [-0.05370552,-0.0366158],
+                [-0.04764837,-0.04421123],
+                [-0.04052684,-0.05081905],
+                [-0.0325,-0.05629165],
+                [-0.02374717,-0.06050679],
+                [-0.01446386,-0.06337031],
+                [-0.00485746,-0.06481825],
+                [0.00485746,-0.06481825],
+                [0.01446386,-0.06337031],
+                [0.02374717,-0.06050679],
+                [0.0325,-0.05629165],
+                [0.04052684,-0.05081905],
+                [0.04764837,-0.04421123],
+                [0.05370552,-0.0366158],
+                [0.05856298,-0.02820244],
+                [0.06211223,-0.01915909],
+                [0.064274,-0.00968775]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.029,0],
+                  [0.02867609,0.00432223],
+                  [0.02771161,0.0085479],
+                  [0.0261281,0.01258263],
+                  [0.02396092,0.01633628],
+                  [0.0212585,0.01972501],
+                  [0.0180812,0.02267311],
+                  [0.0145,0.02511474],
+                  [0.01059489,0.02699534],
+                  [0.00645311,0.02827291],
+                  [0.00216717,0.02891891],
+                  [-0.00216717,0.02891891],
+                  [-0.00645311,0.02827291],
+                  [-0.01059489,0.02699534],
+                  [-0.0145,0.02511474],
+                  [-0.0180812,0.02267311],
+                  [-0.0212585,0.01972501],
+                  [-0.02396092,0.01633628],
+                  [-0.0261281,0.01258263],
+                  [-0.02771161,0.0085479],
+                  [-0.02867609,0.00432223],
+                  [-0.029,0],
+                  [-0.02867609,-0.00432223],
+                  [-0.02771161,-0.0085479],
+                  [-0.0261281,-0.01258263],
+                  [-0.02396092,-0.01633628],
+                  [-0.0212585,-0.01972501],
+                  [-0.0180812,-0.02267311],
+                  [-0.0145,-0.02511474],
+                  [-0.01059489,-0.02699534],
+                  [-0.00645311,-0.02827291],
+                  [-0.00216717,-0.02891891],
+                  [0.00216717,-0.02891891],
+                  [0.00645311,-0.02827291],
+                  [0.01059489,-0.02699534],
+                  [0.0145,-0.02511474],
+                  [0.0180812,-0.02267311],
+                  [0.0212585,-0.01972501],
+                  [0.02396092,-0.01633628],
+                  [0.0261281,-0.01258263],
+                  [0.02771161,-0.0085479],
+                  [0.02867609,-0.00432223]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bfd3dc"
+            }
+          },
+          {
+            "id": "hot-water-in-axis",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.frame",
+            "transform": {
+              "position": [0,0.633,0]
+            }
+          },
+          {
+            "id": "hot-water-in",
+            "semanticType": "mep.induced-draft-cooling-tower-with-open-louver-basin.hollow-flanged-port",
+            "parent": "hot-water-in-axis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.381],
+                [0,0,-0.297]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.057,0],
+                [0.05636336,0.00849541],
+                [0.05446765,0.01680104],
+                [0.05135523,0.02473137],
+                [0.04709561,0.03210924],
+                [0.04178396,0.03876985],
+                [0.03553892,0.04456439],
+                [0.0285,0.04936345],
+                [0.02082444,0.0530598],
+                [0.01268369,0.05557089],
+                [0.00425962,0.05684062],
+                [-0.00425962,0.05684062],
+                [-0.01268369,0.05557089],
+                [-0.02082444,0.0530598],
+                [-0.0285,0.04936345],
+                [-0.03553892,0.04456439],
+                [-0.04178396,0.03876985],
+                [-0.04709561,0.03210924],
+                [-0.05135523,0.02473137],
+                [-0.05446765,0.01680104],
+                [-0.05636336,0.00849541],
+                [-0.057,0],
+                [-0.05636336,-0.00849541],
+                [-0.05446765,-0.01680104],
+                [-0.05135523,-0.02473137],
+                [-0.04709561,-0.03210924],
+                [-0.04178396,-0.03876985],
+                [-0.03553892,-0.04456439],
+                [-0.0285,-0.04936345],
+                [-0.02082444,-0.0530598],
+                [-0.01268369,-0.05557089],
+                [-0.00425962,-0.05684062],
+                [0.00425962,-0.05684062],
+                [0.01268369,-0.05557089],
+                [0.02082444,-0.0530598],
+                [0.0285,-0.04936345],
+                [0.03553892,-0.04456439],
+                [0.04178396,-0.03876985],
+                [0.04709561,-0.03210924],
+                [0.05135523,-0.02473137],
+                [0.05446765,-0.01680104],
+                [0.05636336,-0.00849541]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.026,0],
+                  [0.0257096,0.0038751],
+                  [0.02484489,0.00766363],
+                  [0.02342519,0.01128098],
+                  [0.02148221,0.01464632],
+                  [0.01905935,0.01768449],
+                  [0.01621073,0.02032762],
+                  [0.013,0.02251666],
+                  [0.00949887,0.02420272],
+                  [0.00578554,0.02534813],
+                  [0.00194298,0.0259273],
+                  [-0.00194298,0.0259273],
+                  [-0.00578554,0.02534813],
+                  [-0.00949887,0.02420272],
+                  [-0.013,0.02251666],
+                  [-0.01621073,0.02032762],
+                  [-0.01905935,0.01768449],
+                  [-0.02148221,0.01464632],
+                  [-0.02342519,0.01128098],
+                  [-0.02484489,0.00766363],
+                  [-0.0257096,0.0038751],
+                  [-0.026,0],
+                  [-0.0257096,-0.0038751],
+                  [-0.02484489,-0.00766363],
+                  [-0.02342519,-0.01128098],
+                  [-0.02148221,-0.01464632],
+                  [-0.01905935,-0.01768449],
+                  [-0.01621073,-0.02032762],
+                  [-0.013,-0.02251666],
+                  [-0.00949887,-0.02420272],
+                  [-0.00578554,-0.02534813],
+                  [-0.00194298,-0.0259273],
+                  [0.00194298,-0.0259273],
+                  [0.00578554,-0.02534813],
+                  [0.00949887,-0.02420272],
+                  [0.013,-0.02251666],
+                  [0.01621073,-0.02032762],
+                  [0.01905935,-0.01768449],
+                  [0.02148221,-0.01464632],
+                  [0.02342519,-0.01128098],
+                  [0.02484489,-0.00766363],
+                  [0.0257096,-0.0038751]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          }
+        ],
+        "anchors": {
+          "air-exhaust": {
+            "node": "fan-rim",
+            "position": [0,0.802,0],
+            "direction": [0,1,0],
+            "kind": "air-port"
+          },
+          "water-in": {
+            "node": "hot-water-in-axis",
+            "position": [0,0,-0.381],
+            "direction": [0,0,-1],
+            "kind": "fluid-port"
+          },
+          "water-out": {
+            "node": "basin-outlet-axis",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "fluid-port"
+          },
+          "mount": {
+            "node": "basin-floor",
+            "position": [0,0.012,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "fan-angle",
+            "label": "引风扇角位置",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 360,
+            "targets": [
+              {
+                "node": "fan",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,482 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.dual-probe-concrete-surface-moisture-meter",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双探针地坪含水检测仪",
+  "summary": "带软包仪表、可移动防护罩、双接触探针、正面读数窗和独立采样基准。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "地坪含水率",
+    "水分仪",
+    "moisture-meter",
+    "dual-probe",
+    "地坪检测",
+    "instrument"
+  ],
+  "anchors": [
+    "electrode--1",
+    "electrode-1",
+    "reporting-face",
+    "sample-plane"
+  ],
+  "ai": {
+    "intent": "在地坪施工、验收或教学生成中调用独立含水检测仪，定位接触电极和读数位置。",
+    "editableParts": [
+      "cap-removal"
+    ],
+    "qualityChecks": [
+      "保护盖拔下后两个电极位置不变。",
+      "仪表正面与采样平面独立。",
+      "两个探针具有各自的接触锚点。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "dual-probe-concrete-surface-moisture-meter",
+      "title": "双探针地坪含水检测仪",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "body",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.meter-housing",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.086,0],
+                [0,0.097,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.046,-0.032],
+                [-0.046,-0.032],
+                [-0.059,-0.019000000000000003],
+                [-0.059,0.019000000000000003],
+                [-0.046,0.032],
+                [0.046,0.032],
+                [0.059,0.019000000000000003],
+                [0.059,-0.019000000000000003]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#5ba1aa"
+            }
+          },
+          {
+            "id": "faceplate",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.control-faceplate",
+            "geometry": {
+              "type": "box",
+              "size": [0.101,0.143,0.009]
+            },
+            "appearance": {
+              "color": "#59666c"
+            },
+            "transform": {
+              "position": [0,0.007,0.031]
+            }
+          },
+          {
+            "id": "display",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.lcd-window",
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.056,0.004]
+            },
+            "appearance": {
+              "color": "#8eb0a0"
+            },
+            "transform": {
+              "position": [0,0.041,0.038]
+            }
+          },
+          {
+            "id": "button-0",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.operator-button",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.019,0.007]
+            },
+            "appearance": {
+              "color": "#6c858e"
+            },
+            "transform": {
+              "position": [-0.033,-0.031,0.039]
+            }
+          },
+          {
+            "id": "button-1",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.operator-button",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.019,0.007]
+            },
+            "appearance": {
+              "color": "#dda74b"
+            },
+            "transform": {
+              "position": [0,-0.031,0.039]
+            }
+          },
+          {
+            "id": "button-2",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.operator-button",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.019,0.007]
+            },
+            "appearance": {
+              "color": "#6c858e"
+            },
+            "transform": {
+              "position": [0.033,-0.031,0.039]
+            }
+          },
+          {
+            "id": "cap",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.frame",
+            "transform": {
+              "position": [0,-0.091,0]
+            }
+          },
+          {
+            "id": "probe-cap",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.probe-protection-cap",
+            "parent": "cap",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.041,0],
+                [0,-0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.048,-0.034],
+                [-0.048,-0.034],
+                [-0.06,-0.022000000000000002],
+                [-0.06,0.022000000000000002],
+                [-0.048,0.034],
+                [0.048,0.034],
+                [0.06,0.022000000000000002],
+                [0.06,-0.022000000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.042,-0.022],
+                  [-0.042,-0.022],
+                  [-0.05,-0.013999999999999999],
+                  [-0.05,0.013999999999999999],
+                  [-0.042,0.022],
+                  [0.042,0.022],
+                  [0.05,0.013999999999999999],
+                  [0.05,-0.013999999999999999]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#2c3940"
+            }
+          },
+          {
+            "id": "cap-end",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.probe-guard-endplate",
+            "parent": "cap",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.044,0],
+                [0,-0.037,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.047,-0.033],
+                [-0.047,-0.033],
+                [-0.059,-0.021],
+                [-0.059,0.021],
+                [-0.047,0.033],
+                [0.047,0.033],
+                [0.059,0.021],
+                [0.059,-0.021]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#5c7781"
+            }
+          },
+          {
+            "id": "probe--1",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.frame",
+            "transform": {
+              "position": [-0.025,-0.085,0]
+            }
+          },
+          {
+            "id": "probe-bushing--1",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.probe-stem-bushing",
+            "parent": "probe--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.009,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.009,0],
+                [0.00869333,0.00232937],
+                [0.00779423,0.0045],
+                [0.00636396,0.00636396],
+                [0.0045,0.00779423],
+                [0.00232937,0.00869333],
+                [0,0.009],
+                [-0.00232937,0.00869333],
+                [-0.0045,0.00779423],
+                [-0.00636396,0.00636396],
+                [-0.00779423,0.0045],
+                [-0.00869333,0.00232937],
+                [-0.009,0],
+                [-0.00869333,-0.00232937],
+                [-0.00779423,-0.0045],
+                [-0.00636396,-0.00636396],
+                [-0.0045,-0.00779423],
+                [-0.00232937,-0.00869333],
+                [0,-0.009],
+                [0.00232937,-0.00869333],
+                [0.0045,-0.00779423],
+                [0.00636396,-0.00636396],
+                [0.00779423,-0.0045],
+                [0.00869333,-0.00232937]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0035,0],
+                  [0.00338074,0.00090587],
+                  [0.00303109,0.00175],
+                  [0.00247487,0.00247487],
+                  [0.00175,0.00303109],
+                  [0.00090587,0.00338074],
+                  [0,0.0035],
+                  [-0.00090587,0.00338074],
+                  [-0.00175,0.00303109],
+                  [-0.00247487,0.00247487],
+                  [-0.00303109,0.00175],
+                  [-0.00338074,0.00090587],
+                  [-0.0035,0],
+                  [-0.00338074,-0.00090587],
+                  [-0.00303109,-0.00175],
+                  [-0.00247487,-0.00247487],
+                  [-0.00175,-0.00303109],
+                  [-0.00090587,-0.00338074],
+                  [0,-0.0035],
+                  [0.00090587,-0.00338074],
+                  [0.00175,-0.00303109],
+                  [0.00247487,-0.00247487],
+                  [0.00303109,-0.00175],
+                  [0.00338074,-0.00090587]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5c7781"
+            }
+          },
+          {
+            "id": "needle--1",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.meter-electrode",
+            "parent": "probe--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.014,0],
+              "end": [0,-0.03,0],
+              "radius": 0.0035,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#abbec8"
+            }
+          },
+          {
+            "id": "electrode-tip--1",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.needle-tip",
+            "parent": "probe--1",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,-0.029,0],
+              "end": [0,-0.039,0],
+              "startRadius": 0.0035,
+              "endRadius": 0.0009,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#abbec8"
+            }
+          },
+          {
+            "id": "probe-1",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.frame",
+            "transform": {
+              "position": [0.025,-0.085,0]
+            }
+          },
+          {
+            "id": "probe-bushing-1",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.probe-stem-bushing",
+            "parent": "probe-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.009,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.009,0],
+                [0.00869333,0.00232937],
+                [0.00779423,0.0045],
+                [0.00636396,0.00636396],
+                [0.0045,0.00779423],
+                [0.00232937,0.00869333],
+                [0,0.009],
+                [-0.00232937,0.00869333],
+                [-0.0045,0.00779423],
+                [-0.00636396,0.00636396],
+                [-0.00779423,0.0045],
+                [-0.00869333,0.00232937],
+                [-0.009,0],
+                [-0.00869333,-0.00232937],
+                [-0.00779423,-0.0045],
+                [-0.00636396,-0.00636396],
+                [-0.0045,-0.00779423],
+                [-0.00232937,-0.00869333],
+                [0,-0.009],
+                [0.00232937,-0.00869333],
+                [0.0045,-0.00779423],
+                [0.00636396,-0.00636396],
+                [0.00779423,-0.0045],
+                [0.00869333,-0.00232937]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0035,0],
+                  [0.00338074,0.00090587],
+                  [0.00303109,0.00175],
+                  [0.00247487,0.00247487],
+                  [0.00175,0.00303109],
+                  [0.00090587,0.00338074],
+                  [0,0.0035],
+                  [-0.00090587,0.00338074],
+                  [-0.00175,0.00303109],
+                  [-0.00247487,0.00247487],
+                  [-0.00303109,0.00175],
+                  [-0.00338074,0.00090587],
+                  [-0.0035,0],
+                  [-0.00338074,-0.00090587],
+                  [-0.00303109,-0.00175],
+                  [-0.00247487,-0.00247487],
+                  [-0.00175,-0.00303109],
+                  [-0.00090587,-0.00338074],
+                  [0,-0.0035],
+                  [0.00090587,-0.00338074],
+                  [0.00175,-0.00303109],
+                  [0.00247487,-0.00247487],
+                  [0.00303109,-0.00175],
+                  [0.00338074,-0.00090587]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5c7781"
+            }
+          },
+          {
+            "id": "needle-1",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.meter-electrode",
+            "parent": "probe-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.014,0],
+              "end": [0,-0.03,0],
+              "radius": 0.0035,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#abbec8"
+            }
+          },
+          {
+            "id": "electrode-tip-1",
+            "semanticType": "instrument.dual-probe-concrete-surface-moisture-meter.needle-tip",
+            "parent": "probe-1",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,-0.029,0],
+              "end": [0,-0.039,0],
+              "startRadius": 0.0035,
+              "endRadius": 0.0009,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#abbec8"
+            }
+          }
+        ],
+        "anchors": {
+          "electrode--1": {
+            "node": "probe--1",
+            "position": [0,-0.039,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "electrode-1": {
+            "node": "probe-1",
+            "position": [0,-0.039,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "reporting-face": {
+            "node": "display",
+            "position": [0,0,0.002],
+            "direction": [0,0,1],
+            "kind": "readout"
+          },
+          "sample-plane": {
+            "node": "body",
+            "position": [0,-0.124,0],
+            "direction": [0,-1,0],
+            "kind": "reference"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "cap-removal",
+            "label": "探针盖拔出",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.076,
+            "targets": [
+              {
+                "node": "cap",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

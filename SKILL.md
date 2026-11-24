@@ -1,11 +1,11 @@
 ---
 name: agentscene-builder
-description: Build and inspect renderer-neutral parametric digital models for AI-authored 3D, engineering, teaching, and equipment scenes. Use when Codex needs CompositionSpec modeling, reusable geometry composition, dimensions and quantities, paths, spatial repetition, alignment proposals, attachment checks, semantic components, open model-library entries, CLI-based validation, or optional renderer/file-format adaptation.
+description: Give LLM-powered Agents structured tools to find, build, inspect, and validate renderer-neutral 3D models. Use when Codex needs CompositionSpec, reusable geometry, semantic components, dimensions, paths, repetition, alignment, attachments, or machine-readable CLI diagnostics for engineering, teaching, and equipment scenes.
 ---
 
 # AgentSceneBuilder
 
-Use this skill as a renderer-neutral digital modeling and spatial-method kernel. Do not treat it as a fixed courseware template, a Three.js workflow, a GLB/GLTF library, or a long-running local service.
+Use this Skill and the local CLI to turn task intent into editable digital models. Search the registry for reusable objects, compose them in CompositionSpec, and use deterministic JSON results to verify and revise the model.
 
 ## Core rules
 
@@ -39,16 +39,16 @@ Use this skill as a renderer-neutral digital modeling and spatial-method kernel.
 ## Primary workflow
 
 1. Identify the intended object or space, dimensions, units, relationships, delivery target, and constraints.
-2. Search the model library or component registry before inventing a new structure.
+2. Use `registry search` to find reusable components and standalone objects before assembling a task-specific scene.
 3. Read each candidate registry entry's generated `agent` context first: `intent`, `useWhen`, `avoidWhen`, `editableParts`, `qualityChecks`, and `structure`.
 4. Express editable results as data-only `core.composition` / CompositionSpec when possible.
 5. Use the CLI for deterministic build, query, path, spatial, alignment, and distribution work.
 6. Treat candidates and proposals as advisory. Inspect facts and changes before selecting or applying them.
-7. Use the static Web editor/library when a person needs to view, copy, or lightly edit the result.
+7. When a task calls for visual review or manual adjustments, open the same model in the static browser library or editor.
 
 ## CLI contract
 
-All Agent-facing CLI commands write one JSON object to stdout. A failed command returns `{ "ok": false, "error": ... }` and exits nonzero.
+Agent-facing CLI commands write one JSON object to stdout. Failures return `ok: false` and exit 2. Validation commands report issues in `issues`; other execution failures generally report an `error` object.
 
 Prefer the package CLI:
 

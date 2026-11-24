@@ -1,0 +1,889 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.removable-slot-in-doorway-flood-barrier",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "插槽式门洞防水挡板组件",
+  "summary": "金属门槽、可独立拆移挡板、两夹紧螺杆和实心压条密封构成的低位门洞防水组件。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.removable-slot-in-doorway-flood-barrier",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "门洞挡水板",
+    "防水挡板",
+    "flood-barrier",
+    "removable-threshold",
+    "建筑构件",
+    "building"
+  ],
+  "anchors": [
+    "threshold",
+    "barrier-base",
+    "left-wall",
+    "right-wall"
+  ],
+  "ai": {
+    "intent": "独立组合门洞挡水构件，定位门洞两侧槽口、地面和可抬出挡板。",
+    "editableParts": [
+      "panel-removal",
+      "seal-clamp"
+    ],
+    "qualityChecks": [
+      "两侧导槽和门槛保持固定。",
+      "压头位移独立于挡板。",
+      "挡板具有底部和侧边密封构件。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "removable-slot-in-doorway-flood-barrier",
+      "title": "插槽式门洞防水挡板组件",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "jamb--1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.frame",
+            "transform": {
+              "position": [-0.638,0,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "jamb-channel--1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.sill-post-channel",
+            "parent": "jamb--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.69,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.051,-0.039],
+                [-0.048,-0.039],
+                [-0.048,0.032],
+                [-0.031,0.032],
+                [-0.031,-0.019],
+                [0.033,-0.019],
+                [0.033,0.032],
+                [0.051,0.032]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7b909a"
+            }
+          },
+          {
+            "id": "mount-shoe--1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.jamb-foot-plate",
+            "parent": "jamb--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.015,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.053000000000000005,-0.058],
+                [-0.053000000000000005,-0.058],
+                [-0.064,-0.047],
+                [-0.064,0.047],
+                [-0.053000000000000005,0.058],
+                [0.053000000000000005,0.058],
+                [0.064,0.047],
+                [0.064,-0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0405,-0.037],
+                  [0.04072279,-0.03545047],
+                  [0.04137311,-0.03402648],
+                  [0.04239827,-0.03284338],
+                  [0.04371522,-0.03199702],
+                  [0.04521727,-0.03155598],
+                  [0.04678273,-0.03155598],
+                  [0.04828478,-0.03199702],
+                  [0.04960173,-0.03284338],
+                  [0.05062689,-0.03402648],
+                  [0.05127721,-0.03545047],
+                  [0.0515,-0.037],
+                  [0.05127721,-0.03854953],
+                  [0.05062689,-0.03997352],
+                  [0.04960173,-0.04115662],
+                  [0.04828478,-0.04200298],
+                  [0.04678273,-0.04244402],
+                  [0.04521727,-0.04244402],
+                  [0.04371522,-0.04200298],
+                  [0.04239827,-0.04115662],
+                  [0.04137311,-0.03997352],
+                  [0.04072279,-0.03854953]
+                ],
+                [
+                  [0.0405,0.037],
+                  [0.04072279,0.03854953],
+                  [0.04137311,0.03997352],
+                  [0.04239827,0.04115662],
+                  [0.04371522,0.04200298],
+                  [0.04521727,0.04244402],
+                  [0.04678273,0.04244402],
+                  [0.04828478,0.04200298],
+                  [0.04960173,0.04115662],
+                  [0.05062689,0.03997352],
+                  [0.05127721,0.03854953],
+                  [0.0515,0.037],
+                  [0.05127721,0.03545047],
+                  [0.05062689,0.03402648],
+                  [0.04960173,0.03284338],
+                  [0.04828478,0.03199702],
+                  [0.04678273,0.03155598],
+                  [0.04521727,0.03155598],
+                  [0.04371522,0.03199702],
+                  [0.04239827,0.03284338],
+                  [0.04137311,0.03402648],
+                  [0.04072279,0.03545047]
+                ],
+                [
+                  [-0.0515,-0.037],
+                  [-0.05127721,-0.03545047],
+                  [-0.05062689,-0.03402648],
+                  [-0.04960173,-0.03284338],
+                  [-0.04828478,-0.03199702],
+                  [-0.04678273,-0.03155598],
+                  [-0.04521727,-0.03155598],
+                  [-0.04371522,-0.03199702],
+                  [-0.04239827,-0.03284338],
+                  [-0.04137311,-0.03402648],
+                  [-0.04072279,-0.03545047],
+                  [-0.0405,-0.037],
+                  [-0.04072279,-0.03854953],
+                  [-0.04137311,-0.03997352],
+                  [-0.04239827,-0.04115662],
+                  [-0.04371522,-0.04200298],
+                  [-0.04521727,-0.04244402],
+                  [-0.04678273,-0.04244402],
+                  [-0.04828478,-0.04200298],
+                  [-0.04960173,-0.04115662],
+                  [-0.05062689,-0.03997352],
+                  [-0.05127721,-0.03854953]
+                ],
+                [
+                  [-0.0515,0.037],
+                  [-0.05127721,0.03854953],
+                  [-0.05062689,0.03997352],
+                  [-0.04960173,0.04115662],
+                  [-0.04828478,0.04200298],
+                  [-0.04678273,0.04244402],
+                  [-0.04521727,0.04244402],
+                  [-0.04371522,0.04200298],
+                  [-0.04239827,0.04115662],
+                  [-0.04137311,0.03997352],
+                  [-0.04072279,0.03854953],
+                  [-0.0405,0.037],
+                  [-0.04072279,0.03545047],
+                  [-0.04137311,0.03402648],
+                  [-0.04239827,0.03284338],
+                  [-0.04371522,0.03199702],
+                  [-0.04521727,0.03155598],
+                  [-0.04678273,0.03155598],
+                  [-0.04828478,0.03199702],
+                  [-0.04960173,0.03284338],
+                  [-0.05062689,0.03402648],
+                  [-0.05127721,0.03545047]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "jamb-fixing--1-0",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.side-fastener",
+            "parent": "jamb--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.121,-0.035],
+              "end": [0,0.121,-0.051],
+              "radius": 0.0072,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "jamb-fixing--1-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.side-fastener",
+            "parent": "jamb--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.313,-0.035],
+              "end": [0,0.313,-0.051],
+              "radius": 0.0072,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "jamb-fixing--1-2",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.side-fastener",
+            "parent": "jamb--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.505,-0.035],
+              "end": [0,0.505,-0.051],
+              "radius": 0.0072,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "jamb-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.frame",
+            "transform": {
+              "position": [0.638,0,0],
+              "rotation": [0,-1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "jamb-channel-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.sill-post-channel",
+            "parent": "jamb-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.69,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.051,-0.039],
+                [-0.048,-0.039],
+                [-0.048,0.032],
+                [-0.031,0.032],
+                [-0.031,-0.019],
+                [0.033,-0.019],
+                [0.033,0.032],
+                [0.051,0.032]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7b909a"
+            }
+          },
+          {
+            "id": "mount-shoe-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.jamb-foot-plate",
+            "parent": "jamb-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.015,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.053000000000000005,-0.058],
+                [-0.053000000000000005,-0.058],
+                [-0.064,-0.047],
+                [-0.064,0.047],
+                [-0.053000000000000005,0.058],
+                [0.053000000000000005,0.058],
+                [0.064,0.047],
+                [0.064,-0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0405,-0.037],
+                  [0.04072279,-0.03545047],
+                  [0.04137311,-0.03402648],
+                  [0.04239827,-0.03284338],
+                  [0.04371522,-0.03199702],
+                  [0.04521727,-0.03155598],
+                  [0.04678273,-0.03155598],
+                  [0.04828478,-0.03199702],
+                  [0.04960173,-0.03284338],
+                  [0.05062689,-0.03402648],
+                  [0.05127721,-0.03545047],
+                  [0.0515,-0.037],
+                  [0.05127721,-0.03854953],
+                  [0.05062689,-0.03997352],
+                  [0.04960173,-0.04115662],
+                  [0.04828478,-0.04200298],
+                  [0.04678273,-0.04244402],
+                  [0.04521727,-0.04244402],
+                  [0.04371522,-0.04200298],
+                  [0.04239827,-0.04115662],
+                  [0.04137311,-0.03997352],
+                  [0.04072279,-0.03854953]
+                ],
+                [
+                  [0.0405,0.037],
+                  [0.04072279,0.03854953],
+                  [0.04137311,0.03997352],
+                  [0.04239827,0.04115662],
+                  [0.04371522,0.04200298],
+                  [0.04521727,0.04244402],
+                  [0.04678273,0.04244402],
+                  [0.04828478,0.04200298],
+                  [0.04960173,0.04115662],
+                  [0.05062689,0.03997352],
+                  [0.05127721,0.03854953],
+                  [0.0515,0.037],
+                  [0.05127721,0.03545047],
+                  [0.05062689,0.03402648],
+                  [0.04960173,0.03284338],
+                  [0.04828478,0.03199702],
+                  [0.04678273,0.03155598],
+                  [0.04521727,0.03155598],
+                  [0.04371522,0.03199702],
+                  [0.04239827,0.03284338],
+                  [0.04137311,0.03402648],
+                  [0.04072279,0.03545047]
+                ],
+                [
+                  [-0.0515,-0.037],
+                  [-0.05127721,-0.03545047],
+                  [-0.05062689,-0.03402648],
+                  [-0.04960173,-0.03284338],
+                  [-0.04828478,-0.03199702],
+                  [-0.04678273,-0.03155598],
+                  [-0.04521727,-0.03155598],
+                  [-0.04371522,-0.03199702],
+                  [-0.04239827,-0.03284338],
+                  [-0.04137311,-0.03402648],
+                  [-0.04072279,-0.03545047],
+                  [-0.0405,-0.037],
+                  [-0.04072279,-0.03854953],
+                  [-0.04137311,-0.03997352],
+                  [-0.04239827,-0.04115662],
+                  [-0.04371522,-0.04200298],
+                  [-0.04521727,-0.04244402],
+                  [-0.04678273,-0.04244402],
+                  [-0.04828478,-0.04200298],
+                  [-0.04960173,-0.04115662],
+                  [-0.05062689,-0.03997352],
+                  [-0.05127721,-0.03854953]
+                ],
+                [
+                  [-0.0515,0.037],
+                  [-0.05127721,0.03854953],
+                  [-0.05062689,0.03997352],
+                  [-0.04960173,0.04115662],
+                  [-0.04828478,0.04200298],
+                  [-0.04678273,0.04244402],
+                  [-0.04521727,0.04244402],
+                  [-0.04371522,0.04200298],
+                  [-0.04239827,0.04115662],
+                  [-0.04137311,0.03997352],
+                  [-0.04072279,0.03854953],
+                  [-0.0405,0.037],
+                  [-0.04072279,0.03545047],
+                  [-0.04137311,0.03402648],
+                  [-0.04239827,0.03284338],
+                  [-0.04371522,0.03199702],
+                  [-0.04521727,0.03155598],
+                  [-0.04678273,0.03155598],
+                  [-0.04828478,0.03199702],
+                  [-0.04960173,0.03284338],
+                  [-0.05062689,0.03402648],
+                  [-0.05127721,0.03545047]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "jamb-fixing-1-0",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.side-fastener",
+            "parent": "jamb-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.121,-0.035],
+              "end": [0,0.121,-0.051],
+              "radius": 0.0072,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "jamb-fixing-1-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.side-fastener",
+            "parent": "jamb-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.313,-0.035],
+              "end": [0,0.313,-0.051],
+              "radius": 0.0072,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "jamb-fixing-1-2",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.side-fastener",
+            "parent": "jamb-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.505,-0.035],
+              "end": [0,0.505,-0.051],
+              "radius": 0.0072,
+              "radialSegments": 6
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "sill-strip",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.threshold-base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.019,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.662,-0.041],
+                [-0.662,-0.041],
+                [-0.674,-0.029],
+                [-0.674,0.029],
+                [-0.662,0.041],
+                [0.662,0.041],
+                [0.674,0.029],
+                [0.674,-0.029]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#728893"
+            }
+          },
+          {
+            "id": "barrier-panel",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.frame",
+            "transform": {
+              "position": [0,0.019,0]
+            }
+          },
+          {
+            "id": "panel",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.hollow-extruded-barrier",
+            "parent": "barrier-panel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.011,0],
+                [0,0.51,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.62,-0.023],
+                [-0.62,-0.023],
+                [-0.63,-0.013],
+                [-0.63,0.013],
+                [-0.62,0.023],
+                [0.62,0.023],
+                [0.63,0.013],
+                [0.63,-0.013]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.604,-0.014],
+                  [-0.604,-0.014],
+                  [-0.611,-0.007],
+                  [-0.611,0.007],
+                  [-0.604,0.014],
+                  [0.604,0.014],
+                  [0.611,0.007],
+                  [0.611,-0.007]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#42919b"
+            }
+          },
+          {
+            "id": "top-rail",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.barrier-top-rail",
+            "parent": "barrier-panel",
+            "geometry": {
+              "type": "box",
+              "size": [1.269,0.051,0.048]
+            },
+            "appearance": {
+              "color": "#7b909a"
+            },
+            "transform": {
+              "position": [0,0.51,0]
+            }
+          },
+          {
+            "id": "bottom-seal",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.continuous-bottom-seal",
+            "parent": "barrier-panel",
+            "geometry": {
+              "type": "box",
+              "size": [1.266,0.021,0.039]
+            },
+            "appearance": {
+              "color": "#344047"
+            },
+            "transform": {
+              "position": [0,0.008,0]
+            }
+          },
+          {
+            "id": "handle--1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.frame",
+            "parent": "barrier-panel",
+            "transform": {
+              "position": [-0.318,0.54,0]
+            }
+          },
+          {
+            "id": "raise-handle--1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.panel-lifting-handle",
+            "parent": "handle--1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.068,0,0],
+                [-0.067,0.049,0],
+                [0.069,0.049,0],
+                [0.068,0,0]
+              ],
+              "radius": 0.0088,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#7b909a"
+            }
+          },
+          {
+            "id": "edge-seal--1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.side-gasket",
+            "parent": "barrier-panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.503,0.042]
+            },
+            "appearance": {
+              "color": "#344047"
+            },
+            "transform": {
+              "position": [-0.627,0.26,0]
+            }
+          },
+          {
+            "id": "handle-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.frame",
+            "parent": "barrier-panel",
+            "transform": {
+              "position": [0.318,0.54,0]
+            }
+          },
+          {
+            "id": "raise-handle-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.panel-lifting-handle",
+            "parent": "handle-1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.068,0,0],
+                [-0.067,0.049,0],
+                [0.069,0.049,0],
+                [0.068,0,0]
+              ],
+              "radius": 0.0088,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#7b909a"
+            }
+          },
+          {
+            "id": "edge-seal-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.side-gasket",
+            "parent": "barrier-panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.503,0.042]
+            },
+            "appearance": {
+              "color": "#344047"
+            },
+            "transform": {
+              "position": [0.627,0.26,0]
+            }
+          },
+          {
+            "id": "clamp--1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.frame",
+            "transform": {
+              "position": [-0.613,0.636,0]
+            }
+          },
+          {
+            "id": "jack-screw--1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.vertical-clamp-screw",
+            "parent": "clamp--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.081,0],
+              "end": [0,0.037,0],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "pressure-foot--1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.pressure-pad",
+            "parent": "clamp--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.098,0],
+                [0,-0.077,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.019,0],
+                [0.01863492,0.00370672],
+                [0.01755371,0.00727099],
+                [0.01579792,0.01055583],
+                [0.01343503,0.01343503],
+                [0.01055583,0.01579792],
+                [0.00727099,0.01755371],
+                [0.00370672,0.01863492],
+                [0,0.019],
+                [-0.00370672,0.01863492],
+                [-0.00727099,0.01755371],
+                [-0.01055583,0.01579792],
+                [-0.01343503,0.01343503],
+                [-0.01579792,0.01055583],
+                [-0.01755371,0.00727099],
+                [-0.01863492,0.00370672],
+                [-0.019,0],
+                [-0.01863492,-0.00370672],
+                [-0.01755371,-0.00727099],
+                [-0.01579792,-0.01055583],
+                [-0.01343503,-0.01343503],
+                [-0.01055583,-0.01579792],
+                [-0.00727099,-0.01755371],
+                [-0.00370672,-0.01863492],
+                [0,-0.019],
+                [0.00370672,-0.01863492],
+                [0.00727099,-0.01755371],
+                [0.01055583,-0.01579792],
+                [0.01343503,-0.01343503],
+                [0.01579792,-0.01055583],
+                [0.01755371,-0.00727099],
+                [0.01863492,-0.00370672]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#728893"
+            }
+          },
+          {
+            "id": "knob--1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.clamp-knob",
+            "parent": "clamp--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.022,0],
+              "end": [0,0.044,0],
+              "radius": 0.026,
+              "radialSegments": 22
+            },
+            "appearance": {
+              "color": "#dca143"
+            }
+          },
+          {
+            "id": "clamp-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.frame",
+            "transform": {
+              "position": [0.613,0.636,0]
+            }
+          },
+          {
+            "id": "jack-screw-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.vertical-clamp-screw",
+            "parent": "clamp-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.081,0],
+              "end": [0,0.037,0],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#abbfc9"
+            }
+          },
+          {
+            "id": "pressure-foot-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.pressure-pad",
+            "parent": "clamp-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.098,0],
+                [0,-0.077,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.019,0],
+                [0.01863492,0.00370672],
+                [0.01755371,0.00727099],
+                [0.01579792,0.01055583],
+                [0.01343503,0.01343503],
+                [0.01055583,0.01579792],
+                [0.00727099,0.01755371],
+                [0.00370672,0.01863492],
+                [0,0.019],
+                [-0.00370672,0.01863492],
+                [-0.00727099,0.01755371],
+                [-0.01055583,0.01579792],
+                [-0.01343503,0.01343503],
+                [-0.01579792,0.01055583],
+                [-0.01755371,0.00727099],
+                [-0.01863492,0.00370672],
+                [-0.019,0],
+                [-0.01863492,-0.00370672],
+                [-0.01755371,-0.00727099],
+                [-0.01579792,-0.01055583],
+                [-0.01343503,-0.01343503],
+                [-0.01055583,-0.01579792],
+                [-0.00727099,-0.01755371],
+                [-0.00370672,-0.01863492],
+                [0,-0.019],
+                [0.00370672,-0.01863492],
+                [0.00727099,-0.01755371],
+                [0.01055583,-0.01579792],
+                [0.01343503,-0.01343503],
+                [0.01579792,-0.01055583],
+                [0.01755371,-0.00727099],
+                [0.01863492,-0.00370672]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#728893"
+            }
+          },
+          {
+            "id": "knob-1",
+            "semanticType": "construction.removable-slot-in-doorway-flood-barrier.clamp-knob",
+            "parent": "clamp-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.022,0],
+              "end": [0,0.044,0],
+              "radius": 0.026,
+              "radialSegments": 22
+            },
+            "appearance": {
+              "color": "#dca143"
+            }
+          }
+        ],
+        "anchors": {
+          "threshold": {
+            "node": "sill-strip",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "barrier-base": {
+            "node": "barrier-panel",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "seal"
+          },
+          "left-wall": {
+            "node": "jamb--1",
+            "position": [0,0.397,-0.045],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          },
+          "right-wall": {
+            "node": "jamb-1",
+            "position": [0,0.397,-0.045],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "panel-removal",
+            "label": "挡板抬升",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.712,
+            "targets": [
+              {
+                "node": "barrier-panel",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "seal-clamp",
+            "label": "两端压头下降",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.019,
+            "targets": [
+              {
+                "node": "clamp--1",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              },
+              {
+                "node": "clamp-1",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

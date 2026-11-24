@@ -1,0 +1,348 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双楔块超声焊缝探头托架",
+  "summary": "开孔安装梁、两只独立透明楔块、轴向对称变距支座、耦合端及测量方向。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "超声楔块探头",
+    "焊缝超声检测",
+    "dual-ultrasonic-wedge",
+    "weld-probe-carriage",
+    "无损检测",
+    "nondestructive-testing"
+  ],
+  "anchors": [
+    "first-acoustic",
+    "second-acoustic",
+    "track"
+  ],
+  "ai": {
+    "intent": "作为独立超声双楔块，与环扫导轨上的标准小车相配；可设置检测的声轴位置。",
+    "editableParts": [
+      "probe-space"
+    ],
+    "qualityChecks": [
+      "在轨道上保持固定安装面。",
+      "两端探头间距相对中点对称调整。",
+      "各声轴以明确方向输出。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "dual-wedge-ultrasonic-probe-carriage-for-pipe-seams",
+      "title": "双楔块超声焊缝探头托架",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mount",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.perforated-orbital-carriage-adapter",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.022,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.031,-0.074],
+                [-0.031,-0.074],
+                [-0.045,-0.06],
+                [-0.045,0.06],
+                [-0.031,0.074],
+                [0.031,0.074],
+                [0.045,0.06],
+                [0.045,-0.06]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0085,-0.042],
+                  [-0.00823296,-0.03988614],
+                  [-0.00744861,-0.03790509],
+                  [-0.00619623,-0.03618135],
+                  [-0.00455453,-0.03482321],
+                  [-0.00262664,-0.03391602],
+                  [-0.00053372,-0.03351677],
+                  [0.00159274,-0.03365056],
+                  [0.00361912,-0.03430897],
+                  [0.0054181,-0.03545064],
+                  [0.00687664,-0.03700383],
+                  [0.0079031,-0.03887094],
+                  [0.00843297,-0.04093467],
+                  [0.00843297,-0.04306533],
+                  [0.0079031,-0.04512906],
+                  [0.00687664,-0.04699617],
+                  [0.0054181,-0.04854936],
+                  [0.00361912,-0.04969103],
+                  [0.00159274,-0.05034944],
+                  [-0.00053372,-0.05048323],
+                  [-0.00262664,-0.05008398],
+                  [-0.00455453,-0.04917679],
+                  [-0.00619623,-0.04781865],
+                  [-0.00744861,-0.04609491],
+                  [-0.00823296,-0.04411386]
+                ],
+                [
+                  [-0.0085,0.042],
+                  [-0.00823296,0.04411386],
+                  [-0.00744861,0.04609491],
+                  [-0.00619623,0.04781865],
+                  [-0.00455453,0.04917679],
+                  [-0.00262664,0.05008398],
+                  [-0.00053372,0.05048323],
+                  [0.00159274,0.05034944],
+                  [0.00361912,0.04969103],
+                  [0.0054181,0.04854936],
+                  [0.00687664,0.04699617],
+                  [0.0079031,0.04512906],
+                  [0.00843297,0.04306533],
+                  [0.00843297,0.04093467],
+                  [0.0079031,0.03887094],
+                  [0.00687664,0.03700383],
+                  [0.0054181,0.03545064],
+                  [0.00361912,0.03430897],
+                  [0.00159274,0.03365056],
+                  [-0.00053372,0.03351677],
+                  [-0.00262664,0.03391602],
+                  [-0.00455453,0.03482321],
+                  [-0.00619623,0.03618135],
+                  [-0.00744861,0.03790509],
+                  [-0.00823296,0.03988614]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db7c2"
+            }
+          },
+          {
+            "id": "crossbeam",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.axial-probe-gauge-beam",
+            "geometry": {
+              "type": "box",
+              "size": [0.069,0.022,0.33]
+            },
+            "appearance": {
+              "color": "#84bdc8"
+            },
+            "transform": {
+              "position": [0,-0.01,0]
+            }
+          },
+          {
+            "id": "probe--1",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.frame",
+            "transform": {
+              "position": [0,0,-0.103]
+            }
+          },
+          {
+            "id": "slip--1",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.sliding-ultrasonic-probe-fastener",
+            "parent": "probe--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.075,0.039,0.065]
+            },
+            "appearance": {
+              "color": "#9db7c2"
+            },
+            "transform": {
+              "position": [0,-0.027,0]
+            }
+          },
+          {
+            "id": "wedge--1",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.clear-coupling-wedge",
+            "parent": "probe--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.034,0,0],
+                [0.034,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.034,-0.08],
+                [0.037,-0.08],
+                [0.036,-0.044],
+                [-0.023,-0.06]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a2ced5",
+              "opacity": 0.57
+            }
+          },
+          {
+            "id": "transducer--1",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.axial-transducer-puck",
+            "parent": "probe--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.045,0.011],
+              "end": [0,-0.02,0.011],
+              "radius": 0.021,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#84bdc8"
+            }
+          },
+          {
+            "id": "line--1",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.flexible-signal-pigtail",
+            "parent": "probe--1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,-0.016,0.004],
+                [0.014,0.013,0.006],
+                [0.033,0.014,-0.035]
+              ],
+              "radius": 0.0045,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#5c7480"
+            }
+          },
+          {
+            "id": "probe-1",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.frame",
+            "transform": {
+              "position": [0,0,0.103]
+            }
+          },
+          {
+            "id": "slip-1",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.sliding-ultrasonic-probe-fastener",
+            "parent": "probe-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.075,0.039,0.065]
+            },
+            "appearance": {
+              "color": "#9db7c2"
+            },
+            "transform": {
+              "position": [0,-0.027,0]
+            }
+          },
+          {
+            "id": "wedge-1",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.clear-coupling-wedge",
+            "parent": "probe-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.034,0,0],
+                [0.034,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.034,-0.08],
+                [-0.037,-0.08],
+                [-0.036,-0.044],
+                [0.023,-0.06]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a2ced5",
+              "opacity": 0.57
+            }
+          },
+          {
+            "id": "transducer-1",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.axial-transducer-puck",
+            "parent": "probe-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.045,-0.011],
+              "end": [0,-0.02,-0.011],
+              "radius": 0.021,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#84bdc8"
+            }
+          },
+          {
+            "id": "line-1",
+            "semanticType": "instrument.dual-wedge-ultrasonic-probe-carriage-for-pipe-seams.flexible-signal-pigtail",
+            "parent": "probe-1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,-0.016,-0.004],
+                [0.014,0.013,-0.006],
+                [0.033,0.014,0.035]
+              ],
+              "radius": 0.0045,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#5c7480"
+            }
+          }
+        ],
+        "anchors": {
+          "first-acoustic": {
+            "node": "wedge--1",
+            "position": [0,-0.079,0.023],
+            "direction": [0,-0.88,0.47],
+            "kind": "measurement"
+          },
+          "second-acoustic": {
+            "node": "wedge-1",
+            "position": [0,-0.079,-0.023],
+            "direction": [0,-0.88,-0.47],
+            "kind": "measurement"
+          },
+          "track": {
+            "node": "mount",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "orbital-probe"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "probe-space",
+            "label": "双探头间距增量",
+            "unit": "m",
+            "value": 0,
+            "min": -0.083,
+            "max": 0.082,
+            "targets": [
+              {
+                "node": "probe--1",
+                "property": "position",
+                "axis": "z",
+                "factor": -0.5
+              },
+              {
+                "node": "probe-1",
+                "property": "position",
+                "axis": "z",
+                "factor": 0.5
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

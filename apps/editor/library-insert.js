@@ -1,4 +1,4 @@
-const groupFields = new Set(["nodes", "anchors", "routeBindings", "attachments", "animations"]);
+const groupFields = new Set(["nodes", "anchors", "routeBindings", "poseControls", "attachments", "animations"]);
 
 export function insertableComponentParameters(item) {
   const document = item.editor?.document;
@@ -65,6 +65,14 @@ export function insertLibraryGroup(scene, model) {
       ...binding,
       node: requiredReference(names, binding.node),
       ...(binding.clip !== undefined ? { clip: requiredReference(names, binding.clip) } : {}),
+    }))];
+  }
+  if (inserted.poseControls) {
+    const used = new Set((current.poseControls ?? []).map(control => control.id));
+    parameters.poseControls = [...(current.poseControls ?? []), ...inserted.poseControls.map(control => ({
+      ...control,
+      id: allocateModelId(`${groupId}.${control.id}`, used),
+      targets: control.targets.map(target => ({ ...target, node: requiredReference(names, target.node) })),
     }))];
   }
   if (inserted.attachments) {

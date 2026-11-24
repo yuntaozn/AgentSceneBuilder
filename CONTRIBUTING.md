@@ -1,6 +1,6 @@
 # Contributing to AgentSceneBuilder
 
-Thanks for considering a contribution. AgentSceneBuilder is an AI-facing digital modeling kernel, not a mesh asset dump or a fixed courseware template. Contributions should help Agents avoid repeated low-level geometry, spatial, and validation work.
+Thanks for considering a contribution. AgentSceneBuilder provides open-source digital modeling infrastructure for AI large language models. Contributions should improve an Agent's ability to find, compose, calculate or verify reusable models.
 
 ## Good contributions
 

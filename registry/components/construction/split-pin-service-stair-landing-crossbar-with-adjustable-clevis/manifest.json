@@ -1,0 +1,214 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.split-pin-service-stair-landing-crossbar-with-adjustable-clevis",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "检修梯双插销落台横接件",
+  "summary": "贯通双销、横梁、独立变距夹座和固定落台面，可作为坡梯与平台的中间安装件。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.split-pin-service-stair-landing-crossbar-with-adjustable-clevis",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "检修梯落台横梁",
+    "双插销落台接件",
+    "service stair landing crossbar",
+    "twin landing pins",
+    "检修出入工装",
+    "maintenance access hardware"
+  ],
+  "anchors": [
+    "pin-face--1",
+    "pin-face-1",
+    "platform-face"
+  ],
+  "ai": {
+    "intent": "接在两段可访问部件之间，通过真实上端插座定位检修梯。",
+    "editableParts": [
+      "clevis-spacing"
+    ],
+    "qualityChecks": [
+      "标准零位保持两个销与梯架插口同轴。",
+      "夹座可调距而横梁保持不动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "split-pin-service-stair-landing-crossbar-with-adjustable-clevis",
+      "title": "检修梯双插销落台横接件",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "crossbeam",
+            "semanticType": "construction.split-pin-service-stair-landing-crossbar-with-adjustable-clevis.two-window-connection-crossbar",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.077,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.313,-0.099],
+                [0.313,-0.099],
+                [0.33,-0.082],
+                [0.33,0.082],
+                [0.313,0.099],
+                [-0.313,0.099],
+                [-0.33,0.082],
+                [-0.33,-0.082]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.182,-0.041],
+                  [-0.068,-0.041],
+                  [-0.06,-0.033],
+                  [-0.06,0.033],
+                  [-0.068,0.041],
+                  [-0.182,0.041],
+                  [-0.19,0.033],
+                  [-0.19,-0.033]
+                ],
+                [
+                  [0.068,-0.041],
+                  [0.182,-0.041],
+                  [0.19,-0.033],
+                  [0.19,0.033],
+                  [0.182,0.041],
+                  [0.068,0.041],
+                  [0.06,0.033],
+                  [0.06,-0.033]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#84a9b7"
+            }
+          },
+          {
+            "id": "sliding-clevis--1",
+            "semanticType": "construction.split-pin-service-stair-landing-crossbar-with-adjustable-clevis.frame",
+            "transform": {
+              "position": [0,0,-0.262]
+            }
+          },
+          {
+            "id": "landing-pin--1",
+            "semanticType": "construction.split-pin-service-stair-landing-crossbar-with-adjustable-clevis.insertion-hinging-steel-pin",
+            "parent": "sliding-clevis--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.087,0,0],
+              "end": [0.028,0,0],
+              "radius": 0.016,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#cad8dc"
+            }
+          },
+          {
+            "id": "slide-caret--1",
+            "semanticType": "construction.split-pin-service-stair-landing-crossbar-with-adjustable-clevis.laterally-moving-lug-retainer",
+            "parent": "sliding-clevis--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.089,0.107,0.089]
+            },
+            "appearance": {
+              "color": "#7eabad"
+            },
+            "transform": {
+              "position": [0.068,0,0]
+            }
+          },
+          {
+            "id": "sliding-clevis-1",
+            "semanticType": "construction.split-pin-service-stair-landing-crossbar-with-adjustable-clevis.frame",
+            "transform": {
+              "position": [0,0,0.262]
+            }
+          },
+          {
+            "id": "landing-pin-1",
+            "semanticType": "construction.split-pin-service-stair-landing-crossbar-with-adjustable-clevis.insertion-hinging-steel-pin",
+            "parent": "sliding-clevis-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.087,0,0],
+              "end": [0.028,0,0],
+              "radius": 0.016,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#cad8dc"
+            }
+          },
+          {
+            "id": "slide-caret-1",
+            "semanticType": "construction.split-pin-service-stair-landing-crossbar-with-adjustable-clevis.laterally-moving-lug-retainer",
+            "parent": "sliding-clevis-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.089,0.107,0.089]
+            },
+            "appearance": {
+              "color": "#7eabad"
+            },
+            "transform": {
+              "position": [0.068,0,0]
+            }
+          }
+        ],
+        "anchors": {
+          "pin-face--1": {
+            "node": "sliding-clevis--1",
+            "position": [0,0,0],
+            "direction": [-1,0,0],
+            "kind": "service-stair-landing-pin"
+          },
+          "pin-face-1": {
+            "node": "sliding-clevis-1",
+            "position": [0,0,0],
+            "direction": [-1,0,0],
+            "kind": "service-stair-landing-pin"
+          },
+          "platform-face": {
+            "position": [0.113,0,0],
+            "direction": [1,0,0],
+            "kind": "service-platform-edge"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "clevis-spacing",
+            "label": "销座对称变距",
+            "unit": "m",
+            "value": 0,
+            "min": -0.058,
+            "max": 0.042,
+            "targets": [
+              {
+                "node": "sliding-clevis--1",
+                "property": "position",
+                "axis": "z",
+                "factor": -1
+              },
+              {
+                "node": "sliding-clevis-1",
+                "property": "position",
+                "axis": "z",
+                "factor": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

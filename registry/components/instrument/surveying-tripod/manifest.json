@@ -1,0 +1,898 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.surveying-tripod",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "测绘三脚架与伸缩支腿",
+  "summary": "三条独立转动的双导杆伸缩腿、锁紧夹、带踏面的脚尖和带贯通中心孔的测量仪器座。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.surveying-tripod",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "测量",
+    "测绘",
+    "survey",
+    "site-instrument",
+    "三脚架",
+    "tripod",
+    "telescoping-leg"
+  ],
+  "anchors": [
+    "ground-contact-1",
+    "ground-contact-2",
+    "ground-contact-3",
+    "instrument-mount",
+    "plummet-axis"
+  ],
+  "ai": {
+    "intent": "在测绘仪器装配中提供三腿支撑、独立调平和基座装夹。",
+    "useWhen": [
+      "需要支承全站仪、自动安平水准仪或旋转激光仪时。"
+    ],
+    "editableParts": [
+      "spread-leg-1",
+      "extend-leg-1",
+      "spread-leg-2",
+      "extend-leg-2",
+      "spread-leg-3",
+      "extend-leg-3"
+    ],
+    "qualityChecks": [
+      "三只脚尖随各自支腿运动。",
+      "中心准线持续通过安装座贯通孔。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "surveying-tripod",
+      "title": "测绘三脚架与伸缩支腿",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "head",
+            "semanticType": "instrument.surveying-tripod.frame",
+            "transform": {
+              "position": [0,1.36,0]
+            }
+          },
+          {
+            "id": "head-plate",
+            "semanticType": "instrument.surveying-tripod.instrument-mount",
+            "parent": "head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.022,0],
+                [0,0.014,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.094,0],
+                [-0.09257193,0.01632293],
+                [-0.08833111,0.03214989],
+                [-0.08140639,0.047],
+                [-0.07200818,0.06042204],
+                [-0.06042204,0.07200818],
+                [-0.047,0.08140639],
+                [-0.03214989,0.08833111],
+                [-0.01632293,0.09257193],
+                [0,0.094],
+                [0.01632293,0.09257193],
+                [0.03214989,0.08833111],
+                [0.047,0.08140639],
+                [0.06042204,0.07200818],
+                [0.07200818,0.06042204],
+                [0.08140639,0.047],
+                [0.08833111,0.03214989],
+                [0.09257193,0.01632293],
+                [0.094,0],
+                [0.09257193,-0.01632293],
+                [0.08833111,-0.03214989],
+                [0.08140639,-0.047],
+                [0.07200818,-0.06042204],
+                [0.06042204,-0.07200818],
+                [0.047,-0.08140639],
+                [0.03214989,-0.08833111],
+                [0.01632293,-0.09257193],
+                [0,-0.094],
+                [-0.01632293,-0.09257193],
+                [-0.03214989,-0.08833111],
+                [-0.047,-0.08140639],
+                [-0.06042204,-0.07200818],
+                [-0.07200818,-0.06042204],
+                [-0.08140639,-0.047],
+                [-0.08833111,-0.03214989],
+                [-0.09257193,-0.01632293]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.026,0],
+                  [-0.02511407,0.0067293],
+                  [-0.02251666,0.013],
+                  [-0.01838478,0.01838478],
+                  [-0.013,0.02251666],
+                  [-0.0067293,0.02511407],
+                  [0,0.026],
+                  [0.0067293,0.02511407],
+                  [0.013,0.02251666],
+                  [0.01838478,0.01838478],
+                  [0.02251666,0.013],
+                  [0.02511407,0.0067293],
+                  [0.026,0],
+                  [0.02511407,-0.0067293],
+                  [0.02251666,-0.013],
+                  [0.01838478,-0.01838478],
+                  [0.013,-0.02251666],
+                  [0.0067293,-0.02511407],
+                  [0,-0.026],
+                  [-0.0067293,-0.02511407],
+                  [-0.013,-0.02251666],
+                  [-0.01838478,-0.01838478],
+                  [-0.02251666,-0.013],
+                  [-0.02511407,-0.0067293]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "center-seat-ring",
+            "semanticType": "instrument.surveying-tripod.center-seat-ring",
+            "parent": "head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.014,0],
+                [0,0.02,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.049,0],
+                [0.04805848,0.00955943],
+                [0.0452701,0.01875149],
+                [0.04074201,0.02722294],
+                [0.03464823,0.03464823],
+                [0.02722294,0.04074201],
+                [0.01875149,0.0452701],
+                [0.00955943,0.04805848],
+                [0,0.049],
+                [-0.00955943,0.04805848],
+                [-0.01875149,0.0452701],
+                [-0.02722294,0.04074201],
+                [-0.03464823,0.03464823],
+                [-0.04074201,0.02722294],
+                [-0.0452701,0.01875149],
+                [-0.04805848,0.00955943],
+                [-0.049,0],
+                [-0.04805848,-0.00955943],
+                [-0.0452701,-0.01875149],
+                [-0.04074201,-0.02722294],
+                [-0.03464823,-0.03464823],
+                [-0.02722294,-0.04074201],
+                [-0.01875149,-0.0452701],
+                [-0.00955943,-0.04805848],
+                [0,-0.049],
+                [0.00955943,-0.04805848],
+                [0.01875149,-0.0452701],
+                [0.02722294,-0.04074201],
+                [0.03464823,-0.03464823],
+                [0.04074201,-0.02722294],
+                [0.0452701,-0.01875149],
+                [0.04805848,-0.00955943]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.026,0],
+                  [0.02550042,0.00507235],
+                  [0.02402087,0.00994977],
+                  [0.02161821,0.01444483],
+                  [0.01838478,0.01838478],
+                  [0.01444483,0.02161821],
+                  [0.00994977,0.02402087],
+                  [0.00507235,0.02550042],
+                  [0,0.026],
+                  [-0.00507235,0.02550042],
+                  [-0.00994977,0.02402087],
+                  [-0.01444483,0.02161821],
+                  [-0.01838478,0.01838478],
+                  [-0.02161821,0.01444483],
+                  [-0.02402087,0.00994977],
+                  [-0.02550042,0.00507235],
+                  [-0.026,0],
+                  [-0.02550042,-0.00507235],
+                  [-0.02402087,-0.00994977],
+                  [-0.02161821,-0.01444483],
+                  [-0.01838478,-0.01838478],
+                  [-0.01444483,-0.02161821],
+                  [-0.00994977,-0.02402087],
+                  [-0.00507235,-0.02550042],
+                  [0,-0.026],
+                  [0.00507235,-0.02550042],
+                  [0.00994977,-0.02402087],
+                  [0.01444483,-0.02161821],
+                  [0.01838478,-0.01838478],
+                  [0.02161821,-0.01444483],
+                  [0.02402087,-0.00994977],
+                  [0.02550042,-0.00507235]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "leg-1",
+            "semanticType": "instrument.surveying-tripod.frame",
+            "parent": "head",
+            "transform": {
+              "position": [0.07,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "hinge-1",
+            "semanticType": "instrument.surveying-tripod.frame",
+            "parent": "leg-1",
+            "transform": {
+              "position": [0,-0.012,0],
+              "rotation": [0,0,0.3839724354387525]
+            }
+          },
+          {
+            "id": "pivot-pin-1",
+            "semanticType": "instrument.surveying-tripod.pivot-pin",
+            "parent": "leg-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.039],
+              "end": [0,0,0.039],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "outer-rail-1-left",
+            "semanticType": "instrument.surveying-tripod.outer-guide-rail",
+            "parent": "hinge-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,0.71,0.013]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,-0.365,-0.021]
+            }
+          },
+          {
+            "id": "outer-rail-1-right",
+            "semanticType": "instrument.surveying-tripod.outer-guide-rail",
+            "parent": "hinge-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,0.71,0.013]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,-0.365,0.021]
+            }
+          },
+          {
+            "id": "rail-top-1",
+            "semanticType": "instrument.surveying-tripod.upper-yoke",
+            "parent": "hinge-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.055,0.071]
+            },
+            "appearance": {
+              "color": "#dc7c43"
+            },
+            "transform": {
+              "position": [0,-0.036,0]
+            }
+          },
+          {
+            "id": "rail-lock-1",
+            "semanticType": "instrument.surveying-tripod.rail-lock",
+            "parent": "hinge-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.056,0.072]
+            },
+            "appearance": {
+              "color": "#df8753"
+            },
+            "transform": {
+              "position": [0,-0.68,0]
+            }
+          },
+          {
+            "id": "clamp-fastener-1",
+            "semanticType": "instrument.surveying-tripod.clamp-pivot",
+            "parent": "hinge-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.026,-0.68,0],
+              "end": [0.029,-0.68,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "clamp-lever-1",
+            "semanticType": "instrument.surveying-tripod.clamp-lever",
+            "parent": "hinge-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.039,0.018]
+            },
+            "appearance": {
+              "color": "#384958"
+            },
+            "transform": {
+              "position": [0.029,-0.665,0]
+            }
+          },
+          {
+            "id": "extension-1",
+            "semanticType": "instrument.surveying-tripod.frame",
+            "parent": "hinge-1",
+            "transform": {
+              "position": [0,-0.56,0]
+            }
+          },
+          {
+            "id": "sliding-leg-1",
+            "semanticType": "instrument.surveying-tripod.inner-slide",
+            "parent": "extension-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.65,0.024]
+            },
+            "appearance": {
+              "color": "#5f727d"
+            },
+            "transform": {
+              "position": [0,-0.325,0]
+            }
+          },
+          {
+            "id": "ground-spike-1",
+            "semanticType": "instrument.surveying-tripod.ground-spike",
+            "parent": "extension-1",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,-0.65,0],
+              "end": [0,-0.735,0],
+              "startRadius": 0.014,
+              "endRadius": 0.0018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "foot-step-1",
+            "semanticType": "instrument.surveying-tripod.foot-step",
+            "parent": "extension-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.015,0.045]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0.027,-0.681,0]
+            }
+          },
+          {
+            "id": "leg-2",
+            "semanticType": "instrument.surveying-tripod.frame",
+            "parent": "head",
+            "transform": {
+              "position": [-0.035,0,0.06062178],
+              "rotation": [0,-2.0943951023931953,0]
+            }
+          },
+          {
+            "id": "hinge-2",
+            "semanticType": "instrument.surveying-tripod.frame",
+            "parent": "leg-2",
+            "transform": {
+              "position": [0,-0.012,0],
+              "rotation": [0,0,0.3839724354387525]
+            }
+          },
+          {
+            "id": "pivot-pin-2",
+            "semanticType": "instrument.surveying-tripod.pivot-pin",
+            "parent": "leg-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.039],
+              "end": [0,0,0.039],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "outer-rail-2-left",
+            "semanticType": "instrument.surveying-tripod.outer-guide-rail",
+            "parent": "hinge-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,0.71,0.013]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,-0.365,-0.021]
+            }
+          },
+          {
+            "id": "outer-rail-2-right",
+            "semanticType": "instrument.surveying-tripod.outer-guide-rail",
+            "parent": "hinge-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,0.71,0.013]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,-0.365,0.021]
+            }
+          },
+          {
+            "id": "rail-top-2",
+            "semanticType": "instrument.surveying-tripod.upper-yoke",
+            "parent": "hinge-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.055,0.071]
+            },
+            "appearance": {
+              "color": "#dc7c43"
+            },
+            "transform": {
+              "position": [0,-0.036,0]
+            }
+          },
+          {
+            "id": "rail-lock-2",
+            "semanticType": "instrument.surveying-tripod.rail-lock",
+            "parent": "hinge-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.056,0.072]
+            },
+            "appearance": {
+              "color": "#df8753"
+            },
+            "transform": {
+              "position": [0,-0.68,0]
+            }
+          },
+          {
+            "id": "clamp-fastener-2",
+            "semanticType": "instrument.surveying-tripod.clamp-pivot",
+            "parent": "hinge-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.026,-0.68,0],
+              "end": [0.029,-0.68,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "clamp-lever-2",
+            "semanticType": "instrument.surveying-tripod.clamp-lever",
+            "parent": "hinge-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.039,0.018]
+            },
+            "appearance": {
+              "color": "#384958"
+            },
+            "transform": {
+              "position": [0.029,-0.665,0]
+            }
+          },
+          {
+            "id": "extension-2",
+            "semanticType": "instrument.surveying-tripod.frame",
+            "parent": "hinge-2",
+            "transform": {
+              "position": [0,-0.56,0]
+            }
+          },
+          {
+            "id": "sliding-leg-2",
+            "semanticType": "instrument.surveying-tripod.inner-slide",
+            "parent": "extension-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.65,0.024]
+            },
+            "appearance": {
+              "color": "#5f727d"
+            },
+            "transform": {
+              "position": [0,-0.325,0]
+            }
+          },
+          {
+            "id": "ground-spike-2",
+            "semanticType": "instrument.surveying-tripod.ground-spike",
+            "parent": "extension-2",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,-0.65,0],
+              "end": [0,-0.735,0],
+              "startRadius": 0.014,
+              "endRadius": 0.0018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "foot-step-2",
+            "semanticType": "instrument.surveying-tripod.foot-step",
+            "parent": "extension-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.015,0.045]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0.027,-0.681,0]
+            }
+          },
+          {
+            "id": "leg-3",
+            "semanticType": "instrument.surveying-tripod.frame",
+            "parent": "head",
+            "transform": {
+              "position": [-0.035,0,-0.06062178],
+              "rotation": [0,-4.1887902047863905,0]
+            }
+          },
+          {
+            "id": "hinge-3",
+            "semanticType": "instrument.surveying-tripod.frame",
+            "parent": "leg-3",
+            "transform": {
+              "position": [0,-0.012,0],
+              "rotation": [0,0,0.3839724354387525]
+            }
+          },
+          {
+            "id": "pivot-pin-3",
+            "semanticType": "instrument.surveying-tripod.pivot-pin",
+            "parent": "leg-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.039],
+              "end": [0,0,0.039],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "outer-rail-3-left",
+            "semanticType": "instrument.surveying-tripod.outer-guide-rail",
+            "parent": "hinge-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,0.71,0.013]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,-0.365,-0.021]
+            }
+          },
+          {
+            "id": "outer-rail-3-right",
+            "semanticType": "instrument.surveying-tripod.outer-guide-rail",
+            "parent": "hinge-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.024,0.71,0.013]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,-0.365,0.021]
+            }
+          },
+          {
+            "id": "rail-top-3",
+            "semanticType": "instrument.surveying-tripod.upper-yoke",
+            "parent": "hinge-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.055,0.071]
+            },
+            "appearance": {
+              "color": "#dc7c43"
+            },
+            "transform": {
+              "position": [0,-0.036,0]
+            }
+          },
+          {
+            "id": "rail-lock-3",
+            "semanticType": "instrument.surveying-tripod.rail-lock",
+            "parent": "hinge-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.056,0.072]
+            },
+            "appearance": {
+              "color": "#df8753"
+            },
+            "transform": {
+              "position": [0,-0.68,0]
+            }
+          },
+          {
+            "id": "clamp-fastener-3",
+            "semanticType": "instrument.surveying-tripod.clamp-pivot",
+            "parent": "hinge-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.026,-0.68,0],
+              "end": [0.029,-0.68,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "clamp-lever-3",
+            "semanticType": "instrument.surveying-tripod.clamp-lever",
+            "parent": "hinge-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.039,0.018]
+            },
+            "appearance": {
+              "color": "#384958"
+            },
+            "transform": {
+              "position": [0.029,-0.665,0]
+            }
+          },
+          {
+            "id": "extension-3",
+            "semanticType": "instrument.surveying-tripod.frame",
+            "parent": "hinge-3",
+            "transform": {
+              "position": [0,-0.56,0]
+            }
+          },
+          {
+            "id": "sliding-leg-3",
+            "semanticType": "instrument.surveying-tripod.inner-slide",
+            "parent": "extension-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.65,0.024]
+            },
+            "appearance": {
+              "color": "#5f727d"
+            },
+            "transform": {
+              "position": [0,-0.325,0]
+            }
+          },
+          {
+            "id": "ground-spike-3",
+            "semanticType": "instrument.surveying-tripod.ground-spike",
+            "parent": "extension-3",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,-0.65,0],
+              "end": [0,-0.735,0],
+              "startRadius": 0.014,
+              "endRadius": 0.0018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "foot-step-3",
+            "semanticType": "instrument.surveying-tripod.foot-step",
+            "parent": "extension-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.015,0.045]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0.027,-0.681,0]
+            }
+          }
+        ],
+        "anchors": {
+          "ground-contact-1": {
+            "node": "ground-spike-1",
+            "position": [0,-0.735,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "ground-contact-2": {
+            "node": "ground-spike-2",
+            "position": [0,-0.735,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "ground-contact-3": {
+            "node": "ground-spike-3",
+            "position": [0,-0.735,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "instrument-mount": {
+            "node": "head",
+            "position": [0,0.02,0],
+            "direction": [0,1,0],
+            "kind": "mount"
+          },
+          "plummet-axis": {
+            "node": "head",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "reference"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "spread-leg-1",
+            "label": "第 1 腿展开角",
+            "unit": "deg",
+            "value": 0,
+            "min": -13,
+            "max": 13,
+            "targets": [
+              {
+                "node": "hinge-1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "extend-leg-1",
+            "label": "第 1 腿伸出量",
+            "unit": "m",
+            "value": 0,
+            "min": -0.16,
+            "max": 0.105,
+            "targets": [
+              {
+                "node": "extension-1",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          },
+          {
+            "id": "spread-leg-2",
+            "label": "第 2 腿展开角",
+            "unit": "deg",
+            "value": 0,
+            "min": -13,
+            "max": 13,
+            "targets": [
+              {
+                "node": "hinge-2",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "extend-leg-2",
+            "label": "第 2 腿伸出量",
+            "unit": "m",
+            "value": 0,
+            "min": -0.16,
+            "max": 0.105,
+            "targets": [
+              {
+                "node": "extension-2",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          },
+          {
+            "id": "spread-leg-3",
+            "label": "第 3 腿展开角",
+            "unit": "deg",
+            "value": 0,
+            "min": -13,
+            "max": 13,
+            "targets": [
+              {
+                "node": "hinge-3",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "extend-leg-3",
+            "label": "第 3 腿伸出量",
+            "unit": "m",
+            "value": 0,
+            "min": -0.16,
+            "max": 0.105,
+            "targets": [
+              {
+                "node": "extension-3",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

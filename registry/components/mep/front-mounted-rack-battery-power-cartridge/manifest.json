@@ -1,0 +1,469 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.front-mounted-rack-battery-power-cartridge",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "机架前挂电源电池盒",
+  "summary": "独立机架底面、紧凑电源壳体、后接头、两只翻转把手和前部开槽通风面。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.front-mounted-rack-battery-power-cartridge",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "机架电池盒",
+    "可抽电源模块",
+    "rack-battery",
+    "removable-power-module",
+    "电气检修结构",
+    "electrical-service"
+  ],
+  "anchors": [
+    "left-pull",
+    "right-pull",
+    "rack",
+    "rear-connector"
+  ],
+  "ai": {
+    "intent": "作为独立电源盒装入双层机架托盘，编辑更换时的两个把手，读取背部插入接口位置。",
+    "editableParts": [
+      "handles-angle"
+    ],
+    "qualityChecks": [
+      "固定座法向与机架滑架相对。",
+      "两把手可同步翻转。",
+      "后部接口和前窗保持独立。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "front-mounted-rack-battery-power-cartridge",
+      "title": "机架前挂电源电池盒",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "skid",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.battery-module-bottom-shell",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.021,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.192,-0.374],
+                [-0.192,-0.374],
+                [-0.221,-0.345],
+                [-0.221,-0.030000000000000002],
+                [-0.192,-0.0010000000000000009],
+                [0.192,-0.0010000000000000009],
+                [0.221,-0.030000000000000002],
+                [0.221,-0.345]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9db7c3"
+            }
+          },
+          {
+            "id": "cover",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.removable-module-upper-cover",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.155,0],
+                [0,0.177,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.192,-0.374],
+                [-0.192,-0.374],
+                [-0.221,-0.345],
+                [-0.221,-0.030000000000000002],
+                [-0.192,-0.0010000000000000009],
+                [0.192,-0.0010000000000000009],
+                [0.221,-0.030000000000000002],
+                [0.221,-0.345]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#81bbc7"
+            }
+          },
+          {
+            "id": "side--1",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.vent-slotted-cartridge-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.146,0.362]
+            },
+            "appearance": {
+              "color": "#81bbc7"
+            },
+            "transform": {
+              "position": [-0.211,0.083,-0.187]
+            }
+          },
+          {
+            "id": "side-1",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.vent-slotted-cartridge-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.146,0.362]
+            },
+            "appearance": {
+              "color": "#81bbc7"
+            },
+            "transform": {
+              "position": [0.211,0.083,-0.187]
+            }
+          },
+          {
+            "id": "front",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.battery-cartridge-vent-panel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.018]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.229,-0.008],
+                [0.229,-0.008],
+                [0.247,0.009999999999999998],
+                [0.247,0.161],
+                [0.229,0.179],
+                [-0.229,0.179],
+                [-0.247,0.161],
+                [-0.247,0.009999999999999998]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.126,0.032],
+                  [-0.117,0.032],
+                  [-0.10800000000000001,0.041],
+                  [-0.10800000000000001,0.10400000000000001],
+                  [-0.117,0.113],
+                  [-0.126,0.113],
+                  [-0.135,0.10400000000000001],
+                  [-0.135,0.041]
+                ],
+                [
+                  [-0.077,0.032],
+                  [-0.06799999999999999,0.032],
+                  [-0.059,0.041],
+                  [-0.059,0.10400000000000001],
+                  [-0.06799999999999999,0.113],
+                  [-0.077,0.113],
+                  [-0.086,0.10400000000000001],
+                  [-0.086,0.041]
+                ],
+                [
+                  [-0.027999999999999997,0.032],
+                  [-0.018999999999999996,0.032],
+                  [-0.009999999999999998,0.041],
+                  [-0.009999999999999998,0.10400000000000001],
+                  [-0.018999999999999996,0.113],
+                  [-0.027999999999999997,0.113],
+                  [-0.037,0.10400000000000001],
+                  [-0.037,0.041]
+                ],
+                [
+                  [0.021,0.032],
+                  [0.03,0.032],
+                  [0.039,0.041],
+                  [0.039,0.10400000000000001],
+                  [0.03,0.113],
+                  [0.021,0.113],
+                  [0.012000000000000002,0.10400000000000001],
+                  [0.012000000000000002,0.041]
+                ],
+                [
+                  [0.06999999999999999,0.032],
+                  [0.079,0.032],
+                  [0.088,0.041],
+                  [0.088,0.10400000000000001],
+                  [0.079,0.113],
+                  [0.06999999999999999,0.113],
+                  [0.061,0.10400000000000001],
+                  [0.061,0.041]
+                ],
+                [
+                  [0.119,0.032],
+                  [0.128,0.032],
+                  [0.137,0.041],
+                  [0.137,0.10400000000000001],
+                  [0.128,0.113],
+                  [0.119,0.113],
+                  [0.11,0.10400000000000001],
+                  [0.11,0.041]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db7c3"
+            }
+          },
+          {
+            "id": "handle--1",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.frame",
+            "transform": {
+              "position": [-0.178,0.044,0.02]
+            }
+          },
+          {
+            "id": "pin--1",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.hinged-carrying-handle-pin",
+            "parent": "handle--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.025,0,0],
+              "end": [0.025,0,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "pull--1",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.front-battery-pull-flush-loop",
+            "parent": "handle--1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.017,0.012,0],
+                [-0.017,0.013,0.04],
+                [0.017,0.013,0.04],
+                [0.017,0.012,0]
+              ],
+              "radius": 0.006,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#81bbc7"
+            }
+          },
+          {
+            "id": "handle-1",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.frame",
+            "transform": {
+              "position": [0.178,0.044,0.02]
+            }
+          },
+          {
+            "id": "pin-1",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.hinged-carrying-handle-pin",
+            "parent": "handle-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.025,0,0],
+              "end": [0.025,0,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "pull-1",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.front-battery-pull-flush-loop",
+            "parent": "handle-1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.017,0.012,0],
+                [-0.017,0.013,0.04],
+                [0.017,0.013,0.04],
+                [0.017,0.012,0]
+              ],
+              "radius": 0.006,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#81bbc7"
+            }
+          },
+          {
+            "id": "rear",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.open-back-interface-panel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.373],
+                [0,0,-0.354]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.203,0.01],
+                [0.203,0.01],
+                [0.219,0.026000000000000002],
+                [0.219,0.15300000000000002],
+                [0.203,0.169],
+                [-0.203,0.169],
+                [-0.219,0.15300000000000002],
+                [-0.219,0.026000000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.036000000000000004,0.047],
+                  [0.036000000000000004,0.047],
+                  [0.047,0.057999999999999996],
+                  [0.047,0.101],
+                  [0.036000000000000004,0.112],
+                  [-0.036000000000000004,0.112],
+                  [-0.047,0.101],
+                  [-0.047,0.057999999999999996]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db7c3"
+            }
+          },
+          {
+            "id": "connector",
+            "semanticType": "mep.front-mounted-rack-battery-power-cartridge.rear-port-face",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.392],
+                [0,0,-0.372]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.038000000000000006,0.044],
+                [0.038000000000000006,0.044],
+                [0.049,0.05499999999999999],
+                [0.049,0.105],
+                [0.038000000000000006,0.11599999999999999],
+                [-0.038000000000000006,0.11599999999999999],
+                [-0.049,0.105],
+                [-0.049,0.05499999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.009,0.08],
+                  [-0.00940889,0.08310583],
+                  [-0.0106077,0.086],
+                  [-0.01251472,0.08848528],
+                  [-0.015,0.0903923],
+                  [-0.01789417,0.09159111],
+                  [-0.021,0.092],
+                  [-0.02410583,0.09159111],
+                  [-0.027,0.0903923],
+                  [-0.02948528,0.08848528],
+                  [-0.0313923,0.086],
+                  [-0.03259111,0.08310583],
+                  [-0.033,0.08],
+                  [-0.03259111,0.07689417],
+                  [-0.0313923,0.074],
+                  [-0.02948528,0.07151472],
+                  [-0.027,0.0696077],
+                  [-0.02410583,0.06840889],
+                  [-0.021,0.068],
+                  [-0.01789417,0.06840889],
+                  [-0.015,0.0696077],
+                  [-0.01251472,0.07151472],
+                  [-0.0106077,0.074],
+                  [-0.00940889,0.07689417]
+                ],
+                [
+                  [0.033,0.08],
+                  [0.03259111,0.08310583],
+                  [0.0313923,0.086],
+                  [0.02948528,0.08848528],
+                  [0.027,0.0903923],
+                  [0.02410583,0.09159111],
+                  [0.021,0.092],
+                  [0.01789417,0.09159111],
+                  [0.015,0.0903923],
+                  [0.01251472,0.08848528],
+                  [0.0106077,0.086],
+                  [0.00940889,0.08310583],
+                  [0.009,0.08],
+                  [0.00940889,0.07689417],
+                  [0.0106077,0.074],
+                  [0.01251472,0.07151472],
+                  [0.015,0.0696077],
+                  [0.01789417,0.06840889],
+                  [0.021,0.068],
+                  [0.02410583,0.06840889],
+                  [0.027,0.0696077],
+                  [0.02948528,0.07151472],
+                  [0.0313923,0.074],
+                  [0.03259111,0.07689417]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#81bbc7"
+            }
+          }
+        ],
+        "anchors": {
+          "left-pull": {
+            "node": "pull--1",
+            "position": [0,0.013,0.04],
+            "direction": [0,0,1],
+            "kind": "grip"
+          },
+          "right-pull": {
+            "node": "pull-1",
+            "position": [0,0.013,0.04],
+            "direction": [0,0,1],
+            "kind": "grip"
+          },
+          "rack": {
+            "node": "front",
+            "position": [0,0,0],
+            "direction": [0,0,-1],
+            "kind": "rack-power-unit"
+          },
+          "rear-connector": {
+            "node": "connector",
+            "position": [0,0.08,-0.392],
+            "direction": [0,0,-1],
+            "kind": "electrical-interface"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "handles-angle",
+            "label": "双把手抬起角",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 91,
+            "targets": [
+              {
+                "node": "handle--1",
+                "property": "rotation",
+                "axis": "x",
+                "factor": -0.017453292519943295
+              },
+              {
+                "node": "handle-1",
+                "property": "rotation",
+                "axis": "x",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,802 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.two-axis-magnetic-displacement-gauge-stand",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双轴可调位移表磁座",
+  "summary": "独立底座、双导向滑杆、可转水平短臂、竖向细调卡座、位移表与弹性测杆。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "位移表磁座",
+    "试验位移测点",
+    "displacement-gauge-stand",
+    "fine-adjustment",
+    "结构试验",
+    "structural-testing"
+  ],
+  "anchors": [
+    "base",
+    "touch",
+    "dial"
+  ],
+  "ai": {
+    "intent": "独立于被测结构设置位移表固定架，编辑表体姿态及测头相对被测面的位置。",
+    "editableParts": [
+      "head-rise",
+      "arm-yaw",
+      "probe-travel"
+    ],
+    "qualityChecks": [
+      "调整读数座不移动磁座。",
+      "摆臂保留固定回转中心。",
+      "球形测点可用于贴合部件。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-axis-magnetic-displacement-gauge-stand",
+      "title": "双轴可调位移表磁座",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.large-magnetic-gauge-foot",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.01,0],
+                [0,0.059,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.053000000000000005,-0.047],
+                [-0.053000000000000005,-0.047],
+                [-0.066,-0.034],
+                [-0.066,0.034],
+                [-0.053000000000000005,0.047],
+                [0.053000000000000005,0.047],
+                [0.066,0.034],
+                [0.066,-0.034]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#82bac5"
+            }
+          },
+          {
+            "id": "switch-axis",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.frame",
+            "transform": {
+              "position": [0,0.034,0]
+            }
+          },
+          {
+            "id": "magnet-switch",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.control-knob-for-magnetic-base",
+            "parent": "switch-axis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.049],
+                [0,0,0.061]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.029,0],
+                [0.02844277,0.00565762],
+                [0.02679251,0.01109782],
+                [0.02411262,0.01611154],
+                [0.0205061,0.0205061],
+                [0.01611154,0.02411262],
+                [0.01109782,0.02679251],
+                [0.00565762,0.02844277],
+                [0,0.029],
+                [-0.00565762,0.02844277],
+                [-0.01109782,0.02679251],
+                [-0.01611154,0.02411262],
+                [-0.0205061,0.0205061],
+                [-0.02411262,0.01611154],
+                [-0.02679251,0.01109782],
+                [-0.02844277,0.00565762],
+                [-0.029,0],
+                [-0.02844277,-0.00565762],
+                [-0.02679251,-0.01109782],
+                [-0.02411262,-0.01611154],
+                [-0.0205061,-0.0205061],
+                [-0.01611154,-0.02411262],
+                [-0.01109782,-0.02679251],
+                [-0.00565762,-0.02844277],
+                [0,-0.029],
+                [0.00565762,-0.02844277],
+                [0.01109782,-0.02679251],
+                [0.01611154,-0.02411262],
+                [0.0205061,-0.0205061],
+                [0.02411262,-0.01611154],
+                [0.02679251,-0.01109782],
+                [0.02844277,-0.00565762]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#ecc473"
+            }
+          },
+          {
+            "id": "vertical-post",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.stand-reference-post",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.054,0],
+              "end": [0,0.378,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0d2db"
+            }
+          },
+          {
+            "id": "head-height",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.frame",
+            "transform": {
+              "position": [0,0.232,0]
+            }
+          },
+          {
+            "id": "height-lock",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.open-vertical-slide-collar",
+            "parent": "head-height",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.026,0],
+                [0,0.029,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.027,0],
+                [0.02658981,0.0046885],
+                [0.0253717,0.00923454],
+                [0.02338269,0.0135],
+                [0.0206832,0.01735527],
+                [0.01735527,0.0206832],
+                [0.0135,0.02338269],
+                [0.00923454,0.0253717],
+                [0.0046885,0.02658981],
+                [0,0.027],
+                [-0.0046885,0.02658981],
+                [-0.00923454,0.0253717],
+                [-0.0135,0.02338269],
+                [-0.01735527,0.0206832],
+                [-0.0206832,0.01735527],
+                [-0.02338269,0.0135],
+                [-0.0253717,0.00923454],
+                [-0.02658981,0.0046885],
+                [-0.027,0],
+                [-0.02658981,-0.0046885],
+                [-0.0253717,-0.00923454],
+                [-0.02338269,-0.0135],
+                [-0.0206832,-0.01735527],
+                [-0.01735527,-0.0206832],
+                [-0.0135,-0.02338269],
+                [-0.00923454,-0.0253717],
+                [-0.0046885,-0.02658981],
+                [0,-0.027],
+                [0.0046885,-0.02658981],
+                [0.00923454,-0.0253717],
+                [0.0135,-0.02338269],
+                [0.01735527,-0.0206832],
+                [0.0206832,-0.01735527],
+                [0.02338269,-0.0135],
+                [0.0253717,-0.00923454],
+                [0.02658981,-0.0046885]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0127,0],
+                  [0.01250706,0.00220533],
+                  [0.0119341,0.00434366],
+                  [0.01099852,0.00635],
+                  [0.00972876,0.0081634],
+                  [0.0081634,0.00972876],
+                  [0.00635,0.01099852],
+                  [0.00434366,0.0119341],
+                  [0.00220533,0.01250706],
+                  [0,0.0127],
+                  [-0.00220533,0.01250706],
+                  [-0.00434366,0.0119341],
+                  [-0.00635,0.01099852],
+                  [-0.0081634,0.00972876],
+                  [-0.00972876,0.0081634],
+                  [-0.01099852,0.00635],
+                  [-0.0119341,0.00434366],
+                  [-0.01250706,0.00220533],
+                  [-0.0127,0],
+                  [-0.01250706,-0.00220533],
+                  [-0.0119341,-0.00434366],
+                  [-0.01099852,-0.00635],
+                  [-0.00972876,-0.0081634],
+                  [-0.0081634,-0.00972876],
+                  [-0.00635,-0.01099852],
+                  [-0.00434366,-0.0119341],
+                  [-0.00220533,-0.01250706],
+                  [0,-0.0127],
+                  [0.00220533,-0.01250706],
+                  [0.00434366,-0.0119341],
+                  [0.00635,-0.01099852],
+                  [0.0081634,-0.00972876],
+                  [0.00972876,-0.0081634],
+                  [0.01099852,-0.00635],
+                  [0.0119341,-0.00434366],
+                  [0.01250706,-0.00220533]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            }
+          },
+          {
+            "id": "height-stud",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.manual-locking-stud",
+            "parent": "head-height",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.022,0.004,0],
+              "end": [0.08,0.004,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0d2db"
+            }
+          },
+          {
+            "id": "thumb-screw",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.hand-turnable-vertical-holding-knob",
+            "parent": "head-height",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.076,0,0],
+                [0.091,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.019,0],
+                [0.01835259,0.00491756],
+                [0.01645448,0.0095],
+                [0.01343503,0.01343503],
+                [0.0095,0.01645448],
+                [0.00491756,0.01835259],
+                [0,0.019],
+                [-0.00491756,0.01835259],
+                [-0.0095,0.01645448],
+                [-0.01343503,0.01343503],
+                [-0.01645448,0.0095],
+                [-0.01835259,0.00491756],
+                [-0.019,0],
+                [-0.01835259,-0.00491756],
+                [-0.01645448,-0.0095],
+                [-0.01343503,-0.01343503],
+                [-0.0095,-0.01645448],
+                [-0.00491756,-0.01835259],
+                [0,-0.019],
+                [0.00491756,-0.01835259],
+                [0.0095,-0.01645448],
+                [0.01343503,-0.01343503],
+                [0.01645448,-0.0095],
+                [0.01835259,-0.00491756]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0065,0],
+                  [0.00627852,0.00168232],
+                  [0.00562917,0.00325],
+                  [0.00459619,0.00459619],
+                  [0.00325,0.00562917],
+                  [0.00168232,0.00627852],
+                  [0,0.0065],
+                  [-0.00168232,0.00627852],
+                  [-0.00325,0.00562917],
+                  [-0.00459619,0.00459619],
+                  [-0.00562917,0.00325],
+                  [-0.00627852,0.00168232],
+                  [-0.0065,0],
+                  [-0.00627852,-0.00168232],
+                  [-0.00562917,-0.00325],
+                  [-0.00459619,-0.00459619],
+                  [-0.00325,-0.00562917],
+                  [-0.00168232,-0.00627852],
+                  [0,-0.0065],
+                  [0.00168232,-0.00627852],
+                  [0.00325,-0.00562917],
+                  [0.00459619,-0.00459619],
+                  [0.00562917,-0.00325],
+                  [0.00627852,-0.00168232]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#82bac5"
+            }
+          },
+          {
+            "id": "yaw",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.frame",
+            "parent": "head-height",
+            "transform": {
+              "position": [0,0.013,0]
+            }
+          },
+          {
+            "id": "horizontal-arm",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.rigid-gauge-arm",
+            "parent": "yaw",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.018],
+              "end": [0,0,0.236],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0d2db"
+            }
+          },
+          {
+            "id": "gauge-clip",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.adjustable-indicator-clamp",
+            "parent": "yaw",
+            "geometry": {
+              "type": "box",
+              "size": [0.059,0.039,0.085]
+            },
+            "appearance": {
+              "color": "#82bac5"
+            },
+            "transform": {
+              "position": [0,0.014,0.231]
+            }
+          },
+          {
+            "id": "probe",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.frame",
+            "parent": "yaw",
+            "transform": {
+              "position": [0,0.06,0.251]
+            }
+          },
+          {
+            "id": "instrument-body",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.cylindrical-displacement-dial",
+            "parent": "probe",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.016],
+                [0,0,0.019]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.04,0],
+                [0.03923141,0.00780361],
+                [0.03695518,0.01530734],
+                [0.03325878,0.02222281],
+                [0.02828427,0.02828427],
+                [0.02222281,0.03325878],
+                [0.01530734,0.03695518],
+                [0.00780361,0.03923141],
+                [0,0.04],
+                [-0.00780361,0.03923141],
+                [-0.01530734,0.03695518],
+                [-0.02222281,0.03325878],
+                [-0.02828427,0.02828427],
+                [-0.03325878,0.02222281],
+                [-0.03695518,0.01530734],
+                [-0.03923141,0.00780361],
+                [-0.04,0],
+                [-0.03923141,-0.00780361],
+                [-0.03695518,-0.01530734],
+                [-0.03325878,-0.02222281],
+                [-0.02828427,-0.02828427],
+                [-0.02222281,-0.03325878],
+                [-0.01530734,-0.03695518],
+                [-0.00780361,-0.03923141],
+                [0,-0.04],
+                [0.00780361,-0.03923141],
+                [0.01530734,-0.03695518],
+                [0.02222281,-0.03325878],
+                [0.02828427,-0.02828427],
+                [0.03325878,-0.02222281],
+                [0.03695518,-0.01530734],
+                [0.03923141,-0.00780361]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            }
+          },
+          {
+            "id": "dial-inset",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.protective-dial-glass",
+            "parent": "probe",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.018],
+                [0,0,0.022]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.035,0],
+                [0.03432748,0.00682816],
+                [0.03233578,0.01339392],
+                [0.02910144,0.01944496],
+                [0.02474874,0.02474874],
+                [0.01944496,0.02910144],
+                [0.01339392,0.03233578],
+                [0.00682816,0.03432748],
+                [0,0.035],
+                [-0.00682816,0.03432748],
+                [-0.01339392,0.03233578],
+                [-0.01944496,0.02910144],
+                [-0.02474874,0.02474874],
+                [-0.02910144,0.01944496],
+                [-0.03233578,0.01339392],
+                [-0.03432748,0.00682816],
+                [-0.035,0],
+                [-0.03432748,-0.00682816],
+                [-0.03233578,-0.01339392],
+                [-0.02910144,-0.01944496],
+                [-0.02474874,-0.02474874],
+                [-0.01944496,-0.02910144],
+                [-0.01339392,-0.03233578],
+                [-0.00682816,-0.03432748],
+                [0,-0.035],
+                [0.00682816,-0.03432748],
+                [0.01339392,-0.03233578],
+                [0.01944496,-0.02910144],
+                [0.02474874,-0.02474874],
+                [0.02910144,-0.01944496],
+                [0.03233578,-0.01339392],
+                [0.03432748,-0.00682816]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9ecbd4"
+            }
+          },
+          {
+            "id": "index-0",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [-0.008652475842498526,-0.026629582456264303,0.022],
+              "rotation": [0,0,-3.4557519189487724]
+            }
+          },
+          {
+            "id": "index-1",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [-0.0004886673802439374,-0.027995735464378956,0.022],
+              "rotation": [0,0,-3.159045946109736]
+            }
+          },
+          {
+            "id": "index-2",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [0.007717845962875977,-0.02691532748627293,0.022],
+              "rotation": [0,0,-2.8623399732707004]
+            }
+          },
+          {
+            "id": "index-3",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [0.01524989298042076,-0.023482775902471872,0.022],
+              "rotation": [0,0,-2.5656340004316647]
+            }
+          },
+          {
+            "id": "index-4",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [0.021449244407331383,-0.0179980530712231,0.022],
+              "rotation": [0,0,-2.2689280275926285]
+            }
+          },
+          {
+            "id": "index-5",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [0.02577413589666833,-0.010940471597699666,0.022],
+              "rotation": [0,0,-1.9722220547535922]
+            }
+          },
+          {
+            "id": "index-6",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [0.02784661307031165,-0.002926796971494297,0.022],
+              "rotation": [0,0,-1.6755160819145563]
+            }
+          },
+          {
+            "id": "index-7",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [0.02748556113653459,0.005342651870543255,0.022],
+              "rotation": [0,0,-1.3788101090755203]
+            }
+          },
+          {
+            "id": "index-8",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [0.024722532600049956,0.013145203758004943,0.022],
+              "rotation": [0,0,-1.0821041362364843]
+            }
+          },
+          {
+            "id": "index-9",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [0.019798989873223333,0.01979898987322333,0.022],
+              "rotation": [0,0,-0.7853981633974483]
+            }
+          },
+          {
+            "id": "index-10",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [0.013145203758004945,0.024722532600049953,0.022],
+              "rotation": [0,0,-0.4886921905584123]
+            }
+          },
+          {
+            "id": "index-11",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [0.005342651870543258,0.02748556113653459,0.022],
+              "rotation": [0,0,-0.1919862177193763]
+            }
+          },
+          {
+            "id": "index-12",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.visible-indicator-graduation",
+            "parent": "probe",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.008,0.003]
+            },
+            "appearance": {
+              "color": "#5b757f"
+            },
+            "transform": {
+              "position": [-0.0029267969714942997,0.02784661307031165,0.022],
+              "rotation": [0,0,0.10471975511965992]
+            }
+          },
+          {
+            "id": "stem",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.frame",
+            "parent": "probe",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "sensor-rod",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.sliding-indicator-probe",
+            "parent": "stem",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.111,0],
+              "end": [0,-0.033,0],
+              "radius": 0.006,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0d2db"
+            }
+          },
+          {
+            "id": "ball",
+            "semanticType": "instrument.two-axis-magnetic-displacement-gauge-stand.spherical-mechanical-probe-tip",
+            "parent": "stem",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.008,
+              "segments": 18
+            },
+            "appearance": {
+              "color": "#c0d2db"
+            },
+            "transform": {
+              "position": [0,-0.111,0]
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "node": "base",
+            "position": [0,0.01,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "touch": {
+            "node": "ball",
+            "position": [0,-0.008,0],
+            "direction": [0,-1,0],
+            "kind": "measurement"
+          },
+          "dial": {
+            "node": "dial-inset",
+            "position": [0,0,0.022],
+            "direction": [0,0,1],
+            "kind": "reference"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "head-rise",
+            "label": "夹座竖向微调",
+            "unit": "m",
+            "value": 0,
+            "min": -0.059,
+            "max": 0.078,
+            "targets": [
+              {
+                "node": "head-height",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "arm-yaw",
+            "label": "悬臂水平转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -96,
+            "max": 96,
+            "targets": [
+              {
+                "node": "yaw",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "probe-travel",
+            "label": "测头伸缩量",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.028,
+            "targets": [
+              {
+                "node": "stem",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

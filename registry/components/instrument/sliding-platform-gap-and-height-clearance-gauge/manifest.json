@@ -1,0 +1,630 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.sliding-platform-gap-and-height-clearance-gauge",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "站台门槛间距与高度检测尺",
+  "summary": "实际可固定底座、横向空心尺、独立竖向测杆、两端接触面和可见行程标记。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "站台间隙检测尺",
+    "站台门槛高差尺",
+    "platform-gap-gauge",
+    "clearance-measuring-fixture",
+    "站台位置检测",
+    "platform-clearance"
+  ],
+  "anchors": [
+    "fixed-platform",
+    "platform-lip"
+  ],
+  "ai": {
+    "intent": "独立表达站台边和对侧踏面的双向测量基准，允许先选测量方向，再分别调整间距和高度。",
+    "editableParts": [
+      "horizontal-reach",
+      "height-readout",
+      "reference-angle"
+    ],
+    "qualityChecks": [
+      "水平套杆与竖向探杆都是独立实体。",
+      "夹具槽和孔均实际贯通。",
+      "固定基面不随读数移动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "sliding-platform-gap-and-height-clearance-gauge",
+      "title": "站台门槛间距与高度检测尺",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bottom",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.slotted-platform-clearance-measurement-foot",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.028,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.128,-0.093],
+                [-0.128,-0.093],
+                [-0.144,-0.077],
+                [-0.144,0.077],
+                [-0.128,0.093],
+                [0.128,0.093],
+                [0.144,0.077],
+                [0.144,-0.077]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.101,-0.06],
+                  [0.10127259,-0.05792945],
+                  [0.1020718,-0.056],
+                  [0.10334315,-0.05434315],
+                  [0.105,-0.0530718],
+                  [0.10692945,-0.05227259],
+                  [0.109,-0.052],
+                  [0.11107055,-0.05227259],
+                  [0.113,-0.0530718],
+                  [0.11465685,-0.05434315],
+                  [0.1159282,-0.056],
+                  [0.11672741,-0.05792945],
+                  [0.117,-0.06],
+                  [0.11672741,-0.06207055],
+                  [0.1159282,-0.064],
+                  [0.11465685,-0.06565685],
+                  [0.113,-0.0669282],
+                  [0.11107055,-0.06772741],
+                  [0.109,-0.068],
+                  [0.10692945,-0.06772741],
+                  [0.105,-0.0669282],
+                  [0.10334315,-0.06565685],
+                  [0.1020718,-0.064],
+                  [0.10127259,-0.06207055]
+                ],
+                [
+                  [0.101,0.06],
+                  [0.10127259,0.06207055],
+                  [0.1020718,0.064],
+                  [0.10334315,0.06565685],
+                  [0.105,0.0669282],
+                  [0.10692945,0.06772741],
+                  [0.109,0.068],
+                  [0.11107055,0.06772741],
+                  [0.113,0.0669282],
+                  [0.11465685,0.06565685],
+                  [0.1159282,0.064],
+                  [0.11672741,0.06207055],
+                  [0.117,0.06],
+                  [0.11672741,0.05792945],
+                  [0.1159282,0.056],
+                  [0.11465685,0.05434315],
+                  [0.113,0.0530718],
+                  [0.11107055,0.05227259],
+                  [0.109,0.052],
+                  [0.10692945,0.05227259],
+                  [0.105,0.0530718],
+                  [0.10334315,0.05434315],
+                  [0.1020718,0.056],
+                  [0.10127259,0.05792945]
+                ],
+                [
+                  [-0.117,-0.06],
+                  [-0.11672741,-0.05792945],
+                  [-0.1159282,-0.056],
+                  [-0.11465685,-0.05434315],
+                  [-0.113,-0.0530718],
+                  [-0.11107055,-0.05227259],
+                  [-0.109,-0.052],
+                  [-0.10692945,-0.05227259],
+                  [-0.105,-0.0530718],
+                  [-0.10334315,-0.05434315],
+                  [-0.1020718,-0.056],
+                  [-0.10127259,-0.05792945],
+                  [-0.101,-0.06],
+                  [-0.10127259,-0.06207055],
+                  [-0.1020718,-0.064],
+                  [-0.10334315,-0.06565685],
+                  [-0.105,-0.0669282],
+                  [-0.10692945,-0.06772741],
+                  [-0.109,-0.068],
+                  [-0.11107055,-0.06772741],
+                  [-0.113,-0.0669282],
+                  [-0.11465685,-0.06565685],
+                  [-0.1159282,-0.064],
+                  [-0.11672741,-0.06207055]
+                ],
+                [
+                  [-0.117,0.06],
+                  [-0.11672741,0.06207055],
+                  [-0.1159282,0.064],
+                  [-0.11465685,0.06565685],
+                  [-0.113,0.0669282],
+                  [-0.11107055,0.06772741],
+                  [-0.109,0.068],
+                  [-0.10692945,0.06772741],
+                  [-0.105,0.0669282],
+                  [-0.10334315,0.06565685],
+                  [-0.1020718,0.064],
+                  [-0.10127259,0.06207055],
+                  [-0.101,0.06],
+                  [-0.10127259,0.05792945],
+                  [-0.1020718,0.056],
+                  [-0.10334315,0.05434315],
+                  [-0.105,0.0530718],
+                  [-0.10692945,0.05227259],
+                  [-0.109,0.052],
+                  [-0.11107055,0.05227259],
+                  [-0.113,0.0530718],
+                  [-0.11465685,0.05434315],
+                  [-0.1159282,0.056],
+                  [-0.11672741,0.05792945]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db8c3"
+            }
+          },
+          {
+            "id": "bracket",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.true-holed-platform-gauge-mast-side",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.026],
+                [0,0,0.026]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.041,0.024],
+                [0.041,0.024],
+                [0.055,0.038],
+                [0.055,0.34900000000000003],
+                [0.041,0.36300000000000004],
+                [-0.041,0.36300000000000004],
+                [-0.055,0.34900000000000003],
+                [-0.055,0.038]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.002999999999999999,0.105],
+                  [0.002999999999999999,0.105],
+                  [0.009,0.111],
+                  [0.009,0.27999999999999997],
+                  [0.002999999999999999,0.286],
+                  [-0.002999999999999999,0.286],
+                  [-0.009,0.27999999999999997],
+                  [-0.009,0.111]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#84bbc7"
+            }
+          },
+          {
+            "id": "azimuth-axis",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.frame",
+            "transform": {
+              "position": [0,0.229,0]
+            }
+          },
+          {
+            "id": "beam",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.true-open-rectangular-telescoping-gauge-beam",
+            "parent": "azimuth-axis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.038,0,0],
+                [0.282,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.016999999999999998,-0.019],
+                [0.016999999999999998,-0.019],
+                [0.022,-0.013999999999999999],
+                [0.022,0.013999999999999999],
+                [0.016999999999999998,0.019],
+                [-0.016999999999999998,0.019],
+                [-0.022,0.013999999999999999],
+                [-0.022,-0.013999999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.011,-0.012],
+                  [0.011,-0.012],
+                  [0.015,-0.008],
+                  [0.015,0.008],
+                  [0.011,0.012],
+                  [-0.011,0.012],
+                  [-0.015,0.008],
+                  [-0.015,-0.008]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db8c3"
+            }
+          },
+          {
+            "id": "horizontal",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.frame",
+            "parent": "azimuth-axis",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "slide",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.probe-reach-scale-arm",
+            "parent": "horizontal",
+            "geometry": {
+              "type": "box",
+              "size": [0.31,0.019,0.024]
+            },
+            "appearance": {
+              "color": "#c5d8df"
+            },
+            "transform": {
+              "position": [0.229,0,0]
+            }
+          },
+          {
+            "id": "mark-0",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.separate-visible-gauge-mark",
+            "parent": "horizontal",
+            "geometry": {
+              "type": "box",
+              "size": [0.0025,0.003,0.014]
+            },
+            "appearance": {
+              "color": "#e3bc74"
+            },
+            "transform": {
+              "position": [0.18,0.011,0]
+            }
+          },
+          {
+            "id": "mark-1",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.separate-visible-gauge-mark",
+            "parent": "horizontal",
+            "geometry": {
+              "type": "box",
+              "size": [0.0025,0.003,0.014]
+            },
+            "appearance": {
+              "color": "#84bbc7"
+            },
+            "transform": {
+              "position": [0.20199999999999999,0.011,0]
+            }
+          },
+          {
+            "id": "mark-2",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.separate-visible-gauge-mark",
+            "parent": "horizontal",
+            "geometry": {
+              "type": "box",
+              "size": [0.0025,0.003,0.014]
+            },
+            "appearance": {
+              "color": "#84bbc7"
+            },
+            "transform": {
+              "position": [0.22399999999999998,0.011,0]
+            }
+          },
+          {
+            "id": "mark-3",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.separate-visible-gauge-mark",
+            "parent": "horizontal",
+            "geometry": {
+              "type": "box",
+              "size": [0.0025,0.003,0.014]
+            },
+            "appearance": {
+              "color": "#e3bc74"
+            },
+            "transform": {
+              "position": [0.246,0.011,0]
+            }
+          },
+          {
+            "id": "mark-4",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.separate-visible-gauge-mark",
+            "parent": "horizontal",
+            "geometry": {
+              "type": "box",
+              "size": [0.0025,0.003,0.014]
+            },
+            "appearance": {
+              "color": "#84bbc7"
+            },
+            "transform": {
+              "position": [0.268,0.011,0]
+            }
+          },
+          {
+            "id": "mark-5",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.separate-visible-gauge-mark",
+            "parent": "horizontal",
+            "geometry": {
+              "type": "box",
+              "size": [0.0025,0.003,0.014]
+            },
+            "appearance": {
+              "color": "#84bbc7"
+            },
+            "transform": {
+              "position": [0.29,0.011,0]
+            }
+          },
+          {
+            "id": "mark-6",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.separate-visible-gauge-mark",
+            "parent": "horizontal",
+            "geometry": {
+              "type": "box",
+              "size": [0.0025,0.003,0.014]
+            },
+            "appearance": {
+              "color": "#e3bc74"
+            },
+            "transform": {
+              "position": [0.312,0.011,0]
+            }
+          },
+          {
+            "id": "vertical",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.frame",
+            "parent": "horizontal",
+            "transform": {
+              "position": [0.407,0,0]
+            }
+          },
+          {
+            "id": "follower-center",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.frame",
+            "parent": "horizontal",
+            "transform": {
+              "position": [0.407,0,0]
+            }
+          },
+          {
+            "id": "end-guide",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.genuine-bored-vertical-height-probe-guide",
+            "parent": "follower-center",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.027,0],
+                [0,0.026,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.024,0],
+                [0.02359135,0.00440999],
+                [0.02237933,0.0086698],
+                [0.02040521,0.01263437],
+                [0.01773621,0.0161687],
+                [0.01446323,0.01915241],
+                [0.01069772,0.02148392],
+                [0.00656791,0.02308382],
+                [0.00221444,0.02389762],
+                [-0.00221444,0.02389762],
+                [-0.00656791,0.02308382],
+                [-0.01069772,0.02148392],
+                [-0.01446323,0.01915241],
+                [-0.01773621,0.0161687],
+                [-0.02040521,0.01263437],
+                [-0.02237933,0.0086698],
+                [-0.02359135,0.00440999],
+                [-0.024,0],
+                [-0.02359135,-0.00440999],
+                [-0.02237933,-0.0086698],
+                [-0.02040521,-0.01263437],
+                [-0.01773621,-0.0161687],
+                [-0.01446323,-0.01915241],
+                [-0.01069772,-0.02148392],
+                [-0.00656791,-0.02308382],
+                [-0.00221444,-0.02389762],
+                [0.00221444,-0.02389762],
+                [0.00656791,-0.02308382],
+                [0.01069772,-0.02148392],
+                [0.01446323,-0.01915241],
+                [0.01773621,-0.0161687],
+                [0.02040521,-0.01263437],
+                [0.02237933,-0.0086698],
+                [0.02359135,-0.00440999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0087,0],
+                  [0.00855187,0.00159862],
+                  [0.00811251,0.0031428],
+                  [0.00739689,0.00457996],
+                  [0.00642938,0.00586115],
+                  [0.00524292,0.00694275],
+                  [0.00387792,0.00778792],
+                  [0.00238087,0.00836788],
+                  [0.00080273,0.00866289],
+                  [-0.00080273,0.00866289],
+                  [-0.00238087,0.00836788],
+                  [-0.00387792,0.00778792],
+                  [-0.00524292,0.00694275],
+                  [-0.00642938,0.00586115],
+                  [-0.00739689,0.00457996],
+                  [-0.00811251,0.0031428],
+                  [-0.00855187,0.00159862],
+                  [-0.0087,0],
+                  [-0.00855187,-0.00159862],
+                  [-0.00811251,-0.0031428],
+                  [-0.00739689,-0.00457996],
+                  [-0.00642938,-0.00586115],
+                  [-0.00524292,-0.00694275],
+                  [-0.00387792,-0.00778792],
+                  [-0.00238087,-0.00836788],
+                  [-0.00080273,-0.00866289],
+                  [0.00080273,-0.00866289],
+                  [0.00238087,-0.00836788],
+                  [0.00387792,-0.00778792],
+                  [0.00524292,-0.00694275],
+                  [0.00642938,-0.00586115],
+                  [0.00739689,-0.00457996],
+                  [0.00811251,-0.0031428],
+                  [0.00855187,-0.00159862]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#84bbc7"
+            }
+          },
+          {
+            "id": "rod",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.platform-rim-height-caliper-probe",
+            "parent": "vertical",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.077,0],
+              "end": [0,0.084,0],
+              "radius": 0.0083,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c5d8df"
+            }
+          },
+          {
+            "id": "tip",
+            "semanticType": "instrument.sliding-platform-gap-and-height-clearance-gauge.replaceable-bridge-platform-gauge-foot",
+            "parent": "vertical",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.092,0],
+                [0,-0.075,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.019,0],
+                [0.01863492,0.00370672],
+                [0.01755371,0.00727099],
+                [0.01579792,0.01055583],
+                [0.01343503,0.01343503],
+                [0.01055583,0.01579792],
+                [0.00727099,0.01755371],
+                [0.00370672,0.01863492],
+                [0,0.019],
+                [-0.00370672,0.01863492],
+                [-0.00727099,0.01755371],
+                [-0.01055583,0.01579792],
+                [-0.01343503,0.01343503],
+                [-0.01579792,0.01055583],
+                [-0.01755371,0.00727099],
+                [-0.01863492,0.00370672],
+                [-0.019,0],
+                [-0.01863492,-0.00370672],
+                [-0.01755371,-0.00727099],
+                [-0.01579792,-0.01055583],
+                [-0.01343503,-0.01343503],
+                [-0.01055583,-0.01579792],
+                [-0.00727099,-0.01755371],
+                [-0.00370672,-0.01863492],
+                [0,-0.019],
+                [0.00370672,-0.01863492],
+                [0.00727099,-0.01755371],
+                [0.01055583,-0.01579792],
+                [0.01343503,-0.01343503],
+                [0.01579792,-0.01055583],
+                [0.01755371,-0.00727099],
+                [0.01863492,-0.00370672]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#e3bc74"
+            }
+          }
+        ],
+        "anchors": {
+          "fixed-platform": {
+            "node": "bottom",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "platform-lip": {
+            "node": "tip",
+            "position": [0,-0.092,0],
+            "direction": [0,-1,0],
+            "kind": "measurement"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "horizontal-reach",
+            "label": "跨距测杆伸出量",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.181,
+            "targets": [
+              {
+                "node": "horizontal",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "height-readout",
+            "label": "竖向测点位移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.115,
+            "max": 0.104,
+            "targets": [
+              {
+                "node": "vertical",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "reference-angle",
+            "label": "测量方向调整",
+            "unit": "deg",
+            "value": 0,
+            "min": -42,
+            "max": 42,
+            "targets": [
+              {
+                "node": "azimuth-axis",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

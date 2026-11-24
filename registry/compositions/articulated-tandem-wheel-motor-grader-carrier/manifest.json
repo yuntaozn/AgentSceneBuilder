@@ -1,0 +1,4292 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.articulated-tandem-wheel-motor-grader-carrier",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "铰接式六轮平地机本体",
+  "summary": "六轮底盘、左右后轮摆架、前轮转向、自走车身铰接与两处独立工作装置接口。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "平地机",
+    "六轮平地机",
+    "motor-grader",
+    "articulated-chassis",
+    "道路机械",
+    "road-machinery"
+  ],
+  "anchors": [
+    "grader-blade",
+    "rear-scarifier",
+    "front-axis",
+    "rear-contact"
+  ],
+  "ai": {
+    "intent": "用独立机体表达路基平整设备，可装刮刀和后挂松土架，沿相应的工作接口配接。",
+    "editableParts": [
+      "articulation-angle",
+      "front-steer",
+      "blade-lift",
+      "left-bogie",
+      "right-bogie"
+    ],
+    "qualityChecks": [
+      "工作盘随前车身转向和独立升降。",
+      "前轮和两个后摆架各可定位。",
+      "后方松土机具接口在后车架上保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "articulated-tandem-wheel-motor-grader-carrier",
+      "title": "铰接式六轮平地机本体",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "main-frame",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.main-rear-chassis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.347,0],
+                [0,0.501,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.35,-1.219],
+                [-0.35,-1.219],
+                [-0.44,-1.129],
+                [-0.44,0.30700000000000005],
+                [-0.35,0.397],
+                [0.35,0.397],
+                [0.44,0.30700000000000005],
+                [0.44,-1.129]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            }
+          },
+          {
+            "id": "engine-cover",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.hinged-engine-bonnet",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.487,0],
+                [0,0.887,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.353,-1.171],
+                [-0.353,-1.171],
+                [-0.423,-1.101],
+                [-0.423,-0.49300000000000005],
+                [-0.353,-0.42300000000000004],
+                [0.353,-0.42300000000000004],
+                [0.423,-0.49300000000000005],
+                [0.423,-1.101]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#efc468"
+            }
+          },
+          {
+            "id": "vent--1-0",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.423,0.71,-1.09]
+            }
+          },
+          {
+            "id": "vent--1-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.423,0.71,-1.0010000000000001]
+            }
+          },
+          {
+            "id": "vent--1-2",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.423,0.71,-0.9120000000000001]
+            }
+          },
+          {
+            "id": "vent--1-3",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.423,0.71,-0.8230000000000001]
+            }
+          },
+          {
+            "id": "vent--1-4",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.423,0.71,-0.7340000000000001]
+            }
+          },
+          {
+            "id": "vent--1-5",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.423,0.71,-0.6450000000000001]
+            }
+          },
+          {
+            "id": "vent-1-0",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.423,0.71,-1.09]
+            }
+          },
+          {
+            "id": "vent-1-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.423,0.71,-1.0010000000000001]
+            }
+          },
+          {
+            "id": "vent-1-2",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.423,0.71,-0.9120000000000001]
+            }
+          },
+          {
+            "id": "vent-1-3",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.423,0.71,-0.8230000000000001]
+            }
+          },
+          {
+            "id": "vent-1-4",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.423,0.71,-0.7340000000000001]
+            }
+          },
+          {
+            "id": "vent-1-5",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.machinery-cooling-slot",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.078,0.06]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.423,0.71,-0.6450000000000001]
+            }
+          },
+          {
+            "id": "exhaust",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "transform": {
+              "position": [0.304,0,-0.702]
+            }
+          },
+          {
+            "id": "exhaust-top",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.engine-exhaust-cap",
+            "parent": "exhaust",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.875,0],
+                [0,0.905,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.029,0],
+                [0.02844277,0.00565762],
+                [0.02679251,0.01109782],
+                [0.02411262,0.01611154],
+                [0.0205061,0.0205061],
+                [0.01611154,0.02411262],
+                [0.01109782,0.02679251],
+                [0.00565762,0.02844277],
+                [0,0.029],
+                [-0.00565762,0.02844277],
+                [-0.01109782,0.02679251],
+                [-0.01611154,0.02411262],
+                [-0.0205061,0.0205061],
+                [-0.02411262,0.01611154],
+                [-0.02679251,0.01109782],
+                [-0.02844277,0.00565762],
+                [-0.029,0],
+                [-0.02844277,-0.00565762],
+                [-0.02679251,-0.01109782],
+                [-0.02411262,-0.01611154],
+                [-0.0205061,-0.0205061],
+                [-0.01611154,-0.02411262],
+                [-0.01109782,-0.02679251],
+                [-0.00565762,-0.02844277],
+                [0,-0.029],
+                [0.00565762,-0.02844277],
+                [0.01109782,-0.02679251],
+                [0.01611154,-0.02411262],
+                [0.0205061,-0.0205061],
+                [0.02411262,-0.01611154],
+                [0.02679251,-0.01109782],
+                [0.02844277,-0.00565762]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "cab-lower",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.operator-station-shell",
+            "geometry": {
+              "type": "box",
+              "size": [0.704,0.231,0.668]
+            },
+            "appearance": {
+              "color": "#efc468"
+            },
+            "transform": {
+              "position": [0,0.572,0.028]
+            }
+          },
+          {
+            "id": "cab-roof",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.sun-shade-cab-roof",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.304,0],
+                [0,1.356,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.34500000000000003,-0.344],
+                [-0.34500000000000003,-0.344],
+                [-0.39,-0.299],
+                [-0.39,0.36700000000000005],
+                [-0.34500000000000003,0.41200000000000003],
+                [0.34500000000000003,0.41200000000000003],
+                [0.39,0.36700000000000005],
+                [0.39,-0.299]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#efc468"
+            }
+          },
+          {
+            "id": "floor",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.operator-platform-floor",
+            "geometry": {
+              "type": "box",
+              "size": [0.736,0.052,0.715]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [0,0.672,0.026]
+            }
+          },
+          {
+            "id": "cab-side-glass--1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tinted-cab-door-pane",
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.584,0.583]
+            },
+            "appearance": {
+              "color": "#a2ccd6",
+              "opacity": 0.61
+            },
+            "transform": {
+              "position": [-0.35,0.986,0.012]
+            }
+          },
+          {
+            "id": "cab-upright--1--0.303",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.cab-corner-pillar",
+            "geometry": {
+              "type": "box",
+              "size": [0.057,0.625,0.052]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [-0.351,0.988,-0.303]
+            }
+          },
+          {
+            "id": "cab-upright--1-0.34",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.cab-corner-pillar",
+            "geometry": {
+              "type": "box",
+              "size": [0.057,0.625,0.052]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [-0.351,0.988,0.34]
+            }
+          },
+          {
+            "id": "ladder-rail--1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.access-stair-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.381,0.081]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [-0.443,0.452,0.167]
+            }
+          },
+          {
+            "id": "access-step--1-0.311",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-cab-step",
+            "geometry": {
+              "type": "box",
+              "size": [0.157,0.024,0.12]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [-0.458,0.311,0.164]
+            }
+          },
+          {
+            "id": "access-step--1-0.422",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-cab-step",
+            "geometry": {
+              "type": "box",
+              "size": [0.157,0.024,0.12]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [-0.458,0.422,0.164]
+            }
+          },
+          {
+            "id": "access-step--1-0.533",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-cab-step",
+            "geometry": {
+              "type": "box",
+              "size": [0.157,0.024,0.12]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [-0.458,0.533,0.164]
+            }
+          },
+          {
+            "id": "cab-side-glass-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tinted-cab-door-pane",
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.584,0.583]
+            },
+            "appearance": {
+              "color": "#a2ccd6",
+              "opacity": 0.61
+            },
+            "transform": {
+              "position": [0.35,0.986,0.012]
+            }
+          },
+          {
+            "id": "cab-upright-1--0.303",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.cab-corner-pillar",
+            "geometry": {
+              "type": "box",
+              "size": [0.057,0.625,0.052]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [0.351,0.988,-0.303]
+            }
+          },
+          {
+            "id": "cab-upright-1-0.34",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.cab-corner-pillar",
+            "geometry": {
+              "type": "box",
+              "size": [0.057,0.625,0.052]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [0.351,0.988,0.34]
+            }
+          },
+          {
+            "id": "ladder-rail-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.access-stair-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.046,0.381,0.081]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [0.443,0.452,0.167]
+            }
+          },
+          {
+            "id": "access-step-1-0.311",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-cab-step",
+            "geometry": {
+              "type": "box",
+              "size": [0.157,0.024,0.12]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [0.458,0.311,0.164]
+            }
+          },
+          {
+            "id": "access-step-1-0.422",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-cab-step",
+            "geometry": {
+              "type": "box",
+              "size": [0.157,0.024,0.12]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [0.458,0.422,0.164]
+            }
+          },
+          {
+            "id": "access-step-1-0.533",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-cab-step",
+            "geometry": {
+              "type": "box",
+              "size": [0.157,0.024,0.12]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [0.458,0.533,0.164]
+            }
+          },
+          {
+            "id": "windshield",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.wide-front-windshield",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.342],
+                [0,0,0.358]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.29300000000000004,0.71],
+                [0.29300000000000004,0.71],
+                [0.329,0.746],
+                [0.329,1.2439999999999998],
+                [0.29300000000000004,1.2799999999999998],
+                [-0.29300000000000004,1.2799999999999998],
+                [-0.329,1.2439999999999998],
+                [-0.329,0.746]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a2ccd6",
+              "opacity": 0.62
+            }
+          },
+          {
+            "id": "rear-glass",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.rear-visibility-pane",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.318],
+                [0,0,-0.303]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.301,0.717],
+                [0.301,0.717],
+                [0.329,0.745],
+                [0.329,1.234],
+                [0.301,1.262],
+                [-0.301,1.262],
+                [-0.329,1.234],
+                [-0.329,0.745]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a2ccd6",
+              "opacity": 0.56
+            }
+          },
+          {
+            "id": "seat",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.operator-seat",
+            "geometry": {
+              "type": "box",
+              "size": [0.236,0.051,0.204]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0,0.795,-0.063]
+            }
+          },
+          {
+            "id": "seatback",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.operator-seat-back",
+            "geometry": {
+              "type": "box",
+              "size": [0.235,0.242,0.048]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0,0.909,-0.153]
+            }
+          },
+          {
+            "id": "steering-column",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.driver-steering-column",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.731,0.234],
+              "end": [0,0.931,0.205],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "steering",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "transform": {
+              "position": [0,0,0.205]
+            }
+          },
+          {
+            "id": "steering-wheel",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.steering-wheel-ring",
+            "parent": "steering",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.925,0],
+                [0,0.939,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.088,0],
+                [0.08650163,0.01616996],
+                [0.08205756,0.03178927],
+                [0.07481911,0.04632603],
+                [0.06503278,0.05928522],
+                [0.05303185,0.07022552],
+                [0.03922498,0.07877437],
+                [0.02408234,0.08464066],
+                [0.00811962,0.08762461],
+                [-0.00811962,0.08762461],
+                [-0.02408234,0.08464066],
+                [-0.03922498,0.07877437],
+                [-0.05303185,0.07022552],
+                [-0.06503278,0.05928522],
+                [-0.07481911,0.04632603],
+                [-0.08205756,0.03178927],
+                [-0.08650163,0.01616996],
+                [-0.088,0],
+                [-0.08650163,-0.01616996],
+                [-0.08205756,-0.03178927],
+                [-0.07481911,-0.04632603],
+                [-0.06503278,-0.05928522],
+                [-0.05303185,-0.07022552],
+                [-0.03922498,-0.07877437],
+                [-0.02408234,-0.08464066],
+                [-0.00811962,-0.08762461],
+                [0.00811962,-0.08762461],
+                [0.02408234,-0.08464066],
+                [0.03922498,-0.07877437],
+                [0.05303185,-0.07022552],
+                [0.06503278,-0.05928522],
+                [0.07481911,-0.04632603],
+                [0.08205756,-0.03178927],
+                [0.08650163,-0.01616996]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.074,0],
+                  [0.07274001,0.01359746],
+                  [0.06900294,0.02673188],
+                  [0.06291607,0.03895598],
+                  [0.05468666,0.04985348],
+                  [0.04459496,0.05905327],
+                  [0.03298464,0.06624208],
+                  [0.02025106,0.0711751],
+                  [0.00682786,0.07368433],
+                  [-0.00682786,0.07368433],
+                  [-0.02025106,0.0711751],
+                  [-0.03298464,0.06624208],
+                  [-0.04459496,0.05905327],
+                  [-0.05468666,0.04985348],
+                  [-0.06291607,0.03895598],
+                  [-0.06900294,0.02673188],
+                  [-0.07274001,0.01359746],
+                  [-0.074,0],
+                  [-0.07274001,-0.01359746],
+                  [-0.06900294,-0.02673188],
+                  [-0.06291607,-0.03895598],
+                  [-0.05468666,-0.04985348],
+                  [-0.04459496,-0.05905327],
+                  [-0.03298464,-0.06624208],
+                  [-0.02025106,-0.0711751],
+                  [-0.00682786,-0.07368433],
+                  [0.00682786,-0.07368433],
+                  [0.02025106,-0.0711751],
+                  [0.03298464,-0.06624208],
+                  [0.04459496,-0.05905327],
+                  [0.05468666,-0.04985348],
+                  [0.06291607,-0.03895598],
+                  [0.06900294,-0.02673188],
+                  [0.07274001,-0.01359746]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "front-articulation",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "transform": {
+              "position": [0,0.425,0.397]
+            }
+          },
+          {
+            "id": "articulation-pin",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.chassis-articulation-yaw-pin",
+            "parent": "front-articulation",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.074,0],
+                [0,0.083,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.072,0],
+                [0.07090616,0.01250267],
+                [0.06765787,0.02462545],
+                [0.06235383,0.036],
+                [0.0551552,0.04628071],
+                [0.04628071,0.0551552],
+                [0.036,0.06235383],
+                [0.02462545,0.06765787],
+                [0.01250267,0.07090616],
+                [0,0.072],
+                [-0.01250267,0.07090616],
+                [-0.02462545,0.06765787],
+                [-0.036,0.06235383],
+                [-0.04628071,0.0551552],
+                [-0.0551552,0.04628071],
+                [-0.06235383,0.036],
+                [-0.06765787,0.02462545],
+                [-0.07090616,0.01250267],
+                [-0.072,0],
+                [-0.07090616,-0.01250267],
+                [-0.06765787,-0.02462545],
+                [-0.06235383,-0.036],
+                [-0.0551552,-0.04628071],
+                [-0.04628071,-0.0551552],
+                [-0.036,-0.06235383],
+                [-0.02462545,-0.06765787],
+                [-0.01250267,-0.07090616],
+                [0,-0.072],
+                [0.01250267,-0.07090616],
+                [0.02462545,-0.06765787],
+                [0.036,-0.06235383],
+                [0.04628071,-0.0551552],
+                [0.0551552,-0.04628071],
+                [0.06235383,-0.036],
+                [0.06765787,-0.02462545],
+                [0.07090616,-0.01250267]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.018,0],
+                  [0.01772654,0.00312567],
+                  [0.01691447,0.00615636],
+                  [0.01558846,0.009],
+                  [0.0137888,0.01157018],
+                  [0.01157018,0.0137888],
+                  [0.009,0.01558846],
+                  [0.00615636,0.01691447],
+                  [0.00312567,0.01772654],
+                  [0,0.018],
+                  [-0.00312567,0.01772654],
+                  [-0.00615636,0.01691447],
+                  [-0.009,0.01558846],
+                  [-0.01157018,0.0137888],
+                  [-0.0137888,0.01157018],
+                  [-0.01558846,0.009],
+                  [-0.01691447,0.00615636],
+                  [-0.01772654,0.00312567],
+                  [-0.018,0],
+                  [-0.01772654,-0.00312567],
+                  [-0.01691447,-0.00615636],
+                  [-0.01558846,-0.009],
+                  [-0.0137888,-0.01157018],
+                  [-0.01157018,-0.0137888],
+                  [-0.009,-0.01558846],
+                  [-0.00615636,-0.01691447],
+                  [-0.00312567,-0.01772654],
+                  [0,-0.018],
+                  [0.00312567,-0.01772654],
+                  [0.00615636,-0.01691447],
+                  [0.009,-0.01558846],
+                  [0.01157018,-0.0137888],
+                  [0.0137888,-0.01157018],
+                  [0.01558846,-0.009],
+                  [0.01691447,-0.00615636],
+                  [0.01772654,-0.00312567]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "gooseneck",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.front-gooseneck-plan-face",
+            "parent": "front-articulation",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.031,0],
+                [0,0.132,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.09899999999999999,0.022],
+                [-0.09899999999999999,0.022],
+                [-0.146,0.069],
+                [-0.146,1.735],
+                [-0.09899999999999999,1.782],
+                [0.09899999999999999,1.782],
+                [0.146,1.735],
+                [0.146,0.069]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#efc468"
+            }
+          },
+          {
+            "id": "arched-arm-housing",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tall-neck-reinforcement",
+            "parent": "front-articulation",
+            "geometry": {
+              "type": "box",
+              "size": [0.209,0.214,0.521]
+            },
+            "appearance": {
+              "color": "#efc468"
+            },
+            "transform": {
+              "position": [0,0.101,0.415]
+            }
+          },
+          {
+            "id": "front-axle",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.controlled-axle-frame",
+            "parent": "front-articulation",
+            "geometry": {
+              "type": "box",
+              "size": [0.941,0.094,0.157]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [0,-0.098,1.637]
+            }
+          },
+          {
+            "id": "steer--1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "parent": "front-articulation",
+            "transform": {
+              "position": [-0.458,-0.125,1.637]
+            }
+          },
+          {
+            "id": "front-kingpin--1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.vertical-steering-axis",
+            "parent": "steer--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.078,0],
+              "end": [0,0.075,0],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "front-wheel-frame--1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "parent": "steer--1",
+            "transform": {
+              "position": [-0.059,0.001,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tire",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-with-sidewalls",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.0655,0,0],
+                [0.0655,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.301,0],
+                [0.29763808,0.04486172],
+                [0.28762741,0.08872131],
+                [0.27119163,0.13059901],
+                [0.24869787,0.16955934],
+                [0.22064861,0.20473199],
+                [0.18767043,0.23533128],
+                [0.1505,0.26067365],
+                [0.10996765,0.280193],
+                [0.0669788,0.2934533],
+                [0.02249376,0.30015834],
+                [-0.02249376,0.30015834],
+                [-0.0669788,0.2934533],
+                [-0.10996765,0.280193],
+                [-0.1505,0.26067365],
+                [-0.18767043,0.23533128],
+                [-0.22064861,0.20473199],
+                [-0.24869787,0.16955934],
+                [-0.27119163,0.13059901],
+                [-0.28762741,0.08872131],
+                [-0.29763808,0.04486172],
+                [-0.301,0],
+                [-0.29763808,-0.04486172],
+                [-0.28762741,-0.08872131],
+                [-0.27119163,-0.13059901],
+                [-0.24869787,-0.16955934],
+                [-0.22064861,-0.20473199],
+                [-0.18767043,-0.23533128],
+                [-0.1505,-0.26067365],
+                [-0.10996765,-0.280193],
+                [-0.0669788,-0.2934533],
+                [-0.02249376,-0.30015834],
+                [0.02249376,-0.30015834],
+                [0.0669788,-0.2934533],
+                [0.10996765,-0.280193],
+                [0.1505,-0.26067365],
+                [0.18767043,-0.23533128],
+                [0.22064861,-0.20473199],
+                [0.24869787,-0.16955934],
+                [0.27119163,-0.13059901],
+                [0.28762741,-0.08872131],
+                [0.29763808,-0.04486172]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.17759,0],
+                  [0.17560647,0.02646842],
+                  [0.16970017,0.05234557],
+                  [0.16000306,0.07705341],
+                  [0.14673174,0.10004001],
+                  [0.13018268,0.12079188],
+                  [0.11072555,0.13884545],
+                  [0.088795,0.15379745],
+                  [0.06488091,0.16531387],
+                  [0.03951749,0.17313745],
+                  [0.01327132,0.17709342],
+                  [-0.01327132,0.17709342],
+                  [-0.03951749,0.17313745],
+                  [-0.06488091,0.16531387],
+                  [-0.088795,0.15379745],
+                  [-0.11072555,0.13884545],
+                  [-0.13018268,0.12079188],
+                  [-0.14673174,0.10004001],
+                  [-0.16000306,0.07705341],
+                  [-0.16970017,0.05234557],
+                  [-0.17560647,0.02646842],
+                  [-0.17759,0],
+                  [-0.17560647,-0.02646842],
+                  [-0.16970017,-0.05234557],
+                  [-0.16000306,-0.07705341],
+                  [-0.14673174,-0.10004001],
+                  [-0.13018268,-0.12079188],
+                  [-0.11072555,-0.13884545],
+                  [-0.088795,-0.15379745],
+                  [-0.06488091,-0.16531387],
+                  [-0.03951749,-0.17313745],
+                  [-0.01327132,-0.17709342],
+                  [0.01327132,-0.17709342],
+                  [0.03951749,-0.17313745],
+                  [0.06488091,-0.16531387],
+                  [0.088795,-0.15379745],
+                  [0.11072555,-0.13884545],
+                  [0.13018268,-0.12079188],
+                  [0.14673174,-0.10004001],
+                  [0.16000306,-0.07705341],
+                  [0.16970017,-0.05234557],
+                  [0.17560647,-0.02646842]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#45575f"
+            }
+          },
+          {
+            "id": "front-wheel--1-rim",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-wheel-rim",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.04585,0,0],
+                [0.04585,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.19264,0],
+                [0.1895442,0.0343972],
+                [0.18035629,0.06768885],
+                [0.16537158,0.09880492],
+                [0.14507169,0.12674532],
+                [0.12010908,0.15061202],
+                [0.09128606,0.16963792],
+                [0.05952903,0.18321153],
+                [0.0258587,0.19089656],
+                [-0.00864276,0.19244602],
+                [-0.04286643,0.18781011],
+                [-0.07571234,0.17713783],
+                [-0.10612479,0.16077219],
+                [-0.13312631,0.1392392],
+                [-0.15584903,0.11323095],
+                [-0.17356264,0.08358336],
+                [-0.18569781,0.05124934],
+                [-0.19186449,0.01726812],
+                [-0.19186449,-0.01726812],
+                [-0.18569781,-0.05124934],
+                [-0.17356264,-0.08358336],
+                [-0.15584903,-0.11323095],
+                [-0.13312631,-0.1392392],
+                [-0.10612479,-0.16077219],
+                [-0.07571234,-0.17713783],
+                [-0.04286643,-0.18781011],
+                [-0.00864276,-0.19244602],
+                [0.0258587,-0.19089656],
+                [0.05952903,-0.18321153],
+                [0.09128606,-0.16963792],
+                [0.12010908,-0.15061202],
+                [0.14507169,-0.12674532],
+                [0.16537158,-0.09880492],
+                [0.18035629,-0.06768885],
+                [0.1895442,-0.0343972]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0903,0],
+                  [0.08884884,0.01612369],
+                  [0.08454201,0.03172915],
+                  [0.07751793,0.0463148],
+                  [0.06800235,0.05941187],
+                  [0.05630113,0.07059938],
+                  [0.04279034,0.07951778],
+                  [0.02790423,0.0858804],
+                  [0.01212126,0.08948276],
+                  [-0.00405129,0.09020907],
+                  [-0.02009364,0.08803599],
+                  [-0.03549016,0.08303336],
+                  [-0.049746,0.07536196],
+                  [-0.06240296,0.06526838],
+                  [-0.07305423,0.05307701],
+                  [-0.08135749,0.0391797],
+                  [-0.08704585,0.02402313],
+                  [-0.08993648,0.00809443],
+                  [-0.08993648,-0.00809443],
+                  [-0.08704585,-0.02402313],
+                  [-0.08135749,-0.0391797],
+                  [-0.07305423,-0.05307701],
+                  [-0.06240296,-0.06526838],
+                  [-0.049746,-0.07536196],
+                  [-0.03549016,-0.08303336],
+                  [-0.02009364,-0.08803599],
+                  [-0.00405129,-0.09020907],
+                  [0.01212126,-0.08948276],
+                  [0.02790423,-0.0858804],
+                  [0.04279034,-0.07951778],
+                  [0.05630113,-0.07059938],
+                  [0.06800235,-0.05941187],
+                  [0.07751793,-0.0463148],
+                  [0.08454201,-0.03172915],
+                  [0.08884884,-0.01612369]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#d99d47"
+            }
+          },
+          {
+            "id": "front-wheel--1-hub",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.wheel-center-hub",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.06681000000000001,0,0],
+                [0.06681000000000001,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.10234,0],
+                [0.10069535,0.01827351],
+                [0.09581428,0.0359597],
+                [0.08785365,0.05249011],
+                [0.07706933,0.06733345],
+                [0.06380795,0.08001263],
+                [0.04849572,0.09012015],
+                [0.0316248,0.09733112],
+                [0.01373743,0.1014138],
+                [-0.00459147,0.10223695],
+                [-0.02277279,0.09977412],
+                [-0.04022218,0.09410447],
+                [-0.0563788,0.08541023],
+                [-0.07072335,0.07397083],
+                [-0.0827948,0.06015394],
+                [-0.09220515,0.04440366],
+                [-0.09865196,0.02722621],
+                [-0.10192801,0.00917369],
+                [-0.10192801,-0.00917369],
+                [-0.09865196,-0.02722621],
+                [-0.09220515,-0.04440366],
+                [-0.0827948,-0.06015394],
+                [-0.07072335,-0.07397083],
+                [-0.0563788,-0.08541023],
+                [-0.04022218,-0.09410447],
+                [-0.02277279,-0.09977412],
+                [-0.00459147,-0.10223695],
+                [0.01373743,-0.1014138],
+                [0.0316248,-0.09733112],
+                [0.04849572,-0.09012015],
+                [0.06380795,-0.08001263],
+                [0.07706933,-0.06733345],
+                [0.08785365,-0.05249011],
+                [0.09581428,-0.0359597],
+                [0.10069535,-0.01827351]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.03311,0],
+                  [0.03257791,0.00591202],
+                  [0.03099874,0.01163402],
+                  [0.02842324,0.0169821],
+                  [0.0249342,0.02178435],
+                  [0.02064375,0.02588644],
+                  [0.01568979,0.02915652],
+                  [0.01023155,0.03148948],
+                  [0.00444446,0.03281035],
+                  [-0.00148547,0.03307666],
+                  [-0.00736767,0.03227986],
+                  [-0.01301306,0.03044556],
+                  [-0.0182402,0.02763272],
+                  [-0.02288108,0.02393174],
+                  [-0.02678655,0.01946157],
+                  [-0.02983108,0.01436589],
+                  [-0.03191681,0.00880848],
+                  [-0.03297671,0.00296796],
+                  [-0.03297671,-0.00296796],
+                  [-0.03191681,-0.00880848],
+                  [-0.02983108,-0.01436589],
+                  [-0.02678655,-0.01946157],
+                  [-0.02288108,-0.02393174],
+                  [-0.0182402,-0.02763272],
+                  [-0.01301306,-0.03044556],
+                  [-0.00736767,-0.03227986],
+                  [-0.00148547,-0.03307666],
+                  [0.00444446,-0.03281035],
+                  [0.01023155,-0.03148948],
+                  [0.01568979,-0.02915652],
+                  [0.02064375,-0.02588644],
+                  [0.0249342,-0.02178435],
+                  [0.02842324,-0.0169821],
+                  [0.03099874,-0.01163402],
+                  [0.03257791,-0.00591202]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-0",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,0.28775599999999996,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,0.2492040060913949,0.14387799999999995],
+              "rotation": [0.5235987755982988,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-2",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,0.143878,0.24920400609139487],
+              "rotation": [1.0471975511965976,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-3",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,1.7619973216772286e-17,0.28775599999999996],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-4",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,-0.14387799999999992,0.2492040060913949],
+              "rotation": [2.0943951023931953,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-5",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,-0.2492040060913949,0.14387799999999995],
+              "rotation": [2.6179938779914944,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-6",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,-0.28775599999999996,3.523994643354457e-17],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-7",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,-0.24920400609139487,-0.143878],
+              "rotation": [3.6651914291880923,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-8",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,-0.14387800000000012,-0.24920400609139484],
+              "rotation": [4.1887902047863905,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-9",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,-5.2859919650316856e-17,-0.28775599999999996],
+              "rotation": [4.71238898038469,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-10",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,0.143878,-0.24920400609139487],
+              "rotation": [5.235987755982989,0,0]
+            }
+          },
+          {
+            "id": "front-wheel--1-tread-11",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,0.24920400609139481,-0.14387800000000012],
+              "rotation": [5.759586531581287,0,0]
+            }
+          },
+          {
+            "id": "bogie--1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "transform": {
+              "position": [-0.508,0.315,-0.729]
+            }
+          },
+          {
+            "id": "bogie-rail--1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.oscillating-rear-tandem-beam",
+            "parent": "bogie--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.063,0.147,0.874]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [0.066,0,0]
+            }
+          },
+          {
+            "id": "rear-pivot--1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.rear-bogie-axis",
+            "parent": "bogie--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.078,0,0],
+              "end": [0.078,0,0],
+              "radius": 0.043,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "rear-wheel-frame--1--0.31",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "parent": "bogie--1",
+            "transform": {
+              "position": [0,0,-0.31]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tire",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-with-sidewalls",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.072,0,0],
+                [0.072,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.315,0],
+                [0.31148171,0.04694831],
+                [0.30100543,0.09284788],
+                [0.28380519,0.13667338],
+                [0.26026521,0.17744582],
+                [0.23091134,0.21425441],
+                [0.19639929,0.24627692],
+                [0.1575,0.272798],
+                [0.11508242,0.29322523],
+                [0.07009409,0.30710229],
+                [0.02353998,0.3141192],
+                [-0.02353998,0.3141192],
+                [-0.07009409,0.30710229],
+                [-0.11508242,0.29322523],
+                [-0.1575,0.272798],
+                [-0.19639929,0.24627692],
+                [-0.23091134,0.21425441],
+                [-0.26026521,0.17744582],
+                [-0.28380519,0.13667338],
+                [-0.30100543,0.09284788],
+                [-0.31148171,0.04694831],
+                [-0.315,0],
+                [-0.31148171,-0.04694831],
+                [-0.30100543,-0.09284788],
+                [-0.28380519,-0.13667338],
+                [-0.26026521,-0.17744582],
+                [-0.23091134,-0.21425441],
+                [-0.19639929,-0.24627692],
+                [-0.1575,-0.272798],
+                [-0.11508242,-0.29322523],
+                [-0.07009409,-0.30710229],
+                [-0.02353998,-0.3141192],
+                [0.02353998,-0.3141192],
+                [0.07009409,-0.30710229],
+                [0.11508242,-0.29322523],
+                [0.1575,-0.272798],
+                [0.19639929,-0.24627692],
+                [0.23091134,-0.21425441],
+                [0.26026521,-0.17744582],
+                [0.28380519,-0.13667338],
+                [0.30100543,-0.09284788],
+                [0.31148171,-0.04694831]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.18585,0],
+                  [0.18377421,0.02769951],
+                  [0.17759321,0.05478025],
+                  [0.16744506,0.08063729],
+                  [0.15355648,0.10469303],
+                  [0.13623769,0.1264101],
+                  [0.11587558,0.14530338],
+                  [0.092925,0.16095082],
+                  [0.06789863,0.17300289],
+                  [0.04135552,0.18119035],
+                  [0.01388859,0.18533033],
+                  [-0.01388859,0.18533033],
+                  [-0.04135552,0.18119035],
+                  [-0.06789863,0.17300289],
+                  [-0.092925,0.16095082],
+                  [-0.11587558,0.14530338],
+                  [-0.13623769,0.1264101],
+                  [-0.15355648,0.10469303],
+                  [-0.16744506,0.08063729],
+                  [-0.17759321,0.05478025],
+                  [-0.18377421,0.02769951],
+                  [-0.18585,0],
+                  [-0.18377421,-0.02769951],
+                  [-0.17759321,-0.05478025],
+                  [-0.16744506,-0.08063729],
+                  [-0.15355648,-0.10469303],
+                  [-0.13623769,-0.1264101],
+                  [-0.11587558,-0.14530338],
+                  [-0.092925,-0.16095082],
+                  [-0.06789863,-0.17300289],
+                  [-0.04135552,-0.18119035],
+                  [-0.01388859,-0.18533033],
+                  [0.01388859,-0.18533033],
+                  [0.04135552,-0.18119035],
+                  [0.06789863,-0.17300289],
+                  [0.092925,-0.16095082],
+                  [0.11587558,-0.14530338],
+                  [0.13623769,-0.1264101],
+                  [0.15355648,-0.10469303],
+                  [0.16744506,-0.08063729],
+                  [0.17759321,-0.05478025],
+                  [0.18377421,-0.02769951]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#45575f"
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-rim",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-wheel-rim",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.05039999999999999,0,0],
+                [0.05039999999999999,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.2016,0],
+                [0.19836021,0.03599707],
+                [0.18874495,0.07083716],
+                [0.17306328,0.10340049],
+                [0.15181921,0.13264045],
+                [0.12569554,0.15761723],
+                [0.09553192,0.17752806],
+                [0.06229783,0.19173299],
+                [0.02706143,0.19977547],
+                [-0.00904475,0.201397],
+                [-0.04486022,0.19654547],
+                [-0.07923385,0.1853768],
+                [-0.11106083,0.16824997],
+                [-0.13931823,0.14571544],
+                [-0.16309783,0.11849751],
+                [-0.18163532,0.08747096],
+                [-0.19433491,0.05363303],
+                [-0.20078842,0.01807128],
+                [-0.20078842,-0.01807128],
+                [-0.19433491,-0.05363303],
+                [-0.18163532,-0.08747096],
+                [-0.16309783,-0.11849751],
+                [-0.13931823,-0.14571544],
+                [-0.11106083,-0.16824997],
+                [-0.07923385,-0.1853768],
+                [-0.04486022,-0.19654547],
+                [-0.00904475,-0.201397],
+                [0.02706143,-0.19977547],
+                [0.06229783,-0.19173299],
+                [0.09553192,-0.17752806],
+                [0.12569554,-0.15761723],
+                [0.15181921,-0.13264045],
+                [0.17306328,-0.10340049],
+                [0.18874495,-0.07083716],
+                [0.19836021,-0.03599707]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0945,0],
+                  [0.09298135,0.01687363],
+                  [0.0884742,0.03320492],
+                  [0.08112341,0.04846898],
+                  [0.07116525,0.06217521],
+                  [0.05891979,0.07388308],
+                  [0.04478059,0.08321628],
+                  [0.02920211,0.08987484],
+                  [0.01268504,0.09364475],
+                  [-0.00423973,0.09440484],
+                  [-0.02102823,0.09213069],
+                  [-0.03714087,0.08689537],
+                  [-0.05205976,0.07886717],
+                  [-0.06530542,0.06830411],
+                  [-0.07645211,0.05554571],
+                  [-0.08514156,0.04100201],
+                  [-0.09109449,0.02514048],
+                  [-0.09411957,0.00847091],
+                  [-0.09411957,-0.00847091],
+                  [-0.09109449,-0.02514048],
+                  [-0.08514156,-0.04100201],
+                  [-0.07645211,-0.05554571],
+                  [-0.06530542,-0.06830411],
+                  [-0.05205976,-0.07886717],
+                  [-0.03714087,-0.08689537],
+                  [-0.02102823,-0.09213069],
+                  [-0.00423973,-0.09440484],
+                  [0.01268504,-0.09364475],
+                  [0.02920211,-0.08987484],
+                  [0.04478059,-0.08321628],
+                  [0.05891979,-0.07388308],
+                  [0.07116525,-0.06217521],
+                  [0.08112341,-0.04846898],
+                  [0.0884742,-0.03320492],
+                  [0.09298135,-0.01687363]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#d99d47"
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-hub",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.wheel-center-hub",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.07343999999999999,0,0],
+                [0.07343999999999999,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.1071,0],
+                [0.10537886,0.01912344],
+                [0.10027075,0.03763224],
+                [0.09193987,0.05493151],
+                [0.08065395,0.07046524],
+                [0.06677576,0.08373415],
+                [0.05075133,0.09431178],
+                [0.03309572,0.10185815],
+                [0.01437638,0.10613072],
+                [-0.00480502,0.10699216],
+                [-0.02383199,0.10441478],
+                [-0.04209298,0.09848142],
+                [-0.05900107,0.0893828],
+                [-0.07401281,0.07741133],
+                [-0.08664572,0.0629518],
+                [-0.09649377,0.04646895],
+                [-0.10324042,0.02849255],
+                [-0.10666885,0.00960037],
+                [-0.10666885,-0.00960037],
+                [-0.10324042,-0.02849255],
+                [-0.09649377,-0.04646895],
+                [-0.08664572,-0.0629518],
+                [-0.07401281,-0.07741133],
+                [-0.05900107,-0.0893828],
+                [-0.04209298,-0.09848142],
+                [-0.02383199,-0.10441478],
+                [-0.00480502,-0.10699216],
+                [0.01437638,-0.10613072],
+                [0.03309572,-0.10185815],
+                [0.05075133,-0.09431178],
+                [0.06677576,-0.08373415],
+                [0.08065395,-0.07046524],
+                [0.09193987,-0.05493151],
+                [0.10027075,-0.03763224],
+                [0.10537886,-0.01912344]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.03465,0],
+                  [0.03409316,0.006187],
+                  [0.03244054,0.01217514],
+                  [0.02974525,0.01777196],
+                  [0.02609393,0.02279758],
+                  [0.02160392,0.02709046],
+                  [0.01641955,0.03051264],
+                  [0.01070744,0.03295411],
+                  [0.00465118,0.03433641],
+                  [-0.00155457,0.03461511],
+                  [-0.00771035,0.03378125],
+                  [-0.01361832,0.03186164],
+                  [-0.01908858,0.02891796],
+                  [-0.02394532,0.02504484],
+                  [-0.02803244,0.02036676],
+                  [-0.03121857,0.01503407],
+                  [-0.03340131,0.00921818],
+                  [-0.03451051,0.003106],
+                  [-0.03451051,-0.003106],
+                  [-0.03340131,-0.00921818],
+                  [-0.03121857,-0.01503407],
+                  [-0.02803244,-0.02036676],
+                  [-0.02394532,-0.02504484],
+                  [-0.01908858,-0.02891796],
+                  [-0.01361832,-0.03186164],
+                  [-0.00771035,-0.03378125],
+                  [-0.00155457,-0.03461511],
+                  [0.00465118,-0.03433641],
+                  [0.01070744,-0.03295411],
+                  [0.01641955,-0.03051264],
+                  [0.02160392,-0.02709046],
+                  [0.02609393,-0.02279758],
+                  [0.02974525,-0.01777196],
+                  [0.03244054,-0.01217514],
+                  [0.03409316,-0.006187]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-0",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.30113999999999996,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,0.2607948900956458,0.15056999999999995],
+              "rotation": [0.5235987755982988,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-2",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.15057,0.2607948900956458],
+              "rotation": [1.0471975511965976,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-3",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,1.8439506854761696e-17,0.30113999999999996],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-4",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.15056999999999993,0.2607948900956458],
+              "rotation": [2.0943951023931953,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-5",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-0.2607948900956458,0.15056999999999995],
+              "rotation": [2.6179938779914944,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-6",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.30113999999999996,3.687901370952339e-17],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-7",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-0.2607948900956458,-0.15057],
+              "rotation": [3.6651914291880923,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-8",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.15057000000000012,-0.26079489009564577],
+              "rotation": [4.1887902047863905,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-9",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-5.531852056428508e-17,-0.30113999999999996],
+              "rotation": [4.71238898038469,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-10",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.15057,-0.2607948900956458],
+              "rotation": [5.235987755982989,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1--0.31-tread-11",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,0.2607948900956457,-0.15057000000000012],
+              "rotation": [5.759586531581287,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-frame--1-0.322",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "parent": "bogie--1",
+            "transform": {
+              "position": [0,0,0.322]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tire",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-with-sidewalls",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.072,0,0],
+                [0.072,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.315,0],
+                [0.31148171,0.04694831],
+                [0.30100543,0.09284788],
+                [0.28380519,0.13667338],
+                [0.26026521,0.17744582],
+                [0.23091134,0.21425441],
+                [0.19639929,0.24627692],
+                [0.1575,0.272798],
+                [0.11508242,0.29322523],
+                [0.07009409,0.30710229],
+                [0.02353998,0.3141192],
+                [-0.02353998,0.3141192],
+                [-0.07009409,0.30710229],
+                [-0.11508242,0.29322523],
+                [-0.1575,0.272798],
+                [-0.19639929,0.24627692],
+                [-0.23091134,0.21425441],
+                [-0.26026521,0.17744582],
+                [-0.28380519,0.13667338],
+                [-0.30100543,0.09284788],
+                [-0.31148171,0.04694831],
+                [-0.315,0],
+                [-0.31148171,-0.04694831],
+                [-0.30100543,-0.09284788],
+                [-0.28380519,-0.13667338],
+                [-0.26026521,-0.17744582],
+                [-0.23091134,-0.21425441],
+                [-0.19639929,-0.24627692],
+                [-0.1575,-0.272798],
+                [-0.11508242,-0.29322523],
+                [-0.07009409,-0.30710229],
+                [-0.02353998,-0.3141192],
+                [0.02353998,-0.3141192],
+                [0.07009409,-0.30710229],
+                [0.11508242,-0.29322523],
+                [0.1575,-0.272798],
+                [0.19639929,-0.24627692],
+                [0.23091134,-0.21425441],
+                [0.26026521,-0.17744582],
+                [0.28380519,-0.13667338],
+                [0.30100543,-0.09284788],
+                [0.31148171,-0.04694831]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.18585,0],
+                  [0.18377421,0.02769951],
+                  [0.17759321,0.05478025],
+                  [0.16744506,0.08063729],
+                  [0.15355648,0.10469303],
+                  [0.13623769,0.1264101],
+                  [0.11587558,0.14530338],
+                  [0.092925,0.16095082],
+                  [0.06789863,0.17300289],
+                  [0.04135552,0.18119035],
+                  [0.01388859,0.18533033],
+                  [-0.01388859,0.18533033],
+                  [-0.04135552,0.18119035],
+                  [-0.06789863,0.17300289],
+                  [-0.092925,0.16095082],
+                  [-0.11587558,0.14530338],
+                  [-0.13623769,0.1264101],
+                  [-0.15355648,0.10469303],
+                  [-0.16744506,0.08063729],
+                  [-0.17759321,0.05478025],
+                  [-0.18377421,0.02769951],
+                  [-0.18585,0],
+                  [-0.18377421,-0.02769951],
+                  [-0.17759321,-0.05478025],
+                  [-0.16744506,-0.08063729],
+                  [-0.15355648,-0.10469303],
+                  [-0.13623769,-0.1264101],
+                  [-0.11587558,-0.14530338],
+                  [-0.092925,-0.16095082],
+                  [-0.06789863,-0.17300289],
+                  [-0.04135552,-0.18119035],
+                  [-0.01388859,-0.18533033],
+                  [0.01388859,-0.18533033],
+                  [0.04135552,-0.18119035],
+                  [0.06789863,-0.17300289],
+                  [0.092925,-0.16095082],
+                  [0.11587558,-0.14530338],
+                  [0.13623769,-0.1264101],
+                  [0.15355648,-0.10469303],
+                  [0.16744506,-0.08063729],
+                  [0.17759321,-0.05478025],
+                  [0.18377421,-0.02769951]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#45575f"
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-rim",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-wheel-rim",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.05039999999999999,0,0],
+                [0.05039999999999999,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.2016,0],
+                [0.19836021,0.03599707],
+                [0.18874495,0.07083716],
+                [0.17306328,0.10340049],
+                [0.15181921,0.13264045],
+                [0.12569554,0.15761723],
+                [0.09553192,0.17752806],
+                [0.06229783,0.19173299],
+                [0.02706143,0.19977547],
+                [-0.00904475,0.201397],
+                [-0.04486022,0.19654547],
+                [-0.07923385,0.1853768],
+                [-0.11106083,0.16824997],
+                [-0.13931823,0.14571544],
+                [-0.16309783,0.11849751],
+                [-0.18163532,0.08747096],
+                [-0.19433491,0.05363303],
+                [-0.20078842,0.01807128],
+                [-0.20078842,-0.01807128],
+                [-0.19433491,-0.05363303],
+                [-0.18163532,-0.08747096],
+                [-0.16309783,-0.11849751],
+                [-0.13931823,-0.14571544],
+                [-0.11106083,-0.16824997],
+                [-0.07923385,-0.1853768],
+                [-0.04486022,-0.19654547],
+                [-0.00904475,-0.201397],
+                [0.02706143,-0.19977547],
+                [0.06229783,-0.19173299],
+                [0.09553192,-0.17752806],
+                [0.12569554,-0.15761723],
+                [0.15181921,-0.13264045],
+                [0.17306328,-0.10340049],
+                [0.18874495,-0.07083716],
+                [0.19836021,-0.03599707]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0945,0],
+                  [0.09298135,0.01687363],
+                  [0.0884742,0.03320492],
+                  [0.08112341,0.04846898],
+                  [0.07116525,0.06217521],
+                  [0.05891979,0.07388308],
+                  [0.04478059,0.08321628],
+                  [0.02920211,0.08987484],
+                  [0.01268504,0.09364475],
+                  [-0.00423973,0.09440484],
+                  [-0.02102823,0.09213069],
+                  [-0.03714087,0.08689537],
+                  [-0.05205976,0.07886717],
+                  [-0.06530542,0.06830411],
+                  [-0.07645211,0.05554571],
+                  [-0.08514156,0.04100201],
+                  [-0.09109449,0.02514048],
+                  [-0.09411957,0.00847091],
+                  [-0.09411957,-0.00847091],
+                  [-0.09109449,-0.02514048],
+                  [-0.08514156,-0.04100201],
+                  [-0.07645211,-0.05554571],
+                  [-0.06530542,-0.06830411],
+                  [-0.05205976,-0.07886717],
+                  [-0.03714087,-0.08689537],
+                  [-0.02102823,-0.09213069],
+                  [-0.00423973,-0.09440484],
+                  [0.01268504,-0.09364475],
+                  [0.02920211,-0.08987484],
+                  [0.04478059,-0.08321628],
+                  [0.05891979,-0.07388308],
+                  [0.07116525,-0.06217521],
+                  [0.08112341,-0.04846898],
+                  [0.0884742,-0.03320492],
+                  [0.09298135,-0.01687363]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#d99d47"
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-hub",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.wheel-center-hub",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.07343999999999999,0,0],
+                [0.07343999999999999,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.1071,0],
+                [0.10537886,0.01912344],
+                [0.10027075,0.03763224],
+                [0.09193987,0.05493151],
+                [0.08065395,0.07046524],
+                [0.06677576,0.08373415],
+                [0.05075133,0.09431178],
+                [0.03309572,0.10185815],
+                [0.01437638,0.10613072],
+                [-0.00480502,0.10699216],
+                [-0.02383199,0.10441478],
+                [-0.04209298,0.09848142],
+                [-0.05900107,0.0893828],
+                [-0.07401281,0.07741133],
+                [-0.08664572,0.0629518],
+                [-0.09649377,0.04646895],
+                [-0.10324042,0.02849255],
+                [-0.10666885,0.00960037],
+                [-0.10666885,-0.00960037],
+                [-0.10324042,-0.02849255],
+                [-0.09649377,-0.04646895],
+                [-0.08664572,-0.0629518],
+                [-0.07401281,-0.07741133],
+                [-0.05900107,-0.0893828],
+                [-0.04209298,-0.09848142],
+                [-0.02383199,-0.10441478],
+                [-0.00480502,-0.10699216],
+                [0.01437638,-0.10613072],
+                [0.03309572,-0.10185815],
+                [0.05075133,-0.09431178],
+                [0.06677576,-0.08373415],
+                [0.08065395,-0.07046524],
+                [0.09193987,-0.05493151],
+                [0.10027075,-0.03763224],
+                [0.10537886,-0.01912344]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.03465,0],
+                  [0.03409316,0.006187],
+                  [0.03244054,0.01217514],
+                  [0.02974525,0.01777196],
+                  [0.02609393,0.02279758],
+                  [0.02160392,0.02709046],
+                  [0.01641955,0.03051264],
+                  [0.01070744,0.03295411],
+                  [0.00465118,0.03433641],
+                  [-0.00155457,0.03461511],
+                  [-0.00771035,0.03378125],
+                  [-0.01361832,0.03186164],
+                  [-0.01908858,0.02891796],
+                  [-0.02394532,0.02504484],
+                  [-0.02803244,0.02036676],
+                  [-0.03121857,0.01503407],
+                  [-0.03340131,0.00921818],
+                  [-0.03451051,0.003106],
+                  [-0.03451051,-0.003106],
+                  [-0.03340131,-0.00921818],
+                  [-0.03121857,-0.01503407],
+                  [-0.02803244,-0.02036676],
+                  [-0.02394532,-0.02504484],
+                  [-0.01908858,-0.02891796],
+                  [-0.01361832,-0.03186164],
+                  [-0.00771035,-0.03378125],
+                  [-0.00155457,-0.03461511],
+                  [0.00465118,-0.03433641],
+                  [0.01070744,-0.03295411],
+                  [0.01641955,-0.03051264],
+                  [0.02160392,-0.02709046],
+                  [0.02609393,-0.02279758],
+                  [0.02974525,-0.01777196],
+                  [0.03244054,-0.01217514],
+                  [0.03409316,-0.006187]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-0",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.30113999999999996,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,0.2607948900956458,0.15056999999999995],
+              "rotation": [0.5235987755982988,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-2",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.15057,0.2607948900956458],
+              "rotation": [1.0471975511965976,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-3",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,1.8439506854761696e-17,0.30113999999999996],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-4",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.15056999999999993,0.2607948900956458],
+              "rotation": [2.0943951023931953,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-5",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-0.2607948900956458,0.15056999999999995],
+              "rotation": [2.6179938779914944,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-6",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.30113999999999996,3.687901370952339e-17],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-7",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-0.2607948900956458,-0.15057],
+              "rotation": [3.6651914291880923,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-8",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.15057000000000012,-0.26079489009564577],
+              "rotation": [4.1887902047863905,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-9",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-5.531852056428508e-17,-0.30113999999999996],
+              "rotation": [4.71238898038469,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-10",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.15057,-0.2607948900956458],
+              "rotation": [5.235987755982989,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel--1-0.322-tread-11",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame--1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,0.2607948900956457,-0.15057000000000012],
+              "rotation": [5.759586531581287,0,0]
+            }
+          },
+          {
+            "id": "steer-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "parent": "front-articulation",
+            "transform": {
+              "position": [0.458,-0.125,1.637]
+            }
+          },
+          {
+            "id": "front-kingpin-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.vertical-steering-axis",
+            "parent": "steer-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.078,0],
+              "end": [0,0.075,0],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "front-wheel-frame-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "parent": "steer-1",
+            "transform": {
+              "position": [0.059,0.001,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tire",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-with-sidewalls",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.0655,0,0],
+                [0.0655,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.301,0],
+                [0.29763808,0.04486172],
+                [0.28762741,0.08872131],
+                [0.27119163,0.13059901],
+                [0.24869787,0.16955934],
+                [0.22064861,0.20473199],
+                [0.18767043,0.23533128],
+                [0.1505,0.26067365],
+                [0.10996765,0.280193],
+                [0.0669788,0.2934533],
+                [0.02249376,0.30015834],
+                [-0.02249376,0.30015834],
+                [-0.0669788,0.2934533],
+                [-0.10996765,0.280193],
+                [-0.1505,0.26067365],
+                [-0.18767043,0.23533128],
+                [-0.22064861,0.20473199],
+                [-0.24869787,0.16955934],
+                [-0.27119163,0.13059901],
+                [-0.28762741,0.08872131],
+                [-0.29763808,0.04486172],
+                [-0.301,0],
+                [-0.29763808,-0.04486172],
+                [-0.28762741,-0.08872131],
+                [-0.27119163,-0.13059901],
+                [-0.24869787,-0.16955934],
+                [-0.22064861,-0.20473199],
+                [-0.18767043,-0.23533128],
+                [-0.1505,-0.26067365],
+                [-0.10996765,-0.280193],
+                [-0.0669788,-0.2934533],
+                [-0.02249376,-0.30015834],
+                [0.02249376,-0.30015834],
+                [0.0669788,-0.2934533],
+                [0.10996765,-0.280193],
+                [0.1505,-0.26067365],
+                [0.18767043,-0.23533128],
+                [0.22064861,-0.20473199],
+                [0.24869787,-0.16955934],
+                [0.27119163,-0.13059901],
+                [0.28762741,-0.08872131],
+                [0.29763808,-0.04486172]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.17759,0],
+                  [0.17560647,0.02646842],
+                  [0.16970017,0.05234557],
+                  [0.16000306,0.07705341],
+                  [0.14673174,0.10004001],
+                  [0.13018268,0.12079188],
+                  [0.11072555,0.13884545],
+                  [0.088795,0.15379745],
+                  [0.06488091,0.16531387],
+                  [0.03951749,0.17313745],
+                  [0.01327132,0.17709342],
+                  [-0.01327132,0.17709342],
+                  [-0.03951749,0.17313745],
+                  [-0.06488091,0.16531387],
+                  [-0.088795,0.15379745],
+                  [-0.11072555,0.13884545],
+                  [-0.13018268,0.12079188],
+                  [-0.14673174,0.10004001],
+                  [-0.16000306,0.07705341],
+                  [-0.16970017,0.05234557],
+                  [-0.17560647,0.02646842],
+                  [-0.17759,0],
+                  [-0.17560647,-0.02646842],
+                  [-0.16970017,-0.05234557],
+                  [-0.16000306,-0.07705341],
+                  [-0.14673174,-0.10004001],
+                  [-0.13018268,-0.12079188],
+                  [-0.11072555,-0.13884545],
+                  [-0.088795,-0.15379745],
+                  [-0.06488091,-0.16531387],
+                  [-0.03951749,-0.17313745],
+                  [-0.01327132,-0.17709342],
+                  [0.01327132,-0.17709342],
+                  [0.03951749,-0.17313745],
+                  [0.06488091,-0.16531387],
+                  [0.088795,-0.15379745],
+                  [0.11072555,-0.13884545],
+                  [0.13018268,-0.12079188],
+                  [0.14673174,-0.10004001],
+                  [0.16000306,-0.07705341],
+                  [0.16970017,-0.05234557],
+                  [0.17560647,-0.02646842]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#45575f"
+            }
+          },
+          {
+            "id": "front-wheel-1-rim",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-wheel-rim",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.04585,0,0],
+                [0.04585,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.19264,0],
+                [0.1895442,0.0343972],
+                [0.18035629,0.06768885],
+                [0.16537158,0.09880492],
+                [0.14507169,0.12674532],
+                [0.12010908,0.15061202],
+                [0.09128606,0.16963792],
+                [0.05952903,0.18321153],
+                [0.0258587,0.19089656],
+                [-0.00864276,0.19244602],
+                [-0.04286643,0.18781011],
+                [-0.07571234,0.17713783],
+                [-0.10612479,0.16077219],
+                [-0.13312631,0.1392392],
+                [-0.15584903,0.11323095],
+                [-0.17356264,0.08358336],
+                [-0.18569781,0.05124934],
+                [-0.19186449,0.01726812],
+                [-0.19186449,-0.01726812],
+                [-0.18569781,-0.05124934],
+                [-0.17356264,-0.08358336],
+                [-0.15584903,-0.11323095],
+                [-0.13312631,-0.1392392],
+                [-0.10612479,-0.16077219],
+                [-0.07571234,-0.17713783],
+                [-0.04286643,-0.18781011],
+                [-0.00864276,-0.19244602],
+                [0.0258587,-0.19089656],
+                [0.05952903,-0.18321153],
+                [0.09128606,-0.16963792],
+                [0.12010908,-0.15061202],
+                [0.14507169,-0.12674532],
+                [0.16537158,-0.09880492],
+                [0.18035629,-0.06768885],
+                [0.1895442,-0.0343972]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0903,0],
+                  [0.08884884,0.01612369],
+                  [0.08454201,0.03172915],
+                  [0.07751793,0.0463148],
+                  [0.06800235,0.05941187],
+                  [0.05630113,0.07059938],
+                  [0.04279034,0.07951778],
+                  [0.02790423,0.0858804],
+                  [0.01212126,0.08948276],
+                  [-0.00405129,0.09020907],
+                  [-0.02009364,0.08803599],
+                  [-0.03549016,0.08303336],
+                  [-0.049746,0.07536196],
+                  [-0.06240296,0.06526838],
+                  [-0.07305423,0.05307701],
+                  [-0.08135749,0.0391797],
+                  [-0.08704585,0.02402313],
+                  [-0.08993648,0.00809443],
+                  [-0.08993648,-0.00809443],
+                  [-0.08704585,-0.02402313],
+                  [-0.08135749,-0.0391797],
+                  [-0.07305423,-0.05307701],
+                  [-0.06240296,-0.06526838],
+                  [-0.049746,-0.07536196],
+                  [-0.03549016,-0.08303336],
+                  [-0.02009364,-0.08803599],
+                  [-0.00405129,-0.09020907],
+                  [0.01212126,-0.08948276],
+                  [0.02790423,-0.0858804],
+                  [0.04279034,-0.07951778],
+                  [0.05630113,-0.07059938],
+                  [0.06800235,-0.05941187],
+                  [0.07751793,-0.0463148],
+                  [0.08454201,-0.03172915],
+                  [0.08884884,-0.01612369]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#d99d47"
+            }
+          },
+          {
+            "id": "front-wheel-1-hub",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.wheel-center-hub",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.06681000000000001,0,0],
+                [0.06681000000000001,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.10234,0],
+                [0.10069535,0.01827351],
+                [0.09581428,0.0359597],
+                [0.08785365,0.05249011],
+                [0.07706933,0.06733345],
+                [0.06380795,0.08001263],
+                [0.04849572,0.09012015],
+                [0.0316248,0.09733112],
+                [0.01373743,0.1014138],
+                [-0.00459147,0.10223695],
+                [-0.02277279,0.09977412],
+                [-0.04022218,0.09410447],
+                [-0.0563788,0.08541023],
+                [-0.07072335,0.07397083],
+                [-0.0827948,0.06015394],
+                [-0.09220515,0.04440366],
+                [-0.09865196,0.02722621],
+                [-0.10192801,0.00917369],
+                [-0.10192801,-0.00917369],
+                [-0.09865196,-0.02722621],
+                [-0.09220515,-0.04440366],
+                [-0.0827948,-0.06015394],
+                [-0.07072335,-0.07397083],
+                [-0.0563788,-0.08541023],
+                [-0.04022218,-0.09410447],
+                [-0.02277279,-0.09977412],
+                [-0.00459147,-0.10223695],
+                [0.01373743,-0.1014138],
+                [0.0316248,-0.09733112],
+                [0.04849572,-0.09012015],
+                [0.06380795,-0.08001263],
+                [0.07706933,-0.06733345],
+                [0.08785365,-0.05249011],
+                [0.09581428,-0.0359597],
+                [0.10069535,-0.01827351]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.03311,0],
+                  [0.03257791,0.00591202],
+                  [0.03099874,0.01163402],
+                  [0.02842324,0.0169821],
+                  [0.0249342,0.02178435],
+                  [0.02064375,0.02588644],
+                  [0.01568979,0.02915652],
+                  [0.01023155,0.03148948],
+                  [0.00444446,0.03281035],
+                  [-0.00148547,0.03307666],
+                  [-0.00736767,0.03227986],
+                  [-0.01301306,0.03044556],
+                  [-0.0182402,0.02763272],
+                  [-0.02288108,0.02393174],
+                  [-0.02678655,0.01946157],
+                  [-0.02983108,0.01436589],
+                  [-0.03191681,0.00880848],
+                  [-0.03297671,0.00296796],
+                  [-0.03297671,-0.00296796],
+                  [-0.03191681,-0.00880848],
+                  [-0.02983108,-0.01436589],
+                  [-0.02678655,-0.01946157],
+                  [-0.02288108,-0.02393174],
+                  [-0.0182402,-0.02763272],
+                  [-0.01301306,-0.03044556],
+                  [-0.00736767,-0.03227986],
+                  [-0.00148547,-0.03307666],
+                  [0.00444446,-0.03281035],
+                  [0.01023155,-0.03148948],
+                  [0.01568979,-0.02915652],
+                  [0.02064375,-0.02588644],
+                  [0.0249342,-0.02178435],
+                  [0.02842324,-0.0169821],
+                  [0.03099874,-0.01163402],
+                  [0.03257791,-0.00591202]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-0",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,0.28775599999999996,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,0.2492040060913949,0.14387799999999995],
+              "rotation": [0.5235987755982988,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-2",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,0.143878,0.24920400609139487],
+              "rotation": [1.0471975511965976,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-3",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,1.7619973216772286e-17,0.28775599999999996],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-4",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,-0.14387799999999992,0.2492040060913949],
+              "rotation": [2.0943951023931953,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-5",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,-0.2492040060913949,0.14387799999999995],
+              "rotation": [2.6179938779914944,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-6",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,-0.28775599999999996,3.523994643354457e-17],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-7",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,-0.24920400609139487,-0.143878],
+              "rotation": [3.6651914291880923,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-8",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,-0.14387800000000012,-0.24920400609139484],
+              "rotation": [4.1887902047863905,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-9",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,-5.2859919650316856e-17,-0.28775599999999996],
+              "rotation": [4.71238898038469,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-10",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.010480000000000001,0.143878,-0.24920400609139487],
+              "rotation": [5.235987755982989,0,0]
+            }
+          },
+          {
+            "id": "front-wheel-1-tread-11",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "front-wheel-frame-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.10873,0.025885999999999996,0.05117]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.010480000000000001,0.24920400609139481,-0.14387800000000012],
+              "rotation": [5.759586531581287,0,0]
+            }
+          },
+          {
+            "id": "bogie-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "transform": {
+              "position": [0.508,0.315,-0.729]
+            }
+          },
+          {
+            "id": "bogie-rail-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.oscillating-rear-tandem-beam",
+            "parent": "bogie-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.063,0.147,0.874]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [-0.066,0,0]
+            }
+          },
+          {
+            "id": "rear-pivot-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.rear-bogie-axis",
+            "parent": "bogie-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.078,0,0],
+              "end": [0.078,0,0],
+              "radius": 0.043,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "rear-wheel-frame-1--0.31",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "parent": "bogie-1",
+            "transform": {
+              "position": [0,0,-0.31]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tire",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-with-sidewalls",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.072,0,0],
+                [0.072,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.315,0],
+                [0.31148171,0.04694831],
+                [0.30100543,0.09284788],
+                [0.28380519,0.13667338],
+                [0.26026521,0.17744582],
+                [0.23091134,0.21425441],
+                [0.19639929,0.24627692],
+                [0.1575,0.272798],
+                [0.11508242,0.29322523],
+                [0.07009409,0.30710229],
+                [0.02353998,0.3141192],
+                [-0.02353998,0.3141192],
+                [-0.07009409,0.30710229],
+                [-0.11508242,0.29322523],
+                [-0.1575,0.272798],
+                [-0.19639929,0.24627692],
+                [-0.23091134,0.21425441],
+                [-0.26026521,0.17744582],
+                [-0.28380519,0.13667338],
+                [-0.30100543,0.09284788],
+                [-0.31148171,0.04694831],
+                [-0.315,0],
+                [-0.31148171,-0.04694831],
+                [-0.30100543,-0.09284788],
+                [-0.28380519,-0.13667338],
+                [-0.26026521,-0.17744582],
+                [-0.23091134,-0.21425441],
+                [-0.19639929,-0.24627692],
+                [-0.1575,-0.272798],
+                [-0.11508242,-0.29322523],
+                [-0.07009409,-0.30710229],
+                [-0.02353998,-0.3141192],
+                [0.02353998,-0.3141192],
+                [0.07009409,-0.30710229],
+                [0.11508242,-0.29322523],
+                [0.1575,-0.272798],
+                [0.19639929,-0.24627692],
+                [0.23091134,-0.21425441],
+                [0.26026521,-0.17744582],
+                [0.28380519,-0.13667338],
+                [0.30100543,-0.09284788],
+                [0.31148171,-0.04694831]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.18585,0],
+                  [0.18377421,0.02769951],
+                  [0.17759321,0.05478025],
+                  [0.16744506,0.08063729],
+                  [0.15355648,0.10469303],
+                  [0.13623769,0.1264101],
+                  [0.11587558,0.14530338],
+                  [0.092925,0.16095082],
+                  [0.06789863,0.17300289],
+                  [0.04135552,0.18119035],
+                  [0.01388859,0.18533033],
+                  [-0.01388859,0.18533033],
+                  [-0.04135552,0.18119035],
+                  [-0.06789863,0.17300289],
+                  [-0.092925,0.16095082],
+                  [-0.11587558,0.14530338],
+                  [-0.13623769,0.1264101],
+                  [-0.15355648,0.10469303],
+                  [-0.16744506,0.08063729],
+                  [-0.17759321,0.05478025],
+                  [-0.18377421,0.02769951],
+                  [-0.18585,0],
+                  [-0.18377421,-0.02769951],
+                  [-0.17759321,-0.05478025],
+                  [-0.16744506,-0.08063729],
+                  [-0.15355648,-0.10469303],
+                  [-0.13623769,-0.1264101],
+                  [-0.11587558,-0.14530338],
+                  [-0.092925,-0.16095082],
+                  [-0.06789863,-0.17300289],
+                  [-0.04135552,-0.18119035],
+                  [-0.01388859,-0.18533033],
+                  [0.01388859,-0.18533033],
+                  [0.04135552,-0.18119035],
+                  [0.06789863,-0.17300289],
+                  [0.092925,-0.16095082],
+                  [0.11587558,-0.14530338],
+                  [0.13623769,-0.1264101],
+                  [0.15355648,-0.10469303],
+                  [0.16744506,-0.08063729],
+                  [0.17759321,-0.05478025],
+                  [0.18377421,-0.02769951]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#45575f"
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-rim",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-wheel-rim",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.05039999999999999,0,0],
+                [0.05039999999999999,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.2016,0],
+                [0.19836021,0.03599707],
+                [0.18874495,0.07083716],
+                [0.17306328,0.10340049],
+                [0.15181921,0.13264045],
+                [0.12569554,0.15761723],
+                [0.09553192,0.17752806],
+                [0.06229783,0.19173299],
+                [0.02706143,0.19977547],
+                [-0.00904475,0.201397],
+                [-0.04486022,0.19654547],
+                [-0.07923385,0.1853768],
+                [-0.11106083,0.16824997],
+                [-0.13931823,0.14571544],
+                [-0.16309783,0.11849751],
+                [-0.18163532,0.08747096],
+                [-0.19433491,0.05363303],
+                [-0.20078842,0.01807128],
+                [-0.20078842,-0.01807128],
+                [-0.19433491,-0.05363303],
+                [-0.18163532,-0.08747096],
+                [-0.16309783,-0.11849751],
+                [-0.13931823,-0.14571544],
+                [-0.11106083,-0.16824997],
+                [-0.07923385,-0.1853768],
+                [-0.04486022,-0.19654547],
+                [-0.00904475,-0.201397],
+                [0.02706143,-0.19977547],
+                [0.06229783,-0.19173299],
+                [0.09553192,-0.17752806],
+                [0.12569554,-0.15761723],
+                [0.15181921,-0.13264045],
+                [0.17306328,-0.10340049],
+                [0.18874495,-0.07083716],
+                [0.19836021,-0.03599707]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0945,0],
+                  [0.09298135,0.01687363],
+                  [0.0884742,0.03320492],
+                  [0.08112341,0.04846898],
+                  [0.07116525,0.06217521],
+                  [0.05891979,0.07388308],
+                  [0.04478059,0.08321628],
+                  [0.02920211,0.08987484],
+                  [0.01268504,0.09364475],
+                  [-0.00423973,0.09440484],
+                  [-0.02102823,0.09213069],
+                  [-0.03714087,0.08689537],
+                  [-0.05205976,0.07886717],
+                  [-0.06530542,0.06830411],
+                  [-0.07645211,0.05554571],
+                  [-0.08514156,0.04100201],
+                  [-0.09109449,0.02514048],
+                  [-0.09411957,0.00847091],
+                  [-0.09411957,-0.00847091],
+                  [-0.09109449,-0.02514048],
+                  [-0.08514156,-0.04100201],
+                  [-0.07645211,-0.05554571],
+                  [-0.06530542,-0.06830411],
+                  [-0.05205976,-0.07886717],
+                  [-0.03714087,-0.08689537],
+                  [-0.02102823,-0.09213069],
+                  [-0.00423973,-0.09440484],
+                  [0.01268504,-0.09364475],
+                  [0.02920211,-0.08987484],
+                  [0.04478059,-0.08321628],
+                  [0.05891979,-0.07388308],
+                  [0.07116525,-0.06217521],
+                  [0.08112341,-0.04846898],
+                  [0.0884742,-0.03320492],
+                  [0.09298135,-0.01687363]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#d99d47"
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-hub",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.wheel-center-hub",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.07343999999999999,0,0],
+                [0.07343999999999999,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.1071,0],
+                [0.10537886,0.01912344],
+                [0.10027075,0.03763224],
+                [0.09193987,0.05493151],
+                [0.08065395,0.07046524],
+                [0.06677576,0.08373415],
+                [0.05075133,0.09431178],
+                [0.03309572,0.10185815],
+                [0.01437638,0.10613072],
+                [-0.00480502,0.10699216],
+                [-0.02383199,0.10441478],
+                [-0.04209298,0.09848142],
+                [-0.05900107,0.0893828],
+                [-0.07401281,0.07741133],
+                [-0.08664572,0.0629518],
+                [-0.09649377,0.04646895],
+                [-0.10324042,0.02849255],
+                [-0.10666885,0.00960037],
+                [-0.10666885,-0.00960037],
+                [-0.10324042,-0.02849255],
+                [-0.09649377,-0.04646895],
+                [-0.08664572,-0.0629518],
+                [-0.07401281,-0.07741133],
+                [-0.05900107,-0.0893828],
+                [-0.04209298,-0.09848142],
+                [-0.02383199,-0.10441478],
+                [-0.00480502,-0.10699216],
+                [0.01437638,-0.10613072],
+                [0.03309572,-0.10185815],
+                [0.05075133,-0.09431178],
+                [0.06677576,-0.08373415],
+                [0.08065395,-0.07046524],
+                [0.09193987,-0.05493151],
+                [0.10027075,-0.03763224],
+                [0.10537886,-0.01912344]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.03465,0],
+                  [0.03409316,0.006187],
+                  [0.03244054,0.01217514],
+                  [0.02974525,0.01777196],
+                  [0.02609393,0.02279758],
+                  [0.02160392,0.02709046],
+                  [0.01641955,0.03051264],
+                  [0.01070744,0.03295411],
+                  [0.00465118,0.03433641],
+                  [-0.00155457,0.03461511],
+                  [-0.00771035,0.03378125],
+                  [-0.01361832,0.03186164],
+                  [-0.01908858,0.02891796],
+                  [-0.02394532,0.02504484],
+                  [-0.02803244,0.02036676],
+                  [-0.03121857,0.01503407],
+                  [-0.03340131,0.00921818],
+                  [-0.03451051,0.003106],
+                  [-0.03451051,-0.003106],
+                  [-0.03340131,-0.00921818],
+                  [-0.03121857,-0.01503407],
+                  [-0.02803244,-0.02036676],
+                  [-0.02394532,-0.02504484],
+                  [-0.01908858,-0.02891796],
+                  [-0.01361832,-0.03186164],
+                  [-0.00771035,-0.03378125],
+                  [-0.00155457,-0.03461511],
+                  [0.00465118,-0.03433641],
+                  [0.01070744,-0.03295411],
+                  [0.01641955,-0.03051264],
+                  [0.02160392,-0.02709046],
+                  [0.02609393,-0.02279758],
+                  [0.02974525,-0.01777196],
+                  [0.03244054,-0.01217514],
+                  [0.03409316,-0.006187]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-0",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.30113999999999996,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,0.2607948900956458,0.15056999999999995],
+              "rotation": [0.5235987755982988,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-2",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.15057,0.2607948900956458],
+              "rotation": [1.0471975511965976,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-3",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,1.8439506854761696e-17,0.30113999999999996],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-4",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.15056999999999993,0.2607948900956458],
+              "rotation": [2.0943951023931953,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-5",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-0.2607948900956458,0.15056999999999995],
+              "rotation": [2.6179938779914944,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-6",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.30113999999999996,3.687901370952339e-17],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-7",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-0.2607948900956458,-0.15057],
+              "rotation": [3.6651914291880923,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-8",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.15057000000000012,-0.26079489009564577],
+              "rotation": [4.1887902047863905,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-9",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-5.531852056428508e-17,-0.30113999999999996],
+              "rotation": [4.71238898038469,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-10",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.15057,-0.2607948900956458],
+              "rotation": [5.235987755982989,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1--0.31-tread-11",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1--0.31",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,0.2607948900956457,-0.15057000000000012],
+              "rotation": [5.759586531581287,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-frame-1-0.322",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "parent": "bogie-1",
+            "transform": {
+              "position": [0,0,0.322]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tire",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-with-sidewalls",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.072,0,0],
+                [0.072,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.315,0],
+                [0.31148171,0.04694831],
+                [0.30100543,0.09284788],
+                [0.28380519,0.13667338],
+                [0.26026521,0.17744582],
+                [0.23091134,0.21425441],
+                [0.19639929,0.24627692],
+                [0.1575,0.272798],
+                [0.11508242,0.29322523],
+                [0.07009409,0.30710229],
+                [0.02353998,0.3141192],
+                [-0.02353998,0.3141192],
+                [-0.07009409,0.30710229],
+                [-0.11508242,0.29322523],
+                [-0.1575,0.272798],
+                [-0.19639929,0.24627692],
+                [-0.23091134,0.21425441],
+                [-0.26026521,0.17744582],
+                [-0.28380519,0.13667338],
+                [-0.30100543,0.09284788],
+                [-0.31148171,0.04694831],
+                [-0.315,0],
+                [-0.31148171,-0.04694831],
+                [-0.30100543,-0.09284788],
+                [-0.28380519,-0.13667338],
+                [-0.26026521,-0.17744582],
+                [-0.23091134,-0.21425441],
+                [-0.19639929,-0.24627692],
+                [-0.1575,-0.272798],
+                [-0.11508242,-0.29322523],
+                [-0.07009409,-0.30710229],
+                [-0.02353998,-0.3141192],
+                [0.02353998,-0.3141192],
+                [0.07009409,-0.30710229],
+                [0.11508242,-0.29322523],
+                [0.1575,-0.272798],
+                [0.19639929,-0.24627692],
+                [0.23091134,-0.21425441],
+                [0.26026521,-0.17744582],
+                [0.28380519,-0.13667338],
+                [0.30100543,-0.09284788],
+                [0.31148171,-0.04694831]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.18585,0],
+                  [0.18377421,0.02769951],
+                  [0.17759321,0.05478025],
+                  [0.16744506,0.08063729],
+                  [0.15355648,0.10469303],
+                  [0.13623769,0.1264101],
+                  [0.11587558,0.14530338],
+                  [0.092925,0.16095082],
+                  [0.06789863,0.17300289],
+                  [0.04135552,0.18119035],
+                  [0.01388859,0.18533033],
+                  [-0.01388859,0.18533033],
+                  [-0.04135552,0.18119035],
+                  [-0.06789863,0.17300289],
+                  [-0.092925,0.16095082],
+                  [-0.11587558,0.14530338],
+                  [-0.13623769,0.1264101],
+                  [-0.15355648,0.10469303],
+                  [-0.16744506,0.08063729],
+                  [-0.17759321,0.05478025],
+                  [-0.18377421,0.02769951],
+                  [-0.18585,0],
+                  [-0.18377421,-0.02769951],
+                  [-0.17759321,-0.05478025],
+                  [-0.16744506,-0.08063729],
+                  [-0.15355648,-0.10469303],
+                  [-0.13623769,-0.1264101],
+                  [-0.11587558,-0.14530338],
+                  [-0.092925,-0.16095082],
+                  [-0.06789863,-0.17300289],
+                  [-0.04135552,-0.18119035],
+                  [-0.01388859,-0.18533033],
+                  [0.01388859,-0.18533033],
+                  [0.04135552,-0.18119035],
+                  [0.06789863,-0.17300289],
+                  [0.092925,-0.16095082],
+                  [0.11587558,-0.14530338],
+                  [0.13623769,-0.1264101],
+                  [0.15355648,-0.10469303],
+                  [0.16744506,-0.08063729],
+                  [0.17759321,-0.05478025],
+                  [0.18377421,-0.02769951]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#45575f"
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-rim",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.perforated-wheel-rim",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.05039999999999999,0,0],
+                [0.05039999999999999,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.2016,0],
+                [0.19836021,0.03599707],
+                [0.18874495,0.07083716],
+                [0.17306328,0.10340049],
+                [0.15181921,0.13264045],
+                [0.12569554,0.15761723],
+                [0.09553192,0.17752806],
+                [0.06229783,0.19173299],
+                [0.02706143,0.19977547],
+                [-0.00904475,0.201397],
+                [-0.04486022,0.19654547],
+                [-0.07923385,0.1853768],
+                [-0.11106083,0.16824997],
+                [-0.13931823,0.14571544],
+                [-0.16309783,0.11849751],
+                [-0.18163532,0.08747096],
+                [-0.19433491,0.05363303],
+                [-0.20078842,0.01807128],
+                [-0.20078842,-0.01807128],
+                [-0.19433491,-0.05363303],
+                [-0.18163532,-0.08747096],
+                [-0.16309783,-0.11849751],
+                [-0.13931823,-0.14571544],
+                [-0.11106083,-0.16824997],
+                [-0.07923385,-0.1853768],
+                [-0.04486022,-0.19654547],
+                [-0.00904475,-0.201397],
+                [0.02706143,-0.19977547],
+                [0.06229783,-0.19173299],
+                [0.09553192,-0.17752806],
+                [0.12569554,-0.15761723],
+                [0.15181921,-0.13264045],
+                [0.17306328,-0.10340049],
+                [0.18874495,-0.07083716],
+                [0.19836021,-0.03599707]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0945,0],
+                  [0.09298135,0.01687363],
+                  [0.0884742,0.03320492],
+                  [0.08112341,0.04846898],
+                  [0.07116525,0.06217521],
+                  [0.05891979,0.07388308],
+                  [0.04478059,0.08321628],
+                  [0.02920211,0.08987484],
+                  [0.01268504,0.09364475],
+                  [-0.00423973,0.09440484],
+                  [-0.02102823,0.09213069],
+                  [-0.03714087,0.08689537],
+                  [-0.05205976,0.07886717],
+                  [-0.06530542,0.06830411],
+                  [-0.07645211,0.05554571],
+                  [-0.08514156,0.04100201],
+                  [-0.09109449,0.02514048],
+                  [-0.09411957,0.00847091],
+                  [-0.09411957,-0.00847091],
+                  [-0.09109449,-0.02514048],
+                  [-0.08514156,-0.04100201],
+                  [-0.07645211,-0.05554571],
+                  [-0.06530542,-0.06830411],
+                  [-0.05205976,-0.07886717],
+                  [-0.03714087,-0.08689537],
+                  [-0.02102823,-0.09213069],
+                  [-0.00423973,-0.09440484],
+                  [0.01268504,-0.09364475],
+                  [0.02920211,-0.08987484],
+                  [0.04478059,-0.08321628],
+                  [0.05891979,-0.07388308],
+                  [0.07116525,-0.06217521],
+                  [0.08112341,-0.04846898],
+                  [0.0884742,-0.03320492],
+                  [0.09298135,-0.01687363]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#d99d47"
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-hub",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.wheel-center-hub",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.07343999999999999,0,0],
+                [0.07343999999999999,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.1071,0],
+                [0.10537886,0.01912344],
+                [0.10027075,0.03763224],
+                [0.09193987,0.05493151],
+                [0.08065395,0.07046524],
+                [0.06677576,0.08373415],
+                [0.05075133,0.09431178],
+                [0.03309572,0.10185815],
+                [0.01437638,0.10613072],
+                [-0.00480502,0.10699216],
+                [-0.02383199,0.10441478],
+                [-0.04209298,0.09848142],
+                [-0.05900107,0.0893828],
+                [-0.07401281,0.07741133],
+                [-0.08664572,0.0629518],
+                [-0.09649377,0.04646895],
+                [-0.10324042,0.02849255],
+                [-0.10666885,0.00960037],
+                [-0.10666885,-0.00960037],
+                [-0.10324042,-0.02849255],
+                [-0.09649377,-0.04646895],
+                [-0.08664572,-0.0629518],
+                [-0.07401281,-0.07741133],
+                [-0.05900107,-0.0893828],
+                [-0.04209298,-0.09848142],
+                [-0.02383199,-0.10441478],
+                [-0.00480502,-0.10699216],
+                [0.01437638,-0.10613072],
+                [0.03309572,-0.10185815],
+                [0.05075133,-0.09431178],
+                [0.06677576,-0.08373415],
+                [0.08065395,-0.07046524],
+                [0.09193987,-0.05493151],
+                [0.10027075,-0.03763224],
+                [0.10537886,-0.01912344]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.03465,0],
+                  [0.03409316,0.006187],
+                  [0.03244054,0.01217514],
+                  [0.02974525,0.01777196],
+                  [0.02609393,0.02279758],
+                  [0.02160392,0.02709046],
+                  [0.01641955,0.03051264],
+                  [0.01070744,0.03295411],
+                  [0.00465118,0.03433641],
+                  [-0.00155457,0.03461511],
+                  [-0.00771035,0.03378125],
+                  [-0.01361832,0.03186164],
+                  [-0.01908858,0.02891796],
+                  [-0.02394532,0.02504484],
+                  [-0.02803244,0.02036676],
+                  [-0.03121857,0.01503407],
+                  [-0.03340131,0.00921818],
+                  [-0.03451051,0.003106],
+                  [-0.03451051,-0.003106],
+                  [-0.03340131,-0.00921818],
+                  [-0.03121857,-0.01503407],
+                  [-0.02803244,-0.02036676],
+                  [-0.02394532,-0.02504484],
+                  [-0.01908858,-0.02891796],
+                  [-0.01361832,-0.03186164],
+                  [-0.00771035,-0.03378125],
+                  [-0.00155457,-0.03461511],
+                  [0.00465118,-0.03433641],
+                  [0.01070744,-0.03295411],
+                  [0.01641955,-0.03051264],
+                  [0.02160392,-0.02709046],
+                  [0.02609393,-0.02279758],
+                  [0.02974525,-0.01777196],
+                  [0.03244054,-0.01217514],
+                  [0.03409316,-0.006187]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-0",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.30113999999999996,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,0.2607948900956458,0.15056999999999995],
+              "rotation": [0.5235987755982988,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-2",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.15057,0.2607948900956458],
+              "rotation": [1.0471975511965976,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-3",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,1.8439506854761696e-17,0.30113999999999996],
+              "rotation": [1.5707963267948966,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-4",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.15056999999999993,0.2607948900956458],
+              "rotation": [2.0943951023931953,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-5",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-0.2607948900956458,0.15056999999999995],
+              "rotation": [2.6179938779914944,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-6",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.30113999999999996,3.687901370952339e-17],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-7",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-0.2607948900956458,-0.15057],
+              "rotation": [3.6651914291880923,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-8",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,-0.15057000000000012,-0.26079489009564577],
+              "rotation": [4.1887902047863905,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-9",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,-5.531852056428508e-17,-0.30113999999999996],
+              "rotation": [4.71238898038469,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-10",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [0.011519999999999999,0.15057,-0.2607948900956458],
+              "rotation": [5.235987755982989,0,0]
+            }
+          },
+          {
+            "id": "rear-wheel-1-0.322-tread-11",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.tire-tread-block",
+            "parent": "rear-wheel-frame-1-0.322",
+            "geometry": {
+              "type": "box",
+              "size": [0.11951999999999999,0.02709,0.05355000000000001]
+            },
+            "appearance": {
+              "color": "#4f6873"
+            },
+            "transform": {
+              "position": [-0.011519999999999999,0.2607948900956457,-0.15057000000000012],
+              "rotation": [5.759586531581287,0,0]
+            }
+          },
+          {
+            "id": "blade-cradle",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.frame",
+            "parent": "front-articulation",
+            "transform": {
+              "position": [0,-0.005,0.79]
+            }
+          },
+          {
+            "id": "blade-seat",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.front-working-carrier-circle",
+            "parent": "blade-cradle",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.067,0],
+                [0,-0.009,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.174,0],
+                [0.17222893,0.02476278],
+                [0.16695178,0.04902146],
+                [0.15827597,0.07228221],
+                [0.14637811,0.0940715],
+                [0.13150043,0.11394577],
+                [0.11394577,0.13150043],
+                [0.0940715,0.14637811],
+                [0.07228221,0.15827597],
+                [0.04902146,0.16695178],
+                [0.02476278,0.17222893],
+                [0,0.174],
+                [-0.02476278,0.17222893],
+                [-0.04902146,0.16695178],
+                [-0.07228221,0.15827597],
+                [-0.0940715,0.14637811],
+                [-0.11394577,0.13150043],
+                [-0.13150043,0.11394577],
+                [-0.14637811,0.0940715],
+                [-0.15827597,0.07228221],
+                [-0.16695178,0.04902146],
+                [-0.17222893,0.02476278],
+                [-0.174,0],
+                [-0.17222893,-0.02476278],
+                [-0.16695178,-0.04902146],
+                [-0.15827597,-0.07228221],
+                [-0.14637811,-0.0940715],
+                [-0.13150043,-0.11394577],
+                [-0.11394577,-0.13150043],
+                [-0.0940715,-0.14637811],
+                [-0.07228221,-0.15827597],
+                [-0.04902146,-0.16695178],
+                [-0.02476278,-0.17222893],
+                [0,-0.174],
+                [0.02476278,-0.17222893],
+                [0.04902146,-0.16695178],
+                [0.07228221,-0.15827597],
+                [0.0940715,-0.14637811],
+                [0.11394577,-0.13150043],
+                [0.13150043,-0.11394577],
+                [0.14637811,-0.0940715],
+                [0.15827597,-0.07228221],
+                [0.16695178,-0.04902146],
+                [0.17222893,-0.02476278]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.057,0],
+                  [0.05641982,0.00811195],
+                  [0.0546911,0.01605876],
+                  [0.05184902,0.02367866],
+                  [0.04795145,0.03081653],
+                  [0.04307773,0.03732706],
+                  [0.03732706,0.04307773],
+                  [0.03081653,0.04795145],
+                  [0.02367866,0.05184902],
+                  [0.01605876,0.0546911],
+                  [0.00811195,0.05641982],
+                  [0,0.057],
+                  [-0.00811195,0.05641982],
+                  [-0.01605876,0.0546911],
+                  [-0.02367866,0.05184902],
+                  [-0.03081653,0.04795145],
+                  [-0.03732706,0.04307773],
+                  [-0.04307773,0.03732706],
+                  [-0.04795145,0.03081653],
+                  [-0.05184902,0.02367866],
+                  [-0.0546911,0.01605876],
+                  [-0.05641982,0.00811195],
+                  [-0.057,0],
+                  [-0.05641982,-0.00811195],
+                  [-0.0546911,-0.01605876],
+                  [-0.05184902,-0.02367866],
+                  [-0.04795145,-0.03081653],
+                  [-0.04307773,-0.03732706],
+                  [-0.03732706,-0.04307773],
+                  [-0.03081653,-0.04795145],
+                  [-0.02367866,-0.05184902],
+                  [-0.01605876,-0.0546911],
+                  [-0.00811195,-0.05641982],
+                  [0,-0.057],
+                  [0.00811195,-0.05641982],
+                  [0.01605876,-0.0546911],
+                  [0.02367866,-0.05184902],
+                  [0.03081653,-0.04795145],
+                  [0.03732706,-0.04307773],
+                  [0.04307773,-0.03732706],
+                  [0.04795145,-0.03081653],
+                  [0.05184902,-0.02367866],
+                  [0.0546911,-0.01605876],
+                  [0.05641982,-0.00811195]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            }
+          },
+          {
+            "id": "carrier-brace--1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.drawbar-cradle-support",
+            "parent": "blade-cradle",
+            "geometry": {
+              "type": "box",
+              "size": [0.103,0.063,0.499]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [-0.118,0.013,-0.077]
+            }
+          },
+          {
+            "id": "carrier-brace-1",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.drawbar-cradle-support",
+            "parent": "blade-cradle",
+            "geometry": {
+              "type": "box",
+              "size": [0.103,0.063,0.499]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [0.118,0.013,-0.077]
+            }
+          },
+          {
+            "id": "rear-hitch",
+            "semanticType": "equipment.articulated-tandem-wheel-motor-grader-carrier.rear-scarifier-hitch-bar",
+            "geometry": {
+              "type": "box",
+              "size": [0.347,0.122,0.095]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [0,0.444,-1.233]
+            }
+          }
+        ],
+        "anchors": {
+          "grader-blade": {
+            "node": "blade-seat",
+            "position": [0,-0.067,0],
+            "direction": [0,-1,0],
+            "kind": "grader-tool"
+          },
+          "rear-scarifier": {
+            "node": "rear-hitch",
+            "position": [0,0,-0.0475],
+            "direction": [0,0,-1],
+            "kind": "scarifier-tool"
+          },
+          "front-axis": {
+            "node": "front-axle",
+            "position": [0,0,0],
+            "direction": [1,0,0],
+            "kind": "reference"
+          },
+          "rear-contact": {
+            "node": "rear-wheel-frame-1--0.31",
+            "position": [0,-0.315,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "articulation-angle",
+            "label": "前后车体铰接角",
+            "unit": "deg",
+            "value": 0,
+            "min": -24,
+            "max": 24,
+            "targets": [
+              {
+                "node": "front-articulation",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "front-steer",
+            "label": "前轮转向角",
+            "unit": "deg",
+            "value": 0,
+            "min": -34,
+            "max": 34,
+            "targets": [
+              {
+                "node": "steer--1",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "steer-1",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "blade-lift",
+            "label": "刮刀安装盘升降量",
+            "unit": "m",
+            "value": 0,
+            "min": -0.016,
+            "max": 0.16,
+            "targets": [
+              {
+                "node": "blade-cradle",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "left-bogie",
+            "label": "左后轮摆架角",
+            "unit": "deg",
+            "value": 0,
+            "min": -12,
+            "max": 12,
+            "targets": [
+              {
+                "node": "bogie--1",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "right-bogie",
+            "label": "右后轮摆架角",
+            "unit": "deg",
+            "value": 0,
+            "min": -12,
+            "max": 12,
+            "targets": [
+              {
+                "node": "bogie-1",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

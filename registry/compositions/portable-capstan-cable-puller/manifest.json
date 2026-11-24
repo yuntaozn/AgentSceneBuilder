@@ -1,0 +1,994 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.portable-capstan-cable-puller",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "移动式绞盘电缆牵引机",
+  "summary": "带折叠底架、开口导缆滚轮、减速机、独立绞盘和方向参考的电缆牵引单体。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.portable-capstan-cable-puller",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "电缆牵引",
+    "绞盘",
+    "cable-puller",
+    "capstan",
+    "施工设备",
+    "equipment"
+  ],
+  "anchors": [
+    "feed-guide",
+    "pull-side",
+    "capstan-axis",
+    "base-attachment"
+  ],
+  "ai": {
+    "intent": "在机电电缆布放模型中提供独立卷绕装置和可定位的进出线参考。",
+    "editableParts": [
+      "capstan-rotation",
+      "guide-angle"
+    ],
+    "qualityChecks": [
+      "绞盘共轴并保留挡边。",
+      "导缆旋转时，出口参考随导缆臂移动。",
+      "电机与底架固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "portable-capstan-cable-puller",
+      "title": "移动式绞盘电缆牵引机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "equipment.portable-capstan-cable-puller.base-skid",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.028,0],
+                [0,0.068,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.372,-0.263],
+                [-0.372,-0.263],
+                [-0.42,-0.21500000000000002],
+                [-0.42,0.21500000000000002],
+                [-0.372,0.263],
+                [0.372,0.263],
+                [0.42,0.21500000000000002],
+                [0.42,-0.21500000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.32699999999999996,-0.192],
+                  [-0.32699999999999996,-0.192],
+                  [-0.36,-0.159],
+                  [-0.36,0.159],
+                  [-0.32699999999999996,0.192],
+                  [0.32699999999999996,0.192],
+                  [0.36,0.159],
+                  [0.36,-0.159]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#47555e"
+            }
+          },
+          {
+            "id": "foot--1--1",
+            "semanticType": "equipment.portable-capstan-cable-puller.anti-vibration-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.046,0.067]
+            },
+            "appearance": {
+              "color": "#2e353c"
+            },
+            "transform": {
+              "position": [-0.355,0.022,-0.232]
+            }
+          },
+          {
+            "id": "foot--1-1",
+            "semanticType": "equipment.portable-capstan-cable-puller.anti-vibration-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.046,0.067]
+            },
+            "appearance": {
+              "color": "#2e353c"
+            },
+            "transform": {
+              "position": [-0.355,0.022,0.232]
+            }
+          },
+          {
+            "id": "foot-1--1",
+            "semanticType": "equipment.portable-capstan-cable-puller.anti-vibration-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.046,0.067]
+            },
+            "appearance": {
+              "color": "#2e353c"
+            },
+            "transform": {
+              "position": [0.355,0.022,-0.232]
+            }
+          },
+          {
+            "id": "foot-1-1",
+            "semanticType": "equipment.portable-capstan-cable-puller.anti-vibration-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.08,0.046,0.067]
+            },
+            "appearance": {
+              "color": "#2e353c"
+            },
+            "transform": {
+              "position": [0.355,0.022,0.232]
+            }
+          },
+          {
+            "id": "cross-member",
+            "semanticType": "equipment.portable-capstan-cable-puller.drive-support",
+            "geometry": {
+              "type": "box",
+              "size": [0.201,0.06,0.442]
+            },
+            "appearance": {
+              "color": "#546069"
+            },
+            "transform": {
+              "position": [-0.083,0.084,0]
+            }
+          },
+          {
+            "id": "drive-frame",
+            "semanticType": "equipment.portable-capstan-cable-puller.frame",
+            "transform": {
+              "position": [-0.089,0.111,0]
+            }
+          },
+          {
+            "id": "drive-bed",
+            "semanticType": "equipment.portable-capstan-cable-puller.drive-bed",
+            "parent": "drive-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.032,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.13,-0.16],
+                [-0.199,-0.16],
+                [-0.219,-0.14],
+                [-0.219,0.14],
+                [-0.199,0.16],
+                [0.13,0.16],
+                [0.15,0.14],
+                [0.15,-0.14]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "gearbox",
+            "semanticType": "equipment.portable-capstan-cable-puller.reduction-gearbox",
+            "parent": "drive-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.158,0.183,0.174]
+            },
+            "appearance": {
+              "color": "#3b9195"
+            },
+            "transform": {
+              "position": [0.095,0.123,0]
+            }
+          },
+          {
+            "id": "motor",
+            "semanticType": "equipment.portable-capstan-cable-puller.frame",
+            "parent": "drive-frame",
+            "transform": {
+              "position": [-0.106,0.126,0]
+            }
+          },
+          {
+            "id": "drive-motor",
+            "semanticType": "equipment.portable-capstan-cable-puller.drive-motor",
+            "parent": "motor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.107,0,0],
+              "end": [0.139,0,0],
+              "radius": 0.082,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#47555e"
+            }
+          },
+          {
+            "id": "motor-rib-0",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,0.082,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-1",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,0.07387944716799838,0.03557846660763977],
+              "rotation": [0.4487989505128276,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-2",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,0.05112616375241616,0.06411018156237845],
+              "rotation": [0.8975979010256552,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-3",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,0.018246716584417785,0.07994408879890955],
+              "rotation": [1.3463968515384828,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-4",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,-0.018246716584417778,0.07994408879890955],
+              "rotation": [1.7951958020513104,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-5",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,-0.05112616375241617,0.06411018156237842],
+              "rotation": [2.2439947525641384,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-6",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,-0.07387944716799837,0.035578466607639775],
+              "rotation": [2.6927937030769655,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-7",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,-0.082,1.0042103753008297e-17],
+              "rotation": [3.141592653589793,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-8",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,-0.07387944716799838,-0.03557846660763976],
+              "rotation": [3.5903916041026207,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-9",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,-0.051126163752416166,-0.06411018156237844],
+              "rotation": [4.039190554615448,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-10",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,-0.018246716584417726,-0.07994408879890955],
+              "rotation": [4.487989505128277,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-11",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,0.018246716584417767,-0.07994408879890955],
+              "rotation": [4.9367884556411035,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-12",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,0.05112616375241614,-0.06411018156237845],
+              "rotation": [5.385587406153931,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-13",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fin",
+            "parent": "motor",
+            "geometry": {
+              "type": "box",
+              "size": [0.19,0.011,0.013]
+            },
+            "appearance": {
+              "color": "#47555e"
+            },
+            "transform": {
+              "position": [0.005,0.07387944716799837,-0.03557846660763979],
+              "rotation": [5.834386356666759,0,0]
+            }
+          },
+          {
+            "id": "fan-end",
+            "semanticType": "equipment.portable-capstan-cable-puller.motor-fan-cap",
+            "parent": "motor",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.125,0,0],
+                [-0.104,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.083,0],
+                [0.08140518,0.0161925],
+                [0.076682,0.03176272],
+                [0.06901198,0.04611233],
+                [0.05868986,0.05868986],
+                [0.04611233,0.06901198],
+                [0.03176272,0.076682],
+                [0.0161925,0.08140518],
+                [0,0.083],
+                [-0.0161925,0.08140518],
+                [-0.03176272,0.076682],
+                [-0.04611233,0.06901198],
+                [-0.05868986,0.05868986],
+                [-0.06901198,0.04611233],
+                [-0.076682,0.03176272],
+                [-0.08140518,0.0161925],
+                [-0.083,0],
+                [-0.08140518,-0.0161925],
+                [-0.076682,-0.03176272],
+                [-0.06901198,-0.04611233],
+                [-0.05868986,-0.05868986],
+                [-0.04611233,-0.06901198],
+                [-0.03176272,-0.076682],
+                [-0.0161925,-0.08140518],
+                [0,-0.083],
+                [0.0161925,-0.08140518],
+                [0.03176272,-0.076682],
+                [0.04611233,-0.06901198],
+                [0.05868986,-0.05868986],
+                [0.06901198,-0.04611233],
+                [0.076682,-0.03176272],
+                [0.08140518,-0.0161925]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#47555e"
+            }
+          },
+          {
+            "id": "capstan-axis",
+            "semanticType": "equipment.portable-capstan-cable-puller.frame",
+            "parent": "drive-frame",
+            "transform": {
+              "position": [0.095,0.125,-0.091]
+            }
+          },
+          {
+            "id": "output-shaft",
+            "semanticType": "equipment.portable-capstan-cable-puller.output-shaft",
+            "parent": "capstan-axis",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.012],
+              "end": [0,0,-0.143],
+              "radius": 0.025,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "capstan",
+            "semanticType": "equipment.portable-capstan-cable-puller.frame",
+            "parent": "capstan-axis",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "capstan-inner-flange",
+            "semanticType": "equipment.portable-capstan-cable-puller.inboard-flange",
+            "parent": "capstan",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.016],
+                [0,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.098,0],
+                [0.09679346,0.01533058],
+                [0.09320354,0.03028367],
+                [0.08731864,0.04449107],
+                [0.07928367,0.05760295],
+                [0.06929646,0.06929646],
+                [0.05760295,0.07928367],
+                [0.04449107,0.08731864],
+                [0.03028367,0.09320354],
+                [0.01533058,0.09679346],
+                [0,0.098],
+                [-0.01533058,0.09679346],
+                [-0.03028367,0.09320354],
+                [-0.04449107,0.08731864],
+                [-0.05760295,0.07928367],
+                [-0.06929646,0.06929646],
+                [-0.07928367,0.05760295],
+                [-0.08731864,0.04449107],
+                [-0.09320354,0.03028367],
+                [-0.09679346,0.01533058],
+                [-0.098,0],
+                [-0.09679346,-0.01533058],
+                [-0.09320354,-0.03028367],
+                [-0.08731864,-0.04449107],
+                [-0.07928367,-0.05760295],
+                [-0.06929646,-0.06929646],
+                [-0.05760295,-0.07928367],
+                [-0.04449107,-0.08731864],
+                [-0.03028367,-0.09320354],
+                [-0.01533058,-0.09679346],
+                [0,-0.098],
+                [0.01533058,-0.09679346],
+                [0.03028367,-0.09320354],
+                [0.04449107,-0.08731864],
+                [0.05760295,-0.07928367],
+                [0.06929646,-0.06929646],
+                [0.07928367,-0.05760295],
+                [0.08731864,-0.04449107],
+                [0.09320354,-0.03028367],
+                [0.09679346,-0.01533058]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.026,0],
+                  [0.0256799,0.0040673],
+                  [0.02472747,0.00803444],
+                  [0.02316617,0.01180375],
+                  [0.02103444,0.01528242],
+                  [0.01838478,0.01838478],
+                  [0.01528242,0.02103444],
+                  [0.01180375,0.02316617],
+                  [0.00803444,0.02472747],
+                  [0.0040673,0.0256799],
+                  [0,0.026],
+                  [-0.0040673,0.0256799],
+                  [-0.00803444,0.02472747],
+                  [-0.01180375,0.02316617],
+                  [-0.01528242,0.02103444],
+                  [-0.01838478,0.01838478],
+                  [-0.02103444,0.01528242],
+                  [-0.02316617,0.01180375],
+                  [-0.02472747,0.00803444],
+                  [-0.0256799,0.0040673],
+                  [-0.026,0],
+                  [-0.0256799,-0.0040673],
+                  [-0.02472747,-0.00803444],
+                  [-0.02316617,-0.01180375],
+                  [-0.02103444,-0.01528242],
+                  [-0.01838478,-0.01838478],
+                  [-0.01528242,-0.02103444],
+                  [-0.01180375,-0.02316617],
+                  [-0.00803444,-0.02472747],
+                  [-0.0040673,-0.0256799],
+                  [0,-0.026],
+                  [0.0040673,-0.0256799],
+                  [0.00803444,-0.02472747],
+                  [0.01180375,-0.02316617],
+                  [0.01528242,-0.02103444],
+                  [0.01838478,-0.01838478],
+                  [0.02103444,-0.01528242],
+                  [0.02316617,-0.01180375],
+                  [0.02472747,-0.00803444],
+                  [0.0256799,-0.0040673]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "capstan-body",
+            "semanticType": "equipment.portable-capstan-cable-puller.capstan-wrap-surface",
+            "parent": "capstan",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,-0.016],
+              "end": [0,0,-0.133],
+              "startRadius": 0.074,
+              "endRadius": 0.06,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "capstan-outer-flange",
+            "semanticType": "equipment.portable-capstan-cable-puller.outboard-flange",
+            "parent": "capstan",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.147],
+                [0,0,-0.132]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.081,0],
+                [0.08000276,0.01267119],
+                [0.07703558,0.02503038],
+                [0.07217153,0.03677323],
+                [0.06553038,0.04761061],
+                [0.05727565,0.05727565],
+                [0.04761061,0.06553038],
+                [0.03677323,0.07217153],
+                [0.02503038,0.07703558],
+                [0.01267119,0.08000276],
+                [0,0.081],
+                [-0.01267119,0.08000276],
+                [-0.02503038,0.07703558],
+                [-0.03677323,0.07217153],
+                [-0.04761061,0.06553038],
+                [-0.05727565,0.05727565],
+                [-0.06553038,0.04761061],
+                [-0.07217153,0.03677323],
+                [-0.07703558,0.02503038],
+                [-0.08000276,0.01267119],
+                [-0.081,0],
+                [-0.08000276,-0.01267119],
+                [-0.07703558,-0.02503038],
+                [-0.07217153,-0.03677323],
+                [-0.06553038,-0.04761061],
+                [-0.05727565,-0.05727565],
+                [-0.04761061,-0.06553038],
+                [-0.03677323,-0.07217153],
+                [-0.02503038,-0.07703558],
+                [-0.01267119,-0.08000276],
+                [0,-0.081],
+                [0.01267119,-0.08000276],
+                [0.02503038,-0.07703558],
+                [0.03677323,-0.07217153],
+                [0.04761061,-0.06553038],
+                [0.05727565,-0.05727565],
+                [0.06553038,-0.04761061],
+                [0.07217153,-0.03677323],
+                [0.07703558,-0.02503038],
+                [0.08000276,-0.01267119]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.027,0],
+                  [0.02666759,0.00422373],
+                  [0.02567853,0.00834346],
+                  [0.02405718,0.01225774],
+                  [0.02184346,0.0158702],
+                  [0.01909188,0.01909188],
+                  [0.0158702,0.02184346],
+                  [0.01225774,0.02405718],
+                  [0.00834346,0.02567853],
+                  [0.00422373,0.02666759],
+                  [0,0.027],
+                  [-0.00422373,0.02666759],
+                  [-0.00834346,0.02567853],
+                  [-0.01225774,0.02405718],
+                  [-0.0158702,0.02184346],
+                  [-0.01909188,0.01909188],
+                  [-0.02184346,0.0158702],
+                  [-0.02405718,0.01225774],
+                  [-0.02567853,0.00834346],
+                  [-0.02666759,0.00422373],
+                  [-0.027,0],
+                  [-0.02666759,-0.00422373],
+                  [-0.02567853,-0.00834346],
+                  [-0.02405718,-0.01225774],
+                  [-0.02184346,-0.0158702],
+                  [-0.01909188,-0.01909188],
+                  [-0.0158702,-0.02184346],
+                  [-0.01225774,-0.02405718],
+                  [-0.00834346,-0.02567853],
+                  [-0.00422373,-0.02666759],
+                  [0,-0.027],
+                  [0.00422373,-0.02666759],
+                  [0.00834346,-0.02567853],
+                  [0.01225774,-0.02405718],
+                  [0.0158702,-0.02184346],
+                  [0.01909188,-0.01909188],
+                  [0.02184346,-0.0158702],
+                  [0.02405718,-0.01225774],
+                  [0.02567853,-0.00834346],
+                  [0.02666759,-0.00422373]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "capstan-index",
+            "semanticType": "equipment.portable-capstan-cable-puller.revolution-reference",
+            "parent": "capstan",
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.021,0.003]
+            },
+            "appearance": {
+              "color": "#d89a40"
+            },
+            "transform": {
+              "position": [0.05,0,-0.148]
+            }
+          },
+          {
+            "id": "guide-arm",
+            "semanticType": "equipment.portable-capstan-cable-puller.frame",
+            "transform": {
+              "position": [0.3,0.073,-0.138],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "guide-tongue",
+            "semanticType": "equipment.portable-capstan-cable-puller.outfeed-tongue",
+            "parent": "guide-arm",
+            "geometry": {
+              "type": "box",
+              "size": [0.224,0.038,0.121]
+            },
+            "appearance": {
+              "color": "#d89a40"
+            },
+            "transform": {
+              "position": [0.059,0.018,0]
+            }
+          },
+          {
+            "id": "guide-pivot-pin",
+            "semanticType": "equipment.portable-capstan-cable-puller.guide-arm-pivot",
+            "parent": "guide-arm",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.075],
+              "end": [0,0,0.075],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#47555e"
+            }
+          },
+          {
+            "id": "roller-bearing--1",
+            "semanticType": "equipment.portable-capstan-cable-puller.guide-roller-support",
+            "parent": "guide-arm",
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.13,0.017]
+            },
+            "appearance": {
+              "color": "#4d626f"
+            },
+            "transform": {
+              "position": [0.161,0.092,-0.046]
+            }
+          },
+          {
+            "id": "vertical-guide-roller--1",
+            "semanticType": "equipment.portable-capstan-cable-puller.side-guide-roller",
+            "parent": "guide-arm",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.168,0.087,-0.046],
+              "end": [0.168,0.143,-0.046],
+              "radius": 0.015,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "roller-bearing-1",
+            "semanticType": "equipment.portable-capstan-cable-puller.guide-roller-support",
+            "parent": "guide-arm",
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.13,0.017]
+            },
+            "appearance": {
+              "color": "#4d626f"
+            },
+            "transform": {
+              "position": [0.161,0.092,0.046]
+            }
+          },
+          {
+            "id": "vertical-guide-roller-1",
+            "semanticType": "equipment.portable-capstan-cable-puller.side-guide-roller",
+            "parent": "guide-arm",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.168,0.087,0.046],
+              "end": [0.168,0.143,0.046],
+              "radius": 0.015,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "horizontal-guide-roller",
+            "semanticType": "equipment.portable-capstan-cable-puller.bottom-guide-roller",
+            "parent": "guide-arm",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.168,0.086,-0.047],
+              "end": [0.168,0.086,0.047],
+              "radius": 0.02,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "carry-frame",
+            "semanticType": "equipment.portable-capstan-cable-puller.carry-frame",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.365,0.072,-0.2],
+                [-0.431,0.288,-0.2],
+                [-0.431,0.288,0.2],
+                [-0.365,0.072,0.2]
+              ],
+              "radius": 0.018,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#546069"
+            }
+          },
+          {
+            "id": "control-box",
+            "semanticType": "equipment.portable-capstan-cable-puller.control-box",
+            "geometry": {
+              "type": "box",
+              "size": [0.123,0.057,0.105]
+            },
+            "appearance": {
+              "color": "#d89a40"
+            },
+            "transform": {
+              "position": [-0.265,0.281,0.065]
+            }
+          },
+          {
+            "id": "stop",
+            "semanticType": "equipment.portable-capstan-cable-puller.emergency-stop",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.265,0.307,0.065],
+              "end": [-0.265,0.323,0.065],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#ad4f43"
+            }
+          }
+        ],
+        "anchors": {
+          "feed-guide": {
+            "node": "horizontal-guide-roller",
+            "position": [0.175,0.107,0],
+            "direction": [1,0,0],
+            "kind": "path"
+          },
+          "pull-side": {
+            "node": "capstan-axis",
+            "position": [0,0.07,-0.083],
+            "direction": [-1,0,0],
+            "kind": "path"
+          },
+          "capstan-axis": {
+            "node": "capstan-axis",
+            "position": [0,0,-0.15],
+            "direction": [0,0,-1],
+            "kind": "axis"
+          },
+          "base-attachment": {
+            "node": "base",
+            "position": [0,0.028,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "capstan-rotation",
+            "label": "绞盘转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "capstan",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "guide-angle",
+            "label": "导缆臂上摆",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 35,
+            "targets": [
+              {
+                "node": "guide-arm",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

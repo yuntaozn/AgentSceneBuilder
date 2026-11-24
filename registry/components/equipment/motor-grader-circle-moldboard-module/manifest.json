@@ -1,0 +1,727 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.motor-grader-circle-moldboard-module",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "平地机回转侧移刮刀总成",
+  "summary": "配套回转盘、横移导滑轨、曲面成型板、螺栓压刃和可编辑刀刃定位。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.motor-grader-circle-moldboard-module",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "平地机刮刀",
+    "回转侧移",
+    "grader-blade",
+    "moldboard",
+    "道路机械",
+    "road-machinery"
+  ],
+  "anchors": [
+    "carriage",
+    "cutting-center",
+    "circle-axis"
+  ],
+  "ai": {
+    "intent": "安装到平地机前下方回转盘，独立表达成型刃、多轴姿态及工作端安装。",
+    "editableParts": [
+      "circle-angle",
+      "blade-shift",
+      "attack-angle"
+    ],
+    "qualityChecks": [
+      "侧移不改变圆盘的同轴连接面。",
+      "曲面成型板保留真实厚度。",
+      "刃口锚点随回转、俯仰和侧移更新。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "motor-grader-circle-moldboard-module",
+      "title": "平地机回转侧移刮刀总成",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "top-flange",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.perforated-grader-base-collar",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.032,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.168,0],
+                [0.16667527,0.02105598],
+                [0.16272197,0.0417799],
+                [0.15620245,0.06184492],
+                [0.14721952,0.08093462],
+                [0.13591486,0.09874792],
+                [0.12246673,0.11500391],
+                [0.10708723,0.12944622],
+                [0.0900189,0.14184709],
+                [0.07153092,0.15201094],
+                [0.05191486,0.15977749],
+                [0.03148006,0.16502426],
+                [0.01054881,0.16766849],
+                [-0.01054881,0.16766849],
+                [-0.03148006,0.16502426],
+                [-0.05191486,0.15977749],
+                [-0.07153092,0.15201094],
+                [-0.0900189,0.14184709],
+                [-0.10708723,0.12944622],
+                [-0.12246673,0.11500391],
+                [-0.13591486,0.09874792],
+                [-0.14721952,0.08093462],
+                [-0.15620245,0.06184492],
+                [-0.16272197,0.0417799],
+                [-0.16667527,0.02105598],
+                [-0.168,0],
+                [-0.16667527,-0.02105598],
+                [-0.16272197,-0.0417799],
+                [-0.15620245,-0.06184492],
+                [-0.14721952,-0.08093462],
+                [-0.13591486,-0.09874792],
+                [-0.12246673,-0.11500391],
+                [-0.10708723,-0.12944622],
+                [-0.0900189,-0.14184709],
+                [-0.07153092,-0.15201094],
+                [-0.05191486,-0.15977749],
+                [-0.03148006,-0.16502426],
+                [-0.01054881,-0.16766849],
+                [0.01054881,-0.16766849],
+                [0.03148006,-0.16502426],
+                [0.05191486,-0.15977749],
+                [0.07153092,-0.15201094],
+                [0.0900189,-0.14184709],
+                [0.10708723,-0.12944622],
+                [0.12246673,-0.11500391],
+                [0.13591486,-0.09874792],
+                [0.14721952,-0.08093462],
+                [0.15620245,-0.06184492],
+                [0.16272197,-0.0417799],
+                [0.16667527,-0.02105598]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.056,0],
+                  [0.05555842,0.00701866],
+                  [0.05424066,0.01392663],
+                  [0.05206748,0.02061497],
+                  [0.04907317,0.02697821],
+                  [0.04530495,0.03291597],
+                  [0.04082224,0.03833464],
+                  [0.03569574,0.04314874],
+                  [0.0300063,0.04728236],
+                  [0.02384364,0.05067031],
+                  [0.01730495,0.05325916],
+                  [0.01049335,0.05500809],
+                  [0.00351627,0.0558895],
+                  [-0.00351627,0.0558895],
+                  [-0.01049335,0.05500809],
+                  [-0.01730495,0.05325916],
+                  [-0.02384364,0.05067031],
+                  [-0.0300063,0.04728236],
+                  [-0.03569574,0.04314874],
+                  [-0.04082224,0.03833464],
+                  [-0.04530495,0.03291597],
+                  [-0.04907317,0.02697821],
+                  [-0.05206748,0.02061497],
+                  [-0.05424066,0.01392663],
+                  [-0.05555842,0.00701866],
+                  [-0.056,0],
+                  [-0.05555842,-0.00701866],
+                  [-0.05424066,-0.01392663],
+                  [-0.05206748,-0.02061497],
+                  [-0.04907317,-0.02697821],
+                  [-0.04530495,-0.03291597],
+                  [-0.04082224,-0.03833464],
+                  [-0.03569574,-0.04314874],
+                  [-0.0300063,-0.04728236],
+                  [-0.02384364,-0.05067031],
+                  [-0.01730495,-0.05325916],
+                  [-0.01049335,-0.05500809],
+                  [-0.00351627,-0.0558895],
+                  [0.00351627,-0.0558895],
+                  [0.01049335,-0.05500809],
+                  [0.01730495,-0.05325916],
+                  [0.02384364,-0.05067031],
+                  [0.0300063,-0.04728236],
+                  [0.03569574,-0.04314874],
+                  [0.04082224,-0.03833464],
+                  [0.04530495,-0.03291597],
+                  [0.04907317,-0.02697821],
+                  [0.05206748,-0.02061497],
+                  [0.05424066,-0.01392663],
+                  [0.05555842,-0.00701866]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "blade-slew",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "slewing-circle",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.bored-circle-for-side-shift-slide",
+            "parent": "blade-slew",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.064,0],
+                [0,-0.037,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.211,0],
+                [0.20946157,0.02543324],
+                [0.20486872,0.05049561],
+                [0.19728843,0.07482163],
+                [0.18683122,0.09805659],
+                [0.1736496,0.11986166],
+                [0.15793577,0.13991888],
+                [0.13991888,0.15793577],
+                [0.11986166,0.1736496],
+                [0.09805659,0.18683122],
+                [0.07482163,0.19728843],
+                [0.05049561,0.20486872],
+                [0.02543324,0.20946157],
+                [0,0.211],
+                [-0.02543324,0.20946157],
+                [-0.05049561,0.20486872],
+                [-0.07482163,0.19728843],
+                [-0.09805659,0.18683122],
+                [-0.11986166,0.1736496],
+                [-0.13991888,0.15793577],
+                [-0.15793577,0.13991888],
+                [-0.1736496,0.11986166],
+                [-0.18683122,0.09805659],
+                [-0.19728843,0.07482163],
+                [-0.20486872,0.05049561],
+                [-0.20946157,0.02543324],
+                [-0.211,0],
+                [-0.20946157,-0.02543324],
+                [-0.20486872,-0.05049561],
+                [-0.19728843,-0.07482163],
+                [-0.18683122,-0.09805659],
+                [-0.1736496,-0.11986166],
+                [-0.15793577,-0.13991888],
+                [-0.13991888,-0.15793577],
+                [-0.11986166,-0.1736496],
+                [-0.09805659,-0.18683122],
+                [-0.07482163,-0.19728843],
+                [-0.05049561,-0.20486872],
+                [-0.02543324,-0.20946157],
+                [0,-0.211],
+                [0.02543324,-0.20946157],
+                [0.05049561,-0.20486872],
+                [0.07482163,-0.19728843],
+                [0.09805659,-0.18683122],
+                [0.11986166,-0.1736496],
+                [0.13991888,-0.15793577],
+                [0.15793577,-0.13991888],
+                [0.1736496,-0.11986166],
+                [0.18683122,-0.09805659],
+                [0.19728843,-0.07482163],
+                [0.20486872,-0.05049561],
+                [0.20946157,-0.02543324]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.154,0],
+                  [0.15287717,0.01856265],
+                  [0.14952504,0.03685461],
+                  [0.1439925,0.05460915],
+                  [0.13636023,0.07156737],
+                  [0.12673952,0.08748197],
+                  [0.11527066,0.10212089],
+                  [0.10212089,0.11527066],
+                  [0.08748197,0.12673952],
+                  [0.07156737,0.13636023],
+                  [0.05460915,0.1439925],
+                  [0.03685461,0.14952504],
+                  [0.01856265,0.15287717],
+                  [0,0.154],
+                  [-0.01856265,0.15287717],
+                  [-0.03685461,0.14952504],
+                  [-0.05460915,0.1439925],
+                  [-0.07156737,0.13636023],
+                  [-0.08748197,0.12673952],
+                  [-0.10212089,0.11527066],
+                  [-0.11527066,0.10212089],
+                  [-0.12673952,0.08748197],
+                  [-0.13636023,0.07156737],
+                  [-0.1439925,0.05460915],
+                  [-0.14952504,0.03685461],
+                  [-0.15287717,0.01856265],
+                  [-0.154,0],
+                  [-0.15287717,-0.01856265],
+                  [-0.14952504,-0.03685461],
+                  [-0.1439925,-0.05460915],
+                  [-0.13636023,-0.07156737],
+                  [-0.12673952,-0.08748197],
+                  [-0.11527066,-0.10212089],
+                  [-0.10212089,-0.11527066],
+                  [-0.08748197,-0.12673952],
+                  [-0.07156737,-0.13636023],
+                  [-0.05460915,-0.1439925],
+                  [-0.03685461,-0.14952504],
+                  [-0.01856265,-0.15287717],
+                  [0,-0.154],
+                  [0.01856265,-0.15287717],
+                  [0.03685461,-0.14952504],
+                  [0.05460915,-0.1439925],
+                  [0.07156737,-0.13636023],
+                  [0.08748197,-0.12673952],
+                  [0.10212089,-0.11527066],
+                  [0.11527066,-0.10212089],
+                  [0.12673952,-0.08748197],
+                  [0.13636023,-0.07156737],
+                  [0.1439925,-0.05460915],
+                  [0.14952504,-0.03685461],
+                  [0.15287717,-0.01856265]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#efc468"
+            }
+          },
+          {
+            "id": "bracket--1",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.circle-to-blade-bracket",
+            "parent": "blade-slew",
+            "geometry": {
+              "type": "box",
+              "size": [0.112,0.101,0.138]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [-0.131,-0.101,0.017]
+            }
+          },
+          {
+            "id": "bracket-1",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.circle-to-blade-bracket",
+            "parent": "blade-slew",
+            "geometry": {
+              "type": "box",
+              "size": [0.112,0.101,0.138]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [0.131,-0.101,0.017]
+            }
+          },
+          {
+            "id": "blade-tilt",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.frame",
+            "parent": "blade-slew",
+            "transform": {
+              "position": [0,-0.134,0.018]
+            }
+          },
+          {
+            "id": "pivot",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.transverse-blade-pitch-axis",
+            "parent": "blade-tilt",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.216,0,0],
+              "end": [0.216,0,0],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1da"
+            }
+          },
+          {
+            "id": "blade-shift",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.frame",
+            "parent": "blade-tilt",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "slide-upper",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.blade-slide-upper-track",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "box",
+              "size": [0.99,0.034,0.052]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [0,-0.012,0.036]
+            }
+          },
+          {
+            "id": "slide-lower",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.blade-slide-lower-track",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "box",
+              "size": [0.99,0.031,0.047]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [0,-0.083,0.039]
+            }
+          },
+          {
+            "id": "stop--1",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.blade-end-reinforcement",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.152,0.032]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [-0.467,-0.042,0.037]
+            }
+          },
+          {
+            "id": "stop-1",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.blade-end-reinforcement",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.152,0.032]
+            },
+            "appearance": {
+              "color": "#9cb2bd"
+            },
+            "transform": {
+              "position": [0.467,-0.042,0.037]
+            }
+          },
+          {
+            "id": "moldboard",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.curved-gradation-sheet",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.559,0,0],
+                [0.559,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.096,-0.184],
+                [-0.047,-0.162],
+                [-0.01,-0.118],
+                [0.004,-0.062],
+                [-0.01,-0.004],
+                [-0.04,0.04],
+                [-0.063,0.054],
+                [-0.068,0.043],
+                [-0.05,0.031],
+                [-0.024,-0.008],
+                [-0.012,-0.059],
+                [-0.025,-0.111],
+                [-0.058,-0.149],
+                [-0.104,-0.171]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#efc468"
+            }
+          },
+          {
+            "id": "cutting-strip",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.replaceable-cutting-edge",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "box",
+              "size": [1.151,0.034,0.019]
+            },
+            "appearance": {
+              "color": "#bed1da"
+            },
+            "transform": {
+              "position": [0,-0.186,0.104],
+              "rotation": [0.22,0,0]
+            }
+          },
+          {
+            "id": "fastener-0",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.5,-0.182,0.113],
+              "end": [-0.5,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-1",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.40900000000000003,-0.182,0.113],
+              "end": [-0.40900000000000003,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-2",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.318,-0.182,0.113],
+              "end": [-0.318,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-3",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.22699999999999998,-0.182,0.113],
+              "end": [-0.22699999999999998,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-4",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.136,-0.182,0.113],
+              "end": [-0.136,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-5",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.04500000000000004,-0.182,0.113],
+              "end": [-0.04500000000000004,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-6",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.04600000000000004,-0.182,0.113],
+              "end": [0.04600000000000004,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-7",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.137,-0.182,0.113],
+              "end": [0.137,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-8",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.22799999999999998,-0.182,0.113],
+              "end": [0.22799999999999998,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-9",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.31899999999999995,-0.182,0.113],
+              "end": [0.31899999999999995,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-10",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.4099999999999999,-0.182,0.113],
+              "end": [0.4099999999999999,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          },
+          {
+            "id": "fastener-11",
+            "semanticType": "equipment.motor-grader-circle-moldboard-module.cutting-edge-retainer",
+            "parent": "blade-shift",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.5009999999999999,-0.182,0.113],
+              "end": [0.5009999999999999,-0.182,0.124],
+              "radius": 0.0065,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#4f6873"
+            }
+          }
+        ],
+        "anchors": {
+          "carriage": {
+            "node": "top-flange",
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "grader-tool"
+          },
+          "cutting-center": {
+            "node": "cutting-strip",
+            "position": [0,-0.017,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "circle-axis": {
+            "node": "slewing-circle",
+            "position": [0,-0.053,0],
+            "direction": [0,1,0],
+            "kind": "pivot"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "circle-angle",
+            "label": "刮刀回转盘角度",
+            "unit": "deg",
+            "value": 13,
+            "min": -68,
+            "max": 68,
+            "targets": [
+              {
+                "node": "blade-slew",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "blade-shift",
+            "label": "刮刀横移量",
+            "unit": "m",
+            "value": 0,
+            "min": -0.255,
+            "max": 0.255,
+            "targets": [
+              {
+                "node": "blade-shift",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "attack-angle",
+            "label": "刮刀俯仰角",
+            "unit": "deg",
+            "value": 0,
+            "min": -17,
+            "max": 24,
+            "targets": [
+              {
+                "node": "blade-tilt",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

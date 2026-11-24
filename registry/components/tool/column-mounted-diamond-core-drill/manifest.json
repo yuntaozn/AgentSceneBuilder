@@ -1,0 +1,1131 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.column-mounted-diamond-core-drill",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "立柱进给金刚石取芯钻机",
+  "summary": "带真空底板、导柱、齿条滚轮车、进给手轮、供水接头和空心取芯钻筒。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.column-mounted-diamond-core-drill",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "取芯钻",
+    "水钻",
+    "core-drill",
+    "rack-feed",
+    "施工工具",
+    "tool"
+  ],
+  "anchors": [
+    "base",
+    "cutting-face",
+    "water-inlet",
+    "motor-interface"
+  ],
+  "ai": {
+    "intent": "以独立垂直取芯配套设备表达导向进给、空心钻筒和水路接头。",
+    "editableParts": [
+      "feed-travel",
+      "spindle-angle",
+      "feed-wheel-angle"
+    ],
+    "qualityChecks": [
+      "钻筒中心空腔可见。",
+      "进给移动同时带动钻筒、齿轮箱和接水点。",
+      "底板和立柱保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "column-mounted-diamond-core-drill",
+      "title": "立柱进给金刚石取芯钻机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "tool.column-mounted-diamond-core-drill.concrete-base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.006,0],
+                [0,0.04,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.12,-0.106],
+                [-0.14300000000000002,-0.106],
+                [-0.171,-0.078],
+                [-0.171,0.078],
+                [-0.14300000000000002,0.106],
+                [0.12,0.106],
+                [0.148,0.078],
+                [0.148,-0.078]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.12100000000000001,-0.012],
+                  [0.060000000000000005,-0.012],
+                  [0.051000000000000004,-0.003000000000000001],
+                  [0.051000000000000004,0.003000000000000001],
+                  [0.060000000000000005,0.012],
+                  [0.12100000000000001,0.012],
+                  [0.13,0.003000000000000001],
+                  [0.13,-0.003000000000000001]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5f727d"
+            }
+          },
+          {
+            "id": "vacuum-gasket",
+            "semanticType": "tool.column-mounted-diamond-core-drill.vacuum-gasket",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.001,0],
+                [0,0.009,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.12,-0.102],
+                [-0.14300000000000002,-0.102],
+                [-0.166,-0.07899999999999999],
+                [-0.166,0.07899999999999999],
+                [-0.14300000000000002,0.102],
+                [0.12,0.102],
+                [0.143,0.07899999999999999],
+                [0.143,-0.07899999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.113,-0.088],
+                  [-0.136,-0.088],
+                  [-0.15200000000000002,-0.072],
+                  [-0.15200000000000002,0.072],
+                  [-0.136,0.088],
+                  [0.113,0.088],
+                  [0.129,0.072],
+                  [0.129,-0.072]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#2d3840"
+            }
+          },
+          {
+            "id": "column",
+            "semanticType": "tool.column-mounted-diamond-core-drill.frame",
+            "transform": {
+              "position": [-0.07,0.041,0]
+            }
+          },
+          {
+            "id": "column-profile",
+            "semanticType": "tool.column-mounted-diamond-core-drill.column-guide",
+            "parent": "column",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.81,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.032,-0.03],
+                [-0.032,-0.03],
+                [-0.032,0.03],
+                [0.032,0.03]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.02,-0.019],
+                  [-0.02,-0.019],
+                  [-0.02,0.019],
+                  [0.02,0.019]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "column-top",
+            "semanticType": "tool.column-mounted-diamond-core-drill.column-top-stop",
+            "parent": "column",
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.021,0.071]
+            },
+            "appearance": {
+              "color": "#59656f"
+            },
+            "transform": {
+              "position": [0,0.817,0]
+            }
+          },
+          {
+            "id": "rack-strip",
+            "semanticType": "tool.column-mounted-diamond-core-drill.feed-rack",
+            "parent": "column",
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.67,0.026]
+            },
+            "appearance": {
+              "color": "#59656f"
+            },
+            "transform": {
+              "position": [0.036,0.39,0]
+            }
+          },
+          {
+            "id": "rack-teeth",
+            "semanticType": "tool.column-mounted-diamond-core-drill.rack-tooth",
+            "parent": "column",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0038,0.024]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0.045,0.083,0]
+            },
+            "repetition": {
+              "type": "linear",
+              "count": 40,
+              "step": [0,0.0156,0]
+            }
+          },
+          {
+            "id": "column-back-brace",
+            "semanticType": "tool.column-mounted-diamond-core-drill.column-back-brace",
+            "parent": "column",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.027],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.064,0.005],
+                [0,0.005],
+                [0,0.14],
+                [-0.018,0.14]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#e0a652"
+            }
+          },
+          {
+            "id": "carriage",
+            "semanticType": "tool.column-mounted-diamond-core-drill.frame",
+            "parent": "column",
+            "transform": {
+              "position": [0,0.435,0]
+            }
+          },
+          {
+            "id": "runner-shell",
+            "semanticType": "tool.column-mounted-diamond-core-drill.carriage-slide-shell",
+            "parent": "carriage",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.052,0],
+                [0,0.05,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.044,-0.048],
+                [-0.049,-0.048],
+                [-0.058,-0.039],
+                [-0.058,0.039],
+                [-0.049,0.048],
+                [0.044,0.048],
+                [0.053,0.039],
+                [0.053,-0.039]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.037,-0.035],
+                  [-0.051,-0.035],
+                  [-0.051,0.035],
+                  [0.037,0.035]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#e0a652"
+            }
+          },
+          {
+            "id": "motor-bracket",
+            "semanticType": "tool.column-mounted-diamond-core-drill.motor-mount",
+            "parent": "carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.151,0.055,0.07]
+            },
+            "appearance": {
+              "color": "#e0a652"
+            },
+            "transform": {
+              "position": [0.092,-0.026,0]
+            }
+          },
+          {
+            "id": "spindle-axis",
+            "semanticType": "tool.column-mounted-diamond-core-drill.frame",
+            "parent": "carriage",
+            "transform": {
+              "position": [0.166,0,0]
+            }
+          },
+          {
+            "id": "geared-drive",
+            "semanticType": "tool.column-mounted-diamond-core-drill.reduction-gearbox",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.083,0],
+              "end": [0,0.05,0],
+              "radius": 0.036,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            }
+          },
+          {
+            "id": "motor",
+            "semanticType": "tool.column-mounted-diamond-core-drill.electric-motor",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.046,0],
+              "end": [0,0.197,0],
+              "radius": 0.04,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#3f948f"
+            }
+          },
+          {
+            "id": "motor-cover",
+            "semanticType": "tool.column-mounted-diamond-core-drill.motor-cap",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.195,0],
+                [0,0.226,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.04,0],
+                [0.03923141,0.00780361],
+                [0.03695518,0.01530734],
+                [0.03325878,0.02222281],
+                [0.02828427,0.02828427],
+                [0.02222281,0.03325878],
+                [0.01530734,0.03695518],
+                [0.00780361,0.03923141],
+                [0,0.04],
+                [-0.00780361,0.03923141],
+                [-0.01530734,0.03695518],
+                [-0.02222281,0.03325878],
+                [-0.02828427,0.02828427],
+                [-0.03325878,0.02222281],
+                [-0.03695518,0.01530734],
+                [-0.03923141,0.00780361],
+                [-0.04,0],
+                [-0.03923141,-0.00780361],
+                [-0.03695518,-0.01530734],
+                [-0.03325878,-0.02222281],
+                [-0.02828427,-0.02828427],
+                [-0.02222281,-0.03325878],
+                [-0.01530734,-0.03695518],
+                [-0.00780361,-0.03923141],
+                [0,-0.04],
+                [0.00780361,-0.03923141],
+                [0.01530734,-0.03695518],
+                [0.02222281,-0.03325878],
+                [0.02828427,-0.02828427],
+                [0.03325878,-0.02222281],
+                [0.03695518,-0.01530734],
+                [0.03923141,-0.00780361]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            }
+          },
+          {
+            "id": "motor-rib-0",
+            "semanticType": "tool.column-mounted-diamond-core-drill.air-cooling-rib",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.108,0.009]
+            },
+            "appearance": {
+              "color": "#3f948f"
+            },
+            "transform": {
+              "position": [0.04,0.13,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "motor-rib-1",
+            "semanticType": "tool.column-mounted-diamond-core-drill.air-cooling-rib",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.108,0.009]
+            },
+            "appearance": {
+              "color": "#3f948f"
+            },
+            "transform": {
+              "position": [0.028284271247461905,0.13,0.028284271247461898],
+              "rotation": [0,-0.7853981633974483,0]
+            }
+          },
+          {
+            "id": "motor-rib-2",
+            "semanticType": "tool.column-mounted-diamond-core-drill.air-cooling-rib",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.108,0.009]
+            },
+            "appearance": {
+              "color": "#3f948f"
+            },
+            "transform": {
+              "position": [2.4492935982947064e-18,0.13,0.04],
+              "rotation": [0,-1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "motor-rib-3",
+            "semanticType": "tool.column-mounted-diamond-core-drill.air-cooling-rib",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.108,0.009]
+            },
+            "appearance": {
+              "color": "#3f948f"
+            },
+            "transform": {
+              "position": [-0.028284271247461898,0.13,0.028284271247461905],
+              "rotation": [0,-2.356194490192345,0]
+            }
+          },
+          {
+            "id": "motor-rib-4",
+            "semanticType": "tool.column-mounted-diamond-core-drill.air-cooling-rib",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.108,0.009]
+            },
+            "appearance": {
+              "color": "#3f948f"
+            },
+            "transform": {
+              "position": [-0.04,0.13,4.898587196589413e-18],
+              "rotation": [0,-3.141592653589793,0]
+            }
+          },
+          {
+            "id": "motor-rib-5",
+            "semanticType": "tool.column-mounted-diamond-core-drill.air-cooling-rib",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.108,0.009]
+            },
+            "appearance": {
+              "color": "#3f948f"
+            },
+            "transform": {
+              "position": [-0.02828427124746191,0.13,-0.028284271247461898],
+              "rotation": [0,-3.9269908169872414,0]
+            }
+          },
+          {
+            "id": "motor-rib-6",
+            "semanticType": "tool.column-mounted-diamond-core-drill.air-cooling-rib",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.108,0.009]
+            },
+            "appearance": {
+              "color": "#3f948f"
+            },
+            "transform": {
+              "position": [-7.347880794884118e-18,0.13,-0.04],
+              "rotation": [0,-4.71238898038469,0]
+            }
+          },
+          {
+            "id": "motor-rib-7",
+            "semanticType": "tool.column-mounted-diamond-core-drill.air-cooling-rib",
+            "parent": "spindle-axis",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.108,0.009]
+            },
+            "appearance": {
+              "color": "#3f948f"
+            },
+            "transform": {
+              "position": [0.028284271247461894,0.13,-0.02828427124746191],
+              "rotation": [0,-5.497787143782138,0]
+            }
+          },
+          {
+            "id": "water-inlet",
+            "semanticType": "tool.column-mounted-diamond-core-drill.frame",
+            "parent": "spindle-axis",
+            "transform": {
+              "position": [0,-0.057,0]
+            }
+          },
+          {
+            "id": "side-water-port",
+            "semanticType": "tool.column-mounted-diamond-core-drill.water-coupling",
+            "parent": "water-inlet",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.028],
+                [0,0,0.065]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.013,0],
+                [0.01236373,0.00401722],
+                [0.01051722,0.00764121],
+                [0.00764121,0.01051722],
+                [0.00401722,0.01236373],
+                [0,0.013],
+                [-0.00401722,0.01236373],
+                [-0.00764121,0.01051722],
+                [-0.01051722,0.00764121],
+                [-0.01236373,0.00401722],
+                [-0.013,0],
+                [-0.01236373,-0.00401722],
+                [-0.01051722,-0.00764121],
+                [-0.00764121,-0.01051722],
+                [-0.00401722,-0.01236373],
+                [0,-0.013],
+                [0.00401722,-0.01236373],
+                [0.00764121,-0.01051722],
+                [0.01051722,-0.00764121],
+                [0.01236373,-0.00401722]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0055,0],
+                  [0.00523081,0.00169959],
+                  [0.00444959,0.00323282],
+                  [0.00323282,0.00444959],
+                  [0.00169959,0.00523081],
+                  [0,0.0055],
+                  [-0.00169959,0.00523081],
+                  [-0.00323282,0.00444959],
+                  [-0.00444959,0.00323282],
+                  [-0.00523081,0.00169959],
+                  [-0.0055,0],
+                  [-0.00523081,-0.00169959],
+                  [-0.00444959,-0.00323282],
+                  [-0.00323282,-0.00444959],
+                  [-0.00169959,-0.00523081],
+                  [0,-0.0055],
+                  [0.00169959,-0.00523081],
+                  [0.00323282,-0.00444959],
+                  [0.00444959,-0.00323282],
+                  [0.00523081,-0.00169959]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "bit",
+            "semanticType": "tool.column-mounted-diamond-core-drill.frame",
+            "parent": "spindle-axis",
+            "transform": {
+              "position": [0,-0.103,0]
+            }
+          },
+          {
+            "id": "spindle-adapter",
+            "semanticType": "tool.column-mounted-diamond-core-drill.drill-adapter",
+            "parent": "bit",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.017,0],
+              "end": [0,0.033,0],
+              "radius": 0.0125,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "bit-cap",
+            "semanticType": "tool.column-mounted-diamond-core-drill.corer-top-cap",
+            "parent": "bit",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.031,0],
+                [0,-0.017,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.036,0],
+                [0.03530827,0.00702325],
+                [0.03325966,0.0137766],
+                [0.02993291,0.02000053],
+                [0.02545584,0.02545584],
+                [0.02000053,0.02993291],
+                [0.0137766,0.03325966],
+                [0.00702325,0.03530827],
+                [0,0.036],
+                [-0.00702325,0.03530827],
+                [-0.0137766,0.03325966],
+                [-0.02000053,0.02993291],
+                [-0.02545584,0.02545584],
+                [-0.02993291,0.02000053],
+                [-0.03325966,0.0137766],
+                [-0.03530827,0.00702325],
+                [-0.036,0],
+                [-0.03530827,-0.00702325],
+                [-0.03325966,-0.0137766],
+                [-0.02993291,-0.02000053],
+                [-0.02545584,-0.02545584],
+                [-0.02000053,-0.02993291],
+                [-0.0137766,-0.03325966],
+                [-0.00702325,-0.03530827],
+                [0,-0.036],
+                [0.00702325,-0.03530827],
+                [0.0137766,-0.03325966],
+                [0.02000053,-0.02993291],
+                [0.02545584,-0.02545584],
+                [0.02993291,-0.02000053],
+                [0.03325966,-0.0137766],
+                [0.03530827,-0.00702325]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.01,0],
+                  [0.00980785,0.0019509],
+                  [0.0092388,0.00382683],
+                  [0.0083147,0.0055557],
+                  [0.00707107,0.00707107],
+                  [0.0055557,0.0083147],
+                  [0.00382683,0.0092388],
+                  [0.0019509,0.00980785],
+                  [0,0.01],
+                  [-0.0019509,0.00980785],
+                  [-0.00382683,0.0092388],
+                  [-0.0055557,0.0083147],
+                  [-0.00707107,0.00707107],
+                  [-0.0083147,0.0055557],
+                  [-0.0092388,0.00382683],
+                  [-0.00980785,0.0019509],
+                  [-0.01,0],
+                  [-0.00980785,-0.0019509],
+                  [-0.0092388,-0.00382683],
+                  [-0.0083147,-0.0055557],
+                  [-0.00707107,-0.00707107],
+                  [-0.0055557,-0.0083147],
+                  [-0.00382683,-0.0092388],
+                  [-0.0019509,-0.00980785],
+                  [0,-0.01],
+                  [0.0019509,-0.00980785],
+                  [0.00382683,-0.0092388],
+                  [0.0055557,-0.0083147],
+                  [0.00707107,-0.00707107],
+                  [0.0083147,-0.0055557],
+                  [0.0092388,-0.00382683],
+                  [0.00980785,-0.0019509]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "core-barrel",
+            "semanticType": "tool.column-mounted-diamond-core-drill.open-core-barrel",
+            "parent": "bit",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.205,0],
+                [0,-0.029,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.036,0],
+                [0.03555678,0.00563164],
+                [0.03423803,0.01112461],
+                [0.03207623,0.01634366],
+                [0.02912461,0.02116027],
+                [0.02545584,0.02545584],
+                [0.02116027,0.02912461],
+                [0.01634366,0.03207623],
+                [0.01112461,0.03423803],
+                [0.00563164,0.03555678],
+                [0,0.036],
+                [-0.00563164,0.03555678],
+                [-0.01112461,0.03423803],
+                [-0.01634366,0.03207623],
+                [-0.02116027,0.02912461],
+                [-0.02545584,0.02545584],
+                [-0.02912461,0.02116027],
+                [-0.03207623,0.01634366],
+                [-0.03423803,0.01112461],
+                [-0.03555678,0.00563164],
+                [-0.036,0],
+                [-0.03555678,-0.00563164],
+                [-0.03423803,-0.01112461],
+                [-0.03207623,-0.01634366],
+                [-0.02912461,-0.02116027],
+                [-0.02545584,-0.02545584],
+                [-0.02116027,-0.02912461],
+                [-0.01634366,-0.03207623],
+                [-0.01112461,-0.03423803],
+                [-0.00563164,-0.03555678],
+                [0,-0.036],
+                [0.00563164,-0.03555678],
+                [0.01112461,-0.03423803],
+                [0.01634366,-0.03207623],
+                [0.02116027,-0.02912461],
+                [0.02545584,-0.02545584],
+                [0.02912461,-0.02116027],
+                [0.03207623,-0.01634366],
+                [0.03423803,-0.01112461],
+                [0.03555678,-0.00563164]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.032,0],
+                  [0.03160603,0.0050059],
+                  [0.03043381,0.00988854],
+                  [0.02851221,0.0145277],
+                  [0.02588854,0.01880913],
+                  [0.02262742,0.02262742],
+                  [0.01880913,0.02588854],
+                  [0.0145277,0.02851221],
+                  [0.00988854,0.03043381],
+                  [0.0050059,0.03160603],
+                  [0,0.032],
+                  [-0.0050059,0.03160603],
+                  [-0.00988854,0.03043381],
+                  [-0.0145277,0.02851221],
+                  [-0.01880913,0.02588854],
+                  [-0.02262742,0.02262742],
+                  [-0.02588854,0.01880913],
+                  [-0.02851221,0.0145277],
+                  [-0.03043381,0.00988854],
+                  [-0.03160603,0.0050059],
+                  [-0.032,0],
+                  [-0.03160603,-0.0050059],
+                  [-0.03043381,-0.00988854],
+                  [-0.02851221,-0.0145277],
+                  [-0.02588854,-0.01880913],
+                  [-0.02262742,-0.02262742],
+                  [-0.01880913,-0.02588854],
+                  [-0.0145277,-0.02851221],
+                  [-0.00988854,-0.03043381],
+                  [-0.0050059,-0.03160603],
+                  [0,-0.032],
+                  [0.0050059,-0.03160603],
+                  [0.00988854,-0.03043381],
+                  [0.0145277,-0.02851221],
+                  [0.01880913,-0.02588854],
+                  [0.02262742,-0.02262742],
+                  [0.02588854,-0.01880913],
+                  [0.02851221,-0.0145277],
+                  [0.03043381,-0.00988854],
+                  [0.03160603,-0.0050059]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "bit-segment-0",
+            "semanticType": "tool.column-mounted-diamond-core-drill.diamond-segment",
+            "parent": "bit",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.012,0.01]
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            },
+            "transform": {
+              "position": [0.035,-0.205,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "bit-segment-1",
+            "semanticType": "tool.column-mounted-diamond-core-drill.diamond-segment",
+            "parent": "bit",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.012,0.01]
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            },
+            "transform": {
+              "position": [0.026811555509164232,-0.205,0.022497566339028875],
+              "rotation": [0,-0.6981317007977318,0]
+            }
+          },
+          {
+            "id": "bit-segment-2",
+            "semanticType": "tool.column-mounted-diamond-core-drill.diamond-segment",
+            "parent": "bit",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.012,0.01]
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            },
+            "transform": {
+              "position": [0.006077686218342565,-0.205,0.03446827135542729],
+              "rotation": [0,-1.3962634015954636,0]
+            }
+          },
+          {
+            "id": "bit-segment-3",
+            "semanticType": "tool.column-mounted-diamond-core-drill.diamond-segment",
+            "parent": "bit",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.012,0.01]
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            },
+            "transform": {
+              "position": [-0.017499999999999995,-0.205,0.030310889132455356],
+              "rotation": [0,-2.0943951023931953,0]
+            }
+          },
+          {
+            "id": "bit-segment-4",
+            "semanticType": "tool.column-mounted-diamond-core-drill.diamond-segment",
+            "parent": "bit",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.012,0.01]
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            },
+            "transform": {
+              "position": [-0.0328892417275068,-0.205,0.011970705016398412],
+              "rotation": [0,-2.792526803190927,0]
+            }
+          },
+          {
+            "id": "bit-segment-5",
+            "semanticType": "tool.column-mounted-diamond-core-drill.diamond-segment",
+            "parent": "bit",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.012,0.01]
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            },
+            "transform": {
+              "position": [-0.0328892417275068,-0.205,-0.011970705016398403],
+              "rotation": [0,-3.490658503988659,0]
+            }
+          },
+          {
+            "id": "bit-segment-6",
+            "semanticType": "tool.column-mounted-diamond-core-drill.diamond-segment",
+            "parent": "bit",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.012,0.01]
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            },
+            "transform": {
+              "position": [-0.017500000000000016,-0.205,-0.03031088913245535],
+              "rotation": [0,-4.1887902047863905,0]
+            }
+          },
+          {
+            "id": "bit-segment-7",
+            "semanticType": "tool.column-mounted-diamond-core-drill.diamond-segment",
+            "parent": "bit",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.012,0.01]
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            },
+            "transform": {
+              "position": [0.0060776862183425494,-0.205,-0.03446827135542729],
+              "rotation": [0,-4.886921905584122,0]
+            }
+          },
+          {
+            "id": "bit-segment-8",
+            "semanticType": "tool.column-mounted-diamond-core-drill.diamond-segment",
+            "parent": "bit",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.012,0.01]
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            },
+            "transform": {
+              "position": [0.026811555509164225,-0.205,-0.02249756633902889],
+              "rotation": [0,-5.585053606381854,0]
+            }
+          },
+          {
+            "id": "feed-wheel",
+            "semanticType": "tool.column-mounted-diamond-core-drill.frame",
+            "parent": "carriage",
+            "transform": {
+              "position": [0.043,0,0.051]
+            }
+          },
+          {
+            "id": "feed-hub",
+            "semanticType": "tool.column-mounted-diamond-core-drill.feed-spindle",
+            "parent": "feed-wheel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.01],
+              "end": [0,0,0.036],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#4d5a65"
+            }
+          },
+          {
+            "id": "feed-arm-0",
+            "semanticType": "tool.column-mounted-diamond-core-drill.feed-handle-arm",
+            "parent": "feed-wheel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.02],
+              "end": [0.082,0,0.027],
+              "radius": 0.0051,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "feed-grip-0",
+            "semanticType": "tool.column-mounted-diamond-core-drill.feed-knob",
+            "parent": "feed-wheel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.082,0,0.021],
+              "end": [0.082,0,0.048],
+              "radius": 0.009,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#2d3840"
+            }
+          },
+          {
+            "id": "feed-arm-1",
+            "semanticType": "tool.column-mounted-diamond-core-drill.feed-handle-arm",
+            "parent": "feed-wheel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.02],
+              "end": [-0.04099999999999998,0.07101408311032398,0.027],
+              "radius": 0.0051,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "feed-grip-1",
+            "semanticType": "tool.column-mounted-diamond-core-drill.feed-knob",
+            "parent": "feed-wheel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.04099999999999998,0.07101408311032398,0.021],
+              "end": [-0.04099999999999998,0.07101408311032398,0.048],
+              "radius": 0.009,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#2d3840"
+            }
+          },
+          {
+            "id": "feed-arm-2",
+            "semanticType": "tool.column-mounted-diamond-core-drill.feed-handle-arm",
+            "parent": "feed-wheel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.02],
+              "end": [-0.041000000000000036,-0.07101408311032396,0.027],
+              "radius": 0.0051,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "feed-grip-2",
+            "semanticType": "tool.column-mounted-diamond-core-drill.feed-knob",
+            "parent": "feed-wheel",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.041000000000000036,-0.07101408311032396,0.021],
+              "end": [-0.041000000000000036,-0.07101408311032396,0.048],
+              "radius": 0.009,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#2d3840"
+            }
+          }
+        ],
+        "anchors": {
+          "base": {
+            "node": "base",
+            "position": [0,0.001,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "cutting-face": {
+            "node": "bit",
+            "position": [0,-0.211,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "water-inlet": {
+            "node": "water-inlet",
+            "position": [0,0,0.065],
+            "direction": [0,0,1],
+            "kind": "fluid-port"
+          },
+          "motor-interface": {
+            "node": "spindle-axis",
+            "position": [0,-0.083,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "feed-travel",
+            "label": "进给高度",
+            "unit": "m",
+            "value": 0,
+            "min": -0.15,
+            "max": 0.213,
+            "targets": [
+              {
+                "node": "carriage",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "spindle-angle",
+            "label": "取芯筒转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "bit",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "feed-wheel-angle",
+            "label": "进给手轮转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "feed-wheel",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

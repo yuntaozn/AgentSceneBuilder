@@ -94,6 +94,16 @@ function agentContext(entry) {
       nodeCount: nodes.length,
       geometryTypes: [...new Set(nodes.map(node => node.geometry?.type).filter(Boolean))].sort(),
       repetitionPrototypes: repetitions,
+      ...(document?.parameters?.poseControls?.length ? {
+        poseControls: document.parameters.poseControls.map(({ id, label, unit, value, min, max }) =>
+          ({ id, label, unit, value, min, max })),
+      } : {}),
+      ...(document?.parameters?.monitoring ? {
+        monitoring: {
+          caseId: document.parameters.monitoring.id,
+          points: document.parameters.monitoring.points.map(({ id, kind, sensor, target }) => ({ id, kind, sensor, target })),
+        },
+      } : {}),
     },
   };
 }
@@ -111,7 +121,13 @@ export async function buildRegistry({ write = false } = {}) {
     entries.push({ ...entry, agent: agentContext(entry), source });
   }
   const index = { schemaVersion: "0.1", generated: true, counts: Object.fromEntries(["component", "method", "composition"].map(kind => [kind, entries.filter(item => item.kind === kind).length])), entries };
-  if (write) await writeFile(path.join(registryRoot, "registry.json"), `${JSON.stringify(index, null, 2)}\n`);
+  if (write) {
+    const { entries: catalogEntries, ...metadata } = index;
+    const fields = Object.entries(metadata).map(([key, value]) => `  ${JSON.stringify(key)}: ${JSON.stringify(value)},`);
+    const rows = catalogEntries.map(entry => `    ${JSON.stringify(entry)}`);
+    const json = ["{", ...fields, '  "entries": [', rows.join(",\n"), "  ]", "}", ""].join("\n");
+    await writeFile(path.join(registryRoot, "registry.json"), json);
+  }
   return index;
 }
 

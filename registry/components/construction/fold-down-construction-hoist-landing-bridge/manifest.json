@@ -1,0 +1,1561 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.fold-down-construction-hoist-landing-bridge",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "施工升降机折叠楼层过渡板",
+  "summary": "带两处开孔安装座、横向铰轴、花纹过渡踏面、上翻限位和可识别的板端。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.fold-down-construction-hoist-landing-bridge",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "楼层过渡板",
+    "施工电梯接驳踏板",
+    "hoist-landing-bridge",
+    "fold-down-landing",
+    "施工升降",
+    "building-hoist"
+  ],
+  "anchors": [
+    "landing",
+    "plate-end",
+    "plate-center"
+  ],
+  "ai": {
+    "intent": "按楼层边缘布置折叠过渡板，依据翻转姿态检查板端、通道和吊笼开口的位置关系。",
+    "editableParts": [
+      "bridge-angle"
+    ],
+    "qualityChecks": [
+      "安装法向留在固定背板。",
+      "踏面随铰轴改变。",
+      "铰接后仍保留实际过渡板厚度和孔位。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "fold-down-construction-hoist-landing-bridge",
+      "title": "施工升降机折叠楼层过渡板",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "landing-plate",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.perforated-wall-mount",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.021]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.378,-0.093],
+                [0.378,-0.093],
+                [0.396,-0.075],
+                [0.396,0.03499999999999999],
+                [0.378,0.05299999999999999],
+                [-0.378,0.05299999999999999],
+                [-0.396,0.03499999999999999],
+                [-0.396,-0.075]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.311,-0.049],
+                  [-0.31143587,-0.04541027],
+                  [-0.31271816,-0.04202915],
+                  [-0.31477234,-0.03905316],
+                  [-0.31747903,-0.03665524],
+                  [-0.32068093,-0.03497476],
+                  [-0.32419195,-0.03410937],
+                  [-0.32780805,-0.03410937],
+                  [-0.33131907,-0.03497476],
+                  [-0.33452097,-0.03665524],
+                  [-0.33722766,-0.03905316],
+                  [-0.33928184,-0.04202915],
+                  [-0.34056413,-0.04541027],
+                  [-0.341,-0.049],
+                  [-0.34056413,-0.05258973],
+                  [-0.33928184,-0.05597085],
+                  [-0.33722766,-0.05894684],
+                  [-0.33452097,-0.06134476],
+                  [-0.33131907,-0.06302524],
+                  [-0.32780805,-0.06389063],
+                  [-0.32419195,-0.06389063],
+                  [-0.32068093,-0.06302524],
+                  [-0.31747903,-0.06134476],
+                  [-0.31477234,-0.05894684],
+                  [-0.31271816,-0.05597085],
+                  [-0.31143587,-0.05258973]
+                ],
+                [
+                  [-0.311,0.015],
+                  [-0.31143587,0.01858973],
+                  [-0.31271816,0.02197085],
+                  [-0.31477234,0.02494684],
+                  [-0.31747903,0.02734476],
+                  [-0.32068093,0.02902524],
+                  [-0.32419195,0.02989063],
+                  [-0.32780805,0.02989063],
+                  [-0.33131907,0.02902524],
+                  [-0.33452097,0.02734476],
+                  [-0.33722766,0.02494684],
+                  [-0.33928184,0.02197085],
+                  [-0.34056413,0.01858973],
+                  [-0.341,0.015],
+                  [-0.34056413,0.01141027],
+                  [-0.33928184,0.00802915],
+                  [-0.33722766,0.00505316],
+                  [-0.33452097,0.00265524],
+                  [-0.33131907,0.00097476],
+                  [-0.32780805,0.00010937],
+                  [-0.32419195,0.00010937],
+                  [-0.32068093,0.00097476],
+                  [-0.31747903,0.00265524],
+                  [-0.31477234,0.00505316],
+                  [-0.31271816,0.00802915],
+                  [-0.31143587,0.01141027]
+                ],
+                [
+                  [0.341,-0.049],
+                  [0.34056413,-0.04541027],
+                  [0.33928184,-0.04202915],
+                  [0.33722766,-0.03905316],
+                  [0.33452097,-0.03665524],
+                  [0.33131907,-0.03497476],
+                  [0.32780805,-0.03410937],
+                  [0.32419195,-0.03410937],
+                  [0.32068093,-0.03497476],
+                  [0.31747903,-0.03665524],
+                  [0.31477234,-0.03905316],
+                  [0.31271816,-0.04202915],
+                  [0.31143587,-0.04541027],
+                  [0.311,-0.049],
+                  [0.31143587,-0.05258973],
+                  [0.31271816,-0.05597085],
+                  [0.31477234,-0.05894684],
+                  [0.31747903,-0.06134476],
+                  [0.32068093,-0.06302524],
+                  [0.32419195,-0.06389063],
+                  [0.32780805,-0.06389063],
+                  [0.33131907,-0.06302524],
+                  [0.33452097,-0.06134476],
+                  [0.33722766,-0.05894684],
+                  [0.33928184,-0.05597085],
+                  [0.34056413,-0.05258973]
+                ],
+                [
+                  [0.341,0.015],
+                  [0.34056413,0.01858973],
+                  [0.33928184,0.02197085],
+                  [0.33722766,0.02494684],
+                  [0.33452097,0.02734476],
+                  [0.33131907,0.02902524],
+                  [0.32780805,0.02989063],
+                  [0.32419195,0.02989063],
+                  [0.32068093,0.02902524],
+                  [0.31747903,0.02734476],
+                  [0.31477234,0.02494684],
+                  [0.31271816,0.02197085],
+                  [0.31143587,0.01858973],
+                  [0.311,0.015],
+                  [0.31143587,0.01141027],
+                  [0.31271816,0.00802915],
+                  [0.31477234,0.00505316],
+                  [0.31747903,0.00265524],
+                  [0.32068093,0.00097476],
+                  [0.32419195,0.00010937],
+                  [0.32780805,0.00010937],
+                  [0.33131907,0.00097476],
+                  [0.33452097,0.00265524],
+                  [0.33722766,0.00505316],
+                  [0.33928184,0.00802915],
+                  [0.34056413,0.01141027]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            }
+          },
+          {
+            "id": "hinge-shoe--1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.stationary-hinge-clevis",
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.063,0.078]
+            },
+            "appearance": {
+              "color": "#7cb8c4"
+            },
+            "transform": {
+              "position": [-0.31,0,0.054]
+            }
+          },
+          {
+            "id": "hinge-shoe-1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.stationary-hinge-clevis",
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.063,0.078]
+            },
+            "appearance": {
+              "color": "#7cb8c4"
+            },
+            "transform": {
+              "position": [0.31,0,0.054]
+            }
+          },
+          {
+            "id": "bridge",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.frame",
+            "transform": {
+              "position": [0,0.015,0.079]
+            }
+          },
+          {
+            "id": "hinge",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.landing-bridge-pivot-pin",
+            "parent": "bridge",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.352,0,0],
+              "end": [0.352,0,0],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bdd0d9"
+            }
+          },
+          {
+            "id": "walking-plate",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.non-slip-landing-deck",
+            "parent": "bridge",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.007,0],
+                [0,0.012,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.32099999999999995,0.015],
+                [-0.32099999999999995,0.015],
+                [-0.355,0.049],
+                [-0.355,0.364],
+                [-0.32099999999999995,0.398],
+                [0.32099999999999995,0.398],
+                [0.355,0.364],
+                [0.355,0.049]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.278,0.068],
+                  [0.27837482,0.07084701],
+                  [0.27947372,0.0735],
+                  [0.28122183,0.07577817],
+                  [0.2835,0.07752628],
+                  [0.28615299,0.07862518],
+                  [0.289,0.079],
+                  [0.29184701,0.07862518],
+                  [0.2945,0.07752628],
+                  [0.29677817,0.07577817],
+                  [0.29852628,0.0735],
+                  [0.29962518,0.07084701],
+                  [0.3,0.068],
+                  [0.29962518,0.06515299],
+                  [0.29852628,0.0625],
+                  [0.29677817,0.06022183],
+                  [0.2945,0.05847372],
+                  [0.29184701,0.05737482],
+                  [0.289,0.057],
+                  [0.28615299,0.05737482],
+                  [0.2835,0.05847372],
+                  [0.28122183,0.06022183],
+                  [0.27947372,0.0625],
+                  [0.27837482,0.06515299]
+                ],
+                [
+                  [0.278,0.318],
+                  [0.27837482,0.32084701],
+                  [0.27947372,0.3235],
+                  [0.28122183,0.32577817],
+                  [0.2835,0.32752628],
+                  [0.28615299,0.32862518],
+                  [0.289,0.329],
+                  [0.29184701,0.32862518],
+                  [0.2945,0.32752628],
+                  [0.29677817,0.32577817],
+                  [0.29852628,0.3235],
+                  [0.29962518,0.32084701],
+                  [0.3,0.318],
+                  [0.29962518,0.31515299],
+                  [0.29852628,0.3125],
+                  [0.29677817,0.31022183],
+                  [0.2945,0.30847372],
+                  [0.29184701,0.30737482],
+                  [0.289,0.307],
+                  [0.28615299,0.30737482],
+                  [0.2835,0.30847372],
+                  [0.28122183,0.31022183],
+                  [0.27947372,0.3125],
+                  [0.27837482,0.31515299]
+                ],
+                [
+                  [-0.3,0.068],
+                  [-0.29962518,0.07084701],
+                  [-0.29852628,0.0735],
+                  [-0.29677817,0.07577817],
+                  [-0.2945,0.07752628],
+                  [-0.29184701,0.07862518],
+                  [-0.289,0.079],
+                  [-0.28615299,0.07862518],
+                  [-0.2835,0.07752628],
+                  [-0.28122183,0.07577817],
+                  [-0.27947372,0.0735],
+                  [-0.27837482,0.07084701],
+                  [-0.278,0.068],
+                  [-0.27837482,0.06515299],
+                  [-0.27947372,0.0625],
+                  [-0.28122183,0.06022183],
+                  [-0.2835,0.05847372],
+                  [-0.28615299,0.05737482],
+                  [-0.289,0.057],
+                  [-0.29184701,0.05737482],
+                  [-0.2945,0.05847372],
+                  [-0.29677817,0.06022183],
+                  [-0.29852628,0.0625],
+                  [-0.29962518,0.06515299]
+                ],
+                [
+                  [-0.3,0.318],
+                  [-0.29962518,0.32084701],
+                  [-0.29852628,0.3235],
+                  [-0.29677817,0.32577817],
+                  [-0.2945,0.32752628],
+                  [-0.29184701,0.32862518],
+                  [-0.289,0.329],
+                  [-0.28615299,0.32862518],
+                  [-0.2835,0.32752628],
+                  [-0.28122183,0.32577817],
+                  [-0.27947372,0.3235],
+                  [-0.27837482,0.32084701],
+                  [-0.278,0.318],
+                  [-0.27837482,0.31515299],
+                  [-0.27947372,0.3125],
+                  [-0.28122183,0.31022183],
+                  [-0.2835,0.30847372],
+                  [-0.28615299,0.30737482],
+                  [-0.289,0.307],
+                  [-0.29184701,0.30737482],
+                  [-0.2945,0.30847372],
+                  [-0.29677817,0.31022183],
+                  [-0.29852628,0.3125],
+                  [-0.29962518,0.31515299]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bdd0d9"
+            }
+          },
+          {
+            "id": "Tread-0-0",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.282,0.013,0.049],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-0-1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.22499999999999998,0.013,0.049],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-0-2",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.16799999999999998,0.013,0.049],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-0-3",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.11099999999999996,0.013,0.049],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-0-4",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.053999999999999965,0.013,0.049],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-0-5",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.003000000000000058,0.013,0.049],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-0-6",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.06000000000000005,0.013,0.049],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-0-7",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.11700000000000005,0.013,0.049],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-0-8",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.17400000000000004,0.013,0.049],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-0-9",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.23100000000000004,0.013,0.049],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-1-0",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.26599999999999996,0.013,0.098],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-1-1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.20899999999999996,0.013,0.098],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-1-2",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.15199999999999997,0.013,0.098],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-1-3",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.09499999999999996,0.013,0.098],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-1-4",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.037999999999999964,0.013,0.098],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-1-5",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.01900000000000006,0.013,0.098],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-1-6",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.07600000000000005,0.013,0.098],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-1-7",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.13300000000000006,0.013,0.098],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-1-8",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.19000000000000006,0.013,0.098],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-1-9",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.24700000000000005,0.013,0.098],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-2-0",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.282,0.013,0.14700000000000002],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-2-1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.22499999999999998,0.013,0.14700000000000002],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-2-2",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.16799999999999998,0.013,0.14700000000000002],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-2-3",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.11099999999999996,0.013,0.14700000000000002],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-2-4",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.053999999999999965,0.013,0.14700000000000002],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-2-5",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.003000000000000058,0.013,0.14700000000000002],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-2-6",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.06000000000000005,0.013,0.14700000000000002],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-2-7",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.11700000000000005,0.013,0.14700000000000002],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-2-8",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.17400000000000004,0.013,0.14700000000000002],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-2-9",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.23100000000000004,0.013,0.14700000000000002],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-3-0",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.26599999999999996,0.013,0.196],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-3-1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.20899999999999996,0.013,0.196],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-3-2",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.15199999999999997,0.013,0.196],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-3-3",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.09499999999999996,0.013,0.196],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-3-4",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.037999999999999964,0.013,0.196],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-3-5",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.01900000000000006,0.013,0.196],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-3-6",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.07600000000000005,0.013,0.196],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-3-7",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.13300000000000006,0.013,0.196],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-3-8",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.19000000000000006,0.013,0.196],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-3-9",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.24700000000000005,0.013,0.196],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-4-0",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.282,0.013,0.245],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-4-1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.22499999999999998,0.013,0.245],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-4-2",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.16799999999999998,0.013,0.245],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-4-3",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.11099999999999996,0.013,0.245],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-4-4",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.053999999999999965,0.013,0.245],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-4-5",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.003000000000000058,0.013,0.245],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-4-6",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.06000000000000005,0.013,0.245],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-4-7",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.11700000000000005,0.013,0.245],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-4-8",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.17400000000000004,0.013,0.245],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-4-9",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.23100000000000004,0.013,0.245],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-5-0",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.26599999999999996,0.013,0.294],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-5-1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.20899999999999996,0.013,0.294],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-5-2",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.15199999999999997,0.013,0.294],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-5-3",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.09499999999999996,0.013,0.294],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-5-4",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.037999999999999964,0.013,0.294],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-5-5",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.01900000000000006,0.013,0.294],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-5-6",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.07600000000000005,0.013,0.294],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-5-7",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.13300000000000006,0.013,0.294],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-5-8",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.19000000000000006,0.013,0.294],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-5-9",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.24700000000000005,0.013,0.294],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-6-0",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.282,0.013,0.343],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-6-1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.22499999999999998,0.013,0.343],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-6-2",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.16799999999999998,0.013,0.343],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-6-3",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.11099999999999996,0.013,0.343],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-6-4",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [-0.053999999999999965,0.013,0.343],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-6-5",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.003000000000000058,0.013,0.343],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-6-6",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.06000000000000005,0.013,0.343],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-6-7",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.11700000000000005,0.013,0.343],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "Tread-6-8",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.17400000000000004,0.013,0.343],
+              "rotation": [0,0.48,0]
+            }
+          },
+          {
+            "id": "Tread-6-9",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.raised-traction-tread",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.005,0.009]
+            },
+            "appearance": {
+              "color": "#9bb3bf"
+            },
+            "transform": {
+              "position": [0.23100000000000004,0.013,0.343],
+              "rotation": [0,-0.48,0]
+            }
+          },
+          {
+            "id": "ledge--1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.folded-lateral-support-edge",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.032,0.353]
+            },
+            "appearance": {
+              "color": "#7cb8c4"
+            },
+            "transform": {
+              "position": [-0.334,-0.013,0.197]
+            }
+          },
+          {
+            "id": "ledge-1",
+            "semanticType": "construction.fold-down-construction-hoist-landing-bridge.folded-lateral-support-edge",
+            "parent": "bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.032,0.353]
+            },
+            "appearance": {
+              "color": "#7cb8c4"
+            },
+            "transform": {
+              "position": [0.334,-0.013,0.197]
+            }
+          }
+        ],
+        "anchors": {
+          "landing": {
+            "node": "landing-plate",
+            "position": [0,0.018,0],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          },
+          "plate-end": {
+            "node": "walking-plate",
+            "position": [0,0.012,0.395],
+            "direction": [0,0,1],
+            "kind": "walkway"
+          },
+          "plate-center": {
+            "node": "walking-plate",
+            "position": [0,0.012,0.211],
+            "direction": [0,1,0],
+            "kind": "support"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "bridge-angle",
+            "label": "过渡板收起角",
+            "unit": "deg",
+            "value": 14,
+            "min": 0,
+            "max": 98,
+            "targets": [
+              {
+                "node": "bridge",
+                "property": "rotation",
+                "axis": "x",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

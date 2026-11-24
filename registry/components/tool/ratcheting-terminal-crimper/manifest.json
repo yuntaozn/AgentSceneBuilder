@@ -1,0 +1,289 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.ratcheting-terminal-crimper",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "棘轮式端子压接钳",
+  "summary": "包含左右钳臂、V 形模具、贯穿铰轴和成对包胶握柄的端子压接钳。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.ratcheting-terminal-crimper",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "施工工具",
+    "电气",
+    "端子",
+    "压接钳",
+    "terminal crimper"
+  ],
+  "anchors": [
+    "grip-left",
+    "grip-right",
+    "die-left",
+    "die-right"
+  ],
+  "ai": {
+    "intent": "以单一开合角联动两侧握柄和对称压模，用 die 端定位端子。",
+    "editableParts": [
+      "lever-opening"
+    ],
+    "qualityChecks": [
+      "开合时两侧压力模具随各自钳臂对称运动。",
+      "铰销保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "ratcheting-terminal-crimper",
+      "title": "棘轮式端子压接钳",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "hinge-pin",
+            "semanticType": "tool.ratcheting-terminal-crimper.pivot",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.008,0],
+              "end": [0,0.008,0],
+              "radius": 0.01,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "upper-arm",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,0.002,0]
+            }
+          },
+          {
+            "id": "lower-arm",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0,-0.002,0]
+            }
+          },
+          {
+            "id": "upper-arm-stem",
+            "semanticType": "tool.ratcheting-terminal-crimper.lever",
+            "parent": "upper-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.003,0],
+                [0,0.003,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.179,0.02],
+                [-0.073,0.011],
+                [-0.012,0.003],
+                [0.028,0.004],
+                [0.034,0.012],
+                [0.026,0.022],
+                [-0.013,0.018],
+                [-0.071,0.027],
+                [-0.171,0.037],
+                [-0.182,0.03]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "upper-arm-grip",
+            "semanticType": "tool.ratcheting-terminal-crimper.grip",
+            "parent": "upper-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.008,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.17,0.02],
+                [-0.102,0.015],
+                [-0.085,0.021],
+                [-0.087,0.03],
+                [-0.164,0.042],
+                [-0.181,0.034],
+                [-0.182,0.025]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#41768e"
+            }
+          },
+          {
+            "id": "lower-arm-stem",
+            "semanticType": "tool.ratcheting-terminal-crimper.lever",
+            "parent": "lower-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.003,0],
+                [0,0.003,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.179,-0.02],
+                [-0.073,-0.011],
+                [-0.012,-0.003],
+                [0.028,-0.004],
+                [0.034,-0.012],
+                [0.026,-0.022],
+                [-0.013,-0.018],
+                [-0.071,-0.027],
+                [-0.171,-0.037],
+                [-0.182,-0.03]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "lower-arm-grip",
+            "semanticType": "tool.ratcheting-terminal-crimper.grip",
+            "parent": "lower-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.008,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.17,-0.02],
+                [-0.102,-0.015],
+                [-0.085,-0.021],
+                [-0.087,-0.03],
+                [-0.164,-0.042],
+                [-0.181,-0.034],
+                [-0.182,-0.025]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bf514b"
+            }
+          },
+          {
+            "id": "upper-die",
+            "semanticType": "tool.ratcheting-terminal-crimper.die",
+            "parent": "upper-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.016,-0.001],
+                [0.025,-0.001],
+                [0.03,-0.005],
+                [0.035,-0.001],
+                [0.042,-0.001],
+                [0.042,-0.021],
+                [0.016,-0.021]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "lower-die",
+            "semanticType": "tool.ratcheting-terminal-crimper.die",
+            "parent": "lower-arm",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.004,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.016,0.001],
+                [0.025,0.001],
+                [0.03,0.005],
+                [0.035,0.001],
+                [0.042,0.001],
+                [0.042,0.021],
+                [0.016,0.021]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          }
+        ],
+        "anchors": {
+          "grip-left": {
+            "node": "upper-arm-grip",
+            "position": [-0.144,0,0.027],
+            "direction": [1,0,0],
+            "kind": "hand-grip"
+          },
+          "grip-right": {
+            "node": "lower-arm-grip",
+            "position": [-0.144,0,-0.027],
+            "direction": [1,0,0],
+            "kind": "hand-grip"
+          },
+          "die-left": {
+            "node": "upper-die",
+            "position": [0.03,0,-0.005],
+            "direction": [0,0,1],
+            "kind": "die-contact"
+          },
+          "die-right": {
+            "node": "lower-die",
+            "position": [0.03,0,0.005],
+            "direction": [0,0,-1],
+            "kind": "die-contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "lever-opening",
+            "label": "开合角度",
+            "unit": "°",
+            "value": 10,
+            "min": 0,
+            "max": 24,
+            "targets": [
+              {
+                "node": "upper-arm",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "lower-arm",
+                "property": "rotation",
+                "axis": "y",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

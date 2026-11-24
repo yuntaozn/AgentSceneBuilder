@@ -1,0 +1,264 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.reversible-ratchet",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可换套筒棘轮扳手",
+  "summary": "带切换拨杆、释放按钮、弯柄和 3/8 英寸方驱的短柄棘轮。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.reversible-ratchet",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "施工工具",
+    "紧固",
+    "手工具",
+    "棘轮",
+    "扳手",
+    "套筒",
+    "ratchet"
+  ],
+  "anchors": [
+    "grip",
+    "drive"
+  ],
+  "ai": {
+    "intent": "将棘轮拨杆视为独立转轴，将 10、13 或 17 mm 套筒接到方驱。",
+    "editableParts": [
+      "selector-angle"
+    ],
+    "qualityChecks": [
+      "拨杆旋转时方驱和头部位置保持固定。",
+      "drive 和对应套筒锚点应同点反向。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "reversible-ratchet",
+      "title": "可换套筒棘轮扳手",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "handle-frame",
+            "semanticType": "tool.reversible-ratchet.handle",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.0045,0],
+                [0,0.0045,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.188,-0.011],
+                [-0.149,-0.013],
+                [-0.055,-0.007],
+                [-0.009,-0.009],
+                [-0.009,0.009],
+                [-0.055,0.007],
+                [-0.15,0.012],
+                [-0.188,0.009]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "head",
+            "semanticType": "tool.reversible-ratchet.head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.006,0],
+                [0,0.006,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.0175,0],
+                [0.01716374,0.00341408],
+                [0.01616789,0.00669696],
+                [0.01455072,0.00972248],
+                [0.01237437,0.01237437],
+                [0.00972248,0.01455072],
+                [0.00669696,0.01616789],
+                [0.00341408,0.01716374],
+                [0,0.0175],
+                [-0.00341408,0.01716374],
+                [-0.00669696,0.01616789],
+                [-0.00972248,0.01455072],
+                [-0.01237437,0.01237437],
+                [-0.01455072,0.00972248],
+                [-0.01616789,0.00669696],
+                [-0.01716374,0.00341408],
+                [-0.0175,0],
+                [-0.01716374,-0.00341408],
+                [-0.01616789,-0.00669696],
+                [-0.01455072,-0.00972248],
+                [-0.01237437,-0.01237437],
+                [-0.00972248,-0.01455072],
+                [-0.00669696,-0.01616789],
+                [-0.00341408,-0.01716374],
+                [0,-0.0175],
+                [0.00341408,-0.01716374],
+                [0.00669696,-0.01616789],
+                [0.00972248,-0.01455072],
+                [0.01237437,-0.01237437],
+                [0.01455072,-0.00972248],
+                [0.01616789,-0.00669696],
+                [0.01716374,-0.00341408]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "drive-collar",
+            "semanticType": "tool.reversible-ratchet.drive-collar",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.01,0],
+              "end": [0,-0.006,0],
+              "radius": 0.0085,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "square-drive",
+            "semanticType": "tool.reversible-ratchet.square-drive",
+            "geometry": {
+              "type": "box",
+              "size": [0.009525,0.01,0.009525]
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            },
+            "transform": {
+              "position": [0,-0.012,0]
+            }
+          },
+          {
+            "id": "drive-detent",
+            "semanticType": "tool.reversible-ratchet.detent",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0011,
+              "segments": 12
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            },
+            "transform": {
+              "position": [0.00435,-0.014,0]
+            }
+          },
+          {
+            "id": "release-button",
+            "semanticType": "tool.reversible-ratchet.release",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.006,0],
+              "end": [0,0.009,0],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "selector-pivot",
+            "semanticType": "core.group",
+            "transform": {
+              "position": [0.0105,0.007,0]
+            }
+          },
+          {
+            "id": "selector",
+            "semanticType": "tool.reversible-ratchet.direction-selector",
+            "parent": "selector-pivot",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.003,0.005]
+            },
+            "appearance": {
+              "color": "#e9a637"
+            },
+            "transform": {
+              "position": [0.0035,0,0]
+            }
+          },
+          {
+            "id": "grip",
+            "semanticType": "tool.reversible-ratchet.grip",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.188,0,0],
+              "end": [-0.124,0,0],
+              "radius": 0.0125,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#23292d"
+            }
+          },
+          {
+            "id": "grip-end",
+            "semanticType": "tool.reversible-ratchet.grip-end",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.192,0,0],
+              "end": [-0.187,0,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#e9a637"
+            }
+          }
+        ],
+        "anchors": {
+          "grip": {
+            "node": "grip",
+            "position": [-0.155,0,0],
+            "direction": [1,0,0],
+            "kind": "hand-grip"
+          },
+          "drive": {
+            "node": "square-drive",
+            "position": [0,-0.005,0],
+            "direction": [0,-1,0],
+            "kind": "drive-square-3-8"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "selector-angle",
+            "label": "棘轮拨杆角度",
+            "unit": "°",
+            "value": 0,
+            "min": -45,
+            "max": 45,
+            "targets": [
+              {
+                "node": "selector-pivot",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

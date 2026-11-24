@@ -1,0 +1,881 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.walk-behind-plate-compactor",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "手扶平板夯",
+  "summary": "上层橡胶隔振支座、带护罩的皮带驱动、带排气和拉绳壳的小型发动机以及俯仰操作把手。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.walk-behind-plate-compactor",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "施工机具",
+    "平板夯",
+    "compaction",
+    "plate-compactor",
+    "施工设备",
+    "equipment"
+  ],
+  "anchors": [
+    "compaction-plane",
+    "operator-grip",
+    "engine-mount"
+  ],
+  "ai": {
+    "intent": "表达夯实设备本体、夯板工作面、隔振结构和操作把手位置。",
+    "editableParts": [
+      "handle-tilt"
+    ],
+    "qualityChecks": [
+      "夯板底面保持为固定地面参考。",
+      "把手绕横销转动。",
+      "发动机层与夯板之间可识别四处隔振支座。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "walk-behind-plate-compactor",
+      "title": "手扶平板夯",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sole-shoe",
+            "semanticType": "equipment.walk-behind-plate-compactor.vibratory-ground-plate",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.211],
+                [0,0,0.211]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.335,0.034],
+                [-0.275,0.003],
+                [0.263,0.003],
+                [0.345,0.031],
+                [0.344,0.052],
+                [0.259,0.027],
+                [-0.271,0.027],
+                [-0.332,0.052]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#697b86"
+            }
+          },
+          {
+            "id": "exciter-base",
+            "semanticType": "equipment.walk-behind-plate-compactor.exciter-support",
+            "geometry": {
+              "type": "box",
+              "size": [0.34,0.049,0.26]
+            },
+            "appearance": {
+              "color": "#697b86"
+            },
+            "transform": {
+              "position": [0.015,0.05,0]
+            }
+          },
+          {
+            "id": "exciter-housing",
+            "semanticType": "equipment.walk-behind-plate-compactor.vibration-shaft-housing",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.13,0.092,-0.147],
+              "end": [0.13,0.092,0.147],
+              "radius": 0.055,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#dea94e"
+            }
+          },
+          {
+            "id": "shaft-cover",
+            "semanticType": "equipment.walk-behind-plate-compactor.shaft-end-cover",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.13,0.092,0.147],
+              "end": [0.13,0.092,0.175],
+              "radius": 0.047,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#697b86"
+            }
+          },
+          {
+            "id": "isolator--1--1",
+            "semanticType": "equipment.walk-behind-plate-compactor.rubber-vibration-isolator",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.165,0.069,-0.122],
+              "end": [-0.165,0.121,-0.122],
+              "radius": 0.027,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#29323b"
+            }
+          },
+          {
+            "id": "isolator--1-1",
+            "semanticType": "equipment.walk-behind-plate-compactor.rubber-vibration-isolator",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.165,0.069,0.122],
+              "end": [-0.165,0.121,0.122],
+              "radius": 0.027,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#29323b"
+            }
+          },
+          {
+            "id": "isolator-1--1",
+            "semanticType": "equipment.walk-behind-plate-compactor.rubber-vibration-isolator",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.165,0.069,-0.122],
+              "end": [0.165,0.121,-0.122],
+              "radius": 0.027,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#29323b"
+            }
+          },
+          {
+            "id": "isolator-1-1",
+            "semanticType": "equipment.walk-behind-plate-compactor.rubber-vibration-isolator",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.165,0.069,0.122],
+              "end": [0.165,0.121,0.122],
+              "radius": 0.027,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#29323b"
+            }
+          },
+          {
+            "id": "engine-deck",
+            "semanticType": "equipment.walk-behind-plate-compactor.floating-engine-deck",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.118,0],
+                [0,0.137,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.199,-0.164],
+                [-0.197,-0.164],
+                [-0.226,-0.135],
+                [-0.226,0.135],
+                [-0.197,0.164],
+                [0.199,0.164],
+                [0.228,0.135],
+                [0.228,-0.135]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#dba13d"
+            }
+          },
+          {
+            "id": "crankcase",
+            "semanticType": "equipment.walk-behind-plate-compactor.engine-crankcase",
+            "geometry": {
+              "type": "box",
+              "size": [0.211,0.094,0.17]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [-0.035,0.187,0]
+            }
+          },
+          {
+            "id": "cylinder-head",
+            "semanticType": "equipment.walk-behind-plate-compactor.frame",
+            "transform": {
+              "position": [-0.022,0.232,0],
+              "rotation": [0,0,-0.3839724354387525]
+            }
+          },
+          {
+            "id": "cylinder-block",
+            "semanticType": "equipment.walk-behind-plate-compactor.engine-cylinder",
+            "parent": "cylinder-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.108,0.122,0.126]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0,0.056,-0.013]
+            }
+          },
+          {
+            "id": "engine-fin-0",
+            "semanticType": "equipment.walk-behind-plate-compactor.cylinder-cooling-fin",
+            "parent": "cylinder-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.0045,0.158]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.011,-0.013]
+            }
+          },
+          {
+            "id": "engine-fin-1",
+            "semanticType": "equipment.walk-behind-plate-compactor.cylinder-cooling-fin",
+            "parent": "cylinder-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.0045,0.158]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.025,-0.013]
+            }
+          },
+          {
+            "id": "engine-fin-2",
+            "semanticType": "equipment.walk-behind-plate-compactor.cylinder-cooling-fin",
+            "parent": "cylinder-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.0045,0.158]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.039,-0.013]
+            }
+          },
+          {
+            "id": "engine-fin-3",
+            "semanticType": "equipment.walk-behind-plate-compactor.cylinder-cooling-fin",
+            "parent": "cylinder-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.0045,0.158]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.053000000000000005,-0.013]
+            }
+          },
+          {
+            "id": "engine-fin-4",
+            "semanticType": "equipment.walk-behind-plate-compactor.cylinder-cooling-fin",
+            "parent": "cylinder-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.0045,0.158]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.067,-0.013]
+            }
+          },
+          {
+            "id": "engine-fin-5",
+            "semanticType": "equipment.walk-behind-plate-compactor.cylinder-cooling-fin",
+            "parent": "cylinder-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.0045,0.158]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.081,-0.013]
+            }
+          },
+          {
+            "id": "engine-fin-6",
+            "semanticType": "equipment.walk-behind-plate-compactor.cylinder-cooling-fin",
+            "parent": "cylinder-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.0045,0.158]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.095,-0.013]
+            }
+          },
+          {
+            "id": "engine-fin-7",
+            "semanticType": "equipment.walk-behind-plate-compactor.cylinder-cooling-fin",
+            "parent": "cylinder-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.0045,0.158]
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            },
+            "transform": {
+              "position": [0,0.109,-0.013]
+            }
+          },
+          {
+            "id": "cylinder-top",
+            "semanticType": "equipment.walk-behind-plate-compactor.engine-head-cover",
+            "parent": "cylinder-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.137,0.026,0.133]
+            },
+            "appearance": {
+              "color": "#697b86"
+            },
+            "transform": {
+              "position": [0,0.123,-0.013]
+            }
+          },
+          {
+            "id": "fuel-tank",
+            "semanticType": "equipment.walk-behind-plate-compactor.fuel-tank",
+            "geometry": {
+              "type": "box",
+              "size": [0.212,0.076,0.164]
+            },
+            "appearance": {
+              "color": "#e6edf1"
+            },
+            "transform": {
+              "position": [-0.043,0.401,0]
+            }
+          },
+          {
+            "id": "fuel-cap",
+            "semanticType": "equipment.walk-behind-plate-compactor.fuel-cap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.038,0.437,0],
+              "end": [-0.038,0.458,0],
+              "radius": 0.022,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#29323b"
+            }
+          },
+          {
+            "id": "starter",
+            "semanticType": "equipment.walk-behind-plate-compactor.frame",
+            "transform": {
+              "position": [-0.056,0.215,-0.092]
+            }
+          },
+          {
+            "id": "starter-cover",
+            "semanticType": "equipment.walk-behind-plate-compactor.pull-starter-cover",
+            "parent": "starter",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.021],
+                [0,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.075,0],
+                [0.0735589,0.01463177],
+                [0.06929096,0.02870126],
+                [0.06236022,0.04166777],
+                [0.05303301,0.05303301],
+                [0.04166777,0.06236022],
+                [0.02870126,0.06929096],
+                [0.01463177,0.0735589],
+                [0,0.075],
+                [-0.01463177,0.0735589],
+                [-0.02870126,0.06929096],
+                [-0.04166777,0.06236022],
+                [-0.05303301,0.05303301],
+                [-0.06236022,0.04166777],
+                [-0.06929096,0.02870126],
+                [-0.0735589,0.01463177],
+                [-0.075,0],
+                [-0.0735589,-0.01463177],
+                [-0.06929096,-0.02870126],
+                [-0.06236022,-0.04166777],
+                [-0.05303301,-0.05303301],
+                [-0.04166777,-0.06236022],
+                [-0.02870126,-0.06929096],
+                [-0.01463177,-0.0735589],
+                [0,-0.075],
+                [0.01463177,-0.0735589],
+                [0.02870126,-0.06929096],
+                [0.04166777,-0.06236022],
+                [0.05303301,-0.05303301],
+                [0.06236022,-0.04166777],
+                [0.06929096,-0.02870126],
+                [0.0735589,-0.01463177]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.048,0],
+                  [0.04707769,0.00936434],
+                  [0.04434622,0.0183688],
+                  [0.03991054,0.02666737],
+                  [0.03394113,0.03394113],
+                  [0.02666737,0.03991054],
+                  [0.0183688,0.04434622],
+                  [0.00936434,0.04707769],
+                  [0,0.048],
+                  [-0.00936434,0.04707769],
+                  [-0.0183688,0.04434622],
+                  [-0.02666737,0.03991054],
+                  [-0.03394113,0.03394113],
+                  [-0.03991054,0.02666737],
+                  [-0.04434622,0.0183688],
+                  [-0.04707769,0.00936434],
+                  [-0.048,0],
+                  [-0.04707769,-0.00936434],
+                  [-0.04434622,-0.0183688],
+                  [-0.03991054,-0.02666737],
+                  [-0.03394113,-0.03394113],
+                  [-0.02666737,-0.03991054],
+                  [-0.0183688,-0.04434622],
+                  [-0.00936434,-0.04707769],
+                  [0,-0.048],
+                  [0.00936434,-0.04707769],
+                  [0.0183688,-0.04434622],
+                  [0.02666737,-0.03991054],
+                  [0.03394113,-0.03394113],
+                  [0.03991054,-0.02666737],
+                  [0.04434622,-0.0183688],
+                  [0.04707769,-0.00936434]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#dea94e"
+            }
+          },
+          {
+            "id": "starter-grille",
+            "semanticType": "equipment.walk-behind-plate-compactor.starter-fan-vent",
+            "parent": "starter",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.017],
+                [0,0,-0.008]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.047,0],
+                [0.04609691,0.00916925],
+                [0.04342234,0.01798612],
+                [0.03907907,0.0261118],
+                [0.03323402,0.03323402],
+                [0.0261118,0.03907907],
+                [0.01798612,0.04342234],
+                [0.00916925,0.04609691],
+                [0,0.047],
+                [-0.00916925,0.04609691],
+                [-0.01798612,0.04342234],
+                [-0.0261118,0.03907907],
+                [-0.03323402,0.03323402],
+                [-0.03907907,0.0261118],
+                [-0.04342234,0.01798612],
+                [-0.04609691,0.00916925],
+                [-0.047,0],
+                [-0.04609691,-0.00916925],
+                [-0.04342234,-0.01798612],
+                [-0.03907907,-0.0261118],
+                [-0.03323402,-0.03323402],
+                [-0.0261118,-0.03907907],
+                [-0.01798612,-0.04342234],
+                [-0.00916925,-0.04609691],
+                [0,-0.047],
+                [0.00916925,-0.04609691],
+                [0.01798612,-0.04342234],
+                [0.0261118,-0.03907907],
+                [0.03323402,-0.03323402],
+                [0.03907907,-0.0261118],
+                [0.04342234,-0.01798612],
+                [0.04609691,-0.00916925]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#29323b"
+            }
+          },
+          {
+            "id": "starter-vent-0",
+            "semanticType": "equipment.walk-behind-plate-compactor.starter-radial-rib",
+            "parent": "starter",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.004,0.0025]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0.028,0,-0.018],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "starter-vent-1",
+            "semanticType": "equipment.walk-behind-plate-compactor.starter-radial-rib",
+            "parent": "starter",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.004,0.0025]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0.019798989873223333,0.01979898987322333,-0.018],
+              "rotation": [0,0,0.7853981633974483]
+            }
+          },
+          {
+            "id": "starter-vent-2",
+            "semanticType": "equipment.walk-behind-plate-compactor.starter-radial-rib",
+            "parent": "starter",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.004,0.0025]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [1.7145055188062945e-18,0.028,-0.018],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "starter-vent-3",
+            "semanticType": "equipment.walk-behind-plate-compactor.starter-radial-rib",
+            "parent": "starter",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.004,0.0025]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [-0.01979898987322333,0.019798989873223333,-0.018],
+              "rotation": [0,0,2.356194490192345]
+            }
+          },
+          {
+            "id": "starter-vent-4",
+            "semanticType": "equipment.walk-behind-plate-compactor.starter-radial-rib",
+            "parent": "starter",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.004,0.0025]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [-0.028,3.429011037612589e-18,-0.018],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "starter-vent-5",
+            "semanticType": "equipment.walk-behind-plate-compactor.starter-radial-rib",
+            "parent": "starter",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.004,0.0025]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [-0.019798989873223337,-0.01979898987322333,-0.018],
+              "rotation": [0,0,3.9269908169872414]
+            }
+          },
+          {
+            "id": "starter-vent-6",
+            "semanticType": "equipment.walk-behind-plate-compactor.starter-radial-rib",
+            "parent": "starter",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.004,0.0025]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [-5.143516556418883e-18,-0.028,-0.018],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "starter-vent-7",
+            "semanticType": "equipment.walk-behind-plate-compactor.starter-radial-rib",
+            "parent": "starter",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.004,0.0025]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0.019798989873223326,-0.019798989873223337,-0.018],
+              "rotation": [0,0,5.497787143782138]
+            }
+          },
+          {
+            "id": "pull-knob",
+            "semanticType": "equipment.walk-behind-plate-compactor.pull-starter-knob",
+            "geometry": {
+              "type": "box",
+              "size": [0.03,0.018,0.024]
+            },
+            "appearance": {
+              "color": "#29323b"
+            },
+            "transform": {
+              "position": [-0.136,0.257,-0.131]
+            }
+          },
+          {
+            "id": "muffler",
+            "semanticType": "equipment.walk-behind-plate-compactor.muffler",
+            "geometry": {
+              "type": "box",
+              "size": [0.103,0.08,0.107]
+            },
+            "appearance": {
+              "color": "#5f727d"
+            },
+            "transform": {
+              "position": [0.094,0.283,-0.033]
+            }
+          },
+          {
+            "id": "exhaust-outlet",
+            "semanticType": "equipment.walk-behind-plate-compactor.exhaust-outlet",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.136,0.298,-0.064],
+              "end": [0.163,0.298,-0.064],
+              "radius": 0.01,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "belt-cover",
+            "semanticType": "equipment.walk-behind-plate-compactor.drive-belt-guard",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.104],
+                [0,0,0.171]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.153,0.186],
+                [-0.135,0.269],
+                [-0.054,0.281],
+                [0.179,0.137],
+                [0.187,0.08],
+                [0.142,0.047],
+                [0.076,0.055],
+                [-0.125,0.15]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#e7b444"
+            }
+          },
+          {
+            "id": "handle-clevis--1",
+            "semanticType": "equipment.walk-behind-plate-compactor.handle-clevis",
+            "geometry": {
+              "type": "box",
+              "size": [0.069,0.077,0.025]
+            },
+            "appearance": {
+              "color": "#5f727d"
+            },
+            "transform": {
+              "position": [-0.198,0.167,-0.125]
+            }
+          },
+          {
+            "id": "handle-clevis-1",
+            "semanticType": "equipment.walk-behind-plate-compactor.handle-clevis",
+            "geometry": {
+              "type": "box",
+              "size": [0.069,0.077,0.025]
+            },
+            "appearance": {
+              "color": "#5f727d"
+            },
+            "transform": {
+              "position": [-0.198,0.167,0.125]
+            }
+          },
+          {
+            "id": "handle",
+            "semanticType": "equipment.walk-behind-plate-compactor.frame",
+            "transform": {
+              "position": [-0.2,0.177,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "handle-pin",
+            "semanticType": "equipment.walk-behind-plate-compactor.handle-pin",
+            "parent": "handle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.154],
+              "end": [0,0,0.154],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "handle-leg--1",
+            "semanticType": "equipment.walk-behind-plate-compactor.handle-leg",
+            "parent": "handle",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,-0.126],
+                [-0.38,0.68,-0.164],
+                [-0.52,0.804,-0.178]
+              ],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#5f727d"
+            }
+          },
+          {
+            "id": "handle-leg-1",
+            "semanticType": "equipment.walk-behind-plate-compactor.handle-leg",
+            "parent": "handle",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,0.126],
+                [-0.38,0.68,0.164],
+                [-0.52,0.804,0.178]
+              ],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#5f727d"
+            }
+          },
+          {
+            "id": "operator-crossbar",
+            "semanticType": "equipment.walk-behind-plate-compactor.rubber-grip",
+            "parent": "handle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.52,0.804,-0.182],
+              "end": [-0.52,0.804,0.182],
+              "radius": 0.021,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#29323b"
+            }
+          }
+        ],
+        "anchors": {
+          "compaction-plane": {
+            "node": "sole-shoe",
+            "position": [0,0.003,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "operator-grip": {
+            "node": "operator-crossbar",
+            "position": [-0.52,0.804,0],
+            "direction": [0,1,0],
+            "kind": "grip"
+          },
+          "engine-mount": {
+            "node": "engine-deck",
+            "position": [0,0.137,0],
+            "direction": [0,1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "handle-tilt",
+            "label": "把手倾角",
+            "unit": "deg",
+            "value": 0,
+            "min": -17,
+            "max": 42,
+            "targets": [
+              {
+                "node": "handle",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

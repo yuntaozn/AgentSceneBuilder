@@ -1,6 +1,6 @@
 # Host Plugin Packaging
 
-AgentSceneBuilder 当前的宿主接入路线是：
+AgentSceneBuilder 通过宿主 Agent 为 AI 大模型提供可调用的数字建模能力。宿主接入顺序如下。
 
 ```text
 Codex / YuntaoCode / 其他宿主 Agent
@@ -43,7 +43,7 @@ Codex 插件应提供：
 - 权威说明：仓库根部 `SKILL.md`；
 - 本地 CLI：`node packages/cli/src/agentscene.mjs ...`；
 - 兼容入口：`node scripts/model.mjs ...`；
-- 人类查看入口：`apps/library` 和 `apps/editor` 静态页面。
+- 可视化复核入口：`apps/library` 和 `apps/editor` 静态页面。
 
 Codex 插件不应提供：
 
@@ -67,7 +67,7 @@ Codex 插件不应提供：
 | `interface.shortDescription` | UI 简述 |
 | `interface.defaultPrompt` | 示例提示 |
 
-YuntaoCode 侧仍负责任务上下文、用户确认、执行记录和最终总结。AgentSceneBuilder 只负责数字模型、空间方法、模型库、CLI 检查和人类查看/编辑入口。
+YuntaoCode 负责任务上下文、用户确认、执行记录和最终总结。AgentSceneBuilder 提供模型数据、空间方法、CLI 检查与浏览器复核。
 
 ## 验证命令
 

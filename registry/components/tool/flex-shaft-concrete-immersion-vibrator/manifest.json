@@ -1,0 +1,421 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.flex-shaft-concrete-immersion-vibrator",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带软轴的插入式混凝土振捣器",
+  "summary": "便携电机、保护框、独立联轴套、柔性传动轴、可见振捣棒和受控末端。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.flex-shaft-concrete-immersion-vibrator",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "插入式振捣器",
+    "振捣棒",
+    "concrete-vibrator",
+    "flexible-drive",
+    "施工工具",
+    "tool"
+  ],
+  "anchors": [
+    "motor-output",
+    "probe-tip",
+    "carry-handle"
+  ],
+  "ai": {
+    "intent": "独立表达混凝土振捣设备的机体、传动软轴与振捣工作端。",
+    "editableParts": [
+      "probe-angle",
+      "eccentric-angle"
+    ],
+    "qualityChecks": [
+      "工作端可在软轴连接处改变方向。",
+      "电机和联轴参考固定。",
+      "内置偏心转子位于头部壳体内。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "flex-shaft-concrete-immersion-vibrator",
+      "title": "带软轴的插入式混凝土振捣器",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.stand-platform",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.016,0],
+                [0,0.038,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.158,-0.116],
+                [-0.157,-0.116],
+                [-0.181,-0.092],
+                [-0.181,0.092],
+                [-0.157,0.116],
+                [0.158,0.116],
+                [0.182,0.092],
+                [0.182,-0.092]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#68808c"
+            }
+          },
+          {
+            "id": "frame--1",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.motor-frame",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.161,0.02,-0.112],
+                [-0.159,0.146,-0.112],
+                [-0.123,0.204,-0.112],
+                [0.108,0.204,-0.112],
+                [0.155,0.151,-0.112],
+                [0.155,0.022,-0.112]
+              ],
+              "radius": 0.0116,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#728993"
+            }
+          },
+          {
+            "id": "frame-1",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.motor-frame",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.161,0.02,0.112],
+                [-0.159,0.146,0.112],
+                [-0.123,0.204,0.112],
+                [0.108,0.204,0.112],
+                [0.155,0.151,0.112],
+                [0.155,0.022,0.112]
+              ],
+              "radius": 0.0116,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#728993"
+            }
+          },
+          {
+            "id": "drive-motor",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.electric-motor",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.132,0.108,0],
+              "end": [0.074,0.108,0],
+              "radius": 0.067,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#3f919b"
+            }
+          },
+          {
+            "id": "controller",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.motor-control-box",
+            "geometry": {
+              "type": "box",
+              "size": [0.084,0.034,0.067]
+            },
+            "appearance": {
+              "color": "#485966"
+            },
+            "transform": {
+              "position": [-0.018,0.179,0]
+            }
+          },
+          {
+            "id": "control-switch",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.power-switch",
+            "geometry": {
+              "type": "box",
+              "size": [0.029,0.009,0.019]
+            },
+            "appearance": {
+              "color": "#e1a64c"
+            },
+            "transform": {
+              "position": [0.007,0.199,0]
+            }
+          },
+          {
+            "id": "sleeve-datum",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.frame",
+            "transform": {
+              "position": [0.078,0.108,0]
+            }
+          },
+          {
+            "id": "sleeve",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.drive-sleeve",
+            "parent": "sleeve-datum",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.073,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.03,0],
+                [0.02963065,0.00469303],
+                [0.0285317,0.00927051],
+                [0.0267302,0.01361971],
+                [0.02427051,0.01763356],
+                [0.0212132,0.0212132],
+                [0.01763356,0.02427051],
+                [0.01361971,0.0267302],
+                [0.00927051,0.0285317],
+                [0.00469303,0.02963065],
+                [0,0.03],
+                [-0.00469303,0.02963065],
+                [-0.00927051,0.0285317],
+                [-0.01361971,0.0267302],
+                [-0.01763356,0.02427051],
+                [-0.0212132,0.0212132],
+                [-0.02427051,0.01763356],
+                [-0.0267302,0.01361971],
+                [-0.0285317,0.00927051],
+                [-0.02963065,0.00469303],
+                [-0.03,0],
+                [-0.02963065,-0.00469303],
+                [-0.0285317,-0.00927051],
+                [-0.0267302,-0.01361971],
+                [-0.02427051,-0.01763356],
+                [-0.0212132,-0.0212132],
+                [-0.01763356,-0.02427051],
+                [-0.01361971,-0.0267302],
+                [-0.00927051,-0.0285317],
+                [-0.00469303,-0.02963065],
+                [0,-0.03],
+                [0.00469303,-0.02963065],
+                [0.00927051,-0.0285317],
+                [0.01361971,-0.0267302],
+                [0.01763356,-0.02427051],
+                [0.0212132,-0.0212132],
+                [0.02427051,-0.01763356],
+                [0.0267302,-0.01361971],
+                [0.0285317,-0.00927051],
+                [0.02963065,-0.00469303]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.011,0],
+                  [0.01086457,0.00172078],
+                  [0.01046162,0.00339919],
+                  [0.00980107,0.0049939],
+                  [0.00889919,0.00646564],
+                  [0.00777817,0.00777817],
+                  [0.00646564,0.00889919],
+                  [0.0049939,0.00980107],
+                  [0.00339919,0.01046162],
+                  [0.00172078,0.01086457],
+                  [0,0.011],
+                  [-0.00172078,0.01086457],
+                  [-0.00339919,0.01046162],
+                  [-0.0049939,0.00980107],
+                  [-0.00646564,0.00889919],
+                  [-0.00777817,0.00777817],
+                  [-0.00889919,0.00646564],
+                  [-0.00980107,0.0049939],
+                  [-0.01046162,0.00339919],
+                  [-0.01086457,0.00172078],
+                  [-0.011,0],
+                  [-0.01086457,-0.00172078],
+                  [-0.01046162,-0.00339919],
+                  [-0.00980107,-0.0049939],
+                  [-0.00889919,-0.00646564],
+                  [-0.00777817,-0.00777817],
+                  [-0.00646564,-0.00889919],
+                  [-0.0049939,-0.00980107],
+                  [-0.00339919,-0.01046162],
+                  [-0.00172078,-0.01086457],
+                  [0,-0.011],
+                  [0.00172078,-0.01086457],
+                  [0.00339919,-0.01046162],
+                  [0.0049939,-0.00980107],
+                  [0.00646564,-0.00889919],
+                  [0.00777817,-0.00777817],
+                  [0.00889919,-0.00646564],
+                  [0.00980107,-0.0049939],
+                  [0.01046162,-0.00339919],
+                  [0.01086457,-0.00172078]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aabec9"
+            }
+          },
+          {
+            "id": "flexible-drive",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.flexible-drive-cable",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.141,0.108,0],
+                [0.267,0.113,0],
+                [0.401,0.093,0.04],
+                [0.549,0.078,0.153],
+                [0.669,0.075,0.293],
+                [0.779,0.077,0.388],
+                [0.885,0.077,0.424]
+              ],
+              "radius": 0.0137,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#2e3a43"
+            }
+          },
+          {
+            "id": "head",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.frame",
+            "transform": {
+              "position": [0.885,0.077,0.424],
+              "rotation": [0,-0.3141592653589793,0]
+            }
+          },
+          {
+            "id": "coupler",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.probe-motor-coupling",
+            "parent": "head",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0.068,0,0],
+              "radius": 0.02,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#57727f"
+            }
+          },
+          {
+            "id": "probe-wall",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.immersible-vibrator-housing",
+            "parent": "head",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.066,0,0],
+              "end": [0.356,0,0],
+              "radius": 0.023,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aabec9"
+            }
+          },
+          {
+            "id": "probe-tip",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.rounded-working-tip",
+            "parent": "head",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0.352,0,0],
+              "end": [0.391,0,0],
+              "startRadius": 0.023,
+              "endRadius": 0.012,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#aabec9"
+            }
+          },
+          {
+            "id": "internal-spindle",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.frame",
+            "parent": "head",
+            "transform": {
+              "position": [0.226,0,0]
+            }
+          },
+          {
+            "id": "eccentric",
+            "semanticType": "tool.flex-shaft-concrete-immersion-vibrator.eccentric-axis",
+            "parent": "internal-spindle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.006,0.005,0],
+              "end": [0.088,0.005,0],
+              "radius": 0.01,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#68808c"
+            }
+          }
+        ],
+        "anchors": {
+          "motor-output": {
+            "node": "sleeve-datum",
+            "position": [0.073,0,0],
+            "direction": [1,0,0],
+            "kind": "shaft"
+          },
+          "probe-tip": {
+            "node": "head",
+            "position": [0.391,0,0],
+            "direction": [1,0,0],
+            "kind": "work"
+          },
+          "carry-handle": {
+            "node": "frame-1",
+            "position": [0,0.204,0.112],
+            "direction": [0,1,0],
+            "kind": "grip"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "probe-angle",
+            "label": "振捣头摆角",
+            "unit": "deg",
+            "value": 0,
+            "min": -33,
+            "max": 45,
+            "targets": [
+              {
+                "node": "head",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "eccentric-angle",
+            "label": "偏心轴位置",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "internal-spindle",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

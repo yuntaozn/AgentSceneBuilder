@@ -1,0 +1,575 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "地暖回路透明浮子流量示意计",
+  "summary": "双连接端、半开式透明视窗、内置轴向浮子和固定计量刻度架。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "水暖浮子流量计",
+    "地暖回路流量计",
+    "hydronic loop flow indicator",
+    "transparent rotameter",
+    "水暖末端",
+    "hydronic terminal heating"
+  ],
+  "anchors": [
+    "loop-in",
+    "loop-out",
+    "float-marker"
+  ],
+  "ai": {
+    "intent": "为水暖回路添加可设示意位置的流量观察件。",
+    "editableParts": [
+      "float-height"
+    ],
+    "qualityChecks": [
+      "浮子始终在开式视筒轴线上移动。",
+      "两端接合面与刻度不动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "cutaway-hydronic-loop-flow-indicator-with-floating-marker",
+      "title": "地暖回路透明浮子流量示意计",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "bottom-coupler",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.open-bottom-circuit-union",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.042,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.035,0],
+                [0.03288924,0.01197071],
+                [0.02681156,0.02249757],
+                [0.0175,0.03031089],
+                [0.00607769,0.03446827],
+                [-0.00607769,0.03446827],
+                [-0.0175,0.03031089],
+                [-0.02681156,0.02249757],
+                [-0.03288924,0.01197071],
+                [-0.035,0],
+                [-0.03288924,-0.01197071],
+                [-0.02681156,-0.02249757],
+                [-0.0175,-0.03031089],
+                [-0.00607769,-0.03446827],
+                [0.00607769,-0.03446827],
+                [0.0175,-0.03031089],
+                [0.02681156,-0.02249757],
+                [0.03288924,-0.01197071]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.013,0],
+                  [0.012216,0.00444626],
+                  [0.00995858,0.00835624],
+                  [0.0065,0.01125833],
+                  [0.00225743,0.0128025],
+                  [-0.00225743,0.0128025],
+                  [-0.0065,0.01125833],
+                  [-0.00995858,0.00835624],
+                  [-0.012216,0.00444626],
+                  [-0.013,0],
+                  [-0.012216,-0.00444626],
+                  [-0.00995858,-0.00835624],
+                  [-0.0065,-0.01125833],
+                  [-0.00225743,-0.0128025],
+                  [0.00225743,-0.0128025],
+                  [0.0065,-0.01125833],
+                  [0.00995858,-0.00835624],
+                  [0.012216,-0.00444626]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#daae63"
+            }
+          },
+          {
+            "id": "top-coupler",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.open-top-circuit-union",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.213,0],
+                [0,0.252,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.03,0],
+                [0.02819078,0.0102606],
+                [0.02298133,0.01928363],
+                [0.015,0.02598076],
+                [0.00520945,0.02954423],
+                [-0.00520945,0.02954423],
+                [-0.015,0.02598076],
+                [-0.02298133,0.01928363],
+                [-0.02819078,0.0102606],
+                [-0.03,0],
+                [-0.02819078,-0.0102606],
+                [-0.02298133,-0.01928363],
+                [-0.015,-0.02598076],
+                [-0.00520945,-0.02954423],
+                [0.00520945,-0.02954423],
+                [0.015,-0.02598076],
+                [0.02298133,-0.01928363],
+                [0.02819078,-0.0102606]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.014,0],
+                  [0.0131557,0.00478828],
+                  [0.01072462,0.00899903],
+                  [0.007,0.01212436],
+                  [0.00243107,0.01378731],
+                  [-0.00243107,0.01378731],
+                  [-0.007,0.01212436],
+                  [-0.01072462,0.00899903],
+                  [-0.0131557,0.00478828],
+                  [-0.014,0],
+                  [-0.0131557,-0.00478828],
+                  [-0.01072462,-0.00899903],
+                  [-0.007,-0.01212436],
+                  [-0.00243107,-0.01378731],
+                  [0.00243107,-0.01378731],
+                  [0.007,-0.01212436],
+                  [0.01072462,-0.00899903],
+                  [0.0131557,-0.00478828]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#daae63"
+            }
+          },
+          {
+            "id": "gauging-tube",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.sectioned-transparent-hollow-flow-column",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.033,0],
+                [0,0.222,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.01891226,0.01477588],
+                [-0.01762848,0.01628609],
+                [-0.01622446,0.01768522],
+                [-0.01470977,0.01896372],
+                [-0.01309475,0.02011287],
+                [-0.01139041,0.02112483],
+                [-0.00960838,0.02199271],
+                [-0.00776081,0.02271057],
+                [-0.0058603,0.02327352],
+                [-0.00391982,0.02367773],
+                [-0.00195261,0.02392044],
+                [0.00002793,0.02399998],
+                [0.00200827,0.02391583],
+                [0.00397491,0.02366855],
+                [0.00591445,0.02325982],
+                [0.00781364,0.02269245],
+                [0.00965953,0.02197029],
+                [0.01143954,0.02109827],
+                [0.01314152,0.02008234],
+                [0.01475386,0.01892944],
+                [0.01626557,0.01764742],
+                [0.01766633,0.01624502],
+                [0.01894659,0.01473182],
+                [0.02009762,0.01311814],
+                [0.02111157,0.01141498],
+                [0.02198151,0.00963396],
+                [0.02270152,0.00778723],
+                [0.02326669,0.00588738],
+                [0.02367315,0.00394737],
+                [0.02391815,0.00198044],
+                [0.024,0],
+                [0.02391815,-0.00198044],
+                [0.02367315,-0.00394737],
+                [0.02326669,-0.00588738],
+                [0.02270152,-0.00778723],
+                [0.02198151,-0.00963396],
+                [0.02111157,-0.01141498],
+                [0.02009762,-0.01311814],
+                [0.01894659,-0.01473182],
+                [0.01766633,-0.01624502],
+                [0.01626557,-0.01764742],
+                [0.01475386,-0.01892944],
+                [0.01314152,-0.02008234],
+                [0.01143954,-0.02109827],
+                [0.00965953,-0.02197029],
+                [0.00781364,-0.02269245],
+                [0.00591445,-0.02325982],
+                [0.00397491,-0.02366855],
+                [0.00200827,-0.02391583],
+                [0.00002793,-0.02399998],
+                [-0.00195261,-0.02392044],
+                [-0.00391982,-0.02367773],
+                [-0.0058603,-0.02327352],
+                [-0.00776081,-0.02271057],
+                [-0.00960838,-0.02199271],
+                [-0.01139041,-0.02112483],
+                [-0.01309475,-0.02011287],
+                [-0.01470977,-0.01896372],
+                [-0.01622446,-0.01768522],
+                [-0.01762848,-0.01628609],
+                [-0.01891226,-0.01477588],
+                [-0.0149722,-0.01169757],
+                [-0.01395588,-0.01289316],
+                [-0.01284436,-0.0140008],
+                [-0.01164523,-0.01501295],
+                [-0.01036668,-0.01592269],
+                [-0.00901741,-0.01672383],
+                [-0.00760663,-0.01741089],
+                [-0.00614397,-0.0179792],
+                [-0.00463941,-0.01842487],
+                [-0.00310319,-0.01874487],
+                [-0.00154581,-0.01893701],
+                [0.00002211,-0.01899999],
+                [0.00158988,-0.01893336],
+                [0.00314681,-0.0187376],
+                [0.00468227,-0.01841403],
+                [0.00618579,-0.01796485],
+                [0.00764713,-0.01739314],
+                [0.0090563,-0.0167028],
+                [0.0104037,-0.01589852],
+                [0.01168014,-0.0149858],
+                [0.01287691,-0.01397087],
+                [0.01398584,-0.01286064],
+                [0.01499939,-0.01166269],
+                [0.01591062,-0.0103852],
+                [0.01671332,-0.00903686],
+                [0.01740203,-0.00762688],
+                [0.01797204,-0.00616489],
+                [0.01841946,-0.00466084],
+                [0.01874125,-0.003125],
+                [0.0189352,-0.00156785],
+                [0.019,0],
+                [0.0189352,0.00156785],
+                [0.01874125,0.003125],
+                [0.01841946,0.00466084],
+                [0.01797204,0.00616489],
+                [0.01740203,0.00762688],
+                [0.01671332,0.00903686],
+                [0.01591062,0.0103852],
+                [0.01499939,0.01166269],
+                [0.01398584,0.01286064],
+                [0.01287691,0.01397087],
+                [0.01168014,0.0149858],
+                [0.0104037,0.01589852],
+                [0.0090563,0.0167028],
+                [0.00764713,0.01739314],
+                [0.00618579,0.01796485],
+                [0.00468227,0.01841403],
+                [0.00314681,0.0187376],
+                [0.00158988,0.01893336],
+                [0.00002211,0.01899999],
+                [-0.00154581,0.01893701],
+                [-0.00310319,0.01874487],
+                [-0.00463941,0.01842487],
+                [-0.00614397,0.0179792],
+                [-0.00760663,0.01741089],
+                [-0.00901741,0.01672383],
+                [-0.01036668,0.01592269],
+                [-0.01164523,0.01501295],
+                [-0.01284436,0.0140008],
+                [-0.01395588,0.01289316],
+                [-0.0149722,0.01169757]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#86bdc3",
+              "opacity": 0.54
+            }
+          },
+          {
+            "id": "scale-upright--1",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.solid-flow-scale-stanchion",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.189,0.015]
+            },
+            "appearance": {
+              "color": "#657f8b"
+            },
+            "transform": {
+              "position": [0.005,0.128,-0.036]
+            }
+          },
+          {
+            "id": "scale-upright-1",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.solid-flow-scale-stanchion",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.189,0.015]
+            },
+            "appearance": {
+              "color": "#657f8b"
+            },
+            "transform": {
+              "position": [0.005,0.128,0.036]
+            }
+          },
+          {
+            "id": "tick-0",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.015]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.053,-0.031]
+            }
+          },
+          {
+            "id": "tick-1",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.008]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.065,-0.031]
+            }
+          },
+          {
+            "id": "tick-2",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.008]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.077,-0.031]
+            }
+          },
+          {
+            "id": "tick-3",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.015]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.089,-0.031]
+            }
+          },
+          {
+            "id": "tick-4",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.008]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.101,-0.031]
+            }
+          },
+          {
+            "id": "tick-5",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.008]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.11299999999999999,-0.031]
+            }
+          },
+          {
+            "id": "tick-6",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.015]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.125,-0.031]
+            }
+          },
+          {
+            "id": "tick-7",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.008]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.137,-0.031]
+            }
+          },
+          {
+            "id": "tick-8",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.008]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.149,-0.031]
+            }
+          },
+          {
+            "id": "tick-9",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.015]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.161,-0.031]
+            }
+          },
+          {
+            "id": "tick-10",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.008]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.173,-0.031]
+            }
+          },
+          {
+            "id": "tick-11",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.fixed-scale-indicator-tick",
+            "geometry": {
+              "type": "box",
+              "size": [0.003,0.0018,0.008]
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            },
+            "transform": {
+              "position": [0.032,0.185,-0.031]
+            }
+          },
+          {
+            "id": "flow-float",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.frame",
+            "transform": {
+              "position": [0,0.058,0]
+            }
+          },
+          {
+            "id": "float-cone",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.float-tapered-cap",
+            "parent": "flow-float",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.002,0],
+              "end": [0,0.017,0],
+              "startRadius": 0.009,
+              "endRadius": 0.015,
+              "radialSegments": 32
+            },
+            "appearance": {
+              "color": "#ce8274"
+            }
+          },
+          {
+            "id": "float-stem",
+            "semanticType": "mep.cutaway-hydronic-loop-flow-indicator-with-floating-marker.narrow-visible-float-tip",
+            "parent": "flow-float",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.011,0],
+              "end": [0,0.001,0],
+              "radius": 0.005,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c6d5d9"
+            }
+          }
+        ],
+        "anchors": {
+          "loop-in": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "hydronic-loop-port"
+          },
+          "loop-out": {
+            "position": [0,0.252,0],
+            "direction": [0,1,0],
+            "kind": "hydronic-loop-port"
+          },
+          "float-marker": {
+            "node": "flow-float",
+            "position": [0,0.017,0],
+            "direction": [0,1,0],
+            "kind": "flow-model-marker"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "float-height",
+            "label": "浮子高度",
+            "unit": "m",
+            "value": 0.057,
+            "min": 0,
+            "max": 0.13,
+            "targets": [
+              {
+                "node": "flow-float",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

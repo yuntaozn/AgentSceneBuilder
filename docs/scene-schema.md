@@ -1,8 +1,8 @@
 # Scene Document 设计
 
-Scene Document 是 AgentSceneBuilder 的核心数据格式。
+> 本文记录早期 Scene Document 草案。当前 AI 建模使用 [CompositionSpec](composition-spec.md)。多实例场景及其关系见[架构说明](architecture.md)。
 
-它不是 Three.js 代码，而是 AI 和工具都能读写的结构化场景描述。
+这份草案用结构化数据描述场景，供 AI 和工具读写。
 
 ## 最小结构
 

@@ -1,0 +1,1215 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.counterbalance-forklift",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "平衡重式门架叉车",
+  "summary": "含门架和油缸、两级滑架、可调双货叉、护顶架、轮组和驾驶区。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.counterbalance-forklift",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose",
+    "animate"
+  ],
+  "tags": [
+    "施工设备",
+    "叉车",
+    "物流",
+    "托盘",
+    "门架",
+    "货叉",
+    "forklift"
+  ],
+  "anchors": [
+    "ground",
+    "mast-axis",
+    "left-fork-tip",
+    "right-fork-tip",
+    "load-center",
+    "seat-point"
+  ],
+  "ai": {
+    "intent": "把叉车加入物流或施工场景，调节货叉间距、升程与倾角，通过双货叉锚点检查托盘对位。",
+    "editableParts": [
+      "lift-travel",
+      "mast-tilt",
+      "fork-spacing"
+    ],
+    "qualityChecks": [
+      "车体在门架动作时保持不动。",
+      "升程同时驱动内门架和滑架。",
+      "货叉中心距改变时两个叉尖等量反向移动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "counterbalance-forklift",
+      "title": "平衡重式门架叉车",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "chassis",
+            "semanticType": "equipment.counterbalance-forklift.chassis",
+            "geometry": {
+              "type": "box",
+              "size": [1.53,0.24,0.96]
+            },
+            "appearance": {
+              "color": "#e9a637"
+            },
+            "transform": {
+              "position": [-0.182,0.345,0]
+            }
+          },
+          {
+            "id": "counterweight",
+            "semanticType": "equipment.counterbalance-forklift.counterweight",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.26,0],
+                [0,0.64,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-1.05,-0.38],
+                [-0.98,-0.46],
+                [-0.67,-0.5],
+                [-0.48,-0.43],
+                [-0.48,0.43],
+                [-0.67,0.5],
+                [-0.98,0.46],
+                [-1.05,0.38]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#e9a637"
+            }
+          },
+          {
+            "id": "engine-cover",
+            "semanticType": "equipment.counterbalance-forklift.engine-cover",
+            "geometry": {
+              "type": "box",
+              "size": [0.6,0.21,0.76]
+            },
+            "appearance": {
+              "color": "#e9a637"
+            },
+            "transform": {
+              "position": [-0.57,0.7,0]
+            }
+          },
+          {
+            "id": "step",
+            "semanticType": "equipment.counterbalance-forklift.operator-step",
+            "geometry": {
+              "type": "box",
+              "size": [0.37,0.037,0.17]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [-0.2,0.425,0.51]
+            }
+          },
+          {
+            "id": "footwell",
+            "semanticType": "equipment.counterbalance-forklift.operator-floor",
+            "geometry": {
+              "type": "box",
+              "size": [0.48,0.062,0.65]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [0.11,0.57,0]
+            }
+          },
+          {
+            "id": "seat-base",
+            "semanticType": "equipment.counterbalance-forklift.seat",
+            "geometry": {
+              "type": "box",
+              "size": [0.29,0.11,0.36]
+            },
+            "appearance": {
+              "color": "#23292d"
+            },
+            "transform": {
+              "position": [-0.38,0.856,0]
+            }
+          },
+          {
+            "id": "seat-back",
+            "semanticType": "equipment.counterbalance-forklift.seat-back",
+            "geometry": {
+              "type": "box",
+              "size": [0.084,0.33,0.34]
+            },
+            "appearance": {
+              "color": "#23292d"
+            },
+            "transform": {
+              "position": [-0.51,1.02,0]
+            }
+          },
+          {
+            "id": "console",
+            "semanticType": "equipment.counterbalance-forklift.dashboard",
+            "geometry": {
+              "type": "box",
+              "size": [0.16,0.19,0.48]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [0.35,0.93,0]
+            }
+          },
+          {
+            "id": "steering-column",
+            "semanticType": "equipment.counterbalance-forklift.steering-column",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.38,0.91,0],
+              "end": [0.24,1.14,0],
+              "radius": 0.022,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "steering-wheel",
+            "semanticType": "equipment.counterbalance-forklift.steering-wheel",
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.11,
+              "tubeRadius": 0.014,
+              "radialSegments": 18,
+              "tubularSegments": 28
+            },
+            "appearance": {
+              "color": "#23292d"
+            },
+            "transform": {
+              "position": [0.24,1.14,0],
+              "rotation": [-1.5707963267948966,0,0.42]
+            }
+          },
+          {
+            "id": "left-rear-guard",
+            "semanticType": "equipment.counterbalance-forklift.guard-post",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.76,0.62,-0.46],
+              "end": [-0.69,1.89,-0.46],
+              "radius": 0.031,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "left-front-guard",
+            "semanticType": "equipment.counterbalance-forklift.guard-post",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.44,0.55,-0.46],
+              "end": [0.34,1.89,-0.46],
+              "radius": 0.031,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "left-roof-rail",
+            "semanticType": "equipment.counterbalance-forklift.guard-rail",
+            "geometry": {
+              "type": "box",
+              "size": [1.09,0.058,0.063]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [-0.175,1.91,-0.46]
+            }
+          },
+          {
+            "id": "left-lamp",
+            "semanticType": "equipment.counterbalance-forklift.lamp",
+            "geometry": {
+              "type": "box",
+              "size": [0.048,0.055,0.104]
+            },
+            "appearance": {
+              "color": "#f4e3aa"
+            },
+            "transform": {
+              "position": [0.373,1.825,-0.39]
+            }
+          },
+          {
+            "id": "left-front-tire",
+            "semanticType": "equipment.counterbalance-forklift.tire",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.36,0.29,-0.4375],
+              "end": [0.36,0.29,-0.6025],
+              "radius": 0.29,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#23292d"
+            }
+          },
+          {
+            "id": "left-front-hub",
+            "semanticType": "equipment.counterbalance-forklift.hub",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.36,0.29,-0.52],
+              "end": [0.36,0.29,-0.6125],
+              "radius": 0.1566,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "left-front-cap",
+            "semanticType": "equipment.counterbalance-forklift.axle-cap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.36,0.29,-0.6125],
+              "end": [0.36,0.29,-0.6225],
+              "radius": 0.060899999999999996,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "left-rear-tire",
+            "semanticType": "equipment.counterbalance-forklift.tire",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.69,0.224,-0.453],
+              "end": [-0.69,0.224,-0.587],
+              "radius": 0.224,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#23292d"
+            }
+          },
+          {
+            "id": "left-rear-hub",
+            "semanticType": "equipment.counterbalance-forklift.hub",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.69,0.224,-0.52],
+              "end": [-0.69,0.224,-0.597],
+              "radius": 0.12096000000000001,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "left-rear-cap",
+            "semanticType": "equipment.counterbalance-forklift.axle-cap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.69,0.224,-0.597],
+              "end": [-0.69,0.224,-0.607],
+              "radius": 0.04704,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "right-rear-guard",
+            "semanticType": "equipment.counterbalance-forklift.guard-post",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.76,0.62,0.46],
+              "end": [-0.69,1.89,0.46],
+              "radius": 0.031,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "right-front-guard",
+            "semanticType": "equipment.counterbalance-forklift.guard-post",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.44,0.55,0.46],
+              "end": [0.34,1.89,0.46],
+              "radius": 0.031,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "right-roof-rail",
+            "semanticType": "equipment.counterbalance-forklift.guard-rail",
+            "geometry": {
+              "type": "box",
+              "size": [1.09,0.058,0.063]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [-0.175,1.91,0.46]
+            }
+          },
+          {
+            "id": "right-lamp",
+            "semanticType": "equipment.counterbalance-forklift.lamp",
+            "geometry": {
+              "type": "box",
+              "size": [0.048,0.055,0.104]
+            },
+            "appearance": {
+              "color": "#f4e3aa"
+            },
+            "transform": {
+              "position": [0.373,1.825,0.39]
+            }
+          },
+          {
+            "id": "right-front-tire",
+            "semanticType": "equipment.counterbalance-forklift.tire",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.36,0.29,0.4375],
+              "end": [0.36,0.29,0.6025],
+              "radius": 0.29,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#23292d"
+            }
+          },
+          {
+            "id": "right-front-hub",
+            "semanticType": "equipment.counterbalance-forklift.hub",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.36,0.29,0.52],
+              "end": [0.36,0.29,0.6125],
+              "radius": 0.1566,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "right-front-cap",
+            "semanticType": "equipment.counterbalance-forklift.axle-cap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.36,0.29,0.6125],
+              "end": [0.36,0.29,0.6225],
+              "radius": 0.060899999999999996,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "right-rear-tire",
+            "semanticType": "equipment.counterbalance-forklift.tire",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.69,0.224,0.453],
+              "end": [-0.69,0.224,0.587],
+              "radius": 0.224,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#23292d"
+            }
+          },
+          {
+            "id": "right-rear-hub",
+            "semanticType": "equipment.counterbalance-forklift.hub",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.69,0.224,0.52],
+              "end": [-0.69,0.224,0.597],
+              "radius": 0.12096000000000001,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "right-rear-cap",
+            "semanticType": "equipment.counterbalance-forklift.axle-cap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.69,0.224,0.597],
+              "end": [-0.69,0.224,0.607],
+              "radius": 0.04704,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "roof-bar-0",
+            "semanticType": "equipment.counterbalance-forklift.guard-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.053,0.93]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [-0.655,1.91,0]
+            }
+          },
+          {
+            "id": "roof-bar-1",
+            "semanticType": "equipment.counterbalance-forklift.guard-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.053,0.93]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [-0.497,1.91,0]
+            }
+          },
+          {
+            "id": "roof-bar-2",
+            "semanticType": "equipment.counterbalance-forklift.guard-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.053,0.93]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [-0.339,1.91,0]
+            }
+          },
+          {
+            "id": "roof-bar-3",
+            "semanticType": "equipment.counterbalance-forklift.guard-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.053,0.93]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [-0.18100000000000005,1.91,0]
+            }
+          },
+          {
+            "id": "roof-bar-4",
+            "semanticType": "equipment.counterbalance-forklift.guard-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.053,0.93]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [-0.02300000000000002,1.91,0]
+            }
+          },
+          {
+            "id": "roof-bar-5",
+            "semanticType": "equipment.counterbalance-forklift.guard-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.053,0.93]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [0.135,1.91,0]
+            }
+          },
+          {
+            "id": "roof-bar-6",
+            "semanticType": "equipment.counterbalance-forklift.guard-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.045,0.053,0.93]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [0.2929999999999999,1.91,0]
+            }
+          },
+          {
+            "id": "mast-pivot",
+            "semanticType": "equipment.counterbalance-forklift.mast-pivot",
+            "transform": {
+              "position": [0.61,0.29,0]
+            }
+          },
+          {
+            "id": "tilt-hinge",
+            "semanticType": "equipment.counterbalance-forklift.mast-hinge",
+            "parent": "mast-pivot",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.52],
+              "end": [0,0,0.52],
+              "radius": 0.049,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "mast-tie",
+            "semanticType": "equipment.counterbalance-forklift.outer-crosshead",
+            "parent": "mast-pivot",
+            "geometry": {
+              "type": "box",
+              "size": [0.107,0.115,0.85]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [0,1.93,0]
+            }
+          },
+          {
+            "id": "inner-mast",
+            "semanticType": "equipment.counterbalance-forklift.inner-mast",
+            "parent": "mast-pivot",
+            "transform": {
+              "position": [0.064,0,0]
+            }
+          },
+          {
+            "id": "inner-tie",
+            "semanticType": "equipment.counterbalance-forklift.inner-crosshead",
+            "parent": "inner-mast",
+            "geometry": {
+              "type": "box",
+              "size": [0.087,0.09,0.68]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [0.008,1.81,0]
+            }
+          },
+          {
+            "id": "carriage",
+            "semanticType": "equipment.counterbalance-forklift.carriage",
+            "parent": "inner-mast",
+            "transform": {
+              "position": [-0.064,-0.2,0]
+            }
+          },
+          {
+            "id": "carriage-crossbar",
+            "semanticType": "equipment.counterbalance-forklift.carriage-crossbar",
+            "parent": "carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.13,0.11,0.87]
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            },
+            "transform": {
+              "position": [0.01,0.21,0]
+            }
+          },
+          {
+            "id": "backrest-top",
+            "semanticType": "equipment.counterbalance-forklift.load-backrest",
+            "parent": "carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.042,0.042,0.87]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [0.064,0.73,0]
+            }
+          },
+          {
+            "id": "backrest-bar-0",
+            "semanticType": "equipment.counterbalance-forklift.load-backrest-bar",
+            "parent": "carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.025,0.54,0.036]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [0.064,0.48,-0.39]
+            }
+          },
+          {
+            "id": "backrest-bar-1",
+            "semanticType": "equipment.counterbalance-forklift.load-backrest-bar",
+            "parent": "carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.025,0.54,0.036]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [0.064,0.48,-0.26]
+            }
+          },
+          {
+            "id": "backrest-bar-2",
+            "semanticType": "equipment.counterbalance-forklift.load-backrest-bar",
+            "parent": "carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.025,0.54,0.036]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [0.064,0.48,-0.13]
+            }
+          },
+          {
+            "id": "backrest-bar-3",
+            "semanticType": "equipment.counterbalance-forklift.load-backrest-bar",
+            "parent": "carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.025,0.54,0.036]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [0.064,0.48,0]
+            }
+          },
+          {
+            "id": "backrest-bar-4",
+            "semanticType": "equipment.counterbalance-forklift.load-backrest-bar",
+            "parent": "carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.025,0.54,0.036]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [0.064,0.48,0.13]
+            }
+          },
+          {
+            "id": "backrest-bar-5",
+            "semanticType": "equipment.counterbalance-forklift.load-backrest-bar",
+            "parent": "carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.025,0.54,0.036]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [0.064,0.48,0.26]
+            }
+          },
+          {
+            "id": "backrest-bar-6",
+            "semanticType": "equipment.counterbalance-forklift.load-backrest-bar",
+            "parent": "carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.025,0.54,0.036]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [0.064,0.48,0.39]
+            }
+          },
+          {
+            "id": "left-outer-rail",
+            "semanticType": "equipment.counterbalance-forklift.outer-channel",
+            "parent": "mast-pivot",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.17,-0.403],
+                [0,1.97,-0.403]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.055,-0.049],
+                [0.055,-0.049],
+                [0.055,-0.034],
+                [-0.035,-0.034],
+                [-0.035,0.034],
+                [0.055,0.034],
+                [0.055,0.049],
+                [-0.055,0.049]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "left-inner-rail",
+            "semanticType": "equipment.counterbalance-forklift.inner-channel",
+            "parent": "inner-mast",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.14,-0.329],
+                [0,1.82,-0.329]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.039599999999999996,-0.03332],
+                [0.039599999999999996,-0.03332],
+                [0.039599999999999996,-0.02312],
+                [-0.0252,-0.02312],
+                [-0.0252,0.02312],
+                [0.039599999999999996,0.02312],
+                [0.039599999999999996,0.03332],
+                [-0.039599999999999996,0.03332]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "left-cylinder",
+            "semanticType": "equipment.counterbalance-forklift.lift-cylinder",
+            "parent": "mast-pivot",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.07,-0.1,-0.264],
+              "end": [-0.07,0.77,-0.264],
+              "radius": 0.043,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "left-rod",
+            "semanticType": "equipment.counterbalance-forklift.piston-rod",
+            "parent": "inner-mast",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.134,0.04,-0.264],
+              "end": [-0.134,1.22,-0.264],
+              "radius": 0.021,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "left-rod-bracket",
+            "semanticType": "equipment.counterbalance-forklift.rod-bracket",
+            "parent": "inner-mast",
+            "geometry": {
+              "type": "box",
+              "size": [0.2,0.055,0.088]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [-0.079,1.22,-0.264]
+            }
+          },
+          {
+            "id": "left-guide-roller",
+            "semanticType": "equipment.counterbalance-forklift.carriage-roller",
+            "parent": "carriage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02,0.32,-0.308],
+              "end": [0.02,0.32,-0.389],
+              "radius": 0.044,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#23292d"
+            }
+          },
+          {
+            "id": "left-fork",
+            "semanticType": "equipment.counterbalance-forklift.left-fork",
+            "parent": "carriage",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "left-blade",
+            "semanticType": "equipment.counterbalance-forklift.fork-blade",
+            "parent": "left-fork",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.051],
+                [0,0,0.051]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.005,0.24],
+                [0.066,0.24],
+                [0.066,0.045],
+                [0.92,0.045],
+                [1.1,0.026],
+                [1.1,0.014],
+                [0.96,0.005],
+                [0.015,0.005],
+                [0,0.025]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "right-outer-rail",
+            "semanticType": "equipment.counterbalance-forklift.outer-channel",
+            "parent": "mast-pivot",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.17,0.403],
+                [0,1.97,0.403]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.055,-0.049],
+                [0.055,-0.049],
+                [0.055,-0.034],
+                [-0.035,-0.034],
+                [-0.035,0.034],
+                [0.055,0.034],
+                [0.055,0.049],
+                [-0.055,0.049]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#26323b"
+            }
+          },
+          {
+            "id": "right-inner-rail",
+            "semanticType": "equipment.counterbalance-forklift.inner-channel",
+            "parent": "inner-mast",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.14,0.329],
+                [0,1.82,0.329]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.039599999999999996,-0.03332],
+                [0.039599999999999996,-0.03332],
+                [0.039599999999999996,-0.02312],
+                [-0.0252,-0.02312],
+                [-0.0252,0.02312],
+                [0.039599999999999996,0.02312],
+                [0.039599999999999996,0.03332],
+                [-0.039599999999999996,0.03332]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "right-cylinder",
+            "semanticType": "equipment.counterbalance-forklift.lift-cylinder",
+            "parent": "mast-pivot",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.07,-0.1,0.264],
+              "end": [-0.07,0.77,0.264],
+              "radius": 0.043,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "right-rod",
+            "semanticType": "equipment.counterbalance-forklift.piston-rod",
+            "parent": "inner-mast",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.134,0.04,0.264],
+              "end": [-0.134,1.22,0.264],
+              "radius": 0.021,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "right-rod-bracket",
+            "semanticType": "equipment.counterbalance-forklift.rod-bracket",
+            "parent": "inner-mast",
+            "geometry": {
+              "type": "box",
+              "size": [0.2,0.055,0.088]
+            },
+            "appearance": {
+              "color": "#526472"
+            },
+            "transform": {
+              "position": [-0.079,1.22,0.264]
+            }
+          },
+          {
+            "id": "right-guide-roller",
+            "semanticType": "equipment.counterbalance-forklift.carriage-roller",
+            "parent": "carriage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02,0.32,0.308],
+              "end": [0.02,0.32,0.389],
+              "radius": 0.044,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#23292d"
+            }
+          },
+          {
+            "id": "right-fork",
+            "semanticType": "equipment.counterbalance-forklift.right-fork",
+            "parent": "carriage",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "right-blade",
+            "semanticType": "equipment.counterbalance-forklift.fork-blade",
+            "parent": "right-fork",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.051],
+                [0,0,0.051]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.005,0.24],
+                [0.066,0.24],
+                [0.066,0.045],
+                [0.92,0.045],
+                [1.1,0.026],
+                [1.1,0.014],
+                [0.96,0.005],
+                [0.015,0.005],
+                [0,0.025]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          }
+        ],
+        "anchors": {
+          "ground": {
+            "node": "chassis",
+            "position": [0.182,-0.345,0],
+            "direction": [0,-1,0],
+            "kind": "ground-contact"
+          },
+          "mast-axis": {
+            "node": "mast-pivot",
+            "position": [0,0,0],
+            "direction": [0,0,1],
+            "kind": "revolute-axis"
+          },
+          "left-fork-tip": {
+            "node": "left-fork",
+            "position": [1.1,0.02,0],
+            "direction": [1,0,0],
+            "kind": "fork-insertion"
+          },
+          "right-fork-tip": {
+            "node": "right-fork",
+            "position": [1.1,0.02,0],
+            "direction": [1,0,0],
+            "kind": "fork-insertion"
+          },
+          "load-center": {
+            "node": "carriage",
+            "position": [0.58,0.045,0],
+            "direction": [0,1,0],
+            "kind": "load-support-plane"
+          },
+          "seat-point": {
+            "node": "seat-base",
+            "position": [0,0.06,0],
+            "direction": [0,1,0],
+            "kind": "operator-seat"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "lift-travel",
+            "label": "货叉升程",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 1.5,
+            "targets": [
+              {
+                "node": "inner-mast",
+                "property": "position",
+                "axis": "y",
+                "factor": 0.48
+              },
+              {
+                "node": "carriage",
+                "property": "position",
+                "axis": "y",
+                "factor": 0.52
+              }
+            ]
+          },
+          {
+            "id": "mast-tilt",
+            "label": "门架倾角",
+            "unit": "°",
+            "value": 0,
+            "min": -8,
+            "max": 13,
+            "targets": [
+              {
+                "node": "mast-pivot",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "fork-spacing",
+            "label": "货叉中心距",
+            "unit": "m",
+            "value": 0.46,
+            "min": 0.3,
+            "max": 0.75,
+            "targets": [
+              {
+                "node": "left-fork",
+                "property": "position",
+                "axis": "z",
+                "factor": -0.5
+              },
+              {
+                "node": "right-fork",
+                "property": "position",
+                "axis": "z",
+                "factor": 0.5
+              }
+            ]
+          }
+        ],
+        "animations": [
+          {
+            "id": "raise-lift-stage",
+            "target": "inner-mast",
+            "property": "position",
+            "from": [0,0,0],
+            "to": [0,0.58,0],
+            "duration": 1.65,
+            "loop": false
+          },
+          {
+            "id": "tilt-mast",
+            "target": "mast-pivot",
+            "property": "rotation",
+            "from": [0,0,0],
+            "to": [0,0,0.13],
+            "duration": 1.25,
+            "loop": false,
+            "space": "local"
+          }
+        ]
+      }
+    }
+  }
+}

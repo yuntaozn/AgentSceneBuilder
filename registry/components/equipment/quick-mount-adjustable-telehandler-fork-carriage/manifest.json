@@ -1,0 +1,476 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.quick-mount-adjustable-telehandler-fork-carriage",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "伸缩臂机快换式双叉架",
+  "summary": "带后挂接耳、矩形空心背框、双独立叉臂、工作承托面和可调叉距。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "伸缩臂机具",
+    "双叉架",
+    "fork-carriage",
+    "telehandler-attachment",
+    "施工设备",
+    "equipment"
+  ],
+  "anchors": [
+    "fork-tip--1",
+    "fork-loading--1",
+    "fork-tip-1",
+    "fork-loading-1",
+    "carrier-coupler"
+  ],
+  "ai": {
+    "intent": "为伸缩臂叉装机提供可单独加入的工作挂具，可以调整叉距和检查对接面。",
+    "editableParts": [
+      "fork-spacing"
+    ],
+    "qualityChecks": [
+      "双叉相对于挂具中心对称滑动。",
+      "两个叉尖和两个承托锚点都可独立定位。",
+      "背部挂接面始终固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "quick-mount-adjustable-telehandler-fork-carriage",
+      "title": "伸缩臂机快换式双叉架",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "backframe",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.fork-attachment-backframe",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.038,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.392,-0.195],
+                [0.392,-0.195],
+                [0.437,-0.15000000000000002],
+                [0.437,0.15000000000000002],
+                [0.392,0.195],
+                [-0.392,0.195],
+                [-0.437,0.15000000000000002],
+                [-0.437,-0.15000000000000002]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.30400000000000005,-0.11],
+                  [0.30400000000000005,-0.11],
+                  [0.335,-0.079],
+                  [0.335,0.079],
+                  [0.30400000000000005,0.11],
+                  [-0.30400000000000005,0.11],
+                  [-0.335,0.079],
+                  [-0.335,-0.079]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#71858f"
+            }
+          },
+          {
+            "id": "hook--1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.frame",
+            "transform": {
+              "position": [0,0,-0.321]
+            }
+          },
+          {
+            "id": "upper-hook--1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.mounting-hook",
+            "parent": "hook--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.028],
+                [0,0,0.028]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.079,0.145],
+                [0.016,0.145],
+                [0.013,0.196],
+                [-0.045,0.197],
+                [-0.07,0.183],
+                [-0.082,0.16]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8bcc7"
+            }
+          },
+          {
+            "id": "lower-hook--1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.lower-locking-ear",
+            "parent": "hook--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.025],
+                [0,0,0.025]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.053000000000000005,-0.183],
+                [0.018,-0.183],
+                [0.03,-0.17099999999999999],
+                [0.03,-0.107],
+                [0.018,-0.095],
+                [-0.053000000000000005,-0.095],
+                [-0.065,-0.107],
+                [-0.065,-0.17099999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.012,-0.139],
+                  [-0.01248608,-0.13561921],
+                  [-0.01390496,-0.13251231],
+                  [-0.01614167,-0.12993101],
+                  [-0.01901502,-0.12808442],
+                  [-0.02229222,-0.12712214],
+                  [-0.02570778,-0.12712214],
+                  [-0.02898498,-0.12808442],
+                  [-0.03185833,-0.12993101],
+                  [-0.03409504,-0.13251231],
+                  [-0.03551392,-0.13561921],
+                  [-0.036,-0.139],
+                  [-0.03551392,-0.14238079],
+                  [-0.03409504,-0.14548769],
+                  [-0.03185833,-0.14806899],
+                  [-0.02898498,-0.14991558],
+                  [-0.02570778,-0.15087786],
+                  [-0.02229222,-0.15087786],
+                  [-0.01901502,-0.14991558],
+                  [-0.01614167,-0.14806899],
+                  [-0.01390496,-0.14548769],
+                  [-0.01248608,-0.14238079]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#677d87"
+            }
+          },
+          {
+            "id": "hook-1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.frame",
+            "transform": {
+              "position": [0,0,0.321]
+            }
+          },
+          {
+            "id": "upper-hook-1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.mounting-hook",
+            "parent": "hook-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.028],
+                [0,0,0.028]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.079,0.145],
+                [0.016,0.145],
+                [0.013,0.196],
+                [-0.045,0.197],
+                [-0.07,0.183],
+                [-0.082,0.16]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8bcc7"
+            }
+          },
+          {
+            "id": "lower-hook-1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.lower-locking-ear",
+            "parent": "hook-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.025],
+                [0,0,0.025]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.053000000000000005,-0.183],
+                [0.018,-0.183],
+                [0.03,-0.17099999999999999],
+                [0.03,-0.107],
+                [0.018,-0.095],
+                [-0.053000000000000005,-0.095],
+                [-0.065,-0.107],
+                [-0.065,-0.17099999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.012,-0.139],
+                  [-0.01248608,-0.13561921],
+                  [-0.01390496,-0.13251231],
+                  [-0.01614167,-0.12993101],
+                  [-0.01901502,-0.12808442],
+                  [-0.02229222,-0.12712214],
+                  [-0.02570778,-0.12712214],
+                  [-0.02898498,-0.12808442],
+                  [-0.03185833,-0.12993101],
+                  [-0.03409504,-0.13251231],
+                  [-0.03551392,-0.13561921],
+                  [-0.036,-0.139],
+                  [-0.03551392,-0.14238079],
+                  [-0.03409504,-0.14548769],
+                  [-0.03185833,-0.14806899],
+                  [-0.02898498,-0.14991558],
+                  [-0.02570778,-0.15087786],
+                  [-0.02229222,-0.15087786],
+                  [-0.01901502,-0.14991558],
+                  [-0.01614167,-0.14806899],
+                  [-0.01390496,-0.14548769],
+                  [-0.01248608,-0.14238079]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#677d87"
+            }
+          },
+          {
+            "id": "fork-rail-upper",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.fork-slide-upper",
+            "geometry": {
+              "type": "box",
+              "size": [0.067,0.061,0.881]
+            },
+            "appearance": {
+              "color": "#677d87"
+            },
+            "transform": {
+              "position": [0.046,0.126,0]
+            }
+          },
+          {
+            "id": "fork-rail-lower",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.fork-slide-lower",
+            "geometry": {
+              "type": "box",
+              "size": [0.065,0.061,0.874]
+            },
+            "appearance": {
+              "color": "#677d87"
+            },
+            "transform": {
+              "position": [0.047,-0.145,0]
+            }
+          },
+          {
+            "id": "fork--1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.frame",
+            "transform": {
+              "position": [0.045,0,-0.257]
+            }
+          },
+          {
+            "id": "fork-tine--1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.forged-fork-tine",
+            "parent": "fork--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.06],
+                [0,0,0.06]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.025,0.146],
+                [0.034,0.146],
+                [0.056,-0.169],
+                [0.895,-0.169],
+                [1.028,-0.179],
+                [1.043,-0.194],
+                [0.941,-0.21],
+                [0.09,-0.215],
+                [-0.003,-0.211],
+                [-0.025,-0.169]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8bcc7"
+            }
+          },
+          {
+            "id": "lower-pawl--1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.lower-fork-guided-pawl",
+            "parent": "fork--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.044,0.035,0.089]
+            },
+            "appearance": {
+              "color": "#677d87"
+            },
+            "transform": {
+              "position": [-0.013,-0.171,0]
+            }
+          },
+          {
+            "id": "fork-lock--1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.fork-stop-pin",
+            "parent": "fork--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.151,0],
+              "end": [0,0.197,0],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#42939c"
+            }
+          },
+          {
+            "id": "fork-1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.frame",
+            "transform": {
+              "position": [0.045,0,0.257]
+            }
+          },
+          {
+            "id": "fork-tine-1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.forged-fork-tine",
+            "parent": "fork-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.06],
+                [0,0,0.06]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.025,0.146],
+                [0.034,0.146],
+                [0.056,-0.169],
+                [0.895,-0.169],
+                [1.028,-0.179],
+                [1.043,-0.194],
+                [0.941,-0.21],
+                [0.09,-0.215],
+                [-0.003,-0.211],
+                [-0.025,-0.169]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8bcc7"
+            }
+          },
+          {
+            "id": "lower-pawl-1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.lower-fork-guided-pawl",
+            "parent": "fork-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.044,0.035,0.089]
+            },
+            "appearance": {
+              "color": "#677d87"
+            },
+            "transform": {
+              "position": [-0.013,-0.171,0]
+            }
+          },
+          {
+            "id": "fork-lock-1",
+            "semanticType": "equipment.quick-mount-adjustable-telehandler-fork-carriage.fork-stop-pin",
+            "parent": "fork-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.151,0],
+              "end": [0,0.197,0],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#42939c"
+            }
+          }
+        ],
+        "anchors": {
+          "fork-tip--1": {
+            "node": "fork--1",
+            "position": [1.043,-0.194,0],
+            "direction": [1,0,0],
+            "kind": "load"
+          },
+          "fork-loading--1": {
+            "node": "fork--1",
+            "position": [0.563,-0.169,0],
+            "direction": [0,1,0],
+            "kind": "load"
+          },
+          "fork-tip-1": {
+            "node": "fork-1",
+            "position": [1.043,-0.194,0],
+            "direction": [1,0,0],
+            "kind": "load"
+          },
+          "fork-loading-1": {
+            "node": "fork-1",
+            "position": [0.563,-0.169,0],
+            "direction": [0,1,0],
+            "kind": "load"
+          },
+          "carrier-coupler": {
+            "node": "backframe",
+            "position": [0,0,0],
+            "direction": [-1,0,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "fork-spacing",
+            "label": "双叉中心距变化",
+            "unit": "m",
+            "value": 0,
+            "min": -0.231,
+            "max": 0.173,
+            "targets": [
+              {
+                "node": "fork--1",
+                "property": "position",
+                "axis": "z",
+                "factor": -0.5
+              },
+              {
+                "node": "fork-1",
+                "property": "position",
+                "axis": "z",
+                "factor": 0.5
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

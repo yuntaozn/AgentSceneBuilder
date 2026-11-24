@@ -1,0 +1,686 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.split-direct-shear-box-with-guided-loading-frame",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "带加载架的方形直剪仪",
+  "summary": "开孔上下剪切盒、竖向压盘、横向滑台、读数探头和独立剪切方向基准。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "土工直剪仪",
+    "直剪盒",
+    "direct-shear-box",
+    "dual-motion-test",
+    "土工测试",
+    "geotechnical"
+  ],
+  "anchors": [
+    "loading-face",
+    "sample-shear-plane",
+    "lateral-load",
+    "mount"
+  ],
+  "ai": {
+    "intent": "表示直剪仪结构、两个加载方向和开口试样盒，外部模型可引用接触面与剪切平面。",
+    "editableParts": [
+      "lateral-shear",
+      "platen-travel"
+    ],
+    "qualityChecks": [
+      "盒体中心是独立留空。",
+      "水平剪切和竖向压盖各自调节。",
+      "固定上盒定义剪切平面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "split-direct-shear-box-with-guided-loading-frame",
+      "title": "带加载架的方形直剪仪",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.rigid-laboratory-skid",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.006,0],
+                [0,0.038,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.24100000000000002,-0.188],
+                [-0.24100000000000002,-0.188],
+                [-0.278,-0.151],
+                [-0.278,0.151],
+                [-0.24100000000000002,0.188],
+                [0.24100000000000002,0.188],
+                [0.278,0.151],
+                [0.278,-0.151]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.218,-0.142],
+                  [0.21847704,-0.13837653],
+                  [0.21987564,-0.135],
+                  [0.22210051,-0.13210051],
+                  [0.225,-0.12987564],
+                  [0.22837653,-0.12847704],
+                  [0.232,-0.128],
+                  [0.23562347,-0.12847704],
+                  [0.239,-0.12987564],
+                  [0.24189949,-0.13210051],
+                  [0.24412436,-0.135],
+                  [0.24552296,-0.13837653],
+                  [0.246,-0.142],
+                  [0.24552296,-0.14562347],
+                  [0.24412436,-0.149],
+                  [0.24189949,-0.15189949],
+                  [0.239,-0.15412436],
+                  [0.23562347,-0.15552296],
+                  [0.232,-0.156],
+                  [0.22837653,-0.15552296],
+                  [0.225,-0.15412436],
+                  [0.22210051,-0.15189949],
+                  [0.21987564,-0.149],
+                  [0.21847704,-0.14562347]
+                ],
+                [
+                  [0.218,0.142],
+                  [0.21847704,0.14562347],
+                  [0.21987564,0.149],
+                  [0.22210051,0.15189949],
+                  [0.225,0.15412436],
+                  [0.22837653,0.15552296],
+                  [0.232,0.156],
+                  [0.23562347,0.15552296],
+                  [0.239,0.15412436],
+                  [0.24189949,0.15189949],
+                  [0.24412436,0.149],
+                  [0.24552296,0.14562347],
+                  [0.246,0.142],
+                  [0.24552296,0.13837653],
+                  [0.24412436,0.135],
+                  [0.24189949,0.13210051],
+                  [0.239,0.12987564],
+                  [0.23562347,0.12847704],
+                  [0.232,0.128],
+                  [0.22837653,0.12847704],
+                  [0.225,0.12987564],
+                  [0.22210051,0.13210051],
+                  [0.21987564,0.135],
+                  [0.21847704,0.13837653]
+                ],
+                [
+                  [-0.246,-0.142],
+                  [-0.24552296,-0.13837653],
+                  [-0.24412436,-0.135],
+                  [-0.24189949,-0.13210051],
+                  [-0.239,-0.12987564],
+                  [-0.23562347,-0.12847704],
+                  [-0.232,-0.128],
+                  [-0.22837653,-0.12847704],
+                  [-0.225,-0.12987564],
+                  [-0.22210051,-0.13210051],
+                  [-0.21987564,-0.135],
+                  [-0.21847704,-0.13837653],
+                  [-0.218,-0.142],
+                  [-0.21847704,-0.14562347],
+                  [-0.21987564,-0.149],
+                  [-0.22210051,-0.15189949],
+                  [-0.225,-0.15412436],
+                  [-0.22837653,-0.15552296],
+                  [-0.232,-0.156],
+                  [-0.23562347,-0.15552296],
+                  [-0.239,-0.15412436],
+                  [-0.24189949,-0.15189949],
+                  [-0.24412436,-0.149],
+                  [-0.24552296,-0.14562347]
+                ],
+                [
+                  [-0.246,0.142],
+                  [-0.24552296,0.14562347],
+                  [-0.24412436,0.149],
+                  [-0.24189949,0.15189949],
+                  [-0.239,0.15412436],
+                  [-0.23562347,0.15552296],
+                  [-0.232,0.156],
+                  [-0.22837653,0.15552296],
+                  [-0.225,0.15412436],
+                  [-0.22210051,0.15189949],
+                  [-0.21987564,0.149],
+                  [-0.21847704,0.14562347],
+                  [-0.218,0.142],
+                  [-0.21847704,0.13837653],
+                  [-0.21987564,0.135],
+                  [-0.22210051,0.13210051],
+                  [-0.225,0.12987564],
+                  [-0.22837653,0.12847704],
+                  [-0.232,0.128],
+                  [-0.23562347,0.12847704],
+                  [-0.239,0.12987564],
+                  [-0.24189949,0.13210051],
+                  [-0.24412436,0.135],
+                  [-0.24552296,0.13837653]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            }
+          },
+          {
+            "id": "column--0.181--0.125",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.loading-frame-column",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.181,0.035,-0.125],
+              "end": [-0.181,0.486,-0.125],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "column--0.181-0.125",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.loading-frame-column",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.181,0.035,0.125],
+              "end": [-0.181,0.486,0.125],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "column-0.181--0.125",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.loading-frame-column",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.181,0.035,-0.125],
+              "end": [0.181,0.486,-0.125],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "column-0.181-0.125",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.loading-frame-column",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.181,0.035,0.125],
+              "end": [0.181,0.486,0.125],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "upper-bridge",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.vertical-load-frame-crossbar",
+            "geometry": {
+              "type": "box",
+              "size": [0.426,0.064,0.304]
+            },
+            "appearance": {
+              "color": "#81bbc6"
+            },
+            "transform": {
+              "position": [0,0.485,0]
+            }
+          },
+          {
+            "id": "drive-unit",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.vertical-load-actuator",
+            "geometry": {
+              "type": "box",
+              "size": [0.117,0.152,0.108]
+            },
+            "appearance": {
+              "color": "#81bbc6"
+            },
+            "transform": {
+              "position": [0,0.385,0]
+            }
+          },
+          {
+            "id": "bearing-track--0.093",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.horizontal-shear-slide-guide",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.179,0.084,-0.093],
+              "end": [0.213,0.084,-0.093],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "bearing-track-0.093",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.horizontal-shear-slide-guide",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.179,0.084,0.093],
+              "end": [0.213,0.084,0.093],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "shear-tray",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "carrier",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.shear-box-moving-support-plate",
+            "parent": "shear-tray",
+            "geometry": {
+              "type": "box",
+              "size": [0.259,0.045,0.253]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0,0.109,0]
+            }
+          },
+          {
+            "id": "lower-box",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.lower-through-sample-box",
+            "parent": "shear-tray",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.13,0],
+                [0,0.181,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.076,-0.088],
+                [-0.076,-0.088],
+                [-0.089,-0.075],
+                [-0.089,0.075],
+                [-0.076,0.088],
+                [0.076,0.088],
+                [0.089,0.075],
+                [0.089,-0.075]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.056,-0.064],
+                  [-0.056,-0.064],
+                  [-0.064,-0.056],
+                  [-0.064,0.056],
+                  [-0.056,0.064],
+                  [0.056,0.064],
+                  [0.064,0.056],
+                  [0.064,-0.056]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#81bbc6"
+            }
+          },
+          {
+            "id": "lower-porous",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.under-sample-support",
+            "parent": "shear-tray",
+            "geometry": {
+              "type": "box",
+              "size": [0.124,0.017,0.123]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.138,0]
+            }
+          },
+          {
+            "id": "upper-box",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.fixed-upper-through-sample-box",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.182,0],
+                [0,0.231,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.076,-0.088],
+                [-0.076,-0.088],
+                [-0.089,-0.075],
+                [-0.089,0.075],
+                [-0.076,0.088],
+                [0.076,0.088],
+                [0.089,0.075],
+                [0.089,-0.075]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.056,-0.064],
+                  [-0.056,-0.064],
+                  [-0.064,-0.056],
+                  [-0.064,0.056],
+                  [-0.056,0.064],
+                  [0.056,0.064],
+                  [0.064,0.056],
+                  [0.064,-0.056]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            }
+          },
+          {
+            "id": "upper-link--1",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.upper-box-fixed-vertical-holder",
+            "geometry": {
+              "type": "box",
+              "size": [0.169,0.039,0.041]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.209,-0.102]
+            }
+          },
+          {
+            "id": "upper-link-1",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.upper-box-fixed-vertical-holder",
+            "geometry": {
+              "type": "box",
+              "size": [0.169,0.039,0.041]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            },
+            "transform": {
+              "position": [0,0.209,0.102]
+            }
+          },
+          {
+            "id": "vertical-plunger",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "loading-stem",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.vertical-plunger-shaft",
+            "parent": "vertical-plunger",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.234,0],
+              "end": [0,0.322,0],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "top-plate",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.vertical-test-load-platen",
+            "parent": "vertical-plunger",
+            "geometry": {
+              "type": "box",
+              "size": [0.119,0.026,0.119]
+            },
+            "appearance": {
+              "color": "#81bbc6"
+            },
+            "transform": {
+              "position": [0,0.252,0]
+            }
+          },
+          {
+            "id": "horizontal-rod",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.horizontal-loading-shaft",
+            "parent": "shear-tray",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.229,0.121,0],
+              "end": [-0.129,0.121,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "horizontal-block",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.lateral-load-drive-casing",
+            "geometry": {
+              "type": "box",
+              "size": [0.088,0.093,0.102]
+            },
+            "appearance": {
+              "color": "#81bbc6"
+            },
+            "transform": {
+              "position": [-0.212,0.106,0]
+            }
+          },
+          {
+            "id": "dial",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.frame",
+            "transform": {
+              "position": [0.169,0.251,0.128]
+            }
+          },
+          {
+            "id": "gauge",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.clear-distance-dial-body",
+            "parent": "dial",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.025]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.041,0],
+                [0.0402122,0.0079987],
+                [0.03787906,0.01569002],
+                [0.03409025,0.02277838],
+                [0.02899138,0.02899138],
+                [0.02277838,0.03409025],
+                [0.01569002,0.03787906],
+                [0.0079987,0.0402122],
+                [0,0.041],
+                [-0.0079987,0.0402122],
+                [-0.01569002,0.03787906],
+                [-0.02277838,0.03409025],
+                [-0.02899138,0.02899138],
+                [-0.03409025,0.02277838],
+                [-0.03787906,0.01569002],
+                [-0.0402122,0.0079987],
+                [-0.041,0],
+                [-0.0402122,-0.0079987],
+                [-0.03787906,-0.01569002],
+                [-0.03409025,-0.02277838],
+                [-0.02899138,-0.02899138],
+                [-0.02277838,-0.03409025],
+                [-0.01569002,-0.03787906],
+                [-0.0079987,-0.0402122],
+                [0,-0.041],
+                [0.0079987,-0.0402122],
+                [0.01569002,-0.03787906],
+                [0.02277838,-0.03409025],
+                [0.02899138,-0.02899138],
+                [0.03409025,-0.02277838],
+                [0.03787906,-0.01569002],
+                [0.0402122,-0.0079987]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            }
+          },
+          {
+            "id": "gauge-face",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.instrument-glass-face",
+            "parent": "dial",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.023],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.035,0],
+                [0.03432748,0.00682816],
+                [0.03233578,0.01339392],
+                [0.02910144,0.01944496],
+                [0.02474874,0.02474874],
+                [0.01944496,0.02910144],
+                [0.01339392,0.03233578],
+                [0.00682816,0.03432748],
+                [0,0.035],
+                [-0.00682816,0.03432748],
+                [-0.01339392,0.03233578],
+                [-0.01944496,0.02910144],
+                [-0.02474874,0.02474874],
+                [-0.02910144,0.01944496],
+                [-0.03233578,0.01339392],
+                [-0.03432748,0.00682816],
+                [-0.035,0],
+                [-0.03432748,-0.00682816],
+                [-0.03233578,-0.01339392],
+                [-0.02910144,-0.01944496],
+                [-0.02474874,-0.02474874],
+                [-0.01944496,-0.02910144],
+                [-0.01339392,-0.03233578],
+                [-0.00682816,-0.03432748],
+                [0,-0.035],
+                [0.00682816,-0.03432748],
+                [0.01339392,-0.03233578],
+                [0.01944496,-0.02910144],
+                [0.02474874,-0.02474874],
+                [0.02910144,-0.01944496],
+                [0.03233578,-0.01339392],
+                [0.03432748,-0.00682816]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9ac8d1"
+            }
+          },
+          {
+            "id": "contact-gauge",
+            "semanticType": "instrument.split-direct-shear-box-with-guided-loading-frame.fixed-shear-contact-displacement-probe",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.171,0.147,0.124],
+              "end": [0.171,0.221,0.124],
+              "radius": 0.006,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          }
+        ],
+        "anchors": {
+          "loading-face": {
+            "node": "top-plate",
+            "position": [0,-0.013,0],
+            "direction": [0,-1,0],
+            "kind": "measurement"
+          },
+          "sample-shear-plane": {
+            "node": "upper-box",
+            "position": [0,0.182,0],
+            "direction": [0,1,0],
+            "kind": "reference"
+          },
+          "lateral-load": {
+            "node": "horizontal-rod",
+            "position": [-0.229,0.121,0],
+            "direction": [-1,0,0],
+            "kind": "drive"
+          },
+          "mount": {
+            "node": "base",
+            "position": [0,0.006,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "lateral-shear",
+            "label": "剪切盒横向位移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.023,
+            "max": 0.029,
+            "targets": [
+              {
+                "node": "shear-tray",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "platen-travel",
+            "label": "上压盘下移",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.029,
+            "targets": [
+              {
+                "node": "vertical-plunger",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

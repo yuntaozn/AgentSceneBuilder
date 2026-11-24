@@ -1,13 +1,13 @@
 # @agentscene/cli
 
-AgentSceneBuilder 的 Agent 优先命令行入口。
+供 AI 大模型通过宿主 Agent 调用的命令行入口。Agent 可检索和构建模型，根据 JSON 诊断修正源稿，并复核空间计算与连接结果。
 
 ## Contract
 
 - stdout 只输出一个 JSON 对象；
 - 成功返回 `{ "ok": true, ... }`；
-- 失败返回 `{ "ok": false, "error": ... }`，退出码为 2；
-- proposal 只是可审阅建议，不应被视为自动领域决策。
+- 失败返回 `ok: false`，退出码为 2。检查命令以 `issues` 返回批量诊断，其他命令的执行错误通常通过 `error` 返回；
+- proposal 提供可审阅的变更建议，应用由 Agent 或宿主决定。
 
 ### 一次检查多个建模错误
 

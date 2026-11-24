@@ -1,0 +1,475 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.hinged-three-channel-temporary-cable-crossing-ramp",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "三槽翻盖式临时过线坡板",
+  "summary": "两端斜坡、三条真正贯通的线槽、开口基座和带防滑齿的侧翻顶盖。",
+  "license": "Apache-2.0",
+  "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "过线坡板",
+    "三槽线缆保护",
+    "cable-crossing-ramp",
+    "hinged-cable-protector",
+    "施工交通设施",
+    "work-zone-traffic"
+  ],
+  "anchors": [
+    "channel--0.094",
+    "channel-0",
+    "channel-0.094",
+    "ground",
+    "cover"
+  ],
+  "ai": {
+    "intent": "在临时用电或场地通行模型中独立表示穿线坡板，引用三条通道及可翻护盖。",
+    "editableParts": [
+      "lid-angle"
+    ],
+    "qualityChecks": [
+      "三个槽都沿坡板宽方向贯通。",
+      "顶盖翻开不改变通道位置。",
+      "两端斜坡是连续实体。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-three-channel-temporary-cable-crossing-ramp",
+      "title": "三槽翻盖式临时过线坡板",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "front-ramp",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.front-vehicle-or-pedestrian-ramp",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.457,0,0],
+                [0.457,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.371,0.012],
+                [0.371,0.023],
+                [0.158,0.111],
+                [0.144,0.111],
+                [0.144,0.012]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#83bdc7"
+            }
+          },
+          {
+            "id": "back-ramp",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.rear-vehicle-or-pedestrian-ramp",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.457,0,0],
+                [0.457,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.371,0.012],
+                [-0.371,0.023],
+                [-0.158,0.111],
+                [-0.144,0.111],
+                [-0.144,0.012]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#83bdc7"
+            }
+          },
+          {
+            "id": "base",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.center-channel-carrier-floor",
+            "geometry": {
+              "type": "box",
+              "size": [0.914,0.019,0.292]
+            },
+            "appearance": {
+              "color": "#9fb8c3"
+            },
+            "transform": {
+              "position": [0,0.017,0]
+            }
+          },
+          {
+            "id": "web--0.139",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.three-channel-vertical-divider",
+            "geometry": {
+              "type": "box",
+              "size": [0.911,0.082,0.015]
+            },
+            "appearance": {
+              "color": "#9fb8c3"
+            },
+            "transform": {
+              "position": [0,0.067,-0.139]
+            }
+          },
+          {
+            "id": "web--0.047",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.three-channel-vertical-divider",
+            "geometry": {
+              "type": "box",
+              "size": [0.911,0.082,0.015]
+            },
+            "appearance": {
+              "color": "#9fb8c3"
+            },
+            "transform": {
+              "position": [0,0.067,-0.047]
+            }
+          },
+          {
+            "id": "web-0.047",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.three-channel-vertical-divider",
+            "geometry": {
+              "type": "box",
+              "size": [0.911,0.082,0.015]
+            },
+            "appearance": {
+              "color": "#9fb8c3"
+            },
+            "transform": {
+              "position": [0,0.067,0.047]
+            }
+          },
+          {
+            "id": "web-0.139",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.three-channel-vertical-divider",
+            "geometry": {
+              "type": "box",
+              "size": [0.911,0.082,0.015]
+            },
+            "appearance": {
+              "color": "#9fb8c3"
+            },
+            "transform": {
+              "position": [0,0.067,0.139]
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.frame",
+            "transform": {
+              "position": [0,0.107,-0.148]
+            }
+          },
+          {
+            "id": "cover",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.removable-hinged-passage-cover",
+            "parent": "lid",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.022,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.432,0.003],
+                [-0.432,0.003],
+                [-0.454,0.024999999999999998],
+                [-0.454,0.26799999999999996],
+                [-0.432,0.29],
+                [0.432,0.29],
+                [0.454,0.26799999999999996],
+                [0.454,0.024999999999999998]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#ebc46f"
+            }
+          },
+          {
+            "id": "rubber-rib-0",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [-0.397,0.022,0.148],
+              "rotation": [0,0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-1",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [-0.331,0.022,0.148],
+              "rotation": [0,-0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-2",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [-0.265,0.022,0.148],
+              "rotation": [0,0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-3",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [-0.199,0.022,0.148],
+              "rotation": [0,-0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-4",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [-0.133,0.022,0.148],
+              "rotation": [0,0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-5",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [-0.067,0.022,0.148],
+              "rotation": [0,-0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-6",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [-0.0010000000000000009,0.022,0.148],
+              "rotation": [0,0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-7",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [0.065,0.022,0.148],
+              "rotation": [0,-0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-8",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [0.131,0.022,0.148],
+              "rotation": [0,0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-9",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [0.19700000000000006,0.022,0.148],
+              "rotation": [0,-0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-10",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [0.263,0.022,0.148],
+              "rotation": [0,0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-11",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [0.32899999999999996,0.022,0.148],
+              "rotation": [0,-0.2,0]
+            }
+          },
+          {
+            "id": "rubber-rib-12",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-tread",
+            "parent": "lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.022,0.008,0.26]
+            },
+            "appearance": {
+              "color": "#5b7480"
+            },
+            "transform": {
+              "position": [0.395,0.022,0.148],
+              "rotation": [0,0.2,0]
+            }
+          },
+          {
+            "id": "pivot",
+            "semanticType": "site.hinged-three-channel-temporary-cable-crossing-ramp.cover-hinge-rod",
+            "parent": "lid",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.448,0,0],
+              "end": [0.449,0,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed3db"
+            }
+          }
+        ],
+        "anchors": {
+          "channel--0.094": {
+            "node": "base",
+            "position": [0,0.049,-0.094],
+            "direction": [1,0,0],
+            "kind": "cable-route"
+          },
+          "channel-0": {
+            "node": "base",
+            "position": [0,0.049,0],
+            "direction": [1,0,0],
+            "kind": "cable-route"
+          },
+          "channel-0.094": {
+            "node": "base",
+            "position": [0,0.049,0.094],
+            "direction": [1,0,0],
+            "kind": "cable-route"
+          },
+          "ground": {
+            "node": "base",
+            "position": [0,-0.0095,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "cover": {
+            "node": "cover",
+            "position": [0,0.022,0.274],
+            "direction": [0,1,0],
+            "kind": "service"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "lid-angle",
+            "label": "过线槽盖上翻角",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 110,
+            "targets": [
+              {
+                "node": "lid",
+                "property": "rotation",
+                "axis": "x",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

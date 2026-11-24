@@ -1,0 +1,1106 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.walk-behind-concrete-power-trowel",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "手扶式混凝土抹光机",
+  "summary": "环状防护罩、四片可调倾角抹光刀、独立十字盘、发动机和可摆操纵把。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.walk-behind-concrete-power-trowel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "抹光机",
+    "混凝土收面",
+    "power-trowel",
+    "floor-finishing",
+    "施工设备",
+    "equipment"
+  ],
+  "anchors": [
+    "blade-contact-0",
+    "blade-contact-1",
+    "blade-contact-2",
+    "blade-contact-3",
+    "handle",
+    "finish-plane"
+  ],
+  "ai": {
+    "intent": "复用施工收面设备，定位四片工作刀、抹光面和操作把手。",
+    "editableParts": [
+      "rotor-angle",
+      "blade-pitch",
+      "handle-angle"
+    ],
+    "qualityChecks": [
+      "四刀片整体随盘转动，并可同步改变刀片倾角。",
+      "防护圈与手柄和旋转盘分离。",
+      "平放的刀片位于同一工作面。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "walk-behind-concrete-power-trowel",
+      "title": "手扶式混凝土抹光机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "guard-ring-0",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-ring",
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.361,
+              "tubeRadius": 0.008,
+              "radialSegments": 60,
+              "tubularSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            },
+            "transform": {
+              "position": [0,0.072,0]
+            }
+          },
+          {
+            "id": "guard-ring-1",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-ring",
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.411,
+              "tubeRadius": 0.008,
+              "radialSegments": 60,
+              "tubularSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            },
+            "transform": {
+              "position": [0,0.086,0]
+            }
+          },
+          {
+            "id": "guard-ring-2",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-ring",
+            "geometry": {
+              "type": "torus",
+              "majorRadius": 0.459,
+              "tubeRadius": 0.008,
+              "radialSegments": 60,
+              "tubularSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            },
+            "transform": {
+              "position": [0,0.09999999999999999,0]
+            }
+          },
+          {
+            "id": "guard-spoke-0",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-radial-strut",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.123,0.163,0],
+                [0.361,0.073,0],
+                [0.46,0.101,0]
+              ],
+              "radius": 0.0066,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "guard-spoke-1",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-radial-strut",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.08697413408594536,0.163,0.08697413408594534],
+                [0.25526554800834367,0.073,0.2552655480083436],
+                [0.3252691193458119,0.101,0.3252691193458118]
+              ],
+              "radius": 0.0066,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "guard-spoke-2",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-radial-strut",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [7.531577814756222e-18,0.163,0.123],
+                [2.2104874724609726e-17,0.073,0.361],
+                [2.816687638038912e-17,0.101,0.46]
+              ],
+              "radius": 0.0066,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "guard-spoke-3",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-radial-strut",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.08697413408594534,0.163,0.08697413408594536],
+                [-0.2552655480083436,0.073,0.25526554800834367],
+                [-0.3252691193458118,0.101,0.3252691193458119]
+              ],
+              "radius": 0.0066,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "guard-spoke-4",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-radial-strut",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.123,0.163,1.5063155629512445e-17],
+                [-0.361,0.073,4.420974944921945e-17],
+                [-0.46,0.101,5.633375276077825e-17]
+              ],
+              "radius": 0.0066,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "guard-spoke-5",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-radial-strut",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.08697413408594537,0.163,-0.08697413408594534],
+                [-0.2552655480083437,0.073,-0.2552655480083436],
+                [-0.32526911934581193,0.101,-0.3252691193458118]
+              ],
+              "radius": 0.0066,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "guard-spoke-6",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-radial-strut",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-2.2594733444268666e-17,0.163,-0.123],
+                [-6.631462417382917e-17,0.073,-0.361],
+                [-8.450062914116737e-17,0.101,-0.46]
+              ],
+              "radius": 0.0066,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "guard-spoke-7",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.protective-radial-strut",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.08697413408594533,0.163,-0.08697413408594537],
+                [0.2552655480083436,0.073,-0.2552655480083437],
+                [0.3252691193458118,0.101,-0.32526911934581193]
+              ],
+              "radius": 0.0066,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "gearcase",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.angle-drive-housing",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.107,0],
+                [0,0.21,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.113,0],
+                [0.11160878,0.01767709],
+                [0.10746939,0.03491892],
+                [0.10068374,0.05130093],
+                [0.09141892,0.06641973],
+                [0.07990307,0.07990307],
+                [0.06641973,0.09141892],
+                [0.05130093,0.10068374],
+                [0.03491892,0.10746939],
+                [0.01767709,0.11160878],
+                [0,0.113],
+                [-0.01767709,0.11160878],
+                [-0.03491892,0.10746939],
+                [-0.05130093,0.10068374],
+                [-0.06641973,0.09141892],
+                [-0.07990307,0.07990307],
+                [-0.09141892,0.06641973],
+                [-0.10068374,0.05130093],
+                [-0.10746939,0.03491892],
+                [-0.11160878,0.01767709],
+                [-0.113,0],
+                [-0.11160878,-0.01767709],
+                [-0.10746939,-0.03491892],
+                [-0.10068374,-0.05130093],
+                [-0.09141892,-0.06641973],
+                [-0.07990307,-0.07990307],
+                [-0.06641973,-0.09141892],
+                [-0.05130093,-0.10068374],
+                [-0.03491892,-0.10746939],
+                [-0.01767709,-0.11160878],
+                [0,-0.113],
+                [0.01767709,-0.11160878],
+                [0.03491892,-0.10746939],
+                [0.05130093,-0.10068374],
+                [0.06641973,-0.09141892],
+                [0.07990307,-0.07990307],
+                [0.09141892,-0.06641973],
+                [0.10068374,-0.05130093],
+                [0.10746939,-0.03491892],
+                [0.11160878,-0.01767709]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.02,0],
+                  [0.01975377,0.00312869],
+                  [0.01902113,0.00618034],
+                  [0.01782013,0.00907981],
+                  [0.01618034,0.01175571],
+                  [0.01414214,0.01414214],
+                  [0.01175571,0.01618034],
+                  [0.00907981,0.01782013],
+                  [0.00618034,0.01902113],
+                  [0.00312869,0.01975377],
+                  [0,0.02],
+                  [-0.00312869,0.01975377],
+                  [-0.00618034,0.01902113],
+                  [-0.00907981,0.01782013],
+                  [-0.01175571,0.01618034],
+                  [-0.01414214,0.01414214],
+                  [-0.01618034,0.01175571],
+                  [-0.01782013,0.00907981],
+                  [-0.01902113,0.00618034],
+                  [-0.01975377,0.00312869],
+                  [-0.02,0],
+                  [-0.01975377,-0.00312869],
+                  [-0.01902113,-0.00618034],
+                  [-0.01782013,-0.00907981],
+                  [-0.01618034,-0.01175571],
+                  [-0.01414214,-0.01414214],
+                  [-0.01175571,-0.01618034],
+                  [-0.00907981,-0.01782013],
+                  [-0.00618034,-0.01902113],
+                  [-0.00312869,-0.01975377],
+                  [0,-0.02],
+                  [0.00312869,-0.01975377],
+                  [0.00618034,-0.01902113],
+                  [0.00907981,-0.01782013],
+                  [0.01175571,-0.01618034],
+                  [0.01414214,-0.01414214],
+                  [0.01618034,-0.01175571],
+                  [0.01782013,-0.00907981],
+                  [0.01902113,-0.00618034],
+                  [0.01975377,-0.00312869]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5ca0a6"
+            }
+          },
+          {
+            "id": "engine-crankcase",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.engine-crankcase",
+            "geometry": {
+              "type": "box",
+              "size": [0.204,0.105,0.169]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0,0.254,0]
+            }
+          },
+          {
+            "id": "fuel-tank",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.engine-fuel-tank",
+            "geometry": {
+              "type": "box",
+              "size": [0.189,0.07,0.165]
+            },
+            "appearance": {
+              "color": "#e8e6da"
+            },
+            "transform": {
+              "position": [-0.012,0.393,0]
+            }
+          },
+          {
+            "id": "tank-cap",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.fuel-cap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.028,0.427,0],
+              "end": [-0.028,0.446,0],
+              "radius": 0.02,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#45525b"
+            }
+          },
+          {
+            "id": "engine-fin-0",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.engine-fin",
+            "geometry": {
+              "type": "box",
+              "size": [0.126,0.005,0.137]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.01,0.298,0]
+            }
+          },
+          {
+            "id": "engine-fin-1",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.engine-fin",
+            "geometry": {
+              "type": "box",
+              "size": [0.126,0.005,0.137]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.01,0.306,0]
+            }
+          },
+          {
+            "id": "engine-fin-2",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.engine-fin",
+            "geometry": {
+              "type": "box",
+              "size": [0.126,0.005,0.137]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.01,0.314,0]
+            }
+          },
+          {
+            "id": "engine-fin-3",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.engine-fin",
+            "geometry": {
+              "type": "box",
+              "size": [0.126,0.005,0.137]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.01,0.322,0]
+            }
+          },
+          {
+            "id": "engine-fin-4",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.engine-fin",
+            "geometry": {
+              "type": "box",
+              "size": [0.126,0.005,0.137]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.01,0.32999999999999996,0]
+            }
+          },
+          {
+            "id": "engine-fin-5",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.engine-fin",
+            "geometry": {
+              "type": "box",
+              "size": [0.126,0.005,0.137]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.01,0.33799999999999997,0]
+            }
+          },
+          {
+            "id": "engine-fin-6",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.engine-fin",
+            "geometry": {
+              "type": "box",
+              "size": [0.126,0.005,0.137]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.01,0.346,0]
+            }
+          },
+          {
+            "id": "engine-fin-7",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.engine-fin",
+            "geometry": {
+              "type": "box",
+              "size": [0.126,0.005,0.137]
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            },
+            "transform": {
+              "position": [0.01,0.354,0]
+            }
+          },
+          {
+            "id": "starter-reel",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.recoil-starter",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.272,-0.078],
+              "end": [0,0.272,-0.124],
+              "radius": 0.059,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#dfa74f"
+            }
+          },
+          {
+            "id": "engine-pull",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.starter-grip",
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.016,0.024]
+            },
+            "appearance": {
+              "color": "#303f49"
+            },
+            "transform": {
+              "position": [-0.053,0.309,-0.132]
+            }
+          },
+          {
+            "id": "blade-carrier",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.frame",
+            "transform": {
+              "position": [0,0.062,0]
+            }
+          },
+          {
+            "id": "output-shaft",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.drive-output-shaft",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.033,0],
+              "end": [0,0.115,0],
+              "radius": 0.019,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "spider",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.rotor-crosshead",
+            "parent": "blade-carrier",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.017,0],
+                [0,0.043,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.061,0],
+                [0.06007327,0.01059254],
+                [0.05732125,0.02086323],
+                [0.05282755,0.0305],
+                [0.04672871,0.03921004],
+                [0.03921004,0.04672871],
+                [0.0305,0.05282755],
+                [0.02086323,0.05732125],
+                [0.01059254,0.06007327],
+                [0,0.061],
+                [-0.01059254,0.06007327],
+                [-0.02086323,0.05732125],
+                [-0.0305,0.05282755],
+                [-0.03921004,0.04672871],
+                [-0.04672871,0.03921004],
+                [-0.05282755,0.0305],
+                [-0.05732125,0.02086323],
+                [-0.06007327,0.01059254],
+                [-0.061,0],
+                [-0.06007327,-0.01059254],
+                [-0.05732125,-0.02086323],
+                [-0.05282755,-0.0305],
+                [-0.04672871,-0.03921004],
+                [-0.03921004,-0.04672871],
+                [-0.0305,-0.05282755],
+                [-0.02086323,-0.05732125],
+                [-0.01059254,-0.06007327],
+                [0,-0.061],
+                [0.01059254,-0.06007327],
+                [0.02086323,-0.05732125],
+                [0.0305,-0.05282755],
+                [0.03921004,-0.04672871],
+                [0.04672871,-0.03921004],
+                [0.05282755,-0.0305],
+                [0.05732125,-0.02086323],
+                [0.06007327,-0.01059254]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.018,0],
+                  [0.01772654,0.00312567],
+                  [0.01691447,0.00615636],
+                  [0.01558846,0.009],
+                  [0.0137888,0.01157018],
+                  [0.01157018,0.0137888],
+                  [0.009,0.01558846],
+                  [0.00615636,0.01691447],
+                  [0.00312567,0.01772654],
+                  [0,0.018],
+                  [-0.00312567,0.01772654],
+                  [-0.00615636,0.01691447],
+                  [-0.009,0.01558846],
+                  [-0.01157018,0.0137888],
+                  [-0.0137888,0.01157018],
+                  [-0.01558846,0.009],
+                  [-0.01691447,0.00615636],
+                  [-0.01772654,0.00312567],
+                  [-0.018,0],
+                  [-0.01772654,-0.00312567],
+                  [-0.01691447,-0.00615636],
+                  [-0.01558846,-0.009],
+                  [-0.0137888,-0.01157018],
+                  [-0.01157018,-0.0137888],
+                  [-0.009,-0.01558846],
+                  [-0.00615636,-0.01691447],
+                  [-0.00312567,-0.01772654],
+                  [0,-0.018],
+                  [0.00312567,-0.01772654],
+                  [0.00615636,-0.01691447],
+                  [0.009,-0.01558846],
+                  [0.01157018,-0.0137888],
+                  [0.0137888,-0.01157018],
+                  [0.01558846,-0.009],
+                  [0.01691447,-0.00615636],
+                  [0.01772654,-0.00312567]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#6f848e"
+            }
+          },
+          {
+            "id": "arm-0",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.frame",
+            "parent": "blade-carrier",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "blade-articulation-0",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.frame",
+            "parent": "arm-0",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "arm-axis-0",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.blade-spindle",
+            "parent": "arm-0",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.046,0,0],
+              "end": [0.339,0,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "blade-bar-0",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.blade-support-bar",
+            "parent": "blade-articulation-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.225,0.029,0.02]
+            },
+            "appearance": {
+              "color": "#6f848e"
+            },
+            "transform": {
+              "position": [0.207,-0.017,0]
+            }
+          },
+          {
+            "id": "blade-0",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.finishing-blade",
+            "parent": "blade-articulation-0",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.037,0],
+                [0,-0.028,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.131,-0.072],
+                [-0.34299999999999997,-0.072],
+                [-0.378,-0.03699999999999999],
+                [-0.378,0.03699999999999999],
+                [-0.34299999999999997,0.072],
+                [-0.131,0.072],
+                [-0.096,0.03699999999999999],
+                [-0.096,-0.03699999999999999]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "arm-1",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.frame",
+            "parent": "blade-carrier",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,-1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "blade-articulation-1",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.frame",
+            "parent": "arm-1",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "arm-axis-1",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.blade-spindle",
+            "parent": "arm-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.046,0,0],
+              "end": [0.339,0,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "blade-bar-1",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.blade-support-bar",
+            "parent": "blade-articulation-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.225,0.029,0.02]
+            },
+            "appearance": {
+              "color": "#6f848e"
+            },
+            "transform": {
+              "position": [0.207,-0.017,0]
+            }
+          },
+          {
+            "id": "blade-1",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.finishing-blade",
+            "parent": "blade-articulation-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.037,0],
+                [0,-0.028,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.131,-0.072],
+                [-0.34299999999999997,-0.072],
+                [-0.378,-0.03699999999999999],
+                [-0.378,0.03699999999999999],
+                [-0.34299999999999997,0.072],
+                [-0.131,0.072],
+                [-0.096,0.03699999999999999],
+                [-0.096,-0.03699999999999999]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "arm-2",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.frame",
+            "parent": "blade-carrier",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,-3.141592653589793,0]
+            }
+          },
+          {
+            "id": "blade-articulation-2",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.frame",
+            "parent": "arm-2",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "arm-axis-2",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.blade-spindle",
+            "parent": "arm-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.046,0,0],
+              "end": [0.339,0,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "blade-bar-2",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.blade-support-bar",
+            "parent": "blade-articulation-2",
+            "geometry": {
+              "type": "box",
+              "size": [0.225,0.029,0.02]
+            },
+            "appearance": {
+              "color": "#6f848e"
+            },
+            "transform": {
+              "position": [0.207,-0.017,0]
+            }
+          },
+          {
+            "id": "blade-2",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.finishing-blade",
+            "parent": "blade-articulation-2",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.037,0],
+                [0,-0.028,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.131,-0.072],
+                [-0.34299999999999997,-0.072],
+                [-0.378,-0.03699999999999999],
+                [-0.378,0.03699999999999999],
+                [-0.34299999999999997,0.072],
+                [-0.131,0.072],
+                [-0.096,0.03699999999999999],
+                [-0.096,-0.03699999999999999]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "arm-3",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.frame",
+            "parent": "blade-carrier",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,-4.71238898038469,0]
+            }
+          },
+          {
+            "id": "blade-articulation-3",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.frame",
+            "parent": "arm-3",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "arm-axis-3",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.blade-spindle",
+            "parent": "arm-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.046,0,0],
+              "end": [0.339,0,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "blade-bar-3",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.blade-support-bar",
+            "parent": "blade-articulation-3",
+            "geometry": {
+              "type": "box",
+              "size": [0.225,0.029,0.02]
+            },
+            "appearance": {
+              "color": "#6f848e"
+            },
+            "transform": {
+              "position": [0.207,-0.017,0]
+            }
+          },
+          {
+            "id": "blade-3",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.finishing-blade",
+            "parent": "blade-articulation-3",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.037,0],
+                [0,-0.028,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.131,-0.072],
+                [-0.34299999999999997,-0.072],
+                [-0.378,-0.03699999999999999],
+                [-0.378,0.03699999999999999],
+                [-0.34299999999999997,0.072],
+                [-0.131,0.072],
+                [-0.096,0.03699999999999999],
+                [-0.096,-0.03699999999999999]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a9bec9"
+            }
+          },
+          {
+            "id": "handle",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.frame",
+            "transform": {
+              "position": [-0.098,0.191,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tiller",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.operator-handle",
+            "parent": "handle",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,0],
+                [-0.427,0.482,0],
+                [-0.658,0.706,0]
+              ],
+              "radius": 0.019,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#647b86"
+            }
+          },
+          {
+            "id": "grip",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.control-grip",
+            "parent": "handle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.658,0.706,-0.23],
+              "end": [-0.658,0.706,0.23],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#29343d"
+            }
+          },
+          {
+            "id": "operator-controls",
+            "semanticType": "equipment.walk-behind-concrete-power-trowel.operator-controls",
+            "parent": "handle",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.039,0.056]
+            },
+            "appearance": {
+              "color": "#dfa74f"
+            },
+            "transform": {
+              "position": [-0.657,0.716,0.082]
+            }
+          }
+        ],
+        "anchors": {
+          "blade-contact-0": {
+            "node": "blade-articulation-0",
+            "position": [0.245,-0.037,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "blade-contact-1": {
+            "node": "blade-articulation-1",
+            "position": [0.245,-0.037,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "blade-contact-2": {
+            "node": "blade-articulation-2",
+            "position": [0.245,-0.037,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "blade-contact-3": {
+            "node": "blade-articulation-3",
+            "position": [0.245,-0.037,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "handle": {
+            "node": "grip",
+            "position": [-0.658,0.706,0],
+            "direction": [0,0,1],
+            "kind": "grip"
+          },
+          "finish-plane": {
+            "node": "gearcase",
+            "position": [0,0.025,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "rotor-angle",
+            "label": "十字盘转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "blade-carrier",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "blade-pitch",
+            "label": "四刀片倾角",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 13,
+            "targets": [
+              {
+                "node": "blade-articulation-0",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "blade-articulation-1",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "blade-articulation-2",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "blade-articulation-3",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "blade-carrier",
+                "property": "position",
+                "axis": "y",
+                "factor": 0.00126
+              }
+            ]
+          },
+          {
+            "id": "handle-angle",
+            "label": "把手仰角",
+            "unit": "deg",
+            "value": 0,
+            "min": -14,
+            "max": 21,
+            "targets": [
+              {
+                "node": "handle",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

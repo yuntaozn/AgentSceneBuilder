@@ -1,0 +1,662 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "三通道可变道板重力滑槽",
+  "summary": "开口滑槽、两片可向左右错开的分道立板、末端阻尼滚轮与顶部进料基准。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "重力分拣滑槽",
+    "三路落料槽",
+    "gravity parcel chute",
+    "sliding lane dividers",
+    "包裹输送分拣",
+    "parcel sorting and conveying"
+  ],
+  "anchors": [
+    "infeed",
+    "chute-lane-1",
+    "chute-lane-2",
+    "chute-lane-3"
+  ],
+  "ai": {
+    "intent": "把开式滑槽接到转向分拣台的侧输出，按区道调整导板。",
+    "editableParts": [
+      "divider--1",
+      "divider-1"
+    ],
+    "qualityChecks": [
+      "初始入料面与分拣水平面共高。",
+      "末端接收位沿三个通道分离。",
+      "两个分道板各自调节。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "three-lane-gravity-parcel-chute-with-adjustable-divider-rails",
+      "title": "三通道可变道板重力滑槽",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sloping-trough",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.frame",
+            "transform": {
+              "position": [0,0.72,0],
+              "rotation": [0.3665191429188092,0,0]
+            }
+          },
+          {
+            "id": "track-bed",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.smooth-parcel-chute-floor",
+            "parent": "sloping-trough",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.022,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.435,0],
+                [-0.435,0],
+                [-0.456,0.021],
+                [-0.456,1.062],
+                [-0.435,1.083],
+                [0.435,1.083],
+                [0.456,1.062],
+                [0.456,0.021]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.377,0.225],
+                  [0.37740889,0.22810583],
+                  [0.3786077,0.231],
+                  [0.38051472,0.23348528],
+                  [0.383,0.2353923],
+                  [0.38589417,0.23659111],
+                  [0.389,0.237],
+                  [0.39210583,0.23659111],
+                  [0.395,0.2353923],
+                  [0.39748528,0.23348528],
+                  [0.3993923,0.231],
+                  [0.40059111,0.22810583],
+                  [0.401,0.225],
+                  [0.40059111,0.22189417],
+                  [0.3993923,0.219],
+                  [0.39748528,0.21651472],
+                  [0.395,0.2146077],
+                  [0.39210583,0.21340889],
+                  [0.389,0.213],
+                  [0.38589417,0.21340889],
+                  [0.383,0.2146077],
+                  [0.38051472,0.21651472],
+                  [0.3786077,0.219],
+                  [0.37740889,0.22189417]
+                ],
+                [
+                  [0.377,0.77],
+                  [0.37740889,0.77310583],
+                  [0.3786077,0.776],
+                  [0.38051472,0.77848528],
+                  [0.383,0.7803923],
+                  [0.38589417,0.78159111],
+                  [0.389,0.782],
+                  [0.39210583,0.78159111],
+                  [0.395,0.7803923],
+                  [0.39748528,0.77848528],
+                  [0.3993923,0.776],
+                  [0.40059111,0.77310583],
+                  [0.401,0.77],
+                  [0.40059111,0.76689417],
+                  [0.3993923,0.764],
+                  [0.39748528,0.76151472],
+                  [0.395,0.7596077],
+                  [0.39210583,0.75840889],
+                  [0.389,0.758],
+                  [0.38589417,0.75840889],
+                  [0.383,0.7596077],
+                  [0.38051472,0.76151472],
+                  [0.3786077,0.764],
+                  [0.37740889,0.76689417]
+                ],
+                [
+                  [-0.401,0.225],
+                  [-0.40059111,0.22810583],
+                  [-0.3993923,0.231],
+                  [-0.39748528,0.23348528],
+                  [-0.395,0.2353923],
+                  [-0.39210583,0.23659111],
+                  [-0.389,0.237],
+                  [-0.38589417,0.23659111],
+                  [-0.383,0.2353923],
+                  [-0.38051472,0.23348528],
+                  [-0.3786077,0.231],
+                  [-0.37740889,0.22810583],
+                  [-0.377,0.225],
+                  [-0.37740889,0.22189417],
+                  [-0.3786077,0.219],
+                  [-0.38051472,0.21651472],
+                  [-0.383,0.2146077],
+                  [-0.38589417,0.21340889],
+                  [-0.389,0.213],
+                  [-0.39210583,0.21340889],
+                  [-0.395,0.2146077],
+                  [-0.39748528,0.21651472],
+                  [-0.3993923,0.219],
+                  [-0.40059111,0.22189417]
+                ],
+                [
+                  [-0.401,0.77],
+                  [-0.40059111,0.77310583],
+                  [-0.3993923,0.776],
+                  [-0.39748528,0.77848528],
+                  [-0.395,0.7803923],
+                  [-0.39210583,0.78159111],
+                  [-0.389,0.782],
+                  [-0.38589417,0.78159111],
+                  [-0.383,0.7803923],
+                  [-0.38051472,0.77848528],
+                  [-0.3786077,0.776],
+                  [-0.37740889,0.77310583],
+                  [-0.377,0.77],
+                  [-0.37740889,0.76689417],
+                  [-0.3786077,0.764],
+                  [-0.38051472,0.76151472],
+                  [-0.383,0.7596077],
+                  [-0.38589417,0.75840889],
+                  [-0.389,0.758],
+                  [-0.39210583,0.75840889],
+                  [-0.395,0.7596077],
+                  [-0.39748528,0.76151472],
+                  [-0.3993923,0.764],
+                  [-0.40059111,0.76689417]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c9d7da"
+            }
+          },
+          {
+            "id": "sidewall--0.444",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.retaining-sidewall-of-descending-chute",
+            "parent": "sloping-trough",
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.134,1.072]
+            },
+            "appearance": {
+              "color": "#86a9b6"
+            },
+            "transform": {
+              "position": [-0.444,0.059,0.541]
+            }
+          },
+          {
+            "id": "sidewall-0.444",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.retaining-sidewall-of-descending-chute",
+            "parent": "sloping-trough",
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.134,1.072]
+            },
+            "appearance": {
+              "color": "#86a9b6"
+            },
+            "transform": {
+              "position": [0.444,0.059,0.541]
+            }
+          },
+          {
+            "id": "channel-divider--1",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.frame",
+            "parent": "sloping-trough",
+            "transform": {
+              "position": [-0.151,0,0]
+            }
+          },
+          {
+            "id": "divider-panel--1",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.slanted-entry-parcel-divider",
+            "parent": "channel-divider--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.009,0,0],
+                [-0.009,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.001,0],
+                [0.994,0],
+                [0.994,0.093],
+                [0.243,0.093],
+                [-0.001,0.039]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#78aaae"
+            }
+          },
+          {
+            "id": "channel-divider-1",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.frame",
+            "parent": "sloping-trough",
+            "transform": {
+              "position": [0.151,0,0]
+            }
+          },
+          {
+            "id": "divider-panel-1",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.slanted-entry-parcel-divider",
+            "parent": "channel-divider-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.009,0,0],
+                [-0.009,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.001,0],
+                [0.994,0],
+                [0.994,0.093],
+                [0.243,0.093],
+                [-0.001,0.039]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#78aaae"
+            }
+          },
+          {
+            "id": "bottom-roller-axis-0.966",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.frame",
+            "parent": "sloping-trough",
+            "transform": {
+              "position": [0,0.016,0.966]
+            }
+          },
+          {
+            "id": "damping-roll-0.966",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.annular-damping-roller",
+            "parent": "bottom-roller-axis-0.966",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.417,0,0],
+                [0.417,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.021,0],
+                [0.02068096,0.00364661],
+                [0.01973355,0.00718242],
+                [0.01818653,0.0105],
+                [0.01608693,0.01349854],
+                [0.01349854,0.01608693],
+                [0.0105,0.01818653],
+                [0.00718242,0.01973355],
+                [0.00364661,0.02068096],
+                [0,0.021],
+                [-0.00364661,0.02068096],
+                [-0.00718242,0.01973355],
+                [-0.0105,0.01818653],
+                [-0.01349854,0.01608693],
+                [-0.01608693,0.01349854],
+                [-0.01818653,0.0105],
+                [-0.01973355,0.00718242],
+                [-0.02068096,0.00364661],
+                [-0.021,0],
+                [-0.02068096,-0.00364661],
+                [-0.01973355,-0.00718242],
+                [-0.01818653,-0.0105],
+                [-0.01608693,-0.01349854],
+                [-0.01349854,-0.01608693],
+                [-0.0105,-0.01818653],
+                [-0.00718242,-0.01973355],
+                [-0.00364661,-0.02068096],
+                [0,-0.021],
+                [0.00364661,-0.02068096],
+                [0.00718242,-0.01973355],
+                [0.0105,-0.01818653],
+                [0.01349854,-0.01608693],
+                [0.01608693,-0.01349854],
+                [0.01818653,-0.0105],
+                [0.01973355,-0.00718242],
+                [0.02068096,-0.00364661]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.00886327,0.00156283],
+                  [0.00845723,0.00307818],
+                  [0.00779423,0.0045],
+                  [0.0068944,0.00578509],
+                  [0.00578509,0.0068944],
+                  [0.0045,0.00779423],
+                  [0.00307818,0.00845723],
+                  [0.00156283,0.00886327],
+                  [0,0.009],
+                  [-0.00156283,0.00886327],
+                  [-0.00307818,0.00845723],
+                  [-0.0045,0.00779423],
+                  [-0.00578509,0.0068944],
+                  [-0.0068944,0.00578509],
+                  [-0.00779423,0.0045],
+                  [-0.00845723,0.00307818],
+                  [-0.00886327,0.00156283],
+                  [-0.009,0],
+                  [-0.00886327,-0.00156283],
+                  [-0.00845723,-0.00307818],
+                  [-0.00779423,-0.0045],
+                  [-0.0068944,-0.00578509],
+                  [-0.00578509,-0.0068944],
+                  [-0.0045,-0.00779423],
+                  [-0.00307818,-0.00845723],
+                  [-0.00156283,-0.00886327],
+                  [0,-0.009],
+                  [0.00156283,-0.00886327],
+                  [0.00307818,-0.00845723],
+                  [0.0045,-0.00779423],
+                  [0.00578509,-0.0068944],
+                  [0.0068944,-0.00578509],
+                  [0.00779423,-0.0045],
+                  [0.00845723,-0.00307818],
+                  [0.00886327,-0.00156283]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#617a85"
+            }
+          },
+          {
+            "id": "bottom-roller-axis-1.022",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.frame",
+            "parent": "sloping-trough",
+            "transform": {
+              "position": [0,0.016,1.022]
+            }
+          },
+          {
+            "id": "damping-roll-1.022",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.annular-damping-roller",
+            "parent": "bottom-roller-axis-1.022",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.417,0,0],
+                [0.417,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.021,0],
+                [0.02068096,0.00364661],
+                [0.01973355,0.00718242],
+                [0.01818653,0.0105],
+                [0.01608693,0.01349854],
+                [0.01349854,0.01608693],
+                [0.0105,0.01818653],
+                [0.00718242,0.01973355],
+                [0.00364661,0.02068096],
+                [0,0.021],
+                [-0.00364661,0.02068096],
+                [-0.00718242,0.01973355],
+                [-0.0105,0.01818653],
+                [-0.01349854,0.01608693],
+                [-0.01608693,0.01349854],
+                [-0.01818653,0.0105],
+                [-0.01973355,0.00718242],
+                [-0.02068096,0.00364661],
+                [-0.021,0],
+                [-0.02068096,-0.00364661],
+                [-0.01973355,-0.00718242],
+                [-0.01818653,-0.0105],
+                [-0.01608693,-0.01349854],
+                [-0.01349854,-0.01608693],
+                [-0.0105,-0.01818653],
+                [-0.00718242,-0.01973355],
+                [-0.00364661,-0.02068096],
+                [0,-0.021],
+                [0.00364661,-0.02068096],
+                [0.00718242,-0.01973355],
+                [0.0105,-0.01818653],
+                [0.01349854,-0.01608693],
+                [0.01608693,-0.01349854],
+                [0.01818653,-0.0105],
+                [0.01973355,-0.00718242],
+                [0.02068096,-0.00364661]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.00886327,0.00156283],
+                  [0.00845723,0.00307818],
+                  [0.00779423,0.0045],
+                  [0.0068944,0.00578509],
+                  [0.00578509,0.0068944],
+                  [0.0045,0.00779423],
+                  [0.00307818,0.00845723],
+                  [0.00156283,0.00886327],
+                  [0,0.009],
+                  [-0.00156283,0.00886327],
+                  [-0.00307818,0.00845723],
+                  [-0.0045,0.00779423],
+                  [-0.00578509,0.0068944],
+                  [-0.0068944,0.00578509],
+                  [-0.00779423,0.0045],
+                  [-0.00845723,0.00307818],
+                  [-0.00886327,0.00156283],
+                  [-0.009,0],
+                  [-0.00886327,-0.00156283],
+                  [-0.00845723,-0.00307818],
+                  [-0.00779423,-0.0045],
+                  [-0.0068944,-0.00578509],
+                  [-0.00578509,-0.0068944],
+                  [-0.0045,-0.00779423],
+                  [-0.00307818,-0.00845723],
+                  [-0.00156283,-0.00886327],
+                  [0,-0.009],
+                  [0.00156283,-0.00886327],
+                  [0.00307818,-0.00845723],
+                  [0.0045,-0.00779423],
+                  [0.00578509,-0.0068944],
+                  [0.0068944,-0.00578509],
+                  [0.00779423,-0.0045],
+                  [0.00845723,-0.00307818],
+                  [0.00886327,-0.00156283]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#617a85"
+            }
+          },
+          {
+            "id": "support-leg--0.408-0.11",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.chute-floor-support",
+            "geometry": {
+              "type": "box",
+              "size": [0.053,0.647,0.054]
+            },
+            "appearance": {
+              "color": "#86a9b6"
+            },
+            "transform": {
+              "position": [-0.408,0.3235,0.11]
+            }
+          },
+          {
+            "id": "foot--0.408-0.11",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.end-carriage-floor-shoe",
+            "geometry": {
+              "type": "box",
+              "size": [0.115,0.021,0.105]
+            },
+            "appearance": {
+              "color": "#617a85"
+            },
+            "transform": {
+              "position": [-0.408,0.0105,0.11]
+            }
+          },
+          {
+            "id": "support-leg--0.408-0.95",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.chute-floor-support",
+            "geometry": {
+              "type": "box",
+              "size": [0.053,0.33,0.054]
+            },
+            "appearance": {
+              "color": "#86a9b6"
+            },
+            "transform": {
+              "position": [-0.408,0.165,0.95]
+            }
+          },
+          {
+            "id": "foot--0.408-0.95",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.end-carriage-floor-shoe",
+            "geometry": {
+              "type": "box",
+              "size": [0.115,0.021,0.105]
+            },
+            "appearance": {
+              "color": "#617a85"
+            },
+            "transform": {
+              "position": [-0.408,0.0105,0.95]
+            }
+          },
+          {
+            "id": "support-leg-0.408-0.11",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.chute-floor-support",
+            "geometry": {
+              "type": "box",
+              "size": [0.053,0.647,0.054]
+            },
+            "appearance": {
+              "color": "#86a9b6"
+            },
+            "transform": {
+              "position": [0.408,0.3235,0.11]
+            }
+          },
+          {
+            "id": "foot-0.408-0.11",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.end-carriage-floor-shoe",
+            "geometry": {
+              "type": "box",
+              "size": [0.115,0.021,0.105]
+            },
+            "appearance": {
+              "color": "#617a85"
+            },
+            "transform": {
+              "position": [0.408,0.0105,0.11]
+            }
+          },
+          {
+            "id": "support-leg-0.408-0.95",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.chute-floor-support",
+            "geometry": {
+              "type": "box",
+              "size": [0.053,0.33,0.054]
+            },
+            "appearance": {
+              "color": "#86a9b6"
+            },
+            "transform": {
+              "position": [0.408,0.165,0.95]
+            }
+          },
+          {
+            "id": "foot-0.408-0.95",
+            "semanticType": "equipment.three-lane-gravity-parcel-chute-with-adjustable-divider-rails.end-carriage-floor-shoe",
+            "geometry": {
+              "type": "box",
+              "size": [0.115,0.021,0.105]
+            },
+            "appearance": {
+              "color": "#617a85"
+            },
+            "transform": {
+              "position": [0.408,0.0105,0.95]
+            }
+          }
+        ],
+        "anchors": {
+          "infeed": {
+            "position": [0,0.72,0],
+            "direction": [0,0,-1],
+            "kind": "parcel-conveyor-dock"
+          },
+          "chute-lane-1": {
+            "node": "sloping-trough",
+            "position": [-0.302,0.001,1.083],
+            "direction": [0,0,1],
+            "kind": "parcel-chute-end"
+          },
+          "chute-lane-2": {
+            "node": "sloping-trough",
+            "position": [0,0.001,1.083],
+            "direction": [0,0,1],
+            "kind": "parcel-chute-end"
+          },
+          "chute-lane-3": {
+            "node": "sloping-trough",
+            "position": [0.302,0.001,1.083],
+            "direction": [0,0,1],
+            "kind": "parcel-chute-end"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "divider--1",
+            "label": "左分道板横移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.06,
+            "max": 0.06,
+            "targets": [
+              {
+                "node": "channel-divider--1",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "divider-1",
+            "label": "右分道板横移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.06,
+            "max": 0.06,
+            "targets": [
+              {
+                "node": "channel-divider-1",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,384 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.latching-inspection-drone-rear-battery-cassette",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "巡检无人机尾置快拆电池盒",
+  "summary": "带独立定位鼻、顶部壳盖、左右卡舌、双导面和拉出把手。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "无人机电池盒",
+    "快拆电池",
+    "drone-battery-cassette",
+    "battery-rail",
+    "无人机模块",
+    "inspection-drone"
+  ],
+  "anchors": [
+    "housing",
+    "withdraw"
+  ],
+  "ai": {
+    "intent": "独立复用可抽装电池外形和定位面，也可连接无人机机身尾座。",
+    "editableParts": [
+      "latch-release"
+    ],
+    "qualityChecks": [
+      "电池安装面与机身尾座法向相反。",
+      "两侧卡扣同步向内回缩。",
+      "拉手位于尾端。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "latching-inspection-drone-rear-battery-cassette",
+      "title": "巡检无人机尾置快拆电池盒",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "dock",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.perforated-power-bay-mating-face",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.012],
+                [0,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.031,-0.022],
+                [0.031,-0.022],
+                [0.038,-0.015],
+                [0.038,0.015],
+                [0.031,0.022],
+                [-0.031,0.022],
+                [-0.038,0.015],
+                [-0.038,-0.015]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0152,0],
+                  [-0.01546008,0.00155856],
+                  [-0.01621213,0.00294822],
+                  [-0.01737465,0.0040184],
+                  [-0.01882167,0.00465312],
+                  [-0.02039638,0.00478361],
+                  [-0.02192814,0.00439571],
+                  [-0.02325095,0.00353147],
+                  [-0.02422147,0.00228455],
+                  [-0.02473453,0.00079005],
+                  [-0.02473453,-0.00079005],
+                  [-0.02422147,-0.00228455],
+                  [-0.02325095,-0.00353147],
+                  [-0.02192814,-0.00439571],
+                  [-0.02039638,-0.00478361],
+                  [-0.01882167,-0.00465312],
+                  [-0.01737465,-0.0040184],
+                  [-0.01621213,-0.00294822],
+                  [-0.01546008,-0.00155856]
+                ],
+                [
+                  [0.0248,0],
+                  [0.02453992,0.00155856],
+                  [0.02378787,0.00294822],
+                  [0.02262535,0.0040184],
+                  [0.02117833,0.00465312],
+                  [0.01960362,0.00478361],
+                  [0.01807186,0.00439571],
+                  [0.01674905,0.00353147],
+                  [0.01577853,0.00228455],
+                  [0.01526547,0.00079005],
+                  [0.01526547,-0.00079005],
+                  [0.01577853,-0.00228455],
+                  [0.01674905,-0.00353147],
+                  [0.01807186,-0.00439571],
+                  [0.01960362,-0.00478361],
+                  [0.02117833,-0.00465312],
+                  [0.02262535,-0.0040184],
+                  [0.02378787,-0.00294822],
+                  [0.02453992,-0.00155856]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#99b1be"
+            }
+          },
+          {
+            "id": "battery-tray",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.sealed-pack-lower-shell",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.024,0],
+                [0,0.014,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.030000000000000002,-0.143],
+                [-0.030000000000000002,-0.143],
+                [-0.042,-0.13099999999999998],
+                [-0.042,-0.022999999999999982],
+                [-0.030000000000000002,-0.010999999999999982],
+                [0.030000000000000002,-0.010999999999999982],
+                [0.042,-0.022999999999999982],
+                [0.042,-0.13099999999999998]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#82bbc7"
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.pack-removable-shell-cover",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.014,0],
+                [0,0.027,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.030000000000000002,-0.143],
+                [-0.030000000000000002,-0.143],
+                [-0.042,-0.13099999999999998],
+                [-0.042,-0.022999999999999982],
+                [-0.030000000000000002,-0.010999999999999982],
+                [0.030000000000000002,-0.010999999999999982],
+                [0.042,-0.022999999999999982],
+                [0.042,-0.13099999999999998]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#c3d0d4"
+            }
+          },
+          {
+            "id": "rail--1",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.longitudinal-slide-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.022,0.112]
+            },
+            "appearance": {
+              "color": "#bfd2db"
+            },
+            "transform": {
+              "position": [-0.041,-0.003,-0.069]
+            }
+          },
+          {
+            "id": "latch--1",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.frame",
+            "transform": {
+              "position": [-0.04,0.004,-0.104]
+            }
+          },
+          {
+            "id": "locking-lug--1",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.spring-latch-catch",
+            "parent": "latch--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.027,0.034]
+            },
+            "appearance": {
+              "color": "#e8be73"
+            },
+            "transform": {
+              "position": [-0.003,0,0]
+            }
+          },
+          {
+            "id": "latch-pad--1",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.recessed-release-tab",
+            "parent": "latch--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.021,0.029]
+            },
+            "appearance": {
+              "color": "#607985"
+            },
+            "transform": {
+              "position": [-0.004,0.008,-0.023]
+            }
+          },
+          {
+            "id": "rail-1",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.longitudinal-slide-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.022,0.112]
+            },
+            "appearance": {
+              "color": "#bfd2db"
+            },
+            "transform": {
+              "position": [0.041,-0.003,-0.069]
+            }
+          },
+          {
+            "id": "latch-1",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.frame",
+            "transform": {
+              "position": [0.04,0.004,-0.104]
+            }
+          },
+          {
+            "id": "locking-lug-1",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.spring-latch-catch",
+            "parent": "latch-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.01,0.027,0.034]
+            },
+            "appearance": {
+              "color": "#e8be73"
+            },
+            "transform": {
+              "position": [0.003,0,0]
+            }
+          },
+          {
+            "id": "latch-pad-1",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.recessed-release-tab",
+            "parent": "latch-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.021,0.029]
+            },
+            "appearance": {
+              "color": "#607985"
+            },
+            "transform": {
+              "position": [0.004,0.008,-0.023]
+            }
+          },
+          {
+            "id": "grab",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.recessed-battery-withdrawal-handle",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.025,0.007,-0.138],
+                [-0.025,0.007,-0.161],
+                [0.025,0.007,-0.161],
+                [0.025,0.007,-0.138]
+              ],
+              "radius": 0.0058,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#99b1be"
+            }
+          },
+          {
+            "id": "indicator-0",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.battery-status-indicator",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.002,0.009]
+            },
+            "appearance": {
+              "color": "#9bc1a4"
+            },
+            "transform": {
+              "position": [-0.016,0.028,-0.112]
+            }
+          },
+          {
+            "id": "indicator-1",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.battery-status-indicator",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.002,0.009]
+            },
+            "appearance": {
+              "color": "#9bc1a4"
+            },
+            "transform": {
+              "position": [-0.006,0.028,-0.112]
+            }
+          },
+          {
+            "id": "indicator-2",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.battery-status-indicator",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.002,0.009]
+            },
+            "appearance": {
+              "color": "#9bc1a4"
+            },
+            "transform": {
+              "position": [0.004,0.028,-0.112]
+            }
+          },
+          {
+            "id": "indicator-3",
+            "semanticType": "equipment.latching-inspection-drone-rear-battery-cassette.battery-status-indicator",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.002,0.009]
+            },
+            "appearance": {
+              "color": "#99b1be"
+            },
+            "transform": {
+              "position": [0.013999999999999999,0.028,-0.112]
+            }
+          }
+        ],
+        "anchors": {
+          "housing": {
+            "node": "dock",
+            "position": [0,0,0],
+            "direction": [0,0,1],
+            "kind": "drone-battery"
+          },
+          "withdraw": {
+            "node": "grab",
+            "position": [0,0.007,-0.161],
+            "direction": [0,0,-1],
+            "kind": "grip"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "latch-release",
+            "label": "两侧卡扣收回量",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.007,
+            "targets": [
+              {
+                "node": "latch--1",
+                "property": "position",
+                "axis": "x"
+              },
+              {
+                "node": "latch-1",
+                "property": "position",
+                "axis": "x",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

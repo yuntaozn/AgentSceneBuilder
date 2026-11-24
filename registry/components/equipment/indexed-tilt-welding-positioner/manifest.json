@@ -1,0 +1,1161 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.indexed-tilt-welding-positioner",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双轴倾翻焊接定位台",
+  "summary": "安装底板、双支座、可俯仰机头、带贯通孔回转台面与侧置蜗轮箱。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.indexed-tilt-welding-positioner",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "焊接变位机",
+    "焊接定位台",
+    "welding-positioner",
+    "tilt-index",
+    "机械基础件",
+    "equipment"
+  ],
+  "anchors": [
+    "fixture-plane",
+    "fixture-index",
+    "base"
+  ],
+  "ai": {
+    "intent": "为工件定位、装配或教学模型提供可独立摆角与回转的台面。",
+    "editableParts": [
+      "tilt-angle",
+      "index-angle"
+    ],
+    "qualityChecks": [
+      "回转台随倾翻框架运动。",
+      "法兰锚点在台面上，固定底板不动。",
+      "台面开槽和中心孔保持贯通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "indexed-tilt-welding-positioner",
+      "title": "双轴倾翻焊接定位台",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.positioner-base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.024,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.231,-0.216],
+                [-0.231,-0.216],
+                [-0.258,-0.189],
+                [-0.258,0.189],
+                [-0.231,0.216],
+                [0.231,0.216],
+                [0.258,0.189],
+                [0.258,-0.189]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.202,-0.178],
+                  [0.20248943,-0.17490983],
+                  [0.20390983,-0.17212215],
+                  [0.20612215,-0.16990983],
+                  [0.20890983,-0.16848943],
+                  [0.212,-0.168],
+                  [0.21509017,-0.16848943],
+                  [0.21787785,-0.16990983],
+                  [0.22009017,-0.17212215],
+                  [0.22151057,-0.17490983],
+                  [0.222,-0.178],
+                  [0.22151057,-0.18109017],
+                  [0.22009017,-0.18387785],
+                  [0.21787785,-0.18609017],
+                  [0.21509017,-0.18751057],
+                  [0.212,-0.188],
+                  [0.20890983,-0.18751057],
+                  [0.20612215,-0.18609017],
+                  [0.20390983,-0.18387785],
+                  [0.20248943,-0.18109017]
+                ],
+                [
+                  [0.202,0.178],
+                  [0.20248943,0.18109017],
+                  [0.20390983,0.18387785],
+                  [0.20612215,0.18609017],
+                  [0.20890983,0.18751057],
+                  [0.212,0.188],
+                  [0.21509017,0.18751057],
+                  [0.21787785,0.18609017],
+                  [0.22009017,0.18387785],
+                  [0.22151057,0.18109017],
+                  [0.222,0.178],
+                  [0.22151057,0.17490983],
+                  [0.22009017,0.17212215],
+                  [0.21787785,0.16990983],
+                  [0.21509017,0.16848943],
+                  [0.212,0.168],
+                  [0.20890983,0.16848943],
+                  [0.20612215,0.16990983],
+                  [0.20390983,0.17212215],
+                  [0.20248943,0.17490983]
+                ],
+                [
+                  [-0.222,-0.178],
+                  [-0.22151057,-0.17490983],
+                  [-0.22009017,-0.17212215],
+                  [-0.21787785,-0.16990983],
+                  [-0.21509017,-0.16848943],
+                  [-0.212,-0.168],
+                  [-0.20890983,-0.16848943],
+                  [-0.20612215,-0.16990983],
+                  [-0.20390983,-0.17212215],
+                  [-0.20248943,-0.17490983],
+                  [-0.202,-0.178],
+                  [-0.20248943,-0.18109017],
+                  [-0.20390983,-0.18387785],
+                  [-0.20612215,-0.18609017],
+                  [-0.20890983,-0.18751057],
+                  [-0.212,-0.188],
+                  [-0.21509017,-0.18751057],
+                  [-0.21787785,-0.18609017],
+                  [-0.22009017,-0.18387785],
+                  [-0.22151057,-0.18109017]
+                ],
+                [
+                  [-0.222,0.178],
+                  [-0.22151057,0.18109017],
+                  [-0.22009017,0.18387785],
+                  [-0.21787785,0.18609017],
+                  [-0.21509017,0.18751057],
+                  [-0.212,0.188],
+                  [-0.20890983,0.18751057],
+                  [-0.20612215,0.18609017],
+                  [-0.20390983,0.18387785],
+                  [-0.20248943,0.18109017],
+                  [-0.202,0.178],
+                  [-0.20248943,0.17490983],
+                  [-0.20390983,0.17212215],
+                  [-0.20612215,0.16990983],
+                  [-0.20890983,0.16848943],
+                  [-0.212,0.168],
+                  [-0.21509017,0.16848943],
+                  [-0.21787785,0.16990983],
+                  [-0.22009017,0.17212215],
+                  [-0.22151057,0.17490983]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#677f8b"
+            }
+          },
+          {
+            "id": "tilt-stand--1",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.tilt-hinge-stand",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.15799999999999997],
+                [0,0,-0.12399999999999999]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.124,0.02],
+                [0.124,0.02],
+                [0.076,0.176],
+                [0.049,0.242],
+                [-0.049,0.242],
+                [-0.085,0.174]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.023,0.188],
+                  [0.02233166,0.19350426],
+                  [0.02036549,0.19868863],
+                  [0.01721575,0.20325182],
+                  [0.01306549,0.20692863],
+                  [0.00815591,0.20950537],
+                  [0.00277234,0.2108323],
+                  [-0.00277234,0.2108323],
+                  [-0.00815591,0.20950537],
+                  [-0.01306549,0.20692863],
+                  [-0.01721575,0.20325182],
+                  [-0.02036549,0.19868863],
+                  [-0.02233166,0.19350426],
+                  [-0.023,0.188],
+                  [-0.02233166,0.18249574],
+                  [-0.02036549,0.17731137],
+                  [-0.01721575,0.17274818],
+                  [-0.01306549,0.16907137],
+                  [-0.00815591,0.16649463],
+                  [-0.00277234,0.1651677],
+                  [0.00277234,0.1651677],
+                  [0.00815591,0.16649463],
+                  [0.01306549,0.16907137],
+                  [0.01721575,0.17274818],
+                  [0.02036549,0.17731137],
+                  [0.02233166,0.18249574]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#458f96"
+            }
+          },
+          {
+            "id": "tilt-bearing--1",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.tilt-bearing",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.188,-0.16799999999999998],
+              "end": [0,0.188,-0.11399999999999999],
+              "radius": 0.023,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aebec7"
+            }
+          },
+          {
+            "id": "tilt-stand-1",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.tilt-hinge-stand",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.12399999999999999],
+                [0,0,0.15799999999999997]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.124,0.02],
+                [0.124,0.02],
+                [0.076,0.176],
+                [0.049,0.242],
+                [-0.049,0.242],
+                [-0.085,0.174]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.023,0.188],
+                  [0.02233166,0.19350426],
+                  [0.02036549,0.19868863],
+                  [0.01721575,0.20325182],
+                  [0.01306549,0.20692863],
+                  [0.00815591,0.20950537],
+                  [0.00277234,0.2108323],
+                  [-0.00277234,0.2108323],
+                  [-0.00815591,0.20950537],
+                  [-0.01306549,0.20692863],
+                  [-0.01721575,0.20325182],
+                  [-0.02036549,0.19868863],
+                  [-0.02233166,0.19350426],
+                  [-0.023,0.188],
+                  [-0.02233166,0.18249574],
+                  [-0.02036549,0.17731137],
+                  [-0.01721575,0.17274818],
+                  [-0.01306549,0.16907137],
+                  [-0.00815591,0.16649463],
+                  [-0.00277234,0.1651677],
+                  [0.00277234,0.1651677],
+                  [0.00815591,0.16649463],
+                  [0.01306549,0.16907137],
+                  [0.01721575,0.17274818],
+                  [0.02036549,0.17731137],
+                  [0.02233166,0.18249574]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#458f96"
+            }
+          },
+          {
+            "id": "tilt-bearing-1",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.tilt-bearing",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.188,0.11399999999999999],
+              "end": [0,0.188,0.16799999999999998],
+              "radius": 0.023,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aebec7"
+            }
+          },
+          {
+            "id": "cradle",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.frame",
+            "transform": {
+              "position": [0,0.188,0]
+            }
+          },
+          {
+            "id": "stage-cradle",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.tilted-cradle",
+            "parent": "cradle",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.038,0],
+                [0,0.027,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.074,-0.122],
+                [-0.083,-0.122],
+                [-0.10200000000000001,-0.103],
+                [-0.10200000000000001,0.103],
+                [-0.083,0.122],
+                [0.074,0.122],
+                [0.093,0.103],
+                [0.093,-0.103]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#458f96"
+            }
+          },
+          {
+            "id": "spindle-case",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.spindle-case",
+            "parent": "cradle",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.023,0],
+                [0,0.091,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.094,0],
+                [0.0928427,0.01470484],
+                [0.08939931,0.0290476],
+                [0.08375461,0.04267511],
+                [0.0760476,0.05525181],
+                [0.06646804,0.06646804],
+                [0.05525181,0.0760476],
+                [0.04267511,0.08375461],
+                [0.0290476,0.08939931],
+                [0.01470484,0.0928427],
+                [0,0.094],
+                [-0.01470484,0.0928427],
+                [-0.0290476,0.08939931],
+                [-0.04267511,0.08375461],
+                [-0.05525181,0.0760476],
+                [-0.06646804,0.06646804],
+                [-0.0760476,0.05525181],
+                [-0.08375461,0.04267511],
+                [-0.08939931,0.0290476],
+                [-0.0928427,0.01470484],
+                [-0.094,0],
+                [-0.0928427,-0.01470484],
+                [-0.08939931,-0.0290476],
+                [-0.08375461,-0.04267511],
+                [-0.0760476,-0.05525181],
+                [-0.06646804,-0.06646804],
+                [-0.05525181,-0.0760476],
+                [-0.04267511,-0.08375461],
+                [-0.0290476,-0.08939931],
+                [-0.01470484,-0.0928427],
+                [0,-0.094],
+                [0.01470484,-0.0928427],
+                [0.0290476,-0.08939931],
+                [0.04267511,-0.08375461],
+                [0.05525181,-0.0760476],
+                [0.06646804,-0.06646804],
+                [0.0760476,-0.05525181],
+                [0.08375461,-0.04267511],
+                [0.08939931,-0.0290476],
+                [0.0928427,-0.01470484]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.036,0],
+                  [0.03555678,0.00563164],
+                  [0.03423803,0.01112461],
+                  [0.03207623,0.01634366],
+                  [0.02912461,0.02116027],
+                  [0.02545584,0.02545584],
+                  [0.02116027,0.02912461],
+                  [0.01634366,0.03207623],
+                  [0.01112461,0.03423803],
+                  [0.00563164,0.03555678],
+                  [0,0.036],
+                  [-0.00563164,0.03555678],
+                  [-0.01112461,0.03423803],
+                  [-0.01634366,0.03207623],
+                  [-0.02116027,0.02912461],
+                  [-0.02545584,0.02545584],
+                  [-0.02912461,0.02116027],
+                  [-0.03207623,0.01634366],
+                  [-0.03423803,0.01112461],
+                  [-0.03555678,0.00563164],
+                  [-0.036,0],
+                  [-0.03555678,-0.00563164],
+                  [-0.03423803,-0.01112461],
+                  [-0.03207623,-0.01634366],
+                  [-0.02912461,-0.02116027],
+                  [-0.02545584,-0.02545584],
+                  [-0.02116027,-0.02912461],
+                  [-0.01634366,-0.03207623],
+                  [-0.01112461,-0.03423803],
+                  [-0.00563164,-0.03555678],
+                  [0,-0.036],
+                  [0.00563164,-0.03555678],
+                  [0.01112461,-0.03423803],
+                  [0.01634366,-0.03207623],
+                  [0.02116027,-0.02912461],
+                  [0.02545584,-0.02545584],
+                  [0.02912461,-0.02116027],
+                  [0.03207623,-0.01634366],
+                  [0.03423803,-0.01112461],
+                  [0.03555678,-0.00563164]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#718893"
+            }
+          },
+          {
+            "id": "turntable",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.frame",
+            "parent": "cradle",
+            "transform": {
+              "position": [0,0.09,0]
+            }
+          },
+          {
+            "id": "working-disc",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.slotted-faceplate",
+            "parent": "turntable",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.021,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.146,0],
+                [-0.14475095,0.01905682],
+                [-0.14102517,0.03778758],
+                [-0.13488641,0.05587178],
+                [-0.12643971,0.073],
+                [-0.11582959,0.08887917],
+                [-0.10323759,0.10323759],
+                [-0.08887917,0.11582959],
+                [-0.073,0.12643971],
+                [-0.05587178,0.13488641],
+                [-0.03778758,0.14102517],
+                [-0.01905682,0.14475095],
+                [0,0.146],
+                [0.01905682,0.14475095],
+                [0.03778758,0.14102517],
+                [0.05587178,0.13488641],
+                [0.073,0.12643971],
+                [0.08887917,0.11582959],
+                [0.10323759,0.10323759],
+                [0.11582959,0.08887917],
+                [0.12643971,0.073],
+                [0.13488641,0.05587178],
+                [0.14102517,0.03778758],
+                [0.14475095,0.01905682],
+                [0.146,0],
+                [0.14475095,-0.01905682],
+                [0.14102517,-0.03778758],
+                [0.13488641,-0.05587178],
+                [0.12643971,-0.073],
+                [0.11582959,-0.08887917],
+                [0.10323759,-0.10323759],
+                [0.08887917,-0.11582959],
+                [0.073,-0.12643971],
+                [0.05587178,-0.13488641],
+                [0.03778758,-0.14102517],
+                [0.01905682,-0.14475095],
+                [0,-0.146],
+                [-0.01905682,-0.14475095],
+                [-0.03778758,-0.14102517],
+                [-0.05587178,-0.13488641],
+                [-0.073,-0.12643971],
+                [-0.08887917,-0.11582959],
+                [-0.10323759,-0.10323759],
+                [-0.11582959,-0.08887917],
+                [-0.12643971,-0.073],
+                [-0.13488641,-0.05587178],
+                [-0.14102517,-0.03778758],
+                [-0.14475095,-0.01905682]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.027,0],
+                  [-0.02608,0.00698811],
+                  [-0.02338269,0.0135],
+                  [-0.01909188,0.01909188],
+                  [-0.0135,0.02338269],
+                  [-0.00698811,0.02608],
+                  [0,0.027],
+                  [0.00698811,0.02608],
+                  [0.0135,0.02338269],
+                  [0.01909188,0.01909188],
+                  [0.02338269,0.0135],
+                  [0.02608,0.00698811],
+                  [0.027,0],
+                  [0.02608,-0.00698811],
+                  [0.02338269,-0.0135],
+                  [0.01909188,-0.01909188],
+                  [0.0135,-0.02338269],
+                  [0.00698811,-0.02608],
+                  [0,-0.027],
+                  [-0.00698811,-0.02608],
+                  [-0.0135,-0.02338269],
+                  [-0.01909188,-0.01909188],
+                  [-0.02338269,-0.0135],
+                  [-0.02608,-0.00698811]
+                ],
+                [
+                  [0.075,-0.07200000000000001],
+                  [0.037000000000000005,-0.07200000000000001],
+                  [0.033,-0.068],
+                  [0.033,-0.06400000000000002],
+                  [0.037000000000000005,-0.06000000000000001],
+                  [0.075,-0.06000000000000001],
+                  [0.079,-0.06400000000000002],
+                  [0.079,-0.068]
+                ],
+                [
+                  [0.075,0.060000000000000005],
+                  [0.037000000000000005,0.060000000000000005],
+                  [0.033,0.064],
+                  [0.033,0.068],
+                  [0.037000000000000005,0.07200000000000001],
+                  [0.075,0.07200000000000001],
+                  [0.079,0.068],
+                  [0.079,0.064]
+                ],
+                [
+                  [-0.037000000000000005,-0.07200000000000001],
+                  [-0.075,-0.07200000000000001],
+                  [-0.079,-0.068],
+                  [-0.079,-0.06400000000000002],
+                  [-0.075,-0.06000000000000001],
+                  [-0.037000000000000005,-0.06000000000000001],
+                  [-0.033,-0.06400000000000002],
+                  [-0.033,-0.068]
+                ],
+                [
+                  [-0.037000000000000005,0.060000000000000005],
+                  [-0.075,0.060000000000000005],
+                  [-0.079,0.064],
+                  [-0.079,0.068],
+                  [-0.075,0.07200000000000001],
+                  [-0.037000000000000005,0.07200000000000001],
+                  [-0.033,0.068],
+                  [-0.033,0.064]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aebec7"
+            }
+          },
+          {
+            "id": "index-0",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.138,0.02,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "index-1",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.1349843689012652,0.02,0.028691813332850792],
+              "rotation": [0,-0.20943951023931956,0]
+            }
+          },
+          {
+            "id": "index-2",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.12606927315467892,0.02,0.05612965674446043],
+              "rotation": [0,-0.4188790204786391,0]
+            }
+          },
+          {
+            "id": "index-3",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.11164434522374275,0.02,0.0811143648163613],
+              "rotation": [0,-0.6283185307179586,0]
+            }
+          },
+          {
+            "id": "index-4",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.09234002367752245,0.02,0.10255398591588041],
+              "rotation": [0,-0.8377580409572782,0]
+            }
+          },
+          {
+            "id": "index-5",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.06900000000000002,0.02,0.11951150572225254],
+              "rotation": [0,-1.0471975511965976,0]
+            }
+          },
+          {
+            "id": "index-6",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.042644345223742754,0.02,0.1312457992487312],
+              "rotation": [0,-1.2566370614359172,0]
+            }
+          },
+          {
+            "id": "index-7",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.014424927930936178,0.02,0.13724402156082172],
+              "rotation": [0,-1.4660765716752369,0]
+            }
+          },
+          {
+            "id": "index-8",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.014424927930936192,0.02,0.13724402156082172],
+              "rotation": [0,-1.6755160819145565,0]
+            }
+          },
+          {
+            "id": "index-9",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.04264434522374274,0.02,0.13124579924873123],
+              "rotation": [0,-1.8849555921538759,0]
+            }
+          },
+          {
+            "id": "index-10",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.06899999999999998,0.02,0.11951150572225255],
+              "rotation": [0,-2.0943951023931953,0]
+            }
+          },
+          {
+            "id": "index-11",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.09234002367752245,0.02,0.10255398591588041],
+              "rotation": [0,-2.303834612632515,0]
+            }
+          },
+          {
+            "id": "index-12",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.11164434522374274,0.02,0.08111436481636132],
+              "rotation": [0,-2.5132741228718345,0]
+            }
+          },
+          {
+            "id": "index-13",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.12606927315467892,0.02,0.056129656744460465],
+              "rotation": [0,-2.722713633111154,0]
+            }
+          },
+          {
+            "id": "index-14",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.1349843689012652,0.02,0.02869181333285079],
+              "rotation": [0,-2.9321531433504737,0]
+            }
+          },
+          {
+            "id": "index-15",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.138,0.02,1.6900125828233477e-17],
+              "rotation": [0,-3.141592653589793,0]
+            }
+          },
+          {
+            "id": "index-16",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.1349843689012652,0.02,-0.028691813332850813],
+              "rotation": [0,-3.351032163829113,0]
+            }
+          },
+          {
+            "id": "index-17",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.12606927315467892,0.02,-0.05612965674446043],
+              "rotation": [0,-3.5604716740684323,0]
+            }
+          },
+          {
+            "id": "index-18",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.11164434522374275,0.02,-0.08111436481636128],
+              "rotation": [0,-3.7699111843077517,0]
+            }
+          },
+          {
+            "id": "index-19",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.09234002367752243,0.02,-0.10255398591588043],
+              "rotation": [0,-3.9793506945470716,0]
+            }
+          },
+          {
+            "id": "index-20",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.06900000000000006,0.02,-0.11951150572225253],
+              "rotation": [0,-4.1887902047863905,0]
+            }
+          },
+          {
+            "id": "index-21",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.04264434522374277,0.02,-0.1312457992487312],
+              "rotation": [0,-4.39822971502571,0]
+            }
+          },
+          {
+            "id": "index-22",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.014424927930936166,0.02,-0.13724402156082174],
+              "rotation": [0,-4.60766922526503,0]
+            }
+          },
+          {
+            "id": "index-23",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.014424927930936114,0.02,-0.13724402156082174],
+              "rotation": [0,-4.817108735504349,0]
+            }
+          },
+          {
+            "id": "index-24",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.04264434522374272,0.02,-0.13124579924873123],
+              "rotation": [0,-5.026548245743669,0]
+            }
+          },
+          {
+            "id": "index-25",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.06900000000000002,0.02,-0.11951150572225254],
+              "rotation": [0,-5.235987755982989,0]
+            }
+          },
+          {
+            "id": "index-26",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.09234002367752238,0.02,-0.10255398591588046],
+              "rotation": [0,-5.445427266222308,0]
+            }
+          },
+          {
+            "id": "index-27",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.11164434522374274,0.02,-0.08111436481636133],
+              "rotation": [0,-5.654866776461628,0]
+            }
+          },
+          {
+            "id": "index-28",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.12606927315467895,0.02,-0.056129656744460424],
+              "rotation": [0,-5.8643062867009474,0]
+            }
+          },
+          {
+            "id": "index-29",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.index-graduation",
+            "parent": "turntable",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0017,0.0012]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [0.1349843689012652,0.02,-0.028691813332850865],
+              "rotation": [0,-6.073745796940266,0]
+            }
+          },
+          {
+            "id": "drive-gear",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.worm-drive-case",
+            "parent": "cradle",
+            "geometry": {
+              "type": "box",
+              "size": [0.098,0.107,0.167]
+            },
+            "appearance": {
+              "color": "#609fa5"
+            },
+            "transform": {
+              "position": [-0.092,0.017,0.023]
+            }
+          },
+          {
+            "id": "drive-motor",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.turntable-motor",
+            "parent": "cradle",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.09,0.015,0.104],
+              "end": [-0.09,0.015,0.216],
+              "radius": 0.043,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#47555d"
+            }
+          },
+          {
+            "id": "setting-dial",
+            "semanticType": "equipment.indexed-tilt-welding-positioner.positioner-control",
+            "geometry": {
+              "type": "box",
+              "size": [0.093,0.045,0.105]
+            },
+            "appearance": {
+              "color": "#47555d"
+            },
+            "transform": {
+              "position": [-0.158,0.046,0.015]
+            }
+          }
+        ],
+        "anchors": {
+          "fixture-plane": {
+            "node": "working-disc",
+            "position": [0,0.021,0],
+            "direction": [0,1,0],
+            "kind": "mount"
+          },
+          "fixture-index": {
+            "node": "turntable",
+            "position": [0.104,0.021,0],
+            "direction": [0,1,0],
+            "kind": "reference"
+          },
+          "base": {
+            "node": "base",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "tilt-angle",
+            "label": "夹台倾转",
+            "unit": "deg",
+            "value": 0,
+            "min": -60,
+            "max": 75,
+            "targets": [
+              {
+                "node": "cradle",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "index-angle",
+            "label": "回转台转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "turntable",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,6 +1,6 @@
 ## Summary
 
-What does this change improve for Agents or human model-library users?
+What can an LLM-powered Agent find, build, calculate or verify more reliably after this change? For browser changes, describe the model review workflow they support.
 
 ## Type of change
 

@@ -1,0 +1,845 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.handheld-four-blade-vane-shear-torque-instrument",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "手持十字板剪切扭矩检测仪",
+  "summary": "手柄及读数环、旋转传力杆、四片有独立轮廓的测翼和固定高度参考。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "十字板剪切",
+    "土体剪切仪",
+    "vane-shear",
+    "torque-reading",
+    "土工测试",
+    "geotechnical"
+  ],
+  "anchors": [
+    "shaft-point",
+    "torque-reference",
+    "vane-azimuth"
+  ],
+  "ai": {
+    "intent": "表示手动剪切测翼和固定仪表几何，引用竖轴、测翼方向和表体。",
+    "editableParts": [
+      "vane-angle"
+    ],
+    "qualityChecks": [
+      "四片测翼绕同一轴转。",
+      "圆形读数座保持固定。",
+      "尖端位置不随旋转移动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "handheld-four-blade-vane-shear-torque-instrument",
+      "title": "手持十字板剪切扭矩检测仪",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "upper-body",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.frame",
+            "transform": {
+              "position": [0,0.675,0]
+            }
+          },
+          {
+            "id": "cross-grip",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.stationary-datum-grab-bar",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.151,0.071,0],
+              "end": [0.151,0.071,0],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "grip--1",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.grip-end-protection",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.084,0.071,0],
+              "end": [-0.157,0.071,0],
+              "radius": 0.019,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#57717d"
+            }
+          },
+          {
+            "id": "grip-1",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.grip-end-protection",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.084,0.071,0],
+              "end": [0.157,0.071,0],
+              "radius": 0.019,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#57717d"
+            }
+          },
+          {
+            "id": "dial-body",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.torque-stationary-housing",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.025,0],
+                [0,0.032,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.069,0],
+                [0.0683285,0.00960294],
+                [0.06632706,0.01901898],
+                [0.06303464,0.02806483],
+                [0.05851532,0.03656443],
+                [0.05285707,0.04435235],
+                [0.04617001,0.05127699],
+                [0.03858431,0.05720359],
+                [0.03024761,0.06201679],
+                [0.02132217,0.0656229],
+                [0.01198172,0.06795173],
+                [0.00240807,0.06895797],
+                [-0.00721246,0.06862201],
+                [-0.01669261,0.06695041],
+                [-0.02584785,0.06397569],
+                [-0.0345,0.05975575],
+                [-0.04248064,0.05437274],
+                [-0.04963445,0.04793143],
+                [-0.05582217,0.04055718],
+                [-0.06092338,0.03239354],
+                [-0.06483879,0.02359939],
+                [-0.06749218,0.01434591],
+                [-0.06883192,0.0048132],
+                [-0.06883192,-0.0048132],
+                [-0.06749218,-0.01434591],
+                [-0.06483879,-0.02359939],
+                [-0.06092338,-0.03239354],
+                [-0.05582217,-0.04055718],
+                [-0.04963445,-0.04793143],
+                [-0.04248064,-0.05437274],
+                [-0.0345,-0.05975575],
+                [-0.02584785,-0.06397569],
+                [-0.01669261,-0.06695041],
+                [-0.00721246,-0.06862201],
+                [0.00240807,-0.06895797],
+                [0.01198172,-0.06795173],
+                [0.02132217,-0.0656229],
+                [0.03024761,-0.06201679],
+                [0.03858431,-0.05720359],
+                [0.04617001,-0.05127699],
+                [0.05285707,-0.04435235],
+                [0.05851532,-0.03656443],
+                [0.06303464,-0.02806483],
+                [0.06632706,-0.01901898],
+                [0.0683285,-0.00960294]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.016,0],
+                  [0.01584429,0.00222677],
+                  [0.01538019,0.0044102],
+                  [0.01461673,0.00650779],
+                  [0.01356877,0.00847871],
+                  [0.01225671,0.0102846],
+                  [0.01070609,0.01189032],
+                  [0.00894709,0.0132646],
+                  [0.00701394,0.0143807],
+                  [0.00494427,0.0152169],
+                  [0.00277837,0.01575692],
+                  [0.00055839,0.01599025],
+                  [-0.00167246,0.01591235],
+                  [-0.00387075,0.01552473],
+                  [-0.00599371,0.01483494],
+                  [-0.008,0.01385641],
+                  [-0.00985058,0.01260817],
+                  [-0.01150944,0.01111453],
+                  [-0.01294427,0.00940456],
+                  [-0.01412716,0.00751155],
+                  [-0.01503508,0.00547232],
+                  [-0.01565036,0.00332659],
+                  [-0.01596102,0.0011161],
+                  [-0.01596102,-0.0011161],
+                  [-0.01565036,-0.00332659],
+                  [-0.01503508,-0.00547232],
+                  [-0.01412716,-0.00751155],
+                  [-0.01294427,-0.00940456],
+                  [-0.01150944,-0.01111453],
+                  [-0.00985058,-0.01260817],
+                  [-0.008,-0.01385641],
+                  [-0.00599371,-0.01483494],
+                  [-0.00387075,-0.01552473],
+                  [-0.00167246,-0.01591235],
+                  [0.00055839,-0.01599025],
+                  [0.00277837,-0.01575692],
+                  [0.00494427,-0.0152169],
+                  [0.00701394,-0.0143807],
+                  [0.00894709,-0.0132646],
+                  [0.01070609,-0.01189032],
+                  [0.01225671,-0.0102846],
+                  [0.01356877,-0.00847871],
+                  [0.01461673,-0.00650779],
+                  [0.01538019,-0.0044102],
+                  [0.01584429,-0.00222677]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#81bbc6"
+            }
+          },
+          {
+            "id": "dial-top",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.graduated-dial-face",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.028,0],
+                [0,0.038,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.064,0],
+                [0.06345247,0.00835368],
+                [0.06181925,0.01656442],
+                [0.05912829,0.02449174],
+                [0.05542563,0.032],
+                [0.05077461,0.03896073],
+                [0.04525483,0.04525483],
+                [0.03896073,0.05077461],
+                [0.032,0.05542563],
+                [0.02449174,0.05912829],
+                [0.01656442,0.06181925],
+                [0.00835368,0.06345247],
+                [0,0.064],
+                [-0.00835368,0.06345247],
+                [-0.01656442,0.06181925],
+                [-0.02449174,0.05912829],
+                [-0.032,0.05542563],
+                [-0.03896073,0.05077461],
+                [-0.04525483,0.04525483],
+                [-0.05077461,0.03896073],
+                [-0.05542563,0.032],
+                [-0.05912829,0.02449174],
+                [-0.06181925,0.01656442],
+                [-0.06345247,0.00835368],
+                [-0.064,0],
+                [-0.06345247,-0.00835368],
+                [-0.06181925,-0.01656442],
+                [-0.05912829,-0.02449174],
+                [-0.05542563,-0.032],
+                [-0.05077461,-0.03896073],
+                [-0.04525483,-0.04525483],
+                [-0.03896073,-0.05077461],
+                [-0.032,-0.05542563],
+                [-0.02449174,-0.05912829],
+                [-0.01656442,-0.06181925],
+                [-0.00835368,-0.06345247],
+                [0,-0.064],
+                [0.00835368,-0.06345247],
+                [0.01656442,-0.06181925],
+                [0.02449174,-0.05912829],
+                [0.032,-0.05542563],
+                [0.03896073,-0.05077461],
+                [0.04525483,-0.04525483],
+                [0.05077461,-0.03896073],
+                [0.05542563,-0.032],
+                [0.05912829,-0.02449174],
+                [0.06181925,-0.01656442],
+                [0.06345247,-0.00835368]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.018,0],
+                  [0.01784601,0.00234947],
+                  [0.01738666,0.00465874],
+                  [0.01662983,0.0068883],
+                  [0.01558846,0.009],
+                  [0.01428036,0.01095771],
+                  [0.01272792,0.01272792],
+                  [0.01095771,0.01428036],
+                  [0.009,0.01558846],
+                  [0.0068883,0.01662983],
+                  [0.00465874,0.01738666],
+                  [0.00234947,0.01784601],
+                  [0,0.018],
+                  [-0.00234947,0.01784601],
+                  [-0.00465874,0.01738666],
+                  [-0.0068883,0.01662983],
+                  [-0.009,0.01558846],
+                  [-0.01095771,0.01428036],
+                  [-0.01272792,0.01272792],
+                  [-0.01428036,0.01095771],
+                  [-0.01558846,0.009],
+                  [-0.01662983,0.0068883],
+                  [-0.01738666,0.00465874],
+                  [-0.01784601,0.00234947],
+                  [-0.018,0],
+                  [-0.01784601,-0.00234947],
+                  [-0.01738666,-0.00465874],
+                  [-0.01662983,-0.0068883],
+                  [-0.01558846,-0.009],
+                  [-0.01428036,-0.01095771],
+                  [-0.01272792,-0.01272792],
+                  [-0.01095771,-0.01428036],
+                  [-0.009,-0.01558846],
+                  [-0.0068883,-0.01662983],
+                  [-0.00465874,-0.01738666],
+                  [-0.00234947,-0.01784601],
+                  [0,-0.018],
+                  [0.00234947,-0.01784601],
+                  [0.00465874,-0.01738666],
+                  [0.0068883,-0.01662983],
+                  [0.009,-0.01558846],
+                  [0.01095771,-0.01428036],
+                  [0.01272792,-0.01272792],
+                  [0.01428036,-0.01095771],
+                  [0.01558846,-0.009],
+                  [0.01662983,-0.0068883],
+                  [0.01738666,-0.00465874],
+                  [0.01784601,-0.00234947]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "index-0",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [-0.030973127562956494,0.039,-0.04423421039160555],
+              "rotation": [0,2.181661564992912,0]
+            }
+          },
+          {
+            "id": "index-1",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [-0.019351869275446215,0.039,-0.05041334303084889],
+              "rotation": [0,1.9373154697137058,0]
+            }
+          },
+          {
+            "id": "index-2",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [-0.0065809445438779575,0.039,-0.05359749218863139],
+              "rotation": [0,1.6929693744344996,0]
+            }
+          },
+          {
+            "id": "index-3",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.006580944543877964,0.039,-0.053597492188631385],
+              "rotation": [0,1.4486232791552935,0]
+            }
+          },
+          {
+            "id": "index-4",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.01935186927544622,0.039,-0.05041334303084889],
+              "rotation": [0,1.2042771838760873,0]
+            }
+          },
+          {
+            "id": "index-5",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.030973127562956487,0.039,-0.044234210391605557],
+              "rotation": [0,0.9599310885968813,0]
+            }
+          },
+          {
+            "id": "index-6",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.04075431733202969,0.039,-0.03542718756548739],
+              "rotation": [0,0.7155849933176751,0]
+            }
+          },
+          {
+            "id": "index-7",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.048114352306171865,0.039,-0.024515486985935524],
+              "rotation": [0,0.47123889803846897,0]
+            }
+          },
+          {
+            "id": "index-8",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.052615983498402706,0.039,-0.01214735693456871],
+              "rotation": [0,0.22689280275926285,0]
+            }
+          },
+          {
+            "id": "index-9",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.05399177553844513,0.039,0.0009424299476133096],
+              "rotation": [0,-0.017453292519943295,0]
+            }
+          },
+          {
+            "id": "index-10",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.05215999461960969,0.039,0.01397622843553612],
+              "rotation": [0,-0.2617993877991494,0]
+            }
+          },
+          {
+            "id": "index-11",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.04722946418552737,0.039,0.026179719493302202],
+              "rotation": [0,-0.5061454830783556,0]
+            }
+          },
+          {
+            "id": "index-12",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.039493099887435205,0.039,0.03682791144337492],
+              "rotation": [0,-0.7504915783575618,0]
+            }
+          },
+          {
+            "id": "index-13",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.02941050789081146,0.039,0.0452882106690529],
+              "rotation": [0,-0.9948376736367679,0]
+            }
+          },
+          {
+            "id": "index-14",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.017580680340686463,0.039,0.0510580030823631],
+              "rotation": [0,-1.239183768915974,0]
+            }
+          },
+          {
+            "id": "index-15",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [0.00470641010837354,0.039,0.05379451369695426],
+              "rotation": [0,-1.4835298641951802,0]
+            }
+          },
+          {
+            "id": "index-16",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [-0.008447461112172464,0.039,0.05333517039213744],
+              "rotation": [0,-1.7278759594743862,0]
+            }
+          },
+          {
+            "id": "index-17",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.circular-reference-graduation",
+            "parent": "upper-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.003,0.003]
+            },
+            "appearance": {
+              "color": "#9db7c1"
+            },
+            "transform": {
+              "position": [-0.021099480938420782,0.039,0.049707262086431774],
+              "rotation": [0,-1.9722220547535925,0]
+            }
+          },
+          {
+            "id": "drive-rotation",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "vertical-shaft",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.torque-transmitting-shaft",
+            "parent": "drive-rotation",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.039,0],
+              "end": [0,0.721,0],
+              "radius": 0.0115,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "vane-axis-0",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.frame",
+            "parent": "drive-rotation",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "vane-0",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.soil-vane-plate",
+            "parent": "vane-axis-0",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.0032],
+                [0,0,0.0032]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.008,0.037],
+                [0.057,0.052],
+                [0.057,0.121],
+                [0.048,0.144],
+                [0.01,0.144]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#81bbc6"
+            }
+          },
+          {
+            "id": "vane-axis-1",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.frame",
+            "parent": "drive-rotation",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "vane-1",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.soil-vane-plate",
+            "parent": "vane-axis-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.0032],
+                [0,0,0.0032]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.008,0.037],
+                [0.057,0.052],
+                [0.057,0.121],
+                [0.048,0.144],
+                [0.01,0.144]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#81bbc6"
+            }
+          },
+          {
+            "id": "vane-axis-2",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.frame",
+            "parent": "drive-rotation",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,3.141592653589793,0]
+            }
+          },
+          {
+            "id": "vane-2",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.soil-vane-plate",
+            "parent": "vane-axis-2",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.0032],
+                [0,0,0.0032]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.008,0.037],
+                [0.057,0.052],
+                [0.057,0.121],
+                [0.048,0.144],
+                [0.01,0.144]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#81bbc6"
+            }
+          },
+          {
+            "id": "vane-axis-3",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.frame",
+            "parent": "drive-rotation",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,4.71238898038469,0]
+            }
+          },
+          {
+            "id": "vane-3",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.soil-vane-plate",
+            "parent": "vane-axis-3",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.0032],
+                [0,0,0.0032]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.008,0.037],
+                [0.057,0.052],
+                [0.057,0.121],
+                [0.048,0.144],
+                [0.01,0.144]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#81bbc6"
+            }
+          },
+          {
+            "id": "tip",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.centering-tip",
+            "parent": "drive-rotation",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.045,0],
+              "startRadius": 0.002,
+              "endRadius": 0.0115,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bed1d9"
+            }
+          },
+          {
+            "id": "index-pointer",
+            "semanticType": "instrument.handheld-four-blade-vane-shear-torque-instrument.driven-dial-pointer",
+            "parent": "drive-rotation",
+            "geometry": {
+              "type": "box",
+              "size": [0.054,0.004,0.006]
+            },
+            "appearance": {
+              "color": "#ecc36a"
+            },
+            "transform": {
+              "position": [0.03,0.716,0]
+            }
+          }
+        ],
+        "anchors": {
+          "shaft-point": {
+            "node": "tip",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "measurement"
+          },
+          "torque-reference": {
+            "node": "dial-top",
+            "position": [0,0.039,0],
+            "direction": [0,1,0],
+            "kind": "reference"
+          },
+          "vane-azimuth": {
+            "node": "vane-0",
+            "position": [0.057,0.102,0],
+            "direction": [1,0,0],
+            "kind": "measurement"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "vane-angle",
+            "label": "测翼旋转量",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 168,
+            "targets": [
+              {
+                "node": "drive-rotation",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

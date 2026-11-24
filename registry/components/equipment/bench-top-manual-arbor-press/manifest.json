@@ -1,0 +1,760 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.bench-top-manual-arbor-press",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "台式齿条手动压机",
+  "summary": "C 形机架、带固定孔底座、四槽圆形承台、上下齿条压头和带手柄的侧转轴。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.bench-top-manual-arbor-press",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "压力机",
+    "手压机",
+    "arbor-press",
+    "rack-press",
+    "机械基础件",
+    "equipment"
+  ],
+  "anchors": [
+    "work-deck",
+    "press-head",
+    "handle"
+  ],
+  "ai": {
+    "intent": "用于轴套装配、工装定位或教学模型的独立手压机。",
+    "editableParts": [
+      "press-travel",
+      "handle-angle",
+      "index-anvil"
+    ],
+    "qualityChecks": [
+      "滑动压头沿承台法向移动。",
+      "压头、手柄和圆形承台独立。",
+      "承台固定孔与基准可追踪。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "bench-top-manual-arbor-press",
+      "title": "台式齿条手动压机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "equipment.bench-top-manual-arbor-press.mount-base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.023,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.15500000000000003,-0.1],
+                [-0.22499999999999998,-0.1],
+                [-0.23999999999999996,-0.085],
+                [-0.23999999999999996,0.085],
+                [-0.22499999999999998,0.1],
+                [0.15500000000000003,0.1],
+                [0.17,0.085],
+                [0.17,-0.085]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.13,-0.072],
+                  [0.13029366,-0.0701459],
+                  [0.1311459,-0.06847329],
+                  [0.13247329,-0.0671459],
+                  [0.1341459,-0.06629366],
+                  [0.136,-0.066],
+                  [0.1378541,-0.06629366],
+                  [0.13952671,-0.0671459],
+                  [0.1408541,-0.06847329],
+                  [0.14170634,-0.0701459],
+                  [0.142,-0.072],
+                  [0.14170634,-0.0738541],
+                  [0.1408541,-0.07552671],
+                  [0.13952671,-0.0768541],
+                  [0.1378541,-0.07770634],
+                  [0.136,-0.078],
+                  [0.1341459,-0.07770634],
+                  [0.13247329,-0.0768541],
+                  [0.1311459,-0.07552671],
+                  [0.13029366,-0.0738541]
+                ],
+                [
+                  [0.13,0.072],
+                  [0.13029366,0.0738541],
+                  [0.1311459,0.07552671],
+                  [0.13247329,0.0768541],
+                  [0.1341459,0.07770634],
+                  [0.136,0.078],
+                  [0.1378541,0.07770634],
+                  [0.13952671,0.0768541],
+                  [0.1408541,0.07552671],
+                  [0.14170634,0.0738541],
+                  [0.142,0.072],
+                  [0.14170634,0.0701459],
+                  [0.1408541,0.06847329],
+                  [0.13952671,0.0671459],
+                  [0.1378541,0.06629366],
+                  [0.136,0.066],
+                  [0.1341459,0.06629366],
+                  [0.13247329,0.0671459],
+                  [0.1311459,0.06847329],
+                  [0.13029366,0.0701459]
+                ],
+                [
+                  [-0.196,-0.072],
+                  [-0.19570634,-0.0701459],
+                  [-0.1948541,-0.06847329],
+                  [-0.19352671,-0.0671459],
+                  [-0.1918541,-0.06629366],
+                  [-0.19,-0.066],
+                  [-0.1881459,-0.06629366],
+                  [-0.18647329,-0.0671459],
+                  [-0.1851459,-0.06847329],
+                  [-0.18429366,-0.0701459],
+                  [-0.184,-0.072],
+                  [-0.18429366,-0.0738541],
+                  [-0.1851459,-0.07552671],
+                  [-0.18647329,-0.0768541],
+                  [-0.1881459,-0.07770634],
+                  [-0.19,-0.078],
+                  [-0.1918541,-0.07770634],
+                  [-0.19352671,-0.0768541],
+                  [-0.1948541,-0.07552671],
+                  [-0.19570634,-0.0738541]
+                ],
+                [
+                  [-0.196,0.072],
+                  [-0.19570634,0.0738541],
+                  [-0.1948541,0.07552671],
+                  [-0.19352671,0.0768541],
+                  [-0.1918541,0.07770634],
+                  [-0.19,0.078],
+                  [-0.1881459,0.07770634],
+                  [-0.18647329,0.0768541],
+                  [-0.1851459,0.07552671],
+                  [-0.18429366,0.0738541],
+                  [-0.184,0.072],
+                  [-0.18429366,0.0701459],
+                  [-0.1851459,0.06847329],
+                  [-0.18647329,0.0671459],
+                  [-0.1881459,0.06629366],
+                  [-0.19,0.066],
+                  [-0.1918541,0.06629366],
+                  [-0.19352671,0.0671459],
+                  [-0.1948541,0.06847329],
+                  [-0.19570634,0.0701459]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            }
+          },
+          {
+            "id": "press-frame",
+            "semanticType": "equipment.bench-top-manual-arbor-press.c-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.041],
+                [0,0,0.041]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.155,0.021],
+                [-0.093,0.021],
+                [-0.07,0.359],
+                [0.039,0.359],
+                [0.111,0.386],
+                [0.116,0.463],
+                [0.076,0.511],
+                [-0.119,0.505],
+                [-0.152,0.464]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#5ca3aa"
+            }
+          },
+          {
+            "id": "anvil",
+            "semanticType": "equipment.bench-top-manual-arbor-press.frame",
+            "transform": {
+              "position": [0.073,0.022,0]
+            }
+          },
+          {
+            "id": "anvil-plate",
+            "semanticType": "equipment.bench-top-manual-arbor-press.slotted-anvil",
+            "parent": "anvil",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.021,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.092,0],
+                [-0.09121293,0.01200841],
+                [-0.08886518,0.02381135],
+                [-0.08499692,0.03520688],
+                [-0.07967434,0.046],
+                [-0.07298851,0.05600605],
+                [-0.06505382,0.06505382],
+                [-0.05600605,0.07298851],
+                [-0.046,0.07967434],
+                [-0.03520688,0.08499692],
+                [-0.02381135,0.08886518],
+                [-0.01200841,0.09121293],
+                [0,0.092],
+                [0.01200841,0.09121293],
+                [0.02381135,0.08886518],
+                [0.03520688,0.08499692],
+                [0.046,0.07967434],
+                [0.05600605,0.07298851],
+                [0.06505382,0.06505382],
+                [0.07298851,0.05600605],
+                [0.07967434,0.046],
+                [0.08499692,0.03520688],
+                [0.08886518,0.02381135],
+                [0.09121293,0.01200841],
+                [0.092,0],
+                [0.09121293,-0.01200841],
+                [0.08886518,-0.02381135],
+                [0.08499692,-0.03520688],
+                [0.07967434,-0.046],
+                [0.07298851,-0.05600605],
+                [0.06505382,-0.06505382],
+                [0.05600605,-0.07298851],
+                [0.046,-0.07967434],
+                [0.03520688,-0.08499692],
+                [0.02381135,-0.08886518],
+                [0.01200841,-0.09121293],
+                [0,-0.092],
+                [-0.01200841,-0.09121293],
+                [-0.02381135,-0.08886518],
+                [-0.03520688,-0.08499692],
+                [-0.046,-0.07967434],
+                [-0.05600605,-0.07298851],
+                [-0.06505382,-0.06505382],
+                [-0.07298851,-0.05600605],
+                [-0.07967434,-0.046],
+                [-0.08499692,-0.03520688],
+                [-0.08886518,-0.02381135],
+                [-0.09121293,-0.01200841]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.046,-0.035],
+                  [0.038000000000000006,-0.035],
+                  [0.036000000000000004,-0.033],
+                  [0.036000000000000004,-0.020000000000000004],
+                  [0.038000000000000006,-0.018000000000000002],
+                  [0.046,-0.018000000000000002],
+                  [0.048,-0.020000000000000004],
+                  [0.048,-0.033]
+                ],
+                [
+                  [-0.019999999999999997,-0.035],
+                  [-0.027999999999999997,-0.035],
+                  [-0.03,-0.033],
+                  [-0.03,-0.020000000000000004],
+                  [-0.027999999999999997,-0.018000000000000002],
+                  [-0.019999999999999997,-0.018000000000000002],
+                  [-0.018,-0.020000000000000004],
+                  [-0.018,-0.033]
+                ],
+                [
+                  [0.046,0.015],
+                  [0.038000000000000006,0.015],
+                  [0.036000000000000004,0.017],
+                  [0.036000000000000004,0.03],
+                  [0.038000000000000006,0.032],
+                  [0.046,0.032],
+                  [0.048,0.03],
+                  [0.048,0.017]
+                ],
+                [
+                  [-0.019999999999999997,0.015],
+                  [-0.027999999999999997,0.015],
+                  [-0.03,0.017],
+                  [-0.03,0.03],
+                  [-0.027999999999999997,0.032],
+                  [-0.019999999999999997,0.032],
+                  [-0.018,0.03],
+                  [-0.018,0.017]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aaBDC8"
+            }
+          },
+          {
+            "id": "table-pin",
+            "semanticType": "equipment.bench-top-manual-arbor-press.table-pivot",
+            "parent": "anvil",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.012,0],
+                [0,0.012,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.011,0],
+                [0.01078864,0.00214599],
+                [0.01016267,0.00420952],
+                [0.00914617,0.00611127],
+                [0.00777817,0.00777817],
+                [0.00611127,0.00914617],
+                [0.00420952,0.01016267],
+                [0.00214599,0.01078864],
+                [0,0.011],
+                [-0.00214599,0.01078864],
+                [-0.00420952,0.01016267],
+                [-0.00611127,0.00914617],
+                [-0.00777817,0.00777817],
+                [-0.00914617,0.00611127],
+                [-0.01016267,0.00420952],
+                [-0.01078864,0.00214599],
+                [-0.011,0],
+                [-0.01078864,-0.00214599],
+                [-0.01016267,-0.00420952],
+                [-0.00914617,-0.00611127],
+                [-0.00777817,-0.00777817],
+                [-0.00611127,-0.00914617],
+                [-0.00420952,-0.01016267],
+                [-0.00214599,-0.01078864],
+                [0,-0.011],
+                [0.00214599,-0.01078864],
+                [0.00420952,-0.01016267],
+                [0.00611127,-0.00914617],
+                [0.00777817,-0.00777817],
+                [0.00914617,-0.00611127],
+                [0.01016267,-0.00420952],
+                [0.01078864,-0.00214599]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#748d98"
+            }
+          },
+          {
+            "id": "ram",
+            "semanticType": "equipment.bench-top-manual-arbor-press.frame",
+            "transform": {
+              "position": [0.062,0.285,0]
+            }
+          },
+          {
+            "id": "ram-body",
+            "semanticType": "equipment.bench-top-manual-arbor-press.sliding-press-ram",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.058,0.188,0.054]
+            },
+            "appearance": {
+              "color": "#aaBDC8"
+            },
+            "transform": {
+              "position": [0,0.076,0]
+            }
+          },
+          {
+            "id": "ram-rack-0",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.008,0]
+            }
+          },
+          {
+            "id": "ram-rack-1",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.019,0]
+            }
+          },
+          {
+            "id": "ram-rack-2",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.03,0]
+            }
+          },
+          {
+            "id": "ram-rack-3",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.041,0]
+            }
+          },
+          {
+            "id": "ram-rack-4",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.052,0]
+            }
+          },
+          {
+            "id": "ram-rack-5",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.063,0]
+            }
+          },
+          {
+            "id": "ram-rack-6",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.07400000000000001,0]
+            }
+          },
+          {
+            "id": "ram-rack-7",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.08499999999999999,0]
+            }
+          },
+          {
+            "id": "ram-rack-8",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.096,0]
+            }
+          },
+          {
+            "id": "ram-rack-9",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.10699999999999998,0]
+            }
+          },
+          {
+            "id": "ram-rack-10",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.118,0]
+            }
+          },
+          {
+            "id": "ram-rack-11",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.129,0]
+            }
+          },
+          {
+            "id": "ram-rack-12",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.14,0]
+            }
+          },
+          {
+            "id": "ram-rack-13",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-rack-tooth",
+            "parent": "ram",
+            "geometry": {
+              "type": "box",
+              "size": [0.007,0.0045,0.037]
+            },
+            "appearance": {
+              "color": "#7e949e"
+            },
+            "transform": {
+              "position": [0.032,0.151,0]
+            }
+          },
+          {
+            "id": "tool-seat",
+            "semanticType": "equipment.bench-top-manual-arbor-press.ram-work-seat",
+            "parent": "ram",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.027,0],
+              "end": [0,-0.012,0],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#485862"
+            }
+          },
+          {
+            "id": "guide-bracket--1",
+            "semanticType": "equipment.bench-top-manual-arbor-press.ram-guide-bracket",
+            "geometry": {
+              "type": "box",
+              "size": [0.092,0.092,0.017]
+            },
+            "appearance": {
+              "color": "#748d98"
+            },
+            "transform": {
+              "position": [0.066,0.391,-0.033]
+            }
+          },
+          {
+            "id": "guide-bracket-1",
+            "semanticType": "equipment.bench-top-manual-arbor-press.ram-guide-bracket",
+            "geometry": {
+              "type": "box",
+              "size": [0.092,0.092,0.017]
+            },
+            "appearance": {
+              "color": "#748d98"
+            },
+            "transform": {
+              "position": [0.066,0.391,0.033]
+            }
+          },
+          {
+            "id": "lever",
+            "semanticType": "equipment.bench-top-manual-arbor-press.frame",
+            "transform": {
+              "position": [0.101,0.416,0.063],
+              "rotation": [0,0,0.6632251157578453]
+            }
+          },
+          {
+            "id": "lever-axis",
+            "semanticType": "equipment.bench-top-manual-arbor-press.gearbox-driving-shaft",
+            "parent": "lever",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.04],
+              "end": [0,0,0.041],
+              "radius": 0.019,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aaBDC8"
+            }
+          },
+          {
+            "id": "lever-shaft",
+            "semanticType": "equipment.bench-top-manual-arbor-press.operating-lever",
+            "parent": "lever",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0.027],
+              "end": [0,0.28,0.027],
+              "radius": 0.0088,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aaBDC8"
+            }
+          },
+          {
+            "id": "lever-grip",
+            "semanticType": "equipment.bench-top-manual-arbor-press.press-lever-grip",
+            "parent": "lever",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.213,0.027],
+              "end": [0,0.294,0.027],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#303843"
+            }
+          }
+        ],
+        "anchors": {
+          "work-deck": {
+            "node": "anvil-plate",
+            "position": [0,0.021,0],
+            "direction": [0,1,0],
+            "kind": "work"
+          },
+          "press-head": {
+            "node": "tool-seat",
+            "position": [0,-0.027,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "handle": {
+            "node": "lever-grip",
+            "position": [0,0.26,0.027],
+            "direction": [0,1,0],
+            "kind": "grip"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "press-travel",
+            "label": "压头下降量",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.118,
+            "targets": [
+              {
+                "node": "ram",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          },
+          {
+            "id": "handle-angle",
+            "label": "手柄摆角",
+            "unit": "deg",
+            "value": 0,
+            "min": -83,
+            "max": 55,
+            "targets": [
+              {
+                "node": "lever",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "index-anvil",
+            "label": "承台转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "anvil",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

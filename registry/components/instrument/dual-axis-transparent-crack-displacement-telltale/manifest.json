@@ -1,0 +1,637 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.dual-axis-transparent-crack-displacement-telltale",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双向位移透明裂缝标距片",
+  "summary": "两块独立开槽固定片、交叠透视刻度区、相对移动十字丝和墙面测点。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "裂缝位移",
+    "裂缝计",
+    "crack-displacement-telltale",
+    "dual-axis-marker",
+    "结构试验",
+    "structural-testing"
+  ],
+  "anchors": [
+    "fixed-wall",
+    "moving-wall",
+    "grid-center",
+    "cross-center"
+  ],
+  "ai": {
+    "intent": "用于模型中表示裂缝两侧的相对位置与二维位移读数，用两片安装面锚定。",
+    "editableParts": [
+      "x-displacement",
+      "y-displacement"
+    ],
+    "qualityChecks": [
+      "固定规则网格留在一侧。",
+      "活动十字相对网格沿两轴移动。",
+      "两片留有真正安装槽。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "dual-axis-transparent-crack-displacement-telltale",
+      "title": "双向位移透明裂缝标距片",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "reference-leaf",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.perforated-acrylic-bridge-leaf",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.007]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.15999999999999998,-0.051],
+                [0.024000000000000004,-0.051],
+                [0.036000000000000004,-0.03899999999999999],
+                [0.036000000000000004,0.03899999999999999],
+                [0.024000000000000004,0.051],
+                [-0.15999999999999998,0.051],
+                [-0.172,0.03899999999999999],
+                [-0.172,-0.03899999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.14400000000000002,-0.028],
+                  [-0.13800000000000004,-0.028],
+                  [-0.13200000000000003,-0.022],
+                  [-0.13200000000000003,0.024],
+                  [-0.13800000000000004,0.030000000000000002],
+                  [-0.14400000000000002,0.030000000000000002],
+                  [-0.15000000000000002,0.024],
+                  [-0.15000000000000002,-0.022]
+                ],
+                [
+                  [0.0019999999999999914,-0.028],
+                  [0.00799999999999999,-0.028],
+                  [0.01399999999999999,-0.022],
+                  [0.01399999999999999,0.024],
+                  [0.00799999999999999,0.030000000000000002],
+                  [0.0019999999999999914,0.030000000000000002],
+                  [-0.004000000000000009,0.024],
+                  [-0.004000000000000009,-0.022]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9ecbd4",
+              "opacity": 0.57
+            }
+          },
+          {
+            "id": "motion",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.frame",
+            "transform": {
+              "position": [0,0,0.009]
+            }
+          },
+          {
+            "id": "moving-leaf",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.perforated-acrylic-bridge-leaf",
+            "parent": "motion",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.007]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.02399999999999999,-0.051],
+                [0.15999999999999998,-0.051],
+                [0.172,-0.03899999999999999],
+                [0.172,0.03899999999999999],
+                [0.15999999999999998,0.051],
+                [-0.02399999999999999,0.051],
+                [-0.03599999999999999,0.03899999999999999],
+                [-0.03599999999999999,-0.03899999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.00799999999999999,-0.028],
+                  [-0.0019999999999999914,-0.028],
+                  [0.004000000000000009,-0.022],
+                  [0.004000000000000009,0.024],
+                  [-0.0019999999999999914,0.030000000000000002],
+                  [-0.00799999999999999,0.030000000000000002],
+                  [-0.01399999999999999,0.024],
+                  [-0.01399999999999999,-0.022]
+                ],
+                [
+                  [0.138,-0.028],
+                  [0.144,-0.028],
+                  [0.15,-0.022],
+                  [0.15,0.024],
+                  [0.144,0.030000000000000002],
+                  [0.138,0.030000000000000002],
+                  [0.132,0.024],
+                  [0.132,-0.022]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4d4d9",
+              "opacity": 0.57
+            }
+          },
+          {
+            "id": "reference-grid",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.clear-fixed-scale-field",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.005],
+                [0,0,0.01]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.039,-0.042],
+                [0.039,-0.042],
+                [0.045,-0.036000000000000004],
+                [0.045,0.036000000000000004],
+                [0.039,0.042],
+                [-0.039,0.042],
+                [-0.045,0.036000000000000004],
+                [-0.045,-0.036000000000000004]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#c3d6d6",
+              "opacity": 0.56
+            }
+          },
+          {
+            "id": "vertical-grid--6",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [-0.036000000000000004,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid--6",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,-0.036000000000000004,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid--5",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [-0.03,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid--5",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,-0.03,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid--4",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [-0.024,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid--4",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,-0.024,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid--3",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [-0.018000000000000002,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid--3",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,-0.018000000000000002,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid--2",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [-0.012,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid--2",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,-0.012,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid--1",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [-0.006,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid--1",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,-0.006,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid-0",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0017,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid-0",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0017,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid-1",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0.006,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid-1",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.006,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid-2",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0.012,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid-2",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.012,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid-3",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0.018000000000000002,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid-3",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.018000000000000002,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid-4",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0.024,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid-4",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.024,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid-5",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0.03,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid-5",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.03,0.0115]
+            }
+          },
+          {
+            "id": "vertical-grid-6",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0008,0.077,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0.036000000000000004,0,0.011]
+            }
+          },
+          {
+            "id": "horizontal-grid-6",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.hairline-grid-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.0008,0.0009]
+            },
+            "appearance": {
+              "color": "#9db6c3"
+            },
+            "transform": {
+              "position": [0,0.036000000000000004,0.0115]
+            }
+          },
+          {
+            "id": "needle-h",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.displacement-crosshair",
+            "parent": "motion",
+            "geometry": {
+              "type": "box",
+              "size": [0.063,0.0018,0.0012]
+            },
+            "appearance": {
+              "color": "#c27c63"
+            },
+            "transform": {
+              "position": [0,0,0.009]
+            }
+          },
+          {
+            "id": "needle-v",
+            "semanticType": "instrument.dual-axis-transparent-crack-displacement-telltale.displacement-crosshair",
+            "parent": "motion",
+            "geometry": {
+              "type": "box",
+              "size": [0.0018,0.065,0.0012]
+            },
+            "appearance": {
+              "color": "#c27c63"
+            },
+            "transform": {
+              "position": [0,0,0.009]
+            }
+          }
+        ],
+        "anchors": {
+          "fixed-wall": {
+            "node": "reference-leaf",
+            "position": [-0.142,0,0],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          },
+          "moving-wall": {
+            "node": "moving-leaf",
+            "position": [0.142,0,0],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          },
+          "grid-center": {
+            "node": "reference-grid",
+            "position": [0,0,0.01],
+            "direction": [0,0,1],
+            "kind": "measurement"
+          },
+          "cross-center": {
+            "node": "needle-v",
+            "position": [0,0,0],
+            "direction": [0,0,1],
+            "kind": "measurement"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "x-displacement",
+            "label": "裂缝横向相对位移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.028,
+            "max": 0.028,
+            "targets": [
+              {
+                "node": "motion",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "y-displacement",
+            "label": "裂缝竖向相对位移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.025,
+            "max": 0.025,
+            "targets": [
+              {
+                "node": "motion",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,765 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.twin-paddle-coating-batch-mixer",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "双桨升降式涂料搅拌机",
+  "summary": "带开口混料桶、双搅拌桨、后部导架、可升降驱动头与固定室内机架。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.twin-paddle-coating-batch-mixer",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "双桨搅拌机",
+    "地坪涂料",
+    "coating-mixer",
+    "twin-paddle",
+    "地坪施工",
+    "equipment"
+  ],
+  "anchors": [
+    "shaft-end--1",
+    "shaft-end-1",
+    "container-mouth",
+    "base"
+  ],
+  "ai": {
+    "intent": "独立表达地坪涂料搅拌设备、料桶和双工作桨，保留升降检修位置。",
+    "editableParts": [
+      "head-height",
+      "paddle-angle"
+    ],
+    "qualityChecks": [
+      "两个工作桨按相反方向旋转。",
+      "搅拌头升降不改变混料桶位置。",
+      "混料桶保有开口、壁厚和固定底。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "twin-paddle-coating-batch-mixer",
+      "title": "双桨升降式涂料搅拌机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.tub-stand",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.02,0],
+                [0,0.063,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.24000000000000002,-0.237],
+                [-0.25199999999999995,-0.237],
+                [-0.2929999999999999,-0.19599999999999998],
+                [-0.2929999999999999,0.19599999999999998],
+                [-0.25199999999999995,0.237],
+                [0.24000000000000002,0.237],
+                [0.281,0.19599999999999998],
+                [0.281,-0.19599999999999998]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.202,-0.173],
+                  [-0.198,-0.173],
+                  [-0.224,-0.147],
+                  [-0.224,0.147],
+                  [-0.198,0.173],
+                  [0.202,0.173],
+                  [0.228,0.147],
+                  [0.228,-0.147]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#6c858e"
+            }
+          },
+          {
+            "id": "foot--0.226--0.184",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.rubber-support-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.067,0.028,0.061]
+            },
+            "appearance": {
+              "color": "#2c3940"
+            },
+            "transform": {
+              "position": [-0.226,0.014,-0.184]
+            }
+          },
+          {
+            "id": "foot--0.226-0.184",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.rubber-support-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.067,0.028,0.061]
+            },
+            "appearance": {
+              "color": "#2c3940"
+            },
+            "transform": {
+              "position": [-0.226,0.014,0.184]
+            }
+          },
+          {
+            "id": "foot-0.226--0.184",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.rubber-support-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.067,0.028,0.061]
+            },
+            "appearance": {
+              "color": "#2c3940"
+            },
+            "transform": {
+              "position": [0.226,0.014,-0.184]
+            }
+          },
+          {
+            "id": "foot-0.226-0.184",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.rubber-support-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.067,0.028,0.061]
+            },
+            "appearance": {
+              "color": "#2c3940"
+            },
+            "transform": {
+              "position": [0.226,0.014,0.184]
+            }
+          },
+          {
+            "id": "tub",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.frame",
+            "transform": {
+              "position": [0.053,0.061,0]
+            }
+          },
+          {
+            "id": "bucket-wall",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.open-liquid-container",
+            "parent": "tub",
+            "geometry": {
+              "type": "lofted-surface",
+              "radialSegments": 48,
+              "sections": [
+                {
+                  "center": [0,0,0],
+                  "axisX": [0.127,0,0],
+                  "axisZ": [0,0,-0.127]
+                },
+                {
+                  "center": [0,0.067,0],
+                  "axisX": [0.132,0,0],
+                  "axisZ": [0,0,-0.132]
+                },
+                {
+                  "center": [0,0.269,0],
+                  "axisX": [0.157,0,0],
+                  "axisZ": [0,0,-0.157]
+                },
+                {
+                  "center": [0,0.318,0],
+                  "axisX": [0.166,0,0],
+                  "axisZ": [0,0,-0.166]
+                },
+                {
+                  "center": [0,0.318,0],
+                  "axisX": [0.16,0,0],
+                  "axisZ": [0,0,-0.16]
+                },
+                {
+                  "center": [0,0.269,0],
+                  "axisX": [0.151,0,0],
+                  "axisZ": [0,0,-0.151]
+                },
+                {
+                  "center": [0,0.067,0],
+                  "axisX": [0.126,0,0],
+                  "axisZ": [0,0,-0.126]
+                },
+                {
+                  "center": [0,0,0],
+                  "axisX": [0.121,0,0],
+                  "axisZ": [0,0,-0.121]
+                },
+                {
+                  "center": [0,0,0],
+                  "axisX": [0.127,0,0],
+                  "axisZ": [0,0,-0.127]
+                }
+              ],
+              "capStart": false,
+              "capEnd": false
+            },
+            "appearance": {
+              "color": "#3f919c"
+            }
+          },
+          {
+            "id": "bottom",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.container-floor",
+            "parent": "tub",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.016,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.129,0],
+                [0.1265213,0.02516665],
+                [0.11918046,0.04936616],
+                [0.10725958,0.07166856],
+                [0.09121677,0.09121677],
+                [0.07166856,0.10725958],
+                [0.04936616,0.11918046],
+                [0.02516665,0.1265213],
+                [0,0.129],
+                [-0.02516665,0.1265213],
+                [-0.04936616,0.11918046],
+                [-0.07166856,0.10725958],
+                [-0.09121677,0.09121677],
+                [-0.10725958,0.07166856],
+                [-0.11918046,0.04936616],
+                [-0.1265213,0.02516665],
+                [-0.129,0],
+                [-0.1265213,-0.02516665],
+                [-0.11918046,-0.04936616],
+                [-0.10725958,-0.07166856],
+                [-0.09121677,-0.09121677],
+                [-0.07166856,-0.10725958],
+                [-0.04936616,-0.11918046],
+                [-0.02516665,-0.1265213],
+                [0,-0.129],
+                [0.02516665,-0.1265213],
+                [0.04936616,-0.11918046],
+                [0.07166856,-0.10725958],
+                [0.09121677,-0.09121677],
+                [0.10725958,-0.07166856],
+                [0.11918046,-0.04936616],
+                [0.1265213,-0.02516665]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#6c858e"
+            }
+          },
+          {
+            "id": "top-rim",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.container-top-rim",
+            "parent": "tub",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.311,0],
+                [0,0.328,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.174,0],
+                [0.17251141,0.02271156],
+                [0.16807109,0.04503451],
+                [0.16075504,0.06658692],
+                [0.15068842,0.087],
+                [0.13804348,0.10592449],
+                [0.12303658,0.12303658],
+                [0.10592449,0.13804348],
+                [0.087,0.15068842],
+                [0.06658692,0.16075504],
+                [0.04503451,0.16807109],
+                [0.02271156,0.17251141],
+                [0,0.174],
+                [-0.02271156,0.17251141],
+                [-0.04503451,0.16807109],
+                [-0.06658692,0.16075504],
+                [-0.087,0.15068842],
+                [-0.10592449,0.13804348],
+                [-0.12303658,0.12303658],
+                [-0.13804348,0.10592449],
+                [-0.15068842,0.087],
+                [-0.16075504,0.06658692],
+                [-0.16807109,0.04503451],
+                [-0.17251141,0.02271156],
+                [-0.174,0],
+                [-0.17251141,-0.02271156],
+                [-0.16807109,-0.04503451],
+                [-0.16075504,-0.06658692],
+                [-0.15068842,-0.087],
+                [-0.13804348,-0.10592449],
+                [-0.12303658,-0.12303658],
+                [-0.10592449,-0.13804348],
+                [-0.087,-0.15068842],
+                [-0.06658692,-0.16075504],
+                [-0.04503451,-0.16807109],
+                [-0.02271156,-0.17251141],
+                [0,-0.174],
+                [0.02271156,-0.17251141],
+                [0.04503451,-0.16807109],
+                [0.06658692,-0.16075504],
+                [0.087,-0.15068842],
+                [0.10592449,-0.13804348],
+                [0.12303658,-0.12303658],
+                [0.13804348,-0.10592449],
+                [0.15068842,-0.087],
+                [0.16075504,-0.06658692],
+                [0.16807109,-0.04503451],
+                [0.17251141,-0.02271156]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.16,0],
+                  [0.15863118,0.02088419],
+                  [0.15454813,0.04141105],
+                  [0.14782073,0.06122935],
+                  [0.13856406,0.08],
+                  [0.12693653,0.09740183],
+                  [0.11313708,0.11313708],
+                  [0.09740183,0.12693653],
+                  [0.08,0.13856406],
+                  [0.06122935,0.14782073],
+                  [0.04141105,0.15454813],
+                  [0.02088419,0.15863118],
+                  [0,0.16],
+                  [-0.02088419,0.15863118],
+                  [-0.04141105,0.15454813],
+                  [-0.06122935,0.14782073],
+                  [-0.08,0.13856406],
+                  [-0.09740183,0.12693653],
+                  [-0.11313708,0.11313708],
+                  [-0.12693653,0.09740183],
+                  [-0.13856406,0.08],
+                  [-0.14782073,0.06122935],
+                  [-0.15454813,0.04141105],
+                  [-0.15863118,0.02088419],
+                  [-0.16,0],
+                  [-0.15863118,-0.02088419],
+                  [-0.15454813,-0.04141105],
+                  [-0.14782073,-0.06122935],
+                  [-0.13856406,-0.08],
+                  [-0.12693653,-0.09740183],
+                  [-0.11313708,-0.11313708],
+                  [-0.09740183,-0.12693653],
+                  [-0.08,-0.13856406],
+                  [-0.06122935,-0.14782073],
+                  [-0.04141105,-0.15454813],
+                  [-0.02088419,-0.15863118],
+                  [0,-0.16],
+                  [0.02088419,-0.15863118],
+                  [0.04141105,-0.15454813],
+                  [0.06122935,-0.14782073],
+                  [0.08,-0.13856406],
+                  [0.09740183,-0.12693653],
+                  [0.11313708,-0.11313708],
+                  [0.12693653,-0.09740183],
+                  [0.13856406,-0.08],
+                  [0.14782073,-0.06122935],
+                  [0.15454813,-0.04141105],
+                  [0.15863118,-0.02088419]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#6c858e"
+            }
+          },
+          {
+            "id": "bucket-ear--1",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.container-handle",
+            "parent": "tub",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0.284,-0.161],
+                [0,0.298,-0.199],
+                [0.049,0.298,-0.199],
+                [0.055,0.284,-0.162]
+              ],
+              "radius": 0.0063,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#6c858e"
+            }
+          },
+          {
+            "id": "bucket-ear-1",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.container-handle",
+            "parent": "tub",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0.284,0.161],
+                [0,0.298,0.199],
+                [0.049,0.298,0.199],
+                [0.055,0.284,0.162]
+              ],
+              "radius": 0.0063,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#6c858e"
+            }
+          },
+          {
+            "id": "column",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.frame",
+            "transform": {
+              "position": [-0.211,0.06,0]
+            }
+          },
+          {
+            "id": "outer-guide",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.hollow-guide-column",
+            "parent": "column",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.763,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.065,-0.083],
+                [-0.065,-0.083],
+                [-0.065,0.083],
+                [0.065,0.083]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.049,-0.066],
+                  [-0.049,-0.066],
+                  [-0.049,0.066],
+                  [0.049,0.066]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#768d95"
+            }
+          },
+          {
+            "id": "guide-rail--0.051",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.slide-rail",
+            "parent": "column",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.388,0.023]
+            },
+            "appearance": {
+              "color": "#abbec8"
+            },
+            "transform": {
+              "position": [0.071,0.602,-0.051]
+            }
+          },
+          {
+            "id": "guide-rail-0.051",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.slide-rail",
+            "parent": "column",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.388,0.023]
+            },
+            "appearance": {
+              "color": "#abbec8"
+            },
+            "transform": {
+              "position": [0.071,0.602,0.051]
+            }
+          },
+          {
+            "id": "drive-head",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.frame",
+            "parent": "column",
+            "transform": {
+              "position": [0.021,0.582,0]
+            }
+          },
+          {
+            "id": "slider",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.drive-head-slide-block",
+            "parent": "drive-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.092,0.117,0.154]
+            },
+            "appearance": {
+              "color": "#5ba1aa"
+            },
+            "transform": {
+              "position": [0.076,0,0]
+            }
+          },
+          {
+            "id": "crossbar",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.drive-head-crossbeam",
+            "parent": "drive-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.309,0.066,0.254]
+            },
+            "appearance": {
+              "color": "#5ba1aa"
+            },
+            "transform": {
+              "position": [0.183,0,0]
+            }
+          },
+          {
+            "id": "motor",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.gear-motor",
+            "parent": "drive-head",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.249,0.031,0],
+              "end": [0.249,0.181,0],
+              "radius": 0.065,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#3f919c"
+            }
+          },
+          {
+            "id": "terminal",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.terminal-housing",
+            "parent": "drive-head",
+            "geometry": {
+              "type": "box",
+              "size": [0.065,0.063,0.049]
+            },
+            "appearance": {
+              "color": "#59666c"
+            },
+            "transform": {
+              "position": [0.263,0.126,0.071]
+            }
+          },
+          {
+            "id": "paddle--1",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.frame",
+            "parent": "drive-head",
+            "transform": {
+              "position": [0.252,-0.019,-0.069]
+            }
+          },
+          {
+            "id": "paddle-shaft--1",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.stirring-shaft",
+            "parent": "paddle--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.334,0],
+              "end": [0,0.011,0],
+              "radius": 0.0085,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#abbec8"
+            }
+          },
+          {
+            "id": "paddle-vane--1-0",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.mixing-vane",
+            "parent": "paddle--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.018,0.024]
+            },
+            "appearance": {
+              "color": "#6c858e"
+            },
+            "transform": {
+              "position": [0,-0.319,0],
+              "rotation": [0,0,-0.3141592653589793]
+            }
+          },
+          {
+            "id": "paddle-vane--1-1",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.mixing-vane",
+            "parent": "paddle--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.018,0.024]
+            },
+            "appearance": {
+              "color": "#6c858e"
+            },
+            "transform": {
+              "position": [0,-0.26,0],
+              "rotation": [0,1.0471975511965976,-0.3141592653589793]
+            }
+          },
+          {
+            "id": "paddle-vane--1-2",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.mixing-vane",
+            "parent": "paddle--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.018,0.024]
+            },
+            "appearance": {
+              "color": "#6c858e"
+            },
+            "transform": {
+              "position": [0,-0.201,0],
+              "rotation": [0,2.0943951023931953,-0.3141592653589793]
+            }
+          },
+          {
+            "id": "paddle-1",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.frame",
+            "parent": "drive-head",
+            "transform": {
+              "position": [0.252,-0.019,0.069]
+            }
+          },
+          {
+            "id": "paddle-shaft-1",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.stirring-shaft",
+            "parent": "paddle-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.334,0],
+              "end": [0,0.011,0],
+              "radius": 0.0085,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#abbec8"
+            }
+          },
+          {
+            "id": "paddle-vane-1-0",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.mixing-vane",
+            "parent": "paddle-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.018,0.024]
+            },
+            "appearance": {
+              "color": "#6c858e"
+            },
+            "transform": {
+              "position": [0,-0.319,0],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "paddle-vane-1-1",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.mixing-vane",
+            "parent": "paddle-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.018,0.024]
+            },
+            "appearance": {
+              "color": "#6c858e"
+            },
+            "transform": {
+              "position": [0,-0.26,0],
+              "rotation": [0,1.0471975511965976,0.3141592653589793]
+            }
+          },
+          {
+            "id": "paddle-vane-1-2",
+            "semanticType": "equipment.twin-paddle-coating-batch-mixer.mixing-vane",
+            "parent": "paddle-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.072,0.018,0.024]
+            },
+            "appearance": {
+              "color": "#6c858e"
+            },
+            "transform": {
+              "position": [0,-0.201,0],
+              "rotation": [0,2.0943951023931953,0.3141592653589793]
+            }
+          }
+        ],
+        "anchors": {
+          "shaft-end--1": {
+            "node": "paddle--1",
+            "position": [0,-0.33,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "shaft-end-1": {
+            "node": "paddle-1",
+            "position": [0,-0.33,0],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "container-mouth": {
+            "node": "top-rim",
+            "position": [0,0.328,0],
+            "direction": [0,1,0],
+            "kind": "load"
+          },
+          "base": {
+            "node": "base",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "head-height",
+            "label": "搅拌头升降",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.159,
+            "targets": [
+              {
+                "node": "drive-head",
+                "property": "position",
+                "axis": "y"
+              }
+            ]
+          },
+          {
+            "id": "paddle-angle",
+            "label": "双桨逆向回转",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "paddle--1",
+                "property": "rotation",
+                "axis": "y",
+                "factor": -0.017453292519943295
+              },
+              {
+                "node": "paddle-1",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

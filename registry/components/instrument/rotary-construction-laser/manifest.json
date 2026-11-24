@@ -1,0 +1,637 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.rotary-construction-laser",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "施工旋转激光仪",
+  "summary": "带保护窗口、可旋转发射头、机身防护筋、控制面板和测量支架接口的激光水平仪。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.rotary-construction-laser",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "测量",
+    "测绘",
+    "survey",
+    "site-instrument",
+    "激光水平仪",
+    "rotary-laser",
+    "laser-level"
+  ],
+  "anchors": [
+    "tripod-mount",
+    "sweep-plane",
+    "laser-axis"
+  ],
+  "ai": {
+    "intent": "在施工找平和标高复核中，提供可定向激光头和水平面参考。",
+    "editableParts": [
+      "laser-azimuth"
+    ],
+    "qualityChecks": [
+      "激光出口随头部连续回转。",
+      "保护窗、底座和支撑柱保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rotary-construction-laser",
+      "title": "施工旋转激光仪",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base-plate",
+            "semanticType": "instrument.rotary-construction-laser.base-plate",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.002,0],
+                [0,0.026,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.065,-0.09],
+                [-0.065,-0.09],
+                [-0.09,-0.065],
+                [-0.09,0.065],
+                [-0.065,0.09],
+                [0.065,0.09],
+                [0.09,0.065],
+                [0.09,-0.065]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.011,0],
+                  [-0.01062518,0.00284701],
+                  [-0.00952628,0.0055],
+                  [-0.00777817,0.00777817],
+                  [-0.0055,0.00952628],
+                  [-0.00284701,0.01062518],
+                  [0,0.011],
+                  [0.00284701,0.01062518],
+                  [0.0055,0.00952628],
+                  [0.00777817,0.00777817],
+                  [0.00952628,0.0055],
+                  [0.01062518,0.00284701],
+                  [0.011,0],
+                  [0.01062518,-0.00284701],
+                  [0.00952628,-0.0055],
+                  [0.00777817,-0.00777817],
+                  [0.0055,-0.00952628],
+                  [0.00284701,-0.01062518],
+                  [0,-0.011],
+                  [-0.00284701,-0.01062518],
+                  [-0.0055,-0.00952628],
+                  [-0.00777817,-0.00777817],
+                  [-0.00952628,-0.0055],
+                  [-0.01062518,-0.00284701]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#455563"
+            }
+          },
+          {
+            "id": "lower-housing",
+            "semanticType": "instrument.rotary-construction-laser.body-housing",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.026,0],
+                [0,0.136,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.065,-0.084],
+                [-0.065,-0.084],
+                [-0.084,-0.065],
+                [-0.084,0.065],
+                [-0.065,0.084],
+                [0.065,0.084],
+                [0.084,0.065],
+                [0.084,-0.065]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#df8753"
+            }
+          },
+          {
+            "id": "upper-housing",
+            "semanticType": "instrument.rotary-construction-laser.housing-top",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.136,0],
+                [0,0.148,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.061,-0.081],
+                [-0.061,-0.081],
+                [-0.081,-0.061],
+                [-0.081,0.061],
+                [-0.061,0.081],
+                [0.061,0.081],
+                [0.081,0.061],
+                [0.081,-0.061]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#455563"
+            }
+          },
+          {
+            "id": "bumper--1--1",
+            "semanticType": "instrument.rotary-construction-laser.corner-bumper",
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.12,0.027]
+            },
+            "appearance": {
+              "color": "#223545"
+            },
+            "transform": {
+              "position": [-0.071,0.084,-0.072]
+            }
+          },
+          {
+            "id": "bumper--1-1",
+            "semanticType": "instrument.rotary-construction-laser.corner-bumper",
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.12,0.027]
+            },
+            "appearance": {
+              "color": "#223545"
+            },
+            "transform": {
+              "position": [-0.071,0.084,0.072]
+            }
+          },
+          {
+            "id": "bumper-1--1",
+            "semanticType": "instrument.rotary-construction-laser.corner-bumper",
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.12,0.027]
+            },
+            "appearance": {
+              "color": "#223545"
+            },
+            "transform": {
+              "position": [0.071,0.084,-0.072]
+            }
+          },
+          {
+            "id": "bumper-1-1",
+            "semanticType": "instrument.rotary-construction-laser.corner-bumper",
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.12,0.027]
+            },
+            "appearance": {
+              "color": "#223545"
+            },
+            "transform": {
+              "position": [0.071,0.084,0.072]
+            }
+          },
+          {
+            "id": "control-recess",
+            "semanticType": "instrument.rotary-construction-laser.control-panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.115,0.053,0.004]
+            },
+            "appearance": {
+              "color": "#455563"
+            },
+            "transform": {
+              "position": [0,0.082,0.086]
+            }
+          },
+          {
+            "id": "status-window",
+            "semanticType": "instrument.rotary-construction-laser.status-window",
+            "geometry": {
+              "type": "box",
+              "size": [0.065,0.014,0.002]
+            },
+            "appearance": {
+              "color": "#32798a"
+            },
+            "transform": {
+              "position": [0,0.091,0.089]
+            }
+          },
+          {
+            "id": "panel-key-0",
+            "semanticType": "instrument.rotary-construction-laser.panel-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.009,0.003]
+            },
+            "appearance": {
+              "color": "#d3675b"
+            },
+            "transform": {
+              "position": [-0.035,0.069,0.09]
+            }
+          },
+          {
+            "id": "panel-key-1",
+            "semanticType": "instrument.rotary-construction-laser.panel-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.009,0.003]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.012000000000000004,0.069,0.09]
+            }
+          },
+          {
+            "id": "panel-key-2",
+            "semanticType": "instrument.rotary-construction-laser.panel-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.009,0.003]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.010999999999999996,0.069,0.09]
+            }
+          },
+          {
+            "id": "panel-key-3",
+            "semanticType": "instrument.rotary-construction-laser.panel-key",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.009,0.003]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.034,0.069,0.09]
+            }
+          },
+          {
+            "id": "emitter",
+            "semanticType": "instrument.rotary-construction-laser.frame",
+            "transform": {
+              "position": [0,0.166,0]
+            }
+          },
+          {
+            "id": "rotation-bearing",
+            "semanticType": "instrument.rotary-construction-laser.rotation-bearing",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.148,0],
+                [0,0.164,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.039,0],
+                [0.03825063,0.00760852],
+                [0.0360313,0.01492465],
+                [0.03242731,0.02166724],
+                [0.02757716,0.02757716],
+                [0.02166724,0.03242731],
+                [0.01492465,0.0360313],
+                [0.00760852,0.03825063],
+                [0,0.039],
+                [-0.00760852,0.03825063],
+                [-0.01492465,0.0360313],
+                [-0.02166724,0.03242731],
+                [-0.02757716,0.02757716],
+                [-0.03242731,0.02166724],
+                [-0.0360313,0.01492465],
+                [-0.03825063,0.00760852],
+                [-0.039,0],
+                [-0.03825063,-0.00760852],
+                [-0.0360313,-0.01492465],
+                [-0.03242731,-0.02166724],
+                [-0.02757716,-0.02757716],
+                [-0.02166724,-0.03242731],
+                [-0.01492465,-0.0360313],
+                [-0.00760852,-0.03825063],
+                [0,-0.039],
+                [0.00760852,-0.03825063],
+                [0.01492465,-0.0360313],
+                [0.02166724,-0.03242731],
+                [0.02757716,-0.02757716],
+                [0.03242731,-0.02166724],
+                [0.0360313,-0.01492465],
+                [0.03825063,-0.00760852]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "emitter-drum",
+            "semanticType": "instrument.rotary-construction-laser.emitter-drum",
+            "parent": "emitter",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.028,0],
+              "radius": 0.033,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "laser-lens-holder",
+            "semanticType": "instrument.rotary-construction-laser.laser-lens-holder",
+            "parent": "emitter",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.023,0.014,0],
+              "end": [0.036,0.014,0],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "laser-aperture",
+            "semanticType": "instrument.rotary-construction-laser.laser-aperture",
+            "parent": "emitter",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.036,0.014,0],
+              "end": [0.037,0.014,0],
+              "radius": 0.0048,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#be664a"
+            }
+          },
+          {
+            "id": "guard-column-0",
+            "semanticType": "instrument.rotary-construction-laser.optics-cage-column",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.04030509,0.146,0.04030509],
+              "end": [0.04030509,0.218,0.04030509],
+              "radius": 0.0065,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#df8753"
+            }
+          },
+          {
+            "id": "guard-column-1",
+            "semanticType": "instrument.rotary-construction-laser.optics-cage-column",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.04030509,0.146,0.04030509],
+              "end": [-0.04030509,0.218,0.04030509],
+              "radius": 0.0065,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#df8753"
+            }
+          },
+          {
+            "id": "guard-column-2",
+            "semanticType": "instrument.rotary-construction-laser.optics-cage-column",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.04030509,0.146,-0.04030509],
+              "end": [-0.04030509,0.218,-0.04030509],
+              "radius": 0.0065,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#df8753"
+            }
+          },
+          {
+            "id": "guard-column-3",
+            "semanticType": "instrument.rotary-construction-laser.optics-cage-column",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.04030509,0.146,-0.04030509],
+              "end": [0.04030509,0.218,-0.04030509],
+              "radius": 0.0065,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#df8753"
+            }
+          },
+          {
+            "id": "superstructure-cap",
+            "semanticType": "instrument.rotary-construction-laser.optics-cage-cap",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.218,0],
+                [0,0.233,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.065,0],
+                [0.06375104,0.01268087],
+                [0.06005217,0.02487442],
+                [0.05404552,0.03611207],
+                [0.04596194,0.04596194],
+                [0.03611207,0.05404552],
+                [0.02487442,0.06005217],
+                [0.01268087,0.06375104],
+                [0,0.065],
+                [-0.01268087,0.06375104],
+                [-0.02487442,0.06005217],
+                [-0.03611207,0.05404552],
+                [-0.04596194,0.04596194],
+                [-0.05404552,0.03611207],
+                [-0.06005217,0.02487442],
+                [-0.06375104,0.01268087],
+                [-0.065,0],
+                [-0.06375104,-0.01268087],
+                [-0.06005217,-0.02487442],
+                [-0.05404552,-0.03611207],
+                [-0.04596194,-0.04596194],
+                [-0.03611207,-0.05404552],
+                [-0.02487442,-0.06005217],
+                [-0.01268087,-0.06375104],
+                [0,-0.065],
+                [0.01268087,-0.06375104],
+                [0.02487442,-0.06005217],
+                [0.03611207,-0.05404552],
+                [0.04596194,-0.04596194],
+                [0.05404552,-0.03611207],
+                [0.06005217,-0.02487442],
+                [0.06375104,-0.01268087]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "guard-window",
+            "semanticType": "instrument.rotary-construction-laser.transparent-window",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.15,0],
+                [0,0.217,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.061,0],
+                [0.06007327,0.01059254],
+                [0.05732125,0.02086323],
+                [0.05282755,0.0305],
+                [0.04672871,0.03921004],
+                [0.03921004,0.04672871],
+                [0.0305,0.05282755],
+                [0.02086323,0.05732125],
+                [0.01059254,0.06007327],
+                [0,0.061],
+                [-0.01059254,0.06007327],
+                [-0.02086323,0.05732125],
+                [-0.0305,0.05282755],
+                [-0.03921004,0.04672871],
+                [-0.04672871,0.03921004],
+                [-0.05282755,0.0305],
+                [-0.05732125,0.02086323],
+                [-0.06007327,0.01059254],
+                [-0.061,0],
+                [-0.06007327,-0.01059254],
+                [-0.05732125,-0.02086323],
+                [-0.05282755,-0.0305],
+                [-0.04672871,-0.03921004],
+                [-0.03921004,-0.04672871],
+                [-0.0305,-0.05282755],
+                [-0.02086323,-0.05732125],
+                [-0.01059254,-0.06007327],
+                [0,-0.061],
+                [0.01059254,-0.06007327],
+                [0.02086323,-0.05732125],
+                [0.0305,-0.05282755],
+                [0.03921004,-0.04672871],
+                [0.04672871,-0.03921004],
+                [0.05282755,-0.0305],
+                [0.05732125,-0.02086323],
+                [0.06007327,-0.01059254]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.059,0],
+                  [0.05810366,0.01024524],
+                  [0.05544186,0.02017919],
+                  [0.0510955,0.0295],
+                  [0.04519662,0.03792447],
+                  [0.03792447,0.04519662],
+                  [0.0295,0.0510955],
+                  [0.02017919,0.05544186],
+                  [0.01024524,0.05810366],
+                  [0,0.059],
+                  [-0.01024524,0.05810366],
+                  [-0.02017919,0.05544186],
+                  [-0.0295,0.0510955],
+                  [-0.03792447,0.04519662],
+                  [-0.04519662,0.03792447],
+                  [-0.0510955,0.0295],
+                  [-0.05544186,0.02017919],
+                  [-0.05810366,0.01024524],
+                  [-0.059,0],
+                  [-0.05810366,-0.01024524],
+                  [-0.05544186,-0.02017919],
+                  [-0.0510955,-0.0295],
+                  [-0.04519662,-0.03792447],
+                  [-0.03792447,-0.04519662],
+                  [-0.0295,-0.0510955],
+                  [-0.02017919,-0.05544186],
+                  [-0.01024524,-0.05810366],
+                  [0,-0.059],
+                  [0.01024524,-0.05810366],
+                  [0.02017919,-0.05544186],
+                  [0.0295,-0.0510955],
+                  [0.03792447,-0.04519662],
+                  [0.04519662,-0.03792447],
+                  [0.0510955,-0.0295],
+                  [0.05544186,-0.02017919],
+                  [0.05810366,-0.01024524]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#afc7cd",
+              "opacity": 0.3
+            }
+          }
+        ],
+        "anchors": {
+          "tripod-mount": {
+            "node": "base-plate",
+            "position": [0,0.002,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "sweep-plane": {
+            "node": "emitter",
+            "position": [0,0.014,0],
+            "direction": [0,1,0],
+            "kind": "reference"
+          },
+          "laser-axis": {
+            "node": "emitter",
+            "position": [0.037,0.014,0],
+            "direction": [1,0,0],
+            "kind": "optical-source"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "laser-azimuth",
+            "label": "激光头角度",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "emitter",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

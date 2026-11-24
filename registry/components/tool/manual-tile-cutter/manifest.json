@@ -1,0 +1,585 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.manual-tile-cutter",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双轨手动瓷砖切割机",
+  "summary": "导轨、滑车、划轮、翻转压脚与侧尺作为独立部件，保留板材工作面定位。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.manual-tile-cutter",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "施工工具",
+    "瓷砖切割",
+    "导轨",
+    "划线",
+    "压脚"
+  ],
+  "anchors": [
+    "support-plane",
+    "scoring-point",
+    "lever-grip"
+  ],
+  "ai": {
+    "intent": "用导轨行程定位划轮与压脚，用工作面锚点定位板材。",
+    "editableParts": [
+      "carriage-travel",
+      "handle-angle",
+      "breaker-angle"
+    ],
+    "qualityChecks": [
+      "滑车与划轮同向平移。",
+      "压脚和握柄各绕自己的铰轴转动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "manual-tile-cutter",
+      "title": "双轨手动瓷砖切割机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "tool.manual-tile-cutter.base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.008,0],
+                [0,0.038,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.33899999999999997,-0.115],
+                [-0.33899999999999997,-0.115],
+                [-0.36,-0.094],
+                [-0.36,0.094],
+                [-0.33899999999999997,0.115],
+                [0.33899999999999997,0.115],
+                [0.36,0.094],
+                [0.36,-0.094]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#485d69"
+            }
+          },
+          {
+            "id": "left-mat",
+            "semanticType": "tool.manual-tile-cutter.rubber-bed",
+            "geometry": {
+              "type": "box",
+              "size": [0.61,0.012,0.088]
+            },
+            "appearance": {
+              "color": "#4d626f"
+            },
+            "transform": {
+              "position": [0,0.044,-0.063]
+            }
+          },
+          {
+            "id": "left-rail",
+            "semanticType": "tool.manual-tile-cutter.rail",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.31,0.125,-0.063],
+              "end": [0.31,0.125,-0.063],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "left-rail-front",
+            "semanticType": "tool.manual-tile-cutter.rail-support",
+            "geometry": {
+              "type": "box",
+              "size": [0.043,0.096,0.033]
+            },
+            "appearance": {
+              "color": "#56a4a6"
+            },
+            "transform": {
+              "position": [0.323,0.085,-0.063]
+            }
+          },
+          {
+            "id": "left-rail-rear",
+            "semanticType": "tool.manual-tile-cutter.rail-support",
+            "geometry": {
+              "type": "box",
+              "size": [0.043,0.096,0.033]
+            },
+            "appearance": {
+              "color": "#56a4a6"
+            },
+            "transform": {
+              "position": [-0.323,0.085,-0.063]
+            }
+          },
+          {
+            "id": "right-mat",
+            "semanticType": "tool.manual-tile-cutter.rubber-bed",
+            "geometry": {
+              "type": "box",
+              "size": [0.61,0.012,0.088]
+            },
+            "appearance": {
+              "color": "#4d626f"
+            },
+            "transform": {
+              "position": [0,0.044,0.063]
+            }
+          },
+          {
+            "id": "right-rail",
+            "semanticType": "tool.manual-tile-cutter.rail",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.31,0.125,0.063],
+              "end": [0.31,0.125,0.063],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "right-rail-front",
+            "semanticType": "tool.manual-tile-cutter.rail-support",
+            "geometry": {
+              "type": "box",
+              "size": [0.043,0.096,0.033]
+            },
+            "appearance": {
+              "color": "#56a4a6"
+            },
+            "transform": {
+              "position": [0.323,0.085,0.063]
+            }
+          },
+          {
+            "id": "right-rail-rear",
+            "semanticType": "tool.manual-tile-cutter.rail-support",
+            "geometry": {
+              "type": "box",
+              "size": [0.043,0.096,0.033]
+            },
+            "appearance": {
+              "color": "#56a4a6"
+            },
+            "transform": {
+              "position": [-0.323,0.085,0.063]
+            }
+          },
+          {
+            "id": "breaking-ridge",
+            "semanticType": "tool.manual-tile-cutter.breaking-ridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.65,0.009,0.014]
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            },
+            "transform": {
+              "position": [0,0.046,0]
+            }
+          },
+          {
+            "id": "fence",
+            "semanticType": "tool.manual-tile-cutter.fence",
+            "geometry": {
+              "type": "box",
+              "size": [0.028,0.027,0.245]
+            },
+            "appearance": {
+              "color": "#eeae39"
+            },
+            "transform": {
+              "position": [-0.28,0.064,0]
+            }
+          },
+          {
+            "id": "carriage",
+            "semanticType": "tool.manual-tile-cutter.frame",
+            "transform": {
+              "position": [0,0.125,0]
+            }
+          },
+          {
+            "id": "press-yoke",
+            "semanticType": "tool.manual-tile-cutter.press-yoke",
+            "parent": "carriage",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.049],
+                [0,0,0.049]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.025999999999999995,-0.042],
+                [0.026999999999999996,-0.042],
+                [0.037,-0.032],
+                [0.037,0.01899999999999999],
+                [0.026999999999999996,0.02899999999999999],
+                [-0.025999999999999995,0.02899999999999999],
+                [-0.036,0.01899999999999999],
+                [-0.036,-0.032]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#3a9598"
+            }
+          },
+          {
+            "id": "left-sleeve",
+            "semanticType": "tool.manual-tile-cutter.frame",
+            "parent": "carriage",
+            "transform": {
+              "position": [0,0,-0.063]
+            }
+          },
+          {
+            "id": "left-sleeve-body",
+            "semanticType": "tool.manual-tile-cutter.rail-bushing",
+            "parent": "left-sleeve",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.035,0,0],
+                [0.035,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.019,0],
+                [0.01863492,0.00370672],
+                [0.01755371,0.00727099],
+                [0.01579792,0.01055583],
+                [0.01343503,0.01343503],
+                [0.01055583,0.01579792],
+                [0.00727099,0.01755371],
+                [0.00370672,0.01863492],
+                [0,0.019],
+                [-0.00370672,0.01863492],
+                [-0.00727099,0.01755371],
+                [-0.01055583,0.01579792],
+                [-0.01343503,0.01343503],
+                [-0.01579792,0.01055583],
+                [-0.01755371,0.00727099],
+                [-0.01863492,0.00370672],
+                [-0.019,0],
+                [-0.01863492,-0.00370672],
+                [-0.01755371,-0.00727099],
+                [-0.01579792,-0.01055583],
+                [-0.01343503,-0.01343503],
+                [-0.01055583,-0.01579792],
+                [-0.00727099,-0.01755371],
+                [-0.00370672,-0.01863492],
+                [0,-0.019],
+                [0.00370672,-0.01863492],
+                [0.00727099,-0.01755371],
+                [0.01055583,-0.01579792],
+                [0.01343503,-0.01343503],
+                [0.01579792,-0.01055583],
+                [0.01755371,-0.00727099],
+                [0.01863492,-0.00370672]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0085,0],
+                  [0.00833667,0.00165827],
+                  [0.00785298,0.00325281],
+                  [0.00706749,0.00472235],
+                  [0.00601041,0.00601041],
+                  [0.00472235,0.00706749],
+                  [0.00325281,0.00785298],
+                  [0.00165827,0.00833667],
+                  [0,0.0085],
+                  [-0.00165827,0.00833667],
+                  [-0.00325281,0.00785298],
+                  [-0.00472235,0.00706749],
+                  [-0.00601041,0.00601041],
+                  [-0.00706749,0.00472235],
+                  [-0.00785298,0.00325281],
+                  [-0.00833667,0.00165827],
+                  [-0.0085,0],
+                  [-0.00833667,-0.00165827],
+                  [-0.00785298,-0.00325281],
+                  [-0.00706749,-0.00472235],
+                  [-0.00601041,-0.00601041],
+                  [-0.00472235,-0.00706749],
+                  [-0.00325281,-0.00785298],
+                  [-0.00165827,-0.00833667],
+                  [0,-0.0085],
+                  [0.00165827,-0.00833667],
+                  [0.00325281,-0.00785298],
+                  [0.00472235,-0.00706749],
+                  [0.00601041,-0.00601041],
+                  [0.00706749,-0.00472235],
+                  [0.00785298,-0.00325281],
+                  [0.00833667,-0.00165827]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#697b86"
+            }
+          },
+          {
+            "id": "right-sleeve",
+            "semanticType": "tool.manual-tile-cutter.frame",
+            "parent": "carriage",
+            "transform": {
+              "position": [0,0,0.063]
+            }
+          },
+          {
+            "id": "right-sleeve-body",
+            "semanticType": "tool.manual-tile-cutter.rail-bushing",
+            "parent": "right-sleeve",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.035,0,0],
+                [0.035,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.019,0],
+                [0.01863492,0.00370672],
+                [0.01755371,0.00727099],
+                [0.01579792,0.01055583],
+                [0.01343503,0.01343503],
+                [0.01055583,0.01579792],
+                [0.00727099,0.01755371],
+                [0.00370672,0.01863492],
+                [0,0.019],
+                [-0.00370672,0.01863492],
+                [-0.00727099,0.01755371],
+                [-0.01055583,0.01579792],
+                [-0.01343503,0.01343503],
+                [-0.01579792,0.01055583],
+                [-0.01755371,0.00727099],
+                [-0.01863492,0.00370672],
+                [-0.019,0],
+                [-0.01863492,-0.00370672],
+                [-0.01755371,-0.00727099],
+                [-0.01579792,-0.01055583],
+                [-0.01343503,-0.01343503],
+                [-0.01055583,-0.01579792],
+                [-0.00727099,-0.01755371],
+                [-0.00370672,-0.01863492],
+                [0,-0.019],
+                [0.00370672,-0.01863492],
+                [0.00727099,-0.01755371],
+                [0.01055583,-0.01579792],
+                [0.01343503,-0.01343503],
+                [0.01579792,-0.01055583],
+                [0.01755371,-0.00727099],
+                [0.01863492,-0.00370672]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0085,0],
+                  [0.00833667,0.00165827],
+                  [0.00785298,0.00325281],
+                  [0.00706749,0.00472235],
+                  [0.00601041,0.00601041],
+                  [0.00472235,0.00706749],
+                  [0.00325281,0.00785298],
+                  [0.00165827,0.00833667],
+                  [0,0.0085],
+                  [-0.00165827,0.00833667],
+                  [-0.00325281,0.00785298],
+                  [-0.00472235,0.00706749],
+                  [-0.00601041,0.00601041],
+                  [-0.00706749,0.00472235],
+                  [-0.00785298,0.00325281],
+                  [-0.00833667,0.00165827],
+                  [-0.0085,0],
+                  [-0.00833667,-0.00165827],
+                  [-0.00785298,-0.00325281],
+                  [-0.00706749,-0.00472235],
+                  [-0.00601041,-0.00601041],
+                  [-0.00472235,-0.00706749],
+                  [-0.00325281,-0.00785298],
+                  [-0.00165827,-0.00833667],
+                  [0,-0.0085],
+                  [0.00165827,-0.00833667],
+                  [0.00325281,-0.00785298],
+                  [0.00472235,-0.00706749],
+                  [0.00601041,-0.00601041],
+                  [0.00706749,-0.00472235],
+                  [0.00785298,-0.00325281],
+                  [0.00833667,-0.00165827]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#697b86"
+            }
+          },
+          {
+            "id": "lever-pivot",
+            "semanticType": "tool.manual-tile-cutter.frame",
+            "parent": "carriage",
+            "transform": {
+              "position": [0,0.019,0]
+            }
+          },
+          {
+            "id": "lever",
+            "semanticType": "tool.manual-tile-cutter.lever",
+            "parent": "lever-pivot",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0.139,0.077,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#5f727d"
+            }
+          },
+          {
+            "id": "lever-grip",
+            "semanticType": "tool.manual-tile-cutter.grip",
+            "parent": "lever-pivot",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.139,0.077,0],
+              "end": [0.248,0.137,0],
+              "radius": 0.017,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "wheel",
+            "semanticType": "tool.manual-tile-cutter.scoring-wheel",
+            "parent": "carriage",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.018,-0.061,-0.006],
+              "end": [0.018,-0.061,0.006],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "breaker-pivot",
+            "semanticType": "tool.manual-tile-cutter.frame",
+            "parent": "carriage",
+            "transform": {
+              "position": [-0.027,-0.036,0]
+            }
+          },
+          {
+            "id": "breaker-foot",
+            "semanticType": "tool.manual-tile-cutter.pressure-foot",
+            "parent": "breaker-pivot",
+            "geometry": {
+              "type": "box",
+              "size": [0.05,0.009,0.086]
+            },
+            "appearance": {
+              "color": "#5f727d"
+            },
+            "transform": {
+              "position": [0,-0.024,0]
+            }
+          }
+        ],
+        "anchors": {
+          "support-plane": {
+            "node": "breaking-ridge",
+            "position": [0,0.0505,0],
+            "direction": [0,1,0],
+            "kind": "tile-work-plane"
+          },
+          "scoring-point": {
+            "node": "wheel",
+            "position": [0.018,-0.069,0],
+            "direction": [0,-1,0],
+            "kind": "working-point"
+          },
+          "lever-grip": {
+            "node": "lever-grip",
+            "position": [0.207,0.113,0],
+            "direction": [1,0,0],
+            "kind": "hand-grip"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "carriage-travel",
+            "label": "滑车行程",
+            "unit": "m",
+            "value": 0,
+            "min": -0.23,
+            "max": 0.23,
+            "targets": [
+              {
+                "node": "carriage",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "handle-angle",
+            "label": "握柄转角",
+            "unit": "°",
+            "value": 0,
+            "min": -24,
+            "max": 55,
+            "targets": [
+              {
+                "node": "lever-pivot",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "breaker-angle",
+            "label": "压脚转角",
+            "unit": "°",
+            "value": 28,
+            "min": 0,
+            "max": 55,
+            "targets": [
+              {
+                "node": "breaker-pivot",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

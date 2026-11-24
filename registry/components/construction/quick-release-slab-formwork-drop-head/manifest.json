@@ -1,0 +1,577 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.quick-release-slab-formwork-drop-head",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "楼板模板早拆落头支座",
+  "summary": "固定立杆承顶、独立滑移托盘、有孔支座及可转动卸荷拨片。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.quick-release-slab-formwork-drop-head",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "早拆头",
+    "模板支座",
+    "formwork-drop-head",
+    "quick-strike",
+    "模板工装",
+    "formwork"
+  ],
+  "anchors": [
+    "prop",
+    "slab",
+    "beam-seat",
+    "release-handle"
+  ],
+  "ai": {
+    "intent": "在早拆模板支撑中调用留顶的立杆承盖及独立托盘，按所需静态位置检查脱模净空。",
+    "editableParts": [
+      "plate-drop",
+      "release-angle"
+    ],
+    "qualityChecks": [
+      "承顶基准留在固定立杆。",
+      "托盘有实际中孔和两处座孔。",
+      "托盘下降和卸荷拨片分开调节。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "quick-release-slab-formwork-drop-head",
+      "title": "楼板模板早拆落头支座",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "main-sleeve",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.hollow-square-section",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.229,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.027999999999999997,-0.036],
+                [-0.027999999999999997,-0.036],
+                [-0.036,-0.027999999999999997],
+                [-0.036,0.027999999999999997],
+                [-0.027999999999999997,0.036],
+                [0.027999999999999997,0.036],
+                [0.036,0.027999999999999997],
+                [0.036,-0.027999999999999997]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.02,-0.024],
+                  [-0.02,-0.024],
+                  [-0.024,-0.02],
+                  [-0.024,0.02],
+                  [-0.02,0.024],
+                  [0.02,0.024],
+                  [0.024,0.02],
+                  [0.024,-0.02]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9ab1bd"
+            }
+          },
+          {
+            "id": "fixed-base",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.upper-prop-adapter-flange",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.009,0],
+                [0,0.024,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.064,-0.072],
+                [-0.064,-0.072],
+                [-0.078,-0.057999999999999996],
+                [-0.078,0.057999999999999996],
+                [-0.064,0.072],
+                [0.064,0.072],
+                [0.078,0.057999999999999996],
+                [0.078,-0.057999999999999996]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.024,0],
+                  [-0.02347554,0.00498988],
+                  [-0.02192509,0.00976168],
+                  [-0.01941641,0.01410685],
+                  [-0.01605913,0.01783548],
+                  [-0.012,0.02078461],
+                  [-0.00741641,0.02282536],
+                  [-0.00250868,0.02386853],
+                  [0.00250868,0.02386853],
+                  [0.00741641,0.02282536],
+                  [0.012,0.02078461],
+                  [0.01605913,0.01783548],
+                  [0.01941641,0.01410685],
+                  [0.02192509,0.00976168],
+                  [0.02347554,0.00498988],
+                  [0.024,0],
+                  [0.02347554,-0.00498988],
+                  [0.02192509,-0.00976168],
+                  [0.01941641,-0.01410685],
+                  [0.01605913,-0.01783548],
+                  [0.012,-0.02078461],
+                  [0.00741641,-0.02282536],
+                  [0.00250868,-0.02386853],
+                  [-0.00250868,-0.02386853],
+                  [-0.00741641,-0.02282536],
+                  [-0.012,-0.02078461],
+                  [-0.01605913,-0.01783548],
+                  [-0.01941641,-0.01410685],
+                  [-0.02192509,-0.00976168],
+                  [-0.02347554,-0.00498988]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#7eb6c0"
+            }
+          },
+          {
+            "id": "fixed-plunger",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.hollow-square-section",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.211,0],
+                [0,0.365,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.015,-0.023],
+                [-0.015,-0.023],
+                [-0.023,-0.015],
+                [-0.023,0.015],
+                [-0.015,0.023],
+                [0.015,0.023],
+                [0.023,0.015],
+                [0.023,-0.015]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0095,-0.0135],
+                  [-0.0095,-0.0135],
+                  [-0.0135,-0.0095],
+                  [-0.0135,0.0095],
+                  [-0.0095,0.0135],
+                  [0.0095,0.0135],
+                  [0.0135,0.0095],
+                  [0.0135,-0.0095]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0d1d7"
+            }
+          },
+          {
+            "id": "bearing-cap",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.formwork-fixed-retained-shore-cap",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.345,0],
+                [0,0.368,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.074,-0.074],
+                [-0.074,-0.074],
+                [-0.088,-0.06],
+                [-0.088,0.06],
+                [-0.074,0.074],
+                [0.074,0.074],
+                [0.088,0.06],
+                [0.088,-0.06]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.012,0],
+                  [-0.01159111,0.00310583],
+                  [-0.0103923,0.006],
+                  [-0.00848528,0.00848528],
+                  [-0.006,0.0103923],
+                  [-0.00310583,0.01159111],
+                  [0,0.012],
+                  [0.00310583,0.01159111],
+                  [0.006,0.0103923],
+                  [0.00848528,0.00848528],
+                  [0.0103923,0.006],
+                  [0.01159111,0.00310583],
+                  [0.012,0],
+                  [0.01159111,-0.00310583],
+                  [0.0103923,-0.006],
+                  [0.00848528,-0.00848528],
+                  [0.006,-0.0103923],
+                  [0.00310583,-0.01159111],
+                  [0,-0.012],
+                  [-0.00310583,-0.01159111],
+                  [-0.006,-0.0103923],
+                  [-0.00848528,-0.00848528],
+                  [-0.0103923,-0.006],
+                  [-0.01159111,-0.00310583]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c0d1d7"
+            }
+          },
+          {
+            "id": "drop",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "beam-plate",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.sliding-cross-head-bearing",
+            "parent": "drop",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.281,0],
+                [0,0.304,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.106,-0.088],
+                [-0.106,-0.088],
+                [-0.123,-0.071],
+                [-0.123,0.071],
+                [-0.106,0.088],
+                [0.106,0.088],
+                [0.123,0.071],
+                [0.123,-0.071]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.031,-0.039],
+                  [-0.031,-0.039],
+                  [-0.039,-0.031],
+                  [-0.039,0.031],
+                  [-0.031,0.039],
+                  [0.031,0.039],
+                  [0.039,0.031],
+                  [0.039,-0.031]
+                ],
+                [
+                  [0.076,0],
+                  [0.07640889,0.00310583],
+                  [0.0776077,0.006],
+                  [0.07951472,0.00848528],
+                  [0.082,0.0103923],
+                  [0.08489417,0.01159111],
+                  [0.088,0.012],
+                  [0.09110583,0.01159111],
+                  [0.094,0.0103923],
+                  [0.09648528,0.00848528],
+                  [0.0983923,0.006],
+                  [0.09959111,0.00310583],
+                  [0.1,0],
+                  [0.09959111,-0.00310583],
+                  [0.0983923,-0.006],
+                  [0.09648528,-0.00848528],
+                  [0.094,-0.0103923],
+                  [0.09110583,-0.01159111],
+                  [0.088,-0.012],
+                  [0.08489417,-0.01159111],
+                  [0.082,-0.0103923],
+                  [0.07951472,-0.00848528],
+                  [0.0776077,-0.006],
+                  [0.07640889,-0.00310583]
+                ],
+                [
+                  [-0.1,0],
+                  [-0.09959111,0.00310583],
+                  [-0.0983923,0.006],
+                  [-0.09648528,0.00848528],
+                  [-0.094,0.0103923],
+                  [-0.09110583,0.01159111],
+                  [-0.088,0.012],
+                  [-0.08489417,0.01159111],
+                  [-0.082,0.0103923],
+                  [-0.07951472,0.00848528],
+                  [-0.0776077,0.006],
+                  [-0.07640889,0.00310583],
+                  [-0.076,0],
+                  [-0.07640889,-0.00310583],
+                  [-0.0776077,-0.006],
+                  [-0.07951472,-0.00848528],
+                  [-0.082,-0.0103923],
+                  [-0.08489417,-0.01159111],
+                  [-0.088,-0.012],
+                  [-0.09110583,-0.01159111],
+                  [-0.094,-0.0103923],
+                  [-0.09648528,-0.00848528],
+                  [-0.0983923,-0.006],
+                  [-0.09959111,-0.00310583]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#7eb6c0"
+            }
+          },
+          {
+            "id": "moving-tube",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.hollow-square-section",
+            "parent": "drop",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.231,0],
+                [0,0.285,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.038,-0.046],
+                [-0.038,-0.046],
+                [-0.046,-0.038],
+                [-0.046,0.038],
+                [-0.038,0.046],
+                [0.038,0.046],
+                [0.046,0.038],
+                [0.046,-0.038]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.033,-0.037],
+                  [-0.033,-0.037],
+                  [-0.037,-0.033],
+                  [-0.037,0.033],
+                  [-0.033,0.037],
+                  [0.033,0.037],
+                  [0.037,0.033],
+                  [0.037,-0.033]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9ab1bd"
+            }
+          },
+          {
+            "id": "side-guide--1",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.upstanding-formwork-beam-keeper",
+            "parent": "drop",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.048,0.168]
+            },
+            "appearance": {
+              "color": "#7eb6c0"
+            },
+            "transform": {
+              "position": [-0.114,0.314,0]
+            }
+          },
+          {
+            "id": "side-guide-1",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.upstanding-formwork-beam-keeper",
+            "parent": "drop",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.048,0.168]
+            },
+            "appearance": {
+              "color": "#7eb6c0"
+            },
+            "transform": {
+              "position": [0.114,0.314,0]
+            }
+          },
+          {
+            "id": "cam--1",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.frame",
+            "transform": {
+              "position": [-0.147,0.269,0]
+            }
+          },
+          {
+            "id": "latch--1",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.rotating-release-cam-pad",
+            "parent": "cam--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.054,0.024,0.025]
+            },
+            "appearance": {
+              "color": "#ebc070"
+            },
+            "transform": {
+              "position": [0.028,0,0]
+            }
+          },
+          {
+            "id": "cam-pin--1",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.cam-positioning-pin",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.147,0.23,0],
+              "end": [-0.147,0.278,0],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0d1d7"
+            }
+          },
+          {
+            "id": "cam-1",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.frame",
+            "transform": {
+              "position": [0.147,0.269,0]
+            }
+          },
+          {
+            "id": "latch-1",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.rotating-release-cam-pad",
+            "parent": "cam-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.054,0.024,0.025]
+            },
+            "appearance": {
+              "color": "#ebc070"
+            },
+            "transform": {
+              "position": [-0.028,0,0]
+            }
+          },
+          {
+            "id": "cam-pin-1",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.cam-positioning-pin",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.147,0.23,0],
+              "end": [0.147,0.278,0],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0d1d7"
+            }
+          },
+          {
+            "id": "lever",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.release-cam-handle",
+            "parent": "cam-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,0],
+              "end": [0.059,0,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c0d1d7"
+            }
+          },
+          {
+            "id": "grip",
+            "semanticType": "construction.quick-release-slab-formwork-drop-head.manual-release-grip",
+            "parent": "cam-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.049,0,0],
+              "end": [0.086,0,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#ebc070"
+            }
+          }
+        ],
+        "anchors": {
+          "prop": {
+            "node": "fixed-base",
+            "position": [0,0.009,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "slab": {
+            "node": "bearing-cap",
+            "position": [0,0.368,0],
+            "direction": [0,1,0],
+            "kind": "support"
+          },
+          "beam-seat": {
+            "node": "beam-plate",
+            "position": [0.068,0.304,0],
+            "direction": [0,1,0],
+            "kind": "support"
+          },
+          "release-handle": {
+            "node": "grip",
+            "position": [0.081,0,0],
+            "direction": [1,0,0],
+            "kind": "grip"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "plate-drop",
+            "label": "模板承托盘下降量",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.102,
+            "targets": [
+              {
+                "node": "drop",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          },
+          {
+            "id": "release-angle",
+            "label": "快拆拨片角度",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 93,
+            "targets": [
+              {
+                "node": "cam--1",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "cam-1",
+                "property": "rotation",
+                "axis": "y",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

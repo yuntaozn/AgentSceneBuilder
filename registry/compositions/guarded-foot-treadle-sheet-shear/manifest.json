@@ -1,0 +1,882 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.guarded-foot-treadle-sheet-shear",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "带防护罩的踏板式剪板机",
+  "summary": "基架、工作台、全长固定刃、滑动剪刃、压料梁和独立脚踏连杆。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.guarded-foot-treadle-sheet-shear",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "踏板剪板机",
+    "钣金剪切",
+    "treadle-shear",
+    "sheet-shear",
+    "钣金加工",
+    "sheet-working"
+  ],
+  "anchors": [
+    "feed",
+    "cutting-line",
+    "foot-pad"
+  ],
+  "ai": {
+    "intent": "在加工设备库调用开口剪板机，布置送片、压紧、切刃和检修罩的几何参考。",
+    "editableParts": [
+      "knife-travel",
+      "hold-down",
+      "pedal-angle",
+      "guard-angle"
+    ],
+    "qualityChecks": [
+      "固定刃和工作台保持不动。",
+      "滑动剪刃、压料和脚踏姿态可分别编辑。",
+      "防护罩与进料接口独立。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "guarded-foot-treadle-sheet-shear",
+      "title": "带防护罩的踏板式剪板机",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "low-base",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.sheet-shear-skid-base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.01,0],
+                [0,0.056,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.48300000000000004,-0.267],
+                [-0.48300000000000004,-0.267],
+                [-0.531,-0.21900000000000003],
+                [-0.531,0.21900000000000003],
+                [-0.48300000000000004,0.267],
+                [0.48300000000000004,0.267],
+                [0.531,0.21900000000000003],
+                [0.531,-0.21900000000000003]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          },
+          {
+            "id": "cabinet--1",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.fixed-shear-end-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.083,0.782,0.416]
+            },
+            "appearance": {
+              "color": "#83bcc7"
+            },
+            "transform": {
+              "position": [-0.451,0.438,-0.025]
+            }
+          },
+          {
+            "id": "guide--1",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.blade-side-linear-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.042,0.288,0.073]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [-0.419,0.846,0.079]
+            }
+          },
+          {
+            "id": "fixed-brace--1",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.table-bracket",
+            "geometry": {
+              "type": "box",
+              "size": [0.106,0.177,0.332]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            },
+            "transform": {
+              "position": [-0.36,0.579,0.111]
+            }
+          },
+          {
+            "id": "cabinet-1",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.fixed-shear-end-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.083,0.782,0.416]
+            },
+            "appearance": {
+              "color": "#83bcc7"
+            },
+            "transform": {
+              "position": [0.451,0.438,-0.025]
+            }
+          },
+          {
+            "id": "guide-1",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.blade-side-linear-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.042,0.288,0.073]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [0.419,0.846,0.079]
+            }
+          },
+          {
+            "id": "fixed-brace-1",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.table-bracket",
+            "geometry": {
+              "type": "box",
+              "size": [0.106,0.177,0.332]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            },
+            "transform": {
+              "position": [0.36,0.579,0.111]
+            }
+          },
+          {
+            "id": "sheet-table",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.perforated-feeding-surface-with-fence",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.678,0],
+                [0,0.703,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.41300000000000003,0.102],
+                [-0.41300000000000003,0.102],
+                [-0.443,0.132],
+                [-0.443,0.499],
+                [-0.41300000000000003,0.529],
+                [0.41300000000000003,0.529],
+                [0.443,0.499],
+                [0.443,0.132]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.334,0.185],
+                  [0.33434074,0.18758819],
+                  [0.33533975,0.19],
+                  [0.33692893,0.19207107],
+                  [0.339,0.19366025],
+                  [0.34141181,0.19465926],
+                  [0.344,0.195],
+                  [0.34658819,0.19465926],
+                  [0.349,0.19366025],
+                  [0.35107107,0.19207107],
+                  [0.35266025,0.19],
+                  [0.35365926,0.18758819],
+                  [0.354,0.185],
+                  [0.35365926,0.18241181],
+                  [0.35266025,0.18],
+                  [0.35107107,0.17792893],
+                  [0.349,0.17633975],
+                  [0.34658819,0.17534074],
+                  [0.344,0.175],
+                  [0.34141181,0.17534074],
+                  [0.339,0.17633975],
+                  [0.33692893,0.17792893],
+                  [0.33533975,0.18],
+                  [0.33434074,0.18241181]
+                ],
+                [
+                  [0.334,0.334],
+                  [0.33434074,0.33658819],
+                  [0.33533975,0.339],
+                  [0.33692893,0.34107107],
+                  [0.339,0.34266025],
+                  [0.34141181,0.34365926],
+                  [0.344,0.344],
+                  [0.34658819,0.34365926],
+                  [0.349,0.34266025],
+                  [0.35107107,0.34107107],
+                  [0.35266025,0.339],
+                  [0.35365926,0.33658819],
+                  [0.354,0.334],
+                  [0.35365926,0.33141181],
+                  [0.35266025,0.329],
+                  [0.35107107,0.32692893],
+                  [0.349,0.32533975],
+                  [0.34658819,0.32434074],
+                  [0.344,0.324],
+                  [0.34141181,0.32434074],
+                  [0.339,0.32533975],
+                  [0.33692893,0.32692893],
+                  [0.33533975,0.329],
+                  [0.33434074,0.33141181]
+                ],
+                [
+                  [0.334,0.48],
+                  [0.33434074,0.48258819],
+                  [0.33533975,0.485],
+                  [0.33692893,0.48707107],
+                  [0.339,0.48866025],
+                  [0.34141181,0.48965926],
+                  [0.344,0.49],
+                  [0.34658819,0.48965926],
+                  [0.349,0.48866025],
+                  [0.35107107,0.48707107],
+                  [0.35266025,0.485],
+                  [0.35365926,0.48258819],
+                  [0.354,0.48],
+                  [0.35365926,0.47741181],
+                  [0.35266025,0.475],
+                  [0.35107107,0.47292893],
+                  [0.349,0.47133975],
+                  [0.34658819,0.47034074],
+                  [0.344,0.47],
+                  [0.34141181,0.47034074],
+                  [0.339,0.47133975],
+                  [0.33692893,0.47292893],
+                  [0.33533975,0.475],
+                  [0.33434074,0.47741181]
+                ],
+                [
+                  [-0.354,0.185],
+                  [-0.35365926,0.18758819],
+                  [-0.35266025,0.19],
+                  [-0.35107107,0.19207107],
+                  [-0.349,0.19366025],
+                  [-0.34658819,0.19465926],
+                  [-0.344,0.195],
+                  [-0.34141181,0.19465926],
+                  [-0.339,0.19366025],
+                  [-0.33692893,0.19207107],
+                  [-0.33533975,0.19],
+                  [-0.33434074,0.18758819],
+                  [-0.334,0.185],
+                  [-0.33434074,0.18241181],
+                  [-0.33533975,0.18],
+                  [-0.33692893,0.17792893],
+                  [-0.339,0.17633975],
+                  [-0.34141181,0.17534074],
+                  [-0.344,0.175],
+                  [-0.34658819,0.17534074],
+                  [-0.349,0.17633975],
+                  [-0.35107107,0.17792893],
+                  [-0.35266025,0.18],
+                  [-0.35365926,0.18241181]
+                ],
+                [
+                  [-0.354,0.334],
+                  [-0.35365926,0.33658819],
+                  [-0.35266025,0.339],
+                  [-0.35107107,0.34107107],
+                  [-0.349,0.34266025],
+                  [-0.34658819,0.34365926],
+                  [-0.344,0.344],
+                  [-0.34141181,0.34365926],
+                  [-0.339,0.34266025],
+                  [-0.33692893,0.34107107],
+                  [-0.33533975,0.339],
+                  [-0.33434074,0.33658819],
+                  [-0.334,0.334],
+                  [-0.33434074,0.33141181],
+                  [-0.33533975,0.329],
+                  [-0.33692893,0.32692893],
+                  [-0.339,0.32533975],
+                  [-0.34141181,0.32434074],
+                  [-0.344,0.324],
+                  [-0.34658819,0.32434074],
+                  [-0.349,0.32533975],
+                  [-0.35107107,0.32692893],
+                  [-0.35266025,0.329],
+                  [-0.35365926,0.33141181]
+                ],
+                [
+                  [-0.354,0.48],
+                  [-0.35365926,0.48258819],
+                  [-0.35266025,0.485],
+                  [-0.35107107,0.48707107],
+                  [-0.349,0.48866025],
+                  [-0.34658819,0.48965926],
+                  [-0.344,0.49],
+                  [-0.34141181,0.48965926],
+                  [-0.339,0.48866025],
+                  [-0.33692893,0.48707107],
+                  [-0.33533975,0.485],
+                  [-0.33434074,0.48258819],
+                  [-0.334,0.48],
+                  [-0.33434074,0.47741181],
+                  [-0.33533975,0.475],
+                  [-0.33692893,0.47292893],
+                  [-0.339,0.47133975],
+                  [-0.34141181,0.47034074],
+                  [-0.344,0.47],
+                  [-0.34658819,0.47034074],
+                  [-0.349,0.47133975],
+                  [-0.35107107,0.47292893],
+                  [-0.35266025,0.475],
+                  [-0.35365926,0.47741181]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            }
+          },
+          {
+            "id": "fixed-blade",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.stationary-shearing-knife",
+            "geometry": {
+              "type": "box",
+              "size": [0.847,0.028,0.029]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [0,0.689,0.069]
+            }
+          },
+          {
+            "id": "cross-rail",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.fixed-upper-crossbeam",
+            "geometry": {
+              "type": "box",
+              "size": [0.952,0.081,0.151]
+            },
+            "appearance": {
+              "color": "#83bcc7"
+            },
+            "transform": {
+              "position": [0,0.974,0.033]
+            }
+          },
+          {
+            "id": "knife-travel",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "blade-beam",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.guided-traversing-blade-head",
+            "parent": "knife-travel",
+            "geometry": {
+              "type": "box",
+              "size": [0.853,0.099,0.064]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            },
+            "transform": {
+              "position": [0,0.834,0.074]
+            }
+          },
+          {
+            "id": "blade",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.angled-full-length-upper-knife",
+            "parent": "knife-travel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.084],
+                [0,0,0.103]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.421,0.737],
+                [0.422,0.762],
+                [0.422,0.809],
+                [-0.421,0.809]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            }
+          },
+          {
+            "id": "hold",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "hold-down",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pre-shear-sheet-clamping-bar",
+            "parent": "hold",
+            "geometry": {
+              "type": "box",
+              "size": [0.876,0.054,0.044]
+            },
+            "appearance": {
+              "color": "#ecc474"
+            },
+            "transform": {
+              "position": [0,0.764,0.128]
+            }
+          },
+          {
+            "id": "finger--0.349",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.distributed-material-hold-finger",
+            "parent": "hold",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.349,0.724,0.135],
+              "end": [-0.349,0.758,0.135],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          },
+          {
+            "id": "finger--0.188",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.distributed-material-hold-finger",
+            "parent": "hold",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.188,0.724,0.135],
+              "end": [-0.188,0.758,0.135],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          },
+          {
+            "id": "finger-0",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.distributed-material-hold-finger",
+            "parent": "hold",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.724,0.135],
+              "end": [0,0.758,0.135],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          },
+          {
+            "id": "finger-0.188",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.distributed-material-hold-finger",
+            "parent": "hold",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.188,0.724,0.135],
+              "end": [0.188,0.758,0.135],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          },
+          {
+            "id": "finger-0.349",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.distributed-material-hold-finger",
+            "parent": "hold",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.349,0.724,0.135],
+              "end": [0.349,0.758,0.135],
+              "radius": 0.013,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          },
+          {
+            "id": "shield",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.frame",
+            "transform": {
+              "position": [0,0.912,0.172]
+            }
+          },
+          {
+            "id": "shield-panel",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.hinged-clear-front-guard",
+            "parent": "shield",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.008],
+                [0,0,0.008]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.414,-0.166],
+                [0.414,-0.166],
+                [0.431,-0.14900000000000002],
+                [0.431,-0.006000000000000019],
+                [0.414,0.010999999999999982],
+                [-0.414,0.010999999999999982],
+                [-0.431,-0.006000000000000019],
+                [-0.431,-0.14900000000000002]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9fced5",
+              "opacity": 0.44
+            }
+          },
+          {
+            "id": "shield-hinge",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.front-guard-pivot",
+            "parent": "shield",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.452,0,0],
+              "end": [0.452,0,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            }
+          },
+          {
+            "id": "pedal",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.frame",
+            "transform": {
+              "position": [0,0.194,0.08]
+            }
+          },
+          {
+            "id": "pedal-pivot",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.transverse-treadle-pivot",
+            "parent": "pedal",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.414,0,0],
+              "end": [0.414,0,0],
+              "radius": 0.014,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            }
+          },
+          {
+            "id": "pedal-side--1",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.dual-treadle-link",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.032,0.365]
+            },
+            "appearance": {
+              "color": "#83bcc7"
+            },
+            "transform": {
+              "position": [-0.34,0,0.175]
+            }
+          },
+          {
+            "id": "pedal-side-1",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.dual-treadle-link",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.031,0.032,0.365]
+            },
+            "appearance": {
+              "color": "#83bcc7"
+            },
+            "transform": {
+              "position": [0.34,0,0.175]
+            }
+          },
+          {
+            "id": "tread",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.textured-operator-footpad",
+            "parent": "pedal",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.018,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.288,0.286],
+                [-0.288,0.286],
+                [-0.31,0.308],
+                [-0.31,0.37599999999999995],
+                [-0.288,0.39799999999999996],
+                [0.288,0.39799999999999996],
+                [0.31,0.37599999999999995],
+                [0.31,0.308]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          },
+          {
+            "id": "tread-tooth-0",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pedal-grip-rib",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.005,0.086]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [-0.25,0.02,0.342]
+            }
+          },
+          {
+            "id": "tread-tooth-1",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pedal-grip-rib",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.005,0.086]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [-0.194,0.02,0.342]
+            }
+          },
+          {
+            "id": "tread-tooth-2",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pedal-grip-rib",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.005,0.086]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [-0.138,0.02,0.342]
+            }
+          },
+          {
+            "id": "tread-tooth-3",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pedal-grip-rib",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.005,0.086]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [-0.08199999999999999,0.02,0.342]
+            }
+          },
+          {
+            "id": "tread-tooth-4",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pedal-grip-rib",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.005,0.086]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [-0.025999999999999995,0.02,0.342]
+            }
+          },
+          {
+            "id": "tread-tooth-5",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pedal-grip-rib",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.005,0.086]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [0.030000000000000027,0.02,0.342]
+            }
+          },
+          {
+            "id": "tread-tooth-6",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pedal-grip-rib",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.005,0.086]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [0.08600000000000002,0.02,0.342]
+            }
+          },
+          {
+            "id": "tread-tooth-7",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pedal-grip-rib",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.005,0.086]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [0.14200000000000002,0.02,0.342]
+            }
+          },
+          {
+            "id": "tread-tooth-8",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pedal-grip-rib",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.005,0.086]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [0.198,0.02,0.342]
+            }
+          },
+          {
+            "id": "tread-tooth-9",
+            "semanticType": "equipment.guarded-foot-treadle-sheet-shear.pedal-grip-rib",
+            "parent": "pedal",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.005,0.086]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [0.254,0.02,0.342]
+            }
+          }
+        ],
+        "anchors": {
+          "feed": {
+            "node": "sheet-table",
+            "position": [0,0.703,0.513],
+            "direction": [0,0,1],
+            "kind": "sheet-feed"
+          },
+          "cutting-line": {
+            "node": "fixed-blade",
+            "position": [0,0.014,0],
+            "direction": [0,1,0],
+            "kind": "reference"
+          },
+          "foot-pad": {
+            "node": "tread",
+            "position": [0,0.018,0.343],
+            "direction": [0,1,0],
+            "kind": "contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "knife-travel",
+            "label": "活动剪刃下移",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.06,
+            "targets": [
+              {
+                "node": "knife-travel",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          },
+          {
+            "id": "hold-down",
+            "label": "压料梁行程",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.021,
+            "targets": [
+              {
+                "node": "hold",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          },
+          {
+            "id": "pedal-angle",
+            "label": "踏板踩下角",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 22,
+            "targets": [
+              {
+                "node": "pedal",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "guard-angle",
+            "label": "前罩翻开角",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 83,
+            "targets": [
+              {
+                "node": "shield",
+                "property": "rotation",
+                "axis": "x",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

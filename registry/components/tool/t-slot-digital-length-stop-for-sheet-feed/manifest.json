@@ -1,0 +1,838 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.t-slot-digital-length-stop-for-sheet-feed",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "T 槽式可翻钣金定长挡尺",
+  "summary": "贯通 T 槽、标识刻度、可沿槽滑动的数显定位块和可翻定位挡板。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "钣金定长挡尺",
+    "可翻定长定位",
+    "length-stop",
+    "t-slot-guide",
+    "钣金加工",
+    "sheet-working"
+  ],
+  "anchors": [
+    "rail-start",
+    "rail-end",
+    "material-stop"
+  ],
+  "ai": {
+    "intent": "与加工机床进料面组合，利用滑动挡块偏距和挡板位置表达板料固定长度。",
+    "editableParts": [
+      "length-offset",
+      "stop-angle"
+    ],
+    "qualityChecks": [
+      "T 槽实际开口。",
+      "调长不移动轨道。",
+      "挡板可单独翻起以取消限位。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "t-slot-digital-length-stop-for-sheet-feed",
+      "title": "T 槽式可翻钣金定长挡尺",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "t-slot",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.open-t-slot-track",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.371],
+                [0,0,0.371]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.04,0],
+                [0.04,0],
+                [0.04,0.034],
+                [0.009,0.034],
+                [0.009,0.023],
+                [0.016,0.023],
+                [0.016,0.014],
+                [-0.016,0.014],
+                [-0.016,0.023],
+                [-0.009,0.023],
+                [-0.009,0.034],
+                [-0.04,0.034]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            }
+          },
+          {
+            "id": "scale",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.long-measuring-strip",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.005,0.721]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [0.029,0.034,-0.002]
+            }
+          },
+          {
+            "id": "mark-0",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.344]
+            }
+          },
+          {
+            "id": "mark-1",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.32199999999999995]
+            }
+          },
+          {
+            "id": "mark-2",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.3]
+            }
+          },
+          {
+            "id": "mark-3",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.27799999999999997]
+            }
+          },
+          {
+            "id": "mark-4",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.256]
+            }
+          },
+          {
+            "id": "mark-5",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.23399999999999999]
+            }
+          },
+          {
+            "id": "mark-6",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.21199999999999997]
+            }
+          },
+          {
+            "id": "mark-7",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.18999999999999997]
+            }
+          },
+          {
+            "id": "mark-8",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.16799999999999998]
+            }
+          },
+          {
+            "id": "mark-9",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.146]
+            }
+          },
+          {
+            "id": "mark-10",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.124]
+            }
+          },
+          {
+            "id": "mark-11",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.10199999999999998]
+            }
+          },
+          {
+            "id": "mark-12",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.07999999999999996]
+            }
+          },
+          {
+            "id": "mark-13",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.057999999999999996]
+            }
+          },
+          {
+            "id": "mark-14",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.035999999999999976]
+            }
+          },
+          {
+            "id": "mark-15",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,-0.014000000000000012]
+            }
+          },
+          {
+            "id": "mark-16",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.008000000000000007]
+            }
+          },
+          {
+            "id": "mark-17",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.030000000000000027]
+            }
+          },
+          {
+            "id": "mark-18",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.05199999999999999]
+            }
+          },
+          {
+            "id": "mark-19",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.07400000000000001]
+            }
+          },
+          {
+            "id": "mark-20",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.09599999999999997]
+            }
+          },
+          {
+            "id": "mark-21",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.118]
+            }
+          },
+          {
+            "id": "mark-22",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.14]
+            }
+          },
+          {
+            "id": "mark-23",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.16200000000000003]
+            }
+          },
+          {
+            "id": "mark-24",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.18400000000000005]
+            }
+          },
+          {
+            "id": "mark-25",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.20599999999999996]
+            }
+          },
+          {
+            "id": "mark-26",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.22799999999999998]
+            }
+          },
+          {
+            "id": "mark-27",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.25]
+            }
+          },
+          {
+            "id": "mark-28",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.272]
+            }
+          },
+          {
+            "id": "mark-29",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.29400000000000004]
+            }
+          },
+          {
+            "id": "mark-30",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.31599999999999995]
+            }
+          },
+          {
+            "id": "mark-31",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.length-reference-graduation",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0025,0.002]
+            },
+            "appearance": {
+              "color": "#546d79"
+            },
+            "transform": {
+              "position": [0.029,0.037,0.33799999999999997]
+            }
+          },
+          {
+            "id": "slide",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.frame",
+            "transform": {
+              "position": [-0.002,0.045,-0.073]
+            }
+          },
+          {
+            "id": "shoe",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.track-guide-slide-body",
+            "parent": "slide",
+            "geometry": {
+              "type": "box",
+              "size": [0.117,0.048,0.116]
+            },
+            "appearance": {
+              "color": "#83bcc7"
+            },
+            "transform": {
+              "position": [0,0.01,0]
+            }
+          },
+          {
+            "id": "t-nut",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.t-slot-retained-block",
+            "parent": "slide",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.008,0.058]
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            },
+            "transform": {
+              "position": [0.002,-0.026,0]
+            }
+          },
+          {
+            "id": "t-pin",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.captured-shoe-lug",
+            "parent": "slide",
+            "geometry": {
+              "type": "box",
+              "size": [0.013,0.028,0.036]
+            },
+            "appearance": {
+              "color": "#9db7c4"
+            },
+            "transform": {
+              "position": [0.002,-0.008,0]
+            }
+          },
+          {
+            "id": "measurement-screen",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.readout-glass",
+            "parent": "slide",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.033,0],
+                [0,0.038,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.019999999999999997,-0.037],
+                [-0.031000000000000007,-0.037],
+                [-0.037000000000000005,-0.031],
+                [-0.037000000000000005,0.0009999999999999992],
+                [-0.031000000000000007,0.006999999999999999],
+                [0.019999999999999997,0.006999999999999999],
+                [0.026,0.0009999999999999992],
+                [0.026,-0.031]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9fced5"
+            }
+          },
+          {
+            "id": "knob-post",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.short-locking-screw",
+            "parent": "slide",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.043,0.02,0.026],
+              "end": [0.043,0.058,0.026],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            }
+          },
+          {
+            "id": "knob-frame",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.frame",
+            "parent": "slide",
+            "transform": {
+              "position": [0.043,0,0.026]
+            }
+          },
+          {
+            "id": "lock-knob",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.slide-clamp-knob",
+            "parent": "knob-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.06,0],
+                [0,0.073,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.019,0],
+                [0.01807007,0.00587132],
+                [0.01537132,0.01116792],
+                [0.01116792,0.01537132],
+                [0.00587132,0.01807007],
+                [0,0.019],
+                [-0.00587132,0.01807007],
+                [-0.01116792,0.01537132],
+                [-0.01537132,0.01116792],
+                [-0.01807007,0.00587132],
+                [-0.019,0],
+                [-0.01807007,-0.00587132],
+                [-0.01537132,-0.01116792],
+                [-0.01116792,-0.01537132],
+                [-0.00587132,-0.01807007],
+                [0,-0.019],
+                [0.00587132,-0.01807007],
+                [0.01116792,-0.01537132],
+                [0.01537132,-0.01116792],
+                [0.01807007,-0.00587132]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.00855951,0.00278115],
+                  [0.00728115,0.00529007],
+                  [0.00529007,0.00728115],
+                  [0.00278115,0.00855951],
+                  [0,0.009],
+                  [-0.00278115,0.00855951],
+                  [-0.00529007,0.00728115],
+                  [-0.00728115,0.00529007],
+                  [-0.00855951,0.00278115],
+                  [-0.009,0],
+                  [-0.00855951,-0.00278115],
+                  [-0.00728115,-0.00529007],
+                  [-0.00529007,-0.00728115],
+                  [-0.00278115,-0.00855951],
+                  [0,-0.009],
+                  [0.00278115,-0.00855951],
+                  [0.00529007,-0.00728115],
+                  [0.00728115,-0.00529007],
+                  [0.00855951,-0.00278115]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#ecc474"
+            }
+          },
+          {
+            "id": "flip-stop",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.frame",
+            "parent": "slide",
+            "transform": {
+              "position": [-0.054,0.028,0.017]
+            }
+          },
+          {
+            "id": "stop-pin",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.upturn-bar-pivot",
+            "parent": "flip-stop",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.043,0,0],
+              "end": [0.027,0,0],
+              "radius": 0.009,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c2d4dd"
+            }
+          },
+          {
+            "id": "stop-paddle",
+            "semanticType": "tool.t-slot-digital-length-stop-for-sheet-feed.flip-away-material-stop",
+            "parent": "flip-stop",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.013]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.076,-0.073],
+                [-0.0029999999999999923,-0.073],
+                [0.009000000000000008,-0.061],
+                [0.009000000000000008,-0.005999999999999995],
+                [-0.0029999999999999923,0.006000000000000005],
+                [-0.076,0.006000000000000005],
+                [-0.088,-0.005999999999999995],
+                [-0.088,-0.061]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.046,-0.047],
+                  [-0.04633374,-0.04457183],
+                  [-0.04731023,-0.04232374],
+                  [-0.04885702,-0.04042248],
+                  [-0.05085941,-0.03900903],
+                  [-0.0531689,-0.03818824],
+                  [-0.05561418,-0.03802098],
+                  [-0.05801392,-0.03851965],
+                  [-0.06019012,-0.03964727],
+                  [-0.0619814,-0.04132021],
+                  [-0.0632549,-0.04341439],
+                  [-0.06391617,-0.0457745],
+                  [-0.06391617,-0.0482255],
+                  [-0.0632549,-0.05058561],
+                  [-0.0619814,-0.05267979],
+                  [-0.06019012,-0.05435273],
+                  [-0.05801392,-0.05548035],
+                  [-0.05561418,-0.05597902],
+                  [-0.0531689,-0.05581176],
+                  [-0.05085941,-0.05499097],
+                  [-0.04885702,-0.05357752],
+                  [-0.04731023,-0.05167626],
+                  [-0.04633374,-0.04942817]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#ecc474"
+            }
+          }
+        ],
+        "anchors": {
+          "rail-start": {
+            "node": "t-slot",
+            "position": [0,0,-0.371],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          },
+          "rail-end": {
+            "node": "t-slot",
+            "position": [0,0,0.371],
+            "direction": [0,0,1],
+            "kind": "mount"
+          },
+          "material-stop": {
+            "node": "stop-paddle",
+            "position": [-0.067,-0.033,0.013],
+            "direction": [0,0,1],
+            "kind": "contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "length-offset",
+            "label": "定长挡块位移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.211,
+            "max": 0.346,
+            "targets": [
+              {
+                "node": "slide",
+                "property": "position",
+                "axis": "z"
+              }
+            ]
+          },
+          {
+            "id": "stop-angle",
+            "label": "挡板翻起角",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 96,
+            "targets": [
+              {
+                "node": "flip-stop",
+                "property": "rotation",
+                "axis": "x",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

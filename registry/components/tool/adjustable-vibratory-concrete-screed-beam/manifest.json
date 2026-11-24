@@ -1,0 +1,451 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.adjustable-vibratory-concrete-screed-beam",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可展宽振动找平梁",
+  "summary": "铝合金刮尺、滑动扩展段、面板上振动驱动箱、两个折叠手把与共面工作锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.adjustable-vibratory-concrete-screed-beam",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "振动刮尺",
+    "找平梁",
+    "vibratory-screed",
+    "concrete-finishing",
+    "施工工具",
+    "tool"
+  ],
+  "anchors": [
+    "blade-tip--1",
+    "blade-tip-1",
+    "control-grip--1",
+    "control-grip-1",
+    "finish-plane"
+  ],
+  "ai": {
+    "intent": "在混凝土找平或铺设模型中复用独立振动找平梁，读取找平面和可变宽度。",
+    "editableParts": [
+      "beam-width",
+      "handle-fold"
+    ],
+    "qualityChecks": [
+      "两端扩展段对称滑动。",
+      "梁的工作面位置与折叠手把独立。",
+      "振动驱动位于梁中部。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "adjustable-vibratory-concrete-screed-beam",
+      "title": "可展宽振动找平梁",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "beam",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.screed-base-profile",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.748,0,0],
+                [0.748,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0],
+                [-0.139,0],
+                [-0.142,0.015],
+                [-0.054,0.022],
+                [-0.031,0.094],
+                [-0.014,0.094]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#aac0c9"
+            }
+          },
+          {
+            "id": "sliding-end--1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.frame",
+            "transform": {
+              "position": [-0.611,0,0]
+            }
+          },
+          {
+            "id": "extension--1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.adjustable-screed-extension",
+            "parent": "sliding-end--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.305,0.021,0.119]
+            },
+            "appearance": {
+              "color": "#aac0c9"
+            },
+            "transform": {
+              "position": [-0.082,0.0105,0.054]
+            }
+          },
+          {
+            "id": "slide-key--1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.fixing-key",
+            "parent": "sliding-end--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.118,0.039,0.043]
+            },
+            "appearance": {
+              "color": "#78909a"
+            },
+            "transform": {
+              "position": [0,0.047,0.047]
+            }
+          },
+          {
+            "id": "sliding-end-1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.frame",
+            "transform": {
+              "position": [0.611,0,0]
+            }
+          },
+          {
+            "id": "extension-1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.adjustable-screed-extension",
+            "parent": "sliding-end-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.305,0.021,0.119]
+            },
+            "appearance": {
+              "color": "#aac0c9"
+            },
+            "transform": {
+              "position": [0.082,0.0105,0.054]
+            }
+          },
+          {
+            "id": "slide-key-1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.fixing-key",
+            "parent": "sliding-end-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.118,0.039,0.043]
+            },
+            "appearance": {
+              "color": "#78909a"
+            },
+            "transform": {
+              "position": [0,0.047,0.047]
+            }
+          },
+          {
+            "id": "driver-seat",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.vibration-mounting-plate",
+            "geometry": {
+              "type": "box",
+              "size": [0.204,0.039,0.125]
+            },
+            "appearance": {
+              "color": "#78909a"
+            },
+            "transform": {
+              "position": [0,0.088,0.04]
+            }
+          },
+          {
+            "id": "vibration-axis",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.frame",
+            "transform": {
+              "position": [0,0.164,0.042]
+            }
+          },
+          {
+            "id": "vibration-motor",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.vibrator-housing",
+            "parent": "vibration-axis",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.116,0,0],
+              "end": [0.116,0,0],
+              "radius": 0.062,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#55a0aa"
+            }
+          },
+          {
+            "id": "end-cover--1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.vibrator-end-cap",
+            "parent": "vibration-axis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.132,0,0],
+                [-0.106,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.063,0],
+                [0.06178947,0.01229069],
+                [0.05820441,0.02410906],
+                [0.05238259,0.03500092],
+                [0.04454773,0.04454773],
+                [0.03500092,0.05238259],
+                [0.02410906,0.05820441],
+                [0.01229069,0.06178947],
+                [0,0.063],
+                [-0.01229069,0.06178947],
+                [-0.02410906,0.05820441],
+                [-0.03500092,0.05238259],
+                [-0.04454773,0.04454773],
+                [-0.05238259,0.03500092],
+                [-0.05820441,0.02410906],
+                [-0.06178947,0.01229069],
+                [-0.063,0],
+                [-0.06178947,-0.01229069],
+                [-0.05820441,-0.02410906],
+                [-0.05238259,-0.03500092],
+                [-0.04454773,-0.04454773],
+                [-0.03500092,-0.05238259],
+                [-0.02410906,-0.05820441],
+                [-0.01229069,-0.06178947],
+                [0,-0.063],
+                [0.01229069,-0.06178947],
+                [0.02410906,-0.05820441],
+                [0.03500092,-0.05238259],
+                [0.04454773,-0.04454773],
+                [0.05238259,-0.03500092],
+                [0.05820441,-0.02410906],
+                [0.06178947,-0.01229069]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#78909a"
+            }
+          },
+          {
+            "id": "end-cover-1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.vibrator-end-cap",
+            "parent": "vibration-axis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.106,0,0],
+                [0.132,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.063,0],
+                [0.06178947,0.01229069],
+                [0.05820441,0.02410906],
+                [0.05238259,0.03500092],
+                [0.04454773,0.04454773],
+                [0.03500092,0.05238259],
+                [0.02410906,0.05820441],
+                [0.01229069,0.06178947],
+                [0,0.063],
+                [-0.01229069,0.06178947],
+                [-0.02410906,0.05820441],
+                [-0.03500092,0.05238259],
+                [-0.04454773,0.04454773],
+                [-0.05238259,0.03500092],
+                [-0.05820441,0.02410906],
+                [-0.06178947,0.01229069],
+                [-0.063,0],
+                [-0.06178947,-0.01229069],
+                [-0.05820441,-0.02410906],
+                [-0.05238259,-0.03500092],
+                [-0.04454773,-0.04454773],
+                [-0.03500092,-0.05238259],
+                [-0.02410906,-0.05820441],
+                [-0.01229069,-0.06178947],
+                [0,-0.063],
+                [0.01229069,-0.06178947],
+                [0.02410906,-0.05820441],
+                [0.03500092,-0.05238259],
+                [0.04454773,-0.04454773],
+                [0.05238259,-0.03500092],
+                [0.05820441,-0.02410906],
+                [0.06178947,-0.01229069]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#78909a"
+            }
+          },
+          {
+            "id": "handle--1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.frame",
+            "transform": {
+              "position": [-0.304,0.081,0.028],
+              "rotation": [-0.29670597283903605,0,0]
+            }
+          },
+          {
+            "id": "grip-arm--1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.folding-handle",
+            "parent": "handle--1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,0],
+                [0,0.285,0],
+                [-0.029,0.755,0.031],
+                [-0.167,0.755,0.031]
+              ],
+              "radius": 0.012,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#78909a"
+            }
+          },
+          {
+            "id": "handgrip--1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.rubber-grip",
+            "parent": "handle--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.045,0.755,0.031],
+              "end": [-0.172,0.755,0.031],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#334149"
+            }
+          },
+          {
+            "id": "handle-1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.frame",
+            "transform": {
+              "position": [0.304,0.081,0.028],
+              "rotation": [-0.29670597283903605,0,0]
+            }
+          },
+          {
+            "id": "grip-arm-1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.folding-handle",
+            "parent": "handle-1",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,0],
+                [0,0.285,0],
+                [0.029,0.755,0.031],
+                [0.167,0.755,0.031]
+              ],
+              "radius": 0.012,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#78909a"
+            }
+          },
+          {
+            "id": "handgrip-1",
+            "semanticType": "tool.adjustable-vibratory-concrete-screed-beam.rubber-grip",
+            "parent": "handle-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.045,0.755,0.031],
+              "end": [0.172,0.755,0.031],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#334149"
+            }
+          }
+        ],
+        "anchors": {
+          "blade-tip--1": {
+            "node": "sliding-end--1",
+            "position": [-0.235,0,0.058],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "blade-tip-1": {
+            "node": "sliding-end-1",
+            "position": [0.235,0,0.058],
+            "direction": [0,-1,0],
+            "kind": "work"
+          },
+          "control-grip--1": {
+            "node": "handle--1",
+            "position": [-0.107,0.755,0.031],
+            "direction": [0,1,0],
+            "kind": "grip"
+          },
+          "control-grip-1": {
+            "node": "handle-1",
+            "position": [0.107,0.755,0.031],
+            "direction": [0,1,0],
+            "kind": "grip"
+          },
+          "finish-plane": {
+            "node": "beam",
+            "position": [0,0,0.061],
+            "direction": [0,-1,0],
+            "kind": "work"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "beam-width",
+            "label": "找平刮尺展宽",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.36,
+            "targets": [
+              {
+                "node": "sliding-end--1",
+                "property": "position",
+                "axis": "x",
+                "factor": -0.5
+              },
+              {
+                "node": "sliding-end-1",
+                "property": "position",
+                "axis": "x",
+                "factor": 0.5
+              }
+            ]
+          },
+          {
+            "id": "handle-fold",
+            "label": "手把折叠角",
+            "unit": "deg",
+            "value": 0,
+            "min": -34,
+            "max": 39,
+            "targets": [
+              {
+                "node": "handle--1",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "handle-1",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,5 +1,7 @@
 # 架构
 
+AI 大模型通过宿主 Agent 调用 Skill 和 CLI。宿主提供任务与上下文，Core 根据结构化输入计算模型并返回结果，供 Agent 检查和修正。
+
 ## 总体结构
 
 ```text
@@ -58,7 +60,7 @@ Core 不负责 UI、课程步骤、材质拟真、具体渲染器或某个行业
 
 ## Spatial methods
 
-空间方法是产品的主要复用价值，分为三类：
+空间方法按其返回值分为四类：
 
 - 事实：距离、边界、路径长度、坡度、切向、连接兼容性。
 - 候选：正交路径等多个可解释方案，保持 `selected: null`。
@@ -76,7 +78,7 @@ Core 不负责 UI、课程步骤、材质拟真、具体渲染器或某个行业
 - Plugin：只做宿主侧安装、发现和权限边界，不承载核心逻辑。
 - Renderer/Exporter：把几何图转换为 Three.js、网页、CAD、BIM 或其他格式。
 
-CLI 不会削弱 Agent；它把重复计算从上下文和临时代码中移出。宿主是否使用插件或 Skill，不改变核心数据协议。
+CLI 封装重复计算，并将结构化结果交回 Agent。经 Skill、宿主插件或包直接接入时，使用同一套模型协议。
 
 ## Web 渲染分层
 
@@ -86,6 +88,6 @@ CLI 不会削弱 Agent；它把重复计算从上下文和临时代码中移出�
 - `@agentscene/adapter-three` 把 geometry graph 转换为 GPU 场景，重复构件使用 `InstancedMesh` 合并绘制。
 - Three.js 代码作为独立 chunk 按需加载，不进入编辑器首屏主包。
 - Canvas 渲染器保留为轻量回退和现有操纵器的交互层。
-- 渲染器可替换，CompositionSpec、参数、锨点、父子关系和动画数据不随渲染器变化。
+- 各显示适配器共享 CompositionSpec 中的参数、锚点、父子关系和动画数据。
 
-因此，Three.js 是当前 Web 编辑器的高性能显示实现，而不是数字模型的存储格式或产品边界。
+Three.js 在复核界面中渲染 Core 构建的几何图。Agent 继续以 CompositionSpec 作为可编辑源稿。

@@ -1,0 +1,966 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "三面夹座式检修口围栏",
+  "summary": "三面开式防护围栏、可联动伸出的底部压紧足和独立单向翻门。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "检修口围栏",
+    "地洞口临时围挡",
+    "service opening guard",
+    "clamp feet and swing gate",
+    "检修出入工装",
+    "maintenance access hardware"
+  ],
+  "anchors": [
+    "clamp-pad-0",
+    "clamp-pad-1",
+    "clamp-pad-2",
+    "clamp-pad-3",
+    "gate-edge",
+    "opening-centre"
+  ],
+  "ai": {
+    "intent": "为独立检修孔、地下检修口或吊装口布置带翻门的基础护围。",
+    "editableParts": [
+      "gate-angle",
+      "clamp-depth"
+    ],
+    "qualityChecks": [
+      "轮廓中区保持敞开。",
+      "门的边缘锚点随转动更新，固定护围高度不变。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "clamp-foot-three-sided-service-opening-guard-with-self-closing-gate",
+      "title": "三面夹座式检修口围栏",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "upright-0",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.square-service-opening-guard-post",
+            "geometry": {
+              "type": "box",
+              "size": [0.044,1.041,0.044]
+            },
+            "appearance": {
+              "color": "#84a9b7"
+            },
+            "transform": {
+              "position": [-0.51,0.611,-0.48]
+            }
+          },
+          {
+            "id": "foot-plate-0",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.true-bored-resting-foot",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.066,0],
+                [0,0.085,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.55,-0.544],
+                [0.4700000000000001,-0.544],
+                [0.45200000000000007,-0.526],
+                [0.45200000000000007,-0.43400000000000005],
+                [0.4700000000000001,-0.41600000000000004],
+                [0.55,-0.41600000000000004],
+                [0.5680000000000001,-0.43400000000000005],
+                [0.5680000000000001,-0.526]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.499,-0.48],
+                  [0.49937482,-0.47715299],
+                  [0.50047372,-0.4745],
+                  [0.50222183,-0.47222183],
+                  [0.5045,-0.47047372],
+                  [0.50715299,-0.46937482],
+                  [0.51,-0.469],
+                  [0.51284701,-0.46937482],
+                  [0.5155,-0.47047372],
+                  [0.51777817,-0.47222183],
+                  [0.51952628,-0.4745],
+                  [0.52062518,-0.47715299],
+                  [0.521,-0.48],
+                  [0.52062518,-0.48284701],
+                  [0.51952628,-0.4855],
+                  [0.51777817,-0.48777817],
+                  [0.5155,-0.48952628],
+                  [0.51284701,-0.49062518],
+                  [0.51,-0.491],
+                  [0.50715299,-0.49062518],
+                  [0.5045,-0.48952628],
+                  [0.50222183,-0.48777817],
+                  [0.50047372,-0.4855],
+                  [0.49937482,-0.48284701]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#cad8dc"
+            }
+          },
+          {
+            "id": "adjustable-clamp-0",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.frame",
+            "transform": {
+              "position": [-0.51,0.023,-0.48]
+            }
+          },
+          {
+            "id": "clamp-stem-0",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.retaining-foot-stem",
+            "parent": "adjustable-clamp-0",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.045,0],
+              "end": [0,0.11,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#5e7782"
+            }
+          },
+          {
+            "id": "clamp-pad-0",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.recessed-clamping-pad",
+            "parent": "adjustable-clamp-0",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.045,0],
+                [0,-0.024,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.038,0],
+                [0.03726984,0.00741343],
+                [0.03510742,0.01454197],
+                [0.03159585,0.02111167],
+                [0.02687006,0.02687006],
+                [0.02111167,0.03159585],
+                [0.01454197,0.03510742],
+                [0.00741343,0.03726984],
+                [0,0.038],
+                [-0.00741343,0.03726984],
+                [-0.01454197,0.03510742],
+                [-0.02111167,0.03159585],
+                [-0.02687006,0.02687006],
+                [-0.03159585,0.02111167],
+                [-0.03510742,0.01454197],
+                [-0.03726984,0.00741343],
+                [-0.038,0],
+                [-0.03726984,-0.00741343],
+                [-0.03510742,-0.01454197],
+                [-0.03159585,-0.02111167],
+                [-0.02687006,-0.02687006],
+                [-0.02111167,-0.03159585],
+                [-0.01454197,-0.03510742],
+                [-0.00741343,-0.03726984],
+                [0,-0.038],
+                [0.00741343,-0.03726984],
+                [0.01454197,-0.03510742],
+                [0.02111167,-0.03159585],
+                [0.02687006,-0.02687006],
+                [0.03159585,-0.02111167],
+                [0.03510742,-0.01454197],
+                [0.03726984,-0.00741343]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7eabad"
+            }
+          },
+          {
+            "id": "upright-1",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.square-service-opening-guard-post",
+            "geometry": {
+              "type": "box",
+              "size": [0.044,1.041,0.044]
+            },
+            "appearance": {
+              "color": "#84a9b7"
+            },
+            "transform": {
+              "position": [-0.51,0.611,0.48]
+            }
+          },
+          {
+            "id": "foot-plate-1",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.true-bored-resting-foot",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.066,0],
+                [0,0.085,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.55,0.416],
+                [0.4700000000000001,0.416],
+                [0.45200000000000007,0.434],
+                [0.45200000000000007,0.526],
+                [0.4700000000000001,0.544],
+                [0.55,0.544],
+                [0.5680000000000001,0.526],
+                [0.5680000000000001,0.434]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.499,0.48],
+                  [0.49937482,0.48284701],
+                  [0.50047372,0.4855],
+                  [0.50222183,0.48777817],
+                  [0.5045,0.48952628],
+                  [0.50715299,0.49062518],
+                  [0.51,0.491],
+                  [0.51284701,0.49062518],
+                  [0.5155,0.48952628],
+                  [0.51777817,0.48777817],
+                  [0.51952628,0.4855],
+                  [0.52062518,0.48284701],
+                  [0.521,0.48],
+                  [0.52062518,0.47715299],
+                  [0.51952628,0.4745],
+                  [0.51777817,0.47222183],
+                  [0.5155,0.47047372],
+                  [0.51284701,0.46937482],
+                  [0.51,0.469],
+                  [0.50715299,0.46937482],
+                  [0.5045,0.47047372],
+                  [0.50222183,0.47222183],
+                  [0.50047372,0.4745],
+                  [0.49937482,0.47715299]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#cad8dc"
+            }
+          },
+          {
+            "id": "adjustable-clamp-1",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.frame",
+            "transform": {
+              "position": [-0.51,0.023,0.48]
+            }
+          },
+          {
+            "id": "clamp-stem-1",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.retaining-foot-stem",
+            "parent": "adjustable-clamp-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.045,0],
+              "end": [0,0.11,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#5e7782"
+            }
+          },
+          {
+            "id": "clamp-pad-1",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.recessed-clamping-pad",
+            "parent": "adjustable-clamp-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.045,0],
+                [0,-0.024,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.038,0],
+                [0.03726984,0.00741343],
+                [0.03510742,0.01454197],
+                [0.03159585,0.02111167],
+                [0.02687006,0.02687006],
+                [0.02111167,0.03159585],
+                [0.01454197,0.03510742],
+                [0.00741343,0.03726984],
+                [0,0.038],
+                [-0.00741343,0.03726984],
+                [-0.01454197,0.03510742],
+                [-0.02111167,0.03159585],
+                [-0.02687006,0.02687006],
+                [-0.03159585,0.02111167],
+                [-0.03510742,0.01454197],
+                [-0.03726984,0.00741343],
+                [-0.038,0],
+                [-0.03726984,-0.00741343],
+                [-0.03510742,-0.01454197],
+                [-0.03159585,-0.02111167],
+                [-0.02687006,-0.02687006],
+                [-0.02111167,-0.03159585],
+                [-0.01454197,-0.03510742],
+                [-0.00741343,-0.03726984],
+                [0,-0.038],
+                [0.00741343,-0.03726984],
+                [0.01454197,-0.03510742],
+                [0.02111167,-0.03159585],
+                [0.02687006,-0.02687006],
+                [0.03159585,-0.02111167],
+                [0.03510742,-0.01454197],
+                [0.03726984,-0.00741343]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7eabad"
+            }
+          },
+          {
+            "id": "upright-2",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.square-service-opening-guard-post",
+            "geometry": {
+              "type": "box",
+              "size": [0.044,1.041,0.044]
+            },
+            "appearance": {
+              "color": "#84a9b7"
+            },
+            "transform": {
+              "position": [0.51,0.611,-0.48]
+            }
+          },
+          {
+            "id": "foot-plate-2",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.true-bored-resting-foot",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.066,0],
+                [0,0.085,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.47000000000000003,-0.544],
+                [-0.55,-0.544],
+                [-0.5680000000000001,-0.526],
+                [-0.5680000000000001,-0.43400000000000005],
+                [-0.55,-0.41600000000000004],
+                [-0.47000000000000003,-0.41600000000000004],
+                [-0.452,-0.43400000000000005],
+                [-0.452,-0.526]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.521,-0.48],
+                  [-0.52062518,-0.47715299],
+                  [-0.51952628,-0.4745],
+                  [-0.51777817,-0.47222183],
+                  [-0.5155,-0.47047372],
+                  [-0.51284701,-0.46937482],
+                  [-0.51,-0.469],
+                  [-0.50715299,-0.46937482],
+                  [-0.5045,-0.47047372],
+                  [-0.50222183,-0.47222183],
+                  [-0.50047372,-0.4745],
+                  [-0.49937482,-0.47715299],
+                  [-0.499,-0.48],
+                  [-0.49937482,-0.48284701],
+                  [-0.50047372,-0.4855],
+                  [-0.50222183,-0.48777817],
+                  [-0.5045,-0.48952628],
+                  [-0.50715299,-0.49062518],
+                  [-0.51,-0.491],
+                  [-0.51284701,-0.49062518],
+                  [-0.5155,-0.48952628],
+                  [-0.51777817,-0.48777817],
+                  [-0.51952628,-0.4855],
+                  [-0.52062518,-0.48284701]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#cad8dc"
+            }
+          },
+          {
+            "id": "adjustable-clamp-2",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.frame",
+            "transform": {
+              "position": [0.51,0.023,-0.48]
+            }
+          },
+          {
+            "id": "clamp-stem-2",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.retaining-foot-stem",
+            "parent": "adjustable-clamp-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.045,0],
+              "end": [0,0.11,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#5e7782"
+            }
+          },
+          {
+            "id": "clamp-pad-2",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.recessed-clamping-pad",
+            "parent": "adjustable-clamp-2",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.045,0],
+                [0,-0.024,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.038,0],
+                [0.03726984,0.00741343],
+                [0.03510742,0.01454197],
+                [0.03159585,0.02111167],
+                [0.02687006,0.02687006],
+                [0.02111167,0.03159585],
+                [0.01454197,0.03510742],
+                [0.00741343,0.03726984],
+                [0,0.038],
+                [-0.00741343,0.03726984],
+                [-0.01454197,0.03510742],
+                [-0.02111167,0.03159585],
+                [-0.02687006,0.02687006],
+                [-0.03159585,0.02111167],
+                [-0.03510742,0.01454197],
+                [-0.03726984,0.00741343],
+                [-0.038,0],
+                [-0.03726984,-0.00741343],
+                [-0.03510742,-0.01454197],
+                [-0.03159585,-0.02111167],
+                [-0.02687006,-0.02687006],
+                [-0.02111167,-0.03159585],
+                [-0.01454197,-0.03510742],
+                [-0.00741343,-0.03726984],
+                [0,-0.038],
+                [0.00741343,-0.03726984],
+                [0.01454197,-0.03510742],
+                [0.02111167,-0.03159585],
+                [0.02687006,-0.02687006],
+                [0.03159585,-0.02111167],
+                [0.03510742,-0.01454197],
+                [0.03726984,-0.00741343]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7eabad"
+            }
+          },
+          {
+            "id": "upright-3",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.square-service-opening-guard-post",
+            "geometry": {
+              "type": "box",
+              "size": [0.044,1.041,0.044]
+            },
+            "appearance": {
+              "color": "#84a9b7"
+            },
+            "transform": {
+              "position": [0.51,0.611,0.48]
+            }
+          },
+          {
+            "id": "foot-plate-3",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.true-bored-resting-foot",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.066,0],
+                [0,0.085,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.47000000000000003,0.416],
+                [-0.55,0.416],
+                [-0.5680000000000001,0.434],
+                [-0.5680000000000001,0.526],
+                [-0.55,0.544],
+                [-0.47000000000000003,0.544],
+                [-0.452,0.526],
+                [-0.452,0.434]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.521,0.48],
+                  [-0.52062518,0.48284701],
+                  [-0.51952628,0.4855],
+                  [-0.51777817,0.48777817],
+                  [-0.5155,0.48952628],
+                  [-0.51284701,0.49062518],
+                  [-0.51,0.491],
+                  [-0.50715299,0.49062518],
+                  [-0.5045,0.48952628],
+                  [-0.50222183,0.48777817],
+                  [-0.50047372,0.4855],
+                  [-0.49937482,0.48284701],
+                  [-0.499,0.48],
+                  [-0.49937482,0.47715299],
+                  [-0.50047372,0.4745],
+                  [-0.50222183,0.47222183],
+                  [-0.5045,0.47047372],
+                  [-0.50715299,0.46937482],
+                  [-0.51,0.469],
+                  [-0.51284701,0.46937482],
+                  [-0.5155,0.47047372],
+                  [-0.51777817,0.47222183],
+                  [-0.51952628,0.4745],
+                  [-0.52062518,0.47715299]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#cad8dc"
+            }
+          },
+          {
+            "id": "adjustable-clamp-3",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.frame",
+            "transform": {
+              "position": [0.51,0.023,0.48]
+            }
+          },
+          {
+            "id": "clamp-stem-3",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.retaining-foot-stem",
+            "parent": "adjustable-clamp-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.045,0],
+              "end": [0,0.11,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#5e7782"
+            }
+          },
+          {
+            "id": "clamp-pad-3",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.recessed-clamping-pad",
+            "parent": "adjustable-clamp-3",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.045,0],
+                [0,-0.024,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.038,0],
+                [0.03726984,0.00741343],
+                [0.03510742,0.01454197],
+                [0.03159585,0.02111167],
+                [0.02687006,0.02687006],
+                [0.02111167,0.03159585],
+                [0.01454197,0.03510742],
+                [0.00741343,0.03726984],
+                [0,0.038],
+                [-0.00741343,0.03726984],
+                [-0.01454197,0.03510742],
+                [-0.02111167,0.03159585],
+                [-0.02687006,0.02687006],
+                [-0.03159585,0.02111167],
+                [-0.03510742,0.01454197],
+                [-0.03726984,0.00741343],
+                [-0.038,0],
+                [-0.03726984,-0.00741343],
+                [-0.03510742,-0.01454197],
+                [-0.03159585,-0.02111167],
+                [-0.02687006,-0.02687006],
+                [-0.02111167,-0.03159585],
+                [-0.01454197,-0.03510742],
+                [-0.00741343,-0.03726984],
+                [0,-0.038],
+                [0.00741343,-0.03726984],
+                [0.01454197,-0.03510742],
+                [0.02111167,-0.03159585],
+                [0.02687006,-0.02687006],
+                [0.03159585,-0.02111167],
+                [0.03510742,-0.01454197],
+                [0.03726984,-0.00741343]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7eabad"
+            }
+          },
+          {
+            "id": "rear-rail-0.44",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.fixed-back-guard-rail",
+            "geometry": {
+              "type": "box",
+              "size": [1.038,0.037,0.038]
+            },
+            "appearance": {
+              "color": "#7eabad"
+            },
+            "transform": {
+              "position": [0,0.44,-0.48]
+            }
+          },
+          {
+            "id": "side-rail-0.44--0.51",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.fixed-return-guard-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.037,0.962]
+            },
+            "appearance": {
+              "color": "#7eabad"
+            },
+            "transform": {
+              "position": [-0.51,0.44,0]
+            }
+          },
+          {
+            "id": "side-rail-0.44-0.51",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.fixed-return-guard-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.037,0.962]
+            },
+            "appearance": {
+              "color": "#7eabad"
+            },
+            "transform": {
+              "position": [0.51,0.44,0]
+            }
+          },
+          {
+            "id": "rear-rail-0.864",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.fixed-back-guard-rail",
+            "geometry": {
+              "type": "box",
+              "size": [1.038,0.037,0.038]
+            },
+            "appearance": {
+              "color": "#7eabad"
+            },
+            "transform": {
+              "position": [0,0.864,-0.48]
+            }
+          },
+          {
+            "id": "side-rail-0.864--0.51",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.fixed-return-guard-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.037,0.962]
+            },
+            "appearance": {
+              "color": "#7eabad"
+            },
+            "transform": {
+              "position": [-0.51,0.864,0]
+            }
+          },
+          {
+            "id": "side-rail-0.864-0.51",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.fixed-return-guard-rail",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.037,0.962]
+            },
+            "appearance": {
+              "color": "#7eabad"
+            },
+            "transform": {
+              "position": [0.51,0.864,0]
+            }
+          },
+          {
+            "id": "toe-board--0.51",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.floor-edge-toe-board",
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.103,0.9]
+            },
+            "appearance": {
+              "color": "#84a9b7"
+            },
+            "transform": {
+              "position": [-0.51,0.126,0]
+            }
+          },
+          {
+            "id": "toe-board-0.51",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.floor-edge-toe-board",
+            "geometry": {
+              "type": "box",
+              "size": [0.026,0.103,0.9]
+            },
+            "appearance": {
+              "color": "#84a9b7"
+            },
+            "transform": {
+              "position": [0.51,0.126,0]
+            }
+          },
+          {
+            "id": "personnel-swing-gate",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.frame",
+            "transform": {
+              "position": [-0.51,0.248,0.485]
+            }
+          },
+          {
+            "id": "gate-ring",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.closed-swing-gate-tubular-frame",
+            "parent": "personnel-swing-gate",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.025,0,0],
+                [0.936,0,0],
+                [0.953,0.043,0],
+                [0.953,0.649,0],
+                [0.918,0.707,0],
+                [0.026,0.707,0],
+                [0.013,0.671,0],
+                [0.013,0.034,0],
+                [0.025,0,0]
+              ],
+              "radius": 0.018,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#d8ad63"
+            }
+          },
+          {
+            "id": "closing-hinge-spring",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.return-spring-on-vertical-gate-hinge",
+            "parent": "personnel-swing-gate",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.024,0.184,0],
+                [0.02255262,0.18502778,0.00820848],
+                [0.01838507,0.18605556,0.0154269],
+                [0.012,0.18708333,0.02078461],
+                [0.00416756,0.18811111,0.02363539],
+                [-0.00416756,0.18913889,0.02363539],
+                [-0.012,0.19016667,0.02078461],
+                [-0.01838507,0.19119444,0.0154269],
+                [-0.02255262,0.19222222,0.00820848],
+                [-0.024,0.19325,0],
+                [-0.02255262,0.19427778,-0.00820848],
+                [-0.01838507,0.19530556,-0.0154269],
+                [-0.012,0.19633333,-0.02078461],
+                [-0.00416756,0.19736111,-0.02363539],
+                [0.00416756,0.19838889,-0.02363539],
+                [0.012,0.19941667,-0.02078461],
+                [0.01838507,0.20044444,-0.0154269],
+                [0.02255262,0.20147222,-0.00820848],
+                [0.024,0.2025,0],
+                [0.02255262,0.20352778,0.00820848],
+                [0.01838507,0.20455556,0.0154269],
+                [0.012,0.20558333,0.02078461],
+                [0.00416756,0.20661111,0.02363539],
+                [-0.00416756,0.20763889,0.02363539],
+                [-0.012,0.20866667,0.02078461],
+                [-0.01838507,0.20969444,0.0154269],
+                [-0.02255262,0.21072222,0.00820848],
+                [-0.024,0.21175,0],
+                [-0.02255262,0.21277778,-0.00820848],
+                [-0.01838507,0.21380556,-0.0154269],
+                [-0.012,0.21483333,-0.02078461],
+                [-0.00416756,0.21586111,-0.02363539],
+                [0.00416756,0.21688889,-0.02363539],
+                [0.012,0.21791667,-0.02078461],
+                [0.01838507,0.21894444,-0.0154269],
+                [0.02255262,0.21997222,-0.00820848],
+                [0.024,0.221,0],
+                [0.02255262,0.22202778,0.00820848],
+                [0.01838507,0.22305556,0.0154269],
+                [0.012,0.22408333,0.02078461],
+                [0.00416756,0.22511111,0.02363539],
+                [-0.00416756,0.22613889,0.02363539],
+                [-0.012,0.22716667,0.02078461],
+                [-0.01838507,0.22819444,0.0154269],
+                [-0.02255262,0.22922222,0.00820848],
+                [-0.024,0.23025,0],
+                [-0.02255262,0.23127778,-0.00820848],
+                [-0.01838507,0.23230556,-0.0154269],
+                [-0.012,0.23333333,-0.02078461],
+                [-0.00416756,0.23436111,-0.02363539],
+                [0.00416756,0.23538889,-0.02363539],
+                [0.012,0.23641667,-0.02078461],
+                [0.01838507,0.23744444,-0.0154269],
+                [0.02255262,0.23847222,-0.00820848],
+                [0.024,0.2395,0],
+                [0.02255262,0.24052778,0.00820848],
+                [0.01838507,0.24155556,0.0154269],
+                [0.012,0.24258333,0.02078461],
+                [0.00416756,0.24361111,0.02363539],
+                [-0.00416756,0.24463889,0.02363539],
+                [-0.012,0.24566667,0.02078461],
+                [-0.01838507,0.24669444,0.0154269],
+                [-0.02255262,0.24772222,0.00820848],
+                [-0.024,0.24875,0],
+                [-0.02255262,0.24977778,-0.00820848],
+                [-0.01838507,0.25080556,-0.0154269],
+                [-0.012,0.25183333,-0.02078461],
+                [-0.00416756,0.25286111,-0.02363539],
+                [0.00416756,0.25388889,-0.02363539],
+                [0.012,0.25491667,-0.02078461],
+                [0.01838507,0.25594444,-0.0154269],
+                [0.02255262,0.25697222,-0.00820848],
+                [0.024,0.258,0]
+              ],
+              "radius": 0.004,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#cad8dc"
+            }
+          },
+          {
+            "id": "fixed-gate-hinge-pin",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.fixed-hinge-pin-at-gate-root",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.51,0.417,0.485],
+              "end": [-0.51,0.527,0.485],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#5e7782"
+            }
+          },
+          {
+            "id": "gate-transom",
+            "semanticType": "equipment.clamp-foot-three-sided-service-opening-guard-with-self-closing-gate.gate-center-guard",
+            "parent": "personnel-swing-gate",
+            "geometry": {
+              "type": "box",
+              "size": [0.929,0.032,0.029]
+            },
+            "appearance": {
+              "color": "#d8ad63"
+            },
+            "transform": {
+              "position": [0.487,0.359,0]
+            }
+          }
+        ],
+        "anchors": {
+          "clamp-pad-0": {
+            "node": "adjustable-clamp-0",
+            "position": [0,-0.045,0],
+            "direction": [0,-1,0],
+            "kind": "service-opening-mount"
+          },
+          "clamp-pad-1": {
+            "node": "adjustable-clamp-1",
+            "position": [0,-0.045,0],
+            "direction": [0,-1,0],
+            "kind": "service-opening-mount"
+          },
+          "clamp-pad-2": {
+            "node": "adjustable-clamp-2",
+            "position": [0,-0.045,0],
+            "direction": [0,-1,0],
+            "kind": "service-opening-mount"
+          },
+          "clamp-pad-3": {
+            "node": "adjustable-clamp-3",
+            "position": [0,-0.045,0],
+            "direction": [0,-1,0],
+            "kind": "service-opening-mount"
+          },
+          "gate-edge": {
+            "node": "personnel-swing-gate",
+            "position": [0.953,0.359,0],
+            "direction": [1,0,0],
+            "kind": "opening-gate-edge"
+          },
+          "opening-centre": {
+            "position": [0,0.066,0],
+            "direction": [0,-1,0],
+            "kind": "maintenance-opening"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "gate-angle",
+            "label": "出入门翻开",
+            "unit": "deg",
+            "value": 14,
+            "min": 0,
+            "max": 98,
+            "targets": [
+              {
+                "node": "personnel-swing-gate",
+                "property": "rotation",
+                "axis": "y",
+                "factor": -0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "clamp-depth",
+            "label": "夹脚位置",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.095,
+            "targets": [
+              {
+                "node": "adjustable-clamp-0",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              },
+              {
+                "node": "adjustable-clamp-1",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              },
+              {
+                "node": "adjustable-clamp-2",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              },
+              {
+                "node": "adjustable-clamp-3",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

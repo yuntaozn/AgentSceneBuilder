@@ -1,0 +1,426 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.scissor-curb-stone-lifting-clamp",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "交叉臂式路缘石夹具",
+  "summary": "真实销孔、左右对称交叉臂、可摆橡胶夹脚、中心吊眼和开口控制。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.scissor-curb-stone-lifting-clamp",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "路缘石夹具",
+    "石材吊夹",
+    "curb-lifting-clamp",
+    "scissor-grab",
+    "施工工具",
+    "tool"
+  ],
+  "anchors": [
+    "stone-face--1",
+    "stone-face-1",
+    "lifting-eye"
+  ],
+  "ai": {
+    "intent": "作为路缘石和短板材搬运工装建模，提供独立吊点和两个可移动接触面。",
+    "editableParts": [
+      "opening",
+      "shoe-angle"
+    ],
+    "qualityChecks": [
+      "两夹脚向相反方向转动。",
+      "中心吊眼保持位置。",
+      "压脚姿态可以独立于夹臂微调。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "scissor-curb-stone-lifting-clamp",
+      "title": "交叉臂式路缘石夹具",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lifting-head",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.frame",
+            "transform": {
+              "position": [0,0.393,0]
+            }
+          },
+          {
+            "id": "mount-eye",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.lifting-eye",
+            "parent": "lifting-head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.013],
+                [0,0,0.013]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.018000000000000002,-0.031],
+                [0.018000000000000002,-0.031],
+                [0.029,-0.02],
+                [0.029,0.045],
+                [0.018000000000000002,0.055999999999999994],
+                [-0.018000000000000002,0.055999999999999994],
+                [-0.029,0.045],
+                [-0.029,-0.02]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.017,0.027],
+                  [0.01657377,0.03078286],
+                  [0.01531647,0.03437602],
+                  [0.01329114,0.03759933],
+                  [0.01059933,0.04029114],
+                  [0.00737602,0.04231647],
+                  [0.00378286,0.04357377],
+                  [0,0.044],
+                  [-0.00378286,0.04357377],
+                  [-0.00737602,0.04231647],
+                  [-0.01059933,0.04029114],
+                  [-0.01329114,0.03759933],
+                  [-0.01531647,0.03437602],
+                  [-0.01657377,0.03078286],
+                  [-0.017,0.027],
+                  [-0.01657377,0.02321714],
+                  [-0.01531647,0.01962398],
+                  [-0.01329114,0.01640067],
+                  [-0.01059933,0.01370886],
+                  [-0.00737602,0.01168353],
+                  [-0.00378286,0.01042623],
+                  [0,0.01],
+                  [0.00378286,0.01042623],
+                  [0.00737602,0.01168353],
+                  [0.01059933,0.01370886],
+                  [0.01329114,0.01640067],
+                  [0.01531647,0.01962398],
+                  [0.01657377,0.02321714]
+                ],
+                [
+                  [0.0073,0],
+                  [0.0070043,0.00205665],
+                  [0.00614115,0.00394668],
+                  [0.00478048,0.00551697],
+                  [0.00303253,0.00664031],
+                  [0.0010389,0.0072257],
+                  [-0.0010389,0.0072257],
+                  [-0.00303253,0.00664031],
+                  [-0.00478048,0.00551697],
+                  [-0.00614115,0.00394668],
+                  [-0.0070043,0.00205665],
+                  [-0.0073,0],
+                  [-0.0070043,-0.00205665],
+                  [-0.00614115,-0.00394668],
+                  [-0.00478048,-0.00551697],
+                  [-0.00303253,-0.00664031],
+                  [-0.0010389,-0.0072257],
+                  [0.0010389,-0.0072257],
+                  [0.00303253,-0.00664031],
+                  [0.00478048,-0.00551697],
+                  [0.00614115,-0.00394668],
+                  [0.0070043,-0.00205665]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#78909a"
+            }
+          },
+          {
+            "id": "jaw--1",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.frame",
+            "parent": "lifting-head",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,0,-0.12217304763960307]
+            }
+          },
+          {
+            "id": "arm--1",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.crossing-grab-arm",
+            "parent": "jaw--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.019],
+                [0,0,-0.0010000000000000009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.026,-0.009],
+                [0.016,-0.029],
+                [-0.186,-0.212],
+                [-0.192,-0.254],
+                [-0.232,-0.254],
+                [-0.225,-0.177],
+                [-0.029,-0.026],
+                [-0.025,0.009],
+                [-0.012,0.023],
+                [0.018,0.02]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0072,0],
+                  [0.00690835,0.00202847],
+                  [0.00605703,0.00389261],
+                  [0.004715,0.0054414],
+                  [0.00299099,0.00654935],
+                  [0.00102467,0.00712671],
+                  [-0.00102467,0.00712671],
+                  [-0.00299099,0.00654935],
+                  [-0.004715,0.0054414],
+                  [-0.00605703,0.00389261],
+                  [-0.00690835,0.00202847],
+                  [-0.0072,0],
+                  [-0.00690835,-0.00202847],
+                  [-0.00605703,-0.00389261],
+                  [-0.004715,-0.0054414],
+                  [-0.00299099,-0.00654935],
+                  [-0.00102467,-0.00712671],
+                  [0.00102467,-0.00712671],
+                  [0.00299099,-0.00654935],
+                  [0.004715,-0.0054414],
+                  [0.00605703,-0.00389261],
+                  [0.00690835,-0.00202847]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#55a0aa"
+            }
+          },
+          {
+            "id": "shoe--1",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.frame",
+            "parent": "jaw--1",
+            "transform": {
+              "position": [-0.208,-0.247,0]
+            }
+          },
+          {
+            "id": "grip-pad--1",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.protected-clamp-pad",
+            "parent": "shoe--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.035,0.084,0.114]
+            },
+            "appearance": {
+              "color": "#334149"
+            },
+            "transform": {
+              "position": [0.002,-0.014,0]
+            }
+          },
+          {
+            "id": "shoe-pin--1",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.shoe-hinge",
+            "parent": "shoe--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.038],
+              "end": [0,0,0.038],
+              "radius": 0.006,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#aac0c9"
+            }
+          },
+          {
+            "id": "jaw-1",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.frame",
+            "parent": "lifting-head",
+            "transform": {
+              "position": [0,0,0],
+              "rotation": [0,0,0.12217304763960307]
+            }
+          },
+          {
+            "id": "arm-1",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.crossing-grab-arm",
+            "parent": "jaw-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.0010000000000000009],
+                [0,0,0.019]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.026,-0.009],
+                [-0.016,-0.029],
+                [0.186,-0.212],
+                [0.192,-0.254],
+                [0.232,-0.254],
+                [0.225,-0.177],
+                [0.029,-0.026],
+                [0.025,0.009],
+                [0.012,0.023],
+                [-0.018,0.02]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0072,0],
+                  [0.00690835,0.00202847],
+                  [0.00605703,0.00389261],
+                  [0.004715,0.0054414],
+                  [0.00299099,0.00654935],
+                  [0.00102467,0.00712671],
+                  [-0.00102467,0.00712671],
+                  [-0.00299099,0.00654935],
+                  [-0.004715,0.0054414],
+                  [-0.00605703,0.00389261],
+                  [-0.00690835,0.00202847],
+                  [-0.0072,0],
+                  [-0.00690835,-0.00202847],
+                  [-0.00605703,-0.00389261],
+                  [-0.004715,-0.0054414],
+                  [-0.00299099,-0.00654935],
+                  [-0.00102467,-0.00712671],
+                  [0.00102467,-0.00712671],
+                  [0.00299099,-0.00654935],
+                  [0.004715,-0.0054414],
+                  [0.00605703,-0.00389261],
+                  [0.00690835,-0.00202847]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#55a0aa"
+            }
+          },
+          {
+            "id": "shoe-1",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.frame",
+            "parent": "jaw-1",
+            "transform": {
+              "position": [0.208,-0.247,0]
+            }
+          },
+          {
+            "id": "grip-pad-1",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.protected-clamp-pad",
+            "parent": "shoe-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.035,0.084,0.114]
+            },
+            "appearance": {
+              "color": "#334149"
+            },
+            "transform": {
+              "position": [-0.002,-0.014,0]
+            }
+          },
+          {
+            "id": "shoe-pin-1",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.shoe-hinge",
+            "parent": "shoe-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.038],
+              "end": [0,0,0.038],
+              "radius": 0.006,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#aac0c9"
+            }
+          },
+          {
+            "id": "fixed-cross-pin",
+            "semanticType": "tool.scissor-curb-stone-lifting-clamp.arm-cross-pin",
+            "parent": "lifting-head",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.024],
+              "end": [0,0,0.024],
+              "radius": 0.0069,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#aac0c9"
+            }
+          }
+        ],
+        "anchors": {
+          "stone-face--1": {
+            "node": "shoe--1",
+            "position": [0.02,-0.014,0],
+            "direction": [1,0,0],
+            "kind": "contact"
+          },
+          "stone-face-1": {
+            "node": "shoe-1",
+            "position": [-0.02,-0.014,0],
+            "direction": [-1,0,0],
+            "kind": "contact"
+          },
+          "lifting-eye": {
+            "node": "mount-eye",
+            "position": [0,0.027,0],
+            "direction": [0,1,0],
+            "kind": "load"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "opening",
+            "label": "交叉夹具开口角",
+            "unit": "deg",
+            "value": 0,
+            "min": -17,
+            "max": 27,
+            "targets": [
+              {
+                "node": "jaw--1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": -0.017453292519943295
+              },
+              {
+                "node": "jaw-1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "shoe-angle",
+            "label": "压脚相对倾角",
+            "unit": "deg",
+            "value": 0,
+            "min": -12,
+            "max": 12,
+            "targets": [
+              {
+                "node": "shoe--1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "shoe-1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

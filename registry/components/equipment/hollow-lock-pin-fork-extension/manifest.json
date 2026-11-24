@@ -1,0 +1,368 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.hollow-lock-pin-fork-extension",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带锁销的叉车加长叉套",
+  "summary": "开口矩形套叉、前端收口钢板、尾部锁销、下部止动耳和货叉装配基准。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.hollow-lock-pin-fork-extension",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "加长叉套",
+    "叉车属具",
+    "fork-extension",
+    "locking-pin",
+    "机械基础件",
+    "equipment"
+  ],
+  "anchors": [
+    "fork-entry",
+    "load-face",
+    "tip"
+  ],
+  "ai": {
+    "intent": "作为货叉加长工作端复用，保留对接中心、加长端与活动锁销。",
+    "editableParts": [
+      "pin-release"
+    ],
+    "qualityChecks": [
+      "套叉尾部是真实开口。",
+      "锁销沿两耳轴向抽出。",
+      "前端承托面和尖端位置可单独读取。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hollow-lock-pin-fork-extension",
+      "title": "带锁销的叉车加长叉套",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fork-sleeve",
+            "semanticType": "equipment.hollow-lock-pin-fork-extension.hollow-fork-sleeve",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0.901,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.082,-0.046],
+                [-0.082,-0.046],
+                [-0.091,-0.037],
+                [-0.091,0.037],
+                [-0.082,0.046],
+                [0.082,0.046],
+                [0.091,0.037],
+                [0.091,-0.037]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.07100000000000001,-0.035],
+                  [-0.07100000000000001,-0.035],
+                  [-0.079,-0.027000000000000003],
+                  [-0.079,0.027000000000000003],
+                  [-0.07100000000000001,0.035],
+                  [0.07100000000000001,0.035],
+                  [0.079,0.027000000000000003],
+                  [0.079,-0.027000000000000003]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#6b838e"
+            }
+          },
+          {
+            "id": "tapered-end",
+            "semanticType": "equipment.hollow-lock-pin-fork-extension.tapered-load-nose",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.021,0],
+                [0,0.046,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.889,-0.091],
+                [-1.058,-0.073],
+                [-1.178,-0.046],
+                [-1.178,0.046],
+                [-1.058,0.073],
+                [-0.889,0.091]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#6b838e"
+            }
+          },
+          {
+            "id": "nose-web",
+            "semanticType": "equipment.hollow-lock-pin-fork-extension.tapered-reinforcing-web",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.052],
+                [0,0,0.052]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.873,-0.046],
+                [1.057,-0.029],
+                [1.178,0.023],
+                [0.971,0.029],
+                [0.873,0.024]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#6b838e"
+            }
+          },
+          {
+            "id": "pin-ear--1",
+            "semanticType": "equipment.hollow-lock-pin-fork-extension.pin-retaining-ear",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.087],
+                [0,0,-0.069]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.032,-0.049],
+                [0.125,-0.047],
+                [0.13,-0.096],
+                [0.108,-0.118],
+                [-0.02,-0.116],
+                [-0.039,-0.092]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.042,-0.081],
+                  [0.04162518,-0.07815299],
+                  [0.04052628,-0.0755],
+                  [0.03877817,-0.07322183],
+                  [0.0365,-0.07147372],
+                  [0.03384701,-0.07037482],
+                  [0.031,-0.07],
+                  [0.02815299,-0.07037482],
+                  [0.0255,-0.07147372],
+                  [0.02322183,-0.07322183],
+                  [0.02147372,-0.0755],
+                  [0.02037482,-0.07815299],
+                  [0.02,-0.081],
+                  [0.02037482,-0.08384701],
+                  [0.02147372,-0.0865],
+                  [0.02322183,-0.08877817],
+                  [0.0255,-0.09052628],
+                  [0.02815299,-0.09162518],
+                  [0.031,-0.092],
+                  [0.03384701,-0.09162518],
+                  [0.0365,-0.09052628],
+                  [0.03877817,-0.08877817],
+                  [0.04052628,-0.0865],
+                  [0.04162518,-0.08384701]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aabfc8"
+            }
+          },
+          {
+            "id": "pin-ear-1",
+            "semanticType": "equipment.hollow-lock-pin-fork-extension.pin-retaining-ear",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.069],
+                [0,0,0.087]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.032,-0.049],
+                [0.125,-0.047],
+                [0.13,-0.096],
+                [0.108,-0.118],
+                [-0.02,-0.116],
+                [-0.039,-0.092]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.042,-0.081],
+                  [0.04162518,-0.07815299],
+                  [0.04052628,-0.0755],
+                  [0.03877817,-0.07322183],
+                  [0.0365,-0.07147372],
+                  [0.03384701,-0.07037482],
+                  [0.031,-0.07],
+                  [0.02815299,-0.07037482],
+                  [0.0255,-0.07147372],
+                  [0.02322183,-0.07322183],
+                  [0.02147372,-0.0755],
+                  [0.02037482,-0.07815299],
+                  [0.02,-0.081],
+                  [0.02037482,-0.08384701],
+                  [0.02147372,-0.0865],
+                  [0.02322183,-0.08877817],
+                  [0.0255,-0.09052628],
+                  [0.02815299,-0.09162518],
+                  [0.031,-0.092],
+                  [0.03384701,-0.09162518],
+                  [0.0365,-0.09052628],
+                  [0.03877817,-0.08877817],
+                  [0.04052628,-0.0865],
+                  [0.04162518,-0.08384701]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aabfc8"
+            }
+          },
+          {
+            "id": "locking-pin",
+            "semanticType": "equipment.hollow-lock-pin-fork-extension.frame",
+            "transform": {
+              "position": [0.031,-0.081,0]
+            }
+          },
+          {
+            "id": "pin-shaft",
+            "semanticType": "equipment.hollow-lock-pin-fork-extension.cross-locking-pin",
+            "parent": "locking-pin",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.107],
+              "end": [0,0,0.105],
+              "radius": 0.0105,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aabfc8"
+            }
+          },
+          {
+            "id": "pin-stop",
+            "semanticType": "equipment.hollow-lock-pin-fork-extension.pull-pin-stop",
+            "parent": "locking-pin",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.101],
+                [0,0,0.113]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.017,0],
+                [0.01667335,0.00331654],
+                [0.01570595,0.00650562],
+                [0.01413498,0.00944469],
+                [0.01202082,0.01202082],
+                [0.00944469,0.01413498],
+                [0.00650562,0.01570595],
+                [0.00331654,0.01667335],
+                [0,0.017],
+                [-0.00331654,0.01667335],
+                [-0.00650562,0.01570595],
+                [-0.00944469,0.01413498],
+                [-0.01202082,0.01202082],
+                [-0.01413498,0.00944469],
+                [-0.01570595,0.00650562],
+                [-0.01667335,0.00331654],
+                [-0.017,0],
+                [-0.01667335,-0.00331654],
+                [-0.01570595,-0.00650562],
+                [-0.01413498,-0.00944469],
+                [-0.01202082,-0.01202082],
+                [-0.00944469,-0.01413498],
+                [-0.00650562,-0.01570595],
+                [-0.00331654,-0.01667335],
+                [0,-0.017],
+                [0.00331654,-0.01667335],
+                [0.00650562,-0.01570595],
+                [0.00944469,-0.01413498],
+                [0.01202082,-0.01202082],
+                [0.01413498,-0.00944469],
+                [0.01570595,-0.00650562],
+                [0.01667335,-0.00331654]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#dda84a"
+            }
+          },
+          {
+            "id": "clip",
+            "semanticType": "equipment.hollow-lock-pin-fork-extension.retaining-clip",
+            "parent": "locking-pin",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0,0,-0.106],
+                [0.012,0,-0.121],
+                [0.012,0.018,-0.124],
+                [0,0.026,-0.119]
+              ],
+              "radius": 0.0032,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#485962"
+            }
+          }
+        ],
+        "anchors": {
+          "fork-entry": {
+            "node": "fork-sleeve",
+            "position": [0,0,0],
+            "direction": [-1,0,0],
+            "kind": "mount"
+          },
+          "load-face": {
+            "node": "tapered-end",
+            "position": [1.05,0.046,0],
+            "direction": [0,1,0],
+            "kind": "load"
+          },
+          "tip": {
+            "node": "tapered-end",
+            "position": [1.178,0.035,0],
+            "direction": [1,0,0],
+            "kind": "load"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "pin-release",
+            "label": "锁销抽离量",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.196,
+            "targets": [
+              {
+                "node": "locking-pin",
+                "property": "position",
+                "axis": "z"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

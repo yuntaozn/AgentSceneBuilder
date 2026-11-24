@@ -1,0 +1,540 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.overlapping-plate-telescopic-rain-canopy",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "两段叠板伸缩遮雨篷",
+  "summary": "墙面吊托、两道实际空心的滑移边梁、外段雨棚板、前沿雨槽和正向外伸锚。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.overlapping-plate-telescopic-rain-canopy",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "伸缩遮雨篷",
+    "叠板雨棚",
+    "telescopic-canopy",
+    "nested-rain-plates",
+    "维护及遮阳",
+    "facade-envelope"
+  ],
+  "anchors": [
+    "wall",
+    "cap",
+    "dripline"
+  ],
+  "ai": {
+    "intent": "以可伸雨棚作为独立遮挡体和雨水边界组件，引用墙面和前缘。",
+    "editableParts": [
+      "shade-extension"
+    ],
+    "qualityChecks": [
+      "最大伸出保持屋面和边梁叠接。",
+      "雨槽随伸缩更新。",
+      "靠墙安装面固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "overlapping-plate-telescopic-rain-canopy",
+      "title": "两段叠板伸缩遮雨篷",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.drilled-canopy-wall-plate",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.006],
+                [0,0,0.019]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.521,-0.114],
+                [0.521,-0.114],
+                [0.543,-0.092],
+                [0.543,0.092],
+                [0.521,0.114],
+                [-0.521,0.114],
+                [-0.543,0.092],
+                [-0.543,-0.092]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.436,-0.075],
+                  [-0.43644296,-0.07163535],
+                  [-0.43774167,-0.0685],
+                  [-0.43980761,-0.06580761],
+                  [-0.4425,-0.06374167],
+                  [-0.44563535,-0.06244296],
+                  [-0.449,-0.062],
+                  [-0.45236465,-0.06244296],
+                  [-0.4555,-0.06374167],
+                  [-0.45819239,-0.06580761],
+                  [-0.46025833,-0.0685],
+                  [-0.46155704,-0.07163535],
+                  [-0.462,-0.075],
+                  [-0.46155704,-0.07836465],
+                  [-0.46025833,-0.0815],
+                  [-0.45819239,-0.08419239],
+                  [-0.4555,-0.08625833],
+                  [-0.45236465,-0.08755704],
+                  [-0.449,-0.088],
+                  [-0.44563535,-0.08755704],
+                  [-0.4425,-0.08625833],
+                  [-0.43980761,-0.08419239],
+                  [-0.43774167,-0.0815],
+                  [-0.43644296,-0.07836465]
+                ],
+                [
+                  [-0.436,0.075],
+                  [-0.43644296,0.07836465],
+                  [-0.43774167,0.0815],
+                  [-0.43980761,0.08419239],
+                  [-0.4425,0.08625833],
+                  [-0.44563535,0.08755704],
+                  [-0.449,0.088],
+                  [-0.45236465,0.08755704],
+                  [-0.4555,0.08625833],
+                  [-0.45819239,0.08419239],
+                  [-0.46025833,0.0815],
+                  [-0.46155704,0.07836465],
+                  [-0.462,0.075],
+                  [-0.46155704,0.07163535],
+                  [-0.46025833,0.0685],
+                  [-0.45819239,0.06580761],
+                  [-0.4555,0.06374167],
+                  [-0.45236465,0.06244296],
+                  [-0.449,0.062],
+                  [-0.44563535,0.06244296],
+                  [-0.4425,0.06374167],
+                  [-0.43980761,0.06580761],
+                  [-0.43774167,0.0685],
+                  [-0.43644296,0.07163535]
+                ],
+                [
+                  [0.462,-0.075],
+                  [0.46155704,-0.07163535],
+                  [0.46025833,-0.0685],
+                  [0.45819239,-0.06580761],
+                  [0.4555,-0.06374167],
+                  [0.45236465,-0.06244296],
+                  [0.449,-0.062],
+                  [0.44563535,-0.06244296],
+                  [0.4425,-0.06374167],
+                  [0.43980761,-0.06580761],
+                  [0.43774167,-0.0685],
+                  [0.43644296,-0.07163535],
+                  [0.436,-0.075],
+                  [0.43644296,-0.07836465],
+                  [0.43774167,-0.0815],
+                  [0.43980761,-0.08419239],
+                  [0.4425,-0.08625833],
+                  [0.44563535,-0.08755704],
+                  [0.449,-0.088],
+                  [0.45236465,-0.08755704],
+                  [0.4555,-0.08625833],
+                  [0.45819239,-0.08419239],
+                  [0.46025833,-0.0815],
+                  [0.46155704,-0.07836465]
+                ],
+                [
+                  [0.462,0.075],
+                  [0.46155704,0.07836465],
+                  [0.46025833,0.0815],
+                  [0.45819239,0.08419239],
+                  [0.4555,0.08625833],
+                  [0.45236465,0.08755704],
+                  [0.449,0.088],
+                  [0.44563535,0.08755704],
+                  [0.4425,0.08625833],
+                  [0.43980761,0.08419239],
+                  [0.43774167,0.0815],
+                  [0.43644296,0.07836465],
+                  [0.436,0.075],
+                  [0.43644296,0.07163535],
+                  [0.43774167,0.0685],
+                  [0.43980761,0.06580761],
+                  [0.4425,0.06374167],
+                  [0.44563535,0.06244296],
+                  [0.449,0.062],
+                  [0.45236465,0.06244296],
+                  [0.4555,0.06374167],
+                  [0.45819239,0.06580761],
+                  [0.46025833,0.0685],
+                  [0.46155704,0.07163535]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db5c2"
+            }
+          },
+          {
+            "id": "canopy",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.frame",
+            "transform": {
+              "position": [0,-0.015,0.025],
+              "rotation": [0.06981317007977318,0,0]
+            }
+          },
+          {
+            "id": "rail--1",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.frame",
+            "parent": "canopy",
+            "transform": {
+              "position": [-0.481,-0.026,0]
+            }
+          },
+          {
+            "id": "outer-track--1",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.telescoping-hollow-side-track",
+            "parent": "rail--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.011],
+                [0,0,0.642]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0325,-0.0375],
+                [0.0325,-0.0375],
+                [0.0395,-0.0305],
+                [0.0395,0.0305],
+                [0.0325,0.0375],
+                [-0.0325,0.0375],
+                [-0.0395,0.0305],
+                [-0.0395,-0.0305]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.025,-0.027],
+                  [0.025,-0.027],
+                  [0.028,-0.024],
+                  [0.028,0.024],
+                  [0.025,0.027],
+                  [-0.025,0.027],
+                  [-0.028,0.024],
+                  [-0.028,-0.024]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#81bac5"
+            }
+          },
+          {
+            "id": "jib-brace--1",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.fixed-wall-canopy-bracket",
+            "parent": "canopy",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.481,-0.093,0.021],
+                [-0.481,-0.067,0.105],
+                [-0.481,-0.02,0.239]
+              ],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "rail-1",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.frame",
+            "parent": "canopy",
+            "transform": {
+              "position": [0.481,-0.026,0]
+            }
+          },
+          {
+            "id": "outer-track-1",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.telescoping-hollow-side-track",
+            "parent": "rail-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.011],
+                [0,0,0.642]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0325,-0.0375],
+                [0.0325,-0.0375],
+                [0.0395,-0.0305],
+                [0.0395,0.0305],
+                [0.0325,0.0375],
+                [-0.0325,0.0375],
+                [-0.0395,0.0305],
+                [-0.0395,-0.0305]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.025,-0.027],
+                  [0.025,-0.027],
+                  [0.028,-0.024],
+                  [0.028,0.024],
+                  [0.025,0.027],
+                  [-0.025,0.027],
+                  [-0.028,0.024],
+                  [-0.028,-0.024]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#81bac5"
+            }
+          },
+          {
+            "id": "jib-brace-1",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.fixed-wall-canopy-bracket",
+            "parent": "canopy",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.481,-0.093,0.021],
+                [0.481,-0.067,0.105],
+                [0.481,-0.02,0.239]
+              ],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "outer-roof",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.simple-overlap-rain-panel",
+            "parent": "canopy",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.009,0],
+                [0,0.028,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.47100000000000003,0.014],
+                [-0.47100000000000003,0.014],
+                [-0.507,0.049999999999999996],
+                [-0.507,0.621],
+                [-0.47100000000000003,0.657],
+                [0.47100000000000003,0.657],
+                [0.507,0.621],
+                [0.507,0.049999999999999996]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#81bac5"
+            }
+          },
+          {
+            "id": "nose",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.frame",
+            "parent": "canopy",
+            "transform": {
+              "position": [0,-0.018,0.226]
+            }
+          },
+          {
+            "id": "inner-rail--1",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.frame",
+            "parent": "nose",
+            "transform": {
+              "position": [-0.481,-0.008,0]
+            }
+          },
+          {
+            "id": "inner-track--1",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.telescoping-hollow-side-track",
+            "parent": "inner-rail--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.598]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0195,-0.0245],
+                [0.0195,-0.0245],
+                [0.0265,-0.0175],
+                [0.0265,0.0175],
+                [0.0195,0.0245],
+                [-0.0195,0.0245],
+                [-0.0265,0.0175],
+                [-0.0265,-0.0175]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0155,-0.016],
+                  [0.0155,-0.016],
+                  [0.0185,-0.013000000000000001],
+                  [0.0185,0.013000000000000001],
+                  [0.0155,0.016],
+                  [-0.0155,0.016],
+                  [-0.0185,0.013000000000000001],
+                  [-0.0185,-0.013000000000000001]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "inner-rail-1",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.frame",
+            "parent": "nose",
+            "transform": {
+              "position": [0.481,-0.008,0]
+            }
+          },
+          {
+            "id": "inner-track-1",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.telescoping-hollow-side-track",
+            "parent": "inner-rail-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.598]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0195,-0.0245],
+                [0.0195,-0.0245],
+                [0.0265,-0.0175],
+                [0.0265,0.0175],
+                [0.0195,0.0245],
+                [-0.0195,0.0245],
+                [-0.0265,0.0175],
+                [-0.0265,-0.0175]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.0155,-0.016],
+                  [0.0155,-0.016],
+                  [0.0185,-0.013000000000000001],
+                  [0.0185,0.013000000000000001],
+                  [0.0155,0.016],
+                  [-0.0155,0.016],
+                  [-0.0185,0.013000000000000001],
+                  [-0.0185,-0.013000000000000001]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "inner-roof",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.overlapped-light-rain-panel",
+            "parent": "nose",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.006,0],
+                [0,0.025,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.45499999999999996,0.009],
+                [-0.45499999999999996,0.009],
+                [-0.487,0.041],
+                [-0.487,0.598],
+                [-0.45499999999999996,0.63],
+                [0.45499999999999996,0.63],
+                [0.487,0.598],
+                [0.487,0.041]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bed2da"
+            }
+          },
+          {
+            "id": "gutter",
+            "semanticType": "construction.overlapping-plate-telescopic-rain-canopy.open-drip-gutter-front-profile",
+            "parent": "nose",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.509,0,0],
+                [0.509,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.574,-0.022],
+                [-0.642,-0.022],
+                [-0.642,0.023],
+                [-0.63,0.023],
+                [-0.63,-0.01],
+                [-0.586,-0.01],
+                [-0.586,0.019],
+                [-0.574,0.019]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9db5c2"
+            }
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "node": "wall",
+            "position": [0,0,-0.006],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          },
+          "cap": {
+            "node": "outer-roof",
+            "position": [0,0.028,0.014],
+            "direction": [0,1,0],
+            "kind": "reference"
+          },
+          "dripline": {
+            "node": "gutter",
+            "position": [0,-0.02,0.627],
+            "direction": [0,-1,0],
+            "kind": "drain"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "shade-extension",
+            "label": "外檐伸出量",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.301,
+            "targets": [
+              {
+                "node": "nose",
+                "property": "position",
+                "axis": "z"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

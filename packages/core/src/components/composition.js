@@ -10,6 +10,8 @@ export const compositionComponent = {
     nodes: { type: "array", required: true },
     anchors: { type: "object", required: false },
     routeBindings: { type: "array", required: false },
+    poseControls: { type: "array", required: false },
+    monitoring: { type: "object", required: false },
     attachments: { type: "array", required: false },
   },
   build({ instanceId, parameters, transform }) {

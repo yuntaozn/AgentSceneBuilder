@@ -1,0 +1,5248 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.modular-road-rail-utility-maintenance-vehicle",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "公铁两用检修作业车",
+  "summary": "独立整车模型同时包含道路轮、前后轨轮升降桥、可开的乘员舱门及空作业甲板。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "公铁两用检修作业车",
+    "双轨轮桥作业车",
+    "road-rail utility vehicle",
+    "hy-rail maintenance carrier",
+    "公铁两用检修设备",
+    "road rail maintenance equipment"
+  ],
+  "anchors": [
+    "road-contact--1.034--1",
+    "road-contact--1.034-1",
+    "road-contact-1.026--1",
+    "road-contact-1.026-1",
+    "front-rail-cassette",
+    "rear-rail-cassette",
+    "service-deck",
+    "front-rail-contact--1",
+    "front-rail-contact-1",
+    "front-mount",
+    "rear-rail-contact--1",
+    "rear-rail-contact-1",
+    "rear-mount"
+  ],
+  "dependencies": [
+    "equipment.road-rail-maintenance-utility-vehicle-chassis-with-dual-cassette-seats@0.1.0",
+    "equipment.deployable-flanged-rail-wheel-cassette-with-adjustable-gauge@0.1.0"
+  ],
+  "ai": {
+    "intent": "为轨道检修与场地工作布置完整可编辑车辆。轨轮桥采用独立组件的同组几何和同一四孔安装面。",
+    "editableParts": [
+      "door-swing",
+      "front-rail-lower",
+      "rear-rail-lower"
+    ],
+    "qualityChecks": [
+      "前后轨轮升降可以分别设置。",
+      "轨轮桥收起与展开放置时车体公路轮基准不随之移动。",
+      "作业甲板保留为空以安装其他构件。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "modular-road-rail-utility-maintenance-vehicle",
+      "title": "公铁两用检修作业车",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "chassis-deck",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.central-ladder-frame-deck-with-lightening-openings",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.481,0],
+                [0,0.579,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [1.377,-0.595],
+                [-1.377,-0.595],
+                [-1.45,-0.522],
+                [-1.45,0.522],
+                [-1.377,0.595],
+                [1.377,0.595],
+                [1.45,0.522],
+                [1.45,-0.522]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.867,-0.374],
+                  [0.633,-0.374],
+                  [0.589,-0.33],
+                  [0.589,0.33],
+                  [0.633,0.374],
+                  [0.867,0.374],
+                  [0.911,0.33],
+                  [0.911,-0.33]
+                ],
+                [
+                  [-0.12299999999999998,-0.374],
+                  [-0.35700000000000004,-0.374],
+                  [-0.401,-0.33],
+                  [-0.401,0.33],
+                  [-0.35700000000000004,0.374],
+                  [-0.12299999999999998,0.374],
+                  [-0.07899999999999999,0.33],
+                  [-0.07899999999999999,-0.33]
+                ],
+                [
+                  [-0.9039999999999999,-0.374],
+                  [-1.138,-0.374],
+                  [-1.182,-0.33],
+                  [-1.182,0.33],
+                  [-1.138,0.374],
+                  [-0.9039999999999999,0.374],
+                  [-0.8599999999999999,0.33],
+                  [-0.8599999999999999,-0.33]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "frame-rail--0.449",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.road-rail-vehicle-frame-longeron",
+            "geometry": {
+              "type": "box",
+              "size": [2.869,0.111,0.096]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0,0.481,-0.449]
+            }
+          },
+          {
+            "id": "frame-rail-0.449",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.road-rail-vehicle-frame-longeron",
+            "geometry": {
+              "type": "box",
+              "size": [2.869,0.111,0.096]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0,0.481,0.449]
+            }
+          },
+          {
+            "id": "cab-deck",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.protected-cab-floor",
+            "geometry": {
+              "type": "box",
+              "size": [1.251,0.068,1.151]
+            },
+            "appearance": {
+              "color": "#89aaba"
+            },
+            "transform": {
+              "position": [-0.594,0.636,0]
+            }
+          },
+          {
+            "id": "rear-floor",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.utility-vehicle-deck",
+            "geometry": {
+              "type": "box",
+              "size": [1.379,0.084,1.209]
+            },
+            "appearance": {
+              "color": "#89aaba"
+            },
+            "transform": {
+              "position": [0.748,0.629,0]
+            }
+          },
+          {
+            "id": "rear-rubrail--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.long-deck-plated-rub-rail",
+            "geometry": {
+              "type": "box",
+              "size": [1.392,0.114,0.048]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0.739,0.696,-0.586]
+            }
+          },
+          {
+            "id": "deck-bolt-rail--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.tool-deck-bolted-fixing-line",
+            "geometry": {
+              "type": "box",
+              "size": [1.184,0.034,0.037]
+            },
+            "appearance": {
+              "color": "#617b88"
+            },
+            "transform": {
+              "position": [0.759,0.684,-0.454]
+            }
+          },
+          {
+            "id": "rear-rubrail-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.long-deck-plated-rub-rail",
+            "geometry": {
+              "type": "box",
+              "size": [1.392,0.114,0.048]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0.739,0.696,0.586]
+            }
+          },
+          {
+            "id": "deck-bolt-rail-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.tool-deck-bolted-fixing-line",
+            "geometry": {
+              "type": "box",
+              "size": [1.184,0.034,0.037]
+            },
+            "appearance": {
+              "color": "#617b88"
+            },
+            "transform": {
+              "position": [0.759,0.684,0.454]
+            }
+          },
+          {
+            "id": "cab-column-and-sill--0.487",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.closed-cab-protection-rail",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-1.151,0.669,-0.487],
+                [-1.151,1.087,-0.487],
+                [-1.066,1.532,-0.487],
+                [-0.059,1.532,-0.487],
+                [-0.059,0.671,-0.487]
+              ],
+              "radius": 0.036,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#7cabaf"
+            }
+          },
+          {
+            "id": "cab-column-and-sill-0.487",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.closed-cab-protection-rail",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-1.151,0.669,0.487],
+                [-1.151,1.087,0.487],
+                [-1.066,1.532,0.487],
+                [-0.059,1.532,0.487],
+                [-0.059,0.671,0.487]
+              ],
+              "radius": 0.036,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#7cabaf"
+            }
+          },
+          {
+            "id": "cab-roof",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.rounded-utility-vehicle-roof",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,1.534,0],
+                [0,1.601,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [1.055,-0.548],
+                [0.02099999999999995,-0.548],
+                [-0.052000000000000046,-0.47500000000000003],
+                [-0.052000000000000046,0.47500000000000003],
+                [0.02099999999999995,0.548],
+                [1.055,0.548],
+                [1.128,0.47500000000000003],
+                [1.128,-0.47500000000000003]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#d9d9c9"
+            }
+          },
+          {
+            "id": "windshield-frame",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.actual-open-cab-window-perimeter",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.116,0,0],
+                [-1.091,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.429,1.075],
+                [0.429,1.075],
+                [0.473,1.119],
+                [0.473,1.4749999999999999],
+                [0.429,1.519],
+                [-0.429,1.519],
+                [-0.473,1.4749999999999999],
+                [-0.473,1.119]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.393,1.127],
+                  [0.393,1.127],
+                  [0.425,1.159],
+                  [0.425,1.447],
+                  [0.393,1.479],
+                  [-0.393,1.479],
+                  [-0.425,1.447],
+                  [-0.425,1.159]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "windshield",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.slight-translucent-fitted-windshield",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-1.104,0,0],
+                [-1.096,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.391,1.13],
+                [0.391,1.13],
+                [0.421,1.16],
+                [0.421,1.446],
+                [0.391,1.476],
+                [-0.391,1.476],
+                [-0.421,1.446],
+                [-0.421,1.16]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#739bab",
+              "opacity": 0.57
+            }
+          },
+          {
+            "id": "side-cab-door",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "transform": {
+              "position": [-1.099,0.671,0.511]
+            }
+          },
+          {
+            "id": "swing-door",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.true-windowed-side-cab-door",
+            "parent": "side-cab-door",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.033]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,0],
+                [0.967,0],
+                [0.967,0.848],
+                [0.084,0.848],
+                [0,0.464]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.16,0.432],
+                  [0.846,0.432],
+                  [0.887,0.473],
+                  [0.887,0.735],
+                  [0.846,0.776],
+                  [0.16,0.776],
+                  [0.119,0.735],
+                  [0.119,0.473]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#89aaba"
+            }
+          },
+          {
+            "id": "handle",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.side-door-release",
+            "parent": "side-cab-door",
+            "geometry": {
+              "type": "box",
+              "size": [0.109,0.031,0.042]
+            },
+            "appearance": {
+              "color": "#617b88"
+            },
+            "transform": {
+              "position": [0.801,0.384,0.035]
+            }
+          },
+          {
+            "id": "seat",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.single-operator-seat",
+            "geometry": {
+              "type": "box",
+              "size": [0.31,0.116,0.366]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.624,0.834,0.04]
+            }
+          },
+          {
+            "id": "seat-back",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.single-operator-backrest",
+            "geometry": {
+              "type": "box",
+              "size": [0.103,0.359,0.348]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.437,1.003,0.04]
+            }
+          },
+          {
+            "id": "vehicle-axle--1.034",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "transform": {
+              "position": [-1.034,0.294,0]
+            }
+          },
+          {
+            "id": "beam-axle--1.034",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.underbody-wheel-axle",
+            "parent": "vehicle-axle--1.034",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.617],
+              "end": [0,0,0.617],
+              "radius": 0.037,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "road-wheel--1.034--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "vehicle-axle--1.034",
+            "transform": {
+              "position": [0,0,-0.653]
+            }
+          },
+          {
+            "id": "tire--1.034--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.road-tire-with-annular-centre",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.088],
+                [0,0,0.088]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.294,0],
+                [0.29274585,0.0271269],
+                [0.28899409,0.05402236],
+                [0.28277674,0.08045692],
+                [0.27414684,0.10620505],
+                [0.26317801,0.13104708],
+                [0.24996384,0.15477106],
+                [0.23461706,0.17717458],
+                [0.21726862,0.19806652],
+                [0.19806652,0.21726862],
+                [0.17717458,0.23461706],
+                [0.15477106,0.24996384],
+                [0.13104708,0.26317801],
+                [0.10620505,0.27414684],
+                [0.08045692,0.28277674],
+                [0.05402236,0.28899409],
+                [0.0271269,0.29274585],
+                [0,0.294],
+                [-0.0271269,0.29274585],
+                [-0.05402236,0.28899409],
+                [-0.08045692,0.28277674],
+                [-0.10620505,0.27414684],
+                [-0.13104708,0.26317801],
+                [-0.15477106,0.24996384],
+                [-0.17717458,0.23461706],
+                [-0.19806652,0.21726862],
+                [-0.21726862,0.19806652],
+                [-0.23461706,0.17717458],
+                [-0.24996384,0.15477106],
+                [-0.26317801,0.13104708],
+                [-0.27414684,0.10620505],
+                [-0.28277674,0.08045692],
+                [-0.28899409,0.05402236],
+                [-0.29274585,0.0271269],
+                [-0.294,0],
+                [-0.29274585,-0.0271269],
+                [-0.28899409,-0.05402236],
+                [-0.28277674,-0.08045692],
+                [-0.27414684,-0.10620505],
+                [-0.26317801,-0.13104708],
+                [-0.24996384,-0.15477106],
+                [-0.23461706,-0.17717458],
+                [-0.21726862,-0.19806652],
+                [-0.19806652,-0.21726862],
+                [-0.17717458,-0.23461706],
+                [-0.15477106,-0.24996384],
+                [-0.13104708,-0.26317801],
+                [-0.10620505,-0.27414684],
+                [-0.08045692,-0.28277674],
+                [-0.05402236,-0.28899409],
+                [-0.0271269,-0.29274585],
+                [0,-0.294],
+                [0.0271269,-0.29274585],
+                [0.05402236,-0.28899409],
+                [0.08045692,-0.28277674],
+                [0.10620505,-0.27414684],
+                [0.13104708,-0.26317801],
+                [0.15477106,-0.24996384],
+                [0.17717458,-0.23461706],
+                [0.19806652,-0.21726862],
+                [0.21726862,-0.19806652],
+                [0.23461706,-0.17717458],
+                [0.24996384,-0.15477106],
+                [0.26317801,-0.13104708],
+                [0.27414684,-0.10620505],
+                [0.28277674,-0.08045692],
+                [0.28899409,-0.05402236],
+                [0.29274585,-0.0271269]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.171,0],
+                  [0.17027054,0.01577789],
+                  [0.1680884,0.03142117],
+                  [0.16447218,0.04679637],
+                  [0.15945275,0.06177232],
+                  [0.15307292,0.07622126],
+                  [0.14538713,0.0900199],
+                  [0.13646095,0.10305052],
+                  [0.12637052,0.11520196],
+                  [0.11520196,0.12637052],
+                  [0.10305052,0.13646095],
+                  [0.0900199,0.14538713],
+                  [0.07622126,0.15307292],
+                  [0.06177232,0.15945275],
+                  [0.04679637,0.16447218],
+                  [0.03142117,0.1680884],
+                  [0.01577789,0.17027054],
+                  [0,0.171],
+                  [-0.01577789,0.17027054],
+                  [-0.03142117,0.1680884],
+                  [-0.04679637,0.16447218],
+                  [-0.06177232,0.15945275],
+                  [-0.07622126,0.15307292],
+                  [-0.0900199,0.14538713],
+                  [-0.10305052,0.13646095],
+                  [-0.11520196,0.12637052],
+                  [-0.12637052,0.11520196],
+                  [-0.13646095,0.10305052],
+                  [-0.14538713,0.0900199],
+                  [-0.15307292,0.07622126],
+                  [-0.15945275,0.06177232],
+                  [-0.16447218,0.04679637],
+                  [-0.1680884,0.03142117],
+                  [-0.17027054,0.01577789],
+                  [-0.171,0],
+                  [-0.17027054,-0.01577789],
+                  [-0.1680884,-0.03142117],
+                  [-0.16447218,-0.04679637],
+                  [-0.15945275,-0.06177232],
+                  [-0.15307292,-0.07622126],
+                  [-0.14538713,-0.0900199],
+                  [-0.13646095,-0.10305052],
+                  [-0.12637052,-0.11520196],
+                  [-0.11520196,-0.12637052],
+                  [-0.10305052,-0.13646095],
+                  [-0.0900199,-0.14538713],
+                  [-0.07622126,-0.15307292],
+                  [-0.06177232,-0.15945275],
+                  [-0.04679637,-0.16447218],
+                  [-0.03142117,-0.1680884],
+                  [-0.01577789,-0.17027054],
+                  [0,-0.171],
+                  [0.01577789,-0.17027054],
+                  [0.03142117,-0.1680884],
+                  [0.04679637,-0.16447218],
+                  [0.06177232,-0.15945275],
+                  [0.07622126,-0.15307292],
+                  [0.0900199,-0.14538713],
+                  [0.10305052,-0.13646095],
+                  [0.11520196,-0.12637052],
+                  [0.12637052,-0.11520196],
+                  [0.13646095,-0.10305052],
+                  [0.14538713,-0.0900199],
+                  [0.15307292,-0.07622126],
+                  [0.15945275,-0.06177232],
+                  [0.16447218,-0.04679637],
+                  [0.1680884,-0.03142117],
+                  [0.17027054,-0.01577789]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#58656b"
+            }
+          },
+          {
+            "id": "rim--1.034--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.machined-rim-around-bearing-cap",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.09],
+                [0,0,0.09]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.172,0],
+                [0.1709185,0.01925789],
+                [0.1676876,0.0382736],
+                [0.16234793,0.056808],
+                [0.15496665,0.074628],
+                [0.14563656,0.09150952],
+                [0.13447501,0.10724025],
+                [0.12162237,0.12162237],
+                [0.10724025,0.13447501],
+                [0.09150952,0.14563656],
+                [0.074628,0.15496665],
+                [0.056808,0.16234793],
+                [0.0382736,0.1676876],
+                [0.01925789,0.1709185],
+                [0,0.172],
+                [-0.01925789,0.1709185],
+                [-0.0382736,0.1676876],
+                [-0.056808,0.16234793],
+                [-0.074628,0.15496665],
+                [-0.09150952,0.14563656],
+                [-0.10724025,0.13447501],
+                [-0.12162237,0.12162237],
+                [-0.13447501,0.10724025],
+                [-0.14563656,0.09150952],
+                [-0.15496665,0.074628],
+                [-0.16234793,0.056808],
+                [-0.1676876,0.0382736],
+                [-0.1709185,0.01925789],
+                [-0.172,0],
+                [-0.1709185,-0.01925789],
+                [-0.1676876,-0.0382736],
+                [-0.16234793,-0.056808],
+                [-0.15496665,-0.074628],
+                [-0.14563656,-0.09150952],
+                [-0.13447501,-0.10724025],
+                [-0.12162237,-0.12162237],
+                [-0.10724025,-0.13447501],
+                [-0.09150952,-0.14563656],
+                [-0.074628,-0.15496665],
+                [-0.056808,-0.16234793],
+                [-0.0382736,-0.1676876],
+                [-0.01925789,-0.1709185],
+                [0,-0.172],
+                [0.01925789,-0.1709185],
+                [0.0382736,-0.1676876],
+                [0.056808,-0.16234793],
+                [0.074628,-0.15496665],
+                [0.09150952,-0.14563656],
+                [0.10724025,-0.13447501],
+                [0.12162237,-0.12162237],
+                [0.13447501,-0.10724025],
+                [0.14563656,-0.09150952],
+                [0.15496665,-0.074628],
+                [0.16234793,-0.056808],
+                [0.1676876,-0.0382736],
+                [0.1709185,-0.01925789]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.048,0],
+                  [0.04769819,0.00537429],
+                  [0.04679654,0.010681],
+                  [0.0453064,0.01585339],
+                  [0.04324651,0.02082642],
+                  [0.04064276,0.02553754],
+                  [0.03752791,0.02992751],
+                  [0.03394113,0.03394113],
+                  [0.02992751,0.03752791],
+                  [0.02553754,0.04064276],
+                  [0.02082642,0.04324651],
+                  [0.01585339,0.0453064],
+                  [0.010681,0.04679654],
+                  [0.00537429,0.04769819],
+                  [0,0.048],
+                  [-0.00537429,0.04769819],
+                  [-0.010681,0.04679654],
+                  [-0.01585339,0.0453064],
+                  [-0.02082642,0.04324651],
+                  [-0.02553754,0.04064276],
+                  [-0.02992751,0.03752791],
+                  [-0.03394113,0.03394113],
+                  [-0.03752791,0.02992751],
+                  [-0.04064276,0.02553754],
+                  [-0.04324651,0.02082642],
+                  [-0.0453064,0.01585339],
+                  [-0.04679654,0.010681],
+                  [-0.04769819,0.00537429],
+                  [-0.048,0],
+                  [-0.04769819,-0.00537429],
+                  [-0.04679654,-0.010681],
+                  [-0.0453064,-0.01585339],
+                  [-0.04324651,-0.02082642],
+                  [-0.04064276,-0.02553754],
+                  [-0.03752791,-0.02992751],
+                  [-0.03394113,-0.03394113],
+                  [-0.02992751,-0.03752791],
+                  [-0.02553754,-0.04064276],
+                  [-0.02082642,-0.04324651],
+                  [-0.01585339,-0.0453064],
+                  [-0.010681,-0.04679654],
+                  [-0.00537429,-0.04769819],
+                  [0,-0.048],
+                  [0.00537429,-0.04769819],
+                  [0.010681,-0.04679654],
+                  [0.01585339,-0.0453064],
+                  [0.02082642,-0.04324651],
+                  [0.02553754,-0.04064276],
+                  [0.02992751,-0.03752791],
+                  [0.03394113,-0.03394113],
+                  [0.03752791,-0.02992751],
+                  [0.04064276,-0.02553754],
+                  [0.04324651,-0.02082642],
+                  [0.0453064,-0.01585339],
+                  [0.04679654,-0.010681],
+                  [0.04769819,-0.00537429]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "tread--1.034--1-0",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.294,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tread--1.034--1-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,0.090851,0],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "tread--1.034--1-2",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,0.17280886,0],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "tread--1.034--1-3",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,0.237851,0],
+              "rotation": [0,0,0.9424777960769379]
+            }
+          },
+          {
+            "id": "tread--1.034--1-4",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,0.27961062,0],
+              "rotation": [0,0,1.2566370614359172]
+            }
+          },
+          {
+            "id": "tread--1.034--1-5",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,0.294,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "tread--1.034--1-6",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,0.27961062,0],
+              "rotation": [0,0,1.8849555921538759]
+            }
+          },
+          {
+            "id": "tread--1.034--1-7",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,0.237851,0],
+              "rotation": [0,0,2.199114857512855]
+            }
+          },
+          {
+            "id": "tread--1.034--1-8",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,0.17280886,0],
+              "rotation": [0,0,2.5132741228718345]
+            }
+          },
+          {
+            "id": "tread--1.034--1-9",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,0.090851,0],
+              "rotation": [0,0,2.827433388230814]
+            }
+          },
+          {
+            "id": "tread--1.034--1-10",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.294,0,0],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "tread--1.034--1-11",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,-0.090851,0],
+              "rotation": [0,0,3.455751918948772]
+            }
+          },
+          {
+            "id": "tread--1.034--1-12",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,-0.17280886,0],
+              "rotation": [0,0,3.7699111843077517]
+            }
+          },
+          {
+            "id": "tread--1.034--1-13",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,-0.237851,0],
+              "rotation": [0,0,4.084070449666731]
+            }
+          },
+          {
+            "id": "tread--1.034--1-14",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,-0.27961062,0],
+              "rotation": [0,0,4.39822971502571]
+            }
+          },
+          {
+            "id": "tread--1.034--1-15",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,-0.294,0],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "tread--1.034--1-16",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,-0.27961062,0],
+              "rotation": [0,0,5.026548245743669]
+            }
+          },
+          {
+            "id": "tread--1.034--1-17",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,-0.237851,0],
+              "rotation": [0,0,5.340707511102648]
+            }
+          },
+          {
+            "id": "tread--1.034--1-18",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,-0.17280886,0],
+              "rotation": [0,0,5.654866776461628]
+            }
+          },
+          {
+            "id": "tread--1.034--1-19",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,-0.090851,0],
+              "rotation": [0,0,5.969026041820607]
+            }
+          },
+          {
+            "id": "road-wheel--1.034-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "vehicle-axle--1.034",
+            "transform": {
+              "position": [0,0,0.653]
+            }
+          },
+          {
+            "id": "tire--1.034-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.road-tire-with-annular-centre",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.088],
+                [0,0,0.088]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.294,0],
+                [0.29274585,0.0271269],
+                [0.28899409,0.05402236],
+                [0.28277674,0.08045692],
+                [0.27414684,0.10620505],
+                [0.26317801,0.13104708],
+                [0.24996384,0.15477106],
+                [0.23461706,0.17717458],
+                [0.21726862,0.19806652],
+                [0.19806652,0.21726862],
+                [0.17717458,0.23461706],
+                [0.15477106,0.24996384],
+                [0.13104708,0.26317801],
+                [0.10620505,0.27414684],
+                [0.08045692,0.28277674],
+                [0.05402236,0.28899409],
+                [0.0271269,0.29274585],
+                [0,0.294],
+                [-0.0271269,0.29274585],
+                [-0.05402236,0.28899409],
+                [-0.08045692,0.28277674],
+                [-0.10620505,0.27414684],
+                [-0.13104708,0.26317801],
+                [-0.15477106,0.24996384],
+                [-0.17717458,0.23461706],
+                [-0.19806652,0.21726862],
+                [-0.21726862,0.19806652],
+                [-0.23461706,0.17717458],
+                [-0.24996384,0.15477106],
+                [-0.26317801,0.13104708],
+                [-0.27414684,0.10620505],
+                [-0.28277674,0.08045692],
+                [-0.28899409,0.05402236],
+                [-0.29274585,0.0271269],
+                [-0.294,0],
+                [-0.29274585,-0.0271269],
+                [-0.28899409,-0.05402236],
+                [-0.28277674,-0.08045692],
+                [-0.27414684,-0.10620505],
+                [-0.26317801,-0.13104708],
+                [-0.24996384,-0.15477106],
+                [-0.23461706,-0.17717458],
+                [-0.21726862,-0.19806652],
+                [-0.19806652,-0.21726862],
+                [-0.17717458,-0.23461706],
+                [-0.15477106,-0.24996384],
+                [-0.13104708,-0.26317801],
+                [-0.10620505,-0.27414684],
+                [-0.08045692,-0.28277674],
+                [-0.05402236,-0.28899409],
+                [-0.0271269,-0.29274585],
+                [0,-0.294],
+                [0.0271269,-0.29274585],
+                [0.05402236,-0.28899409],
+                [0.08045692,-0.28277674],
+                [0.10620505,-0.27414684],
+                [0.13104708,-0.26317801],
+                [0.15477106,-0.24996384],
+                [0.17717458,-0.23461706],
+                [0.19806652,-0.21726862],
+                [0.21726862,-0.19806652],
+                [0.23461706,-0.17717458],
+                [0.24996384,-0.15477106],
+                [0.26317801,-0.13104708],
+                [0.27414684,-0.10620505],
+                [0.28277674,-0.08045692],
+                [0.28899409,-0.05402236],
+                [0.29274585,-0.0271269]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.171,0],
+                  [0.17027054,0.01577789],
+                  [0.1680884,0.03142117],
+                  [0.16447218,0.04679637],
+                  [0.15945275,0.06177232],
+                  [0.15307292,0.07622126],
+                  [0.14538713,0.0900199],
+                  [0.13646095,0.10305052],
+                  [0.12637052,0.11520196],
+                  [0.11520196,0.12637052],
+                  [0.10305052,0.13646095],
+                  [0.0900199,0.14538713],
+                  [0.07622126,0.15307292],
+                  [0.06177232,0.15945275],
+                  [0.04679637,0.16447218],
+                  [0.03142117,0.1680884],
+                  [0.01577789,0.17027054],
+                  [0,0.171],
+                  [-0.01577789,0.17027054],
+                  [-0.03142117,0.1680884],
+                  [-0.04679637,0.16447218],
+                  [-0.06177232,0.15945275],
+                  [-0.07622126,0.15307292],
+                  [-0.0900199,0.14538713],
+                  [-0.10305052,0.13646095],
+                  [-0.11520196,0.12637052],
+                  [-0.12637052,0.11520196],
+                  [-0.13646095,0.10305052],
+                  [-0.14538713,0.0900199],
+                  [-0.15307292,0.07622126],
+                  [-0.15945275,0.06177232],
+                  [-0.16447218,0.04679637],
+                  [-0.1680884,0.03142117],
+                  [-0.17027054,0.01577789],
+                  [-0.171,0],
+                  [-0.17027054,-0.01577789],
+                  [-0.1680884,-0.03142117],
+                  [-0.16447218,-0.04679637],
+                  [-0.15945275,-0.06177232],
+                  [-0.15307292,-0.07622126],
+                  [-0.14538713,-0.0900199],
+                  [-0.13646095,-0.10305052],
+                  [-0.12637052,-0.11520196],
+                  [-0.11520196,-0.12637052],
+                  [-0.10305052,-0.13646095],
+                  [-0.0900199,-0.14538713],
+                  [-0.07622126,-0.15307292],
+                  [-0.06177232,-0.15945275],
+                  [-0.04679637,-0.16447218],
+                  [-0.03142117,-0.1680884],
+                  [-0.01577789,-0.17027054],
+                  [0,-0.171],
+                  [0.01577789,-0.17027054],
+                  [0.03142117,-0.1680884],
+                  [0.04679637,-0.16447218],
+                  [0.06177232,-0.15945275],
+                  [0.07622126,-0.15307292],
+                  [0.0900199,-0.14538713],
+                  [0.10305052,-0.13646095],
+                  [0.11520196,-0.12637052],
+                  [0.12637052,-0.11520196],
+                  [0.13646095,-0.10305052],
+                  [0.14538713,-0.0900199],
+                  [0.15307292,-0.07622126],
+                  [0.15945275,-0.06177232],
+                  [0.16447218,-0.04679637],
+                  [0.1680884,-0.03142117],
+                  [0.17027054,-0.01577789]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#58656b"
+            }
+          },
+          {
+            "id": "rim--1.034-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.machined-rim-around-bearing-cap",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.09],
+                [0,0,0.09]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.172,0],
+                [0.1709185,0.01925789],
+                [0.1676876,0.0382736],
+                [0.16234793,0.056808],
+                [0.15496665,0.074628],
+                [0.14563656,0.09150952],
+                [0.13447501,0.10724025],
+                [0.12162237,0.12162237],
+                [0.10724025,0.13447501],
+                [0.09150952,0.14563656],
+                [0.074628,0.15496665],
+                [0.056808,0.16234793],
+                [0.0382736,0.1676876],
+                [0.01925789,0.1709185],
+                [0,0.172],
+                [-0.01925789,0.1709185],
+                [-0.0382736,0.1676876],
+                [-0.056808,0.16234793],
+                [-0.074628,0.15496665],
+                [-0.09150952,0.14563656],
+                [-0.10724025,0.13447501],
+                [-0.12162237,0.12162237],
+                [-0.13447501,0.10724025],
+                [-0.14563656,0.09150952],
+                [-0.15496665,0.074628],
+                [-0.16234793,0.056808],
+                [-0.1676876,0.0382736],
+                [-0.1709185,0.01925789],
+                [-0.172,0],
+                [-0.1709185,-0.01925789],
+                [-0.1676876,-0.0382736],
+                [-0.16234793,-0.056808],
+                [-0.15496665,-0.074628],
+                [-0.14563656,-0.09150952],
+                [-0.13447501,-0.10724025],
+                [-0.12162237,-0.12162237],
+                [-0.10724025,-0.13447501],
+                [-0.09150952,-0.14563656],
+                [-0.074628,-0.15496665],
+                [-0.056808,-0.16234793],
+                [-0.0382736,-0.1676876],
+                [-0.01925789,-0.1709185],
+                [0,-0.172],
+                [0.01925789,-0.1709185],
+                [0.0382736,-0.1676876],
+                [0.056808,-0.16234793],
+                [0.074628,-0.15496665],
+                [0.09150952,-0.14563656],
+                [0.10724025,-0.13447501],
+                [0.12162237,-0.12162237],
+                [0.13447501,-0.10724025],
+                [0.14563656,-0.09150952],
+                [0.15496665,-0.074628],
+                [0.16234793,-0.056808],
+                [0.1676876,-0.0382736],
+                [0.1709185,-0.01925789]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.048,0],
+                  [0.04769819,0.00537429],
+                  [0.04679654,0.010681],
+                  [0.0453064,0.01585339],
+                  [0.04324651,0.02082642],
+                  [0.04064276,0.02553754],
+                  [0.03752791,0.02992751],
+                  [0.03394113,0.03394113],
+                  [0.02992751,0.03752791],
+                  [0.02553754,0.04064276],
+                  [0.02082642,0.04324651],
+                  [0.01585339,0.0453064],
+                  [0.010681,0.04679654],
+                  [0.00537429,0.04769819],
+                  [0,0.048],
+                  [-0.00537429,0.04769819],
+                  [-0.010681,0.04679654],
+                  [-0.01585339,0.0453064],
+                  [-0.02082642,0.04324651],
+                  [-0.02553754,0.04064276],
+                  [-0.02992751,0.03752791],
+                  [-0.03394113,0.03394113],
+                  [-0.03752791,0.02992751],
+                  [-0.04064276,0.02553754],
+                  [-0.04324651,0.02082642],
+                  [-0.0453064,0.01585339],
+                  [-0.04679654,0.010681],
+                  [-0.04769819,0.00537429],
+                  [-0.048,0],
+                  [-0.04769819,-0.00537429],
+                  [-0.04679654,-0.010681],
+                  [-0.0453064,-0.01585339],
+                  [-0.04324651,-0.02082642],
+                  [-0.04064276,-0.02553754],
+                  [-0.03752791,-0.02992751],
+                  [-0.03394113,-0.03394113],
+                  [-0.02992751,-0.03752791],
+                  [-0.02553754,-0.04064276],
+                  [-0.02082642,-0.04324651],
+                  [-0.01585339,-0.0453064],
+                  [-0.010681,-0.04679654],
+                  [-0.00537429,-0.04769819],
+                  [0,-0.048],
+                  [0.00537429,-0.04769819],
+                  [0.010681,-0.04679654],
+                  [0.01585339,-0.0453064],
+                  [0.02082642,-0.04324651],
+                  [0.02553754,-0.04064276],
+                  [0.02992751,-0.03752791],
+                  [0.03394113,-0.03394113],
+                  [0.03752791,-0.02992751],
+                  [0.04064276,-0.02553754],
+                  [0.04324651,-0.02082642],
+                  [0.0453064,-0.01585339],
+                  [0.04679654,-0.010681],
+                  [0.04769819,-0.00537429]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "tread--1.034-1-0",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.294,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tread--1.034-1-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,0.090851,0],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "tread--1.034-1-2",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,0.17280886,0],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "tread--1.034-1-3",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,0.237851,0],
+              "rotation": [0,0,0.9424777960769379]
+            }
+          },
+          {
+            "id": "tread--1.034-1-4",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,0.27961062,0],
+              "rotation": [0,0,1.2566370614359172]
+            }
+          },
+          {
+            "id": "tread--1.034-1-5",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,0.294,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "tread--1.034-1-6",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,0.27961062,0],
+              "rotation": [0,0,1.8849555921538759]
+            }
+          },
+          {
+            "id": "tread--1.034-1-7",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,0.237851,0],
+              "rotation": [0,0,2.199114857512855]
+            }
+          },
+          {
+            "id": "tread--1.034-1-8",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,0.17280886,0],
+              "rotation": [0,0,2.5132741228718345]
+            }
+          },
+          {
+            "id": "tread--1.034-1-9",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,0.090851,0],
+              "rotation": [0,0,2.827433388230814]
+            }
+          },
+          {
+            "id": "tread--1.034-1-10",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.294,0,0],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "tread--1.034-1-11",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,-0.090851,0],
+              "rotation": [0,0,3.455751918948772]
+            }
+          },
+          {
+            "id": "tread--1.034-1-12",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,-0.17280886,0],
+              "rotation": [0,0,3.7699111843077517]
+            }
+          },
+          {
+            "id": "tread--1.034-1-13",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,-0.237851,0],
+              "rotation": [0,0,4.084070449666731]
+            }
+          },
+          {
+            "id": "tread--1.034-1-14",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,-0.27961062,0],
+              "rotation": [0,0,4.39822971502571]
+            }
+          },
+          {
+            "id": "tread--1.034-1-15",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,-0.294,0],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "tread--1.034-1-16",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,-0.27961062,0],
+              "rotation": [0,0,5.026548245743669]
+            }
+          },
+          {
+            "id": "tread--1.034-1-17",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,-0.237851,0],
+              "rotation": [0,0,5.340707511102648]
+            }
+          },
+          {
+            "id": "tread--1.034-1-18",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,-0.17280886,0],
+              "rotation": [0,0,5.654866776461628]
+            }
+          },
+          {
+            "id": "tread--1.034-1-19",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel--1.034-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,-0.090851,0],
+              "rotation": [0,0,5.969026041820607]
+            }
+          },
+          {
+            "id": "vehicle-axle-1.026",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "transform": {
+              "position": [1.026,0.294,0]
+            }
+          },
+          {
+            "id": "beam-axle-1.026",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.underbody-wheel-axle",
+            "parent": "vehicle-axle-1.026",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.617],
+              "end": [0,0,0.617],
+              "radius": 0.037,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "road-wheel-1.026--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "vehicle-axle-1.026",
+            "transform": {
+              "position": [0,0,-0.653]
+            }
+          },
+          {
+            "id": "tire-1.026--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.road-tire-with-annular-centre",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.088],
+                [0,0,0.088]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.294,0],
+                [0.29274585,0.0271269],
+                [0.28899409,0.05402236],
+                [0.28277674,0.08045692],
+                [0.27414684,0.10620505],
+                [0.26317801,0.13104708],
+                [0.24996384,0.15477106],
+                [0.23461706,0.17717458],
+                [0.21726862,0.19806652],
+                [0.19806652,0.21726862],
+                [0.17717458,0.23461706],
+                [0.15477106,0.24996384],
+                [0.13104708,0.26317801],
+                [0.10620505,0.27414684],
+                [0.08045692,0.28277674],
+                [0.05402236,0.28899409],
+                [0.0271269,0.29274585],
+                [0,0.294],
+                [-0.0271269,0.29274585],
+                [-0.05402236,0.28899409],
+                [-0.08045692,0.28277674],
+                [-0.10620505,0.27414684],
+                [-0.13104708,0.26317801],
+                [-0.15477106,0.24996384],
+                [-0.17717458,0.23461706],
+                [-0.19806652,0.21726862],
+                [-0.21726862,0.19806652],
+                [-0.23461706,0.17717458],
+                [-0.24996384,0.15477106],
+                [-0.26317801,0.13104708],
+                [-0.27414684,0.10620505],
+                [-0.28277674,0.08045692],
+                [-0.28899409,0.05402236],
+                [-0.29274585,0.0271269],
+                [-0.294,0],
+                [-0.29274585,-0.0271269],
+                [-0.28899409,-0.05402236],
+                [-0.28277674,-0.08045692],
+                [-0.27414684,-0.10620505],
+                [-0.26317801,-0.13104708],
+                [-0.24996384,-0.15477106],
+                [-0.23461706,-0.17717458],
+                [-0.21726862,-0.19806652],
+                [-0.19806652,-0.21726862],
+                [-0.17717458,-0.23461706],
+                [-0.15477106,-0.24996384],
+                [-0.13104708,-0.26317801],
+                [-0.10620505,-0.27414684],
+                [-0.08045692,-0.28277674],
+                [-0.05402236,-0.28899409],
+                [-0.0271269,-0.29274585],
+                [0,-0.294],
+                [0.0271269,-0.29274585],
+                [0.05402236,-0.28899409],
+                [0.08045692,-0.28277674],
+                [0.10620505,-0.27414684],
+                [0.13104708,-0.26317801],
+                [0.15477106,-0.24996384],
+                [0.17717458,-0.23461706],
+                [0.19806652,-0.21726862],
+                [0.21726862,-0.19806652],
+                [0.23461706,-0.17717458],
+                [0.24996384,-0.15477106],
+                [0.26317801,-0.13104708],
+                [0.27414684,-0.10620505],
+                [0.28277674,-0.08045692],
+                [0.28899409,-0.05402236],
+                [0.29274585,-0.0271269]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.171,0],
+                  [0.17027054,0.01577789],
+                  [0.1680884,0.03142117],
+                  [0.16447218,0.04679637],
+                  [0.15945275,0.06177232],
+                  [0.15307292,0.07622126],
+                  [0.14538713,0.0900199],
+                  [0.13646095,0.10305052],
+                  [0.12637052,0.11520196],
+                  [0.11520196,0.12637052],
+                  [0.10305052,0.13646095],
+                  [0.0900199,0.14538713],
+                  [0.07622126,0.15307292],
+                  [0.06177232,0.15945275],
+                  [0.04679637,0.16447218],
+                  [0.03142117,0.1680884],
+                  [0.01577789,0.17027054],
+                  [0,0.171],
+                  [-0.01577789,0.17027054],
+                  [-0.03142117,0.1680884],
+                  [-0.04679637,0.16447218],
+                  [-0.06177232,0.15945275],
+                  [-0.07622126,0.15307292],
+                  [-0.0900199,0.14538713],
+                  [-0.10305052,0.13646095],
+                  [-0.11520196,0.12637052],
+                  [-0.12637052,0.11520196],
+                  [-0.13646095,0.10305052],
+                  [-0.14538713,0.0900199],
+                  [-0.15307292,0.07622126],
+                  [-0.15945275,0.06177232],
+                  [-0.16447218,0.04679637],
+                  [-0.1680884,0.03142117],
+                  [-0.17027054,0.01577789],
+                  [-0.171,0],
+                  [-0.17027054,-0.01577789],
+                  [-0.1680884,-0.03142117],
+                  [-0.16447218,-0.04679637],
+                  [-0.15945275,-0.06177232],
+                  [-0.15307292,-0.07622126],
+                  [-0.14538713,-0.0900199],
+                  [-0.13646095,-0.10305052],
+                  [-0.12637052,-0.11520196],
+                  [-0.11520196,-0.12637052],
+                  [-0.10305052,-0.13646095],
+                  [-0.0900199,-0.14538713],
+                  [-0.07622126,-0.15307292],
+                  [-0.06177232,-0.15945275],
+                  [-0.04679637,-0.16447218],
+                  [-0.03142117,-0.1680884],
+                  [-0.01577789,-0.17027054],
+                  [0,-0.171],
+                  [0.01577789,-0.17027054],
+                  [0.03142117,-0.1680884],
+                  [0.04679637,-0.16447218],
+                  [0.06177232,-0.15945275],
+                  [0.07622126,-0.15307292],
+                  [0.0900199,-0.14538713],
+                  [0.10305052,-0.13646095],
+                  [0.11520196,-0.12637052],
+                  [0.12637052,-0.11520196],
+                  [0.13646095,-0.10305052],
+                  [0.14538713,-0.0900199],
+                  [0.15307292,-0.07622126],
+                  [0.15945275,-0.06177232],
+                  [0.16447218,-0.04679637],
+                  [0.1680884,-0.03142117],
+                  [0.17027054,-0.01577789]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#58656b"
+            }
+          },
+          {
+            "id": "rim-1.026--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.machined-rim-around-bearing-cap",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.09],
+                [0,0,0.09]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.172,0],
+                [0.1709185,0.01925789],
+                [0.1676876,0.0382736],
+                [0.16234793,0.056808],
+                [0.15496665,0.074628],
+                [0.14563656,0.09150952],
+                [0.13447501,0.10724025],
+                [0.12162237,0.12162237],
+                [0.10724025,0.13447501],
+                [0.09150952,0.14563656],
+                [0.074628,0.15496665],
+                [0.056808,0.16234793],
+                [0.0382736,0.1676876],
+                [0.01925789,0.1709185],
+                [0,0.172],
+                [-0.01925789,0.1709185],
+                [-0.0382736,0.1676876],
+                [-0.056808,0.16234793],
+                [-0.074628,0.15496665],
+                [-0.09150952,0.14563656],
+                [-0.10724025,0.13447501],
+                [-0.12162237,0.12162237],
+                [-0.13447501,0.10724025],
+                [-0.14563656,0.09150952],
+                [-0.15496665,0.074628],
+                [-0.16234793,0.056808],
+                [-0.1676876,0.0382736],
+                [-0.1709185,0.01925789],
+                [-0.172,0],
+                [-0.1709185,-0.01925789],
+                [-0.1676876,-0.0382736],
+                [-0.16234793,-0.056808],
+                [-0.15496665,-0.074628],
+                [-0.14563656,-0.09150952],
+                [-0.13447501,-0.10724025],
+                [-0.12162237,-0.12162237],
+                [-0.10724025,-0.13447501],
+                [-0.09150952,-0.14563656],
+                [-0.074628,-0.15496665],
+                [-0.056808,-0.16234793],
+                [-0.0382736,-0.1676876],
+                [-0.01925789,-0.1709185],
+                [0,-0.172],
+                [0.01925789,-0.1709185],
+                [0.0382736,-0.1676876],
+                [0.056808,-0.16234793],
+                [0.074628,-0.15496665],
+                [0.09150952,-0.14563656],
+                [0.10724025,-0.13447501],
+                [0.12162237,-0.12162237],
+                [0.13447501,-0.10724025],
+                [0.14563656,-0.09150952],
+                [0.15496665,-0.074628],
+                [0.16234793,-0.056808],
+                [0.1676876,-0.0382736],
+                [0.1709185,-0.01925789]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.048,0],
+                  [0.04769819,0.00537429],
+                  [0.04679654,0.010681],
+                  [0.0453064,0.01585339],
+                  [0.04324651,0.02082642],
+                  [0.04064276,0.02553754],
+                  [0.03752791,0.02992751],
+                  [0.03394113,0.03394113],
+                  [0.02992751,0.03752791],
+                  [0.02553754,0.04064276],
+                  [0.02082642,0.04324651],
+                  [0.01585339,0.0453064],
+                  [0.010681,0.04679654],
+                  [0.00537429,0.04769819],
+                  [0,0.048],
+                  [-0.00537429,0.04769819],
+                  [-0.010681,0.04679654],
+                  [-0.01585339,0.0453064],
+                  [-0.02082642,0.04324651],
+                  [-0.02553754,0.04064276],
+                  [-0.02992751,0.03752791],
+                  [-0.03394113,0.03394113],
+                  [-0.03752791,0.02992751],
+                  [-0.04064276,0.02553754],
+                  [-0.04324651,0.02082642],
+                  [-0.0453064,0.01585339],
+                  [-0.04679654,0.010681],
+                  [-0.04769819,0.00537429],
+                  [-0.048,0],
+                  [-0.04769819,-0.00537429],
+                  [-0.04679654,-0.010681],
+                  [-0.0453064,-0.01585339],
+                  [-0.04324651,-0.02082642],
+                  [-0.04064276,-0.02553754],
+                  [-0.03752791,-0.02992751],
+                  [-0.03394113,-0.03394113],
+                  [-0.02992751,-0.03752791],
+                  [-0.02553754,-0.04064276],
+                  [-0.02082642,-0.04324651],
+                  [-0.01585339,-0.0453064],
+                  [-0.010681,-0.04679654],
+                  [-0.00537429,-0.04769819],
+                  [0,-0.048],
+                  [0.00537429,-0.04769819],
+                  [0.010681,-0.04679654],
+                  [0.01585339,-0.0453064],
+                  [0.02082642,-0.04324651],
+                  [0.02553754,-0.04064276],
+                  [0.02992751,-0.03752791],
+                  [0.03394113,-0.03394113],
+                  [0.03752791,-0.02992751],
+                  [0.04064276,-0.02553754],
+                  [0.04324651,-0.02082642],
+                  [0.0453064,-0.01585339],
+                  [0.04679654,-0.010681],
+                  [0.04769819,-0.00537429]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "tread-1.026--1-0",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.294,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tread-1.026--1-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,0.090851,0],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "tread-1.026--1-2",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,0.17280886,0],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "tread-1.026--1-3",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,0.237851,0],
+              "rotation": [0,0,0.9424777960769379]
+            }
+          },
+          {
+            "id": "tread-1.026--1-4",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,0.27961062,0],
+              "rotation": [0,0,1.2566370614359172]
+            }
+          },
+          {
+            "id": "tread-1.026--1-5",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,0.294,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "tread-1.026--1-6",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,0.27961062,0],
+              "rotation": [0,0,1.8849555921538759]
+            }
+          },
+          {
+            "id": "tread-1.026--1-7",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,0.237851,0],
+              "rotation": [0,0,2.199114857512855]
+            }
+          },
+          {
+            "id": "tread-1.026--1-8",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,0.17280886,0],
+              "rotation": [0,0,2.5132741228718345]
+            }
+          },
+          {
+            "id": "tread-1.026--1-9",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,0.090851,0],
+              "rotation": [0,0,2.827433388230814]
+            }
+          },
+          {
+            "id": "tread-1.026--1-10",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.294,0,0],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "tread-1.026--1-11",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,-0.090851,0],
+              "rotation": [0,0,3.455751918948772]
+            }
+          },
+          {
+            "id": "tread-1.026--1-12",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,-0.17280886,0],
+              "rotation": [0,0,3.7699111843077517]
+            }
+          },
+          {
+            "id": "tread-1.026--1-13",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,-0.237851,0],
+              "rotation": [0,0,4.084070449666731]
+            }
+          },
+          {
+            "id": "tread-1.026--1-14",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,-0.27961062,0],
+              "rotation": [0,0,4.39822971502571]
+            }
+          },
+          {
+            "id": "tread-1.026--1-15",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,-0.294,0],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "tread-1.026--1-16",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,-0.27961062,0],
+              "rotation": [0,0,5.026548245743669]
+            }
+          },
+          {
+            "id": "tread-1.026--1-17",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,-0.237851,0],
+              "rotation": [0,0,5.340707511102648]
+            }
+          },
+          {
+            "id": "tread-1.026--1-18",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,-0.17280886,0],
+              "rotation": [0,0,5.654866776461628]
+            }
+          },
+          {
+            "id": "tread-1.026--1-19",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,-0.090851,0],
+              "rotation": [0,0,5.969026041820607]
+            }
+          },
+          {
+            "id": "road-wheel-1.026-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "vehicle-axle-1.026",
+            "transform": {
+              "position": [0,0,0.653]
+            }
+          },
+          {
+            "id": "tire-1.026-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.road-tire-with-annular-centre",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.088],
+                [0,0,0.088]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.294,0],
+                [0.29274585,0.0271269],
+                [0.28899409,0.05402236],
+                [0.28277674,0.08045692],
+                [0.27414684,0.10620505],
+                [0.26317801,0.13104708],
+                [0.24996384,0.15477106],
+                [0.23461706,0.17717458],
+                [0.21726862,0.19806652],
+                [0.19806652,0.21726862],
+                [0.17717458,0.23461706],
+                [0.15477106,0.24996384],
+                [0.13104708,0.26317801],
+                [0.10620505,0.27414684],
+                [0.08045692,0.28277674],
+                [0.05402236,0.28899409],
+                [0.0271269,0.29274585],
+                [0,0.294],
+                [-0.0271269,0.29274585],
+                [-0.05402236,0.28899409],
+                [-0.08045692,0.28277674],
+                [-0.10620505,0.27414684],
+                [-0.13104708,0.26317801],
+                [-0.15477106,0.24996384],
+                [-0.17717458,0.23461706],
+                [-0.19806652,0.21726862],
+                [-0.21726862,0.19806652],
+                [-0.23461706,0.17717458],
+                [-0.24996384,0.15477106],
+                [-0.26317801,0.13104708],
+                [-0.27414684,0.10620505],
+                [-0.28277674,0.08045692],
+                [-0.28899409,0.05402236],
+                [-0.29274585,0.0271269],
+                [-0.294,0],
+                [-0.29274585,-0.0271269],
+                [-0.28899409,-0.05402236],
+                [-0.28277674,-0.08045692],
+                [-0.27414684,-0.10620505],
+                [-0.26317801,-0.13104708],
+                [-0.24996384,-0.15477106],
+                [-0.23461706,-0.17717458],
+                [-0.21726862,-0.19806652],
+                [-0.19806652,-0.21726862],
+                [-0.17717458,-0.23461706],
+                [-0.15477106,-0.24996384],
+                [-0.13104708,-0.26317801],
+                [-0.10620505,-0.27414684],
+                [-0.08045692,-0.28277674],
+                [-0.05402236,-0.28899409],
+                [-0.0271269,-0.29274585],
+                [0,-0.294],
+                [0.0271269,-0.29274585],
+                [0.05402236,-0.28899409],
+                [0.08045692,-0.28277674],
+                [0.10620505,-0.27414684],
+                [0.13104708,-0.26317801],
+                [0.15477106,-0.24996384],
+                [0.17717458,-0.23461706],
+                [0.19806652,-0.21726862],
+                [0.21726862,-0.19806652],
+                [0.23461706,-0.17717458],
+                [0.24996384,-0.15477106],
+                [0.26317801,-0.13104708],
+                [0.27414684,-0.10620505],
+                [0.28277674,-0.08045692],
+                [0.28899409,-0.05402236],
+                [0.29274585,-0.0271269]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.171,0],
+                  [0.17027054,0.01577789],
+                  [0.1680884,0.03142117],
+                  [0.16447218,0.04679637],
+                  [0.15945275,0.06177232],
+                  [0.15307292,0.07622126],
+                  [0.14538713,0.0900199],
+                  [0.13646095,0.10305052],
+                  [0.12637052,0.11520196],
+                  [0.11520196,0.12637052],
+                  [0.10305052,0.13646095],
+                  [0.0900199,0.14538713],
+                  [0.07622126,0.15307292],
+                  [0.06177232,0.15945275],
+                  [0.04679637,0.16447218],
+                  [0.03142117,0.1680884],
+                  [0.01577789,0.17027054],
+                  [0,0.171],
+                  [-0.01577789,0.17027054],
+                  [-0.03142117,0.1680884],
+                  [-0.04679637,0.16447218],
+                  [-0.06177232,0.15945275],
+                  [-0.07622126,0.15307292],
+                  [-0.0900199,0.14538713],
+                  [-0.10305052,0.13646095],
+                  [-0.11520196,0.12637052],
+                  [-0.12637052,0.11520196],
+                  [-0.13646095,0.10305052],
+                  [-0.14538713,0.0900199],
+                  [-0.15307292,0.07622126],
+                  [-0.15945275,0.06177232],
+                  [-0.16447218,0.04679637],
+                  [-0.1680884,0.03142117],
+                  [-0.17027054,0.01577789],
+                  [-0.171,0],
+                  [-0.17027054,-0.01577789],
+                  [-0.1680884,-0.03142117],
+                  [-0.16447218,-0.04679637],
+                  [-0.15945275,-0.06177232],
+                  [-0.15307292,-0.07622126],
+                  [-0.14538713,-0.0900199],
+                  [-0.13646095,-0.10305052],
+                  [-0.12637052,-0.11520196],
+                  [-0.11520196,-0.12637052],
+                  [-0.10305052,-0.13646095],
+                  [-0.0900199,-0.14538713],
+                  [-0.07622126,-0.15307292],
+                  [-0.06177232,-0.15945275],
+                  [-0.04679637,-0.16447218],
+                  [-0.03142117,-0.1680884],
+                  [-0.01577789,-0.17027054],
+                  [0,-0.171],
+                  [0.01577789,-0.17027054],
+                  [0.03142117,-0.1680884],
+                  [0.04679637,-0.16447218],
+                  [0.06177232,-0.15945275],
+                  [0.07622126,-0.15307292],
+                  [0.0900199,-0.14538713],
+                  [0.10305052,-0.13646095],
+                  [0.11520196,-0.12637052],
+                  [0.12637052,-0.11520196],
+                  [0.13646095,-0.10305052],
+                  [0.14538713,-0.0900199],
+                  [0.15307292,-0.07622126],
+                  [0.15945275,-0.06177232],
+                  [0.16447218,-0.04679637],
+                  [0.1680884,-0.03142117],
+                  [0.17027054,-0.01577789]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#58656b"
+            }
+          },
+          {
+            "id": "rim-1.026-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.machined-rim-around-bearing-cap",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.09],
+                [0,0,0.09]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.172,0],
+                [0.1709185,0.01925789],
+                [0.1676876,0.0382736],
+                [0.16234793,0.056808],
+                [0.15496665,0.074628],
+                [0.14563656,0.09150952],
+                [0.13447501,0.10724025],
+                [0.12162237,0.12162237],
+                [0.10724025,0.13447501],
+                [0.09150952,0.14563656],
+                [0.074628,0.15496665],
+                [0.056808,0.16234793],
+                [0.0382736,0.1676876],
+                [0.01925789,0.1709185],
+                [0,0.172],
+                [-0.01925789,0.1709185],
+                [-0.0382736,0.1676876],
+                [-0.056808,0.16234793],
+                [-0.074628,0.15496665],
+                [-0.09150952,0.14563656],
+                [-0.10724025,0.13447501],
+                [-0.12162237,0.12162237],
+                [-0.13447501,0.10724025],
+                [-0.14563656,0.09150952],
+                [-0.15496665,0.074628],
+                [-0.16234793,0.056808],
+                [-0.1676876,0.0382736],
+                [-0.1709185,0.01925789],
+                [-0.172,0],
+                [-0.1709185,-0.01925789],
+                [-0.1676876,-0.0382736],
+                [-0.16234793,-0.056808],
+                [-0.15496665,-0.074628],
+                [-0.14563656,-0.09150952],
+                [-0.13447501,-0.10724025],
+                [-0.12162237,-0.12162237],
+                [-0.10724025,-0.13447501],
+                [-0.09150952,-0.14563656],
+                [-0.074628,-0.15496665],
+                [-0.056808,-0.16234793],
+                [-0.0382736,-0.1676876],
+                [-0.01925789,-0.1709185],
+                [0,-0.172],
+                [0.01925789,-0.1709185],
+                [0.0382736,-0.1676876],
+                [0.056808,-0.16234793],
+                [0.074628,-0.15496665],
+                [0.09150952,-0.14563656],
+                [0.10724025,-0.13447501],
+                [0.12162237,-0.12162237],
+                [0.13447501,-0.10724025],
+                [0.14563656,-0.09150952],
+                [0.15496665,-0.074628],
+                [0.16234793,-0.056808],
+                [0.1676876,-0.0382736],
+                [0.1709185,-0.01925789]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.048,0],
+                  [0.04769819,0.00537429],
+                  [0.04679654,0.010681],
+                  [0.0453064,0.01585339],
+                  [0.04324651,0.02082642],
+                  [0.04064276,0.02553754],
+                  [0.03752791,0.02992751],
+                  [0.03394113,0.03394113],
+                  [0.02992751,0.03752791],
+                  [0.02553754,0.04064276],
+                  [0.02082642,0.04324651],
+                  [0.01585339,0.0453064],
+                  [0.010681,0.04679654],
+                  [0.00537429,0.04769819],
+                  [0,0.048],
+                  [-0.00537429,0.04769819],
+                  [-0.010681,0.04679654],
+                  [-0.01585339,0.0453064],
+                  [-0.02082642,0.04324651],
+                  [-0.02553754,0.04064276],
+                  [-0.02992751,0.03752791],
+                  [-0.03394113,0.03394113],
+                  [-0.03752791,0.02992751],
+                  [-0.04064276,0.02553754],
+                  [-0.04324651,0.02082642],
+                  [-0.0453064,0.01585339],
+                  [-0.04679654,0.010681],
+                  [-0.04769819,0.00537429],
+                  [-0.048,0],
+                  [-0.04769819,-0.00537429],
+                  [-0.04679654,-0.010681],
+                  [-0.0453064,-0.01585339],
+                  [-0.04324651,-0.02082642],
+                  [-0.04064276,-0.02553754],
+                  [-0.03752791,-0.02992751],
+                  [-0.03394113,-0.03394113],
+                  [-0.02992751,-0.03752791],
+                  [-0.02553754,-0.04064276],
+                  [-0.02082642,-0.04324651],
+                  [-0.01585339,-0.0453064],
+                  [-0.010681,-0.04679654],
+                  [-0.00537429,-0.04769819],
+                  [0,-0.048],
+                  [0.00537429,-0.04769819],
+                  [0.010681,-0.04679654],
+                  [0.01585339,-0.0453064],
+                  [0.02082642,-0.04324651],
+                  [0.02553754,-0.04064276],
+                  [0.02992751,-0.03752791],
+                  [0.03394113,-0.03394113],
+                  [0.03752791,-0.02992751],
+                  [0.04064276,-0.02553754],
+                  [0.04324651,-0.02082642],
+                  [0.0453064,-0.01585339],
+                  [0.04679654,-0.010681],
+                  [0.04769819,-0.00537429]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "tread-1.026-1-0",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.294,0,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tread-1.026-1-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,0.090851,0],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "tread-1.026-1-2",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,0.17280886,0],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "tread-1.026-1-3",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,0.237851,0],
+              "rotation": [0,0,0.9424777960769379]
+            }
+          },
+          {
+            "id": "tread-1.026-1-4",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,0.27961062,0],
+              "rotation": [0,0,1.2566370614359172]
+            }
+          },
+          {
+            "id": "tread-1.026-1-5",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,0.294,0],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "tread-1.026-1-6",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,0.27961062,0],
+              "rotation": [0,0,1.8849555921538759]
+            }
+          },
+          {
+            "id": "tread-1.026-1-7",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,0.237851,0],
+              "rotation": [0,0,2.199114857512855]
+            }
+          },
+          {
+            "id": "tread-1.026-1-8",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,0.17280886,0],
+              "rotation": [0,0,2.5132741228718345]
+            }
+          },
+          {
+            "id": "tread-1.026-1-9",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,0.090851,0],
+              "rotation": [0,0,2.827433388230814]
+            }
+          },
+          {
+            "id": "tread-1.026-1-10",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.294,0,0],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "tread-1.026-1-11",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.27961062,-0.090851,0],
+              "rotation": [0,0,3.455751918948772]
+            }
+          },
+          {
+            "id": "tread-1.026-1-12",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.237851,-0.17280886,0],
+              "rotation": [0,0,3.7699111843077517]
+            }
+          },
+          {
+            "id": "tread-1.026-1-13",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.17280886,-0.237851,0],
+              "rotation": [0,0,4.084070449666731]
+            }
+          },
+          {
+            "id": "tread-1.026-1-14",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [-0.090851,-0.27961062,0],
+              "rotation": [0,0,4.39822971502571]
+            }
+          },
+          {
+            "id": "tread-1.026-1-15",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0,-0.294,0],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "tread-1.026-1-16",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.090851,-0.27961062,0],
+              "rotation": [0,0,5.026548245743669]
+            }
+          },
+          {
+            "id": "tread-1.026-1-17",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.17280886,-0.237851,0],
+              "rotation": [0,0,5.340707511102648]
+            }
+          },
+          {
+            "id": "tread-1.026-1-18",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.237851,-0.17280886,0],
+              "rotation": [0,0,5.654866776461628]
+            }
+          },
+          {
+            "id": "tread-1.026-1-19",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.replaceable-tyre-grip-bar",
+            "parent": "road-wheel-1.026-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.037,0.142]
+            },
+            "appearance": {
+              "color": "#58656b"
+            },
+            "transform": {
+              "position": [0.27961062,-0.090851,0],
+              "rotation": [0,0,5.969026041820607]
+            }
+          },
+          {
+            "id": "rail-dock-plate--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.drilled-underframe-cassette-seat",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.42,0],
+                [0,0.472,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [1.467,-0.647],
+                [1.271,-0.647],
+                [1.238,-0.614],
+                [1.238,0.614],
+                [1.271,0.647],
+                [1.467,0.647],
+                [1.5,0.614],
+                [1.5,-0.614]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [1.434,-0.492],
+                  [1.43446493,-0.48817095],
+                  [1.4358327,-0.48456443],
+                  [1.43802383,-0.48139004],
+                  [1.44091096,-0.47883226],
+                  [1.44432632,-0.47703974],
+                  [1.44807141,-0.47611666],
+                  [1.45192859,-0.47611666],
+                  [1.45567368,-0.47703974],
+                  [1.45908904,-0.47883226],
+                  [1.46197617,-0.48139004],
+                  [1.4641673,-0.48456443],
+                  [1.46553507,-0.48817095],
+                  [1.466,-0.492],
+                  [1.46553507,-0.49582905],
+                  [1.4641673,-0.49943557],
+                  [1.46197617,-0.50260996],
+                  [1.45908904,-0.50516774],
+                  [1.45567368,-0.50696026],
+                  [1.45192859,-0.50788334],
+                  [1.44807141,-0.50788334],
+                  [1.44432632,-0.50696026],
+                  [1.44091096,-0.50516774],
+                  [1.43802383,-0.50260996],
+                  [1.4358327,-0.49943557],
+                  [1.43446493,-0.49582905]
+                ],
+                [
+                  [1.434,0.492],
+                  [1.43446493,0.49582905],
+                  [1.4358327,0.49943557],
+                  [1.43802383,0.50260996],
+                  [1.44091096,0.50516774],
+                  [1.44432632,0.50696026],
+                  [1.44807141,0.50788334],
+                  [1.45192859,0.50788334],
+                  [1.45567368,0.50696026],
+                  [1.45908904,0.50516774],
+                  [1.46197617,0.50260996],
+                  [1.4641673,0.49943557],
+                  [1.46553507,0.49582905],
+                  [1.466,0.492],
+                  [1.46553507,0.48817095],
+                  [1.4641673,0.48456443],
+                  [1.46197617,0.48139004],
+                  [1.45908904,0.47883226],
+                  [1.45567368,0.47703974],
+                  [1.45192859,0.47611666],
+                  [1.44807141,0.47611666],
+                  [1.44432632,0.47703974],
+                  [1.44091096,0.47883226],
+                  [1.43802383,0.48139004],
+                  [1.4358327,0.48456443],
+                  [1.43446493,0.48817095]
+                ],
+                [
+                  [1.272,-0.492],
+                  [1.27246493,-0.48817095],
+                  [1.2738327,-0.48456443],
+                  [1.27602383,-0.48139004],
+                  [1.27891096,-0.47883226],
+                  [1.28232632,-0.47703974],
+                  [1.28607141,-0.47611666],
+                  [1.28992859,-0.47611666],
+                  [1.29367368,-0.47703974],
+                  [1.29708904,-0.47883226],
+                  [1.29997617,-0.48139004],
+                  [1.3021673,-0.48456443],
+                  [1.30353507,-0.48817095],
+                  [1.304,-0.492],
+                  [1.30353507,-0.49582905],
+                  [1.3021673,-0.49943557],
+                  [1.29997617,-0.50260996],
+                  [1.29708904,-0.50516774],
+                  [1.29367368,-0.50696026],
+                  [1.28992859,-0.50788334],
+                  [1.28607141,-0.50788334],
+                  [1.28232632,-0.50696026],
+                  [1.27891096,-0.50516774],
+                  [1.27602383,-0.50260996],
+                  [1.2738327,-0.49943557],
+                  [1.27246493,-0.49582905]
+                ],
+                [
+                  [1.272,0.492],
+                  [1.27246493,0.49582905],
+                  [1.2738327,0.49943557],
+                  [1.27602383,0.50260996],
+                  [1.27891096,0.50516774],
+                  [1.28232632,0.50696026],
+                  [1.28607141,0.50788334],
+                  [1.28992859,0.50788334],
+                  [1.29367368,0.50696026],
+                  [1.29708904,0.50516774],
+                  [1.29997617,0.50260996],
+                  [1.3021673,0.49943557],
+                  [1.30353507,0.49582905],
+                  [1.304,0.492],
+                  [1.30353507,0.48817095],
+                  [1.3021673,0.48456443],
+                  [1.29997617,0.48139004],
+                  [1.29708904,0.47883226],
+                  [1.29367368,0.47703974],
+                  [1.28992859,0.47611666],
+                  [1.28607141,0.47611666],
+                  [1.28232632,0.47703974],
+                  [1.27891096,0.47883226],
+                  [1.27602383,0.48139004],
+                  [1.2738327,0.48456443],
+                  [1.27246493,0.48817095]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#7cabaf"
+            }
+          },
+          {
+            "id": "rail-dock-plate-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.drilled-underframe-cassette-seat",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.42,0],
+                [0,0.472,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-1.271,-0.647],
+                [-1.467,-0.647],
+                [-1.5,-0.614],
+                [-1.5,0.614],
+                [-1.467,0.647],
+                [-1.271,0.647],
+                [-1.238,0.614],
+                [-1.238,-0.614]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-1.304,-0.492],
+                  [-1.30353507,-0.48817095],
+                  [-1.3021673,-0.48456443],
+                  [-1.29997617,-0.48139004],
+                  [-1.29708904,-0.47883226],
+                  [-1.29367368,-0.47703974],
+                  [-1.28992859,-0.47611666],
+                  [-1.28607141,-0.47611666],
+                  [-1.28232632,-0.47703974],
+                  [-1.27891096,-0.47883226],
+                  [-1.27602383,-0.48139004],
+                  [-1.2738327,-0.48456443],
+                  [-1.27246493,-0.48817095],
+                  [-1.272,-0.492],
+                  [-1.27246493,-0.49582905],
+                  [-1.2738327,-0.49943557],
+                  [-1.27602383,-0.50260996],
+                  [-1.27891096,-0.50516774],
+                  [-1.28232632,-0.50696026],
+                  [-1.28607141,-0.50788334],
+                  [-1.28992859,-0.50788334],
+                  [-1.29367368,-0.50696026],
+                  [-1.29708904,-0.50516774],
+                  [-1.29997617,-0.50260996],
+                  [-1.3021673,-0.49943557],
+                  [-1.30353507,-0.49582905]
+                ],
+                [
+                  [-1.304,0.492],
+                  [-1.30353507,0.49582905],
+                  [-1.3021673,0.49943557],
+                  [-1.29997617,0.50260996],
+                  [-1.29708904,0.50516774],
+                  [-1.29367368,0.50696026],
+                  [-1.28992859,0.50788334],
+                  [-1.28607141,0.50788334],
+                  [-1.28232632,0.50696026],
+                  [-1.27891096,0.50516774],
+                  [-1.27602383,0.50260996],
+                  [-1.2738327,0.49943557],
+                  [-1.27246493,0.49582905],
+                  [-1.272,0.492],
+                  [-1.27246493,0.48817095],
+                  [-1.2738327,0.48456443],
+                  [-1.27602383,0.48139004],
+                  [-1.27891096,0.47883226],
+                  [-1.28232632,0.47703974],
+                  [-1.28607141,0.47611666],
+                  [-1.28992859,0.47611666],
+                  [-1.29367368,0.47703974],
+                  [-1.29708904,0.47883226],
+                  [-1.29997617,0.48139004],
+                  [-1.3021673,0.48456443],
+                  [-1.30353507,0.48817095]
+                ],
+                [
+                  [-1.466,-0.492],
+                  [-1.46553507,-0.48817095],
+                  [-1.4641673,-0.48456443],
+                  [-1.46197617,-0.48139004],
+                  [-1.45908904,-0.47883226],
+                  [-1.45567368,-0.47703974],
+                  [-1.45192859,-0.47611666],
+                  [-1.44807141,-0.47611666],
+                  [-1.44432632,-0.47703974],
+                  [-1.44091096,-0.47883226],
+                  [-1.43802383,-0.48139004],
+                  [-1.4358327,-0.48456443],
+                  [-1.43446493,-0.48817095],
+                  [-1.434,-0.492],
+                  [-1.43446493,-0.49582905],
+                  [-1.4358327,-0.49943557],
+                  [-1.43802383,-0.50260996],
+                  [-1.44091096,-0.50516774],
+                  [-1.44432632,-0.50696026],
+                  [-1.44807141,-0.50788334],
+                  [-1.45192859,-0.50788334],
+                  [-1.45567368,-0.50696026],
+                  [-1.45908904,-0.50516774],
+                  [-1.46197617,-0.50260996],
+                  [-1.4641673,-0.49943557],
+                  [-1.46553507,-0.49582905]
+                ],
+                [
+                  [-1.466,0.492],
+                  [-1.46553507,0.49582905],
+                  [-1.4641673,0.49943557],
+                  [-1.46197617,0.50260996],
+                  [-1.45908904,0.50516774],
+                  [-1.45567368,0.50696026],
+                  [-1.45192859,0.50788334],
+                  [-1.44807141,0.50788334],
+                  [-1.44432632,0.50696026],
+                  [-1.44091096,0.50516774],
+                  [-1.43802383,0.50260996],
+                  [-1.4358327,0.49943557],
+                  [-1.43446493,0.49582905],
+                  [-1.434,0.492],
+                  [-1.43446493,0.48817095],
+                  [-1.4358327,0.48456443],
+                  [-1.43802383,0.48139004],
+                  [-1.44091096,0.47883226],
+                  [-1.44432632,0.47703974],
+                  [-1.44807141,0.47611666],
+                  [-1.45192859,0.47611666],
+                  [-1.45567368,0.47703974],
+                  [-1.45908904,0.47883226],
+                  [-1.46197617,0.48139004],
+                  [-1.4641673,0.48456443],
+                  [-1.46553507,0.48817095]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#7cabaf"
+            }
+          },
+          {
+            "id": "front-cassette",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "transform": {
+              "position": [-1.369,0.42,0]
+            }
+          },
+          {
+            "id": "front-coupling-top",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.machined-cassette-face-with-four-through-holes",
+            "parent": "front-cassette",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.031,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.10500000000000001,-0.647],
+                [-0.10500000000000001,-0.647],
+                [-0.131,-0.621],
+                [-0.131,0.621],
+                [-0.10500000000000001,0.647],
+                [0.10500000000000001,0.647],
+                [0.131,0.621],
+                [0.131,-0.621]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0665,-0.492],
+                  [0.06692134,-0.48852992],
+                  [0.06816089,-0.48526151],
+                  [0.07014659,-0.48238472],
+                  [0.07276306,-0.48006673],
+                  [0.07585823,-0.47844226],
+                  [0.07925222,-0.47760572],
+                  [0.08274778,-0.47760572],
+                  [0.08614177,-0.47844226],
+                  [0.08923694,-0.48006673],
+                  [0.09185341,-0.48238472],
+                  [0.09383911,-0.48526151],
+                  [0.09507866,-0.48852992],
+                  [0.0955,-0.492],
+                  [0.09507866,-0.49547008],
+                  [0.09383911,-0.49873849],
+                  [0.09185341,-0.50161528],
+                  [0.08923694,-0.50393327],
+                  [0.08614177,-0.50555774],
+                  [0.08274778,-0.50639428],
+                  [0.07925222,-0.50639428],
+                  [0.07585823,-0.50555774],
+                  [0.07276306,-0.50393327],
+                  [0.07014659,-0.50161528],
+                  [0.06816089,-0.49873849],
+                  [0.06692134,-0.49547008]
+                ],
+                [
+                  [0.0665,0.492],
+                  [0.06692134,0.49547008],
+                  [0.06816089,0.49873849],
+                  [0.07014659,0.50161528],
+                  [0.07276306,0.50393327],
+                  [0.07585823,0.50555774],
+                  [0.07925222,0.50639428],
+                  [0.08274778,0.50639428],
+                  [0.08614177,0.50555774],
+                  [0.08923694,0.50393327],
+                  [0.09185341,0.50161528],
+                  [0.09383911,0.49873849],
+                  [0.09507866,0.49547008],
+                  [0.0955,0.492],
+                  [0.09507866,0.48852992],
+                  [0.09383911,0.48526151],
+                  [0.09185341,0.48238472],
+                  [0.08923694,0.48006673],
+                  [0.08614177,0.47844226],
+                  [0.08274778,0.47760572],
+                  [0.07925222,0.47760572],
+                  [0.07585823,0.47844226],
+                  [0.07276306,0.48006673],
+                  [0.07014659,0.48238472],
+                  [0.06816089,0.48526151],
+                  [0.06692134,0.48852992]
+                ],
+                [
+                  [-0.0955,-0.492],
+                  [-0.09507866,-0.48852992],
+                  [-0.09383911,-0.48526151],
+                  [-0.09185341,-0.48238472],
+                  [-0.08923694,-0.48006673],
+                  [-0.08614177,-0.47844226],
+                  [-0.08274778,-0.47760572],
+                  [-0.07925222,-0.47760572],
+                  [-0.07585823,-0.47844226],
+                  [-0.07276306,-0.48006673],
+                  [-0.07014659,-0.48238472],
+                  [-0.06816089,-0.48526151],
+                  [-0.06692134,-0.48852992],
+                  [-0.0665,-0.492],
+                  [-0.06692134,-0.49547008],
+                  [-0.06816089,-0.49873849],
+                  [-0.07014659,-0.50161528],
+                  [-0.07276306,-0.50393327],
+                  [-0.07585823,-0.50555774],
+                  [-0.07925222,-0.50639428],
+                  [-0.08274778,-0.50639428],
+                  [-0.08614177,-0.50555774],
+                  [-0.08923694,-0.50393327],
+                  [-0.09185341,-0.50161528],
+                  [-0.09383911,-0.49873849],
+                  [-0.09507866,-0.49547008]
+                ],
+                [
+                  [-0.0955,0.492],
+                  [-0.09507866,0.49547008],
+                  [-0.09383911,0.49873849],
+                  [-0.09185341,0.50161528],
+                  [-0.08923694,0.50393327],
+                  [-0.08614177,0.50555774],
+                  [-0.08274778,0.50639428],
+                  [-0.07925222,0.50639428],
+                  [-0.07585823,0.50555774],
+                  [-0.07276306,0.50393327],
+                  [-0.07014659,0.50161528],
+                  [-0.06816089,0.49873849],
+                  [-0.06692134,0.49547008],
+                  [-0.0665,0.492],
+                  [-0.06692134,0.48852992],
+                  [-0.06816089,0.48526151],
+                  [-0.07014659,0.48238472],
+                  [-0.07276306,0.48006673],
+                  [-0.07585823,0.47844226],
+                  [-0.07925222,0.47760572],
+                  [-0.08274778,0.47760572],
+                  [-0.08614177,0.47844226],
+                  [-0.08923694,0.48006673],
+                  [-0.09185341,0.48238472],
+                  [-0.09383911,0.48526151],
+                  [-0.09507866,0.48852992]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "front-sliding-fork-guide--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "front-cassette",
+            "transform": {
+              "position": [0,0,-0.438]
+            }
+          },
+          {
+            "id": "front-open-guide--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.real-hollow-running-guide",
+            "parent": "front-sliding-fork-guide--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.174,0],
+                [0,-0.018,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.059,-0.04],
+                [-0.059,-0.04],
+                [-0.071,-0.028],
+                [-0.071,0.028],
+                [-0.059,0.04],
+                [0.059,0.04],
+                [0.071,0.028],
+                [0.071,-0.028]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.04,-0.022],
+                  [-0.04,-0.022],
+                  [-0.047,-0.015],
+                  [-0.047,0.015],
+                  [-0.04,0.022],
+                  [0.04,0.022],
+                  [0.047,0.015],
+                  [0.047,-0.015]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#89aaba"
+            }
+          },
+          {
+            "id": "front-sliding-fork-guide-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "front-cassette",
+            "transform": {
+              "position": [0,0,0.438]
+            }
+          },
+          {
+            "id": "front-open-guide-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.real-hollow-running-guide",
+            "parent": "front-sliding-fork-guide-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.174,0],
+                [0,-0.018,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.059,-0.04],
+                [-0.059,-0.04],
+                [-0.071,-0.028],
+                [-0.071,0.028],
+                [-0.059,0.04],
+                [0.059,0.04],
+                [0.071,0.028],
+                [0.071,-0.028]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.04,-0.022],
+                  [-0.04,-0.022],
+                  [-0.047,-0.015],
+                  [-0.047,0.015],
+                  [-0.04,0.022],
+                  [0.04,0.022],
+                  [0.047,0.015],
+                  [0.047,-0.015]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#89aaba"
+            }
+          },
+          {
+            "id": "front-dropping-rail-wheel-frame",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "front-cassette",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "front-flanged-wheel-crossmember",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.rail-wheel-running-crossbeam",
+            "parent": "front-dropping-rail-wheel-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.068,0.068,1.31]
+            },
+            "appearance": {
+              "color": "#617b88"
+            },
+            "transform": {
+              "position": [0,-0.146,0]
+            }
+          },
+          {
+            "id": "front-sliding-stanchion--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.sliding-inner-post",
+            "parent": "front-dropping-rail-wheel-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.225,0.036]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0,-0.058,-0.438]
+            }
+          },
+          {
+            "id": "front-rail-wheel-gauge-offset--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "front-dropping-rail-wheel-frame",
+            "transform": {
+              "position": [0,-0.146,-0.719]
+            }
+          },
+          {
+            "id": "front-rail-axle--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.separate-running-wheel-axle",
+            "parent": "front-rail-wheel-gauge-offset--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.121],
+              "end": [0,0,0.121],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "front-rail-tread--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.true-annular-tread-wheel",
+            "parent": "front-rail-wheel-gauge-offset--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.044],
+                [0,0,0.044]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.136,0],
+                [0.13530223,0.01375889],
+                [0.13321607,0.0273766],
+                [0.12976294,0.04071338],
+                [0.12497826,0.0536324],
+                [0.11891114,0.06600107],
+                [0.11162383,0.07769248],
+                [0.1031911,0.08858666],
+                [0.0936995,0.09857182],
+                [0.08324641,0.1075455],
+                [0.07193911,0.11541562],
+                [0.0598936,0.12210142],
+                [0.04723351,0.12753429],
+                [0.03408874,0.13165849],
+                [0.02059418,0.13443169],
+                [0.00688829,0.13582544],
+                [-0.00688829,0.13582544],
+                [-0.02059418,0.13443169],
+                [-0.03408874,0.13165849],
+                [-0.04723351,0.12753429],
+                [-0.0598936,0.12210142],
+                [-0.07193911,0.11541562],
+                [-0.08324641,0.1075455],
+                [-0.0936995,0.09857182],
+                [-0.1031911,0.08858666],
+                [-0.11162383,0.07769248],
+                [-0.11891114,0.06600107],
+                [-0.12497826,0.0536324],
+                [-0.12976294,0.04071338],
+                [-0.13321607,0.0273766],
+                [-0.13530223,0.01375889],
+                [-0.136,0],
+                [-0.13530223,-0.01375889],
+                [-0.13321607,-0.0273766],
+                [-0.12976294,-0.04071338],
+                [-0.12497826,-0.0536324],
+                [-0.11891114,-0.06600107],
+                [-0.11162383,-0.07769248],
+                [-0.1031911,-0.08858666],
+                [-0.0936995,-0.09857182],
+                [-0.08324641,-0.1075455],
+                [-0.07193911,-0.11541562],
+                [-0.0598936,-0.12210142],
+                [-0.04723351,-0.12753429],
+                [-0.03408874,-0.13165849],
+                [-0.02059418,-0.13443169],
+                [-0.00688829,-0.13582544],
+                [0.00688829,-0.13582544],
+                [0.02059418,-0.13443169],
+                [0.03408874,-0.13165849],
+                [0.04723351,-0.12753429],
+                [0.0598936,-0.12210142],
+                [0.07193911,-0.11541562],
+                [0.08324641,-0.1075455],
+                [0.0936995,-0.09857182],
+                [0.1031911,-0.08858666],
+                [0.11162383,-0.07769248],
+                [0.11891114,-0.06600107],
+                [0.12497826,-0.0536324],
+                [0.12976294,-0.04071338],
+                [0.13321607,-0.0273766],
+                [0.13530223,-0.01375889]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01890252,0.0019222],
+                  [0.01861107,0.00382467],
+                  [0.01812865,0.0056879],
+                  [0.0174602,0.00749276],
+                  [0.01661259,0.00922074],
+                  [0.01559451,0.0108541],
+                  [0.0144164,0.01237608],
+                  [0.01309037,0.01377106],
+                  [0.01163001,0.01502474],
+                  [0.01005032,0.01612424],
+                  [0.00836749,0.01705829],
+                  [0.0065988,0.01781729],
+                  [0.0047624,0.01839347],
+                  [0.00287713,0.0187809],
+                  [0.00096233,0.01897561],
+                  [-0.00096233,0.01897561],
+                  [-0.00287713,0.0187809],
+                  [-0.0047624,0.01839347],
+                  [-0.0065988,0.01781729],
+                  [-0.00836749,0.01705829],
+                  [-0.01005032,0.01612424],
+                  [-0.01163001,0.01502474],
+                  [-0.01309037,0.01377106],
+                  [-0.0144164,0.01237608],
+                  [-0.01559451,0.0108541],
+                  [-0.01661259,0.00922074],
+                  [-0.0174602,0.00749276],
+                  [-0.01812865,0.0056879],
+                  [-0.01861107,0.00382467],
+                  [-0.01890252,0.0019222],
+                  [-0.019,0],
+                  [-0.01890252,-0.0019222],
+                  [-0.01861107,-0.00382467],
+                  [-0.01812865,-0.0056879],
+                  [-0.0174602,-0.00749276],
+                  [-0.01661259,-0.00922074],
+                  [-0.01559451,-0.0108541],
+                  [-0.0144164,-0.01237608],
+                  [-0.01309037,-0.01377106],
+                  [-0.01163001,-0.01502474],
+                  [-0.01005032,-0.01612424],
+                  [-0.00836749,-0.01705829],
+                  [-0.0065988,-0.01781729],
+                  [-0.0047624,-0.01839347],
+                  [-0.00287713,-0.0187809],
+                  [-0.00096233,-0.01897561],
+                  [0.00096233,-0.01897561],
+                  [0.00287713,-0.0187809],
+                  [0.0047624,-0.01839347],
+                  [0.0065988,-0.01781729],
+                  [0.00836749,-0.01705829],
+                  [0.01005032,-0.01612424],
+                  [0.01163001,-0.01502474],
+                  [0.01309037,-0.01377106],
+                  [0.0144164,-0.01237608],
+                  [0.01559451,-0.0108541],
+                  [0.01661259,-0.00922074],
+                  [0.0174602,-0.00749276],
+                  [0.01812865,-0.0056879],
+                  [0.01861107,-0.00382467],
+                  [0.01890252,-0.0019222]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "front-rail-inner-flange--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.projecting-rail-flange",
+            "parent": "front-rail-wheel-gauge-offset--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.034999999999999996],
+                [0,0,0.055]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.156,0],
+                [0.15519961,0.01578226],
+                [0.15280667,0.03140257],
+                [0.14884572,0.04670065],
+                [0.14335742,0.06151951],
+                [0.13639807,0.07570711],
+                [0.1280391,0.08911784],
+                [0.11836627,0.10161411],
+                [0.10747884,0.11306767],
+                [0.09548853,0.12336101],
+                [0.08251839,0.1323885],
+                [0.06870149,0.14005751],
+                [0.05417962,0.14628933],
+                [0.0391018,0.15102003],
+                [0.02362273,0.15420106],
+                [0.00790127,0.15579978],
+                [-0.00790127,0.15579978],
+                [-0.02362273,0.15420106],
+                [-0.0391018,0.15102003],
+                [-0.05417962,0.14628933],
+                [-0.06870149,0.14005751],
+                [-0.08251839,0.1323885],
+                [-0.09548853,0.12336101],
+                [-0.10747884,0.11306767],
+                [-0.11836627,0.10161411],
+                [-0.1280391,0.08911784],
+                [-0.13639807,0.07570711],
+                [-0.14335742,0.06151951],
+                [-0.14884572,0.04670065],
+                [-0.15280667,0.03140257],
+                [-0.15519961,0.01578226],
+                [-0.156,0],
+                [-0.15519961,-0.01578226],
+                [-0.15280667,-0.03140257],
+                [-0.14884572,-0.04670065],
+                [-0.14335742,-0.06151951],
+                [-0.13639807,-0.07570711],
+                [-0.1280391,-0.08911784],
+                [-0.11836627,-0.10161411],
+                [-0.10747884,-0.11306767],
+                [-0.09548853,-0.12336101],
+                [-0.08251839,-0.1323885],
+                [-0.06870149,-0.14005751],
+                [-0.05417962,-0.14628933],
+                [-0.0391018,-0.15102003],
+                [-0.02362273,-0.15420106],
+                [-0.00790127,-0.15579978],
+                [0.00790127,-0.15579978],
+                [0.02362273,-0.15420106],
+                [0.0391018,-0.15102003],
+                [0.05417962,-0.14628933],
+                [0.06870149,-0.14005751],
+                [0.08251839,-0.1323885],
+                [0.09548853,-0.12336101],
+                [0.10747884,-0.11306767],
+                [0.11836627,-0.10161411],
+                [0.1280391,-0.08911784],
+                [0.13639807,-0.07570711],
+                [0.14335742,-0.06151951],
+                [0.14884572,-0.04670065],
+                [0.15280667,-0.03140257],
+                [0.15519961,-0.01578226]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01890252,0.0019222],
+                  [0.01861107,0.00382467],
+                  [0.01812865,0.0056879],
+                  [0.0174602,0.00749276],
+                  [0.01661259,0.00922074],
+                  [0.01559451,0.0108541],
+                  [0.0144164,0.01237608],
+                  [0.01309037,0.01377106],
+                  [0.01163001,0.01502474],
+                  [0.01005032,0.01612424],
+                  [0.00836749,0.01705829],
+                  [0.0065988,0.01781729],
+                  [0.0047624,0.01839347],
+                  [0.00287713,0.0187809],
+                  [0.00096233,0.01897561],
+                  [-0.00096233,0.01897561],
+                  [-0.00287713,0.0187809],
+                  [-0.0047624,0.01839347],
+                  [-0.0065988,0.01781729],
+                  [-0.00836749,0.01705829],
+                  [-0.01005032,0.01612424],
+                  [-0.01163001,0.01502474],
+                  [-0.01309037,0.01377106],
+                  [-0.0144164,0.01237608],
+                  [-0.01559451,0.0108541],
+                  [-0.01661259,0.00922074],
+                  [-0.0174602,0.00749276],
+                  [-0.01812865,0.0056879],
+                  [-0.01861107,0.00382467],
+                  [-0.01890252,0.0019222],
+                  [-0.019,0],
+                  [-0.01890252,-0.0019222],
+                  [-0.01861107,-0.00382467],
+                  [-0.01812865,-0.0056879],
+                  [-0.0174602,-0.00749276],
+                  [-0.01661259,-0.00922074],
+                  [-0.01559451,-0.0108541],
+                  [-0.0144164,-0.01237608],
+                  [-0.01309037,-0.01377106],
+                  [-0.01163001,-0.01502474],
+                  [-0.01005032,-0.01612424],
+                  [-0.00836749,-0.01705829],
+                  [-0.0065988,-0.01781729],
+                  [-0.0047624,-0.01839347],
+                  [-0.00287713,-0.0187809],
+                  [-0.00096233,-0.01897561],
+                  [0.00096233,-0.01897561],
+                  [0.00287713,-0.0187809],
+                  [0.0047624,-0.01839347],
+                  [0.0065988,-0.01781729],
+                  [0.00836749,-0.01705829],
+                  [0.01005032,-0.01612424],
+                  [0.01163001,-0.01502474],
+                  [0.01309037,-0.01377106],
+                  [0.0144164,-0.01237608],
+                  [0.01559451,-0.0108541],
+                  [0.01661259,-0.00922074],
+                  [0.0174602,-0.00749276],
+                  [0.01812865,-0.0056879],
+                  [0.01861107,-0.00382467],
+                  [0.01890252,-0.0019222]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "front-sliding-stanchion-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.sliding-inner-post",
+            "parent": "front-dropping-rail-wheel-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.225,0.036]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0,-0.058,0.438]
+            }
+          },
+          {
+            "id": "front-rail-wheel-gauge-offset-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "front-dropping-rail-wheel-frame",
+            "transform": {
+              "position": [0,-0.146,0.719]
+            }
+          },
+          {
+            "id": "front-rail-axle-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.separate-running-wheel-axle",
+            "parent": "front-rail-wheel-gauge-offset-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.121],
+              "end": [0,0,0.121],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "front-rail-tread-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.true-annular-tread-wheel",
+            "parent": "front-rail-wheel-gauge-offset-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.044],
+                [0,0,0.044]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.136,0],
+                [0.13530223,0.01375889],
+                [0.13321607,0.0273766],
+                [0.12976294,0.04071338],
+                [0.12497826,0.0536324],
+                [0.11891114,0.06600107],
+                [0.11162383,0.07769248],
+                [0.1031911,0.08858666],
+                [0.0936995,0.09857182],
+                [0.08324641,0.1075455],
+                [0.07193911,0.11541562],
+                [0.0598936,0.12210142],
+                [0.04723351,0.12753429],
+                [0.03408874,0.13165849],
+                [0.02059418,0.13443169],
+                [0.00688829,0.13582544],
+                [-0.00688829,0.13582544],
+                [-0.02059418,0.13443169],
+                [-0.03408874,0.13165849],
+                [-0.04723351,0.12753429],
+                [-0.0598936,0.12210142],
+                [-0.07193911,0.11541562],
+                [-0.08324641,0.1075455],
+                [-0.0936995,0.09857182],
+                [-0.1031911,0.08858666],
+                [-0.11162383,0.07769248],
+                [-0.11891114,0.06600107],
+                [-0.12497826,0.0536324],
+                [-0.12976294,0.04071338],
+                [-0.13321607,0.0273766],
+                [-0.13530223,0.01375889],
+                [-0.136,0],
+                [-0.13530223,-0.01375889],
+                [-0.13321607,-0.0273766],
+                [-0.12976294,-0.04071338],
+                [-0.12497826,-0.0536324],
+                [-0.11891114,-0.06600107],
+                [-0.11162383,-0.07769248],
+                [-0.1031911,-0.08858666],
+                [-0.0936995,-0.09857182],
+                [-0.08324641,-0.1075455],
+                [-0.07193911,-0.11541562],
+                [-0.0598936,-0.12210142],
+                [-0.04723351,-0.12753429],
+                [-0.03408874,-0.13165849],
+                [-0.02059418,-0.13443169],
+                [-0.00688829,-0.13582544],
+                [0.00688829,-0.13582544],
+                [0.02059418,-0.13443169],
+                [0.03408874,-0.13165849],
+                [0.04723351,-0.12753429],
+                [0.0598936,-0.12210142],
+                [0.07193911,-0.11541562],
+                [0.08324641,-0.1075455],
+                [0.0936995,-0.09857182],
+                [0.1031911,-0.08858666],
+                [0.11162383,-0.07769248],
+                [0.11891114,-0.06600107],
+                [0.12497826,-0.0536324],
+                [0.12976294,-0.04071338],
+                [0.13321607,-0.0273766],
+                [0.13530223,-0.01375889]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01890252,0.0019222],
+                  [0.01861107,0.00382467],
+                  [0.01812865,0.0056879],
+                  [0.0174602,0.00749276],
+                  [0.01661259,0.00922074],
+                  [0.01559451,0.0108541],
+                  [0.0144164,0.01237608],
+                  [0.01309037,0.01377106],
+                  [0.01163001,0.01502474],
+                  [0.01005032,0.01612424],
+                  [0.00836749,0.01705829],
+                  [0.0065988,0.01781729],
+                  [0.0047624,0.01839347],
+                  [0.00287713,0.0187809],
+                  [0.00096233,0.01897561],
+                  [-0.00096233,0.01897561],
+                  [-0.00287713,0.0187809],
+                  [-0.0047624,0.01839347],
+                  [-0.0065988,0.01781729],
+                  [-0.00836749,0.01705829],
+                  [-0.01005032,0.01612424],
+                  [-0.01163001,0.01502474],
+                  [-0.01309037,0.01377106],
+                  [-0.0144164,0.01237608],
+                  [-0.01559451,0.0108541],
+                  [-0.01661259,0.00922074],
+                  [-0.0174602,0.00749276],
+                  [-0.01812865,0.0056879],
+                  [-0.01861107,0.00382467],
+                  [-0.01890252,0.0019222],
+                  [-0.019,0],
+                  [-0.01890252,-0.0019222],
+                  [-0.01861107,-0.00382467],
+                  [-0.01812865,-0.0056879],
+                  [-0.0174602,-0.00749276],
+                  [-0.01661259,-0.00922074],
+                  [-0.01559451,-0.0108541],
+                  [-0.0144164,-0.01237608],
+                  [-0.01309037,-0.01377106],
+                  [-0.01163001,-0.01502474],
+                  [-0.01005032,-0.01612424],
+                  [-0.00836749,-0.01705829],
+                  [-0.0065988,-0.01781729],
+                  [-0.0047624,-0.01839347],
+                  [-0.00287713,-0.0187809],
+                  [-0.00096233,-0.01897561],
+                  [0.00096233,-0.01897561],
+                  [0.00287713,-0.0187809],
+                  [0.0047624,-0.01839347],
+                  [0.0065988,-0.01781729],
+                  [0.00836749,-0.01705829],
+                  [0.01005032,-0.01612424],
+                  [0.01163001,-0.01502474],
+                  [0.01309037,-0.01377106],
+                  [0.0144164,-0.01237608],
+                  [0.01559451,-0.0108541],
+                  [0.01661259,-0.00922074],
+                  [0.0174602,-0.00749276],
+                  [0.01812865,-0.0056879],
+                  [0.01861107,-0.00382467],
+                  [0.01890252,-0.0019222]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "front-rail-inner-flange-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.projecting-rail-flange",
+            "parent": "front-rail-wheel-gauge-offset-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.055],
+                [0,0,-0.034999999999999996]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.156,0],
+                [0.15519961,0.01578226],
+                [0.15280667,0.03140257],
+                [0.14884572,0.04670065],
+                [0.14335742,0.06151951],
+                [0.13639807,0.07570711],
+                [0.1280391,0.08911784],
+                [0.11836627,0.10161411],
+                [0.10747884,0.11306767],
+                [0.09548853,0.12336101],
+                [0.08251839,0.1323885],
+                [0.06870149,0.14005751],
+                [0.05417962,0.14628933],
+                [0.0391018,0.15102003],
+                [0.02362273,0.15420106],
+                [0.00790127,0.15579978],
+                [-0.00790127,0.15579978],
+                [-0.02362273,0.15420106],
+                [-0.0391018,0.15102003],
+                [-0.05417962,0.14628933],
+                [-0.06870149,0.14005751],
+                [-0.08251839,0.1323885],
+                [-0.09548853,0.12336101],
+                [-0.10747884,0.11306767],
+                [-0.11836627,0.10161411],
+                [-0.1280391,0.08911784],
+                [-0.13639807,0.07570711],
+                [-0.14335742,0.06151951],
+                [-0.14884572,0.04670065],
+                [-0.15280667,0.03140257],
+                [-0.15519961,0.01578226],
+                [-0.156,0],
+                [-0.15519961,-0.01578226],
+                [-0.15280667,-0.03140257],
+                [-0.14884572,-0.04670065],
+                [-0.14335742,-0.06151951],
+                [-0.13639807,-0.07570711],
+                [-0.1280391,-0.08911784],
+                [-0.11836627,-0.10161411],
+                [-0.10747884,-0.11306767],
+                [-0.09548853,-0.12336101],
+                [-0.08251839,-0.1323885],
+                [-0.06870149,-0.14005751],
+                [-0.05417962,-0.14628933],
+                [-0.0391018,-0.15102003],
+                [-0.02362273,-0.15420106],
+                [-0.00790127,-0.15579978],
+                [0.00790127,-0.15579978],
+                [0.02362273,-0.15420106],
+                [0.0391018,-0.15102003],
+                [0.05417962,-0.14628933],
+                [0.06870149,-0.14005751],
+                [0.08251839,-0.1323885],
+                [0.09548853,-0.12336101],
+                [0.10747884,-0.11306767],
+                [0.11836627,-0.10161411],
+                [0.1280391,-0.08911784],
+                [0.13639807,-0.07570711],
+                [0.14335742,-0.06151951],
+                [0.14884572,-0.04670065],
+                [0.15280667,-0.03140257],
+                [0.15519961,-0.01578226]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01890252,0.0019222],
+                  [0.01861107,0.00382467],
+                  [0.01812865,0.0056879],
+                  [0.0174602,0.00749276],
+                  [0.01661259,0.00922074],
+                  [0.01559451,0.0108541],
+                  [0.0144164,0.01237608],
+                  [0.01309037,0.01377106],
+                  [0.01163001,0.01502474],
+                  [0.01005032,0.01612424],
+                  [0.00836749,0.01705829],
+                  [0.0065988,0.01781729],
+                  [0.0047624,0.01839347],
+                  [0.00287713,0.0187809],
+                  [0.00096233,0.01897561],
+                  [-0.00096233,0.01897561],
+                  [-0.00287713,0.0187809],
+                  [-0.0047624,0.01839347],
+                  [-0.0065988,0.01781729],
+                  [-0.00836749,0.01705829],
+                  [-0.01005032,0.01612424],
+                  [-0.01163001,0.01502474],
+                  [-0.01309037,0.01377106],
+                  [-0.0144164,0.01237608],
+                  [-0.01559451,0.0108541],
+                  [-0.01661259,0.00922074],
+                  [-0.0174602,0.00749276],
+                  [-0.01812865,0.0056879],
+                  [-0.01861107,0.00382467],
+                  [-0.01890252,0.0019222],
+                  [-0.019,0],
+                  [-0.01890252,-0.0019222],
+                  [-0.01861107,-0.00382467],
+                  [-0.01812865,-0.0056879],
+                  [-0.0174602,-0.00749276],
+                  [-0.01661259,-0.00922074],
+                  [-0.01559451,-0.0108541],
+                  [-0.0144164,-0.01237608],
+                  [-0.01309037,-0.01377106],
+                  [-0.01163001,-0.01502474],
+                  [-0.01005032,-0.01612424],
+                  [-0.00836749,-0.01705829],
+                  [-0.0065988,-0.01781729],
+                  [-0.0047624,-0.01839347],
+                  [-0.00287713,-0.0187809],
+                  [-0.00096233,-0.01897561],
+                  [0.00096233,-0.01897561],
+                  [0.00287713,-0.0187809],
+                  [0.0047624,-0.01839347],
+                  [0.0065988,-0.01781729],
+                  [0.00836749,-0.01705829],
+                  [0.01005032,-0.01612424],
+                  [0.01163001,-0.01502474],
+                  [0.01309037,-0.01377106],
+                  [0.0144164,-0.01237608],
+                  [0.01559451,-0.0108541],
+                  [0.01661259,-0.00922074],
+                  [0.0174602,-0.00749276],
+                  [0.01812865,-0.0056879],
+                  [0.01861107,-0.00382467],
+                  [0.01890252,-0.0019222]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "rear-cassette",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "transform": {
+              "position": [1.369,0.42,0]
+            }
+          },
+          {
+            "id": "rear-coupling-top",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.machined-cassette-face-with-four-through-holes",
+            "parent": "rear-cassette",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.031,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.10500000000000001,-0.647],
+                [-0.10500000000000001,-0.647],
+                [-0.131,-0.621],
+                [-0.131,0.621],
+                [-0.10500000000000001,0.647],
+                [0.10500000000000001,0.647],
+                [0.131,0.621],
+                [0.131,-0.621]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0665,-0.492],
+                  [0.06692134,-0.48852992],
+                  [0.06816089,-0.48526151],
+                  [0.07014659,-0.48238472],
+                  [0.07276306,-0.48006673],
+                  [0.07585823,-0.47844226],
+                  [0.07925222,-0.47760572],
+                  [0.08274778,-0.47760572],
+                  [0.08614177,-0.47844226],
+                  [0.08923694,-0.48006673],
+                  [0.09185341,-0.48238472],
+                  [0.09383911,-0.48526151],
+                  [0.09507866,-0.48852992],
+                  [0.0955,-0.492],
+                  [0.09507866,-0.49547008],
+                  [0.09383911,-0.49873849],
+                  [0.09185341,-0.50161528],
+                  [0.08923694,-0.50393327],
+                  [0.08614177,-0.50555774],
+                  [0.08274778,-0.50639428],
+                  [0.07925222,-0.50639428],
+                  [0.07585823,-0.50555774],
+                  [0.07276306,-0.50393327],
+                  [0.07014659,-0.50161528],
+                  [0.06816089,-0.49873849],
+                  [0.06692134,-0.49547008]
+                ],
+                [
+                  [0.0665,0.492],
+                  [0.06692134,0.49547008],
+                  [0.06816089,0.49873849],
+                  [0.07014659,0.50161528],
+                  [0.07276306,0.50393327],
+                  [0.07585823,0.50555774],
+                  [0.07925222,0.50639428],
+                  [0.08274778,0.50639428],
+                  [0.08614177,0.50555774],
+                  [0.08923694,0.50393327],
+                  [0.09185341,0.50161528],
+                  [0.09383911,0.49873849],
+                  [0.09507866,0.49547008],
+                  [0.0955,0.492],
+                  [0.09507866,0.48852992],
+                  [0.09383911,0.48526151],
+                  [0.09185341,0.48238472],
+                  [0.08923694,0.48006673],
+                  [0.08614177,0.47844226],
+                  [0.08274778,0.47760572],
+                  [0.07925222,0.47760572],
+                  [0.07585823,0.47844226],
+                  [0.07276306,0.48006673],
+                  [0.07014659,0.48238472],
+                  [0.06816089,0.48526151],
+                  [0.06692134,0.48852992]
+                ],
+                [
+                  [-0.0955,-0.492],
+                  [-0.09507866,-0.48852992],
+                  [-0.09383911,-0.48526151],
+                  [-0.09185341,-0.48238472],
+                  [-0.08923694,-0.48006673],
+                  [-0.08614177,-0.47844226],
+                  [-0.08274778,-0.47760572],
+                  [-0.07925222,-0.47760572],
+                  [-0.07585823,-0.47844226],
+                  [-0.07276306,-0.48006673],
+                  [-0.07014659,-0.48238472],
+                  [-0.06816089,-0.48526151],
+                  [-0.06692134,-0.48852992],
+                  [-0.0665,-0.492],
+                  [-0.06692134,-0.49547008],
+                  [-0.06816089,-0.49873849],
+                  [-0.07014659,-0.50161528],
+                  [-0.07276306,-0.50393327],
+                  [-0.07585823,-0.50555774],
+                  [-0.07925222,-0.50639428],
+                  [-0.08274778,-0.50639428],
+                  [-0.08614177,-0.50555774],
+                  [-0.08923694,-0.50393327],
+                  [-0.09185341,-0.50161528],
+                  [-0.09383911,-0.49873849],
+                  [-0.09507866,-0.49547008]
+                ],
+                [
+                  [-0.0955,0.492],
+                  [-0.09507866,0.49547008],
+                  [-0.09383911,0.49873849],
+                  [-0.09185341,0.50161528],
+                  [-0.08923694,0.50393327],
+                  [-0.08614177,0.50555774],
+                  [-0.08274778,0.50639428],
+                  [-0.07925222,0.50639428],
+                  [-0.07585823,0.50555774],
+                  [-0.07276306,0.50393327],
+                  [-0.07014659,0.50161528],
+                  [-0.06816089,0.49873849],
+                  [-0.06692134,0.49547008],
+                  [-0.0665,0.492],
+                  [-0.06692134,0.48852992],
+                  [-0.06816089,0.48526151],
+                  [-0.07014659,0.48238472],
+                  [-0.07276306,0.48006673],
+                  [-0.07585823,0.47844226],
+                  [-0.07925222,0.47760572],
+                  [-0.08274778,0.47760572],
+                  [-0.08614177,0.47844226],
+                  [-0.08923694,0.48006673],
+                  [-0.09185341,0.48238472],
+                  [-0.09383911,0.48526151],
+                  [-0.09507866,0.48852992]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "rear-sliding-fork-guide--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "rear-cassette",
+            "transform": {
+              "position": [0,0,-0.438]
+            }
+          },
+          {
+            "id": "rear-open-guide--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.real-hollow-running-guide",
+            "parent": "rear-sliding-fork-guide--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.174,0],
+                [0,-0.018,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.059,-0.04],
+                [-0.059,-0.04],
+                [-0.071,-0.028],
+                [-0.071,0.028],
+                [-0.059,0.04],
+                [0.059,0.04],
+                [0.071,0.028],
+                [0.071,-0.028]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.04,-0.022],
+                  [-0.04,-0.022],
+                  [-0.047,-0.015],
+                  [-0.047,0.015],
+                  [-0.04,0.022],
+                  [0.04,0.022],
+                  [0.047,0.015],
+                  [0.047,-0.015]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#89aaba"
+            }
+          },
+          {
+            "id": "rear-sliding-fork-guide-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "rear-cassette",
+            "transform": {
+              "position": [0,0,0.438]
+            }
+          },
+          {
+            "id": "rear-open-guide-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.real-hollow-running-guide",
+            "parent": "rear-sliding-fork-guide-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.174,0],
+                [0,-0.018,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.059,-0.04],
+                [-0.059,-0.04],
+                [-0.071,-0.028],
+                [-0.071,0.028],
+                [-0.059,0.04],
+                [0.059,0.04],
+                [0.071,0.028],
+                [0.071,-0.028]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.04,-0.022],
+                  [-0.04,-0.022],
+                  [-0.047,-0.015],
+                  [-0.047,0.015],
+                  [-0.04,0.022],
+                  [0.04,0.022],
+                  [0.047,0.015],
+                  [0.047,-0.015]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#89aaba"
+            }
+          },
+          {
+            "id": "rear-dropping-rail-wheel-frame",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "rear-cassette",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "rear-flanged-wheel-crossmember",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.rail-wheel-running-crossbeam",
+            "parent": "rear-dropping-rail-wheel-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.068,0.068,1.31]
+            },
+            "appearance": {
+              "color": "#617b88"
+            },
+            "transform": {
+              "position": [0,-0.146,0]
+            }
+          },
+          {
+            "id": "rear-sliding-stanchion--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.sliding-inner-post",
+            "parent": "rear-dropping-rail-wheel-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.225,0.036]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0,-0.058,-0.438]
+            }
+          },
+          {
+            "id": "rear-rail-wheel-gauge-offset--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "rear-dropping-rail-wheel-frame",
+            "transform": {
+              "position": [0,-0.146,-0.719]
+            }
+          },
+          {
+            "id": "rear-rail-axle--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.separate-running-wheel-axle",
+            "parent": "rear-rail-wheel-gauge-offset--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.121],
+              "end": [0,0,0.121],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "rear-rail-tread--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.true-annular-tread-wheel",
+            "parent": "rear-rail-wheel-gauge-offset--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.044],
+                [0,0,0.044]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.136,0],
+                [0.13530223,0.01375889],
+                [0.13321607,0.0273766],
+                [0.12976294,0.04071338],
+                [0.12497826,0.0536324],
+                [0.11891114,0.06600107],
+                [0.11162383,0.07769248],
+                [0.1031911,0.08858666],
+                [0.0936995,0.09857182],
+                [0.08324641,0.1075455],
+                [0.07193911,0.11541562],
+                [0.0598936,0.12210142],
+                [0.04723351,0.12753429],
+                [0.03408874,0.13165849],
+                [0.02059418,0.13443169],
+                [0.00688829,0.13582544],
+                [-0.00688829,0.13582544],
+                [-0.02059418,0.13443169],
+                [-0.03408874,0.13165849],
+                [-0.04723351,0.12753429],
+                [-0.0598936,0.12210142],
+                [-0.07193911,0.11541562],
+                [-0.08324641,0.1075455],
+                [-0.0936995,0.09857182],
+                [-0.1031911,0.08858666],
+                [-0.11162383,0.07769248],
+                [-0.11891114,0.06600107],
+                [-0.12497826,0.0536324],
+                [-0.12976294,0.04071338],
+                [-0.13321607,0.0273766],
+                [-0.13530223,0.01375889],
+                [-0.136,0],
+                [-0.13530223,-0.01375889],
+                [-0.13321607,-0.0273766],
+                [-0.12976294,-0.04071338],
+                [-0.12497826,-0.0536324],
+                [-0.11891114,-0.06600107],
+                [-0.11162383,-0.07769248],
+                [-0.1031911,-0.08858666],
+                [-0.0936995,-0.09857182],
+                [-0.08324641,-0.1075455],
+                [-0.07193911,-0.11541562],
+                [-0.0598936,-0.12210142],
+                [-0.04723351,-0.12753429],
+                [-0.03408874,-0.13165849],
+                [-0.02059418,-0.13443169],
+                [-0.00688829,-0.13582544],
+                [0.00688829,-0.13582544],
+                [0.02059418,-0.13443169],
+                [0.03408874,-0.13165849],
+                [0.04723351,-0.12753429],
+                [0.0598936,-0.12210142],
+                [0.07193911,-0.11541562],
+                [0.08324641,-0.1075455],
+                [0.0936995,-0.09857182],
+                [0.1031911,-0.08858666],
+                [0.11162383,-0.07769248],
+                [0.11891114,-0.06600107],
+                [0.12497826,-0.0536324],
+                [0.12976294,-0.04071338],
+                [0.13321607,-0.0273766],
+                [0.13530223,-0.01375889]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01890252,0.0019222],
+                  [0.01861107,0.00382467],
+                  [0.01812865,0.0056879],
+                  [0.0174602,0.00749276],
+                  [0.01661259,0.00922074],
+                  [0.01559451,0.0108541],
+                  [0.0144164,0.01237608],
+                  [0.01309037,0.01377106],
+                  [0.01163001,0.01502474],
+                  [0.01005032,0.01612424],
+                  [0.00836749,0.01705829],
+                  [0.0065988,0.01781729],
+                  [0.0047624,0.01839347],
+                  [0.00287713,0.0187809],
+                  [0.00096233,0.01897561],
+                  [-0.00096233,0.01897561],
+                  [-0.00287713,0.0187809],
+                  [-0.0047624,0.01839347],
+                  [-0.0065988,0.01781729],
+                  [-0.00836749,0.01705829],
+                  [-0.01005032,0.01612424],
+                  [-0.01163001,0.01502474],
+                  [-0.01309037,0.01377106],
+                  [-0.0144164,0.01237608],
+                  [-0.01559451,0.0108541],
+                  [-0.01661259,0.00922074],
+                  [-0.0174602,0.00749276],
+                  [-0.01812865,0.0056879],
+                  [-0.01861107,0.00382467],
+                  [-0.01890252,0.0019222],
+                  [-0.019,0],
+                  [-0.01890252,-0.0019222],
+                  [-0.01861107,-0.00382467],
+                  [-0.01812865,-0.0056879],
+                  [-0.0174602,-0.00749276],
+                  [-0.01661259,-0.00922074],
+                  [-0.01559451,-0.0108541],
+                  [-0.0144164,-0.01237608],
+                  [-0.01309037,-0.01377106],
+                  [-0.01163001,-0.01502474],
+                  [-0.01005032,-0.01612424],
+                  [-0.00836749,-0.01705829],
+                  [-0.0065988,-0.01781729],
+                  [-0.0047624,-0.01839347],
+                  [-0.00287713,-0.0187809],
+                  [-0.00096233,-0.01897561],
+                  [0.00096233,-0.01897561],
+                  [0.00287713,-0.0187809],
+                  [0.0047624,-0.01839347],
+                  [0.0065988,-0.01781729],
+                  [0.00836749,-0.01705829],
+                  [0.01005032,-0.01612424],
+                  [0.01163001,-0.01502474],
+                  [0.01309037,-0.01377106],
+                  [0.0144164,-0.01237608],
+                  [0.01559451,-0.0108541],
+                  [0.01661259,-0.00922074],
+                  [0.0174602,-0.00749276],
+                  [0.01812865,-0.0056879],
+                  [0.01861107,-0.00382467],
+                  [0.01890252,-0.0019222]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "rear-rail-inner-flange--1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.projecting-rail-flange",
+            "parent": "rear-rail-wheel-gauge-offset--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.034999999999999996],
+                [0,0,0.055]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.156,0],
+                [0.15519961,0.01578226],
+                [0.15280667,0.03140257],
+                [0.14884572,0.04670065],
+                [0.14335742,0.06151951],
+                [0.13639807,0.07570711],
+                [0.1280391,0.08911784],
+                [0.11836627,0.10161411],
+                [0.10747884,0.11306767],
+                [0.09548853,0.12336101],
+                [0.08251839,0.1323885],
+                [0.06870149,0.14005751],
+                [0.05417962,0.14628933],
+                [0.0391018,0.15102003],
+                [0.02362273,0.15420106],
+                [0.00790127,0.15579978],
+                [-0.00790127,0.15579978],
+                [-0.02362273,0.15420106],
+                [-0.0391018,0.15102003],
+                [-0.05417962,0.14628933],
+                [-0.06870149,0.14005751],
+                [-0.08251839,0.1323885],
+                [-0.09548853,0.12336101],
+                [-0.10747884,0.11306767],
+                [-0.11836627,0.10161411],
+                [-0.1280391,0.08911784],
+                [-0.13639807,0.07570711],
+                [-0.14335742,0.06151951],
+                [-0.14884572,0.04670065],
+                [-0.15280667,0.03140257],
+                [-0.15519961,0.01578226],
+                [-0.156,0],
+                [-0.15519961,-0.01578226],
+                [-0.15280667,-0.03140257],
+                [-0.14884572,-0.04670065],
+                [-0.14335742,-0.06151951],
+                [-0.13639807,-0.07570711],
+                [-0.1280391,-0.08911784],
+                [-0.11836627,-0.10161411],
+                [-0.10747884,-0.11306767],
+                [-0.09548853,-0.12336101],
+                [-0.08251839,-0.1323885],
+                [-0.06870149,-0.14005751],
+                [-0.05417962,-0.14628933],
+                [-0.0391018,-0.15102003],
+                [-0.02362273,-0.15420106],
+                [-0.00790127,-0.15579978],
+                [0.00790127,-0.15579978],
+                [0.02362273,-0.15420106],
+                [0.0391018,-0.15102003],
+                [0.05417962,-0.14628933],
+                [0.06870149,-0.14005751],
+                [0.08251839,-0.1323885],
+                [0.09548853,-0.12336101],
+                [0.10747884,-0.11306767],
+                [0.11836627,-0.10161411],
+                [0.1280391,-0.08911784],
+                [0.13639807,-0.07570711],
+                [0.14335742,-0.06151951],
+                [0.14884572,-0.04670065],
+                [0.15280667,-0.03140257],
+                [0.15519961,-0.01578226]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01890252,0.0019222],
+                  [0.01861107,0.00382467],
+                  [0.01812865,0.0056879],
+                  [0.0174602,0.00749276],
+                  [0.01661259,0.00922074],
+                  [0.01559451,0.0108541],
+                  [0.0144164,0.01237608],
+                  [0.01309037,0.01377106],
+                  [0.01163001,0.01502474],
+                  [0.01005032,0.01612424],
+                  [0.00836749,0.01705829],
+                  [0.0065988,0.01781729],
+                  [0.0047624,0.01839347],
+                  [0.00287713,0.0187809],
+                  [0.00096233,0.01897561],
+                  [-0.00096233,0.01897561],
+                  [-0.00287713,0.0187809],
+                  [-0.0047624,0.01839347],
+                  [-0.0065988,0.01781729],
+                  [-0.00836749,0.01705829],
+                  [-0.01005032,0.01612424],
+                  [-0.01163001,0.01502474],
+                  [-0.01309037,0.01377106],
+                  [-0.0144164,0.01237608],
+                  [-0.01559451,0.0108541],
+                  [-0.01661259,0.00922074],
+                  [-0.0174602,0.00749276],
+                  [-0.01812865,0.0056879],
+                  [-0.01861107,0.00382467],
+                  [-0.01890252,0.0019222],
+                  [-0.019,0],
+                  [-0.01890252,-0.0019222],
+                  [-0.01861107,-0.00382467],
+                  [-0.01812865,-0.0056879],
+                  [-0.0174602,-0.00749276],
+                  [-0.01661259,-0.00922074],
+                  [-0.01559451,-0.0108541],
+                  [-0.0144164,-0.01237608],
+                  [-0.01309037,-0.01377106],
+                  [-0.01163001,-0.01502474],
+                  [-0.01005032,-0.01612424],
+                  [-0.00836749,-0.01705829],
+                  [-0.0065988,-0.01781729],
+                  [-0.0047624,-0.01839347],
+                  [-0.00287713,-0.0187809],
+                  [-0.00096233,-0.01897561],
+                  [0.00096233,-0.01897561],
+                  [0.00287713,-0.0187809],
+                  [0.0047624,-0.01839347],
+                  [0.0065988,-0.01781729],
+                  [0.00836749,-0.01705829],
+                  [0.01005032,-0.01612424],
+                  [0.01163001,-0.01502474],
+                  [0.01309037,-0.01377106],
+                  [0.0144164,-0.01237608],
+                  [0.01559451,-0.0108541],
+                  [0.01661259,-0.00922074],
+                  [0.0174602,-0.00749276],
+                  [0.01812865,-0.0056879],
+                  [0.01861107,-0.00382467],
+                  [0.01890252,-0.0019222]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "rear-sliding-stanchion-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.sliding-inner-post",
+            "parent": "rear-dropping-rail-wheel-frame",
+            "geometry": {
+              "type": "box",
+              "size": [0.086,0.225,0.036]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            },
+            "transform": {
+              "position": [0,-0.058,0.438]
+            }
+          },
+          {
+            "id": "rear-rail-wheel-gauge-offset-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.frame",
+            "parent": "rear-dropping-rail-wheel-frame",
+            "transform": {
+              "position": [0,-0.146,0.719]
+            }
+          },
+          {
+            "id": "rear-rail-axle-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.separate-running-wheel-axle",
+            "parent": "rear-rail-wheel-gauge-offset-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.121],
+              "end": [0,0,0.121],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          },
+          {
+            "id": "rear-rail-tread-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.true-annular-tread-wheel",
+            "parent": "rear-rail-wheel-gauge-offset-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.044],
+                [0,0,0.044]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.136,0],
+                [0.13530223,0.01375889],
+                [0.13321607,0.0273766],
+                [0.12976294,0.04071338],
+                [0.12497826,0.0536324],
+                [0.11891114,0.06600107],
+                [0.11162383,0.07769248],
+                [0.1031911,0.08858666],
+                [0.0936995,0.09857182],
+                [0.08324641,0.1075455],
+                [0.07193911,0.11541562],
+                [0.0598936,0.12210142],
+                [0.04723351,0.12753429],
+                [0.03408874,0.13165849],
+                [0.02059418,0.13443169],
+                [0.00688829,0.13582544],
+                [-0.00688829,0.13582544],
+                [-0.02059418,0.13443169],
+                [-0.03408874,0.13165849],
+                [-0.04723351,0.12753429],
+                [-0.0598936,0.12210142],
+                [-0.07193911,0.11541562],
+                [-0.08324641,0.1075455],
+                [-0.0936995,0.09857182],
+                [-0.1031911,0.08858666],
+                [-0.11162383,0.07769248],
+                [-0.11891114,0.06600107],
+                [-0.12497826,0.0536324],
+                [-0.12976294,0.04071338],
+                [-0.13321607,0.0273766],
+                [-0.13530223,0.01375889],
+                [-0.136,0],
+                [-0.13530223,-0.01375889],
+                [-0.13321607,-0.0273766],
+                [-0.12976294,-0.04071338],
+                [-0.12497826,-0.0536324],
+                [-0.11891114,-0.06600107],
+                [-0.11162383,-0.07769248],
+                [-0.1031911,-0.08858666],
+                [-0.0936995,-0.09857182],
+                [-0.08324641,-0.1075455],
+                [-0.07193911,-0.11541562],
+                [-0.0598936,-0.12210142],
+                [-0.04723351,-0.12753429],
+                [-0.03408874,-0.13165849],
+                [-0.02059418,-0.13443169],
+                [-0.00688829,-0.13582544],
+                [0.00688829,-0.13582544],
+                [0.02059418,-0.13443169],
+                [0.03408874,-0.13165849],
+                [0.04723351,-0.12753429],
+                [0.0598936,-0.12210142],
+                [0.07193911,-0.11541562],
+                [0.08324641,-0.1075455],
+                [0.0936995,-0.09857182],
+                [0.1031911,-0.08858666],
+                [0.11162383,-0.07769248],
+                [0.11891114,-0.06600107],
+                [0.12497826,-0.0536324],
+                [0.12976294,-0.04071338],
+                [0.13321607,-0.0273766],
+                [0.13530223,-0.01375889]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01890252,0.0019222],
+                  [0.01861107,0.00382467],
+                  [0.01812865,0.0056879],
+                  [0.0174602,0.00749276],
+                  [0.01661259,0.00922074],
+                  [0.01559451,0.0108541],
+                  [0.0144164,0.01237608],
+                  [0.01309037,0.01377106],
+                  [0.01163001,0.01502474],
+                  [0.01005032,0.01612424],
+                  [0.00836749,0.01705829],
+                  [0.0065988,0.01781729],
+                  [0.0047624,0.01839347],
+                  [0.00287713,0.0187809],
+                  [0.00096233,0.01897561],
+                  [-0.00096233,0.01897561],
+                  [-0.00287713,0.0187809],
+                  [-0.0047624,0.01839347],
+                  [-0.0065988,0.01781729],
+                  [-0.00836749,0.01705829],
+                  [-0.01005032,0.01612424],
+                  [-0.01163001,0.01502474],
+                  [-0.01309037,0.01377106],
+                  [-0.0144164,0.01237608],
+                  [-0.01559451,0.0108541],
+                  [-0.01661259,0.00922074],
+                  [-0.0174602,0.00749276],
+                  [-0.01812865,0.0056879],
+                  [-0.01861107,0.00382467],
+                  [-0.01890252,0.0019222],
+                  [-0.019,0],
+                  [-0.01890252,-0.0019222],
+                  [-0.01861107,-0.00382467],
+                  [-0.01812865,-0.0056879],
+                  [-0.0174602,-0.00749276],
+                  [-0.01661259,-0.00922074],
+                  [-0.01559451,-0.0108541],
+                  [-0.0144164,-0.01237608],
+                  [-0.01309037,-0.01377106],
+                  [-0.01163001,-0.01502474],
+                  [-0.01005032,-0.01612424],
+                  [-0.00836749,-0.01705829],
+                  [-0.0065988,-0.01781729],
+                  [-0.0047624,-0.01839347],
+                  [-0.00287713,-0.0187809],
+                  [-0.00096233,-0.01897561],
+                  [0.00096233,-0.01897561],
+                  [0.00287713,-0.0187809],
+                  [0.0047624,-0.01839347],
+                  [0.0065988,-0.01781729],
+                  [0.00836749,-0.01705829],
+                  [0.01005032,-0.01612424],
+                  [0.01163001,-0.01502474],
+                  [0.01309037,-0.01377106],
+                  [0.0144164,-0.01237608],
+                  [0.01559451,-0.0108541],
+                  [0.01661259,-0.00922074],
+                  [0.0174602,-0.00749276],
+                  [0.01812865,-0.0056879],
+                  [0.01861107,-0.00382467],
+                  [0.01890252,-0.0019222]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c7d7da"
+            }
+          },
+          {
+            "id": "rear-rail-inner-flange-1",
+            "semanticType": "equipment.modular-road-rail-utility-maintenance-vehicle.projecting-rail-flange",
+            "parent": "rear-rail-wheel-gauge-offset-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.055],
+                [0,0,-0.034999999999999996]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.156,0],
+                [0.15519961,0.01578226],
+                [0.15280667,0.03140257],
+                [0.14884572,0.04670065],
+                [0.14335742,0.06151951],
+                [0.13639807,0.07570711],
+                [0.1280391,0.08911784],
+                [0.11836627,0.10161411],
+                [0.10747884,0.11306767],
+                [0.09548853,0.12336101],
+                [0.08251839,0.1323885],
+                [0.06870149,0.14005751],
+                [0.05417962,0.14628933],
+                [0.0391018,0.15102003],
+                [0.02362273,0.15420106],
+                [0.00790127,0.15579978],
+                [-0.00790127,0.15579978],
+                [-0.02362273,0.15420106],
+                [-0.0391018,0.15102003],
+                [-0.05417962,0.14628933],
+                [-0.06870149,0.14005751],
+                [-0.08251839,0.1323885],
+                [-0.09548853,0.12336101],
+                [-0.10747884,0.11306767],
+                [-0.11836627,0.10161411],
+                [-0.1280391,0.08911784],
+                [-0.13639807,0.07570711],
+                [-0.14335742,0.06151951],
+                [-0.14884572,0.04670065],
+                [-0.15280667,0.03140257],
+                [-0.15519961,0.01578226],
+                [-0.156,0],
+                [-0.15519961,-0.01578226],
+                [-0.15280667,-0.03140257],
+                [-0.14884572,-0.04670065],
+                [-0.14335742,-0.06151951],
+                [-0.13639807,-0.07570711],
+                [-0.1280391,-0.08911784],
+                [-0.11836627,-0.10161411],
+                [-0.10747884,-0.11306767],
+                [-0.09548853,-0.12336101],
+                [-0.08251839,-0.1323885],
+                [-0.06870149,-0.14005751],
+                [-0.05417962,-0.14628933],
+                [-0.0391018,-0.15102003],
+                [-0.02362273,-0.15420106],
+                [-0.00790127,-0.15579978],
+                [0.00790127,-0.15579978],
+                [0.02362273,-0.15420106],
+                [0.0391018,-0.15102003],
+                [0.05417962,-0.14628933],
+                [0.06870149,-0.14005751],
+                [0.08251839,-0.1323885],
+                [0.09548853,-0.12336101],
+                [0.10747884,-0.11306767],
+                [0.11836627,-0.10161411],
+                [0.1280391,-0.08911784],
+                [0.13639807,-0.07570711],
+                [0.14335742,-0.06151951],
+                [0.14884572,-0.04670065],
+                [0.15280667,-0.03140257],
+                [0.15519961,-0.01578226]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01890252,0.0019222],
+                  [0.01861107,0.00382467],
+                  [0.01812865,0.0056879],
+                  [0.0174602,0.00749276],
+                  [0.01661259,0.00922074],
+                  [0.01559451,0.0108541],
+                  [0.0144164,0.01237608],
+                  [0.01309037,0.01377106],
+                  [0.01163001,0.01502474],
+                  [0.01005032,0.01612424],
+                  [0.00836749,0.01705829],
+                  [0.0065988,0.01781729],
+                  [0.0047624,0.01839347],
+                  [0.00287713,0.0187809],
+                  [0.00096233,0.01897561],
+                  [-0.00096233,0.01897561],
+                  [-0.00287713,0.0187809],
+                  [-0.0047624,0.01839347],
+                  [-0.0065988,0.01781729],
+                  [-0.00836749,0.01705829],
+                  [-0.01005032,0.01612424],
+                  [-0.01163001,0.01502474],
+                  [-0.01309037,0.01377106],
+                  [-0.0144164,0.01237608],
+                  [-0.01559451,0.0108541],
+                  [-0.01661259,0.00922074],
+                  [-0.0174602,0.00749276],
+                  [-0.01812865,0.0056879],
+                  [-0.01861107,0.00382467],
+                  [-0.01890252,0.0019222],
+                  [-0.019,0],
+                  [-0.01890252,-0.0019222],
+                  [-0.01861107,-0.00382467],
+                  [-0.01812865,-0.0056879],
+                  [-0.0174602,-0.00749276],
+                  [-0.01661259,-0.00922074],
+                  [-0.01559451,-0.0108541],
+                  [-0.0144164,-0.01237608],
+                  [-0.01309037,-0.01377106],
+                  [-0.01163001,-0.01502474],
+                  [-0.01005032,-0.01612424],
+                  [-0.00836749,-0.01705829],
+                  [-0.0065988,-0.01781729],
+                  [-0.0047624,-0.01839347],
+                  [-0.00287713,-0.0187809],
+                  [-0.00096233,-0.01897561],
+                  [0.00096233,-0.01897561],
+                  [0.00287713,-0.0187809],
+                  [0.0047624,-0.01839347],
+                  [0.0065988,-0.01781729],
+                  [0.00836749,-0.01705829],
+                  [0.01005032,-0.01612424],
+                  [0.01163001,-0.01502474],
+                  [0.01309037,-0.01377106],
+                  [0.0144164,-0.01237608],
+                  [0.01559451,-0.0108541],
+                  [0.01661259,-0.00922074],
+                  [0.0174602,-0.00749276],
+                  [0.01812865,-0.0056879],
+                  [0.01861107,-0.00382467],
+                  [0.01890252,-0.0019222]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#617b88"
+            }
+          }
+        ],
+        "anchors": {
+          "road-contact--1.034--1": {
+            "node": "road-wheel--1.034--1",
+            "position": [0,-0.294,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-road-contact"
+          },
+          "road-contact--1.034-1": {
+            "node": "road-wheel--1.034-1",
+            "position": [0,-0.294,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-road-contact"
+          },
+          "road-contact-1.026--1": {
+            "node": "road-wheel-1.026--1",
+            "position": [0,-0.294,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-road-contact"
+          },
+          "road-contact-1.026-1": {
+            "node": "road-wheel-1.026-1",
+            "position": [0,-0.294,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-road-contact"
+          },
+          "front-rail-cassette": {
+            "position": [-1.369,0.42,0],
+            "direction": [0,-1,0],
+            "kind": "road-rail-axle-cassette-seat"
+          },
+          "rear-rail-cassette": {
+            "position": [1.369,0.42,0],
+            "direction": [0,-1,0],
+            "kind": "road-rail-axle-cassette-seat"
+          },
+          "service-deck": {
+            "position": [0.732,0.671,0],
+            "direction": [0,1,0],
+            "kind": "service-vehicle-load-deck"
+          },
+          "front-rail-contact--1": {
+            "node": "front-rail-wheel-gauge-offset--1",
+            "position": [0,-0.136,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-rail-head-contact"
+          },
+          "front-rail-contact-1": {
+            "node": "front-rail-wheel-gauge-offset-1",
+            "position": [0,-0.136,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-rail-head-contact"
+          },
+          "front-mount": {
+            "node": "front-cassette",
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "road-rail-axle-cassette-seat"
+          },
+          "rear-rail-contact--1": {
+            "node": "rear-rail-wheel-gauge-offset--1",
+            "position": [0,-0.136,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-rail-head-contact"
+          },
+          "rear-rail-contact-1": {
+            "node": "rear-rail-wheel-gauge-offset-1",
+            "position": [0,-0.136,0],
+            "direction": [0,-1,0],
+            "kind": "vehicle-rail-head-contact"
+          },
+          "rear-mount": {
+            "node": "rear-cassette",
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "road-rail-axle-cassette-seat"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "door-swing",
+            "label": "检修车门角度",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 75,
+            "targets": [
+              {
+                "node": "side-cab-door",
+                "property": "rotation",
+                "axis": "y",
+                "factor": -0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "front-rail-lower",
+            "label": "前轨轮桥下移",
+            "unit": "m",
+            "value": 0.105,
+            "min": 0,
+            "max": 0.217,
+            "targets": [
+              {
+                "node": "front-dropping-rail-wheel-frame",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          },
+          {
+            "id": "rear-rail-lower",
+            "label": "后轨轮桥下移",
+            "unit": "m",
+            "value": 0.105,
+            "min": 0,
+            "max": 0.217,
+            "targets": [
+              {
+                "node": "rear-dropping-rail-wheel-frame",
+                "property": "position",
+                "axis": "y",
+                "factor": -1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

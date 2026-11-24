@@ -19,7 +19,7 @@ import { publicRegistryCounts, publicRegistryEntries } from "../apps/shared/regi
 
 test("validates the open digital model registry", async () => {
   const registry = await buildRegistry();
-  assert.deepEqual(registry.counts, { component: 882, method: 13, composition: 28 });
+  assert.deepEqual(registry.counts, { component: 1344, method: 13, composition: 233 });
   assert.equal(new Set(registry.entries.map(entry => entry.id)).size, registry.entries.length);
   assert.ok(registry.entries.every(entry => entry.source.endsWith("manifest.json")));
 });
@@ -27,7 +27,7 @@ test("validates the open digital model registry", async () => {
 test("public model library hides internal experimental character entries", async () => {
   const registry = await buildRegistry();
   const publicEntries = publicRegistryEntries(registry);
-  assert.deepEqual(publicRegistryCounts(publicEntries), { component: 882, method: 11, composition: 24 });
+  assert.deepEqual(publicRegistryCounts(publicEntries), { component: 1344, method: 11, composition: 229 });
   assert.equal(publicEntries.some(entry => entry.id.startsWith("character.")), false);
 });
 

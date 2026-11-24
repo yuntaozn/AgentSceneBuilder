@@ -1,6 +1,6 @@
 ---
 name: agentscene-builder
-description: Build and inspect renderer-neutral parametric digital models for AI-authored 3D, engineering, teaching, and equipment scenes. Use when Codex needs CompositionSpec modeling, reusable geometry composition, dimensions and quantities, paths, spatial repetition, alignment proposals, attachment checks, semantic components, open model-library entries, CLI-based validation, or optional renderer/file-format adaptation.
+description: Give LLM-powered Agents structured tools to find, build, inspect, and validate renderer-neutral 3D models. Use when Codex needs CompositionSpec, reusable geometry, semantic components, dimensions, paths, repetition, alignment, attachments, or machine-readable CLI diagnostics for engineering, teaching, and equipment scenes.
 ---
 
 # AgentSceneBuilder Plugin Skill

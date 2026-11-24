@@ -1,0 +1,1452 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.lever-type-dial-test-indicator",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "杠杆式指针千分比较表",
+  "summary": "表壳、真实表圈、独立指针转轴、细分刻线、可拨杠杆探针与后装燕尾槽。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.lever-type-dial-test-indicator",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "杠杆表",
+    "指针表",
+    "dial-test-indicator",
+    "stylus",
+    "计量",
+    "instrument"
+  ],
+  "anchors": [
+    "probe-tip",
+    "indicator-mount",
+    "dial-view"
+  ],
+  "ai": {
+    "intent": "用于装配找正和比较测量，提供杠杆触点、读数表面和背部夹持位置。",
+    "editableParts": [
+      "stylus-deflection"
+    ],
+    "qualityChecks": [
+      "触点随探针摆动。",
+      "指针按同一示意控制反向偏转。",
+      "表壳和安装座保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "lever-type-dial-test-indicator",
+      "title": "杠杆式指针千分比较表",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "dial",
+            "semanticType": "instrument.lever-type-dial-test-indicator.frame",
+            "transform": {
+              "position": [0,0.041,0]
+            }
+          },
+          {
+            "id": "back-shell",
+            "semanticType": "instrument.lever-type-dial-test-indicator.dial-back",
+            "parent": "dial",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.012],
+                [0,0,0.002]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.026,0],
+                [0.02550042,0.00507235],
+                [0.02402087,0.00994977],
+                [0.02161821,0.01444483],
+                [0.01838478,0.01838478],
+                [0.01444483,0.02161821],
+                [0.00994977,0.02402087],
+                [0.00507235,0.02550042],
+                [0,0.026],
+                [-0.00507235,0.02550042],
+                [-0.00994977,0.02402087],
+                [-0.01444483,0.02161821],
+                [-0.01838478,0.01838478],
+                [-0.02161821,0.01444483],
+                [-0.02402087,0.00994977],
+                [-0.02550042,0.00507235],
+                [-0.026,0],
+                [-0.02550042,-0.00507235],
+                [-0.02402087,-0.00994977],
+                [-0.02161821,-0.01444483],
+                [-0.01838478,-0.01838478],
+                [-0.01444483,-0.02161821],
+                [-0.00994977,-0.02402087],
+                [-0.00507235,-0.02550042],
+                [0,-0.026],
+                [0.00507235,-0.02550042],
+                [0.00994977,-0.02402087],
+                [0.01444483,-0.02161821],
+                [0.01838478,-0.01838478],
+                [0.02161821,-0.01444483],
+                [0.02402087,-0.00994977],
+                [0.02550042,-0.00507235]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#46555d"
+            }
+          },
+          {
+            "id": "front-bezel",
+            "semanticType": "instrument.lever-type-dial-test-indicator.dial-bezel",
+            "parent": "dial",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.001],
+                [0,0,0.009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.029,0],
+                [0.0287519,0.00378526],
+                [0.02801185,0.00750575],
+                [0.02679251,0.01109782],
+                [0.02511474,0.0145],
+                [0.02300725,0.01765408],
+                [0.0205061,0.0205061],
+                [0.01765408,0.02300725],
+                [0.0145,0.02511474],
+                [0.01109782,0.02679251],
+                [0.00750575,0.02801185],
+                [0.00378526,0.0287519],
+                [0,0.029],
+                [-0.00378526,0.0287519],
+                [-0.00750575,0.02801185],
+                [-0.01109782,0.02679251],
+                [-0.0145,0.02511474],
+                [-0.01765408,0.02300725],
+                [-0.0205061,0.0205061],
+                [-0.02300725,0.01765408],
+                [-0.02511474,0.0145],
+                [-0.02679251,0.01109782],
+                [-0.02801185,0.00750575],
+                [-0.0287519,0.00378526],
+                [-0.029,0],
+                [-0.0287519,-0.00378526],
+                [-0.02801185,-0.00750575],
+                [-0.02679251,-0.01109782],
+                [-0.02511474,-0.0145],
+                [-0.02300725,-0.01765408],
+                [-0.0205061,-0.0205061],
+                [-0.01765408,-0.02300725],
+                [-0.0145,-0.02511474],
+                [-0.01109782,-0.02679251],
+                [-0.00750575,-0.02801185],
+                [-0.00378526,-0.0287519],
+                [0,-0.029],
+                [0.00378526,-0.0287519],
+                [0.00750575,-0.02801185],
+                [0.01109782,-0.02679251],
+                [0.0145,-0.02511474],
+                [0.01765408,-0.02300725],
+                [0.0205061,-0.0205061],
+                [0.02300725,-0.01765408],
+                [0.02511474,-0.0145],
+                [0.02679251,-0.01109782],
+                [0.02801185,-0.00750575],
+                [0.0287519,-0.00378526]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.025,0],
+                  [0.02478612,0.00326315],
+                  [0.02414815,0.00647048],
+                  [0.02309699,0.00956709],
+                  [0.02165064,0.0125],
+                  [0.01983383,0.01521904],
+                  [0.01767767,0.01767767],
+                  [0.01521904,0.01983383],
+                  [0.0125,0.02165064],
+                  [0.00956709,0.02309699],
+                  [0.00647048,0.02414815],
+                  [0.00326315,0.02478612],
+                  [0,0.025],
+                  [-0.00326315,0.02478612],
+                  [-0.00647048,0.02414815],
+                  [-0.00956709,0.02309699],
+                  [-0.0125,0.02165064],
+                  [-0.01521904,0.01983383],
+                  [-0.01767767,0.01767767],
+                  [-0.01983383,0.01521904],
+                  [-0.02165064,0.0125],
+                  [-0.02309699,0.00956709],
+                  [-0.02414815,0.00647048],
+                  [-0.02478612,0.00326315],
+                  [-0.025,0],
+                  [-0.02478612,-0.00326315],
+                  [-0.02414815,-0.00647048],
+                  [-0.02309699,-0.00956709],
+                  [-0.02165064,-0.0125],
+                  [-0.01983383,-0.01521904],
+                  [-0.01767767,-0.01767767],
+                  [-0.01521904,-0.01983383],
+                  [-0.0125,-0.02165064],
+                  [-0.00956709,-0.02309699],
+                  [-0.00647048,-0.02414815],
+                  [-0.00326315,-0.02478612],
+                  [0,-0.025],
+                  [0.00326315,-0.02478612],
+                  [0.00647048,-0.02414815],
+                  [0.00956709,-0.02309699],
+                  [0.0125,-0.02165064],
+                  [0.01521904,-0.01983383],
+                  [0.01767767,-0.01767767],
+                  [0.01983383,-0.01521904],
+                  [0.02165064,-0.0125],
+                  [0.02309699,-0.00956709],
+                  [0.02414815,-0.00647048],
+                  [0.02478612,-0.00326315]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            }
+          },
+          {
+            "id": "dial-face",
+            "semanticType": "instrument.lever-type-dial-test-indicator.dial-face",
+            "parent": "dial",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.002],
+                [0,0,0.003]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.025,0],
+                [0.02451963,0.00487726],
+                [0.02309699,0.00956709],
+                [0.02078674,0.01388926],
+                [0.01767767,0.01767767],
+                [0.01388926,0.02078674],
+                [0.00956709,0.02309699],
+                [0.00487726,0.02451963],
+                [0,0.025],
+                [-0.00487726,0.02451963],
+                [-0.00956709,0.02309699],
+                [-0.01388926,0.02078674],
+                [-0.01767767,0.01767767],
+                [-0.02078674,0.01388926],
+                [-0.02309699,0.00956709],
+                [-0.02451963,0.00487726],
+                [-0.025,0],
+                [-0.02451963,-0.00487726],
+                [-0.02309699,-0.00956709],
+                [-0.02078674,-0.01388926],
+                [-0.01767767,-0.01767767],
+                [-0.01388926,-0.02078674],
+                [-0.00956709,-0.02309699],
+                [-0.00487726,-0.02451963],
+                [0,-0.025],
+                [0.00487726,-0.02451963],
+                [0.00956709,-0.02309699],
+                [0.01388926,-0.02078674],
+                [0.01767767,-0.01767767],
+                [0.02078674,-0.01388926],
+                [0.02309699,-0.00956709],
+                [0.02451963,-0.00487726]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#e5edf0"
+            }
+          },
+          {
+            "id": "tick-0",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.0207,0,0.0033],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "tick-1",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.02187948169810201,0.002299626191888376,0.0033],
+              "rotation": [0,0,0.10471975511965978]
+            }
+          },
+          {
+            "id": "tick-2",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.021519247216143723,0.004574057197990705,0.0033],
+              "rotation": [0,0,0.20943951023931956]
+            }
+          },
+          {
+            "id": "tick-3",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.020923243358493375,0.0067983738762488425,0.0033],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "tick-4",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.02009800006813722,0.008948206147667604,0.0033],
+              "rotation": [0,0,0.4188790204786391]
+            }
+          },
+          {
+            "id": "tick-5",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.01792672585833788,0.010349999999999998,0.0033],
+              "rotation": [0,0,0.5235987755982988]
+            }
+          },
+          {
+            "id": "tick-6",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.017798373876248844,0.012931275550434409,0.0033],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "tick-7",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.016349186160502672,0.01472087333989488,0.0033],
+              "rotation": [0,0,0.7330382858376184]
+            }
+          },
+          {
+            "id": "tick-8",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.01472087333989488,0.016349186160502672,0.0033],
+              "rotation": [0,0,0.8377580409572782]
+            }
+          },
+          {
+            "id": "tick-9",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.012931275550434409,0.017798373876248844,0.0033],
+              "rotation": [0,0,0.9424777960769379]
+            }
+          },
+          {
+            "id": "tick-10",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.010350000000000002,0.017926725858337877,0.0033],
+              "rotation": [0,0,1.0471975511965976]
+            }
+          },
+          {
+            "id": "tick-11",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.008948206147667604,0.02009800006813722,0.0033],
+              "rotation": [0,0,1.1519173063162575]
+            }
+          },
+          {
+            "id": "tick-12",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.006798373876248843,0.020923243358493375,0.0033],
+              "rotation": [0,0,1.2566370614359172]
+            }
+          },
+          {
+            "id": "tick-13",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.0045740571979907075,0.021519247216143723,0.0033],
+              "rotation": [0,0,1.361356816555577]
+            }
+          },
+          {
+            "id": "tick-14",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.0022996261918883758,0.02187948169810201,0.0033],
+              "rotation": [0,0,1.4660765716752369]
+            }
+          },
+          {
+            "id": "tick-15",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [1.2675094371175106e-18,0.0207,0.0033],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "tick-16",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.002299626191888378,0.02187948169810201,0.0033],
+              "rotation": [0,0,1.6755160819145565]
+            }
+          },
+          {
+            "id": "tick-17",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.004574057197990705,0.021519247216143723,0.0033],
+              "rotation": [0,0,1.7802358370342162]
+            }
+          },
+          {
+            "id": "tick-18",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.006798373876248841,0.02092324335849338,0.0033],
+              "rotation": [0,0,1.8849555921538759]
+            }
+          },
+          {
+            "id": "tick-19",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.008948206147667606,0.02009800006813722,0.0033],
+              "rotation": [0,0,1.9896753472735358]
+            }
+          },
+          {
+            "id": "tick-20",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.010349999999999995,0.01792672585833788,0.0033],
+              "rotation": [0,0,2.0943951023931953]
+            }
+          },
+          {
+            "id": "tick-21",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.012931275550434405,0.017798373876248844,0.0033],
+              "rotation": [0,0,2.199114857512855]
+            }
+          },
+          {
+            "id": "tick-22",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.01472087333989488,0.016349186160502672,0.0033],
+              "rotation": [0,0,2.303834612632515]
+            }
+          },
+          {
+            "id": "tick-23",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.01634918616050267,0.014720873339894882,0.0033],
+              "rotation": [0,0,2.4085543677521746]
+            }
+          },
+          {
+            "id": "tick-24",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.01779837387624884,0.01293127555043441,0.0033],
+              "rotation": [0,0,2.5132741228718345]
+            }
+          },
+          {
+            "id": "tick-25",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.01792672585833788,0.010349999999999998,0.0033],
+              "rotation": [0,0,2.6179938779914944]
+            }
+          },
+          {
+            "id": "tick-26",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.020098000068137216,0.00894820614766761,0.0033],
+              "rotation": [0,0,2.722713633111154]
+            }
+          },
+          {
+            "id": "tick-27",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.020923243358493375,0.006798373876248845,0.0033],
+              "rotation": [0,0,2.827433388230814]
+            }
+          },
+          {
+            "id": "tick-28",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.021519247216143723,0.004574057197990705,0.0033],
+              "rotation": [0,0,2.9321531433504737]
+            }
+          },
+          {
+            "id": "tick-29",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.02187948169810201,0.002299626191888382,0.0033],
+              "rotation": [0,0,3.036872898470133]
+            }
+          },
+          {
+            "id": "tick-30",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.0207,2.5350188742350212e-18,0.0033],
+              "rotation": [0,0,3.141592653589793]
+            }
+          },
+          {
+            "id": "tick-31",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.02187948169810201,-0.0022996261918883766,0.0033],
+              "rotation": [0,0,3.246312408709453]
+            }
+          },
+          {
+            "id": "tick-32",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.021519247216143723,-0.004574057197990709,0.0033],
+              "rotation": [0,0,3.351032163829113]
+            }
+          },
+          {
+            "id": "tick-33",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.02092324335849338,-0.00679837387624884,0.0033],
+              "rotation": [0,0,3.4557519189487724]
+            }
+          },
+          {
+            "id": "tick-34",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.02009800006813722,-0.008948206147667604,0.0033],
+              "rotation": [0,0,3.5604716740684323]
+            }
+          },
+          {
+            "id": "tick-35",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.017926725858337877,-0.010350000000000002,0.0033],
+              "rotation": [0,0,3.6651914291880923]
+            }
+          },
+          {
+            "id": "tick-36",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.017798373876248844,-0.012931275550434405,0.0033],
+              "rotation": [0,0,3.7699111843077517]
+            }
+          },
+          {
+            "id": "tick-37",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.016349186160502672,-0.01472087333989488,0.0033],
+              "rotation": [0,0,3.8746309394274117]
+            }
+          },
+          {
+            "id": "tick-38",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.014720873339894879,-0.016349186160502675,0.0033],
+              "rotation": [0,0,3.9793506945470716]
+            }
+          },
+          {
+            "id": "tick-39",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.01293127555043441,-0.01779837387624884,0.0033],
+              "rotation": [0,0,4.084070449666731]
+            }
+          },
+          {
+            "id": "tick-40",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.010350000000000008,-0.017926725858337877,0.0033],
+              "rotation": [0,0,4.1887902047863905]
+            }
+          },
+          {
+            "id": "tick-41",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.008948206147667602,-0.02009800006813722,0.0033],
+              "rotation": [0,0,4.293509959906051]
+            }
+          },
+          {
+            "id": "tick-42",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.006798373876248846,-0.020923243358493375,0.0033],
+              "rotation": [0,0,4.39822971502571]
+            }
+          },
+          {
+            "id": "tick-43",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.004574057197990715,-0.021519247216143723,0.0033],
+              "rotation": [0,0,4.50294947014537]
+            }
+          },
+          {
+            "id": "tick-44",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-0.0022996261918883736,-0.021879481698102013,0.0033],
+              "rotation": [0,0,4.60766922526503]
+            }
+          },
+          {
+            "id": "tick-45",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [-3.8025283113525315e-18,-0.0207,0.0033],
+              "rotation": [0,0,4.71238898038469]
+            }
+          },
+          {
+            "id": "tick-46",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.0022996261918883654,-0.021879481698102013,0.0033],
+              "rotation": [0,0,4.817108735504349]
+            }
+          },
+          {
+            "id": "tick-47",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.0045740571979907075,-0.021519247216143723,0.0033],
+              "rotation": [0,0,4.9218284906240095]
+            }
+          },
+          {
+            "id": "tick-48",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.006798373876248839,-0.02092324335849338,0.0033],
+              "rotation": [0,0,5.026548245743669]
+            }
+          },
+          {
+            "id": "tick-49",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.008948206147667594,-0.020098000068137223,0.0033],
+              "rotation": [0,0,5.1312680008633285]
+            }
+          },
+          {
+            "id": "tick-50",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.010350000000000002,-0.017926725858337877,0.0033],
+              "rotation": [0,0,5.235987755982989]
+            }
+          },
+          {
+            "id": "tick-51",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.012931275550434404,-0.017798373876248847,0.0033],
+              "rotation": [0,0,5.340707511102648]
+            }
+          },
+          {
+            "id": "tick-52",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.01472087333989487,-0.01634918616050268,0.0033],
+              "rotation": [0,0,5.445427266222308]
+            }
+          },
+          {
+            "id": "tick-53",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.016349186160502672,-0.014720873339894879,0.0033],
+              "rotation": [0,0,5.550147021341968]
+            }
+          },
+          {
+            "id": "tick-54",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.01779837387624884,-0.012931275550434412,0.0033],
+              "rotation": [0,0,5.654866776461628]
+            }
+          },
+          {
+            "id": "tick-55",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0059,0.0008,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.017926725858337874,-0.010350000000000008,0.0033],
+              "rotation": [0,0,5.759586531581287]
+            }
+          },
+          {
+            "id": "tick-56",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.02009800006813722,-0.008948206147667602,0.0033],
+              "rotation": [0,0,5.8643062867009474]
+            }
+          },
+          {
+            "id": "tick-57",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.020923243358493375,-0.006798373876248847,0.0033],
+              "rotation": [0,0,5.969026041820607]
+            }
+          },
+          {
+            "id": "tick-58",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.021519247216143723,-0.004574057197990717,0.0033],
+              "rotation": [0,0,6.073745796940266]
+            }
+          },
+          {
+            "id": "tick-59",
+            "semanticType": "instrument.lever-type-dial-test-indicator.graduation",
+            "parent": "dial",
+            "geometry": {
+              "type": "box",
+              "size": [0.0032,0.0004,0.0005]
+            },
+            "appearance": {
+              "color": "#46555d"
+            },
+            "transform": {
+              "position": [0.02187948169810201,-0.002299626191888375,0.0033],
+              "rotation": [0,0,6.178465552059927]
+            }
+          },
+          {
+            "id": "needle",
+            "semanticType": "instrument.lever-type-dial-test-indicator.frame",
+            "parent": "dial",
+            "transform": {
+              "position": [0,0,0.005],
+              "rotation": [0,0,1.5707963267948966]
+            }
+          },
+          {
+            "id": "pointer",
+            "semanticType": "instrument.lever-type-dial-test-indicator.dial-pointer",
+            "parent": "needle",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.001]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.007,-0.0015],
+                [-0.004,-0.0029],
+                [0.017,-0.0009],
+                [0.022,0],
+                [0.017,0.0009],
+                [-0.004,0.0029]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#c26a4a"
+            }
+          },
+          {
+            "id": "pointer-cap",
+            "semanticType": "instrument.lever-type-dial-test-indicator.dial-axle-hub",
+            "parent": "needle",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.001],
+                [0,0,0.0025]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.0034,0],
+                [0.00328415,0.00087998],
+                [0.00294449,0.0017],
+                [0.00240416,0.00240416],
+                [0.0017,0.00294449],
+                [0.00087998,0.00328415],
+                [0,0.0034],
+                [-0.00087998,0.00328415],
+                [-0.0017,0.00294449],
+                [-0.00240416,0.00240416],
+                [-0.00294449,0.0017],
+                [-0.00328415,0.00087998],
+                [-0.0034,0],
+                [-0.00328415,-0.00087998],
+                [-0.00294449,-0.0017],
+                [-0.00240416,-0.00240416],
+                [-0.0017,-0.00294449],
+                [-0.00087998,-0.00328415],
+                [0,-0.0034],
+                [0.00087998,-0.00328415],
+                [0.0017,-0.00294449],
+                [0.00240416,-0.00240416],
+                [0.00294449,-0.0017],
+                [0.00328415,-0.00087998]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#637985"
+            }
+          },
+          {
+            "id": "indicator-tail",
+            "semanticType": "instrument.lever-type-dial-test-indicator.stylus-body",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,0.056,0.02]
+            },
+            "appearance": {
+              "color": "#59a1a5"
+            },
+            "transform": {
+              "position": [0,-0.004,-0.003]
+            }
+          },
+          {
+            "id": "rear-dovetail",
+            "semanticType": "instrument.lever-type-dial-test-indicator.mount-slide",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.023],
+                [0,0,-0.013]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.008,0.01],
+                [0.008,0.01],
+                [0.012,0.016],
+                [0.009,0.024],
+                [-0.009,0.024],
+                [-0.012,0.016]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            }
+          },
+          {
+            "id": "stylus",
+            "semanticType": "instrument.lever-type-dial-test-indicator.frame",
+            "transform": {
+              "position": [0,-0.03,-0.001],
+              "rotation": [0,0,0.3141592653589793]
+            }
+          },
+          {
+            "id": "stylus-pin",
+            "semanticType": "instrument.lever-type-dial-test-indicator.probe-pivot",
+            "parent": "stylus",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.012],
+              "end": [0,0,0.012],
+              "radius": 0.0055,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            }
+          },
+          {
+            "id": "stylus-arm",
+            "semanticType": "instrument.lever-type-dial-test-indicator.tapered-stylus",
+            "parent": "stylus",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,0],
+              "end": [0.033,-0.017,0],
+              "startRadius": 0.0045,
+              "endRadius": 0.0018,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#a8bac6"
+            }
+          },
+          {
+            "id": "ruby-ball",
+            "semanticType": "instrument.lever-type-dial-test-indicator.contact-ball",
+            "parent": "stylus",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0031,
+              "segments": 16
+            },
+            "appearance": {
+              "color": "#c67355"
+            },
+            "transform": {
+              "position": [0.033,-0.017,0]
+            }
+          }
+        ],
+        "anchors": {
+          "probe-tip": {
+            "node": "ruby-ball",
+            "position": [0,-0.0031,0],
+            "direction": [0,-1,0],
+            "kind": "contact"
+          },
+          "indicator-mount": {
+            "node": "rear-dovetail",
+            "position": [0,0.017,-0.023],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          },
+          "dial-view": {
+            "node": "dial",
+            "position": [0,0,0.01],
+            "direction": [0,0,1],
+            "kind": "reference"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "stylus-deflection",
+            "label": "探针角度偏移",
+            "unit": "deg",
+            "value": 0,
+            "min": -7,
+            "max": 7,
+            "targets": [
+              {
+                "node": "stylus",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "needle",
+                "property": "rotation",
+                "axis": "z",
+                "factor": -0.3490658503988659
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

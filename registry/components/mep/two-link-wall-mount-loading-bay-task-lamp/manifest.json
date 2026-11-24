@@ -1,0 +1,557 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mep.two-link-wall-mount-loading-bay-task-lamp",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "壁装双摇臂月台工作灯",
+  "summary": "带贯穿安装孔、两段独立摇臂、灯头俯仰、透明出光面及照明方向锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "月台工作灯",
+    "折臂照明",
+    "articulated-task-lamp",
+    "lamp",
+    "装卸设备",
+    "loading-dock"
+  ],
+  "anchors": [
+    "wall",
+    "light-axis"
+  ],
+  "ai": {
+    "intent": "用于月台、检修工位等侧墙照明，按灯具各轴布置工作范围和出光方向。",
+    "editableParts": [
+      "wall-yaw",
+      "elbow-yaw",
+      "head-pitch"
+    ],
+    "qualityChecks": [
+      "底板可独立定位。",
+      "两级摇臂改变出光位置。",
+      "灯头可以在外臂上单独调节俯仰。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-link-wall-mount-loading-bay-task-lamp",
+      "title": "壁装双摇臂月台工作灯",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "wall-plate",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.wall-mount-plate",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0,0.018]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.054,-0.107],
+                [0.054,-0.107],
+                [0.076,-0.08499999999999999],
+                [0.076,0.08499999999999999],
+                [0.054,0.107],
+                [-0.054,0.107],
+                [-0.076,0.08499999999999999],
+                [-0.076,-0.08499999999999999]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.036,-0.071],
+                  [-0.03621041,-0.06906527],
+                  [-0.03683182,-0.067221],
+                  [-0.03783516,-0.06555343],
+                  [-0.03917352,-0.06414054],
+                  [-0.04078432,-0.06304839],
+                  [-0.04259224,-0.06232805],
+                  [-0.04451275,-0.0620132],
+                  [-0.04645604,-0.06211856],
+                  [-0.04833124,-0.06263921],
+                  [-0.05005068,-0.0635508],
+                  [-0.05153396,-0.0648107],
+                  [-0.05271171,-0.06636002],
+                  [-0.05352888,-0.06812629],
+                  [-0.05394724,-0.07002693],
+                  [-0.05394724,-0.07197307],
+                  [-0.05352888,-0.07387371],
+                  [-0.05271171,-0.07563998],
+                  [-0.05153396,-0.0771893],
+                  [-0.05005068,-0.0784492],
+                  [-0.04833124,-0.07936079],
+                  [-0.04645604,-0.07988144],
+                  [-0.04451275,-0.0799868],
+                  [-0.04259224,-0.07967195],
+                  [-0.04078432,-0.07895161],
+                  [-0.03917352,-0.07785946],
+                  [-0.03783516,-0.07644657],
+                  [-0.03683182,-0.074779],
+                  [-0.03621041,-0.07293473]
+                ],
+                [
+                  [-0.036,0.071],
+                  [-0.03621041,0.07293473],
+                  [-0.03683182,0.074779],
+                  [-0.03783516,0.07644657],
+                  [-0.03917352,0.07785946],
+                  [-0.04078432,0.07895161],
+                  [-0.04259224,0.07967195],
+                  [-0.04451275,0.0799868],
+                  [-0.04645604,0.07988144],
+                  [-0.04833124,0.07936079],
+                  [-0.05005068,0.0784492],
+                  [-0.05153396,0.0771893],
+                  [-0.05271171,0.07563998],
+                  [-0.05352888,0.07387371],
+                  [-0.05394724,0.07197307],
+                  [-0.05394724,0.07002693],
+                  [-0.05352888,0.06812629],
+                  [-0.05271171,0.06636002],
+                  [-0.05153396,0.0648107],
+                  [-0.05005068,0.0635508],
+                  [-0.04833124,0.06263921],
+                  [-0.04645604,0.06211856],
+                  [-0.04451275,0.0620132],
+                  [-0.04259224,0.06232805],
+                  [-0.04078432,0.06304839],
+                  [-0.03917352,0.06414054],
+                  [-0.03783516,0.06555343],
+                  [-0.03683182,0.067221],
+                  [-0.03621041,0.06906527]
+                ],
+                [
+                  [0.054,-0.071],
+                  [0.05378959,-0.06906527],
+                  [0.05316818,-0.067221],
+                  [0.05216484,-0.06555343],
+                  [0.05082648,-0.06414054],
+                  [0.04921568,-0.06304839],
+                  [0.04740776,-0.06232805],
+                  [0.04548725,-0.0620132],
+                  [0.04354396,-0.06211856],
+                  [0.04166876,-0.06263921],
+                  [0.03994932,-0.0635508],
+                  [0.03846604,-0.0648107],
+                  [0.03728829,-0.06636002],
+                  [0.03647112,-0.06812629],
+                  [0.03605276,-0.07002693],
+                  [0.03605276,-0.07197307],
+                  [0.03647112,-0.07387371],
+                  [0.03728829,-0.07563998],
+                  [0.03846604,-0.0771893],
+                  [0.03994932,-0.0784492],
+                  [0.04166876,-0.07936079],
+                  [0.04354396,-0.07988144],
+                  [0.04548725,-0.0799868],
+                  [0.04740776,-0.07967195],
+                  [0.04921568,-0.07895161],
+                  [0.05082648,-0.07785946],
+                  [0.05216484,-0.07644657],
+                  [0.05316818,-0.074779],
+                  [0.05378959,-0.07293473]
+                ],
+                [
+                  [0.054,0.071],
+                  [0.05378959,0.07293473],
+                  [0.05316818,0.074779],
+                  [0.05216484,0.07644657],
+                  [0.05082648,0.07785946],
+                  [0.04921568,0.07895161],
+                  [0.04740776,0.07967195],
+                  [0.04548725,0.0799868],
+                  [0.04354396,0.07988144],
+                  [0.04166876,0.07936079],
+                  [0.03994932,0.0784492],
+                  [0.03846604,0.0771893],
+                  [0.03728829,0.07563998],
+                  [0.03647112,0.07387371],
+                  [0.03605276,0.07197307],
+                  [0.03605276,0.07002693],
+                  [0.03647112,0.06812629],
+                  [0.03728829,0.06636002],
+                  [0.03846604,0.0648107],
+                  [0.03994932,0.0635508],
+                  [0.04166876,0.06263921],
+                  [0.04354396,0.06211856],
+                  [0.04548725,0.0620132],
+                  [0.04740776,0.06232805],
+                  [0.04921568,0.06304839],
+                  [0.05082648,0.06414054],
+                  [0.05216484,0.06555343],
+                  [0.05316818,0.067221],
+                  [0.05378959,0.06906527]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#99b3bf"
+            }
+          },
+          {
+            "id": "bracket",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.wall-hinge-base",
+            "geometry": {
+              "type": "box",
+              "size": [0.075,0.118,0.088]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [0,0,0.058]
+            }
+          },
+          {
+            "id": "primary",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.frame",
+            "transform": {
+              "position": [0,0,0.087]
+            }
+          },
+          {
+            "id": "base-hinge",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.primary-yaw-joint",
+            "parent": "primary",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.058,0],
+              "end": [0,0.058,0],
+              "radius": 0.028,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#82b9c5"
+            }
+          },
+          {
+            "id": "outer-rib--1",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.box-arm-side-rib",
+            "parent": "primary",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.044,0.326]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [-0.026,0.001,0.165]
+            }
+          },
+          {
+            "id": "outer-rib-1",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.box-arm-side-rib",
+            "parent": "primary",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.044,0.326]
+            },
+            "appearance": {
+              "color": "#a7beca"
+            },
+            "transform": {
+              "position": [0.026,0.001,0.165]
+            }
+          },
+          {
+            "id": "arm-spine",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.box-arm-center-web",
+            "parent": "primary",
+            "geometry": {
+              "type": "box",
+              "size": [0.038,0.034,0.326]
+            },
+            "appearance": {
+              "color": "#eab54d"
+            },
+            "transform": {
+              "position": [0,0,0.165]
+            }
+          },
+          {
+            "id": "elbow",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.frame",
+            "parent": "primary",
+            "transform": {
+              "position": [0,0,0.339]
+            }
+          },
+          {
+            "id": "elbow-pin",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.secondary-yaw-joint",
+            "parent": "elbow",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.048,0],
+              "end": [0,0.052,0],
+              "radius": 0.028,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#82b9c5"
+            }
+          },
+          {
+            "id": "second-arm",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.secondary-box-arm",
+            "parent": "elbow",
+            "geometry": {
+              "type": "box",
+              "size": [0.06,0.042,0.266]
+            },
+            "appearance": {
+              "color": "#eab54d"
+            },
+            "transform": {
+              "position": [0,0,0.141]
+            }
+          },
+          {
+            "id": "protected-wiring",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.arm-wiring-loop",
+            "parent": "elbow",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.037,-0.013,0.013],
+                [0.055,-0.045,0.069],
+                [0.046,-0.045,0.193],
+                [0.04,-0.018,0.264]
+              ],
+              "radius": 0.0065,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#4b616d"
+            }
+          },
+          {
+            "id": "head",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.frame",
+            "parent": "elbow",
+            "transform": {
+              "position": [0,0,0.288]
+            }
+          },
+          {
+            "id": "pitch-pin",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.lamp-head-pitch-pin",
+            "parent": "head",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.072,0,0],
+              "end": [0.072,0,0],
+              "radius": 0.019,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a7beca"
+            }
+          },
+          {
+            "id": "head-body",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.weather-resistant-lamp-housing",
+            "parent": "head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.038,0],
+                [0,0.047,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.097,-0.072],
+                [-0.097,-0.072],
+                [-0.119,-0.049999999999999996],
+                [-0.119,0.11000000000000001],
+                [-0.097,0.132],
+                [0.097,0.132],
+                [0.119,0.11000000000000001],
+                [0.119,-0.049999999999999996]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#82b9c5"
+            }
+          },
+          {
+            "id": "lens",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.wide-task-lamp-lens",
+            "parent": "head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.047,0],
+                [0,-0.037,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.072,-0.047],
+                [-0.072,-0.047],
+                [-0.091,-0.028],
+                [-0.091,0.08499999999999999],
+                [-0.072,0.104],
+                [0.072,0.104],
+                [0.091,0.08499999999999999],
+                [0.091,-0.028]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#cedfe3"
+            }
+          },
+          {
+            "id": "emitter--0.065",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.led-optic-strip",
+            "parent": "head",
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.003,0.098]
+            },
+            "appearance": {
+              "color": "#eac374"
+            },
+            "transform": {
+              "position": [-0.065,-0.047,0.026]
+            }
+          },
+          {
+            "id": "emitter--0.033",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.led-optic-strip",
+            "parent": "head",
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.003,0.098]
+            },
+            "appearance": {
+              "color": "#eac374"
+            },
+            "transform": {
+              "position": [-0.033,-0.047,0.026]
+            }
+          },
+          {
+            "id": "emitter-0",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.led-optic-strip",
+            "parent": "head",
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.003,0.098]
+            },
+            "appearance": {
+              "color": "#eac374"
+            },
+            "transform": {
+              "position": [0,-0.047,0.026]
+            }
+          },
+          {
+            "id": "emitter-0.033",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.led-optic-strip",
+            "parent": "head",
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.003,0.098]
+            },
+            "appearance": {
+              "color": "#eac374"
+            },
+            "transform": {
+              "position": [0.033,-0.047,0.026]
+            }
+          },
+          {
+            "id": "emitter-0.065",
+            "semanticType": "mep.two-link-wall-mount-loading-bay-task-lamp.led-optic-strip",
+            "parent": "head",
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.003,0.098]
+            },
+            "appearance": {
+              "color": "#eac374"
+            },
+            "transform": {
+              "position": [0.065,-0.047,0.026]
+            }
+          }
+        ],
+        "anchors": {
+          "wall": {
+            "node": "wall-plate",
+            "position": [0,0,0],
+            "direction": [0,0,-1],
+            "kind": "mount"
+          },
+          "light-axis": {
+            "node": "lens",
+            "position": [0,-0.047,0.027],
+            "direction": [0,-1,0],
+            "kind": "optical"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "wall-yaw",
+            "label": "壁座摇臂转角",
+            "unit": "deg",
+            "value": 0,
+            "min": -93,
+            "max": 93,
+            "targets": [
+              {
+                "node": "primary",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "elbow-yaw",
+            "label": "外臂折叠角",
+            "unit": "deg",
+            "value": 28,
+            "min": -118,
+            "max": 118,
+            "targets": [
+              {
+                "node": "elbow",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "head-pitch",
+            "label": "灯头俯仰角",
+            "unit": "deg",
+            "value": -24,
+            "min": -73,
+            "max": 48,
+            "targets": [
+              {
+                "node": "head",
+                "property": "rotation",
+                "axis": "x",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

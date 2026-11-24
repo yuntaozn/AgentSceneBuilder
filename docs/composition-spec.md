@@ -124,6 +124,46 @@ anchor 可以使用 `node` 绑定到节点，其位置和方向会继承完整�
 - `feature` 使用 `name` 选择楼梯、坡道、楼板、墙体或栏杆的特征点。特征点随模型尺寸更新。
 - 这些锚点均继承所属节点和实例的变换。构建结果提供实际坐标，源稿保留 `onGeometry`，便于继续编辑。
 
+## 可编辑的设备姿态
+
+`parameters.poseControls` 可把一个标量映射到一个或多个节点的局部平移、旋转分量。每项声明唯一 `id`、当前 `value`、闭区间 `min` / `max` 和 `targets`，并可声明 `label` 与 `unit`。目标由 `node`、`property`（`position` 或 `rotation`）和 `axis`（`x`、`y` 或 `z`）指定。
+
+```json
+{
+  "id": "fork-spacing",
+  "label": "货叉中心距",
+  "unit": "m",
+  "value": 0.46,
+  "min": 0.3,
+  "max": 0.75,
+  "targets": [
+    { "node": "left-fork", "property": "position", "axis": "z", "factor": -0.5 },
+    { "node": "right-fork", "property": "position", "axis": "z", "factor": 0.5 }
+  ]
+}
+```
+
+构建时，Core 将 `value × factor` 加到目标的原始局部变换，默认 `factor` 为 1。平移使用米，旋转使用弧度。以度显示的控制项可以使用 `Math.PI / 180` 对应的数值作为因子。每个节点的同一变换轴可由一个控制项驱动。变换所影响的子节点、锚点和连接会一起重算，导出的文档保留原始局部变换与控制值。
+
+编辑器的「属性」栏提供设备与工具姿态表单。Agent 可直接修改这些值，再运行 `composition check`、`component build`，或在场景实例内改值并运行 `scene check`。将模型作为组加入场景时，控制项及其目标节点会按组分配 ID。
+
+## 单次教学加载与测点记录
+
+`parameters.monitoring` 可在一个完整模型中声明一次加载工况。它包含 `id`、`label`、`stepSeconds`（至少 0.05 秒）、从 0 起始的 `loadRatios`（3 到 121 项）、`motions` 和最多 64 个 `points`。每条运动按节点 ID 指定满载时增量，允许填写局部 `position`、`rotation`，以及对应扫掠路径各点的 `pathOffsets`。每帧将这些增量乘以该帧的荷载比。`displayScale` 仅放大编辑器中的变形。
+
+每个测点使用唯一 `id`，带 `label`、`kind`、`sensor` 和 `target`。后两个字段是带测轴的模型锚点名。零荷载时校验安装位置、测轴方向。可用 `member` 引用实际被测构件，并用 `mountTolerance` 设定安装位置容差（默认 0.002 m）。现场安装与报警阈值由使用者按案例定义。
+
+| 测量类型 | 读数来源 |
+|---|---|
+| `strain` | 教学满载值 `fullLoadValue` 乘荷载比，单位 με |
+| `displacement` | 目标相对独立固定 `reference` 锚点的位移变化，沿测轴投影，单位 mm |
+| `acceleration` | 相邻三个样本的目标位移二阶差分，沿测轴投影，单位 m/s²。首末样本无两侧数据，返回 `null` |
+| `tilt` | `orientation` 锚点的方向围绕测轴相对初始方向的有符号角，单位 ° |
+
+`limit` 与 `holdSeconds` 定义持续超限。绝对读数连续严格大于阈值达到指定时间时生成报警事件，回到阈值内或缺读时结束该段超限。采样值使用原始变形。模型仍可在编辑器中保存为 CompositionSpec。
+
+使用 `composition monitor <composition.json|manifest.json> [pointId]` 获取机器可读的工况帧、测点位置与方向、分时读数和报警。示例是预设运动与信号的教学算例。
+
 ## Attachment contract
 
 场景通过 `attachments` 描述构件间连接，端点写作 `实例ID#锚点名`。组合模型也可以在 `parameters.attachments` 中声明内部连接，`from` 和 `to` 直接填写本模型 `parameters.anchors` 中的名称。两种写法均可省略 `type`，显式值可以是 `attachment` 或 `connects`。其他连接形式如承插可在 `contract.contact` 中描述。

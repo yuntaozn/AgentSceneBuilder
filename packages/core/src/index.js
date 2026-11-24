@@ -9,6 +9,7 @@ export * from "./mep.js";
 export * from "./method-contract.js";
 export { COMPOSITION_SPEC_VERSION, compileCompositionSpec, gridRepetition, linearRepetition, pathRepetition, radialRepetition } from "./composition.js";
 export { checkComposition, isCompositionManifest } from "./composition-check.js";
+export { analyzeMonitoring, monitoringFrameDocument } from "./monitoring.js";
 export * from "./human-pose.js";
 export * from "./human-geometry.js";
 export * from "./glb-reference.js";

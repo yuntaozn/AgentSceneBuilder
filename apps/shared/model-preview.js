@@ -2,6 +2,15 @@ import { withDefaultSceneLighting } from "./scene-lighting.js";
 
 export const modelMaterialPalette = { concrete: "#7d8991", steel: "#8fd0d1", water: "#54a8ff", accent: "#d9ff57", default: "#aab5be" };
 
+export function outlineOnWhite(color, maxLuma = 142) {
+  if (!/^#(?:[\da-f]{3}|[\da-f]{6})$/i.test(color)) return color;
+  const hex = color.length === 4 ? [...color.slice(1)].map(channel => channel.repeat(2)).join("") : color.slice(1);
+  const rgb = hex.match(/../g).map(channel => Number.parseInt(channel, 16));
+  const luma = rgb[0] * .2126 + rgb[1] * .7152 + rgb[2] * .0722;
+  if (luma <= maxLuma) return color;
+  return "#" + rgb.map(channel => Math.round(channel * maxLuma / luma).toString(16).padStart(2, "0")).join("");
+}
+
 export function modelDocumentFor(entry) {
   if (entry.editor?.document) return structuredClone(entry.editor.document);
   if (entry.kind === "component" && entry.editor?.node) {
@@ -271,7 +280,7 @@ export function drawModelPreview(canvas, nodes, options = {}) {
   const context = canvas.getContext("2d");
   context.setTransform(ratio, 0, 0, ratio, 0, 0);
   context.clearRect(0, 0, width, height);
-  context.strokeStyle = "#27343d";
+  context.strokeStyle = "#e4ebef";
   context.lineWidth = 1;
   for (let index = -4; index <= 4; index += 1) {
     context.beginPath();
@@ -290,7 +299,7 @@ export function drawModelPreview(canvas, nodes, options = {}) {
     ...item.faces.flat()
   ]);
   if (!points.length) {
-    context.fillStyle = "#71808a";
+    context.fillStyle = "#556876";
     context.font = "12px sans-serif";
     context.textAlign = "center";
     context.fillText("空间方法 / 结构定义", width / 2, height / 2);
@@ -320,6 +329,7 @@ export function drawModelPreview(canvas, nodes, options = {}) {
     const color = item.node.appearance?.color ?? "#aab5be";
     const opacity = item.node.appearance?.opacity ?? 1;
     const emissive = item.node.appearance?.emissive;
+    const outline = outlineOnWhite(emissive ?? color);
     const glow = item.node.appearance?.glow ?? 0;
     if (item.faces.length) {
       for (const face of item.faces) {
@@ -330,6 +340,7 @@ export function drawModelPreview(canvas, nodes, options = {}) {
           color,
           opacity,
           emissive,
+          outline,
           glow,
           depth: facePoints.reduce((sum, point) => sum + point[2], 0) / facePoints.length
         });
@@ -344,6 +355,7 @@ export function drawModelPreview(canvas, nodes, options = {}) {
         color,
         opacity,
         emissive,
+        outline,
         glow,
         width: ["tube-along", "cylinder-between", "tapered-cylinder-between"].includes(item.node.geometry.type)
           ? Math.max(2, (item.node.geometry.radius ?? Math.max(item.node.geometry.startRadius ?? 0, item.node.geometry.endRadius ?? 0, .03)) * zoom * 2)
@@ -369,13 +381,15 @@ export function drawModelPreview(canvas, nodes, options = {}) {
     });
     if (primitive.kind === "face") {
       context.closePath();
-      context.fillStyle = `${primitive.color}30`;
+      context.fillStyle = primitive.color;
+      context.globalAlpha = primitive.opacity * .20;
       context.fill();
-      context.strokeStyle = primitive.emissive ?? `${primitive.color}8c`;
+      context.globalAlpha = primitive.opacity;
+      context.strokeStyle = primitive.outline;
       context.lineWidth = primitive.emissive ? 1.5 : 1;
       context.stroke();
     } else {
-      context.strokeStyle = primitive.emissive ?? primitive.color;
+      context.strokeStyle = primitive.outline;
       context.lineWidth = primitive.width;
       context.stroke();
     }

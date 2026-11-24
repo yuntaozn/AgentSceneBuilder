@@ -1,0 +1,288 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.guide-panel-slide-rail-for-excavation",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "沟槽支护双导槽滑轨柱",
+  "summary": "双侧开口滑槽、中部竖向箱柱、开孔吊耳与底部导入斜口，供支护板沿竖向导向。",
+  "license": "Apache-2.0",
+  "semanticType": "site.guide-panel-slide-rail-for-excavation",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "滑轨支护",
+    "导槽柱",
+    "slide-rail-shoring",
+    "guide-post",
+    "沟槽施工",
+    "excavation"
+  ],
+  "anchors": [
+    "left-slide",
+    "right-slide",
+    "lift",
+    "toe"
+  ],
+  "ai": {
+    "intent": "表达沟槽支护的独立导向柱和两侧插接方向，复用于装配关系和导槽包络检查。",
+    "editableParts": [
+      "left-slide",
+      "right-slide",
+      "lift",
+      "toe"
+    ],
+    "qualityChecks": [
+      "双导槽在横截面保留开放空间。",
+      "吊耳贯通。",
+      "左右参考方向相反且高度一致。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "guide-panel-slide-rail-for-excavation",
+      "title": "沟槽支护双导槽滑轨柱",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "post",
+            "semanticType": "site.guide-panel-slide-rail-for-excavation.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "center",
+            "semanticType": "site.guide-panel-slide-rail-for-excavation.closed-center-post",
+            "parent": "post",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.069,0],
+                [0,1.801,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.07,-0.057],
+                [-0.07,-0.057],
+                [-0.083,-0.044000000000000004],
+                [-0.083,0.044000000000000004],
+                [-0.07,0.057],
+                [0.07,0.057],
+                [0.083,0.044000000000000004],
+                [0.083,-0.044000000000000004]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.055,-0.038],
+                  [-0.055,-0.038],
+                  [-0.064,-0.028999999999999998],
+                  [-0.064,0.028999999999999998],
+                  [-0.055,0.038],
+                  [0.055,0.038],
+                  [0.064,0.028999999999999998],
+                  [0.064,-0.028999999999999998]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "channel--1",
+            "semanticType": "site.guide-panel-slide-rail-for-excavation.open-guided-channel",
+            "parent": "post",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.108,0],
+                [0,1.785,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.083,-0.075],
+                [0.203,-0.075],
+                [0.203,-0.047],
+                [0.109,-0.047],
+                [0.109,0.047],
+                [0.203,0.047],
+                [0.203,0.075],
+                [0.083,0.075]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "tip--1",
+            "semanticType": "site.guide-panel-slide-rail-for-excavation.tapered-insertion-toe",
+            "parent": "post",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.075],
+                [0,0,0.075]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.083,0.015],
+                [-0.154,0.041],
+                [-0.203,0.109],
+                [-0.083,0.109]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "channel-1",
+            "semanticType": "site.guide-panel-slide-rail-for-excavation.open-guided-channel",
+            "parent": "post",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.108,0],
+                [0,1.785,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.083,-0.075],
+                [-0.203,-0.075],
+                [-0.203,-0.047],
+                [-0.109,-0.047],
+                [-0.109,0.047],
+                [-0.203,0.047],
+                [-0.203,0.075],
+                [-0.083,0.075]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "tip-1",
+            "semanticType": "site.guide-panel-slide-rail-for-excavation.tapered-insertion-toe",
+            "parent": "post",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.075],
+                [0,0,0.075]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.083,0.015],
+                [0.154,0.041],
+                [0.203,0.109],
+                [0.083,0.109]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "lifting-clevis",
+            "semanticType": "site.guide-panel-slide-rail-for-excavation.perforated-post-lug",
+            "parent": "post",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.02],
+                [0,0,0.02]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.032,1.78],
+                [0.032,1.78],
+                [0.054,1.802],
+                [0.054,1.904],
+                [0.032,1.926],
+                [-0.032,1.926],
+                [-0.054,1.904],
+                [-0.054,1.802]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.024,1.872],
+                  [0.02353885,1.87668217],
+                  [0.02217311,1.8811844],
+                  [0.01995527,1.88533369],
+                  [0.01697056,1.88897056],
+                  [0.01333369,1.89195527],
+                  [0.0091844,1.89417311],
+                  [0.00468217,1.89553885],
+                  [0,1.896],
+                  [-0.00468217,1.89553885],
+                  [-0.0091844,1.89417311],
+                  [-0.01333369,1.89195527],
+                  [-0.01697056,1.88897056],
+                  [-0.01995527,1.88533369],
+                  [-0.02217311,1.8811844],
+                  [-0.02353885,1.87668217],
+                  [-0.024,1.872],
+                  [-0.02353885,1.86731783],
+                  [-0.02217311,1.8628156],
+                  [-0.01995527,1.85866631],
+                  [-0.01697056,1.85502944],
+                  [-0.01333369,1.85204473],
+                  [-0.0091844,1.84982689],
+                  [-0.00468217,1.84846115],
+                  [0,1.848],
+                  [0.00468217,1.84846115],
+                  [0.0091844,1.84982689],
+                  [0.01333369,1.85204473],
+                  [0.01697056,1.85502944],
+                  [0.01995527,1.85866631],
+                  [0.02217311,1.8628156],
+                  [0.02353885,1.86731783]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          }
+        ],
+        "anchors": {
+          "left-slide": {
+            "node": "post",
+            "position": [-0.153,1.064,0],
+            "direction": [-1,0,0],
+            "kind": "slide-guide"
+          },
+          "right-slide": {
+            "node": "post",
+            "position": [0.153,1.064,0],
+            "direction": [1,0,0],
+            "kind": "slide-guide"
+          },
+          "lift": {
+            "node": "post",
+            "position": [0,1.872,0],
+            "direction": [0,1,0],
+            "kind": "lift"
+          },
+          "toe": {
+            "node": "post",
+            "position": [0,0.067,0],
+            "direction": [0,-1,0],
+            "kind": "reference"
+          }
+        }
+      }
+    }
+  }
+}

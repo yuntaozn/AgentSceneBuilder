@@ -1,0 +1,539 @@
+{
+  "schemaVersion": "0.1",
+  "id": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "冷库夹芯板偏心扣接缝剖件",
+  "summary": "两块有实际凸舌与凹槽的保温板边、独立偏心挂扣、可滑入的插销头和双层密封条。",
+  "license": "Apache-2.0",
+  "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "冷库板偏心锁接缝",
+    "夹芯保温墙拼接",
+    "cold-panel-cam-lock",
+    "tongue-and-gasket-joint",
+    "冷库构件",
+    "cold-room-elements"
+  ],
+  "anchors": [
+    "panel-1",
+    "panel-2",
+    "lock-center"
+  ],
+  "ai": {
+    "intent": "独立显示冷库板边拼缝，用异形榫口与扣片示意各层局部接合位置。",
+    "editableParts": [
+      "panel-gap",
+      "cam-turn"
+    ],
+    "qualityChecks": [
+      "型板凸榫与凹槽分别可见。",
+      "密封管留有真实小孔。",
+      "锁件与接缝开度分开。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint",
+      "title": "冷库夹芯板偏心扣接缝剖件",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tongue",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.real-asymmetric-insulated-tongue-edge",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.452,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.293,-0.118],
+                [0.018,-0.118],
+                [0.018,-0.077],
+                [-0.044,-0.077],
+                [-0.044,-0.021],
+                [0.017,-0.021],
+                [0.017,0.117],
+                [0.293,0.117]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#d6cbac"
+            }
+          },
+          {
+            "id": "closing-edge",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "groove",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.real-open-receiving-cold-room-groove-edge",
+            "parent": "closing-edge",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.452,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.015,-0.118],
+                [-0.292,-0.118],
+                [-0.292,0.117],
+                [-0.015,0.117],
+                [-0.015,-0.013],
+                [-0.052,-0.013],
+                [-0.052,-0.083],
+                [-0.015,-0.083]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#d6cbac"
+            }
+          },
+          {
+            "id": "left-face--0.121",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.separate-left-sheet-metal-sandwich-panel-facing",
+            "geometry": {
+              "type": "box",
+              "size": [0.274,0.45,0.008]
+            },
+            "appearance": {
+              "color": "#c4d7df"
+            },
+            "transform": {
+              "position": [-0.154,0.226,-0.121]
+            }
+          },
+          {
+            "id": "right-face--0.121",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.separate-right-bonded-panel-facing",
+            "parent": "closing-edge",
+            "geometry": {
+              "type": "box",
+              "size": [0.276,0.45,0.008]
+            },
+            "appearance": {
+              "color": "#85bcc8"
+            },
+            "transform": {
+              "position": [0.153,0.226,-0.121]
+            }
+          },
+          {
+            "id": "left-face-0.121",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.separate-left-sheet-metal-sandwich-panel-facing",
+            "geometry": {
+              "type": "box",
+              "size": [0.274,0.45,0.008]
+            },
+            "appearance": {
+              "color": "#c4d7df"
+            },
+            "transform": {
+              "position": [-0.154,0.226,0.121]
+            }
+          },
+          {
+            "id": "right-face-0.121",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.separate-right-bonded-panel-facing",
+            "parent": "closing-edge",
+            "geometry": {
+              "type": "box",
+              "size": [0.276,0.45,0.008]
+            },
+            "appearance": {
+              "color": "#85bcc8"
+            },
+            "transform": {
+              "position": [0.153,0.226,0.121]
+            }
+          },
+          {
+            "id": "gasket-seat-0.081",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.frame",
+            "transform": {
+              "position": [-0.007,0,0.081]
+            }
+          },
+          {
+            "id": "seal-0.081",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.closed-hollow-low-temperature-seal-lip",
+            "parent": "gasket-seat-0.081",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.013,0],
+                [0,0.439,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.011,-0.012],
+                [-0.011,-0.012],
+                [-0.016,-0.007],
+                [-0.016,0.007],
+                [-0.011,0.012],
+                [0.011,0.012],
+                [0.016,0.007],
+                [0.016,-0.007]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.005,-0.005],
+                  [-0.005,-0.005],
+                  [-0.008,-0.002],
+                  [-0.008,0.002],
+                  [-0.005,0.005],
+                  [0.005,0.005],
+                  [0.008,0.002],
+                  [0.008,-0.002]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5a747e"
+            }
+          },
+          {
+            "id": "gasket-seat--0.098",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.frame",
+            "transform": {
+              "position": [-0.007,0,-0.098]
+            }
+          },
+          {
+            "id": "seal--0.098",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.closed-hollow-low-temperature-seal-lip",
+            "parent": "gasket-seat--0.098",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.013,0],
+                [0,0.439,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.011,-0.012],
+                [-0.011,-0.012],
+                [-0.016,-0.007],
+                [-0.016,0.007],
+                [-0.011,0.012],
+                [0.011,0.012],
+                [0.016,0.007],
+                [0.016,-0.007]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.005,-0.005],
+                  [-0.005,-0.005],
+                  [-0.008,-0.002],
+                  [-0.008,0.002],
+                  [-0.005,0.005],
+                  [0.005,0.005],
+                  [0.008,0.002],
+                  [0.008,-0.002]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#5a747e"
+            }
+          },
+          {
+            "id": "cam-wheel",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.frame",
+            "transform": {
+              "position": [-0.055,0.226,0.132]
+            }
+          },
+          {
+            "id": "cam",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.eccentric-visible-locking-wheel",
+            "parent": "cam-wheel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.007],
+                [0,0,0.011]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.02873804,-0.06162893],
+                [0.03614325,-0.05759918],
+                [0.04299291,-0.05268406],
+                [0.04918171,-0.04695913],
+                [0.05461453,-0.04051238],
+                [0.05920787,-0.03344292],
+                [0.06289111,-0.0258594],
+                [0.06560765,-0.01787839],
+                [0.06731572,-0.00962257],
+                [0.06798908,-0.00121883],
+                [0.06761736,0.00720363],
+                [0.06620629,0.01551537],
+                [0.06377756,0.02358862],
+                [0.06036849,0.03129928],
+                [0.0560315,0.03852884],
+                [0.05083323,0.04516617],
+                [0.0448536,0.05110924],
+                [0.03818452,0.05626671],
+                [0.0309285,0.06055929],
+                [0.02319708,0.06392101],
+                [0.01510909,0.06630019],
+                [0.00678885,0.06766027],
+                [-0.00163573,0.06798032],
+                [-0.01003518,0.06725545],
+                [-0.01828037,0.06549678],
+                [-0.02624457,0.06273135],
+                [-0.03380536,0.05900167],
+                [-0.04084653,0.05436507],
+                [-0.04725984,0.04889282],
+                [-0.05294671,0.04266903],
+                [-0.05781973,0.03578937],
+                [-0.061804,0.02835958],
+                [-0.06483827,0.02049388],
+                [-0.0668759,0.01231316],
+                [-0.06788558,0.00394317],
+                [-0.06785177,-0.00448742],
+                [-0.06677501,-0.01284904],
+                [-0.06467184,-0.02101316],
+                [-0.01997219,-0.00648936],
+                [-0.02062169,-0.00396809],
+                [-0.02095422,-0.00138582],
+                [-0.02096466,0.00121775],
+                [-0.02065285,0.00380259],
+                [-0.02002358,0.00632899],
+                [-0.01908653,0.00875811],
+                [-0.01785609,0.0110526],
+                [-0.01635119,0.0131772],
+                [-0.01459495,0.01509925],
+                [-0.01261437,0.01678921],
+                [-0.01043989,0.01822111],
+                [-0.00810494,0.01937292],
+                [-0.00564541,0.02022695],
+                [-0.0030991,0.02077006],
+                [-0.00050515,0.02099392],
+                [0.00209656,0.02089508],
+                [0.00466604,0.02047506],
+                [0.0071638,0.01974031],
+                [0.00955145,0.01870213],
+                [0.01179228,0.01737648],
+                [0.01385185,0.01578374],
+                [0.0156985,0.01394838],
+                [0.01730384,0.01189861],
+                [0.01864321,0.00966595],
+                [0.01969601,0.00728472],
+                [0.02044606,0.00479151],
+                [0.02088183,0.00222465],
+                [0.02099663,-0.0003764],
+                [0.02078868,-0.00297167],
+                [0.02026119,-0.00552127],
+                [0.01942225,-0.00798599],
+                [0.01828478,-0.01032796],
+                [0.01686625,-0.01251118],
+                [0.01518847,-0.01450208],
+                [0.01327722,-0.01627008],
+                [0.01116189,-0.01778798],
+                [0.00887498,-0.01903246]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.05,0.004],
+                  [0.04959111,0.00710583],
+                  [0.0483923,0.01],
+                  [0.04648528,0.01248528],
+                  [0.044,0.0143923],
+                  [0.04110583,0.01559111],
+                  [0.038,0.016],
+                  [0.03489417,0.01559111],
+                  [0.032,0.0143923],
+                  [0.02951472,0.01248528],
+                  [0.0276077,0.01],
+                  [0.02640889,0.00710583],
+                  [0.026,0.004],
+                  [0.02640889,0.00089417],
+                  [0.0276077,-0.002],
+                  [0.02951472,-0.00448528],
+                  [0.032,-0.0063923],
+                  [0.03489417,-0.00759111],
+                  [0.038,-0.008],
+                  [0.04110583,-0.00759111],
+                  [0.044,-0.0063923],
+                  [0.04648528,-0.00448528],
+                  [0.0483923,-0.002],
+                  [0.04959111,0.00089417]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9eb7c4"
+            }
+          },
+          {
+            "id": "hook-axis",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.frame",
+            "parent": "closing-edge",
+            "transform": {
+              "position": [0.046,0.228,0.139]
+            }
+          },
+          {
+            "id": "pin",
+            "semanticType": "construction.cam-coupled-cold-room-wall-panel-tongue-and-gasket-joint.through-bored-cam-receiver-pin",
+            "parent": "hook-axis",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.013],
+                [0,0,0.021]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.016,0],
+                [0.01569256,0.00312145],
+                [0.01478207,0.00612293],
+                [0.01330351,0.00888912],
+                [0.01131371,0.01131371],
+                [0.00888912,0.01330351],
+                [0.00612293,0.01478207],
+                [0.00312145,0.01569256],
+                [0,0.016],
+                [-0.00312145,0.01569256],
+                [-0.00612293,0.01478207],
+                [-0.00888912,0.01330351],
+                [-0.01131371,0.01131371],
+                [-0.01330351,0.00888912],
+                [-0.01478207,0.00612293],
+                [-0.01569256,0.00312145],
+                [-0.016,0],
+                [-0.01569256,-0.00312145],
+                [-0.01478207,-0.00612293],
+                [-0.01330351,-0.00888912],
+                [-0.01131371,-0.01131371],
+                [-0.00888912,-0.01330351],
+                [-0.00612293,-0.01478207],
+                [-0.00312145,-0.01569256],
+                [0,-0.016],
+                [0.00312145,-0.01569256],
+                [0.00612293,-0.01478207],
+                [0.00888912,-0.01330351],
+                [0.01131371,-0.01131371],
+                [0.01330351,-0.00888912],
+                [0.01478207,-0.00612293],
+                [0.01569256,-0.00312145]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0065,0],
+                  [0.0063751,0.00126809],
+                  [0.00600522,0.00248744],
+                  [0.00540455,0.00361121],
+                  [0.00459619,0.00459619],
+                  [0.00361121,0.00540455],
+                  [0.00248744,0.00600522],
+                  [0.00126809,0.0063751],
+                  [0,0.0065],
+                  [-0.00126809,0.0063751],
+                  [-0.00248744,0.00600522],
+                  [-0.00361121,0.00540455],
+                  [-0.00459619,0.00459619],
+                  [-0.00540455,0.00361121],
+                  [-0.00600522,0.00248744],
+                  [-0.0063751,0.00126809],
+                  [-0.0065,0],
+                  [-0.0063751,-0.00126809],
+                  [-0.00600522,-0.00248744],
+                  [-0.00540455,-0.00361121],
+                  [-0.00459619,-0.00459619],
+                  [-0.00361121,-0.00540455],
+                  [-0.00248744,-0.00600522],
+                  [-0.00126809,-0.0063751],
+                  [0,-0.0065],
+                  [0.00126809,-0.0063751],
+                  [0.00248744,-0.00600522],
+                  [0.00361121,-0.00540455],
+                  [0.00459619,-0.00459619],
+                  [0.00540455,-0.00361121],
+                  [0.00600522,-0.00248744],
+                  [0.0063751,-0.00126809]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#c4d7df"
+            }
+          }
+        ],
+        "anchors": {
+          "panel-1": {
+            "node": "tongue",
+            "position": [-0.293,0.227,0],
+            "direction": [-1,0,0],
+            "kind": "mount"
+          },
+          "panel-2": {
+            "node": "groove",
+            "position": [0.292,0.227,0],
+            "direction": [1,0,0],
+            "kind": "mount"
+          },
+          "lock-center": {
+            "node": "cam",
+            "position": [0.035,0.018,0.011],
+            "direction": [0,0,1],
+            "kind": "reference"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "panel-gap",
+            "label": "两块冷库板分离距离",
+            "unit": "m",
+            "value": 0,
+            "min": 0,
+            "max": 0.107,
+            "targets": [
+              {
+                "node": "closing-edge",
+                "property": "position",
+                "axis": "x"
+              }
+            ]
+          },
+          {
+            "id": "cam-turn",
+            "label": "偏心锁扣转角",
+            "unit": "deg",
+            "value": 0,
+            "min": 0,
+            "max": 135,
+            "targets": [
+              {
+                "node": "cam-wheel",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

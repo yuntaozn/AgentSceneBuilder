@@ -6,6 +6,8 @@ import { registerGeneratedId, worldAnchorDefinition } from "./component.js";
 import { checkLocalAttachments } from "./connection-check.js";
 import { geometryBounds, instanceGeometryBounds } from "./geometry.js";
 import { resolveMepRouteBindings } from "./mep-route-bindings.js";
+import { resolvePoseControls } from "./pose-controls.js";
+import { checkMonitoring } from "./monitoring.js";
 import { assertVec3, identityMatrix, normalizeVector } from "./math.js";
 import { referenceSuggestions } from "./reference-suggestions.js";
 
@@ -59,10 +61,11 @@ export function checkComposition(input, { path = "", onWorldAnchor } = {}) {
   }
   const base = wrapped ? root + "/parameters" : root;
   const unavailableRoutePorts = new Set();
-  const spec = resolveMepRouteBindings(wrapped ? doc.parameters : doc, (path, message, id) => {
+  const routeSpec = resolveMepRouteBindings(wrapped ? doc.parameters : doc, (path, message, id) => {
     report("ROUTE_BINDING_INVALID", base + path, message, id);
     if (path.startsWith("/nodes/")) unavailableRoutePorts.add(id);
   });
+  const spec = resolvePoseControls(routeSpec, (path, message, id) => report("POSE_CONTROL_INVALID", base + path, message, id));
   if (typeof doc.id !== "string" || !doc.id) report("ID_INVALID", root + "/id", "Composition id must be a non-empty string");
   if (!object(spec)) {
     report("DOCUMENT_INVALID", base, "Expected composition parameters");
@@ -232,6 +235,8 @@ export function checkComposition(input, { path = "", onWorldAnchor } = {}) {
   }));
   const worldAnchors = new Map();
   const finish = () => {
+    checkMonitoring(spec, name => worldAnchors.get(name),
+      (path, message, nodeId) => report("MONITORING_INVALID", base + path, message, nodeId));
     checkLocalAttachments(spec, base, name => worldAnchors.get(name), (code, path, message, context) => {
       issues.push({ code, path, message, level: "error", ...context });
     });

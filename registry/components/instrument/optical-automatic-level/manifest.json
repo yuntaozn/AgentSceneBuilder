@@ -1,0 +1,1509 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.optical-automatic-level",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "光学自动安平水准仪",
+  "summary": "带左右光学端、对焦盘、调平机构、圆水准泡和独立水平旋转架的水准仪。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.optical-automatic-level",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "测量",
+    "测绘",
+    "survey",
+    "site-instrument",
+    "水准仪",
+    "automatic-level",
+    "telescope"
+  ],
+  "anchors": [
+    "sight-origin",
+    "sight-axis",
+    "survey-mount",
+    "level-reference"
+  ],
+  "ai": {
+    "intent": "建立水平视准测量模型，并向 Agent 暴露基座和随镜筒转动的视线。",
+    "editableParts": [
+      "azimuth-angle"
+    ],
+    "qualityChecks": [
+      "安装面与回转轴共线。",
+      "转动上架时，物镜与目镜的轴线保持同轴。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "optical-automatic-level",
+      "title": "光学自动安平水准仪",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "instrument.optical-automatic-level.frame",
+            "transform": {
+              "position": [0,0.032,0]
+            }
+          },
+          {
+            "id": "mount-base",
+            "semanticType": "instrument.optical-automatic-level.mount-base",
+            "parent": "base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.032,0],
+                [0,-0.016,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.069,0],
+                [0.06767418,0.01346123],
+                [0.06374769,0.02640516],
+                [0.0573714,0.03833435],
+                [0.04879037,0.04879037],
+                [0.03833435,0.0573714],
+                [0.02640516,0.06374769],
+                [0.01346123,0.06767418],
+                [0,0.069],
+                [-0.01346123,0.06767418],
+                [-0.02640516,0.06374769],
+                [-0.03833435,0.0573714],
+                [-0.04879037,0.04879037],
+                [-0.0573714,0.03833435],
+                [-0.06374769,0.02640516],
+                [-0.06767418,0.01346123],
+                [-0.069,0],
+                [-0.06767418,-0.01346123],
+                [-0.06374769,-0.02640516],
+                [-0.0573714,-0.03833435],
+                [-0.04879037,-0.04879037],
+                [-0.03833435,-0.0573714],
+                [-0.02640516,-0.06374769],
+                [-0.01346123,-0.06767418],
+                [0,-0.069],
+                [0.01346123,-0.06767418],
+                [0.02640516,-0.06374769],
+                [0.03833435,-0.0573714],
+                [0.04879037,-0.04879037],
+                [0.0573714,-0.03833435],
+                [0.06374769,-0.02640516],
+                [0.06767418,-0.01346123]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.008,0],
+                  [0.00784628,0.00156072],
+                  [0.00739104,0.00306147],
+                  [0.00665176,0.00444456],
+                  [0.00565685,0.00565685],
+                  [0.00444456,0.00665176],
+                  [0.00306147,0.00739104],
+                  [0.00156072,0.00784628],
+                  [0,0.008],
+                  [-0.00156072,0.00784628],
+                  [-0.00306147,0.00739104],
+                  [-0.00444456,0.00665176],
+                  [-0.00565685,0.00565685],
+                  [-0.00665176,0.00444456],
+                  [-0.00739104,0.00306147],
+                  [-0.00784628,0.00156072],
+                  [-0.008,0],
+                  [-0.00784628,-0.00156072],
+                  [-0.00739104,-0.00306147],
+                  [-0.00665176,-0.00444456],
+                  [-0.00565685,-0.00565685],
+                  [-0.00444456,-0.00665176],
+                  [-0.00306147,-0.00739104],
+                  [-0.00156072,-0.00784628],
+                  [0,-0.008],
+                  [0.00156072,-0.00784628],
+                  [0.00306147,-0.00739104],
+                  [0.00444456,-0.00665176],
+                  [0.00565685,-0.00565685],
+                  [0.00665176,-0.00444456],
+                  [0.00739104,-0.00306147],
+                  [0.00784628,-0.00156072]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#455563"
+            }
+          },
+          {
+            "id": "leveling-screw-1",
+            "semanticType": "instrument.optical-automatic-level.frame",
+            "parent": "base",
+            "transform": {
+              "position": [0.047,0,0]
+            }
+          },
+          {
+            "id": "foot-thread-1",
+            "semanticType": "instrument.optical-automatic-level.leveling-thread",
+            "parent": "leveling-screw-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,0.018,0],
+              "radius": 0.005,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "level-wheel-1",
+            "semanticType": "instrument.optical-automatic-level.leveling-knob",
+            "parent": "leveling-screw-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.006,0],
+              "end": [0,0.006,0],
+              "radius": 0.014,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "leveling-screw-2",
+            "semanticType": "instrument.optical-automatic-level.frame",
+            "parent": "base",
+            "transform": {
+              "position": [-0.0235,0,0.04070319]
+            }
+          },
+          {
+            "id": "foot-thread-2",
+            "semanticType": "instrument.optical-automatic-level.leveling-thread",
+            "parent": "leveling-screw-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,0.018,0],
+              "radius": 0.005,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "level-wheel-2",
+            "semanticType": "instrument.optical-automatic-level.leveling-knob",
+            "parent": "leveling-screw-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.006,0],
+              "end": [0,0.006,0],
+              "radius": 0.014,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "leveling-screw-3",
+            "semanticType": "instrument.optical-automatic-level.frame",
+            "parent": "base",
+            "transform": {
+              "position": [-0.0235,0,-0.04070319]
+            }
+          },
+          {
+            "id": "foot-thread-3",
+            "semanticType": "instrument.optical-automatic-level.leveling-thread",
+            "parent": "leveling-screw-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,0.018,0],
+              "radius": 0.005,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "level-wheel-3",
+            "semanticType": "instrument.optical-automatic-level.leveling-knob",
+            "parent": "leveling-screw-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.006,0],
+              "end": [0,0.006,0],
+              "radius": 0.014,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "level-base",
+            "semanticType": "instrument.optical-automatic-level.level-base",
+            "parent": "base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.014,0],
+                [0,0.027,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.065,0],
+                [0.06375104,0.01268087],
+                [0.06005217,0.02487442],
+                [0.05404552,0.03611207],
+                [0.04596194,0.04596194],
+                [0.03611207,0.05404552],
+                [0.02487442,0.06005217],
+                [0.01268087,0.06375104],
+                [0,0.065],
+                [-0.01268087,0.06375104],
+                [-0.02487442,0.06005217],
+                [-0.03611207,0.05404552],
+                [-0.04596194,0.04596194],
+                [-0.05404552,0.03611207],
+                [-0.06005217,0.02487442],
+                [-0.06375104,0.01268087],
+                [-0.065,0],
+                [-0.06375104,-0.01268087],
+                [-0.06005217,-0.02487442],
+                [-0.05404552,-0.03611207],
+                [-0.04596194,-0.04596194],
+                [-0.03611207,-0.05404552],
+                [-0.02487442,-0.06005217],
+                [-0.01268087,-0.06375104],
+                [0,-0.065],
+                [0.01268087,-0.06375104],
+                [0.02487442,-0.06005217],
+                [0.03611207,-0.05404552],
+                [0.04596194,-0.04596194],
+                [0.05404552,-0.03611207],
+                [0.06005217,-0.02487442],
+                [0.06375104,-0.01268087]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "azimuth-ring",
+            "semanticType": "instrument.optical-automatic-level.graduated-ring",
+            "parent": "base",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.027,0],
+                [0,0.039,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.061,0],
+                [0.0598279,0.01190051],
+                [0.05635665,0.02334369],
+                [0.05071965,0.03388978],
+                [0.04313351,0.04313351],
+                [0.03388978,0.05071965],
+                [0.02334369,0.05635665],
+                [0.01190051,0.0598279],
+                [0,0.061],
+                [-0.01190051,0.0598279],
+                [-0.02334369,0.05635665],
+                [-0.03388978,0.05071965],
+                [-0.04313351,0.04313351],
+                [-0.05071965,0.03388978],
+                [-0.05635665,0.02334369],
+                [-0.0598279,0.01190051],
+                [-0.061,0],
+                [-0.0598279,-0.01190051],
+                [-0.05635665,-0.02334369],
+                [-0.05071965,-0.03388978],
+                [-0.04313351,-0.04313351],
+                [-0.03388978,-0.05071965],
+                [-0.02334369,-0.05635665],
+                [-0.01190051,-0.0598279],
+                [0,-0.061],
+                [0.01190051,-0.0598279],
+                [0.02334369,-0.05635665],
+                [0.03388978,-0.05071965],
+                [0.04313351,-0.04313351],
+                [0.05071965,-0.03388978],
+                [0.05635665,-0.02334369],
+                [0.0598279,-0.01190051]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "azimuth",
+            "semanticType": "instrument.optical-automatic-level.frame",
+            "parent": "base",
+            "transform": {
+              "position": [0,0.038,0]
+            }
+          },
+          {
+            "id": "upper-chassis",
+            "semanticType": "instrument.optical-automatic-level.upper-chassis",
+            "parent": "azimuth",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.021,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.046,-0.043],
+                [-0.051000000000000004,-0.043],
+                [-0.066,-0.027999999999999997],
+                [-0.066,0.027999999999999997],
+                [-0.051000000000000004,0.043],
+                [0.046,0.043],
+                [0.061,0.027999999999999997],
+                [0.061,-0.027999999999999997]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#56a4a6"
+            }
+          },
+          {
+            "id": "telescope-support",
+            "semanticType": "instrument.optical-automatic-level.bearing-support",
+            "parent": "azimuth",
+            "geometry": {
+              "type": "box",
+              "size": [0.077,0.043,0.054]
+            },
+            "appearance": {
+              "color": "#56a4a6"
+            },
+            "transform": {
+              "position": [0.002,0.034,0]
+            }
+          },
+          {
+            "id": "optics",
+            "semanticType": "instrument.optical-automatic-level.frame",
+            "parent": "azimuth",
+            "transform": {
+              "position": [0,0.078,0]
+            }
+          },
+          {
+            "id": "telescope-body",
+            "semanticType": "instrument.optical-automatic-level.telescope-body",
+            "parent": "optics",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.09019999999999999,0,0],
+              "end": [0.1038,0,0],
+              "radius": 0.031000000000000003,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#56a4a6"
+            }
+          },
+          {
+            "id": "objective-surround",
+            "semanticType": "instrument.optical-automatic-level.objective-surround",
+            "parent": "optics",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.0988,0,0],
+                [0.1298,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.034,0],
+                [0.0333467,0.00663307],
+                [0.0314119,0.01301124],
+                [0.02826997,0.01888939],
+                [0.02404163,0.02404163],
+                [0.01888939,0.02826997],
+                [0.01301124,0.0314119],
+                [0.00663307,0.0333467],
+                [0,0.034],
+                [-0.00663307,0.0333467],
+                [-0.01301124,0.0314119],
+                [-0.01888939,0.02826997],
+                [-0.02404163,0.02404163],
+                [-0.02826997,0.01888939],
+                [-0.0314119,0.01301124],
+                [-0.0333467,0.00663307],
+                [-0.034,0],
+                [-0.0333467,-0.00663307],
+                [-0.0314119,-0.01301124],
+                [-0.02826997,-0.01888939],
+                [-0.02404163,-0.02404163],
+                [-0.01888939,-0.02826997],
+                [-0.01301124,-0.0314119],
+                [-0.00663307,-0.0333467],
+                [0,-0.034],
+                [0.00663307,-0.0333467],
+                [0.01301124,-0.0314119],
+                [0.01888939,-0.02826997],
+                [0.02404163,-0.02404163],
+                [0.02826997,-0.01888939],
+                [0.0314119,-0.01301124],
+                [0.0333467,-0.00663307]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.026,0],
+                  [0.02550042,0.00507235],
+                  [0.02402087,0.00994977],
+                  [0.02161821,0.01444483],
+                  [0.01838478,0.01838478],
+                  [0.01444483,0.02161821],
+                  [0.00994977,0.02402087],
+                  [0.00507235,0.02550042],
+                  [0,0.026],
+                  [-0.00507235,0.02550042],
+                  [-0.00994977,0.02402087],
+                  [-0.01444483,0.02161821],
+                  [-0.01838478,0.01838478],
+                  [-0.02161821,0.01444483],
+                  [-0.02402087,0.00994977],
+                  [-0.02550042,0.00507235],
+                  [-0.026,0],
+                  [-0.02550042,-0.00507235],
+                  [-0.02402087,-0.00994977],
+                  [-0.02161821,-0.01444483],
+                  [-0.01838478,-0.01838478],
+                  [-0.01444483,-0.02161821],
+                  [-0.00994977,-0.02402087],
+                  [-0.00507235,-0.02550042],
+                  [0,-0.026],
+                  [0.00507235,-0.02550042],
+                  [0.00994977,-0.02402087],
+                  [0.01444483,-0.02161821],
+                  [0.01838478,-0.01838478],
+                  [0.02161821,-0.01444483],
+                  [0.02402087,-0.00994977],
+                  [0.02550042,-0.00507235]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "objective-lens",
+            "semanticType": "instrument.optical-automatic-level.objective-glass",
+            "parent": "optics",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.12179999999999999,0,0],
+                [0.1248,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.026,0],
+                [0.02550042,0.00507235],
+                [0.02402087,0.00994977],
+                [0.02161821,0.01444483],
+                [0.01838478,0.01838478],
+                [0.01444483,0.02161821],
+                [0.00994977,0.02402087],
+                [0.00507235,0.02550042],
+                [0,0.026],
+                [-0.00507235,0.02550042],
+                [-0.00994977,0.02402087],
+                [-0.01444483,0.02161821],
+                [-0.01838478,0.01838478],
+                [-0.02161821,0.01444483],
+                [-0.02402087,0.00994977],
+                [-0.02550042,0.00507235],
+                [-0.026,0],
+                [-0.02550042,-0.00507235],
+                [-0.02402087,-0.00994977],
+                [-0.02161821,-0.01444483],
+                [-0.01838478,-0.01838478],
+                [-0.01444483,-0.02161821],
+                [-0.00994977,-0.02402087],
+                [-0.00507235,-0.02550042],
+                [0,-0.026],
+                [0.00507235,-0.02550042],
+                [0.00994977,-0.02402087],
+                [0.01444483,-0.02161821],
+                [0.01838478,-0.01838478],
+                [0.02161821,-0.01444483],
+                [0.02402087,-0.00994977],
+                [0.02550042,-0.00507235]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#32798a"
+            }
+          },
+          {
+            "id": "ocular-housing",
+            "semanticType": "instrument.optical-automatic-level.ocular-housing",
+            "parent": "optics",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [-0.11919999999999999,0,0],
+              "end": [-0.09019999999999999,0,0],
+              "startRadius": 0.01802,
+              "endRadius": 0.030000000000000002,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#697b86"
+            }
+          },
+          {
+            "id": "eye-cup",
+            "semanticType": "instrument.optical-automatic-level.eye-cup",
+            "parent": "optics",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.12419999999999999,0,0],
+                [-0.1122,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.0221,0],
+                [0.02134696,0.0057199],
+                [0.01913916,0.01105],
+                [0.01562706,0.01562706],
+                [0.01105,0.01913916],
+                [0.0057199,0.02134696],
+                [0,0.0221],
+                [-0.0057199,0.02134696],
+                [-0.01105,0.01913916],
+                [-0.01562706,0.01562706],
+                [-0.01913916,0.01105],
+                [-0.02134696,0.0057199],
+                [-0.0221,0],
+                [-0.02134696,-0.0057199],
+                [-0.01913916,-0.01105],
+                [-0.01562706,-0.01562706],
+                [-0.01105,-0.01913916],
+                [-0.0057199,-0.02134696],
+                [0,-0.0221],
+                [0.0057199,-0.02134696],
+                [0.01105,-0.01913916],
+                [0.01562706,-0.01562706],
+                [0.01913916,-0.01105],
+                [0.02134696,-0.0057199]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.01462,0],
+                  [0.01412184,0.00378393],
+                  [0.01266129,0.00731],
+                  [0.0103379,0.0103379],
+                  [0.00731,0.01266129],
+                  [0.00378393,0.01412184],
+                  [0,0.01462],
+                  [-0.00378393,0.01412184],
+                  [-0.00731,0.01266129],
+                  [-0.0103379,0.0103379],
+                  [-0.01266129,0.00731],
+                  [-0.01412184,0.00378393],
+                  [-0.01462,0],
+                  [-0.01412184,-0.00378393],
+                  [-0.01266129,-0.00731],
+                  [-0.0103379,-0.0103379],
+                  [-0.00731,-0.01266129],
+                  [-0.00378393,-0.01412184],
+                  [0,-0.01462],
+                  [0.00378393,-0.01412184],
+                  [0.00731,-0.01266129],
+                  [0.0103379,-0.0103379],
+                  [0.01266129,-0.00731],
+                  [0.01412184,-0.00378393]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "ocular-lens",
+            "semanticType": "instrument.optical-automatic-level.ocular-glass",
+            "parent": "optics",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.11719999999999998,0,0],
+                [-0.1152,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.01462,0],
+                [0.01412184,0.00378393],
+                [0.01266129,0.00731],
+                [0.0103379,0.0103379],
+                [0.00731,0.01266129],
+                [0.00378393,0.01412184],
+                [0,0.01462],
+                [-0.00378393,0.01412184],
+                [-0.00731,0.01266129],
+                [-0.0103379,0.0103379],
+                [-0.01266129,0.00731],
+                [-0.01412184,0.00378393],
+                [-0.01462,0],
+                [-0.01412184,-0.00378393],
+                [-0.01266129,-0.00731],
+                [-0.0103379,-0.0103379],
+                [-0.00731,-0.01266129],
+                [-0.00378393,-0.01412184],
+                [0,-0.01462],
+                [0.00378393,-0.01412184],
+                [0.00731,-0.01266129],
+                [0.0103379,-0.0103379],
+                [0.01266129,-0.00731],
+                [0.01412184,-0.00378393]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#32798a"
+            }
+          },
+          {
+            "id": "focus-dial",
+            "semanticType": "instrument.optical-automatic-level.focus-dial",
+            "parent": "optics",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.025,0,0.031000000000000003],
+              "end": [-0.025,0,0.052000000000000005],
+              "radius": 0.018,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "bubble-frame",
+            "semanticType": "instrument.optical-automatic-level.frame",
+            "parent": "azimuth",
+            "transform": {
+              "position": [-0.039,0.021,0.03]
+            }
+          },
+          {
+            "id": "bubble-cup",
+            "semanticType": "instrument.optical-automatic-level.bubble-cup",
+            "parent": "bubble-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.006,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.0115,0],
+                [0.01110815,0.00297642],
+                [0.00995929,0.00575],
+                [0.00813173,0.00813173],
+                [0.00575,0.00995929],
+                [0.00297642,0.01110815],
+                [0,0.0115],
+                [-0.00297642,0.01110815],
+                [-0.00575,0.00995929],
+                [-0.00813173,0.00813173],
+                [-0.00995929,0.00575],
+                [-0.01110815,0.00297642],
+                [-0.0115,0],
+                [-0.01110815,-0.00297642],
+                [-0.00995929,-0.00575],
+                [-0.00813173,-0.00813173],
+                [-0.00575,-0.00995929],
+                [-0.00297642,-0.01110815],
+                [0,-0.0115],
+                [0.00297642,-0.01110815],
+                [0.00575,-0.00995929],
+                [0.00813173,-0.00813173],
+                [0.00995929,-0.00575],
+                [0.01110815,-0.00297642]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.0085,0],
+                  [0.00821037,0.00219996],
+                  [0.00736122,0.00425],
+                  [0.00601041,0.00601041],
+                  [0.00425,0.00736122],
+                  [0.00219996,0.00821037],
+                  [0,0.0085],
+                  [-0.00219996,0.00821037],
+                  [-0.00425,0.00736122],
+                  [-0.00601041,0.00601041],
+                  [-0.00736122,0.00425],
+                  [-0.00821037,0.00219996],
+                  [-0.0085,0],
+                  [-0.00821037,-0.00219996],
+                  [-0.00736122,-0.00425],
+                  [-0.00601041,-0.00601041],
+                  [-0.00425,-0.00736122],
+                  [-0.00219996,-0.00821037],
+                  [0,-0.0085],
+                  [0.00219996,-0.00821037],
+                  [0.00425,-0.00736122],
+                  [0.00601041,-0.00601041],
+                  [0.00736122,-0.00425],
+                  [0.00821037,-0.00219996]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "bubble-cover",
+            "semanticType": "instrument.optical-automatic-level.bubble-window",
+            "parent": "bubble-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.003,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.0085,0],
+                [0.00821037,0.00219996],
+                [0.00736122,0.00425],
+                [0.00601041,0.00601041],
+                [0.00425,0.00736122],
+                [0.00219996,0.00821037],
+                [0,0.0085],
+                [-0.00219996,0.00821037],
+                [-0.00425,0.00736122],
+                [-0.00601041,0.00601041],
+                [-0.00736122,0.00425],
+                [-0.00821037,0.00219996],
+                [-0.0085,0],
+                [-0.00821037,-0.00219996],
+                [-0.00736122,-0.00425],
+                [-0.00601041,-0.00601041],
+                [-0.00425,-0.00736122],
+                [-0.00219996,-0.00821037],
+                [0,-0.0085],
+                [0.00219996,-0.00821037],
+                [0.00425,-0.00736122],
+                [0.00601041,-0.00601041],
+                [0.00736122,-0.00425],
+                [0.00821037,-0.00219996]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a8c580"
+            }
+          },
+          {
+            "id": "bubble-dot",
+            "semanticType": "instrument.optical-automatic-level.vial-center-mark",
+            "parent": "bubble-frame",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.004,0],
+                [0,0.0043,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.0032,0],
+                [0.00295641,0.00122459],
+                [0.00226274,0.00226274],
+                [0.00122459,0.00295641],
+                [0,0.0032],
+                [-0.00122459,0.00295641],
+                [-0.00226274,0.00226274],
+                [-0.00295641,0.00122459],
+                [-0.0032,0],
+                [-0.00295641,-0.00122459],
+                [-0.00226274,-0.00226274],
+                [-0.00122459,-0.00295641],
+                [0,-0.0032],
+                [0.00122459,-0.00295641],
+                [0.00226274,-0.00226274],
+                [0.00295641,-0.00122459]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#f3f4cf"
+            }
+          },
+          {
+            "id": "horizontal-adjuster",
+            "semanticType": "instrument.optical-automatic-level.azimuth-fine-adjuster",
+            "parent": "azimuth",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.027,0.022,-0.028],
+              "end": [0.027,0.022,-0.061],
+              "radius": 0.012,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "azimuth-mark-0",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.061,0.033,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-1",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.06007327,0.033,0.01059254],
+              "rotation": [0,1.3962634015954636,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-2",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.05732125,0.033,0.02086323],
+              "rotation": [0,1.2217304763960306,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-3",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.05282755,0.033,0.0305],
+              "rotation": [0,1.0471975511965979,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-4",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.04672871,0.033,0.03921004],
+              "rotation": [0,0.8726646259971648,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-5",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.03921004,0.033,0.04672871],
+              "rotation": [0,0.6981317007977318,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-6",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.0305,0.033,0.05282755],
+              "rotation": [0,0.5235987755982989,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-7",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.02086323,0.033,0.05732125],
+              "rotation": [0,0.34906585039886595,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-8",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.01059254,0.033,0.06007327],
+              "rotation": [0,0.17453292519943298,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-9",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0,0.033,0.061],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-10",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.01059254,0.033,0.06007327],
+              "rotation": [0,-0.17453292519943298,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-11",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.02086323,0.033,0.05732125],
+              "rotation": [0,-0.34906585039886595,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-12",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.0305,0.033,0.05282755],
+              "rotation": [0,-0.5235987755982987,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-13",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.03921004,0.033,0.04672871],
+              "rotation": [0,-0.6981317007977319,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-14",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.04672871,0.033,0.03921004],
+              "rotation": [0,-0.8726646259971647,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-15",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.05282755,0.033,0.0305],
+              "rotation": [0,-1.0471975511965979,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-16",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.05732125,0.033,0.02086323],
+              "rotation": [0,-1.2217304763960306,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-17",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.06007327,0.033,0.01059254],
+              "rotation": [0,-1.3962634015954638,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-18",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.061,0.033,0],
+              "rotation": [0,-1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-19",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.06007327,0.033,-0.01059254],
+              "rotation": [0,-1.7453292519943298,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-20",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.05732125,0.033,-0.02086323],
+              "rotation": [0,-1.9198621771937625,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-21",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.05282755,0.033,-0.0305],
+              "rotation": [0,-2.0943951023931957,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-22",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.04672871,0.033,-0.03921004],
+              "rotation": [0,-2.2689280275926285,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-23",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.03921004,0.033,-0.04672871],
+              "rotation": [0,-2.443460952792061,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-24",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.0305,0.033,-0.05282755],
+              "rotation": [0,-2.617993877991494,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-25",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.02086323,0.033,-0.05732125],
+              "rotation": [0,-2.7925268031909276,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-26",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.01059254,0.033,-0.06007327],
+              "rotation": [0,-2.9670597283903604,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-27",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0,0.033,-0.061],
+              "rotation": [0,-3.141592653589793,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-28",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.01059254,0.033,-0.06007327],
+              "rotation": [0,-3.316125578789226,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-29",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.02086323,0.033,-0.05732125],
+              "rotation": [0,-3.4906585039886595,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-30",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.0305,0.033,-0.05282755],
+              "rotation": [0,-3.6651914291880923,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-31",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.03921004,0.033,-0.04672871],
+              "rotation": [0,-3.839724354387525,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-32",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.04672871,0.033,-0.03921004],
+              "rotation": [0,-4.014257279586958,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-33",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.007,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.05282755,0.033,-0.0305],
+              "rotation": [0,-4.1887902047863905,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-34",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.05732125,0.033,-0.02086323],
+              "rotation": [0,-4.363323129985824,0]
+            }
+          },
+          {
+            "id": "azimuth-mark-35",
+            "semanticType": "instrument.optical-automatic-level.azimuth-graduation",
+            "parent": "base",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.004,0.0006]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [0.06007327,0.033,-0.01059254],
+              "rotation": [0,-4.537856055185257,0]
+            }
+          }
+        ],
+        "anchors": {
+          "sight-origin": {
+            "node": "optics",
+            "position": [-0.12219999999999999,0,0],
+            "direction": [-1,0,0],
+            "kind": "sight"
+          },
+          "sight-axis": {
+            "node": "optics",
+            "position": [0.1298,0,0],
+            "direction": [1,0,0],
+            "kind": "sight"
+          },
+          "survey-mount": {
+            "node": "mount-base",
+            "position": [0,-0.032,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "level-reference": {
+            "node": "bubble-cover",
+            "position": [0,0.004,0],
+            "direction": [0,1,0],
+            "kind": "reference"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "azimuth-angle",
+            "label": "视准方向",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "azimuth",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

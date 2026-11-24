@@ -1,0 +1,437 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.articulated-yoke-for-magnetic-particle-inspection",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可摆双脚磁粉探伤磁轭",
+  "summary": "U 字线圈、可持上壳、两端独立腿轴、可调双脚、底部接触点。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "磁粉探伤磁轭",
+    "磁轭探伤",
+    "magnetic-yoke",
+    "articulated-test-feet",
+    "无损检测",
+    "nondestructive-testing"
+  ],
+  "anchors": [
+    "left-pole",
+    "right-pole",
+    "grip"
+  ],
+  "ai": {
+    "intent": "独立表达开口磁轭和不同角度空气间隙，用每个探脚作为被检面的几何参考。",
+    "editableParts": [
+      "leg-spread",
+      "foot-angle"
+    ],
+    "qualityChecks": [
+      "机身固定，双脚可以分别沿上铰系活动。",
+      "贴面支脚可在腿端摆动。",
+      "磁轭中间保留几何开口。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "articulated-yoke-for-magnetic-particle-inspection",
+      "title": "可摆双脚磁粉探伤磁轭",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "yoke-body",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.open-U-core-cover",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.037],
+                [0,0,0.037]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.153,0.111],
+                [-0.089,0.111],
+                [-0.089,0.237],
+                [0.089,0.237],
+                [0.089,0.111],
+                [0.153,0.111],
+                [0.153,0.25],
+                [0.126,0.296],
+                [-0.125,0.296],
+                [-0.153,0.272]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#84bdc8"
+            }
+          },
+          {
+            "id": "grip",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.integrated-inspection-handhold",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.075,0.29,0],
+                [-0.076,0.345,0],
+                [0.076,0.345,0],
+                [0.075,0.29,0]
+              ],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#9db7c2"
+            }
+          },
+          {
+            "id": "control",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.small-readout-switch",
+            "geometry": {
+              "type": "box",
+              "size": [0.067,0.026,0.027]
+            },
+            "appearance": {
+              "color": "#ecc574"
+            },
+            "transform": {
+              "position": [0,0.305,0.016]
+            }
+          },
+          {
+            "id": "hinge--1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.frame",
+            "transform": {
+              "position": [-0.124,0.121,0]
+            }
+          },
+          {
+            "id": "hinge-pin--1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.longitudinal-leg-pin",
+            "parent": "hinge--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.046],
+              "end": [0,0,0.046],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bdd1d8"
+            }
+          },
+          {
+            "id": "leg--1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.drilled-adjustable-yoke-leg",
+            "parent": "hinge--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.027],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.020999999999999998,-0.09],
+                [0.020999999999999998,-0.09],
+                [0.03,-0.081],
+                [0.03,0.017000000000000008],
+                [0.020999999999999998,0.02600000000000001],
+                [-0.020999999999999998,0.02600000000000001],
+                [-0.03,0.017000000000000008],
+                [-0.03,-0.081]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.0087574,0.00207554],
+                  [0.00804269,0.00403919],
+                  [0.0068944,0.00578509],
+                  [0.00537443,0.00721911],
+                  [0.00356472,0.00826394],
+                  [0.00156283,0.00886327],
+                  [-0.0005233,0.00898477],
+                  [-0.00258123,0.00862191],
+                  [-0.0045,0.00779423],
+                  [-0.00617617,0.00654636],
+                  [-0.00751939,0.00494558],
+                  [-0.00845723,0.00307818],
+                  [-0.00893915,0.00104484],
+                  [-0.00893915,-0.00104484],
+                  [-0.00845723,-0.00307818],
+                  [-0.00751939,-0.00494558],
+                  [-0.00617617,-0.00654636],
+                  [-0.0045,-0.00779423],
+                  [-0.00258123,-0.00862191],
+                  [-0.0005233,-0.00898477],
+                  [0.00156283,-0.00886327],
+                  [0.00356472,-0.00826394],
+                  [0.00537443,-0.00721911],
+                  [0.0068944,-0.00578509],
+                  [0.00804269,-0.00403919],
+                  [0.0087574,-0.00207554]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db7c2"
+            }
+          },
+          {
+            "id": "foot--1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.frame",
+            "parent": "hinge--1",
+            "transform": {
+              "position": [0,-0.083,0]
+            }
+          },
+          {
+            "id": "pole--1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.ferromagnetic-contact-foot",
+            "parent": "foot--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.038,0],
+                [0,-0.013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.025,-0.035],
+                [-0.025,-0.035],
+                [-0.033,-0.027000000000000003],
+                [-0.033,0.027000000000000003],
+                [-0.025,0.035],
+                [0.025,0.035],
+                [0.033,0.027000000000000003],
+                [0.033,-0.027000000000000003]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bdd1d8"
+            }
+          },
+          {
+            "id": "foot-pin--1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.foot-articulation-pivot",
+            "parent": "foot--1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.038],
+              "end": [0,0,0.038],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bdd1d8"
+            }
+          },
+          {
+            "id": "hinge-1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.frame",
+            "transform": {
+              "position": [0.124,0.121,0]
+            }
+          },
+          {
+            "id": "hinge-pin-1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.longitudinal-leg-pin",
+            "parent": "hinge-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.046],
+              "end": [0,0,0.046],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bdd1d8"
+            }
+          },
+          {
+            "id": "leg-1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.drilled-adjustable-yoke-leg",
+            "parent": "hinge-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.027],
+                [0,0,0.027]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.020999999999999998,-0.09],
+                [0.020999999999999998,-0.09],
+                [0.03,-0.081],
+                [0.03,0.017000000000000008],
+                [0.020999999999999998,0.02600000000000001],
+                [-0.020999999999999998,0.02600000000000001],
+                [-0.03,0.017000000000000008],
+                [-0.03,-0.081]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.009,0],
+                  [0.0087574,0.00207554],
+                  [0.00804269,0.00403919],
+                  [0.0068944,0.00578509],
+                  [0.00537443,0.00721911],
+                  [0.00356472,0.00826394],
+                  [0.00156283,0.00886327],
+                  [-0.0005233,0.00898477],
+                  [-0.00258123,0.00862191],
+                  [-0.0045,0.00779423],
+                  [-0.00617617,0.00654636],
+                  [-0.00751939,0.00494558],
+                  [-0.00845723,0.00307818],
+                  [-0.00893915,0.00104484],
+                  [-0.00893915,-0.00104484],
+                  [-0.00845723,-0.00307818],
+                  [-0.00751939,-0.00494558],
+                  [-0.00617617,-0.00654636],
+                  [-0.0045,-0.00779423],
+                  [-0.00258123,-0.00862191],
+                  [-0.0005233,-0.00898477],
+                  [0.00156283,-0.00886327],
+                  [0.00356472,-0.00826394],
+                  [0.00537443,-0.00721911],
+                  [0.0068944,-0.00578509],
+                  [0.00804269,-0.00403919],
+                  [0.0087574,-0.00207554]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#9db7c2"
+            }
+          },
+          {
+            "id": "foot-1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.frame",
+            "parent": "hinge-1",
+            "transform": {
+              "position": [0,-0.083,0]
+            }
+          },
+          {
+            "id": "pole-1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.ferromagnetic-contact-foot",
+            "parent": "foot-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.038,0],
+                [0,-0.013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.025,-0.035],
+                [-0.025,-0.035],
+                [-0.033,-0.027000000000000003],
+                [-0.033,0.027000000000000003],
+                [-0.025,0.035],
+                [0.025,0.035],
+                [0.033,0.027000000000000003],
+                [0.033,-0.027000000000000003]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#bdd1d8"
+            }
+          },
+          {
+            "id": "foot-pin-1",
+            "semanticType": "instrument.articulated-yoke-for-magnetic-particle-inspection.foot-articulation-pivot",
+            "parent": "foot-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.038],
+              "end": [0,0,0.038],
+              "radius": 0.007,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#bdd1d8"
+            }
+          }
+        ],
+        "anchors": {
+          "left-pole": {
+            "node": "pole--1",
+            "position": [0,-0.038,0],
+            "direction": [0,-1,0],
+            "kind": "measurement"
+          },
+          "right-pole": {
+            "node": "pole-1",
+            "position": [0,-0.038,0],
+            "direction": [0,-1,0],
+            "kind": "measurement"
+          },
+          "grip": {
+            "node": "grip",
+            "position": [0,0.345,0],
+            "direction": [0,1,0],
+            "kind": "grip"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "leg-spread",
+            "label": "双探脚展开角",
+            "unit": "deg",
+            "value": 0,
+            "min": -22,
+            "max": 33,
+            "targets": [
+              {
+                "node": "hinge--1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": -0.017453292519943295
+              },
+              {
+                "node": "hinge-1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "foot-angle",
+            "label": "贴面脚摆角",
+            "unit": "deg",
+            "value": 0,
+            "min": -22,
+            "max": 22,
+            "targets": [
+              {
+                "node": "foot--1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              },
+              {
+                "node": "foot-1",
+                "property": "rotation",
+                "axis": "z",
+                "factor": -0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

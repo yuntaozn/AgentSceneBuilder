@@ -6,8 +6,9 @@ import { parametricSweep } from "../../packages/core/src/composition.js";
 import { sweepGeometry } from "../../packages/core/src/sweep.js";
 import { publicRegistryDomains, searchPublicRegistry } from "../../registry/catalog.js";
 import { catalog, loadCatalogEntry } from "../shared/browser-catalog.js";
-import { drawModelPreview, modelMaterialPalette as palette, modelPreviewNodes, observeModelPreviews, sweepWireLines } from "../shared/model-preview.js";
+import { drawModelPreview, modelMaterialPalette as palette, modelPreviewNodes, observeModelPreviews, outlineOnWhite, sweepWireLines } from "../shared/model-preview.js";
 import { studioLighting, studioLightNodes, withDefaultSceneLighting } from "../shared/scene-lighting.js";
+import { createMonitoringPanel } from "./monitoring-panel.js";
 
 const registry = createDefaultRegistry();
 const publicModelLibraryEntries = catalog.entries.filter(item => item.hasPreview || item.template);
@@ -66,7 +67,16 @@ let selectedAnnotationId = null;
 let collapsedPrototypes = new Set();
 let draggedPrototype = null;
 let soloLightPrototype = null;
+let monitoringPreviewBuild = null;
 const initialDocument = structuredClone(defaultDocument);
+const monitoringPanel = createMonitoringPanel({
+  panel: $("#monitoringTab"), tab: $('[data-tab="monitoring"]'), markers: $("#monitorMarkers"), registry,
+  onOpen: () => activateTab("monitoring"),
+  onPreview: preview => {
+    if (preview !== undefined) monitoringPreviewBuild = preview;
+    draw();
+  },
+});
 
 const add = (a, b) => a.map((value, index) => value + b[index]);
 const sub = (a, b) => a.map((value, index) => value - b[index]);
@@ -210,7 +220,7 @@ function colorFor(node) { return node.appearance?.color ?? palette[node.material
 
 function drawGrid() {
   if (!showGrid) return;
-  context.save(); context.lineWidth = 1; context.strokeStyle = "#8ea0ad18";
+  context.save(); context.lineWidth = 1; context.strokeStyle = "#e0e8ed";
   for (let i = -8; i <= 8; i += 1) {
     for (const line of [[[i,0,-8],[i,0,8]],[[-8,0,i],[8,0,i]]]) {
       const a = project(line[0]); const b = project(line[1]);
@@ -230,11 +240,11 @@ function prepareCanvasLayer() {
 
 function drawCanvasLight(node){
   const prototypeId=node.metadata?.compositionNodeId;if(hiddenPrototypes.has(prototypeId)||(isolatedPrototype&&prototypeId!==isolatedPrototype))return;
-  const position=node.matrix?[node.matrix[0][3],node.matrix[1][3],node.matrix[2][3]]:node.transform?.position??[0,0,0],p=project(position),selected=selectedPrototypes.has(prototypeId),color=node.light?.color??"#fff1d6",type=node.light?.type??"point";context.save();context.strokeStyle=selected?"#d9ff57":color;context.fillStyle=color;context.lineWidth=selected?2.5:1.5;
+  const position=node.matrix?[node.matrix[0][3],node.matrix[1][3],node.matrix[2][3]]:node.transform?.position??[0,0,0],p=project(position),selected=selectedPrototypes.has(prototypeId),color=outlineOnWhite(node.light?.color??"#fff1d6"),type=node.light?.type??"point";context.save();context.strokeStyle=selected?"#537321":color;context.fillStyle=color;context.lineWidth=selected?2.5:1.5;
   if(type==="directional"){context.strokeRect(p[0]-8,p[1]-6,16,12)}else{context.beginPath();context.arc(p[0],p[1],selected?9:7,0,Math.PI*2);context.fill();context.stroke()}
   context.beginPath();context.moveTo(p[0]-12,p[1]);context.lineTo(p[0]+12,p[1]);context.moveTo(p[0],p[1]-12);context.lineTo(p[0],p[1]+12);context.stroke();
   if(selected&&type==="point"){context.globalAlpha=.62;context.setLineDash([6,4]);const radius=Math.max(24,(node.light.distance??7)*view.zoom);context.beginPath();context.arc(p[0],p[1],radius,0,Math.PI*2);context.stroke()}
-  if(selected&&type!=="point"){const matrix=node.matrix,direction=matrix?[-matrix[0][2],-matrix[1][2],-matrix[2][2]]:[0,0,-1],length=node.light?.helperLength??4,end=project(add(position,scale(direction,length))),dx=end[0]-p[0],dy=end[1]-p[1],screenLength=Math.hypot(dx,dy)||1,tx=dx/screenLength,ty=dy/screenLength;context.setLineDash([6,4]);context.beginPath();context.moveTo(p[0],p[1]);context.lineTo(end[0],end[1]);context.stroke();context.setLineDash([]);context.beginPath();context.moveTo(end[0],end[1]);context.lineTo(end[0]-tx*13-ty*6,end[1]-ty*13+tx*6);context.lineTo(end[0]-tx*13+ty*6,end[1]-ty*13-tx*6);context.closePath();context.fillStyle=selected?"#d9ff57":color;context.fill();if(type==="spot"){const spread=Math.max(18,Math.tan(node.light.angle??Math.PI/5)*length*view.zoom*.35);context.beginPath();context.moveTo(p[0],p[1]);context.lineTo(end[0]-ty*spread,end[1]+tx*spread);context.lineTo(end[0]+ty*spread,end[1]-tx*spread);context.closePath();context.stroke()}}
+  if(selected&&type!=="point"){const matrix=node.matrix,direction=matrix?[-matrix[0][2],-matrix[1][2],-matrix[2][2]]:[0,0,-1],length=node.light?.helperLength??4,end=project(add(position,scale(direction,length))),dx=end[0]-p[0],dy=end[1]-p[1],screenLength=Math.hypot(dx,dy)||1,tx=dx/screenLength,ty=dy/screenLength;context.setLineDash([6,4]);context.beginPath();context.moveTo(p[0],p[1]);context.lineTo(end[0],end[1]);context.stroke();context.setLineDash([]);context.beginPath();context.moveTo(end[0],end[1]);context.lineTo(end[0]-tx*13-ty*6,end[1]-ty*13+tx*6);context.lineTo(end[0]-tx*13+ty*6,end[1]-ty*13-tx*6);context.closePath();context.fill();if(type==="spot"){const spread=Math.max(18,Math.tan(node.light.angle??Math.PI/5)*length*view.zoom*.35);context.beginPath();context.moveTo(p[0],p[1]);context.lineTo(end[0]-ty*spread,end[1]+tx*spread);context.lineTo(end[0]+ty*spread,end[1]-tx*spread);context.closePath();context.stroke()}}
   context.restore();projectedNodes.push({id:node.id,minX:p[0]-14,maxX:p[0]+14,minY:p[1]-14,maxY:p[1]+14,depth:p[2]});
 }
 
@@ -247,9 +257,9 @@ function selectedGeometryLines(node) {
 function drawSelectionOverlay() {
   if (!build || !selectedPrototypes.size) return;
   context.save();
-  context.strokeStyle = "#d9ff57";
-  context.shadowBlur = 12;
-  context.shadowColor = "rgba(217,255,87,.75)";
+  context.strokeStyle = "#537321";
+  context.shadowBlur = 4;
+  context.shadowColor = "rgba(120,158,55,.4)";
   context.lineCap = "round";
   context.lineJoin = "round";
   for (const node of build.nodes) {
@@ -269,21 +279,23 @@ function drawSelectionOverlay() {
 }
 
 function draw() {
+  const displayedBuild = monitoringPreviewBuild ?? build;
   if (renderMode === "three" && threeRenderer) {
-    threeRenderer.render(build,{view,showGrid,xray,palette,lighting:lightingConfig(),soloLightPrototype,hiddenPrototypes,isolatedPrototype,selectedPrototypes,animationOffsets,animationRotations,animationRotationModes,forceRebuild:threeNeedsRebuild});
+    threeRenderer.render(displayedBuild,{view,showGrid,xray,palette,lighting:lightingConfig(),soloLightPrototype,hiddenPrototypes,isolatedPrototype,selectedPrototypes,animationOffsets,animationRotations,animationRotationModes,forceRebuild:threeNeedsRebuild});
     threeNeedsRebuild=false;
     prepareCanvasLayer();
     drawSelectionOverlay();
     if(editMode!=="orbit"){drawPathControls();drawGizmo()}
     drawAnnotations();
+    monitoringPanel.draw(displayedBuild, project, context);
     return;
   }
   prepareCanvasLayer();
-  if (!build) return;
+  if (!displayedBuild) return;
   drawGrid();
   const primitives = [];
   projectedNodes = [];
-  for (const node of build.nodes) {
+  for (const node of displayedBuild.nodes) {
     const prototypeId = node.metadata?.compositionNodeId;
     if (hiddenPrototypes.has(prototypeId) || (isolatedPrototype && prototypeId !== isolatedPrototype)) continue;
     if(node.kind==="light")continue;
@@ -301,25 +313,41 @@ function draw() {
     }
   }
   primitives.sort((a,b)=>a.depth-b.depth);
+  const outlines = new Map();
   for (const primitive of primitives) {
     const selected = selectedOccurrenceExplicit ? primitive.node.id === selectedId : selectedPrototypes.has(primitive.node.metadata?.compositionNodeId); const color = colorFor(primitive.node);
-    context.globalAlpha=primitive.node.appearance?.opacity??1;
+    if (!outlines.has(color)) outlines.set(color, outlineOnWhite(color));
+    const opacity = primitive.node.appearance?.opacity ?? 1;
+    context.globalAlpha = opacity;
     context.shadowBlur=primitive.node.appearance?.glow??0; context.shadowColor=primitive.node.appearance?.emissive??"transparent";
     context.beginPath(); primitive.points.forEach((point,index)=>index?context.lineTo(point[0],point[1]):context.moveTo(point[0],point[1]));
-    if (primitive.kind === "face") { context.closePath(); context.fillStyle = selected ? "#d9ff5775" : `${color}${xray?"18":"58"}`; context.fill(); context.strokeStyle = selected ? "#e8ff90" : `${color}${xray?"68":"d0"}`; context.lineWidth = selected?1.8:1; context.stroke(); }
-    else { context.strokeStyle = selected ? "#e8ff90" : color; context.lineWidth = geometryStrokeWidth(primitive.node, selected); context.lineCap="round"; context.lineJoin="round"; context.stroke(); }
+    context.strokeStyle = selected ? "#537321" : outlines.get(color);
+    if (primitive.kind === "face") {
+      context.closePath();
+      context.fillStyle = selected ? "#a5c85e" : color;
+      context.globalAlpha = opacity * (xray ? .12 : .35);
+      context.fill();
+      context.globalAlpha = opacity * (xray ? .55 : .92);
+      context.lineWidth = selected ? 1.8 : 1;
+    } else {
+      context.lineWidth = geometryStrokeWidth(primitive.node, selected);
+      context.lineCap = "round";
+      context.lineJoin = "round";
+    }
+    context.stroke();
     const xs=primitive.points.map(p=>p[0]), ys=primitive.points.map(p=>p[1]); projectedNodes.push({id:primitive.node.id,minX:Math.min(...xs),maxX:Math.max(...xs),minY:Math.min(...ys),maxY:Math.max(...ys),depth:primitive.depth});
   }
   context.shadowBlur=0; context.shadowColor="transparent"; context.globalAlpha=1;
-  for(const node of build.nodes)if(node.kind==="light")drawCanvasLight(node);
+  for(const node of displayedBuild.nodes)if(node.kind==="light")drawCanvasLight(node);
   drawSelectionOverlay();
-  for (const [anchorId, point] of Object.entries(build.anchors?.local ?? {})) {
-    const p=project(point); context.beginPath(); context.arc(p[0],p[1],4,0,Math.PI*2); context.fillStyle="#c8f24d"; context.fill(); context.strokeStyle="#101609"; context.lineWidth=2; context.stroke(); context.fillStyle="#dfe8cf"; context.font="9px Cascadia Code"; context.fillText(anchorId,p[0]+8,p[1]-7);
+  for (const [anchorId, point] of Object.entries(documentValue.parameters?.monitoring ? {} : displayedBuild.anchors?.local ?? {})) {
+    const p=project(point); context.beginPath(); context.arc(p[0],p[1],4,0,Math.PI*2); context.fillStyle="#c8f24d"; context.fill(); context.strokeStyle="#4e6c24"; context.lineWidth=2; context.stroke(); context.fillStyle="#354d1c"; context.font="9px Cascadia Code"; context.fillText(anchorId,p[0]+8,p[1]-7);
   }
   drawAttachments();
   drawPathControls();
   drawGizmo();
   drawAnnotations();
+  monitoringPanel.draw(displayedBuild, project, context);
 }
 
 function anchorPoint(reference) {
@@ -329,7 +357,7 @@ function anchorPoint(reference) {
 function drawAttachments(){
   const attachments=build?.attachments??documentValue.parameters?.attachments??[];
   context.save();context.setLineDash([6,4]);context.font="9px Cascadia Code";
-  for(const item of attachments){const from=anchorPoint(item.from??item.source??item.a),to=anchorPoint(item.to??item.target??item.b);if(!from||!to)continue;const a=project(from),b=project(to);context.strokeStyle="#68d5c2";context.lineWidth=1.5;context.beginPath();context.moveTo(a[0],a[1]);context.lineTo(b[0],b[1]);context.stroke();context.fillStyle="#a8f0df";context.fillText(item.id??item.kind??"attachment",(a[0]+b[0])/2+5,(a[1]+b[1])/2-5)}
+  for(const item of attachments){const from=anchorPoint(item.from??item.source??item.a),to=anchorPoint(item.to??item.target??item.b);if(!from||!to)continue;const a=project(from),b=project(to);context.strokeStyle="#187879";context.lineWidth=1.5;context.beginPath();context.moveTo(a[0],a[1]);context.lineTo(b[0],b[1]);context.stroke();context.fillStyle="#11575a";context.fillText(item.id??item.kind??"attachment",(a[0]+b[0])/2+5,(a[1]+b[1])/2-5)}
   context.restore();
 }
 function sourceTransformPoint(source, point) {
@@ -378,11 +406,11 @@ function drawPathControls(){
   const pipeId = clipBinding(activePrototype)?.node;
   const source = documentValue.parameters.nodes.find(n => n.id === (pipeId ?? activePrototype));
   const kind=sourceControlKind(source),points=kind?sourceControlPoints(source,kind):null;if(!points?.length)return;
-  context.save();context.strokeStyle=kind==="loft-section"?"#72f2ffaa":"#d9ff57aa";context.setLineDash([3,3]);context.beginPath();points.forEach((point,index)=>{const p=project(sourceWorldPoint(source,point));index?context.lineTo(p[0],p[1]):context.moveTo(p[0],p[1]);pathHitAreas.push({source,kind,index,x:p[0],y:p[1]})});context.stroke();context.setLineDash([]);for(const hit of pathHitAreas){context.fillStyle="#10151a";context.strokeStyle=hit.kind==="loft-section"?"#72f2ff":"#d9ff57";context.lineWidth=2;context.fillRect(hit.x-4,hit.y-4,8,8);context.strokeRect(hit.x-4,hit.y-4,8,8)}context.restore();
+  context.save();context.strokeStyle=kind==="loft-section"?"#0c7176":"#537321";context.setLineDash([3,3]);context.beginPath();points.forEach((point,index)=>{const p=project(sourceWorldPoint(source,point));index?context.lineTo(p[0],p[1]):context.moveTo(p[0],p[1]);pathHitAreas.push({source,kind,index,x:p[0],y:p[1]})});context.stroke();context.setLineDash([]);for(const hit of pathHitAreas){context.fillStyle="#ffffff";context.lineWidth=2;context.fillRect(hit.x-4,hit.y-4,8,8);context.strokeRect(hit.x-4,hit.y-4,8,8)}context.restore();
 }
 function activeOrigin(){const node=build?.nodes.find(n=>n.metadata?.compositionNodeId===activePrototype);return node?.matrix?[node.matrix[0][3],node.matrix[1][3],node.matrix[2][3]]:null}
 function drawGizmo(){
-  gizmoHitAreas=[];const origin=activeOrigin();if(!origin||editMode==="orbit")return;const center=project(origin),axes=[{axis:"x",color:"#ff6363",v:[.7,0,0]},{axis:"y",color:"#65db7c",v:[0,.7,0]},{axis:"z",color:"#5f9dff",v:[0,0,.7]}];context.save();context.font="bold 10px Segoe UI";
+  gizmoHitAreas=[];const origin=activeOrigin();if(!origin||editMode==="orbit")return;const center=project(origin),axes=[{axis:"x",color:"#b84942",v:[.7,0,0]},{axis:"y",color:"#44782b",v:[0,.7,0]},{axis:"z",color:"#2d6da8",v:[0,0,.7]}];context.save();context.font="bold 10px Segoe UI";
   if(editMode==="move"){for(const item of axes){const end=project(add(origin,item.v));context.strokeStyle=item.color;context.lineWidth=3;context.beginPath();context.moveTo(center[0],center[1]);context.lineTo(end[0],end[1]);context.stroke();context.fillStyle=item.color;context.fillText(item.axis.toUpperCase(),end[0]+4,end[1]-4);gizmoHitAreas.push({type:"move",axis:item.axis,a:center,b:end})}}
   else {for(const item of axes){const radius=.78,points=Array.from({length:65},(_,index)=>{const angle=index/64*Math.PI*2,local=item.axis==="x"?[0,Math.cos(angle)*radius,Math.sin(angle)*radius]:item.axis==="y"?[Math.cos(angle)*radius,0,Math.sin(angle)*radius]:[Math.cos(angle)*radius,Math.sin(angle)*radius,0];return project(add(origin,local))});for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],front=(a[2]+b[2])/2>=center[2];context.globalAlpha=front?1:.24;context.strokeStyle=item.color;context.lineWidth=front?3:1.5;context.setLineDash(front?[]:[3,3]);context.beginPath();context.moveTo(a[0],a[1]);context.lineTo(b[0],b[1]);context.stroke()}context.setLineDash([]);context.globalAlpha=1;const tip=points[12],previous=points[9],dx=tip[0]-previous[0],dy=tip[1]-previous[1],length=Math.hypot(dx,dy)||1,tx=dx/length,ty=dy/length;context.fillStyle=item.color;context.beginPath();context.moveTo(tip[0],tip[1]);context.lineTo(tip[0]-tx*10-ty*5,tip[1]-ty*10+tx*5);context.lineTo(tip[0]-tx*10+ty*5,tip[1]-ty*10-tx*5);context.closePath();context.fill();context.fillText(item.axis.toUpperCase(),tip[0]+8,tip[1]-8);gizmoHitAreas.push({type:"rotate",axis:item.axis,points})}}
   context.restore();
@@ -398,16 +426,16 @@ function drawAnnotations() {
   for(const [index,annotation] of annotations.entries()){
     if(!annotation.position)continue;
     const id=annotation.id??`label-${index+1}`,text=String(annotation.text??id),p=project(annotation.position),selected=id===selectedAnnotationId;
-    const width=Math.min(220,Math.max(58,context.measureText(text).width+18)),height=23,x=p[0]+10,y=p[1]-28,color=annotation.color??"#eaf3cf";
-    context.strokeStyle=selected?"#d9ff57":"rgba(200,242,77,.45)";
+    const width=Math.min(220,Math.max(58,context.measureText(text).width+18)),height=23,x=p[0]+10,y=p[1]-28,color=outlineOnWhite(annotation.color??"#eaf3cf",100);
+    context.strokeStyle=selected?"#537321":"#9eb288";
     context.lineWidth=selected?2:1;
     context.beginPath();context.moveTo(p[0],p[1]);context.lineTo(x,y+height/2);context.stroke();
-    context.fillStyle=selected?"#d9ff57":"rgba(12,16,19,.88)";
-    context.strokeStyle=selected?"#f0ffad":"rgba(200,242,77,.35)";
+    context.fillStyle=selected?"#e9f4ca":"#ffffff";
+    context.strokeStyle=selected?"#537321":"#bbcdb0";
     context.beginPath();context.roundRect(x,y,width,height,5);context.fill();context.stroke();
     context.fillStyle=selected?"#111609":color;
     context.fillText(text,x+9,y+height/2,width-16);
-    context.fillStyle=selected?"#d9ff57":color;
+    context.fillStyle=selected?"#537321":color;
     context.beginPath();context.arc(p[0],p[1],selected?4:3,0,Math.PI*2);context.fill();
     annotationHitAreas.push({id,minX:Math.min(p[0]-8,x),maxX:Math.max(p[0]+8,x+width),minY:Math.min(p[1]-8,y),maxY:Math.max(p[1]+8,y+height),depth:p[2]});
   }
@@ -544,6 +572,51 @@ function geometryDimensionFields(geometry) {
 }
 
 function renderInspector() {
+  renderSelectedInspector();
+  renderPoseControls();
+}
+
+function renderPoseControls() {
+  const controls = documentValue.parameters?.poseControls;
+  if (!controls?.length) return;
+  const form = document.createElement("form");
+  form.className = "section";
+  form.innerHTML = `<div class="section-title">设备与工具姿态</div>
+    ${controls.map((control, index) => `<div class="edit-field">
+      <label for="pose-control-${index}">${escapeHtml(control.label ?? control.id)}</label>
+      <small class="field-help">${escapeHtml(control.id)}${control.unit ? ` · ${escapeHtml(control.unit)}` : ""}</small>
+      <input id="pose-control-${index}" type="number" step="any" required min="${control.min}" max="${control.max}" value="${control.value}">
+    </div>`).join("")}
+    <div class="inspector-actions"><button type="submit" class="apply">应用姿态</button></div>`;
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    if (sourceDraftPending) {
+      setStatus("请先重新构建 JSON 草稿，再应用设备姿态");
+      return;
+    }
+    const values = Array.from(form.querySelectorAll("input"), input => input.valueAsNumber);
+    if (values.every((value, index) => value === controls[index].value)) return;
+    const poseControls = controls.map((control, index) => ({ ...control, value: values[index] }));
+    const candidate = { ...documentValue, parameters: { ...documentValue.parameters, poseControls } };
+    const checked = checkComposition(candidate);
+    if (!checked.ok) {
+      diagnostics = checked.issues;
+      diagnosticsSource = JSON.stringify(candidate, null, 2);
+      renderDiagnostics();
+      activateTab("diagnostics");
+      setStatus("姿态未应用，请检查诊断");
+      return;
+    }
+    if (animationHandle) stopAnimation();
+    pushUndo("更新设备与工具姿态");
+    documentValue.parameters.poseControls = poseControls;
+    threeNeedsRebuild = true;
+    compile(undefined, { preserveSource: true });
+  });
+  $("#inspectTab").prepend(form);
+}
+
+function renderSelectedInspector() {
   const sourceNode=documentValue.parameters?.nodes?.find(item=>item.id===activePrototype);
   const outputs=build?.nodes?.filter(item=>item.metadata?.compositionNodeId===activePrototype)??[];
   const node=(selectedOccurrenceExplicit&&build?.nodes.find(item=>item.id===selectedId))??outputs[0]??null;
@@ -1017,6 +1090,14 @@ function applyProperties(sourceNode) {
       if (binding.node === oldId) binding.node = nextId;
       if (binding.clip === oldId) binding.clip = nextId;
     }
+    for (const control of documentValue.parameters.poseControls ?? []) {
+      for (const target of control.targets) if (target.node === oldId) target.node = nextId;
+    }
+    const monitoring = documentValue.parameters.monitoring;
+    if (monitoring) {
+      for (const motion of monitoring.motions) if (motion.node === oldId) motion.node = nextId;
+      for (const point of monitoring.points) if (point.member === oldId) point.member = nextId;
+    }
   }
   sourceNode.semanticType = $("#editSemantic").value.trim() || undefined;
   sourceNode.material = $("#editMaterial").value.trim() || undefined;
@@ -1259,6 +1340,11 @@ function deleteNode(id){
       if (ids.has(binding.clip)) { delete binding.clip; delete binding.clipOffset; }
     }
   }
+  if (documentValue.parameters.poseControls) {
+    documentValue.parameters.poseControls = documentValue.parameters.poseControls.map(control => ({
+      ...control, targets: control.targets.filter(target => !ids.has(target.node)),
+    })).filter(control => control.targets.length);
+  }
   const removedAnchors = new Set();
   for (const [name, anchor] of Object.entries(documentValue.parameters.anchors ?? {})) {
     if (!ids.has(anchor?.node)) continue;
@@ -1268,6 +1354,13 @@ function deleteNode(id){
   if (removedAnchors.size && documentValue.parameters.attachments) {
     documentValue.parameters.attachments = documentValue.parameters.attachments.filter(link =>
       !removedAnchors.has(link.from) && !removedAnchors.has(link.to));
+  }
+  const monitoring = documentValue.parameters.monitoring;
+  if (monitoring) {
+    monitoring.motions = monitoring.motions.filter(motion => !ids.has(motion.node));
+    monitoring.points = monitoring.points.filter(point => !ids.has(point.member) &&
+      ![point.sensor, point.target, point.reference, point.orientation].some(name => removedAnchors.has(name)));
+    if (!monitoring.motions.length || !monitoring.points.length) delete documentValue.parameters.monitoring;
   }
   documentValue.parameters.animations=(documentValue.parameters.animations??[]).filter(item=>!ids.has(item.target));
   for(const removedId of ids){hiddenPrototypes.delete(removedId);collapsedPrototypes.delete(removedId)}
@@ -1300,7 +1393,11 @@ function renderSelectedAnimations(){
 
 function activateTab(name){
   document.querySelectorAll("[data-tab]").forEach(button=>button.classList.toggle("active",button.dataset.tab===name));
-  ["inspect","animations","annotations","changes","source","diagnostics"].forEach(tab=>$("#"+tab+"Tab").hidden=tab!==name);
+  ["inspect","monitoring","animations","annotations","changes","source","diagnostics"].forEach(tab=>$("#"+tab+"Tab").hidden=tab!==name);
+  if (name === "monitoring" && animationHandle) stopAnimation();
+  if (name === "monitoring" && editMode !== "orbit") setEditMode("orbit", { toggle: false });
+  monitoringPanel.setActive(name === "monitoring");
+  if (name === "monitoring") draw();
   if (name === "diagnostics") updateDiagnosticActions();
 }
 function uniqueAnnotationId(base="label"){
@@ -1443,9 +1540,13 @@ function compile(source, { preserveSource = false } = {}) {
   if (selectedAnnotationId && !documentValue.parameters.annotations?.some(item => item.id === selectedAnnotationId)) selectedAnnotationId = null;
   selectedId = selectedOccurrenceExplicit && build.nodes.some(node => node.id === selectedId)
     ? selectedId : build.nodes.find(node => node.metadata?.compositionNodeId === activePrototype)?.id ?? null;
+  monitoringPreviewBuild = null;
+  const openMonitoring = monitoringPanel.load(documentValue, build);
+  if (openMonitoring) activateTab("monitoring");
+  else if (!documentValue.parameters.monitoring && !$("#monitoringTab").hidden) activateTab("inspect");
   renderTree(); renderInspector(); renderSelectedAnimations(); renderAnnotations(); renderChanges();
   renderDiagnostics(); refreshAnimationSelect(); updateSummary(); draw();
-  if (sceneImport) fitView();
+  if (sceneImport || openMonitoring) fitView();
   setStatus(`构建完成 · ${build.nodes.length} 个展开节点${diagnostics.length ? ` · ${diagnostics.length} 条警告` : ""}`);
 }
 
@@ -1482,8 +1583,12 @@ $("#clearIsolationButton").addEventListener("click",clearIsolation);
 async function initializeThreeRenderer(){if(threeRenderer)return threeRenderer;if(threeLoading)return threeLoading;$("#rendererModeButton").disabled=true;$("#rendererModeButton").textContent="加载 GPU";threeLoading=import("../../adapters/three/src/renderer.js").then(({createThreeRenderer})=>{threeRenderer=createThreeRenderer(threeCanvas);return threeRenderer}).catch(error=>{console.warn("Three renderer unavailable; using Canvas fallback",error);requestedRenderMode="canvas";localStorage.setItem("agentscene.renderer","canvas");return null}).finally(()=>{$("#rendererModeButton").disabled=false;threeLoading=null});const result=await threeLoading;if(result&&requestedRenderMode==="three")setRenderMode("three",{announce:false});else setRenderMode("canvas",{announce:false});return result}
 function setRenderMode(mode,{announce=true}={}){requestedRenderMode=mode;localStorage.setItem("agentscene.renderer",mode);if(mode==="three"&&!threeRenderer){renderMode="canvas";$(".viewport-shell").dataset.renderer="canvas";initializeThreeRenderer();return}renderMode=mode==="three"&&threeRenderer?"three":"canvas";$(".viewport-shell").dataset.renderer=renderMode;$(".viewport-shell").dataset.editing=editMode==="orbit"?"false":"true";$("#rendererModeButton").classList.toggle("active",renderMode==="three");$("#rendererModeButton").textContent=renderMode==="three"?"GPU":"轻量";threeNeedsRebuild=true;draw();if(announce)setStatus(renderMode==="three"?"已启用 GPU 渲染，场景数据和相机视角保持不变":"已切换到 Canvas 轻量渲染，场景数据保持不变")}
 function setEditMode(mode,{toggle=true}={}){editMode=toggle&&editMode===mode?"orbit":mode;$(".viewport-shell").dataset.editing=editMode==="orbit"?"false":"true";$("#moveModeButton").classList.toggle("active",editMode==="move");$("#rotateModeButton").classList.toggle("active",editMode==="rotate");canvas.style.cursor=editMode==="orbit"?"default":"crosshair";draw();setStatus(editMode==="move"?"移动模式：当前渲染器保持不变，可拖动三轴或路径控制点":editMode==="rotate"?"旋转模式：当前渲染器保持不变，可拖动三色旋转环；方向光沿局部 -Z 轴照射":"查看模式")}
-$("#moveModeButton").addEventListener("click",()=>setEditMode("move"));
-$("#rotateModeButton").addEventListener("click",()=>setEditMode("rotate"));
+for (const [selector, mode] of [["#moveModeButton", "move"], ["#rotateModeButton", "rotate"]]) {
+  $(selector).addEventListener("click", () => {
+    if (!$("#monitoringTab").hidden) activateTab("inspect");
+    setEditMode(mode);
+  });
+}
 $("#rendererModeButton").addEventListener("click",()=>setRenderMode(requestedRenderMode==="three"?"canvas":"three"));
 $("#lightingButton").addEventListener("click",event=>{pushUndo("切换场景灯光");const config=editableLighting();config.enabled=config.enabled===false;event.currentTarget.classList.toggle("active",config.enabled);threeNeedsRebuild=true;syncSourceEditor();draw();setStatus(config.enabled?"已开启全部照明":"已关闭全部照明")});
 $("#alignButton").addEventListener("click",alignSelected);
@@ -1506,7 +1611,11 @@ $("#tree").addEventListener("drop",event=>{
   draggedPrototype=null;
 });
 $("#fileInput").addEventListener("change",async(event)=>{const file=event.target.files[0];if(file){const text=await file.text();lastSyntaxRepair=undefined;compile(text);}});
-$("#downloadButton").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(documentValue,null,2)],{type:"application/json"});const link=document.createElement("a");link.href=URL.createObjectURL(blob);link.download=`${documentValue.id??"composition"}.json`;link.click();URL.revokeObjectURL(link.href)});$("#playAnimationButton").addEventListener("click",playAnimation);
+$("#downloadButton").addEventListener("click",()=>{const blob=new Blob([JSON.stringify(documentValue,null,2)],{type:"application/json"});const link=document.createElement("a");link.href=URL.createObjectURL(blob);link.download=`${documentValue.id??"composition"}.json`;link.click();URL.revokeObjectURL(link.href)});
+$("#playAnimationButton").addEventListener("click", () => {
+  if (!$("#monitoringTab").hidden && build?.animations?.length) activateTab("animations");
+  playAnimation();
+});
 document.querySelectorAll("[data-tab]").forEach((button)=>button.addEventListener("click",()=>activateTab(button.dataset.tab)));
 document.querySelectorAll("[data-view]").forEach((button)=>button.addEventListener("click",()=>{document.querySelectorAll("[data-view]").forEach(b=>b.classList.toggle("active",b===button));view=button.dataset.view==="top"?{...view,yaw:0,pitch:Math.PI/2}:button.dataset.view==="front"?{...view,yaw:0,pitch:0}:{...view,yaw:-.72,pitch:.52};draw()}));
 let drag=null;

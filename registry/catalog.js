@@ -15,6 +15,7 @@ const domains = {
   instrument: "测量与监测",
   inspection: "检测设备",
   equipment: "施工设备",
+  tool: "施工工具",
   electronics: "电子设备",
   primitive: "几何基元",
   spatial: "空间建模",

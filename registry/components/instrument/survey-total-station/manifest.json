@@ -1,0 +1,1143 @@
+{
+  "schemaVersion": "0.1",
+  "id": "instrument.survey-total-station",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "工程测量全站仪",
+  "summary": "独立水平和竖直回转轴、带提手双臂架、面板、调平底座和双端镜筒组成的全站仪单体。",
+  "license": "Apache-2.0",
+  "semanticType": "instrument.survey-total-station",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "测量",
+    "测绘",
+    "survey",
+    "site-instrument",
+    "全站仪",
+    "total-station",
+    "azimuth",
+    "elevation"
+  ],
+  "anchors": [
+    "sight-origin",
+    "sight-axis",
+    "tripod-mount",
+    "plummet-axis",
+    "elevation-axis"
+  ],
+  "ai": {
+    "intent": "作为独立测量设备参与工程测绘场景并控制水平方向与俯仰角。",
+    "editableParts": [
+      "azimuth-angle",
+      "elevation-angle"
+    ],
+    "qualityChecks": [
+      "水平回转只带动基座以上的活动机身。",
+      "俯仰以两侧耳轴为中心，光轴跟随镜筒。",
+      "底部安装点保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "survey-total-station",
+      "title": "工程测量全站仪",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "tribrach",
+            "semanticType": "instrument.survey-total-station.frame",
+            "transform": {
+              "position": [0,0.026,0]
+            }
+          },
+          {
+            "id": "base-flange",
+            "semanticType": "instrument.survey-total-station.tripod-seat",
+            "parent": "tribrach",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.026,0],
+                [0,-0.012,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.071,0],
+                [-0.06992135,0.01232902],
+                [-0.06671818,0.02428343],
+                [-0.0614878,0.0355],
+                [-0.05438916,0.04563792],
+                [-0.04563792,0.05438916],
+                [-0.0355,0.0614878],
+                [-0.02428343,0.06671818],
+                [-0.01232902,0.06992135],
+                [0,0.071],
+                [0.01232902,0.06992135],
+                [0.02428343,0.06671818],
+                [0.0355,0.0614878],
+                [0.04563792,0.05438916],
+                [0.05438916,0.04563792],
+                [0.0614878,0.0355],
+                [0.06671818,0.02428343],
+                [0.06992135,0.01232902],
+                [0.071,0],
+                [0.06992135,-0.01232902],
+                [0.06671818,-0.02428343],
+                [0.0614878,-0.0355],
+                [0.05438916,-0.04563792],
+                [0.04563792,-0.05438916],
+                [0.0355,-0.0614878],
+                [0.02428343,-0.06671818],
+                [0.01232902,-0.06992135],
+                [0,-0.071],
+                [-0.01232902,-0.06992135],
+                [-0.02428343,-0.06671818],
+                [-0.0355,-0.0614878],
+                [-0.04563792,-0.05438916],
+                [-0.05438916,-0.04563792],
+                [-0.0614878,-0.0355],
+                [-0.06671818,-0.02428343],
+                [-0.06992135,-0.01232902]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [-0.012,0],
+                  [-0.01159111,0.00310583],
+                  [-0.0103923,0.006],
+                  [-0.00848528,0.00848528],
+                  [-0.006,0.0103923],
+                  [-0.00310583,0.01159111],
+                  [0,0.012],
+                  [0.00310583,0.01159111],
+                  [0.006,0.0103923],
+                  [0.00848528,0.00848528],
+                  [0.0103923,0.006],
+                  [0.01159111,0.00310583],
+                  [0.012,0],
+                  [0.01159111,-0.00310583],
+                  [0.0103923,-0.006],
+                  [0.00848528,-0.00848528],
+                  [0.006,-0.0103923],
+                  [0.00310583,-0.01159111],
+                  [0,-0.012],
+                  [-0.00310583,-0.01159111],
+                  [-0.006,-0.0103923],
+                  [-0.00848528,-0.00848528],
+                  [-0.0103923,-0.006],
+                  [-0.01159111,-0.00310583]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "leveling-screw-1",
+            "semanticType": "instrument.survey-total-station.frame",
+            "parent": "tribrach",
+            "transform": {
+              "position": [0.047,0.002,0]
+            }
+          },
+          {
+            "id": "foot-thread-1",
+            "semanticType": "instrument.survey-total-station.leveling-thread",
+            "parent": "leveling-screw-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,0.018,0],
+              "radius": 0.005,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "level-wheel-1",
+            "semanticType": "instrument.survey-total-station.leveling-knob",
+            "parent": "leveling-screw-1",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.006,0],
+              "end": [0,0.006,0],
+              "radius": 0.014,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "leveling-screw-2",
+            "semanticType": "instrument.survey-total-station.frame",
+            "parent": "tribrach",
+            "transform": {
+              "position": [-0.0235,0.002,0.04070319]
+            }
+          },
+          {
+            "id": "foot-thread-2",
+            "semanticType": "instrument.survey-total-station.leveling-thread",
+            "parent": "leveling-screw-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,0.018,0],
+              "radius": 0.005,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "level-wheel-2",
+            "semanticType": "instrument.survey-total-station.leveling-knob",
+            "parent": "leveling-screw-2",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.006,0],
+              "end": [0,0.006,0],
+              "radius": 0.014,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "leveling-screw-3",
+            "semanticType": "instrument.survey-total-station.frame",
+            "parent": "tribrach",
+            "transform": {
+              "position": [-0.0235,0.002,-0.04070319]
+            }
+          },
+          {
+            "id": "foot-thread-3",
+            "semanticType": "instrument.survey-total-station.leveling-thread",
+            "parent": "leveling-screw-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.012,0],
+              "end": [0,0.018,0],
+              "radius": 0.005,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#c0cdd3"
+            }
+          },
+          {
+            "id": "level-wheel-3",
+            "semanticType": "instrument.survey-total-station.leveling-knob",
+            "parent": "leveling-screw-3",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.006,0],
+              "end": [0,0.006,0],
+              "radius": 0.014,
+              "radialSegments": 16
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "tribrach-plate",
+            "semanticType": "instrument.survey-total-station.tribrach-leveling-plate",
+            "parent": "tribrach",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.015,0],
+                [0,0.035,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.063,0],
+                [0.06178947,0.01229069],
+                [0.05820441,0.02410906],
+                [0.05238259,0.03500092],
+                [0.04454773,0.04454773],
+                [0.03500092,0.05238259],
+                [0.02410906,0.05820441],
+                [0.01229069,0.06178947],
+                [0,0.063],
+                [-0.01229069,0.06178947],
+                [-0.02410906,0.05820441],
+                [-0.03500092,0.05238259],
+                [-0.04454773,0.04454773],
+                [-0.05238259,0.03500092],
+                [-0.05820441,0.02410906],
+                [-0.06178947,0.01229069],
+                [-0.063,0],
+                [-0.06178947,-0.01229069],
+                [-0.05820441,-0.02410906],
+                [-0.05238259,-0.03500092],
+                [-0.04454773,-0.04454773],
+                [-0.03500092,-0.05238259],
+                [-0.02410906,-0.05820441],
+                [-0.01229069,-0.06178947],
+                [0,-0.063],
+                [0.01229069,-0.06178947],
+                [0.02410906,-0.05820441],
+                [0.03500092,-0.05238259],
+                [0.04454773,-0.04454773],
+                [0.05238259,-0.03500092],
+                [0.05820441,-0.02410906],
+                [0.06178947,-0.01229069]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#9caeb8"
+            }
+          },
+          {
+            "id": "azimuth-bearing",
+            "semanticType": "instrument.survey-total-station.azimuth-bearing",
+            "parent": "tribrach",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.035,0],
+                [0,0.053,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.057,0],
+                [0.05590476,0.01112015],
+                [0.05266113,0.02181296],
+                [0.04739377,0.0316675],
+                [0.04030509,0.04030509],
+                [0.0316675,0.04739377],
+                [0.02181296,0.05266113],
+                [0.01112015,0.05590476],
+                [0,0.057],
+                [-0.01112015,0.05590476],
+                [-0.02181296,0.05266113],
+                [-0.0316675,0.04739377],
+                [-0.04030509,0.04030509],
+                [-0.04739377,0.0316675],
+                [-0.05266113,0.02181296],
+                [-0.05590476,0.01112015],
+                [-0.057,0],
+                [-0.05590476,-0.01112015],
+                [-0.05266113,-0.02181296],
+                [-0.04739377,-0.0316675],
+                [-0.04030509,-0.04030509],
+                [-0.0316675,-0.04739377],
+                [-0.02181296,-0.05266113],
+                [-0.01112015,-0.05590476],
+                [0,-0.057],
+                [0.01112015,-0.05590476],
+                [0.02181296,-0.05266113],
+                [0.0316675,-0.04739377],
+                [0.04030509,-0.04030509],
+                [0.04739377,-0.0316675],
+                [0.05266113,-0.02181296],
+                [0.05590476,-0.01112015]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "body",
+            "semanticType": "instrument.survey-total-station.frame",
+            "parent": "tribrach",
+            "transform": {
+              "position": [0,0.053,0]
+            }
+          },
+          {
+            "id": "main-body",
+            "semanticType": "instrument.survey-total-station.rotating-chassis",
+            "parent": "body",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0],
+                [0,0.045,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.056999999999999995,-0.079],
+                [-0.03900000000000001,-0.079],
+                [-0.05500000000000001,-0.063],
+                [-0.05500000000000001,0.063],
+                [-0.03900000000000001,0.079],
+                [0.056999999999999995,0.079],
+                [0.073,0.063],
+                [0.073,-0.063]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            }
+          },
+          {
+            "id": "left-bearing-tower",
+            "semanticType": "instrument.survey-total-station.bearing-tower",
+            "parent": "body",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.079],
+                [0,0,-0.042]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.052,0.038],
+                [0.053,0.038],
+                [0.057,0.169],
+                [0.038,0.212],
+                [-0.033,0.212],
+                [-0.06,0.182]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#df8753"
+            }
+          },
+          {
+            "id": "left-trunnion",
+            "semanticType": "instrument.survey-total-station.elevation-bearing",
+            "parent": "body",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.146,-0.032],
+              "end": [0,0.146,-0.083],
+              "radius": 0.025,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "left-fine-knob",
+            "semanticType": "instrument.survey-total-station.fine-adjustment-knob",
+            "parent": "body",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.019,0.093,-0.072],
+              "end": [-0.019,0.093,-0.098],
+              "radius": 0.012,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "left-handle-post",
+            "semanticType": "instrument.survey-total-station.handle-post",
+            "parent": "body",
+            "geometry": {
+              "type": "box",
+              "size": [0.04,0.032,0.024]
+            },
+            "appearance": {
+              "color": "#455563"
+            },
+            "transform": {
+              "position": [0.005,0.227,-0.064]
+            }
+          },
+          {
+            "id": "right-bearing-tower",
+            "semanticType": "instrument.survey-total-station.bearing-tower",
+            "parent": "body",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.042],
+                [0,0,0.079]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.052,0.038],
+                [0.053,0.038],
+                [0.057,0.169],
+                [0.038,0.212],
+                [-0.033,0.212],
+                [-0.06,0.182]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#df8753"
+            }
+          },
+          {
+            "id": "right-trunnion",
+            "semanticType": "instrument.survey-total-station.elevation-bearing",
+            "parent": "body",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0.146,0.032],
+              "end": [0,0.146,0.083],
+              "radius": 0.025,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "right-fine-knob",
+            "semanticType": "instrument.survey-total-station.fine-adjustment-knob",
+            "parent": "body",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.019,0.093,0.072],
+              "end": [-0.019,0.093,0.098],
+              "radius": 0.012,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "right-handle-post",
+            "semanticType": "instrument.survey-total-station.handle-post",
+            "parent": "body",
+            "geometry": {
+              "type": "box",
+              "size": [0.04,0.032,0.024]
+            },
+            "appearance": {
+              "color": "#455563"
+            },
+            "transform": {
+              "position": [0.005,0.227,0.064]
+            }
+          },
+          {
+            "id": "handle-grip",
+            "semanticType": "instrument.survey-total-station.carry-handle",
+            "parent": "body",
+            "geometry": {
+              "type": "box",
+              "size": [0.043,0.022,0.151]
+            },
+            "appearance": {
+              "color": "#384958"
+            },
+            "transform": {
+              "position": [0.005,0.245,0]
+            }
+          },
+          {
+            "id": "elevation",
+            "semanticType": "instrument.survey-total-station.frame",
+            "parent": "body",
+            "transform": {
+              "position": [0,0.146,0]
+            }
+          },
+          {
+            "id": "telescope-body",
+            "semanticType": "instrument.survey-total-station.telescope-body",
+            "parent": "elevation",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.07051999999999999,0,0],
+              "end": [0.07547999999999999,0,0],
+              "radius": 0.029,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            }
+          },
+          {
+            "id": "objective-surround",
+            "semanticType": "instrument.survey-total-station.objective-surround",
+            "parent": "elevation",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.07047999999999999,0,0],
+                [0.10147999999999999,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.032,0],
+                [0.03138513,0.00624289],
+                [0.02956415,0.01224587],
+                [0.02660703,0.01777825],
+                [0.02262742,0.02262742],
+                [0.01777825,0.02660703],
+                [0.01224587,0.02956415],
+                [0.00624289,0.03138513],
+                [0,0.032],
+                [-0.00624289,0.03138513],
+                [-0.01224587,0.02956415],
+                [-0.01777825,0.02660703],
+                [-0.02262742,0.02262742],
+                [-0.02660703,0.01777825],
+                [-0.02956415,0.01224587],
+                [-0.03138513,0.00624289],
+                [-0.032,0],
+                [-0.03138513,-0.00624289],
+                [-0.02956415,-0.01224587],
+                [-0.02660703,-0.01777825],
+                [-0.02262742,-0.02262742],
+                [-0.01777825,-0.02660703],
+                [-0.01224587,-0.02956415],
+                [-0.00624289,-0.03138513],
+                [0,-0.032],
+                [0.00624289,-0.03138513],
+                [0.01224587,-0.02956415],
+                [0.01777825,-0.02660703],
+                [0.02262742,-0.02262742],
+                [0.02660703,-0.01777825],
+                [0.02956415,-0.01224587],
+                [0.03138513,-0.00624289]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.024,0],
+                  [0.02353885,0.00468217],
+                  [0.02217311,0.0091844],
+                  [0.01995527,0.01333369],
+                  [0.01697056,0.01697056],
+                  [0.01333369,0.01995527],
+                  [0.0091844,0.02217311],
+                  [0.00468217,0.02353885],
+                  [0,0.024],
+                  [-0.00468217,0.02353885],
+                  [-0.0091844,0.02217311],
+                  [-0.01333369,0.01995527],
+                  [-0.01697056,0.01697056],
+                  [-0.01995527,0.01333369],
+                  [-0.02217311,0.0091844],
+                  [-0.02353885,0.00468217],
+                  [-0.024,0],
+                  [-0.02353885,-0.00468217],
+                  [-0.02217311,-0.0091844],
+                  [-0.01995527,-0.01333369],
+                  [-0.01697056,-0.01697056],
+                  [-0.01333369,-0.01995527],
+                  [-0.0091844,-0.02217311],
+                  [-0.00468217,-0.02353885],
+                  [0,-0.024],
+                  [0.00468217,-0.02353885],
+                  [0.0091844,-0.02217311],
+                  [0.01333369,-0.01995527],
+                  [0.01697056,-0.01697056],
+                  [0.01995527,-0.01333369],
+                  [0.02217311,-0.0091844],
+                  [0.02353885,-0.00468217]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "objective-lens",
+            "semanticType": "instrument.survey-total-station.objective-glass",
+            "parent": "elevation",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0.09347999999999998,0,0],
+                [0.09647999999999998,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.024,0],
+                [0.02353885,0.00468217],
+                [0.02217311,0.0091844],
+                [0.01995527,0.01333369],
+                [0.01697056,0.01697056],
+                [0.01333369,0.01995527],
+                [0.0091844,0.02217311],
+                [0.00468217,0.02353885],
+                [0,0.024],
+                [-0.00468217,0.02353885],
+                [-0.0091844,0.02217311],
+                [-0.01333369,0.01995527],
+                [-0.01697056,0.01697056],
+                [-0.01995527,0.01333369],
+                [-0.02217311,0.0091844],
+                [-0.02353885,0.00468217],
+                [-0.024,0],
+                [-0.02353885,-0.00468217],
+                [-0.02217311,-0.0091844],
+                [-0.01995527,-0.01333369],
+                [-0.01697056,-0.01697056],
+                [-0.01333369,-0.01995527],
+                [-0.0091844,-0.02217311],
+                [-0.00468217,-0.02353885],
+                [0,-0.024],
+                [0.00468217,-0.02353885],
+                [0.0091844,-0.02217311],
+                [0.01333369,-0.01995527],
+                [0.01697056,-0.01697056],
+                [0.01995527,-0.01333369],
+                [0.02217311,-0.0091844],
+                [0.02353885,-0.00468217]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#32798a"
+            }
+          },
+          {
+            "id": "ocular-housing",
+            "semanticType": "instrument.survey-total-station.ocular-housing",
+            "parent": "elevation",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [-0.09951999999999998,0,0],
+              "end": [-0.07051999999999999,0,0],
+              "startRadius": 0.016960000000000003,
+              "endRadius": 0.028,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#697b86"
+            }
+          },
+          {
+            "id": "eye-cup",
+            "semanticType": "instrument.survey-total-station.eye-cup",
+            "parent": "elevation",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.10451999999999999,0,0],
+                [-0.09251999999999999,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.0208,0],
+                [0.02009126,0.00538344],
+                [0.01801333,0.0104],
+                [0.01470782,0.01470782],
+                [0.0104,0.01801333],
+                [0.00538344,0.02009126],
+                [0,0.0208],
+                [-0.00538344,0.02009126],
+                [-0.0104,0.01801333],
+                [-0.01470782,0.01470782],
+                [-0.01801333,0.0104],
+                [-0.02009126,0.00538344],
+                [-0.0208,0],
+                [-0.02009126,-0.00538344],
+                [-0.01801333,-0.0104],
+                [-0.01470782,-0.01470782],
+                [-0.0104,-0.01801333],
+                [-0.00538344,-0.02009126],
+                [0,-0.0208],
+                [0.00538344,-0.02009126],
+                [0.0104,-0.01801333],
+                [0.01470782,-0.01470782],
+                [0.01801333,-0.0104],
+                [0.02009126,-0.00538344]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.01376,0],
+                  [0.01329114,0.00356135],
+                  [0.01191651,0.00688],
+                  [0.00972979,0.00972979],
+                  [0.00688,0.01191651],
+                  [0.00356135,0.01329114],
+                  [0,0.01376],
+                  [-0.00356135,0.01329114],
+                  [-0.00688,0.01191651],
+                  [-0.00972979,0.00972979],
+                  [-0.01191651,0.00688],
+                  [-0.01329114,0.00356135],
+                  [-0.01376,0],
+                  [-0.01329114,-0.00356135],
+                  [-0.01191651,-0.00688],
+                  [-0.00972979,-0.00972979],
+                  [-0.00688,-0.01191651],
+                  [-0.00356135,-0.01329114],
+                  [0,-0.01376],
+                  [0.00356135,-0.01329114],
+                  [0.00688,-0.01191651],
+                  [0.00972979,-0.00972979],
+                  [0.01191651,-0.00688],
+                  [0.01329114,-0.00356135]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384958"
+            }
+          },
+          {
+            "id": "ocular-lens",
+            "semanticType": "instrument.survey-total-station.ocular-glass",
+            "parent": "elevation",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.09751999999999998,0,0],
+                [-0.09552,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.01376,0],
+                [0.01329114,0.00356135],
+                [0.01191651,0.00688],
+                [0.00972979,0.00972979],
+                [0.00688,0.01191651],
+                [0.00356135,0.01329114],
+                [0,0.01376],
+                [-0.00356135,0.01329114],
+                [-0.00688,0.01191651],
+                [-0.00972979,0.00972979],
+                [-0.01191651,0.00688],
+                [-0.01329114,0.00356135],
+                [-0.01376,0],
+                [-0.01329114,-0.00356135],
+                [-0.01191651,-0.00688],
+                [-0.00972979,-0.00972979],
+                [-0.00688,-0.01191651],
+                [-0.00356135,-0.01329114],
+                [0,-0.01376],
+                [0.00356135,-0.01329114],
+                [0.00688,-0.01191651],
+                [0.00972979,-0.00972979],
+                [0.01191651,-0.00688],
+                [0.01329114,-0.00356135]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#32798a"
+            }
+          },
+          {
+            "id": "focus-dial",
+            "semanticType": "instrument.survey-total-station.focus-dial",
+            "parent": "elevation",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.025,0,0.029],
+              "end": [-0.025,0,0.05],
+              "radius": 0.018,
+              "radialSegments": 20
+            },
+            "appearance": {
+              "color": "#263039"
+            }
+          },
+          {
+            "id": "keypad-case",
+            "semanticType": "instrument.survey-total-station.operator-display-bezel",
+            "parent": "body",
+            "geometry": {
+              "type": "box",
+              "size": [0.02,0.064,0.103]
+            },
+            "appearance": {
+              "color": "#384958"
+            },
+            "transform": {
+              "position": [-0.075,0.046,0],
+              "rotation": [0,0,0.2617993877991494]
+            }
+          },
+          {
+            "id": "keypad",
+            "semanticType": "instrument.survey-total-station.frame",
+            "parent": "body",
+            "transform": {
+              "position": [-0.086,0.046,0],
+              "rotation": [0,0,0.2617993877991494]
+            }
+          },
+          {
+            "id": "display",
+            "semanticType": "instrument.survey-total-station.display-screen",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0026,0.024,0.079]
+            },
+            "appearance": {
+              "color": "#32798a"
+            },
+            "transform": {
+              "position": [-0.001,0.014,0]
+            }
+          },
+          {
+            "id": "key-0-0",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.001,-0.008,-0.034]
+            }
+          },
+          {
+            "id": "key-0-1",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.001,-0.008,-0.0204]
+            }
+          },
+          {
+            "id": "key-0-2",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.001,-0.008,-0.006800000000000004]
+            }
+          },
+          {
+            "id": "key-0-3",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.001,-0.008,0.0067999999999999935]
+            }
+          },
+          {
+            "id": "key-0-4",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.001,-0.008,0.020399999999999995]
+            }
+          },
+          {
+            "id": "key-0-5",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#dc7c43"
+            },
+            "transform": {
+              "position": [-0.001,-0.008,0.03399999999999999]
+            }
+          },
+          {
+            "id": "key-1-0",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.001,-0.02,-0.034]
+            }
+          },
+          {
+            "id": "key-1-1",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.001,-0.02,-0.0204]
+            }
+          },
+          {
+            "id": "key-1-2",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.001,-0.02,-0.006800000000000004]
+            }
+          },
+          {
+            "id": "key-1-3",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.001,-0.02,0.0067999999999999935]
+            }
+          },
+          {
+            "id": "key-1-4",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#e8edf1"
+            },
+            "transform": {
+              "position": [-0.001,-0.02,0.020399999999999995]
+            }
+          },
+          {
+            "id": "key-1-5",
+            "semanticType": "instrument.survey-total-station.physical-key",
+            "parent": "keypad",
+            "geometry": {
+              "type": "box",
+              "size": [0.0035,0.008,0.01]
+            },
+            "appearance": {
+              "color": "#dc7c43"
+            },
+            "transform": {
+              "position": [-0.001,-0.02,0.03399999999999999]
+            }
+          }
+        ],
+        "anchors": {
+          "sight-origin": {
+            "node": "elevation",
+            "position": [-0.10251999999999999,0,0],
+            "direction": [-1,0,0],
+            "kind": "sight"
+          },
+          "sight-axis": {
+            "node": "elevation",
+            "position": [0.10147999999999999,0,0],
+            "direction": [1,0,0],
+            "kind": "sight"
+          },
+          "tripod-mount": {
+            "node": "base-flange",
+            "position": [0,-0.026,0],
+            "direction": [0,-1,0],
+            "kind": "mount"
+          },
+          "plummet-axis": {
+            "node": "base-flange",
+            "position": [0,-0.026,0],
+            "direction": [0,-1,0],
+            "kind": "reference"
+          },
+          "elevation-axis": {
+            "node": "elevation",
+            "position": [0,0,0],
+            "direction": [0,0,1],
+            "kind": "axis"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "azimuth-angle",
+            "label": "水平回转",
+            "unit": "deg",
+            "value": 0,
+            "min": -180,
+            "max": 180,
+            "targets": [
+              {
+                "node": "body",
+                "property": "rotation",
+                "axis": "y",
+                "factor": 0.017453292519943295
+              }
+            ]
+          },
+          {
+            "id": "elevation-angle",
+            "label": "镜筒俯仰",
+            "unit": "deg",
+            "value": 0,
+            "min": -62,
+            "max": 66,
+            "targets": [
+              {
+                "node": "elevation",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,412 @@
+{
+  "schemaVersion": "0.1",
+  "id": "tool.click-torque-wrench",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "方驱预置式扭矩扳手",
+  "summary": "带方驱、标尺、滚花握柄和锁钮的预置式扭矩扳手，可对接 3/8 英寸套筒。",
+  "license": "Apache-2.0",
+  "semanticType": "tool.click-torque-wrench",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "施工工具",
+    "紧固",
+    "手工具",
+    "扳手",
+    "扭矩扳手",
+    "torque wrench",
+    "套筒"
+  ],
+  "anchors": [
+    "grip",
+    "drive"
+  ],
+  "ai": {
+    "intent": "按 grip 放置手部，按 drive 把同规格套筒接到工作端。",
+    "editableParts": [
+      "grip",
+      "drive"
+    ],
+    "qualityChecks": [
+      "套筒方孔朝 +Y，对接时和扳手 drive 方向相反。",
+      "锁钮是独立零件。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "click-torque-wrench",
+      "title": "方驱预置式扭矩扳手",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "shaft",
+            "semanticType": "tool.click-torque-wrench.steel-shaft",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.277,0,0],
+              "end": [-0.008,0,0],
+              "radius": 0.008,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "ratchet-head",
+            "semanticType": "tool.click-torque-wrench.head",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.006,0],
+                [0,0.006,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.017,0],
+                [0.01674173,0.00295202],
+                [0.01597477,0.00581434],
+                [0.01472243,0.0085],
+                [0.01302276,0.01092739],
+                [0.01092739,0.01302276],
+                [0.0085,0.01472243],
+                [0.00581434,0.01597477],
+                [0.00295202,0.01674173],
+                [0,0.017],
+                [-0.00295202,0.01674173],
+                [-0.00581434,0.01597477],
+                [-0.0085,0.01472243],
+                [-0.01092739,0.01302276],
+                [-0.01302276,0.01092739],
+                [-0.01472243,0.0085],
+                [-0.01597477,0.00581434],
+                [-0.01674173,0.00295202],
+                [-0.017,0],
+                [-0.01674173,-0.00295202],
+                [-0.01597477,-0.00581434],
+                [-0.01472243,-0.0085],
+                [-0.01302276,-0.01092739],
+                [-0.01092739,-0.01302276],
+                [-0.0085,-0.01472243],
+                [-0.00581434,-0.01597477],
+                [-0.00295202,-0.01674173],
+                [0,-0.017],
+                [0.00295202,-0.01674173],
+                [0.00581434,-0.01597477],
+                [0.0085,-0.01472243],
+                [0.01092739,-0.01302276],
+                [0.01302276,-0.01092739],
+                [0.01472243,-0.0085],
+                [0.01597477,-0.00581434],
+                [0.01674173,-0.00295202]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "drive-collar",
+            "semanticType": "tool.click-torque-wrench.drive-collar",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.01,0],
+              "end": [0,-0.006,0],
+              "radius": 0.0085,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "square-drive",
+            "semanticType": "tool.click-torque-wrench.square-drive",
+            "geometry": {
+              "type": "box",
+              "size": [0.009525,0.01,0.009525]
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            },
+            "transform": {
+              "position": [0,-0.012,0]
+            }
+          },
+          {
+            "id": "drive-detent",
+            "semanticType": "tool.click-torque-wrench.detent",
+            "geometry": {
+              "type": "sphere",
+              "radius": 0.0011,
+              "segments": 12
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            },
+            "transform": {
+              "position": [0.00435,-0.014,0]
+            }
+          },
+          {
+            "id": "adjustment-sleeve",
+            "semanticType": "tool.click-torque-wrench.micrometer-sleeve",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.305,0,0],
+              "end": [-0.25,0,0],
+              "radius": 0.011,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#a0aeb8"
+            }
+          },
+          {
+            "id": "grip",
+            "semanticType": "tool.click-torque-wrench.grip",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.382,0,0],
+              "end": [-0.304,0,0],
+              "radius": 0.015,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#23292d"
+            }
+          },
+          {
+            "id": "lock-knob",
+            "semanticType": "tool.click-torque-wrench.lock-knob",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.398,0,0],
+              "end": [-0.38,0,0],
+              "radius": 0.012,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#e9a637"
+            }
+          },
+          {
+            "id": "scale-0",
+            "semanticType": "tool.click-torque-wrench.scale-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0012,0.001,0.009]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [-0.292,0.0108,0]
+            }
+          },
+          {
+            "id": "scale-1",
+            "semanticType": "tool.click-torque-wrench.scale-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0012,0.001,0.005]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [-0.287,0.0108,0]
+            }
+          },
+          {
+            "id": "scale-2",
+            "semanticType": "tool.click-torque-wrench.scale-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0012,0.001,0.009]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [-0.282,0.0108,0]
+            }
+          },
+          {
+            "id": "scale-3",
+            "semanticType": "tool.click-torque-wrench.scale-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0012,0.001,0.005]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [-0.27699999999999997,0.0108,0]
+            }
+          },
+          {
+            "id": "scale-4",
+            "semanticType": "tool.click-torque-wrench.scale-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0012,0.001,0.009]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [-0.27199999999999996,0.0108,0]
+            }
+          },
+          {
+            "id": "scale-5",
+            "semanticType": "tool.click-torque-wrench.scale-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0012,0.001,0.005]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [-0.26699999999999996,0.0108,0]
+            }
+          },
+          {
+            "id": "scale-6",
+            "semanticType": "tool.click-torque-wrench.scale-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0012,0.001,0.009]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [-0.262,0.0108,0]
+            }
+          },
+          {
+            "id": "scale-7",
+            "semanticType": "tool.click-torque-wrench.scale-mark",
+            "geometry": {
+              "type": "box",
+              "size": [0.0012,0.001,0.005]
+            },
+            "appearance": {
+              "color": "#26323b"
+            },
+            "transform": {
+              "position": [-0.257,0.0108,0]
+            }
+          },
+          {
+            "id": "grip-ring-0",
+            "semanticType": "tool.click-torque-wrench.grip-ring",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.373,0,0],
+              "end": [-0.371,0,0],
+              "radius": 0.0155,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "grip-ring-1",
+            "semanticType": "tool.click-torque-wrench.grip-ring",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.363,0,0],
+              "end": [-0.361,0,0],
+              "radius": 0.0155,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "grip-ring-2",
+            "semanticType": "tool.click-torque-wrench.grip-ring",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.353,0,0],
+              "end": [-0.351,0,0],
+              "radius": 0.0155,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "grip-ring-3",
+            "semanticType": "tool.click-torque-wrench.grip-ring",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.34299999999999997,0,0],
+              "end": [-0.34099999999999997,0,0],
+              "radius": 0.0155,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "grip-ring-4",
+            "semanticType": "tool.click-torque-wrench.grip-ring",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.333,0,0],
+              "end": [-0.331,0,0],
+              "radius": 0.0155,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          },
+          {
+            "id": "grip-ring-5",
+            "semanticType": "tool.click-torque-wrench.grip-ring",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.323,0,0],
+              "end": [-0.321,0,0],
+              "radius": 0.0155,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#526472"
+            }
+          }
+        ],
+        "anchors": {
+          "grip": {
+            "node": "grip",
+            "position": [-0.341,0,0],
+            "direction": [1,0,0],
+            "kind": "hand-grip"
+          },
+          "drive": {
+            "node": "square-drive",
+            "position": [0,-0.005,0],
+            "direction": [0,-1,0],
+            "kind": "drive-square-3-8"
+          }
+        }
+      }
+    }
+  }
+}

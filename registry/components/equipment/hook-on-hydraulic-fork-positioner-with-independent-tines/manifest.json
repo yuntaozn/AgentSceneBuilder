@@ -1,0 +1,365 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双挂轨独立调距货叉属具",
+  "summary": "双挂轨件、左右套滑座和两支带楔头货叉，左右货叉行程分别可调。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "液压调距货叉",
+    "独立货叉调距",
+    "fork positioner",
+    "independent fork spacing",
+    "叉车属具",
+    "forklift attachment"
+  ],
+  "anchors": [
+    "carriage-fit",
+    "tine-tip--1",
+    "tine-tip-1"
+  ],
+  "ai": {
+    "intent": "在有侧移双轨的载架上布置可单独调距的货叉，不同宽度的托盘可分别摆位。",
+    "editableParts": [
+      "tine-spacing--1",
+      "tine-spacing-1"
+    ],
+    "qualityChecks": [
+      "两支货叉和各自尖端锚点独立移动。",
+      "固定双挂轨同轴。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hook-on-hydraulic-fork-positioner-with-independent-tines",
+      "title": "双挂轨独立调距货叉属具",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "upper-hook--1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.external-hook-on-upper-carriage-rail",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.379],
+                [0,0,-0.269]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.004,0.144],
+                [0.03,0.144],
+                [0.03,0.258],
+                [-0.067,0.258],
+                [-0.067,0.216],
+                [-0.044,0.216],
+                [-0.044,0.237],
+                [0.004,0.237]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#59727e"
+            }
+          },
+          {
+            "id": "lower-hook--1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.external-hook-on-lower-carriage-rail",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.378],
+                [0,0,-0.27]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.004,-0.144],
+                [0.03,-0.144],
+                [0.03,-0.258],
+                [-0.067,-0.258],
+                [-0.067,-0.216],
+                [-0.044,-0.216],
+                [-0.044,-0.237],
+                [0.004,-0.237]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#59727e"
+            }
+          },
+          {
+            "id": "upper-hook-1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.external-hook-on-upper-carriage-rail",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.269],
+                [0,0,0.379]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.004,0.144],
+                [0.03,0.144],
+                [0.03,0.258],
+                [-0.067,0.258],
+                [-0.067,0.216],
+                [-0.044,0.216],
+                [-0.044,0.237],
+                [0.004,0.237]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#59727e"
+            }
+          },
+          {
+            "id": "lower-hook-1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.external-hook-on-lower-carriage-rail",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.27],
+                [0,0,0.378]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.004,-0.144],
+                [0.03,-0.144],
+                [0.03,-0.258],
+                [-0.067,-0.258],
+                [-0.067,-0.216],
+                [-0.044,-0.216],
+                [-0.044,-0.237],
+                [0.004,-0.237]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#59727e"
+            }
+          },
+          {
+            "id": "position-guide--0.151",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.carriage-width-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.079,0.046,0.99]
+            },
+            "appearance": {
+              "color": "#82a5b4"
+            },
+            "transform": {
+              "position": [0.054,-0.151,0]
+            }
+          },
+          {
+            "id": "position-guide-0.151",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.carriage-width-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.079,0.046,0.99]
+            },
+            "appearance": {
+              "color": "#82a5b4"
+            },
+            "transform": {
+              "position": [0.054,0.151,0]
+            }
+          },
+          {
+            "id": "movable-fork--1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.frame",
+            "transform": {
+              "position": [0,0,-0.29]
+            }
+          },
+          {
+            "id": "sliding-hanger--1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.captured-fork-block",
+            "parent": "movable-fork--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.11,0.39,0.114]
+            },
+            "appearance": {
+              "color": "#59727e"
+            },
+            "transform": {
+              "position": [0.087,-0.022,0]
+            }
+          },
+          {
+            "id": "forged-tine--1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.forged-L-shaped-fork-with-tapered-tip",
+            "parent": "movable-fork--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.049],
+                [0,0,0.049]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.105,0.138],
+                [0.171,0.138],
+                [0.171,-0.206],
+                [0.831,-0.206],
+                [0.937,-0.221],
+                [0.937,-0.238],
+                [0.194,-0.254],
+                [0.134,-0.242],
+                [0.105,-0.203]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#c6d6da"
+            }
+          },
+          {
+            "id": "fork-stop-pad--1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.replaceable-tine-root-protection",
+            "parent": "movable-fork--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.092,0.082]
+            },
+            "appearance": {
+              "color": "#d7aa62"
+            },
+            "transform": {
+              "position": [0.169,-0.088,0]
+            }
+          },
+          {
+            "id": "movable-fork-1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.frame",
+            "transform": {
+              "position": [0,0,0.29]
+            }
+          },
+          {
+            "id": "sliding-hanger-1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.captured-fork-block",
+            "parent": "movable-fork-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.11,0.39,0.114]
+            },
+            "appearance": {
+              "color": "#59727e"
+            },
+            "transform": {
+              "position": [0.087,-0.022,0]
+            }
+          },
+          {
+            "id": "forged-tine-1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.forged-L-shaped-fork-with-tapered-tip",
+            "parent": "movable-fork-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.049],
+                [0,0,0.049]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.105,0.138],
+                [0.171,0.138],
+                [0.171,-0.206],
+                [0.831,-0.206],
+                [0.937,-0.221],
+                [0.937,-0.238],
+                [0.194,-0.254],
+                [0.134,-0.242],
+                [0.105,-0.203]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#c6d6da"
+            }
+          },
+          {
+            "id": "fork-stop-pad-1",
+            "semanticType": "equipment.hook-on-hydraulic-fork-positioner-with-independent-tines.replaceable-tine-root-protection",
+            "parent": "movable-fork-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.092,0.082]
+            },
+            "appearance": {
+              "color": "#d7aa62"
+            },
+            "transform": {
+              "position": [0.169,-0.088,0]
+            }
+          }
+        ],
+        "anchors": {
+          "carriage-fit": {
+            "position": [0,0,0],
+            "direction": [-1,0,0],
+            "kind": "fork-carriage-tool-face"
+          },
+          "tine-tip--1": {
+            "node": "movable-fork--1",
+            "position": [0.937,-0.23,0],
+            "direction": [1,0,0],
+            "kind": "fork-insertion"
+          },
+          "tine-tip-1": {
+            "node": "movable-fork-1",
+            "position": [0.937,-0.23,0],
+            "direction": [1,0,0],
+            "kind": "fork-insertion"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "tine-spacing--1",
+            "label": "左货叉外移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.135,
+            "max": 0.145,
+            "targets": [
+              {
+                "node": "movable-fork--1",
+                "property": "position",
+                "axis": "z",
+                "factor": -1
+              }
+            ]
+          },
+          {
+            "id": "tine-spacing-1",
+            "label": "右货叉外移",
+            "unit": "m",
+            "value": 0,
+            "min": -0.135,
+            "max": 0.145,
+            "targets": [
+              {
+                "node": "movable-fork-1",
+                "property": "position",
+                "axis": "z",
+                "factor": 1
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

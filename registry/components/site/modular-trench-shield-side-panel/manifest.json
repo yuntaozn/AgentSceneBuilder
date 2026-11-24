@@ -1,0 +1,1123 @@
+{
+  "schemaVersion": "0.1",
+  "id": "site.modular-trench-shield-side-panel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "沟槽箱式支护独立侧板",
+  "summary": "双面钢板、分布加强筋、真实销孔、四处内侧撑杆座及可独立定位的吊耳。",
+  "license": "Apache-2.0",
+  "semanticType": "site.modular-trench-shield-side-panel",
+  "capabilities": [
+    "attach",
+    "inspect-structure"
+  ],
+  "tags": [
+    "沟槽箱侧板",
+    "支护板",
+    "shield-panel",
+    "pin-seat",
+    "沟槽施工",
+    "excavation"
+  ],
+  "anchors": [
+    "left-lower-seat",
+    "left-upper-seat",
+    "right-lower-seat",
+    "right-upper-seat",
+    "left-lift",
+    "right-lift",
+    "excavation-contact"
+  ],
+  "ai": {
+    "intent": "与可调撑杆组合形成沟槽箱式支护示意，可引用内侧对应座孔和顶部吊点。",
+    "editableParts": [
+      "left-lower-seat",
+      "left-upper-seat",
+      "right-lower-seat",
+      "right-upper-seat",
+      "left-lift",
+      "right-lift",
+      "excavation-contact"
+    ],
+    "qualityChecks": [
+      "四个撑杆座都有真实孔腔和沿正深度方向的连接锚点。",
+      "两张侧板面对面时，吊点保持在顶部。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "modular-trench-shield-side-panel",
+      "title": "沟槽箱式支护独立侧板",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "panel",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "outer-plate",
+            "semanticType": "site.modular-trench-shield-side-panel.outer-face-plate",
+            "parent": "panel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.065],
+                [0,0,-0.048]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-1.134,0.01],
+                [1.134,0.01],
+                [1.18,0.056],
+                [1.18,1.392],
+                [1.134,1.438],
+                [-1.134,1.438],
+                [-1.18,1.392],
+                [-1.18,0.056]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#aac0c8"
+            }
+          },
+          {
+            "id": "inner-plate",
+            "semanticType": "site.modular-trench-shield-side-panel.inner-face-plate",
+            "parent": "panel",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.025],
+                [0,0,0.043]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-1.134,0.01],
+                [1.134,0.01],
+                [1.18,0.056],
+                [1.18,1.392],
+                [1.134,1.438],
+                [-1.134,1.438],
+                [-1.18,1.392],
+                [-1.18,0.056]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "upright--1.139",
+            "semanticType": "site.modular-trench-shield-side-panel.vertical-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,1.331,0.076]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [-1.139,0.725,-0.012]
+            }
+          },
+          {
+            "id": "upright--0.55",
+            "semanticType": "site.modular-trench-shield-side-panel.vertical-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,1.331,0.076]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [-0.55,0.725,-0.012]
+            }
+          },
+          {
+            "id": "upright-0",
+            "semanticType": "site.modular-trench-shield-side-panel.vertical-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,1.331,0.076]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.725,-0.012]
+            }
+          },
+          {
+            "id": "upright-0.55",
+            "semanticType": "site.modular-trench-shield-side-panel.vertical-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,1.331,0.076]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0.55,0.725,-0.012]
+            }
+          },
+          {
+            "id": "upright-1.139",
+            "semanticType": "site.modular-trench-shield-side-panel.vertical-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,1.331,0.076]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [1.139,0.725,-0.012]
+            }
+          },
+          {
+            "id": "cross-member-0.045",
+            "semanticType": "site.modular-trench-shield-side-panel.horizontal-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [2.286,0.048,0.076]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.045,-0.011]
+            }
+          },
+          {
+            "id": "cross-member-0.383",
+            "semanticType": "site.modular-trench-shield-side-panel.horizontal-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [2.286,0.048,0.076]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.383,-0.011]
+            }
+          },
+          {
+            "id": "cross-member-0.725",
+            "semanticType": "site.modular-trench-shield-side-panel.horizontal-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [2.286,0.048,0.076]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,0.725,-0.011]
+            }
+          },
+          {
+            "id": "cross-member-1.066",
+            "semanticType": "site.modular-trench-shield-side-panel.horizontal-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [2.286,0.048,0.076]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,1.066,-0.011]
+            }
+          },
+          {
+            "id": "cross-member-1.405",
+            "semanticType": "site.modular-trench-shield-side-panel.horizontal-panel-ligament",
+            "parent": "panel",
+            "geometry": {
+              "type": "box",
+              "size": [2.286,0.048,0.076]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            },
+            "transform": {
+              "position": [0,1.405,-0.011]
+            }
+          },
+          {
+            "id": "left-lower-shoe",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "panel",
+            "transform": {
+              "position": [-0.889,0.315,0]
+            }
+          },
+          {
+            "id": "left-lower-foot",
+            "semanticType": "site.modular-trench-shield-side-panel.spreader-foot-plate",
+            "parent": "left-lower-shoe",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.042],
+                [0,0,0.067]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.111,-0.1],
+                [0.111,-0.1],
+                [0.128,-0.083],
+                [0.128,0.083],
+                [0.111,0.1],
+                [-0.111,0.1],
+                [-0.128,0.083],
+                [-0.128,-0.083]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "left-lower-clevis--1",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "left-lower-shoe",
+            "transform": {
+              "position": [-0.051,0,0.125]
+            }
+          },
+          {
+            "id": "left-lower-ear--1",
+            "semanticType": "site.modular-trench-shield-side-panel.clevis-ear",
+            "parent": "left-lower-clevis--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.012,0,0],
+                [0.012,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.037,-0.061],
+                [0.04700000000000001,-0.061],
+                [0.061000000000000006,-0.047],
+                [0.061000000000000006,0.047],
+                [0.04700000000000001,0.061],
+                [-0.037,0.061],
+                [-0.051,0.047],
+                [-0.051,-0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01852363,0.0042279],
+                  [0.01711841,0.00824379],
+                  [0.0148548,0.01184631],
+                  [0.01184631,0.0148548],
+                  [0.00824379,0.01711841],
+                  [0.0042279,0.01852363],
+                  [0,0.019],
+                  [-0.0042279,0.01852363],
+                  [-0.00824379,0.01711841],
+                  [-0.01184631,0.0148548],
+                  [-0.0148548,0.01184631],
+                  [-0.01711841,0.00824379],
+                  [-0.01852363,0.0042279],
+                  [-0.019,0],
+                  [-0.01852363,-0.0042279],
+                  [-0.01711841,-0.00824379],
+                  [-0.0148548,-0.01184631],
+                  [-0.01184631,-0.0148548],
+                  [-0.00824379,-0.01711841],
+                  [-0.0042279,-0.01852363],
+                  [0,-0.019],
+                  [0.0042279,-0.01852363],
+                  [0.00824379,-0.01711841],
+                  [0.01184631,-0.0148548],
+                  [0.0148548,-0.01184631],
+                  [0.01711841,-0.00824379],
+                  [0.01852363,-0.0042279]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "left-lower-clevis-1",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "left-lower-shoe",
+            "transform": {
+              "position": [0.051,0,0.125]
+            }
+          },
+          {
+            "id": "left-lower-ear-1",
+            "semanticType": "site.modular-trench-shield-side-panel.clevis-ear",
+            "parent": "left-lower-clevis-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.012,0,0],
+                [0.012,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.037,-0.061],
+                [0.04700000000000001,-0.061],
+                [0.061000000000000006,-0.047],
+                [0.061000000000000006,0.047],
+                [0.04700000000000001,0.061],
+                [-0.037,0.061],
+                [-0.051,0.047],
+                [-0.051,-0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01852363,0.0042279],
+                  [0.01711841,0.00824379],
+                  [0.0148548,0.01184631],
+                  [0.01184631,0.0148548],
+                  [0.00824379,0.01711841],
+                  [0.0042279,0.01852363],
+                  [0,0.019],
+                  [-0.0042279,0.01852363],
+                  [-0.00824379,0.01711841],
+                  [-0.01184631,0.0148548],
+                  [-0.0148548,0.01184631],
+                  [-0.01711841,0.00824379],
+                  [-0.01852363,0.0042279],
+                  [-0.019,0],
+                  [-0.01852363,-0.0042279],
+                  [-0.01711841,-0.00824379],
+                  [-0.0148548,-0.01184631],
+                  [-0.01184631,-0.0148548],
+                  [-0.00824379,-0.01711841],
+                  [-0.0042279,-0.01852363],
+                  [0,-0.019],
+                  [0.0042279,-0.01852363],
+                  [0.00824379,-0.01711841],
+                  [0.01184631,-0.0148548],
+                  [0.0148548,-0.01184631],
+                  [0.01711841,-0.00824379],
+                  [0.01852363,-0.0042279]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "left-upper-shoe",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "panel",
+            "transform": {
+              "position": [-0.889,1.102,0]
+            }
+          },
+          {
+            "id": "left-upper-foot",
+            "semanticType": "site.modular-trench-shield-side-panel.spreader-foot-plate",
+            "parent": "left-upper-shoe",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.042],
+                [0,0,0.067]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.111,-0.1],
+                [0.111,-0.1],
+                [0.128,-0.083],
+                [0.128,0.083],
+                [0.111,0.1],
+                [-0.111,0.1],
+                [-0.128,0.083],
+                [-0.128,-0.083]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "left-upper-clevis--1",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "left-upper-shoe",
+            "transform": {
+              "position": [-0.051,0,0.125]
+            }
+          },
+          {
+            "id": "left-upper-ear--1",
+            "semanticType": "site.modular-trench-shield-side-panel.clevis-ear",
+            "parent": "left-upper-clevis--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.012,0,0],
+                [0.012,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.037,-0.061],
+                [0.04700000000000001,-0.061],
+                [0.061000000000000006,-0.047],
+                [0.061000000000000006,0.047],
+                [0.04700000000000001,0.061],
+                [-0.037,0.061],
+                [-0.051,0.047],
+                [-0.051,-0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01852363,0.0042279],
+                  [0.01711841,0.00824379],
+                  [0.0148548,0.01184631],
+                  [0.01184631,0.0148548],
+                  [0.00824379,0.01711841],
+                  [0.0042279,0.01852363],
+                  [0,0.019],
+                  [-0.0042279,0.01852363],
+                  [-0.00824379,0.01711841],
+                  [-0.01184631,0.0148548],
+                  [-0.0148548,0.01184631],
+                  [-0.01711841,0.00824379],
+                  [-0.01852363,0.0042279],
+                  [-0.019,0],
+                  [-0.01852363,-0.0042279],
+                  [-0.01711841,-0.00824379],
+                  [-0.0148548,-0.01184631],
+                  [-0.01184631,-0.0148548],
+                  [-0.00824379,-0.01711841],
+                  [-0.0042279,-0.01852363],
+                  [0,-0.019],
+                  [0.0042279,-0.01852363],
+                  [0.00824379,-0.01711841],
+                  [0.01184631,-0.0148548],
+                  [0.0148548,-0.01184631],
+                  [0.01711841,-0.00824379],
+                  [0.01852363,-0.0042279]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "left-upper-clevis-1",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "left-upper-shoe",
+            "transform": {
+              "position": [0.051,0,0.125]
+            }
+          },
+          {
+            "id": "left-upper-ear-1",
+            "semanticType": "site.modular-trench-shield-side-panel.clevis-ear",
+            "parent": "left-upper-clevis-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.012,0,0],
+                [0.012,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.037,-0.061],
+                [0.04700000000000001,-0.061],
+                [0.061000000000000006,-0.047],
+                [0.061000000000000006,0.047],
+                [0.04700000000000001,0.061],
+                [-0.037,0.061],
+                [-0.051,0.047],
+                [-0.051,-0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01852363,0.0042279],
+                  [0.01711841,0.00824379],
+                  [0.0148548,0.01184631],
+                  [0.01184631,0.0148548],
+                  [0.00824379,0.01711841],
+                  [0.0042279,0.01852363],
+                  [0,0.019],
+                  [-0.0042279,0.01852363],
+                  [-0.00824379,0.01711841],
+                  [-0.01184631,0.0148548],
+                  [-0.0148548,0.01184631],
+                  [-0.01711841,0.00824379],
+                  [-0.01852363,0.0042279],
+                  [-0.019,0],
+                  [-0.01852363,-0.0042279],
+                  [-0.01711841,-0.00824379],
+                  [-0.0148548,-0.01184631],
+                  [-0.01184631,-0.0148548],
+                  [-0.00824379,-0.01711841],
+                  [-0.0042279,-0.01852363],
+                  [0,-0.019],
+                  [0.0042279,-0.01852363],
+                  [0.00824379,-0.01711841],
+                  [0.01184631,-0.0148548],
+                  [0.0148548,-0.01184631],
+                  [0.01711841,-0.00824379],
+                  [0.01852363,-0.0042279]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "right-lower-shoe",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "panel",
+            "transform": {
+              "position": [0.889,0.315,0]
+            }
+          },
+          {
+            "id": "right-lower-foot",
+            "semanticType": "site.modular-trench-shield-side-panel.spreader-foot-plate",
+            "parent": "right-lower-shoe",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.042],
+                [0,0,0.067]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.111,-0.1],
+                [0.111,-0.1],
+                [0.128,-0.083],
+                [0.128,0.083],
+                [0.111,0.1],
+                [-0.111,0.1],
+                [-0.128,0.083],
+                [-0.128,-0.083]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "right-lower-clevis--1",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "right-lower-shoe",
+            "transform": {
+              "position": [-0.051,0,0.125]
+            }
+          },
+          {
+            "id": "right-lower-ear--1",
+            "semanticType": "site.modular-trench-shield-side-panel.clevis-ear",
+            "parent": "right-lower-clevis--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.012,0,0],
+                [0.012,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.037,-0.061],
+                [0.04700000000000001,-0.061],
+                [0.061000000000000006,-0.047],
+                [0.061000000000000006,0.047],
+                [0.04700000000000001,0.061],
+                [-0.037,0.061],
+                [-0.051,0.047],
+                [-0.051,-0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01852363,0.0042279],
+                  [0.01711841,0.00824379],
+                  [0.0148548,0.01184631],
+                  [0.01184631,0.0148548],
+                  [0.00824379,0.01711841],
+                  [0.0042279,0.01852363],
+                  [0,0.019],
+                  [-0.0042279,0.01852363],
+                  [-0.00824379,0.01711841],
+                  [-0.01184631,0.0148548],
+                  [-0.0148548,0.01184631],
+                  [-0.01711841,0.00824379],
+                  [-0.01852363,0.0042279],
+                  [-0.019,0],
+                  [-0.01852363,-0.0042279],
+                  [-0.01711841,-0.00824379],
+                  [-0.0148548,-0.01184631],
+                  [-0.01184631,-0.0148548],
+                  [-0.00824379,-0.01711841],
+                  [-0.0042279,-0.01852363],
+                  [0,-0.019],
+                  [0.0042279,-0.01852363],
+                  [0.00824379,-0.01711841],
+                  [0.01184631,-0.0148548],
+                  [0.0148548,-0.01184631],
+                  [0.01711841,-0.00824379],
+                  [0.01852363,-0.0042279]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "right-lower-clevis-1",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "right-lower-shoe",
+            "transform": {
+              "position": [0.051,0,0.125]
+            }
+          },
+          {
+            "id": "right-lower-ear-1",
+            "semanticType": "site.modular-trench-shield-side-panel.clevis-ear",
+            "parent": "right-lower-clevis-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.012,0,0],
+                [0.012,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.037,-0.061],
+                [0.04700000000000001,-0.061],
+                [0.061000000000000006,-0.047],
+                [0.061000000000000006,0.047],
+                [0.04700000000000001,0.061],
+                [-0.037,0.061],
+                [-0.051,0.047],
+                [-0.051,-0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01852363,0.0042279],
+                  [0.01711841,0.00824379],
+                  [0.0148548,0.01184631],
+                  [0.01184631,0.0148548],
+                  [0.00824379,0.01711841],
+                  [0.0042279,0.01852363],
+                  [0,0.019],
+                  [-0.0042279,0.01852363],
+                  [-0.00824379,0.01711841],
+                  [-0.01184631,0.0148548],
+                  [-0.0148548,0.01184631],
+                  [-0.01711841,0.00824379],
+                  [-0.01852363,0.0042279],
+                  [-0.019,0],
+                  [-0.01852363,-0.0042279],
+                  [-0.01711841,-0.00824379],
+                  [-0.0148548,-0.01184631],
+                  [-0.01184631,-0.0148548],
+                  [-0.00824379,-0.01711841],
+                  [-0.0042279,-0.01852363],
+                  [0,-0.019],
+                  [0.0042279,-0.01852363],
+                  [0.00824379,-0.01711841],
+                  [0.01184631,-0.0148548],
+                  [0.0148548,-0.01184631],
+                  [0.01711841,-0.00824379],
+                  [0.01852363,-0.0042279]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "right-upper-shoe",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "panel",
+            "transform": {
+              "position": [0.889,1.102,0]
+            }
+          },
+          {
+            "id": "right-upper-foot",
+            "semanticType": "site.modular-trench-shield-side-panel.spreader-foot-plate",
+            "parent": "right-upper-shoe",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.042],
+                [0,0,0.067]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.111,-0.1],
+                [0.111,-0.1],
+                [0.128,-0.083],
+                [0.128,0.083],
+                [0.111,0.1],
+                [-0.111,0.1],
+                [-0.128,0.083],
+                [-0.128,-0.083]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#90abb8"
+            }
+          },
+          {
+            "id": "right-upper-clevis--1",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "right-upper-shoe",
+            "transform": {
+              "position": [-0.051,0,0.125]
+            }
+          },
+          {
+            "id": "right-upper-ear--1",
+            "semanticType": "site.modular-trench-shield-side-panel.clevis-ear",
+            "parent": "right-upper-clevis--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.012,0,0],
+                [0.012,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.037,-0.061],
+                [0.04700000000000001,-0.061],
+                [0.061000000000000006,-0.047],
+                [0.061000000000000006,0.047],
+                [0.04700000000000001,0.061],
+                [-0.037,0.061],
+                [-0.051,0.047],
+                [-0.051,-0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01852363,0.0042279],
+                  [0.01711841,0.00824379],
+                  [0.0148548,0.01184631],
+                  [0.01184631,0.0148548],
+                  [0.00824379,0.01711841],
+                  [0.0042279,0.01852363],
+                  [0,0.019],
+                  [-0.0042279,0.01852363],
+                  [-0.00824379,0.01711841],
+                  [-0.01184631,0.0148548],
+                  [-0.0148548,0.01184631],
+                  [-0.01711841,0.00824379],
+                  [-0.01852363,0.0042279],
+                  [-0.019,0],
+                  [-0.01852363,-0.0042279],
+                  [-0.01711841,-0.00824379],
+                  [-0.0148548,-0.01184631],
+                  [-0.01184631,-0.0148548],
+                  [-0.00824379,-0.01711841],
+                  [-0.0042279,-0.01852363],
+                  [0,-0.019],
+                  [0.0042279,-0.01852363],
+                  [0.00824379,-0.01711841],
+                  [0.01184631,-0.0148548],
+                  [0.0148548,-0.01184631],
+                  [0.01711841,-0.00824379],
+                  [0.01852363,-0.0042279]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "right-upper-clevis-1",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "right-upper-shoe",
+            "transform": {
+              "position": [0.051,0,0.125]
+            }
+          },
+          {
+            "id": "right-upper-ear-1",
+            "semanticType": "site.modular-trench-shield-side-panel.clevis-ear",
+            "parent": "right-upper-clevis-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [-0.012,0,0],
+                [0.012,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.037,-0.061],
+                [0.04700000000000001,-0.061],
+                [0.061000000000000006,-0.047],
+                [0.061000000000000006,0.047],
+                [0.04700000000000001,0.061],
+                [-0.037,0.061],
+                [-0.051,0.047],
+                [-0.051,-0.047]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.019,0],
+                  [0.01852363,0.0042279],
+                  [0.01711841,0.00824379],
+                  [0.0148548,0.01184631],
+                  [0.01184631,0.0148548],
+                  [0.00824379,0.01711841],
+                  [0.0042279,0.01852363],
+                  [0,0.019],
+                  [-0.0042279,0.01852363],
+                  [-0.00824379,0.01711841],
+                  [-0.01184631,0.0148548],
+                  [-0.0148548,0.01184631],
+                  [-0.01711841,0.00824379],
+                  [-0.01852363,0.0042279],
+                  [-0.019,0],
+                  [-0.01852363,-0.0042279],
+                  [-0.01711841,-0.00824379],
+                  [-0.0148548,-0.01184631],
+                  [-0.01184631,-0.0148548],
+                  [-0.00824379,-0.01711841],
+                  [-0.0042279,-0.01852363],
+                  [0,-0.019],
+                  [0.0042279,-0.01852363],
+                  [0.00824379,-0.01711841],
+                  [0.01184631,-0.0148548],
+                  [0.0148548,-0.01184631],
+                  [0.01711841,-0.00824379],
+                  [0.01852363,-0.0042279]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "lifting-eye--1",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "panel",
+            "transform": {
+              "position": [-0.852,1.44,-0.013]
+            }
+          },
+          {
+            "id": "eye--1",
+            "semanticType": "site.modular-trench-shield-side-panel.open-lifting-eye",
+            "parent": "lifting-eye--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.017],
+                [0,0,0.017]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.031000000000000003,-0.047],
+                [0.031000000000000003,-0.047],
+                [0.049,-0.029],
+                [0.049,0.059],
+                [0.031000000000000003,0.077],
+                [-0.031000000000000003,0.077],
+                [-0.049,0.059],
+                [-0.049,-0.029]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.023,0.038],
+                  [0.02242334,0.04311798],
+                  [0.02072228,0.04797933],
+                  [0.01798212,0.05234027],
+                  [0.01434027,0.05598212],
+                  [0.00997933,0.05872228],
+                  [0.00511798,0.06042334],
+                  [0,0.061],
+                  [-0.00511798,0.06042334],
+                  [-0.00997933,0.05872228],
+                  [-0.01434027,0.05598212],
+                  [-0.01798212,0.05234027],
+                  [-0.02072228,0.04797933],
+                  [-0.02242334,0.04311798],
+                  [-0.023,0.038],
+                  [-0.02242334,0.03288202],
+                  [-0.02072228,0.02802067],
+                  [-0.01798212,0.02365973],
+                  [-0.01434027,0.02001788],
+                  [-0.00997933,0.01727772],
+                  [-0.00511798,0.01557666],
+                  [0,0.015],
+                  [0.00511798,0.01557666],
+                  [0.00997933,0.01727772],
+                  [0.01434027,0.02001788],
+                  [0.01798212,0.02365973],
+                  [0.02072228,0.02802067],
+                  [0.02242334,0.03288202]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          },
+          {
+            "id": "lifting-eye-1",
+            "semanticType": "site.modular-trench-shield-side-panel.frame",
+            "parent": "panel",
+            "transform": {
+              "position": [0.852,1.44,-0.013]
+            }
+          },
+          {
+            "id": "eye-1",
+            "semanticType": "site.modular-trench-shield-side-panel.open-lifting-eye",
+            "parent": "lifting-eye-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.017],
+                [0,0,0.017]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.031000000000000003,-0.047],
+                [0.031000000000000003,-0.047],
+                [0.049,-0.029],
+                [0.049,0.059],
+                [0.031000000000000003,0.077],
+                [-0.031000000000000003,0.077],
+                [-0.049,0.059],
+                [-0.049,-0.029]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.023,0.038],
+                  [0.02242334,0.04311798],
+                  [0.02072228,0.04797933],
+                  [0.01798212,0.05234027],
+                  [0.01434027,0.05598212],
+                  [0.00997933,0.05872228],
+                  [0.00511798,0.06042334],
+                  [0,0.061],
+                  [-0.00511798,0.06042334],
+                  [-0.00997933,0.05872228],
+                  [-0.01434027,0.05598212],
+                  [-0.01798212,0.05234027],
+                  [-0.02072228,0.04797933],
+                  [-0.02242334,0.04311798],
+                  [-0.023,0.038],
+                  [-0.02242334,0.03288202],
+                  [-0.02072228,0.02802067],
+                  [-0.01798212,0.02365973],
+                  [-0.01434027,0.02001788],
+                  [-0.00997933,0.01727772],
+                  [-0.00511798,0.01557666],
+                  [0,0.015],
+                  [0.00511798,0.01557666],
+                  [0.00997933,0.01727772],
+                  [0.01434027,0.02001788],
+                  [0.01798212,0.02365973],
+                  [0.02072228,0.02802067],
+                  [0.02242334,0.03288202]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b4c7d0"
+            }
+          }
+        ],
+        "anchors": {
+          "left-lower-seat": {
+            "node": "left-lower-shoe",
+            "position": [0,0,0.125],
+            "direction": [0,0,1],
+            "kind": "spreader-pin"
+          },
+          "left-upper-seat": {
+            "node": "left-upper-shoe",
+            "position": [0,0,0.125],
+            "direction": [0,0,1],
+            "kind": "spreader-pin"
+          },
+          "right-lower-seat": {
+            "node": "right-lower-shoe",
+            "position": [0,0,0.125],
+            "direction": [0,0,1],
+            "kind": "spreader-pin"
+          },
+          "right-upper-seat": {
+            "node": "right-upper-shoe",
+            "position": [0,0,0.125],
+            "direction": [0,0,1],
+            "kind": "spreader-pin"
+          },
+          "left-lift": {
+            "node": "lifting-eye--1",
+            "position": [0,0.038,0],
+            "direction": [0,1,0],
+            "kind": "lift"
+          },
+          "right-lift": {
+            "node": "lifting-eye-1",
+            "position": [0,0.038,0],
+            "direction": [0,1,0],
+            "kind": "lift"
+          },
+          "excavation-contact": {
+            "node": "panel",
+            "position": [0,0.725,-0.065],
+            "direction": [0,0,-1],
+            "kind": "reference"
+          }
+        }
+      }
+    }
+  }
+}

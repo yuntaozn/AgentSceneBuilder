@@ -1,0 +1,564 @@
+{
+  "schemaVersion": "0.1",
+  "id": "equipment.two-way-gravity-bulk-chute-diverter",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "双出口摆板式散料分流阀",
+  "summary": "带直通上口、两侧斜下分支和可摆动导流板，透视检修板可显示内部流路。",
+  "license": "Apache-2.0",
+  "semanticType": "equipment.two-way-gravity-bulk-chute-diverter",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "set-pose"
+  ],
+  "tags": [
+    "三通溜管",
+    "散料换向",
+    "chute-diverter",
+    "flap-gate",
+    "散料设备",
+    "bulk-handling"
+  ],
+  "anchors": [
+    "left-discharge",
+    "branch-centerline--1",
+    "right-discharge",
+    "branch-centerline-1",
+    "feed",
+    "flap-shaft"
+  ],
+  "ai": {
+    "intent": "给散料重力通道添加可切换的左右出口，让 Agent 检查分流板位置和支路接口。",
+    "editableParts": [
+      "diverter-angle"
+    ],
+    "qualityChecks": [
+      "两个出口方向与各自法兰面法向一致。",
+      "检修侧和分流板分属独立节点。",
+      "摆板转动不改动入料和排料锚点。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "two-way-gravity-bulk-chute-diverter",
+      "title": "双出口摆板式散料分流阀",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "inlet",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "inlet-flange",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.open-square-flange",
+            "parent": "inlet",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0.679,0],
+                [0,0.6970000000000001,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.22699999999999998,-0.1825],
+                [-0.22699999999999998,-0.1825],
+                [-0.24,-0.16949999999999998],
+                [-0.24,0.16949999999999998],
+                [-0.22699999999999998,0.1825],
+                [0.22699999999999998,0.1825],
+                [0.24,0.16949999999999998],
+                [0.24,-0.16949999999999998]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.1885,-0.1425],
+                  [-0.1885,-0.1425],
+                  [-0.1975,-0.13349999999999998],
+                  [-0.1975,0.13349999999999998],
+                  [-0.1885,0.1425],
+                  [0.1885,0.1425],
+                  [0.1975,0.13349999999999998],
+                  [0.1975,-0.13349999999999998]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "top-wall--1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.vertical-inlet-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.142,0.288]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [-0.202,0.614,0]
+            }
+          },
+          {
+            "id": "outlet--1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.frame",
+            "transform": {
+              "position": [-0.353,0.113,0],
+              "rotation": [0,0,-0.6283185307179586]
+            }
+          },
+          {
+            "id": "outlet-flange--1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.open-square-flange",
+            "parent": "outlet--1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.017,0],
+                [0,0.0009999999999999974,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.1725,-0.181],
+                [-0.1725,-0.181],
+                [-0.1855,-0.16799999999999998],
+                [-0.1855,0.16799999999999998],
+                [-0.1725,0.181],
+                [0.1725,0.181],
+                [0.1855,0.16799999999999998],
+                [0.1855,-0.16799999999999998]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.13949999999999999,-0.1425],
+                  [-0.13949999999999999,-0.1425],
+                  [-0.1485,-0.13349999999999998],
+                  [-0.1485,0.13349999999999998],
+                  [-0.13949999999999999,0.1425],
+                  [0.13949999999999999,0.1425],
+                  [0.1485,0.13349999999999998],
+                  [0.1485,-0.13349999999999998]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "branch-rim--1--1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.outlet-rectangular-sleeve-edge",
+            "parent": "outlet--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.085,0.287]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [-0.151,0.036,0]
+            }
+          },
+          {
+            "id": "branch-side--1--1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.outlet-rectangular-sleeve-face",
+            "parent": "outlet--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.302,0.085,0.018]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0,0.036,-0.148]
+            }
+          },
+          {
+            "id": "branch-rim--1-1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.outlet-rectangular-sleeve-edge",
+            "parent": "outlet--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.085,0.287]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0.151,0.036,0]
+            }
+          },
+          {
+            "id": "branch-side--1-1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.outlet-rectangular-sleeve-face",
+            "parent": "outlet--1",
+            "geometry": {
+              "type": "box",
+              "size": [0.302,0.085,0.018]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0,0.036,0.148]
+            }
+          },
+          {
+            "id": "outboard-wall--1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.outer-diverter-cheek",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.4183619076635998,0.297]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [-0.34149999999999997,0.40650000000000003,0],
+              "rotation": [0,0,-0.7366563120875167]
+            }
+          },
+          {
+            "id": "divider-stop--1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.seating-face-at-branch-mouth",
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.181,0.283]
+            },
+            "appearance": {
+              "color": "#48636e"
+            },
+            "transform": {
+              "position": [-0.122,0.217,0],
+              "rotation": [0,0,-0.7330382858376184]
+            }
+          },
+          {
+            "id": "top-wall-1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.vertical-inlet-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.142,0.288]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0.202,0.614,0]
+            }
+          },
+          {
+            "id": "outlet-1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.frame",
+            "transform": {
+              "position": [0.353,0.113,0],
+              "rotation": [0,0,0.6283185307179586]
+            }
+          },
+          {
+            "id": "outlet-flange-1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.open-square-flange",
+            "parent": "outlet-1",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,-0.017,0],
+                [0,0.0009999999999999974,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.1725,-0.181],
+                [-0.1725,-0.181],
+                [-0.1855,-0.16799999999999998],
+                [-0.1855,0.16799999999999998],
+                [-0.1725,0.181],
+                [0.1725,0.181],
+                [0.1855,0.16799999999999998],
+                [0.1855,-0.16799999999999998]
+              ],
+              "closedProfile": true,
+              "holes": [
+                [
+                  [0.13949999999999999,-0.1425],
+                  [-0.13949999999999999,-0.1425],
+                  [-0.1485,-0.13349999999999998],
+                  [-0.1485,0.13349999999999998],
+                  [-0.13949999999999999,0.1425],
+                  [0.13949999999999999,0.1425],
+                  [0.1485,0.13349999999999998],
+                  [0.1485,-0.13349999999999998]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "branch-rim-1--1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.outlet-rectangular-sleeve-edge",
+            "parent": "outlet-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.085,0.287]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [-0.151,0.036,0]
+            }
+          },
+          {
+            "id": "branch-side-1--1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.outlet-rectangular-sleeve-face",
+            "parent": "outlet-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.302,0.085,0.018]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0,0.036,-0.148]
+            }
+          },
+          {
+            "id": "branch-rim-1-1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.outlet-rectangular-sleeve-edge",
+            "parent": "outlet-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.085,0.287]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0.151,0.036,0]
+            }
+          },
+          {
+            "id": "branch-side-1-1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.outlet-rectangular-sleeve-face",
+            "parent": "outlet-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.302,0.085,0.018]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0,0.036,0.148]
+            }
+          },
+          {
+            "id": "outboard-wall-1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.outer-diverter-cheek",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.4183619076635998,0.297]
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            },
+            "transform": {
+              "position": [0.34149999999999997,0.40650000000000003,0],
+              "rotation": [0,0,0.7366563120875167]
+            }
+          },
+          {
+            "id": "divider-stop-1",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.seating-face-at-branch-mouth",
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.181,0.283]
+            },
+            "appearance": {
+              "color": "#48636e"
+            },
+            "transform": {
+              "position": [0.122,0.217,0],
+              "rotation": [0,0,0.7330382858376184]
+            }
+          },
+          {
+            "id": "back",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.enclosed-diverter-side",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,-0.153],
+                [0,0,-0.139]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.21,0.68],
+                [0.21,0.68],
+                [0.21,0.554],
+                [0.5,0.216],
+                [0.351,0.102],
+                [0,0.301],
+                [-0.351,0.102],
+                [-0.5,0.216],
+                [-0.21,0.554]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#7fb7c3"
+            }
+          },
+          {
+            "id": "front",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.clear-diverter-inspection-side",
+            "geometry": {
+              "type": "sweep",
+              "points": [
+                [0,0,0.139],
+                [0,0,0.153]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.21,0.68],
+                [0.21,0.68],
+                [0.21,0.554],
+                [0.5,0.216],
+                [0.351,0.102],
+                [0,0.301],
+                [-0.351,0.102],
+                [-0.5,0.216],
+                [-0.21,0.554]
+              ],
+              "closedProfile": true
+            },
+            "appearance": {
+              "color": "#a5cbd5",
+              "opacity": 0.4
+            }
+          },
+          {
+            "id": "flap",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.frame",
+            "transform": {
+              "position": [0,0.303,0]
+            }
+          },
+          {
+            "id": "diverter-flap",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.moving-diverter-plate",
+            "parent": "flap",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.259,0.268]
+            },
+            "appearance": {
+              "color": "#edb658"
+            },
+            "transform": {
+              "position": [0,0.119,0]
+            }
+          },
+          {
+            "id": "flap-axle",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.pivot-axle",
+            "parent": "flap",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,0,-0.174],
+              "end": [0,0,0.201],
+              "radius": 0.018,
+              "radialSegments": 24
+            },
+            "appearance": {
+              "color": "#aec5d0"
+            }
+          },
+          {
+            "id": "indicator",
+            "semanticType": "equipment.two-way-gravity-bulk-chute-diverter.angular-position-indicator",
+            "parent": "flap",
+            "geometry": {
+              "type": "box",
+              "size": [0.014,0.102,0.019]
+            },
+            "appearance": {
+              "color": "#48636e"
+            },
+            "transform": {
+              "position": [0,0.048,0.19]
+            }
+          }
+        ],
+        "anchors": {
+          "left-discharge": {
+            "node": "outlet--1",
+            "position": [0,-0.017,0],
+            "direction": [0,-1,0],
+            "kind": "bulk-flow"
+          },
+          "branch-centerline--1": {
+            "node": "outlet-flange--1",
+            "position": [0,0.016,0],
+            "direction": [0,-1,0],
+            "kind": "reference"
+          },
+          "right-discharge": {
+            "node": "outlet-1",
+            "position": [0,-0.017,0],
+            "direction": [0,-1,0],
+            "kind": "bulk-flow"
+          },
+          "branch-centerline-1": {
+            "node": "outlet-flange-1",
+            "position": [0,0.016,0],
+            "direction": [0,-1,0],
+            "kind": "reference"
+          },
+          "feed": {
+            "node": "inlet-flange",
+            "position": [0,0.697,0],
+            "direction": [0,1,0],
+            "kind": "bulk-flow"
+          },
+          "flap-shaft": {
+            "node": "flap-axle",
+            "position": [0,0,0.201],
+            "direction": [0,0,1],
+            "kind": "drive"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "diverter-angle",
+            "label": "分流摆板角度",
+            "unit": "deg",
+            "value": 0,
+            "min": -47,
+            "max": 47,
+            "targets": [
+              {
+                "node": "flap",
+                "property": "rotation",
+                "axis": "z",
+                "factor": 0.017453292519943295
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
