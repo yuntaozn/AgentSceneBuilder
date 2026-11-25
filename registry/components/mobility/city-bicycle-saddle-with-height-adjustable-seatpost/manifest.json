@@ -1,0 +1,295 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "城市自行车鞍座与伸缩座杆",
+  "summary": "曲面座垫、双支条和独立升降的座杆。",
+  "license": "Apache-2.0",
+  "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "出行与旅行",
+    "personal mobility",
+    "自行车车座",
+    "bicycle saddle"
+  ],
+  "anchors": [
+    "tube-fit",
+    "sit"
+  ],
+  "ai": {
+    "intent": "挂接到独立车架座管，也可用于展示不同骑乘姿态。",
+    "useWhen": [
+      "曲面座垫、双支条和独立升降的座杆。"
+    ],
+    "editableParts": [
+      "seat-height"
+    ],
+    "qualityChecks": [
+      "坐垫跟随伸缩杆升降。",
+      "坐面定位和安装基准分别可读。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "city-bicycle-saddle-with-height-adjustable-seatpost",
+      "title": "城市自行车鞍座与伸缩座杆",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "fixed-clamp",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.annular-seatpost-clamp",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.025,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.021,0],
+                [0.02068096,0.00364661],
+                [0.01973355,0.00718242],
+                [0.01818653,0.0105],
+                [0.01608693,0.01349854],
+                [0.01349854,0.01608693],
+                [0.0105,0.01818653],
+                [0.00718242,0.01973355],
+                [0.00364661,0.02068096],
+                [0,0.021],
+                [-0.00364661,0.02068096],
+                [-0.00718242,0.01973355],
+                [-0.0105,0.01818653],
+                [-0.01349854,0.01608693],
+                [-0.01608693,0.01349854],
+                [-0.01818653,0.0105],
+                [-0.01973355,0.00718242],
+                [-0.02068096,0.00364661],
+                [-0.021,0],
+                [-0.02068096,-0.00364661],
+                [-0.01973355,-0.00718242],
+                [-0.01818653,-0.0105],
+                [-0.01608693,-0.01349854],
+                [-0.01349854,-0.01608693],
+                [-0.0105,-0.01818653],
+                [-0.00718242,-0.01973355],
+                [-0.00364661,-0.02068096],
+                [0,-0.021],
+                [0.00364661,-0.02068096],
+                [0.00718242,-0.01973355],
+                [0.0105,-0.01818653],
+                [0.01349854,-0.01608693],
+                [0.01608693,-0.01349854],
+                [0.01818653,-0.0105],
+                [0.01973355,-0.00718242],
+                [0.02068096,-0.00364661]
+              ],
+              "holes": [
+                [
+                  [0.0133,0],
+                  [0.01309794,0.00230952],
+                  [0.01249791,0.00454887],
+                  [0.01151814,0.00665],
+                  [0.01018839,0.00854908],
+                  [0.00854908,0.01018839],
+                  [0.00665,0.01151814],
+                  [0.00454887,0.01249791],
+                  [0.00230952,0.01309794],
+                  [0,0.0133],
+                  [-0.00230952,0.01309794],
+                  [-0.00454887,0.01249791],
+                  [-0.00665,0.01151814],
+                  [-0.00854908,0.01018839],
+                  [-0.01018839,0.00854908],
+                  [-0.01151814,0.00665],
+                  [-0.01249791,0.00454887],
+                  [-0.01309794,0.00230952],
+                  [-0.0133,0],
+                  [-0.01309794,-0.00230952],
+                  [-0.01249791,-0.00454887],
+                  [-0.01151814,-0.00665],
+                  [-0.01018839,-0.00854908],
+                  [-0.00854908,-0.01018839],
+                  [-0.00665,-0.01151814],
+                  [-0.00454887,-0.01249791],
+                  [-0.00230952,-0.01309794],
+                  [0,-0.0133],
+                  [0.00230952,-0.01309794],
+                  [0.00454887,-0.01249791],
+                  [0.00665,-0.01151814],
+                  [0.00854908,-0.01018839],
+                  [0.01018839,-0.00854908],
+                  [0.01151814,-0.00665],
+                  [0.01249791,-0.00454887],
+                  [0.01309794,-0.00230952]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "sliding-seatpost",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "post",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.moving-seatpost-stem",
+            "parent": "sliding-seatpost",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.081,0],
+              "end": [0,0.112,0],
+              "radius": 0.0128,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "seat-rail--0.041",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.curved-saddle-support",
+            "parent": "sliding-seatpost",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.1,0.134,-0.041],
+                [0,0.119,-0.021320000000000002],
+                [0.092,0.141,-0.0205]
+              ],
+              "radius": 0.006,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "seat-rail-0.041",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.curved-saddle-support",
+            "parent": "sliding-seatpost",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.1,0.134,0.041],
+                [0,0.119,0.021320000000000002],
+                [0.092,0.141,0.0205]
+              ],
+              "radius": 0.006,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "pad-lower",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.shaped-saddle-seat-base",
+            "parent": "sliding-seatpost",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.138,0],
+                [0,0.157,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.139,-0.054],
+                [0.119,-0.084],
+                [0.067,-0.079],
+                [-0.028,-0.044],
+                [-0.113,-0.021],
+                [-0.149,-0.009],
+                [-0.147,0.014],
+                [-0.115,0.023],
+                [-0.03,0.045],
+                [0.069,0.08],
+                [0.12,0.083],
+                [0.139,0.054]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "seat-shell",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.padded-bicycle-saddle-surface",
+            "parent": "sliding-seatpost",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.157,0],
+                [0,0.179,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.13622,-0.05292],
+                [0.11661999999999999,-0.08232],
+                [0.06566,-0.07742],
+                [-0.02744,-0.04312],
+                [-0.11074,-0.02058],
+                [-0.14601999999999998,-0.00882],
+                [-0.14406,0.01372],
+                [-0.11270000000000001,0.022539999999999998],
+                [-0.0294,0.0441],
+                [0.06762,0.0784],
+                [0.1176,0.08134000000000001],
+                [0.13622,0.05292]
+              ]
+            },
+            "appearance": {
+              "color": "#354149"
+            }
+          }
+        ],
+        "anchors": {
+          "tube-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "cycle-saddle-seat"
+          },
+          "sit": {
+            "node": "sliding-seatpost",
+            "position": [-0.057,0.179,0],
+            "direction": [0,1,0],
+            "kind": "sitting-surface"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "seat-height",
+            "label": "坐垫升高",
+            "min": 0,
+            "max": 0.074,
+            "value": 0.012,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "sliding-seatpost",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

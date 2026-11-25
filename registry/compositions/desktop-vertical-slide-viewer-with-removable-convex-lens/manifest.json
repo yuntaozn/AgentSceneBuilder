@@ -1,0 +1,619 @@
+{
+  "schemaVersion": "0.1",
+  "id": "optics.desktop-vertical-slide-viewer-with-removable-convex-lens",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "立式桌面载片观察架",
+  "summary": "带载片台、可调止挡和可升降的独立凸透镜座。",
+  "license": "Apache-2.0",
+  "semanticType": "optics.desktop-vertical-slide-viewer-with-removable-convex-lens",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "光学教学",
+    "optics lab",
+    "载片观察架",
+    "vertical slide viewer"
+  ],
+  "anchors": [
+    "lens-seat",
+    "sliding-convex-lens-carrier-with-open-annular-frame.post-fit",
+    "sliding-convex-lens-carrier-with-open-annular-frame.optical-axis",
+    "slide"
+  ],
+  "dependencies": [
+    "optics.sliding-convex-lens-carrier-with-open-annular-frame@0.1.0"
+  ],
+  "ai": {
+    "intent": "布置独立的竖向观察设备，将水平实验台透镜旋转安装，同一条目可跨模型复用。",
+    "useWhen": [
+      "带载片台、可调止挡和可升降的独立凸透镜座。"
+    ],
+    "editableParts": [
+      "sliding-convex-lens-carrier-with-open-annular-frame.focus-travel",
+      "arm-rise"
+    ],
+    "qualityChecks": [
+      "观察轴朝向载片台。",
+      "透镜随镜臂升降，台面固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "desktop-vertical-slide-viewer-with-removable-convex-lens",
+      "title": "立式桌面载片观察架",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "optics.desktop-vertical-slide-viewer-with-removable-convex-lens.weighted-vertical-optical-stand-foot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.023,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.14100000000000001,-0.12],
+                [-0.14100000000000001,-0.12],
+                [-0.157,-0.104],
+                [-0.157,0.104],
+                [-0.14100000000000001,0.12],
+                [0.14100000000000001,0.12],
+                [0.157,0.104],
+                [0.157,-0.104]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "upright",
+            "semanticType": "optics.desktop-vertical-slide-viewer-with-removable-convex-lens.vertical-guide-post",
+            "geometry": {
+              "type": "box",
+              "size": [0.036,0.228,0.041]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [-0.096,0.127,0]
+            }
+          },
+          {
+            "id": "stage",
+            "semanticType": "optics.desktop-vertical-slide-viewer-with-removable-convex-lens.recessed-slide-stage-with-actual-light-window",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.048,0],
+                [0,0.065,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.075,-0.09],
+                [-0.071,-0.09],
+                [-0.088,-0.073],
+                [-0.088,0.073],
+                [-0.071,0.09],
+                [0.075,0.09],
+                [0.092,0.073],
+                [0.092,-0.073]
+              ],
+              "holes": [
+                [
+                  [0.018000000000000002,-0.033],
+                  [-0.018000000000000002,-0.033],
+                  [-0.024,-0.027000000000000003],
+                  [-0.024,0.027000000000000003],
+                  [-0.018000000000000002,0.033],
+                  [0.018000000000000002,0.033],
+                  [0.024,0.027000000000000003],
+                  [0.024,-0.027000000000000003]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "stage-pad--0.059",
+            "semanticType": "optics.desktop-vertical-slide-viewer-with-removable-convex-lens.plain-slide-rest",
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.009,0.016]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [0,0.067,-0.059]
+            }
+          },
+          {
+            "id": "stage-pad-0.059",
+            "semanticType": "optics.desktop-vertical-slide-viewer-with-removable-convex-lens.plain-slide-rest",
+            "geometry": {
+              "type": "box",
+              "size": [0.14,0.009,0.016]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [0,0.067,0.059]
+            }
+          },
+          {
+            "id": "sliding-lens-bridge",
+            "semanticType": "optics.desktop-vertical-slide-viewer-with-removable-convex-lens.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "lens-arm",
+            "semanticType": "optics.desktop-vertical-slide-viewer-with-removable-convex-lens.adjustable-magnifier-arm",
+            "parent": "sliding-lens-bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.087,0.044,0.069]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [-0.065,0.176,0]
+            }
+          },
+          {
+            "id": "sliding-convex-lens-carrier-with-open-annular-frame",
+            "semanticType": "optics.desktop-vertical-slide-viewer-with-removable-convex-lens.mounted-assembly",
+            "transform": {
+              "position": [0,0.176,0],
+              "rotation": [0,0,-1.5707963267948966]
+            },
+            "parent": "sliding-lens-bridge"
+          },
+          {
+            "id": "sliding-convex-lens-carrier-with-open-annular-frame.barrel",
+            "semanticType": "optics.sliding-convex-lens-carrier-with-open-annular-frame.actual-annular-optical-barrel",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [-0.023,0,0],
+                [0.025,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.041,0],
+                [0.04080257,0.0040187],
+                [0.0402122,0.0079987],
+                [0.03923455,0.01190167],
+                [0.03787906,0.01569002],
+                [0.03615877,0.01932727],
+                [0.03409025,0.02277838],
+                [0.03169343,0.02601012],
+                [0.02899138,0.02899138],
+                [0.02601012,0.03169343],
+                [0.02277838,0.03409025],
+                [0.01932727,0.03615877],
+                [0.01569002,0.03787906],
+                [0.01190167,0.03923455],
+                [0.0079987,0.0402122],
+                [0.0040187,0.04080257],
+                [0,0.041],
+                [-0.0040187,0.04080257],
+                [-0.0079987,0.0402122],
+                [-0.01190167,0.03923455],
+                [-0.01569002,0.03787906],
+                [-0.01932727,0.03615877],
+                [-0.02277838,0.03409025],
+                [-0.02601012,0.03169343],
+                [-0.02899138,0.02899138],
+                [-0.03169343,0.02601012],
+                [-0.03409025,0.02277838],
+                [-0.03615877,0.01932727],
+                [-0.03787906,0.01569002],
+                [-0.03923455,0.01190167],
+                [-0.0402122,0.0079987],
+                [-0.04080257,0.0040187],
+                [-0.041,0],
+                [-0.04080257,-0.0040187],
+                [-0.0402122,-0.0079987],
+                [-0.03923455,-0.01190167],
+                [-0.03787906,-0.01569002],
+                [-0.03615877,-0.01932727],
+                [-0.03409025,-0.02277838],
+                [-0.03169343,-0.02601012],
+                [-0.02899138,-0.02899138],
+                [-0.02601012,-0.03169343],
+                [-0.02277838,-0.03409025],
+                [-0.01932727,-0.03615877],
+                [-0.01569002,-0.03787906],
+                [-0.01190167,-0.03923455],
+                [-0.0079987,-0.0402122],
+                [-0.0040187,-0.04080257],
+                [0,-0.041],
+                [0.0040187,-0.04080257],
+                [0.0079987,-0.0402122],
+                [0.01190167,-0.03923455],
+                [0.01569002,-0.03787906],
+                [0.01932727,-0.03615877],
+                [0.02277838,-0.03409025],
+                [0.02601012,-0.03169343],
+                [0.02899138,-0.02899138],
+                [0.03169343,-0.02601012],
+                [0.03409025,-0.02277838],
+                [0.03615877,-0.01932727],
+                [0.03787906,-0.01569002],
+                [0.03923455,-0.01190167],
+                [0.0402122,-0.0079987],
+                [0.04080257,-0.0040187]
+              ],
+              "holes": [
+                [
+                  [0.032,0],
+                  [0.03184591,0.00313655],
+                  [0.03138513,0.00624289],
+                  [0.03062209,0.00928911],
+                  [0.02956415,0.01224587],
+                  [0.02822148,0.0150847],
+                  [0.02660703,0.01777825],
+                  [0.02473633,0.02030059],
+                  [0.02262742,0.02262742],
+                  [0.02030059,0.02473633],
+                  [0.01777825,0.02660703],
+                  [0.0150847,0.02822148],
+                  [0.01224587,0.02956415],
+                  [0.00928911,0.03062209],
+                  [0.00624289,0.03138513],
+                  [0.00313655,0.03184591],
+                  [0,0.032],
+                  [-0.00313655,0.03184591],
+                  [-0.00624289,0.03138513],
+                  [-0.00928911,0.03062209],
+                  [-0.01224587,0.02956415],
+                  [-0.0150847,0.02822148],
+                  [-0.01777825,0.02660703],
+                  [-0.02030059,0.02473633],
+                  [-0.02262742,0.02262742],
+                  [-0.02473633,0.02030059],
+                  [-0.02660703,0.01777825],
+                  [-0.02822148,0.0150847],
+                  [-0.02956415,0.01224587],
+                  [-0.03062209,0.00928911],
+                  [-0.03138513,0.00624289],
+                  [-0.03184591,0.00313655],
+                  [-0.032,0],
+                  [-0.03184591,-0.00313655],
+                  [-0.03138513,-0.00624289],
+                  [-0.03062209,-0.00928911],
+                  [-0.02956415,-0.01224587],
+                  [-0.02822148,-0.0150847],
+                  [-0.02660703,-0.01777825],
+                  [-0.02473633,-0.02030059],
+                  [-0.02262742,-0.02262742],
+                  [-0.02030059,-0.02473633],
+                  [-0.01777825,-0.02660703],
+                  [-0.0150847,-0.02822148],
+                  [-0.01224587,-0.02956415],
+                  [-0.00928911,-0.03062209],
+                  [-0.00624289,-0.03138513],
+                  [-0.00313655,-0.03184591],
+                  [0,-0.032],
+                  [0.00313655,-0.03184591],
+                  [0.00624289,-0.03138513],
+                  [0.00928911,-0.03062209],
+                  [0.01224587,-0.02956415],
+                  [0.0150847,-0.02822148],
+                  [0.01777825,-0.02660703],
+                  [0.02030059,-0.02473633],
+                  [0.02262742,-0.02262742],
+                  [0.02473633,-0.02030059],
+                  [0.02660703,-0.01777825],
+                  [0.02822148,-0.0150847],
+                  [0.02956415,-0.01224587],
+                  [0.03062209,-0.00928911],
+                  [0.03138513,-0.00624289],
+                  [0.03184591,-0.00313655]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "parent": "sliding-convex-lens-carrier-with-open-annular-frame"
+          },
+          {
+            "id": "sliding-convex-lens-carrier-with-open-annular-frame.foot",
+            "semanticType": "optics.sliding-convex-lens-carrier-with-open-annular-frame.optical-barrel-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.061,0.015,0.037]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [0,-0.036,0]
+            },
+            "parent": "sliding-convex-lens-carrier-with-open-annular-frame"
+          },
+          {
+            "id": "sliding-convex-lens-carrier-with-open-annular-frame.moving-lens",
+            "semanticType": "optics.sliding-convex-lens-carrier-with-open-annular-frame.frame",
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "sliding-convex-lens-carrier-with-open-annular-frame"
+          },
+          {
+            "id": "sliding-convex-lens-carrier-with-open-annular-frame.front-glass",
+            "semanticType": "optics.sliding-convex-lens-carrier-with-open-annular-frame.convex-lens-front-shell",
+            "parent": "sliding-convex-lens-carrier-with-open-annular-frame.moving-lens",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,0],
+              "end": [0.009,0,0],
+              "startRadius": 0.029,
+              "endRadius": 0.022,
+              "radialSegments": 56
+            },
+            "appearance": {
+              "color": "#719cab"
+            }
+          },
+          {
+            "id": "sliding-convex-lens-carrier-with-open-annular-frame.rear-glass",
+            "semanticType": "optics.sliding-convex-lens-carrier-with-open-annular-frame.convex-lens-rear-shell",
+            "parent": "sliding-convex-lens-carrier-with-open-annular-frame.moving-lens",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [-0.008,0,0],
+              "end": [0,0,0],
+              "startRadius": 0.022,
+              "endRadius": 0.029,
+              "radialSegments": 56
+            },
+            "appearance": {
+              "color": "#719cab"
+            }
+          },
+          {
+            "id": "sliding-convex-lens-carrier-with-open-annular-frame.retaining-ring",
+            "semanticType": "optics.sliding-convex-lens-carrier-with-open-annular-frame.holed-lens-carrier-ring",
+            "parent": "sliding-convex-lens-carrier-with-open-annular-frame.moving-lens",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [-0.005,0,0],
+                [0.004,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.033,0],
+                [0.0328411,0.00323457],
+                [0.03236591,0.00643798],
+                [0.03157903,0.00957939],
+                [0.03048802,0.01262855],
+                [0.0291034,0.01555609],
+                [0.0274385,0.01833382],
+                [0.02550934,0.02093498],
+                [0.02333452,0.02333452],
+                [0.02093498,0.02550934],
+                [0.01833382,0.0274385],
+                [0.01555609,0.0291034],
+                [0.01262855,0.03048802],
+                [0.00957939,0.03157903],
+                [0.00643798,0.03236591],
+                [0.00323457,0.0328411],
+                [0,0.033],
+                [-0.00323457,0.0328411],
+                [-0.00643798,0.03236591],
+                [-0.00957939,0.03157903],
+                [-0.01262855,0.03048802],
+                [-0.01555609,0.0291034],
+                [-0.01833382,0.0274385],
+                [-0.02093498,0.02550934],
+                [-0.02333452,0.02333452],
+                [-0.02550934,0.02093498],
+                [-0.0274385,0.01833382],
+                [-0.0291034,0.01555609],
+                [-0.03048802,0.01262855],
+                [-0.03157903,0.00957939],
+                [-0.03236591,0.00643798],
+                [-0.0328411,0.00323457],
+                [-0.033,0],
+                [-0.0328411,-0.00323457],
+                [-0.03236591,-0.00643798],
+                [-0.03157903,-0.00957939],
+                [-0.03048802,-0.01262855],
+                [-0.0291034,-0.01555609],
+                [-0.0274385,-0.01833382],
+                [-0.02550934,-0.02093498],
+                [-0.02333452,-0.02333452],
+                [-0.02093498,-0.02550934],
+                [-0.01833382,-0.0274385],
+                [-0.01555609,-0.0291034],
+                [-0.01262855,-0.03048802],
+                [-0.00957939,-0.03157903],
+                [-0.00643798,-0.03236591],
+                [-0.00323457,-0.0328411],
+                [0,-0.033],
+                [0.00323457,-0.0328411],
+                [0.00643798,-0.03236591],
+                [0.00957939,-0.03157903],
+                [0.01262855,-0.03048802],
+                [0.01555609,-0.0291034],
+                [0.01833382,-0.0274385],
+                [0.02093498,-0.02550934],
+                [0.02333452,-0.02333452],
+                [0.02550934,-0.02093498],
+                [0.0274385,-0.01833382],
+                [0.0291034,-0.01555609],
+                [0.03048802,-0.01262855],
+                [0.03157903,-0.00957939],
+                [0.03236591,-0.00643798],
+                [0.0328411,-0.00323457]
+              ],
+              "holes": [
+                [
+                  [0.028,0],
+                  [0.02786517,0.00274448],
+                  [0.02746199,0.00546253],
+                  [0.02679433,0.00812797],
+                  [0.02586863,0.01071514],
+                  [0.0246938,0.01319911],
+                  [0.02328115,0.01555597],
+                  [0.02164429,0.01776301],
+                  [0.01979899,0.01979899],
+                  [0.01776301,0.02164429],
+                  [0.01555597,0.02328115],
+                  [0.01319911,0.0246938],
+                  [0.01071514,0.02586863],
+                  [0.00812797,0.02679433],
+                  [0.00546253,0.02746199],
+                  [0.00274448,0.02786517],
+                  [0,0.028],
+                  [-0.00274448,0.02786517],
+                  [-0.00546253,0.02746199],
+                  [-0.00812797,0.02679433],
+                  [-0.01071514,0.02586863],
+                  [-0.01319911,0.0246938],
+                  [-0.01555597,0.02328115],
+                  [-0.01776301,0.02164429],
+                  [-0.01979899,0.01979899],
+                  [-0.02164429,0.01776301],
+                  [-0.02328115,0.01555597],
+                  [-0.0246938,0.01319911],
+                  [-0.02586863,0.01071514],
+                  [-0.02679433,0.00812797],
+                  [-0.02746199,0.00546253],
+                  [-0.02786517,0.00274448],
+                  [-0.028,0],
+                  [-0.02786517,-0.00274448],
+                  [-0.02746199,-0.00546253],
+                  [-0.02679433,-0.00812797],
+                  [-0.02586863,-0.01071514],
+                  [-0.0246938,-0.01319911],
+                  [-0.02328115,-0.01555597],
+                  [-0.02164429,-0.01776301],
+                  [-0.01979899,-0.01979899],
+                  [-0.01776301,-0.02164429],
+                  [-0.01555597,-0.02328115],
+                  [-0.01319911,-0.0246938],
+                  [-0.01071514,-0.02586863],
+                  [-0.00812797,-0.02679433],
+                  [-0.00546253,-0.02746199],
+                  [-0.00274448,-0.02786517],
+                  [0,-0.028],
+                  [0.00274448,-0.02786517],
+                  [0.00546253,-0.02746199],
+                  [0.00812797,-0.02679433],
+                  [0.01071514,-0.02586863],
+                  [0.01319911,-0.0246938],
+                  [0.01555597,-0.02328115],
+                  [0.01776301,-0.02164429],
+                  [0.01979899,-0.01979899],
+                  [0.02164429,-0.01776301],
+                  [0.02328115,-0.01555597],
+                  [0.0246938,-0.01319911],
+                  [0.02586863,-0.01071514],
+                  [0.02679433,-0.00812797],
+                  [0.02746199,-0.00546253],
+                  [0.02786517,-0.00274448]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          }
+        ],
+        "anchors": {
+          "lens-seat": {
+            "node": "sliding-lens-bridge",
+            "position": [-0.043,0.176,0],
+            "direction": [1,0,0],
+            "kind": "optical-post-device-seat"
+          },
+          "sliding-convex-lens-carrier-with-open-annular-frame.post-fit": {
+            "position": [0,-0.043,0],
+            "direction": [0,-1,0],
+            "kind": "optical-post-device-seat",
+            "node": "sliding-convex-lens-carrier-with-open-annular-frame"
+          },
+          "sliding-convex-lens-carrier-with-open-annular-frame.optical-axis": {
+            "node": "sliding-convex-lens-carrier-with-open-annular-frame.moving-lens",
+            "position": [0.009,0,0],
+            "direction": [1,0,0],
+            "kind": "optical-ray-axis"
+          },
+          "slide": {
+            "position": [0,0.073,0],
+            "direction": [0,1,0],
+            "kind": "optical-slide-plane"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "sliding-convex-lens-carrier-with-open-annular-frame.focus-travel",
+            "label": "透镜轴向移动",
+            "min": -0.014,
+            "max": 0.014,
+            "value": 0,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "sliding-convex-lens-carrier-with-open-annular-frame.moving-lens",
+                "axis": "x",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          },
+          {
+            "id": "arm-rise",
+            "label": "镜臂升高",
+            "min": 0,
+            "max": 0.056,
+            "value": 0.027,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "sliding-lens-bridge",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          }
+        ],
+        "attachments": [
+          {
+            "from": "lens-seat",
+            "to": "sliding-convex-lens-carrier-with-open-annular-frame.post-fit",
+            "contract": {
+              "direction": "opposed",
+              "gapTolerance": 0.000001
+            }
+          }
+        ]
+      }
+    }
+  }
+}

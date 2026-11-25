@@ -1,0 +1,131 @@
+{
+  "schemaVersion": "0.1",
+  "id": "retail.clip-on-retail-shelf-price-label-channel",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "卡扣式零售货架价签槽",
+  "summary": "上下包边的开槽价签轨与独立可翻显示片。",
+  "license": "Apache-2.0",
+  "semanticType": "retail.clip-on-retail-shelf-price-label-channel",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "零售陈列",
+    "retail",
+    "价签轨",
+    "shelf label channel"
+  ],
+  "anchors": [
+    "shelf-fit",
+    "label-centre"
+  ],
+  "ai": {
+    "intent": "给折边货架的前缘加一条独立价签槽。",
+    "useWhen": [
+      "上下包边的开槽价签轨与独立可翻显示片。"
+    ],
+    "editableParts": [
+      "ticket-open"
+    ],
+    "qualityChecks": [
+      "卡槽由实际开口截面形成。",
+      "显示片能翻起，安装面保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "clip-on-retail-shelf-price-label-channel",
+      "title": "卡扣式零售货架价签槽",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "channel",
+            "semanticType": "retail.clip-on-retail-shelf-price-label-channel.open-price-ticket-channel",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [-0.349,0,0],
+                [0.349,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0,-0.017],
+                [-0.022,-0.021],
+                [-0.03,-0.021],
+                [-0.03,-0.013],
+                [-0.015,-0.009],
+                [-0.015,0.009],
+                [-0.03,0.013],
+                [-0.03,0.022],
+                [-0.022,0.022],
+                [0,0.017]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "ticket-face",
+            "semanticType": "retail.clip-on-retail-shelf-price-label-channel.frame",
+            "transform": {
+              "position": [0,0.013,0.028]
+            }
+          },
+          {
+            "id": "label-sheet",
+            "semanticType": "retail.clip-on-retail-shelf-price-label-channel.blank-independent-shelf-ticket",
+            "parent": "ticket-face",
+            "geometry": {
+              "type": "box",
+              "size": [0.535,0.026,0.003]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0,-0.014,0.003]
+            }
+          }
+        ],
+        "anchors": {
+          "shelf-fit": {
+            "position": [0,0,0],
+            "direction": [0,0,-1],
+            "kind": "retail-shelf-label"
+          },
+          "label-centre": {
+            "node": "ticket-face",
+            "position": [0,-0.014,0.005],
+            "direction": [0,0,1],
+            "kind": "label-face"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "ticket-open",
+            "label": "价签片翻角",
+            "min": 0,
+            "max": 64,
+            "value": 0,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "ticket-face",
+                "axis": "x",
+                "factor": -0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

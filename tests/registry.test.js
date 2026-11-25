@@ -19,7 +19,7 @@ import { publicRegistryCounts, publicRegistryEntries } from "../apps/shared/regi
 
 test("validates the open digital model registry", async () => {
   const registry = await buildRegistry();
-  assert.deepEqual(registry.counts, { component: 1344, method: 13, composition: 233 });
+  assert.deepEqual(registry.counts, { component: 1388, method: 13, composition: 246 });
   assert.equal(new Set(registry.entries.map(entry => entry.id)).size, registry.entries.length);
   assert.ok(registry.entries.every(entry => entry.source.endsWith("manifest.json")));
 });
@@ -27,7 +27,7 @@ test("validates the open digital model registry", async () => {
 test("public model library hides internal experimental character entries", async () => {
   const registry = await buildRegistry();
   const publicEntries = publicRegistryEntries(registry);
-  assert.deepEqual(publicRegistryCounts(publicEntries), { component: 1344, method: 11, composition: 229 });
+  assert.deepEqual(publicRegistryCounts(publicEntries), { component: 1388, method: 11, composition: 242 });
   assert.equal(publicEntries.some(entry => entry.id.startsWith("character.")), false);
 });
 
@@ -37,9 +37,11 @@ test("public domain filtering combines spaces in queries with the selected kind"
     { id: "mep.route", kind: "method", title: "圆形弯头", tags: ["风管"] },
     { id: "structure.bend", kind: "component", title: "圆形弯头", tags: ["风管"] },
     { id: "internal.fixture", kind: "component", title: "圆形弯头", visibility: "internal" },
+    { id: "media.boom", kind: "component", title: "桌夹式双关节麦克风悬臂", tags: ["播客"] },
     { id: "new-domain.fixture", kind: "composition", title: "装配示例" },
   ] };
-  assert.deepEqual(publicRegistryDomains(catalog).map(([key]) => key), ["structure", "mep", "new-domain"]);
+  assert.deepEqual(publicRegistryDomains(catalog).map(([key]) => key), ["structure", "mep", "media", "new-domain"]);
+  assert.ok(publicRegistryDomains(catalog).some(([key, label]) => key === "media" && label === "影像与音频"));
   const matches = searchPublicRegistry(catalog, "风管 弯头", "component", "mep");
   assert.deepEqual(matches.map(entry => entry.id), ["mep.bend"]);
 });

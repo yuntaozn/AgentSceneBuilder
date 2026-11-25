@@ -1,0 +1,4322 @@
+{
+  "schemaVersion": "0.1",
+  "id": "mobility.complete-city-bicycle-with-spoked-wheels-and-steering",
+  "version": "0.1.0",
+  "kind": "composition",
+  "title": "可调转向通勤自行车整车",
+  "summary": "独立车架、前叉车把、两只辐条轮组和可抬坐垫组合。",
+  "license": "Apache-2.0",
+  "semanticType": "mobility.complete-city-bicycle-with-spoked-wheels-and-steering",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "出行与旅行",
+    "personal mobility",
+    "自行车整车",
+    "complete city bicycle"
+  ],
+  "anchors": [
+    "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-axle",
+    "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.fork",
+    "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.saddle",
+    "city-bicycle-steering-fork-with-handlebar-and-brake-levers.grip--1",
+    "city-bicycle-steering-fork-with-handlebar-and-brake-levers.grip-1",
+    "city-bicycle-steering-fork-with-handlebar-and-brake-levers.frame-fit",
+    "city-bicycle-steering-fork-with-handlebar-and-brake-levers.wheel",
+    "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.axle-fit",
+    "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.ground",
+    "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.axle-fit",
+    "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.ground",
+    "city-bicycle-saddle-with-height-adjustable-seatpost.tube-fit",
+    "city-bicycle-saddle-with-height-adjustable-seatpost.sit",
+    "ground"
+  ],
+  "dependencies": [
+    "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts@0.1.0",
+    "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers@0.1.0",
+    "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub@0.1.0",
+    "mobility.city-bicycle-saddle-with-height-adjustable-seatpost@0.1.0"
+  ],
+  "ai": {
+    "intent": "独立摆放自行车，也保留车架、两只车轮、前叉和鞍座的来源关系。",
+    "useWhen": [
+      "独立车架、前叉车把、两只辐条轮组和可抬坐垫组合。"
+    ],
+    "editableParts": [
+      "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crank-angle",
+      "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering",
+      "city-bicycle-saddle-with-height-adjustable-seatpost.seat-height"
+    ],
+    "qualityChecks": [
+      "前轮随车把转向，后轮基准不变。",
+      "座高和脚踏姿态与转向独立。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "complete-city-bicycle-with-spoked-wheels-and-steering",
+      "title": "可调转向通勤自行车整车",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts",
+            "semanticType": "mobility.complete-city-bicycle-with-spoked-wheels-and-steering.mounted-assembly",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.top-tube",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.main-diamond-frame-tube",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.19,0.72,0],
+              "end": [0.38,0.714,0],
+              "radius": 0.017,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.down-tube",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.main-diamond-frame-tube",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.102,0.305,0],
+              "end": [0.355,0.573,0],
+              "radius": 0.023,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.seat-tube",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.main-diamond-frame-tube",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.102,0.305,0],
+              "end": [-0.19,0.72,0],
+              "radius": 0.02,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-stay--0.049",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-upper-wheel-stay",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.19,0.72,-0.01862],
+                [-0.36,0.5,-0.049],
+                [-0.5,0.335,-0.049]
+              ],
+              "radius": 0.012,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.chain-stay--0.049",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-lower-wheel-stay",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.102,0.305,-0.03185],
+                [-0.31,0.311,-0.049],
+                [-0.5,0.335,-0.049]
+              ],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.dropout--0.049",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.actual-rear-wheel-axle-bore",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.056],
+                [0,0,-0.042]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.52,0.309],
+                [-0.47600000000000003,0.309],
+                [-0.468,0.317],
+                [-0.468,0.353],
+                [-0.47600000000000003,0.361],
+                [-0.52,0.361],
+                [-0.528,0.353],
+                [-0.528,0.317]
+              ],
+              "holes": [
+                [
+                  [-0.4905,0.335],
+                  [-0.49073818,0.33711395],
+                  [-0.4914408,0.3391219],
+                  [-0.4925726,0.34092315],
+                  [-0.49407685,0.3424274],
+                  [-0.4958781,0.3435592],
+                  [-0.49788605,0.34426182],
+                  [-0.5,0.3445],
+                  [-0.50211395,0.34426182],
+                  [-0.5041219,0.3435592],
+                  [-0.50592315,0.3424274],
+                  [-0.5074274,0.34092315],
+                  [-0.5085592,0.3391219],
+                  [-0.50926182,0.33711395],
+                  [-0.5095,0.335],
+                  [-0.50926182,0.33288605],
+                  [-0.5085592,0.3308781],
+                  [-0.5074274,0.32907685],
+                  [-0.50592315,0.3275726],
+                  [-0.5041219,0.3264408],
+                  [-0.50211395,0.32573818],
+                  [-0.5,0.3255],
+                  [-0.49788605,0.32573818],
+                  [-0.4958781,0.3264408],
+                  [-0.49407685,0.3275726],
+                  [-0.4925726,0.32907685],
+                  [-0.4914408,0.3308781],
+                  [-0.49073818,0.33288605]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-stay-0.049",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-upper-wheel-stay",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.19,0.72,0.01862],
+                [-0.36,0.5,0.049],
+                [-0.5,0.335,0.049]
+              ],
+              "radius": 0.012,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.chain-stay-0.049",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-lower-wheel-stay",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.102,0.305,0.03185],
+                [-0.31,0.311,0.049],
+                [-0.5,0.335,0.049]
+              ],
+              "radius": 0.013,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.dropout-0.049",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.actual-rear-wheel-axle-bore",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0.042],
+                [0,0,0.056]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.52,0.309],
+                [-0.47600000000000003,0.309],
+                [-0.468,0.317],
+                [-0.468,0.353],
+                [-0.47600000000000003,0.361],
+                [-0.52,0.361],
+                [-0.528,0.353],
+                [-0.528,0.317]
+              ],
+              "holes": [
+                [
+                  [-0.4905,0.335],
+                  [-0.49073818,0.33711395],
+                  [-0.4914408,0.3391219],
+                  [-0.4925726,0.34092315],
+                  [-0.49407685,0.3424274],
+                  [-0.4958781,0.3435592],
+                  [-0.49788605,0.34426182],
+                  [-0.5,0.3445],
+                  [-0.50211395,0.34426182],
+                  [-0.5041219,0.3435592],
+                  [-0.50592315,0.3424274],
+                  [-0.5074274,0.34092315],
+                  [-0.5085592,0.3391219],
+                  [-0.50926182,0.33711395],
+                  [-0.5095,0.335],
+                  [-0.50926182,0.33288605],
+                  [-0.5085592,0.3308781],
+                  [-0.5074274,0.32907685],
+                  [-0.50592315,0.3275726],
+                  [-0.5041219,0.3264408],
+                  [-0.50211395,0.32573818],
+                  [-0.5,0.3255],
+                  [-0.49788605,0.32573818],
+                  [-0.4958781,0.3264408],
+                  [-0.49407685,0.3275726],
+                  [-0.4925726,0.32907685],
+                  [-0.4914408,0.3308781],
+                  [-0.49073818,0.33288605]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.head-tube-center",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.frame",
+            "transform": {
+              "position": [0.38,0,0]
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.headtube",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.annular-bicycle-head-tube",
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.head-tube-center",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.577,0],
+                [0,0.719,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.027,0],
+                [0.02666759,0.00422373],
+                [0.02567853,0.00834346],
+                [0.02405718,0.01225774],
+                [0.02184346,0.0158702],
+                [0.01909188,0.01909188],
+                [0.0158702,0.02184346],
+                [0.01225774,0.02405718],
+                [0.00834346,0.02567853],
+                [0.00422373,0.02666759],
+                [0,0.027],
+                [-0.00422373,0.02666759],
+                [-0.00834346,0.02567853],
+                [-0.01225774,0.02405718],
+                [-0.0158702,0.02184346],
+                [-0.01909188,0.01909188],
+                [-0.02184346,0.0158702],
+                [-0.02405718,0.01225774],
+                [-0.02567853,0.00834346],
+                [-0.02666759,0.00422373],
+                [-0.027,0],
+                [-0.02666759,-0.00422373],
+                [-0.02567853,-0.00834346],
+                [-0.02405718,-0.01225774],
+                [-0.02184346,-0.0158702],
+                [-0.01909188,-0.01909188],
+                [-0.0158702,-0.02184346],
+                [-0.01225774,-0.02405718],
+                [-0.00834346,-0.02567853],
+                [-0.00422373,-0.02666759],
+                [0,-0.027],
+                [0.00422373,-0.02666759],
+                [0.00834346,-0.02567853],
+                [0.01225774,-0.02405718],
+                [0.0158702,-0.02184346],
+                [0.01909188,-0.01909188],
+                [0.02184346,-0.0158702],
+                [0.02405718,-0.01225774],
+                [0.02567853,-0.00834346],
+                [0.02666759,-0.00422373]
+              ],
+              "holes": [
+                [
+                  [0.016,0],
+                  [0.01580301,0.00250295],
+                  [0.0152169,0.00494427],
+                  [0.0142561,0.00726385],
+                  [0.01294427,0.00940456],
+                  [0.01131371,0.01131371],
+                  [0.00940456,0.01294427],
+                  [0.00726385,0.0142561],
+                  [0.00494427,0.0152169],
+                  [0.00250295,0.01580301],
+                  [0,0.016],
+                  [-0.00250295,0.01580301],
+                  [-0.00494427,0.0152169],
+                  [-0.00726385,0.0142561],
+                  [-0.00940456,0.01294427],
+                  [-0.01131371,0.01131371],
+                  [-0.01294427,0.00940456],
+                  [-0.0142561,0.00726385],
+                  [-0.0152169,0.00494427],
+                  [-0.01580301,0.00250295],
+                  [-0.016,0],
+                  [-0.01580301,-0.00250295],
+                  [-0.0152169,-0.00494427],
+                  [-0.0142561,-0.00726385],
+                  [-0.01294427,-0.00940456],
+                  [-0.01131371,-0.01131371],
+                  [-0.00940456,-0.01294427],
+                  [-0.00726385,-0.0142561],
+                  [-0.00494427,-0.0152169],
+                  [-0.00250295,-0.01580301],
+                  [0,-0.016],
+                  [0.00250295,-0.01580301],
+                  [0.00494427,-0.0152169],
+                  [0.00726385,-0.0142561],
+                  [0.00940456,-0.01294427],
+                  [0.01131371,-0.01131371],
+                  [0.01294427,-0.00940456],
+                  [0.0142561,-0.00726385],
+                  [0.0152169,-0.00494427],
+                  [0.01580301,-0.00250295]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#478983"
+            }
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.saddle-tube-seat",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.frame",
+            "transform": {
+              "position": [-0.19,0,0]
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.seat-neck",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.annular-seatpost-receiver",
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.saddle-tube-seat",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.704,0],
+                [0,0.765,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.021,0],
+                [0.02064244,0.00385874],
+                [0.01958192,0.00758607],
+                [0.01785456,0.01105508],
+                [0.01551919,0.01414761],
+                [0.01265533,0.01675836],
+                [0.00936051,0.01879843],
+                [0.00574692,0.02019834],
+                [0.00193764,0.02091042],
+                [-0.00193764,0.02091042],
+                [-0.00574692,0.02019834],
+                [-0.00936051,0.01879843],
+                [-0.01265533,0.01675836],
+                [-0.01551919,0.01414761],
+                [-0.01785456,0.01105508],
+                [-0.01958192,0.00758607],
+                [-0.02064244,0.00385874],
+                [-0.021,0],
+                [-0.02064244,-0.00385874],
+                [-0.01958192,-0.00758607],
+                [-0.01785456,-0.01105508],
+                [-0.01551919,-0.01414761],
+                [-0.01265533,-0.01675836],
+                [-0.00936051,-0.01879843],
+                [-0.00574692,-0.02019834],
+                [-0.00193764,-0.02091042],
+                [0.00193764,-0.02091042],
+                [0.00574692,-0.02019834],
+                [0.00936051,-0.01879843],
+                [0.01265533,-0.01675836],
+                [0.01551919,-0.01414761],
+                [0.01785456,-0.01105508],
+                [0.01958192,-0.00758607],
+                [0.02064244,-0.00385874]
+              ],
+              "holes": [
+                [
+                  [0.0135,0],
+                  [0.01327014,0.00248062],
+                  [0.01258838,0.00487676],
+                  [0.01147793,0.00710683],
+                  [0.00997662,0.00909489],
+                  [0.00813557,0.01077323],
+                  [0.00601747,0.0120847],
+                  [0.00369445,0.01298465],
+                  [0.00124562,0.01344241],
+                  [-0.00124562,0.01344241],
+                  [-0.00369445,0.01298465],
+                  [-0.00601747,0.0120847],
+                  [-0.00813557,0.01077323],
+                  [-0.00997662,0.00909489],
+                  [-0.01147793,0.00710683],
+                  [-0.01258838,0.00487676],
+                  [-0.01327014,0.00248062],
+                  [-0.0135,0],
+                  [-0.01327014,-0.00248062],
+                  [-0.01258838,-0.00487676],
+                  [-0.01147793,-0.00710683],
+                  [-0.00997662,-0.00909489],
+                  [-0.00813557,-0.01077323],
+                  [-0.00601747,-0.0120847],
+                  [-0.00369445,-0.01298465],
+                  [-0.00124562,-0.01344241],
+                  [0.00124562,-0.01344241],
+                  [0.00369445,-0.01298465],
+                  [0.00601747,-0.0120847],
+                  [0.00813557,-0.01077323],
+                  [0.00997662,-0.00909489],
+                  [0.01147793,-0.00710683],
+                  [0.01258838,-0.00487676],
+                  [0.01327014,-0.00248062]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#478983"
+            }
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crankset",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.frame",
+            "transform": {
+              "position": [-0.102,0.305,0]
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.ring",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.ring-shaped-crank-chainwheel",
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crankset",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0.038],
+                [0,0,0.046]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.081,0],
+                [0.08052517,0.00875764],
+                [0.07910627,0.01741261],
+                [0.07675991,0.02586342],
+                [0.07351361,0.03401102],
+                [0.06940543,0.04175986],
+                [0.06448354,0.04901911],
+                [0.05880563,0.05570366],
+                [0.05243829,0.06173513],
+                [0.04545615,0.06704281],
+                [0.03794108,0.07156448],
+                [0.02998119,0.07524711],
+                [0.0216698,0.07804755],
+                [0.01310434,0.07993295],
+                [0.00438525,0.08088121],
+                [-0.00438525,0.08088121],
+                [-0.01310434,0.07993295],
+                [-0.0216698,0.07804755],
+                [-0.02998119,0.07524711],
+                [-0.03794108,0.07156448],
+                [-0.04545615,0.06704281],
+                [-0.05243829,0.06173513],
+                [-0.05880563,0.05570366],
+                [-0.06448354,0.04901911],
+                [-0.06940543,0.04175986],
+                [-0.07351361,0.03401102],
+                [-0.07675991,0.02586342],
+                [-0.07910627,0.01741261],
+                [-0.08052517,0.00875764],
+                [-0.081,0],
+                [-0.08052517,-0.00875764],
+                [-0.07910627,-0.01741261],
+                [-0.07675991,-0.02586342],
+                [-0.07351361,-0.03401102],
+                [-0.06940543,-0.04175986],
+                [-0.06448354,-0.04901911],
+                [-0.05880563,-0.05570366],
+                [-0.05243829,-0.06173513],
+                [-0.04545615,-0.06704281],
+                [-0.03794108,-0.07156448],
+                [-0.02998119,-0.07524711],
+                [-0.0216698,-0.07804755],
+                [-0.01310434,-0.07993295],
+                [-0.00438525,-0.08088121],
+                [0.00438525,-0.08088121],
+                [0.01310434,-0.07993295],
+                [0.0216698,-0.07804755],
+                [0.02998119,-0.07524711],
+                [0.03794108,-0.07156448],
+                [0.04545615,-0.06704281],
+                [0.05243829,-0.06173513],
+                [0.05880563,-0.05570366],
+                [0.06448354,-0.04901911],
+                [0.06940543,-0.04175986],
+                [0.07351361,-0.03401102],
+                [0.07675991,-0.02586342],
+                [0.07910627,-0.01741261],
+                [0.08052517,-0.00875764]
+              ],
+              "holes": [
+                [
+                  [0.028,0],
+                  [0.02783586,0.00302733],
+                  [0.02734538,0.00601917],
+                  [0.02653429,0.00894044],
+                  [0.02541211,0.01175689],
+                  [0.023992,0.01443551],
+                  [0.02229061,0.01694488],
+                  [0.02032787,0.01925558],
+                  [0.01812682,0.02134054],
+                  [0.01571324,0.02317529],
+                  [0.01311544,0.02473834],
+                  [0.01036387,0.02601135],
+                  [0.00749079,0.0269794],
+                  [0.0045299,0.02763114],
+                  [0.00151589,0.02795894],
+                  [-0.00151589,0.02795894],
+                  [-0.0045299,0.02763114],
+                  [-0.00749079,0.0269794],
+                  [-0.01036387,0.02601135],
+                  [-0.01311544,0.02473834],
+                  [-0.01571324,0.02317529],
+                  [-0.01812682,0.02134054],
+                  [-0.02032787,0.01925558],
+                  [-0.02229061,0.01694488],
+                  [-0.023992,0.01443551],
+                  [-0.02541211,0.01175689],
+                  [-0.02653429,0.00894044],
+                  [-0.02734538,0.00601917],
+                  [-0.02783586,0.00302733],
+                  [-0.028,0],
+                  [-0.02783586,-0.00302733],
+                  [-0.02734538,-0.00601917],
+                  [-0.02653429,-0.00894044],
+                  [-0.02541211,-0.01175689],
+                  [-0.023992,-0.01443551],
+                  [-0.02229061,-0.01694488],
+                  [-0.02032787,-0.01925558],
+                  [-0.01812682,-0.02134054],
+                  [-0.01571324,-0.02317529],
+                  [-0.01311544,-0.02473834],
+                  [-0.01036387,-0.02601135],
+                  [-0.00749079,-0.0269794],
+                  [-0.0045299,-0.02763114],
+                  [-0.00151589,-0.02795894],
+                  [0.00151589,-0.02795894],
+                  [0.0045299,-0.02763114],
+                  [0.00749079,-0.0269794],
+                  [0.01036387,-0.02601135],
+                  [0.01311544,-0.02473834],
+                  [0.01571324,-0.02317529],
+                  [0.01812682,-0.02134054],
+                  [0.02032787,-0.01925558],
+                  [0.02229061,-0.01694488],
+                  [0.023992,-0.01443551],
+                  [0.02541211,-0.01175689],
+                  [0.02653429,-0.00894044],
+                  [0.02734538,-0.00601917],
+                  [0.02783586,-0.00302733]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crank-shaft",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.separate-crank-spindle",
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crankset",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.047],
+                [0,0,0.048]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.017,0],
+                [0.0167907,0.00265939],
+                [0.01616796,0.00525329],
+                [0.01514711,0.00771784],
+                [0.01375329,0.00999235],
+                [0.01202082,0.01202082],
+                [0.00999235,0.01375329],
+                [0.00771784,0.01514711],
+                [0.00525329,0.01616796],
+                [0.00265939,0.0167907],
+                [0,0.017],
+                [-0.00265939,0.0167907],
+                [-0.00525329,0.01616796],
+                [-0.00771784,0.01514711],
+                [-0.00999235,0.01375329],
+                [-0.01202082,0.01202082],
+                [-0.01375329,0.00999235],
+                [-0.01514711,0.00771784],
+                [-0.01616796,0.00525329],
+                [-0.0167907,0.00265939],
+                [-0.017,0],
+                [-0.0167907,-0.00265939],
+                [-0.01616796,-0.00525329],
+                [-0.01514711,-0.00771784],
+                [-0.01375329,-0.00999235],
+                [-0.01202082,-0.01202082],
+                [-0.00999235,-0.01375329],
+                [-0.00771784,-0.01514711],
+                [-0.00525329,-0.01616796],
+                [-0.00265939,-0.0167907],
+                [0,-0.017],
+                [0.00265939,-0.0167907],
+                [0.00525329,-0.01616796],
+                [0.00771784,-0.01514711],
+                [0.00999235,-0.01375329],
+                [0.01202082,-0.01202082],
+                [0.01375329,-0.00999235],
+                [0.01514711,-0.00771784],
+                [0.01616796,-0.00525329],
+                [0.0167907,-0.00265939]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crank-arm--1",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.pedal-crank-arm",
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crankset",
+            "geometry": {
+              "type": "box",
+              "size": [0.149,0.019,0.015]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "transform": {
+              "position": [-0.071,0,-0.053]
+            }
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.pedal--1",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rectangular-foot-pedal",
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crankset",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,0.018,0.101]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [-0.143,0,-0.104]
+            }
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crank-arm-1",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.pedal-crank-arm",
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crankset",
+            "geometry": {
+              "type": "box",
+              "size": [0.149,0.019,0.015]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "transform": {
+              "position": [0.071,0,0.053]
+            }
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.pedal-1",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rectangular-foot-pedal",
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crankset",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,0.018,0.101]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [0.143,0,0.104]
+            }
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-sprocket",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.frame",
+            "transform": {
+              "position": [-0.5,0.335,0]
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.sprocket",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.bored-rear-chain-sprocket",
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-sprocket",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0.039],
+                [0,0,0.049]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.037,0],
+                [0.03654447,0.00578808],
+                [0.03518909,0.01143363],
+                [0.03296724,0.01679765],
+                [0.02993363,0.02174805],
+                [0.02616295,0.02616295],
+                [0.02174805,0.02993363],
+                [0.01679765,0.03296724],
+                [0.01143363,0.03518909],
+                [0.00578808,0.03654447],
+                [0,0.037],
+                [-0.00578808,0.03654447],
+                [-0.01143363,0.03518909],
+                [-0.01679765,0.03296724],
+                [-0.02174805,0.02993363],
+                [-0.02616295,0.02616295],
+                [-0.02993363,0.02174805],
+                [-0.03296724,0.01679765],
+                [-0.03518909,0.01143363],
+                [-0.03654447,0.00578808],
+                [-0.037,0],
+                [-0.03654447,-0.00578808],
+                [-0.03518909,-0.01143363],
+                [-0.03296724,-0.01679765],
+                [-0.02993363,-0.02174805],
+                [-0.02616295,-0.02616295],
+                [-0.02174805,-0.02993363],
+                [-0.01679765,-0.03296724],
+                [-0.01143363,-0.03518909],
+                [-0.00578808,-0.03654447],
+                [0,-0.037],
+                [0.00578808,-0.03654447],
+                [0.01143363,-0.03518909],
+                [0.01679765,-0.03296724],
+                [0.02174805,-0.02993363],
+                [0.02616295,-0.02616295],
+                [0.02993363,-0.02174805],
+                [0.03296724,-0.01679765],
+                [0.03518909,-0.01143363],
+                [0.03654447,-0.00578808]
+              ],
+              "holes": [
+                [
+                  [0.011,0],
+                  [0.01086457,0.00172078],
+                  [0.01046162,0.00339919],
+                  [0.00980107,0.0049939],
+                  [0.00889919,0.00646564],
+                  [0.00777817,0.00777817],
+                  [0.00646564,0.00889919],
+                  [0.0049939,0.00980107],
+                  [0.00339919,0.01046162],
+                  [0.00172078,0.01086457],
+                  [0,0.011],
+                  [-0.00172078,0.01086457],
+                  [-0.00339919,0.01046162],
+                  [-0.0049939,0.00980107],
+                  [-0.00646564,0.00889919],
+                  [-0.00777817,0.00777817],
+                  [-0.00889919,0.00646564],
+                  [-0.00980107,0.0049939],
+                  [-0.01046162,0.00339919],
+                  [-0.01086457,0.00172078],
+                  [-0.011,0],
+                  [-0.01086457,-0.00172078],
+                  [-0.01046162,-0.00339919],
+                  [-0.00980107,-0.0049939],
+                  [-0.00889919,-0.00646564],
+                  [-0.00777817,-0.00777817],
+                  [-0.00646564,-0.00889919],
+                  [-0.0049939,-0.00980107],
+                  [-0.00339919,-0.01046162],
+                  [-0.00172078,-0.01086457],
+                  [0,-0.011],
+                  [0.00172078,-0.01086457],
+                  [0.00339919,-0.01046162],
+                  [0.0049939,-0.00980107],
+                  [0.00646564,-0.00889919],
+                  [0.00777817,-0.00777817],
+                  [0.00889919,-0.00646564],
+                  [0.00980107,-0.0049939],
+                  [0.01046162,-0.00339919],
+                  [0.01086457,-0.00172078]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.chain",
+            "semanticType": "mobility.diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.visible-chain-loop",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.102,0.386,0.046],
+                [-0.47,0.372,0.046],
+                [-0.532,0.35,0.046],
+                [-0.522,0.309,0.046],
+                [-0.48,0.298,0.046],
+                [-0.102,0.224,0.046],
+                [-0.03,0.268,0.046],
+                [-0.029,0.341,0.046],
+                [-0.102,0.386,0.046]
+              ],
+              "radius": 0.0045,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers",
+            "semanticType": "mobility.complete-city-bicycle-with-spoked-wheels-and-steering.mounted-assembly",
+            "transform": {
+              "position": [0.38,0.719,0]
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.fixed-upper-bearer",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.hollow-headset-bearing-seat",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.008,0],
+                [0,0.011,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.024,0],
+                [0.02370452,0.00375443],
+                [0.02282536,0.00741641],
+                [0.02138416,0.01089577],
+                [0.01941641,0.01410685],
+                [0.01697056,0.01697056],
+                [0.01410685,0.01941641],
+                [0.01089577,0.02138416],
+                [0.00741641,0.02282536],
+                [0.00375443,0.02370452],
+                [0,0.024],
+                [-0.00375443,0.02370452],
+                [-0.00741641,0.02282536],
+                [-0.01089577,0.02138416],
+                [-0.01410685,0.01941641],
+                [-0.01697056,0.01697056],
+                [-0.01941641,0.01410685],
+                [-0.02138416,0.01089577],
+                [-0.02282536,0.00741641],
+                [-0.02370452,0.00375443],
+                [-0.024,0],
+                [-0.02370452,-0.00375443],
+                [-0.02282536,-0.00741641],
+                [-0.02138416,-0.01089577],
+                [-0.01941641,-0.01410685],
+                [-0.01697056,-0.01697056],
+                [-0.01410685,-0.01941641],
+                [-0.01089577,-0.02138416],
+                [-0.00741641,-0.02282536],
+                [-0.00375443,-0.02370452],
+                [0,-0.024],
+                [0.00375443,-0.02370452],
+                [0.00741641,-0.02282536],
+                [0.01089577,-0.02138416],
+                [0.01410685,-0.01941641],
+                [0.01697056,-0.01697056],
+                [0.01941641,-0.01410685],
+                [0.02138416,-0.01089577],
+                [0.02282536,-0.00741641],
+                [0.02370452,-0.00375443]
+              ],
+              "holes": [
+                [
+                  [0.0148,0],
+                  [0.01461779,0.00231523],
+                  [0.01407564,0.00457345],
+                  [0.0131869,0.00671906],
+                  [0.01197345,0.00869922],
+                  [0.01046518,0.01046518],
+                  [0.00869922,0.01197345],
+                  [0.00671906,0.0131869],
+                  [0.00457345,0.01407564],
+                  [0.00231523,0.01461779],
+                  [0,0.0148],
+                  [-0.00231523,0.01461779],
+                  [-0.00457345,0.01407564],
+                  [-0.00671906,0.0131869],
+                  [-0.00869922,0.01197345],
+                  [-0.01046518,0.01046518],
+                  [-0.01197345,0.00869922],
+                  [-0.0131869,0.00671906],
+                  [-0.01407564,0.00457345],
+                  [-0.01461779,0.00231523],
+                  [-0.0148,0],
+                  [-0.01461779,-0.00231523],
+                  [-0.01407564,-0.00457345],
+                  [-0.0131869,-0.00671906],
+                  [-0.01197345,-0.00869922],
+                  [-0.01046518,-0.01046518],
+                  [-0.00869922,-0.01197345],
+                  [-0.00671906,-0.0131869],
+                  [-0.00457345,-0.01407564],
+                  [-0.00231523,-0.01461779],
+                  [0,-0.0148],
+                  [0.00231523,-0.01461779],
+                  [0.00457345,-0.01407564],
+                  [0.00671906,-0.0131869],
+                  [0.00869922,-0.01197345],
+                  [0.01046518,-0.01046518],
+                  [0.01197345,-0.00869922],
+                  [0.0131869,-0.00671906],
+                  [0.01407564,-0.00457345],
+                  [0.01461779,-0.00231523]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers"
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.frame",
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers"
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steerer",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.bicycle-steerer-rod",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.153,0],
+              "end": [0,0.086,0],
+              "radius": 0.014,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.crown",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.fork-crown-bridge",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "box",
+              "size": [0.044,0.032,0.131]
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "transform": {
+              "position": [0.017,-0.148,0]
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.fork-blade--0.052",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.curved-front-fork-leg",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.027,-0.149,-0.052],
+                [0.066,-0.258,-0.052],
+                [0.107,-0.346,-0.052],
+                [0.147,-0.384,-0.052]
+              ],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#478983"
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.fork-eye--0.052",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.through-hole-front-axle-dropout",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.057999999999999996],
+                [0,0,-0.046]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.13,-0.405],
+                [0.16399999999999998,-0.405],
+                [0.17099999999999999,-0.398],
+                [0.17099999999999999,-0.36700000000000005],
+                [0.16399999999999998,-0.36000000000000004],
+                [0.13,-0.36000000000000004],
+                [0.123,-0.36700000000000005],
+                [0.123,-0.398]
+              ],
+              "holes": [
+                [
+                  [0.1571,-0.384],
+                  [0.15687929,-0.38190009],
+                  [0.15622681,-0.37989196],
+                  [0.15517107,-0.37806337],
+                  [0.15375822,-0.37649424],
+                  [0.15205,-0.37525314],
+                  [0.15012107,-0.37439433],
+                  [0.14805574,-0.37395533],
+                  [0.14594426,-0.37395533],
+                  [0.14387893,-0.37439433],
+                  [0.14195,-0.37525314],
+                  [0.14024178,-0.37649424],
+                  [0.13882893,-0.37806337],
+                  [0.13777319,-0.37989196],
+                  [0.13712071,-0.38190009],
+                  [0.1369,-0.384],
+                  [0.13712071,-0.38609991],
+                  [0.13777319,-0.38810804],
+                  [0.13882893,-0.38993663],
+                  [0.14024178,-0.39150576],
+                  [0.14195,-0.39274686],
+                  [0.14387893,-0.39360567],
+                  [0.14594426,-0.39404467],
+                  [0.14805574,-0.39404467],
+                  [0.15012107,-0.39360567],
+                  [0.15205,-0.39274686],
+                  [0.15375822,-0.39150576],
+                  [0.15517107,-0.38993663],
+                  [0.15622681,-0.38810804],
+                  [0.15687929,-0.38609991]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.fork-blade-0.052",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.curved-front-fork-leg",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.027,-0.149,0.052],
+                [0.066,-0.258,0.052],
+                [0.107,-0.346,0.052],
+                [0.147,-0.384,0.052]
+              ],
+              "radius": 0.014,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#478983"
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.fork-eye-0.052",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.through-hole-front-axle-dropout",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0.046],
+                [0,0,0.057999999999999996]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.13,-0.405],
+                [0.16399999999999998,-0.405],
+                [0.17099999999999999,-0.398],
+                [0.17099999999999999,-0.36700000000000005],
+                [0.16399999999999998,-0.36000000000000004],
+                [0.13,-0.36000000000000004],
+                [0.123,-0.36700000000000005],
+                [0.123,-0.398]
+              ],
+              "holes": [
+                [
+                  [0.1571,-0.384],
+                  [0.15687929,-0.38190009],
+                  [0.15622681,-0.37989196],
+                  [0.15517107,-0.37806337],
+                  [0.15375822,-0.37649424],
+                  [0.15205,-0.37525314],
+                  [0.15012107,-0.37439433],
+                  [0.14805574,-0.37395533],
+                  [0.14594426,-0.37395533],
+                  [0.14387893,-0.37439433],
+                  [0.14195,-0.37525314],
+                  [0.14024178,-0.37649424],
+                  [0.13882893,-0.37806337],
+                  [0.13777319,-0.37989196],
+                  [0.13712071,-0.38190009],
+                  [0.1369,-0.384],
+                  [0.13712071,-0.38609991],
+                  [0.13777319,-0.38810804],
+                  [0.13882893,-0.38993663],
+                  [0.14024178,-0.39150576],
+                  [0.14195,-0.39274686],
+                  [0.14387893,-0.39360567],
+                  [0.14594426,-0.39404467],
+                  [0.14805574,-0.39404467],
+                  [0.15012107,-0.39360567],
+                  [0.15205,-0.39274686],
+                  [0.15375822,-0.39150576],
+                  [0.15517107,-0.38993663],
+                  [0.15622681,-0.38810804],
+                  [0.15687929,-0.38609991]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.bar",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.swept-city-handlebar",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.01,0.086,-0.289],
+                [0.035,0.062,-0.183],
+                [0.028,0.071,-0.082],
+                [0,0.096,0],
+                [0.028,0.071,0.082],
+                [0.035,0.062,0.183],
+                [0.01,0.086,0.289]
+              ],
+              "radius": 0.011,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.grip--1",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.rippled-handlebar-grip",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01,0.086,-0.288],
+              "end": [0.031,0.066,-0.202],
+              "radius": 0.016,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#354149"
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.brake--1",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.curved-brake-lever",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.029,0.064,-0.21],
+                [0.06,0.059,-0.232],
+                [0.053,0.073,-0.273]
+              ],
+              "radius": 0.005,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.grip-1",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.rippled-handlebar-grip",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01,0.086,0.288],
+              "end": [0.031,0.066,0.202],
+              "radius": 0.016,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#354149"
+            }
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.brake-1",
+            "semanticType": "mobility.city-bicycle-steering-fork-with-handlebar-and-brake-levers.curved-brake-lever",
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.029,0.064,0.21],
+                [0.06,0.059,0.232],
+                [0.053,0.073,0.273]
+              ],
+              "radius": 0.005,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub",
+            "semanticType": "mobility.complete-city-bicycle-with-spoked-wheels-and-steering.mounted-assembly",
+            "transform": {
+              "position": [-0.5,0.335,0]
+            }
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.tyre",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.annular-city-cycle-tyre",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.022],
+                [0,0,0.022]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.335,0],
+                [0.33396731,0.0262838],
+                [0.33087559,0.05240555],
+                [0.32574392,0.0782042],
+                [0.31860393,0.10352069],
+                [0.30949964,0.12819895],
+                [0.29848719,0.15208682],
+                [0.28563446,0.17503702],
+                [0.27102069,0.19690806],
+                [0.254736,0.2175651],
+                [0.23688077,0.23688077],
+                [0.2175651,0.254736],
+                [0.19690806,0.27102069],
+                [0.17503702,0.28563446],
+                [0.15208682,0.29848719],
+                [0.12819895,0.30949964],
+                [0.10352069,0.31860393],
+                [0.0782042,0.32574392],
+                [0.05240555,0.33087559],
+                [0.0262838,0.33396731],
+                [0,0.335],
+                [-0.0262838,0.33396731],
+                [-0.05240555,0.33087559],
+                [-0.0782042,0.32574392],
+                [-0.10352069,0.31860393],
+                [-0.12819895,0.30949964],
+                [-0.15208682,0.29848719],
+                [-0.17503702,0.28563446],
+                [-0.19690806,0.27102069],
+                [-0.2175651,0.254736],
+                [-0.23688077,0.23688077],
+                [-0.254736,0.2175651],
+                [-0.27102069,0.19690806],
+                [-0.28563446,0.17503702],
+                [-0.29848719,0.15208682],
+                [-0.30949964,0.12819895],
+                [-0.31860393,0.10352069],
+                [-0.32574392,0.0782042],
+                [-0.33087559,0.05240555],
+                [-0.33396731,0.0262838],
+                [-0.335,0],
+                [-0.33396731,-0.0262838],
+                [-0.33087559,-0.05240555],
+                [-0.32574392,-0.0782042],
+                [-0.31860393,-0.10352069],
+                [-0.30949964,-0.12819895],
+                [-0.29848719,-0.15208682],
+                [-0.28563446,-0.17503702],
+                [-0.27102069,-0.19690806],
+                [-0.254736,-0.2175651],
+                [-0.23688077,-0.23688077],
+                [-0.2175651,-0.254736],
+                [-0.19690806,-0.27102069],
+                [-0.17503702,-0.28563446],
+                [-0.15208682,-0.29848719],
+                [-0.12819895,-0.30949964],
+                [-0.10352069,-0.31860393],
+                [-0.0782042,-0.32574392],
+                [-0.05240555,-0.33087559],
+                [-0.0262838,-0.33396731],
+                [0,-0.335],
+                [0.0262838,-0.33396731],
+                [0.05240555,-0.33087559],
+                [0.0782042,-0.32574392],
+                [0.10352069,-0.31860393],
+                [0.12819895,-0.30949964],
+                [0.15208682,-0.29848719],
+                [0.17503702,-0.28563446],
+                [0.19690806,-0.27102069],
+                [0.2175651,-0.254736],
+                [0.23688077,-0.23688077],
+                [0.254736,-0.2175651],
+                [0.27102069,-0.19690806],
+                [0.28563446,-0.17503702],
+                [0.29848719,-0.15208682],
+                [0.30949964,-0.12819895],
+                [0.31860393,-0.10352069],
+                [0.32574392,-0.0782042],
+                [0.33087559,-0.05240555],
+                [0.33396731,-0.0262838]
+              ],
+              "holes": [
+                [
+                  [0.306,0],
+                  [0.3050567,0.02400848],
+                  [0.30223263,0.04786895],
+                  [0.2975452,0.07143428],
+                  [0.29102329,0.0945592],
+                  [0.28270714,0.11710113],
+                  [0.272648,0.13892109],
+                  [0.26090789,0.15988456],
+                  [0.2475592,0.17986229],
+                  [0.23268423,0.1987311],
+                  [0.21637468,0.21637468],
+                  [0.1987311,0.23268423],
+                  [0.17986229,0.2475592],
+                  [0.15988456,0.26090789],
+                  [0.13892109,0.272648],
+                  [0.11710113,0.28270714],
+                  [0.0945592,0.29102329],
+                  [0.07143428,0.2975452],
+                  [0.04786895,0.30223263],
+                  [0.02400848,0.3050567],
+                  [0,0.306],
+                  [-0.02400848,0.3050567],
+                  [-0.04786895,0.30223263],
+                  [-0.07143428,0.2975452],
+                  [-0.0945592,0.29102329],
+                  [-0.11710113,0.28270714],
+                  [-0.13892109,0.272648],
+                  [-0.15988456,0.26090789],
+                  [-0.17986229,0.2475592],
+                  [-0.1987311,0.23268423],
+                  [-0.21637468,0.21637468],
+                  [-0.23268423,0.1987311],
+                  [-0.2475592,0.17986229],
+                  [-0.26090789,0.15988456],
+                  [-0.272648,0.13892109],
+                  [-0.28270714,0.11710113],
+                  [-0.29102329,0.0945592],
+                  [-0.2975452,0.07143428],
+                  [-0.30223263,0.04786895],
+                  [-0.3050567,0.02400848],
+                  [-0.306,0],
+                  [-0.3050567,-0.02400848],
+                  [-0.30223263,-0.04786895],
+                  [-0.2975452,-0.07143428],
+                  [-0.29102329,-0.0945592],
+                  [-0.28270714,-0.11710113],
+                  [-0.272648,-0.13892109],
+                  [-0.26090789,-0.15988456],
+                  [-0.2475592,-0.17986229],
+                  [-0.23268423,-0.1987311],
+                  [-0.21637468,-0.21637468],
+                  [-0.1987311,-0.23268423],
+                  [-0.17986229,-0.2475592],
+                  [-0.15988456,-0.26090789],
+                  [-0.13892109,-0.272648],
+                  [-0.11710113,-0.28270714],
+                  [-0.0945592,-0.29102329],
+                  [-0.07143428,-0.2975452],
+                  [-0.04786895,-0.30223263],
+                  [-0.02400848,-0.3050567],
+                  [0,-0.306],
+                  [0.02400848,-0.3050567],
+                  [0.04786895,-0.30223263],
+                  [0.07143428,-0.2975452],
+                  [0.0945592,-0.29102329],
+                  [0.11710113,-0.28270714],
+                  [0.13892109,-0.272648],
+                  [0.15988456,-0.26090789],
+                  [0.17986229,-0.2475592],
+                  [0.1987311,-0.23268423],
+                  [0.21637468,-0.21637468],
+                  [0.23268423,-0.1987311],
+                  [0.2475592,-0.17986229],
+                  [0.26090789,-0.15988456],
+                  [0.272648,-0.13892109],
+                  [0.28270714,-0.11710113],
+                  [0.29102329,-0.0945592],
+                  [0.2975452,-0.07143428],
+                  [0.30223263,-0.04786895],
+                  [0.3050567,-0.02400848]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#354149"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.rim--0.015",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.annular-metal-rim-sidewall",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.020999999999999998],
+                [0,0,-0.009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.309,0],
+                [0.30804746,0.02424386],
+                [0.3051957,0.04833825],
+                [0.30046231,0.07213462],
+                [0.29387646,0.09548625],
+                [0.28547878,0.11824918],
+                [0.27532102,0.14028306],
+                [0.26346581,0.16145206],
+                [0.24998625,0.18162564],
+                [0.23496544,0.20067945],
+                [0.218496,0.218496],
+                [0.20067945,0.23496544],
+                [0.18162564,0.24998625],
+                [0.16145206,0.26346581],
+                [0.14028306,0.27532102],
+                [0.11824918,0.28547878],
+                [0.09548625,0.29387646],
+                [0.07213462,0.30046231],
+                [0.04833825,0.3051957],
+                [0.02424386,0.30804746],
+                [0,0.309],
+                [-0.02424386,0.30804746],
+                [-0.04833825,0.3051957],
+                [-0.07213462,0.30046231],
+                [-0.09548625,0.29387646],
+                [-0.11824918,0.28547878],
+                [-0.14028306,0.27532102],
+                [-0.16145206,0.26346581],
+                [-0.18162564,0.24998625],
+                [-0.20067945,0.23496544],
+                [-0.218496,0.218496],
+                [-0.23496544,0.20067945],
+                [-0.24998625,0.18162564],
+                [-0.26346581,0.16145206],
+                [-0.27532102,0.14028306],
+                [-0.28547878,0.11824918],
+                [-0.29387646,0.09548625],
+                [-0.30046231,0.07213462],
+                [-0.3051957,0.04833825],
+                [-0.30804746,0.02424386],
+                [-0.309,0],
+                [-0.30804746,-0.02424386],
+                [-0.3051957,-0.04833825],
+                [-0.30046231,-0.07213462],
+                [-0.29387646,-0.09548625],
+                [-0.28547878,-0.11824918],
+                [-0.27532102,-0.14028306],
+                [-0.26346581,-0.16145206],
+                [-0.24998625,-0.18162564],
+                [-0.23496544,-0.20067945],
+                [-0.218496,-0.218496],
+                [-0.20067945,-0.23496544],
+                [-0.18162564,-0.24998625],
+                [-0.16145206,-0.26346581],
+                [-0.14028306,-0.27532102],
+                [-0.11824918,-0.28547878],
+                [-0.09548625,-0.29387646],
+                [-0.07213462,-0.30046231],
+                [-0.04833825,-0.3051957],
+                [-0.02424386,-0.30804746],
+                [0,-0.309],
+                [0.02424386,-0.30804746],
+                [0.04833825,-0.3051957],
+                [0.07213462,-0.30046231],
+                [0.09548625,-0.29387646],
+                [0.11824918,-0.28547878],
+                [0.14028306,-0.27532102],
+                [0.16145206,-0.26346581],
+                [0.18162564,-0.24998625],
+                [0.20067945,-0.23496544],
+                [0.218496,-0.218496],
+                [0.23496544,-0.20067945],
+                [0.24998625,-0.18162564],
+                [0.26346581,-0.16145206],
+                [0.27532102,-0.14028306],
+                [0.28547878,-0.11824918],
+                [0.29387646,-0.09548625],
+                [0.30046231,-0.07213462],
+                [0.3051957,-0.04833825],
+                [0.30804746,-0.02424386]
+              ],
+              "holes": [
+                [
+                  [0.29,0],
+                  [0.28910603,0.02275314],
+                  [0.28642962,0.04536599],
+                  [0.28198728,0.06769916],
+                  [0.27580639,0.08961493],
+                  [0.26792506,0.1109782],
+                  [0.25839189,0.13165724],
+                  [0.24726565,0.15152458],
+                  [0.23461493,0.17045772],
+                  [0.22051773,0.18833993],
+                  [0.20506097,0.20506097],
+                  [0.18833993,0.22051773],
+                  [0.17045772,0.23461493],
+                  [0.15152458,0.24726565],
+                  [0.13165724,0.25839189],
+                  [0.1109782,0.26792506],
+                  [0.08961493,0.27580639],
+                  [0.06769916,0.28198728],
+                  [0.04536599,0.28642962],
+                  [0.02275314,0.28910603],
+                  [0,0.29],
+                  [-0.02275314,0.28910603],
+                  [-0.04536599,0.28642962],
+                  [-0.06769916,0.28198728],
+                  [-0.08961493,0.27580639],
+                  [-0.1109782,0.26792506],
+                  [-0.13165724,0.25839189],
+                  [-0.15152458,0.24726565],
+                  [-0.17045772,0.23461493],
+                  [-0.18833993,0.22051773],
+                  [-0.20506097,0.20506097],
+                  [-0.22051773,0.18833993],
+                  [-0.23461493,0.17045772],
+                  [-0.24726565,0.15152458],
+                  [-0.25839189,0.13165724],
+                  [-0.26792506,0.1109782],
+                  [-0.27580639,0.08961493],
+                  [-0.28198728,0.06769916],
+                  [-0.28642962,0.04536599],
+                  [-0.28910603,0.02275314],
+                  [-0.29,0],
+                  [-0.28910603,-0.02275314],
+                  [-0.28642962,-0.04536599],
+                  [-0.28198728,-0.06769916],
+                  [-0.27580639,-0.08961493],
+                  [-0.26792506,-0.1109782],
+                  [-0.25839189,-0.13165724],
+                  [-0.24726565,-0.15152458],
+                  [-0.23461493,-0.17045772],
+                  [-0.22051773,-0.18833993],
+                  [-0.20506097,-0.20506097],
+                  [-0.18833993,-0.22051773],
+                  [-0.17045772,-0.23461493],
+                  [-0.15152458,-0.24726565],
+                  [-0.13165724,-0.25839189],
+                  [-0.1109782,-0.26792506],
+                  [-0.08961493,-0.27580639],
+                  [-0.06769916,-0.28198728],
+                  [-0.04536599,-0.28642962],
+                  [-0.02275314,-0.28910603],
+                  [0,-0.29],
+                  [0.02275314,-0.28910603],
+                  [0.04536599,-0.28642962],
+                  [0.06769916,-0.28198728],
+                  [0.08961493,-0.27580639],
+                  [0.1109782,-0.26792506],
+                  [0.13165724,-0.25839189],
+                  [0.15152458,-0.24726565],
+                  [0.17045772,-0.23461493],
+                  [0.18833993,-0.22051773],
+                  [0.20506097,-0.20506097],
+                  [0.22051773,-0.18833993],
+                  [0.23461493,-0.17045772],
+                  [0.24726565,-0.15152458],
+                  [0.25839189,-0.13165724],
+                  [0.26792506,-0.1109782],
+                  [0.27580639,-0.08961493],
+                  [0.28198728,-0.06769916],
+                  [0.28642962,-0.04536599],
+                  [0.28910603,-0.02275314]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.rim-0.015",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.annular-metal-rim-sidewall",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0.009],
+                [0,0,0.020999999999999998]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.309,0],
+                [0.30804746,0.02424386],
+                [0.3051957,0.04833825],
+                [0.30046231,0.07213462],
+                [0.29387646,0.09548625],
+                [0.28547878,0.11824918],
+                [0.27532102,0.14028306],
+                [0.26346581,0.16145206],
+                [0.24998625,0.18162564],
+                [0.23496544,0.20067945],
+                [0.218496,0.218496],
+                [0.20067945,0.23496544],
+                [0.18162564,0.24998625],
+                [0.16145206,0.26346581],
+                [0.14028306,0.27532102],
+                [0.11824918,0.28547878],
+                [0.09548625,0.29387646],
+                [0.07213462,0.30046231],
+                [0.04833825,0.3051957],
+                [0.02424386,0.30804746],
+                [0,0.309],
+                [-0.02424386,0.30804746],
+                [-0.04833825,0.3051957],
+                [-0.07213462,0.30046231],
+                [-0.09548625,0.29387646],
+                [-0.11824918,0.28547878],
+                [-0.14028306,0.27532102],
+                [-0.16145206,0.26346581],
+                [-0.18162564,0.24998625],
+                [-0.20067945,0.23496544],
+                [-0.218496,0.218496],
+                [-0.23496544,0.20067945],
+                [-0.24998625,0.18162564],
+                [-0.26346581,0.16145206],
+                [-0.27532102,0.14028306],
+                [-0.28547878,0.11824918],
+                [-0.29387646,0.09548625],
+                [-0.30046231,0.07213462],
+                [-0.3051957,0.04833825],
+                [-0.30804746,0.02424386],
+                [-0.309,0],
+                [-0.30804746,-0.02424386],
+                [-0.3051957,-0.04833825],
+                [-0.30046231,-0.07213462],
+                [-0.29387646,-0.09548625],
+                [-0.28547878,-0.11824918],
+                [-0.27532102,-0.14028306],
+                [-0.26346581,-0.16145206],
+                [-0.24998625,-0.18162564],
+                [-0.23496544,-0.20067945],
+                [-0.218496,-0.218496],
+                [-0.20067945,-0.23496544],
+                [-0.18162564,-0.24998625],
+                [-0.16145206,-0.26346581],
+                [-0.14028306,-0.27532102],
+                [-0.11824918,-0.28547878],
+                [-0.09548625,-0.29387646],
+                [-0.07213462,-0.30046231],
+                [-0.04833825,-0.3051957],
+                [-0.02424386,-0.30804746],
+                [0,-0.309],
+                [0.02424386,-0.30804746],
+                [0.04833825,-0.3051957],
+                [0.07213462,-0.30046231],
+                [0.09548625,-0.29387646],
+                [0.11824918,-0.28547878],
+                [0.14028306,-0.27532102],
+                [0.16145206,-0.26346581],
+                [0.18162564,-0.24998625],
+                [0.20067945,-0.23496544],
+                [0.218496,-0.218496],
+                [0.23496544,-0.20067945],
+                [0.24998625,-0.18162564],
+                [0.26346581,-0.16145206],
+                [0.27532102,-0.14028306],
+                [0.28547878,-0.11824918],
+                [0.29387646,-0.09548625],
+                [0.30046231,-0.07213462],
+                [0.3051957,-0.04833825],
+                [0.30804746,-0.02424386]
+              ],
+              "holes": [
+                [
+                  [0.29,0],
+                  [0.28910603,0.02275314],
+                  [0.28642962,0.04536599],
+                  [0.28198728,0.06769916],
+                  [0.27580639,0.08961493],
+                  [0.26792506,0.1109782],
+                  [0.25839189,0.13165724],
+                  [0.24726565,0.15152458],
+                  [0.23461493,0.17045772],
+                  [0.22051773,0.18833993],
+                  [0.20506097,0.20506097],
+                  [0.18833993,0.22051773],
+                  [0.17045772,0.23461493],
+                  [0.15152458,0.24726565],
+                  [0.13165724,0.25839189],
+                  [0.1109782,0.26792506],
+                  [0.08961493,0.27580639],
+                  [0.06769916,0.28198728],
+                  [0.04536599,0.28642962],
+                  [0.02275314,0.28910603],
+                  [0,0.29],
+                  [-0.02275314,0.28910603],
+                  [-0.04536599,0.28642962],
+                  [-0.06769916,0.28198728],
+                  [-0.08961493,0.27580639],
+                  [-0.1109782,0.26792506],
+                  [-0.13165724,0.25839189],
+                  [-0.15152458,0.24726565],
+                  [-0.17045772,0.23461493],
+                  [-0.18833993,0.22051773],
+                  [-0.20506097,0.20506097],
+                  [-0.22051773,0.18833993],
+                  [-0.23461493,0.17045772],
+                  [-0.24726565,0.15152458],
+                  [-0.25839189,0.13165724],
+                  [-0.26792506,0.1109782],
+                  [-0.27580639,0.08961493],
+                  [-0.28198728,0.06769916],
+                  [-0.28642962,0.04536599],
+                  [-0.28910603,0.02275314],
+                  [-0.29,0],
+                  [-0.28910603,-0.02275314],
+                  [-0.28642962,-0.04536599],
+                  [-0.28198728,-0.06769916],
+                  [-0.27580639,-0.08961493],
+                  [-0.26792506,-0.1109782],
+                  [-0.25839189,-0.13165724],
+                  [-0.24726565,-0.15152458],
+                  [-0.23461493,-0.17045772],
+                  [-0.22051773,-0.18833993],
+                  [-0.20506097,-0.20506097],
+                  [-0.18833993,-0.22051773],
+                  [-0.17045772,-0.23461493],
+                  [-0.15152458,-0.24726565],
+                  [-0.13165724,-0.25839189],
+                  [-0.1109782,-0.26792506],
+                  [-0.08961493,-0.27580639],
+                  [-0.06769916,-0.28198728],
+                  [-0.04536599,-0.28642962],
+                  [-0.02275314,-0.28910603],
+                  [0,-0.29],
+                  [0.02275314,-0.28910603],
+                  [0.04536599,-0.28642962],
+                  [0.06769916,-0.28198728],
+                  [0.08961493,-0.27580639],
+                  [0.1109782,-0.26792506],
+                  [0.13165724,-0.25839189],
+                  [0.15152458,-0.24726565],
+                  [0.17045772,-0.23461493],
+                  [0.18833993,-0.22051773],
+                  [0.20506097,-0.20506097],
+                  [0.22051773,-0.18833993],
+                  [0.23461493,-0.17045772],
+                  [0.24726565,-0.15152458],
+                  [0.25839189,-0.13165724],
+                  [0.26792506,-0.1109782],
+                  [0.27580639,-0.08961493],
+                  [0.28198728,-0.06769916],
+                  [0.28642962,-0.04536599],
+                  [0.28910603,-0.02275314]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.hub-cylinder",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.hollow-wheel-hub",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.04],
+                [0,0,0.04]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.026,0],
+                [0.02575783,0.00354033],
+                [0.02503585,0.00701472],
+                [0.02384749,0.01035843],
+                [0.0222149,0.01350918],
+                [0.02016849,0.01640829],
+                [0.01774638,0.01900174],
+                [0.01499369,0.02124122],
+                [0.01196169,0.02308502],
+                [0.00870687,0.02449878],
+                [0.00528986,0.02545619],
+                [0.0017743,0.02593939],
+                [-0.0017743,0.02593939],
+                [-0.00528986,0.02545619],
+                [-0.00870687,0.02449878],
+                [-0.01196169,0.02308502],
+                [-0.01499369,0.02124122],
+                [-0.01774638,0.01900174],
+                [-0.02016849,0.01640829],
+                [-0.0222149,0.01350918],
+                [-0.02384749,0.01035843],
+                [-0.02503585,0.00701472],
+                [-0.02575783,0.00354033],
+                [-0.026,0],
+                [-0.02575783,-0.00354033],
+                [-0.02503585,-0.00701472],
+                [-0.02384749,-0.01035843],
+                [-0.0222149,-0.01350918],
+                [-0.02016849,-0.01640829],
+                [-0.01774638,-0.01900174],
+                [-0.01499369,-0.02124122],
+                [-0.01196169,-0.02308502],
+                [-0.00870687,-0.02449878],
+                [-0.00528986,-0.02545619],
+                [-0.0017743,-0.02593939],
+                [0.0017743,-0.02593939],
+                [0.00528986,-0.02545619],
+                [0.00870687,-0.02449878],
+                [0.01196169,-0.02308502],
+                [0.01499369,-0.02124122],
+                [0.01774638,-0.01900174],
+                [0.02016849,-0.01640829],
+                [0.0222149,-0.01350918],
+                [0.02384749,-0.01035843],
+                [0.02503585,-0.00701472],
+                [0.02575783,-0.00354033]
+              ],
+              "holes": [
+                [
+                  [0.0105,0],
+                  [0.0104022,0.00142975],
+                  [0.01011063,0.00283287],
+                  [0.00963072,0.00418321],
+                  [0.0089714,0.00545563],
+                  [0.00814497,0.00662642],
+                  [0.00716681,0.00767378],
+                  [0.00605514,0.00857818],
+                  [0.00483068,0.00932279],
+                  [0.00351624,0.00989374],
+                  [0.00213629,0.01028038],
+                  [0.00071655,0.01047552],
+                  [-0.00071655,0.01047552],
+                  [-0.00213629,0.01028038],
+                  [-0.00351624,0.00989374],
+                  [-0.00483068,0.00932279],
+                  [-0.00605514,0.00857818],
+                  [-0.00716681,0.00767378],
+                  [-0.00814497,0.00662642],
+                  [-0.0089714,0.00545563],
+                  [-0.00963072,0.00418321],
+                  [-0.01011063,0.00283287],
+                  [-0.0104022,0.00142975],
+                  [-0.0105,0],
+                  [-0.0104022,-0.00142975],
+                  [-0.01011063,-0.00283287],
+                  [-0.00963072,-0.00418321],
+                  [-0.0089714,-0.00545563],
+                  [-0.00814497,-0.00662642],
+                  [-0.00716681,-0.00767378],
+                  [-0.00605514,-0.00857818],
+                  [-0.00483068,-0.00932279],
+                  [-0.00351624,-0.00989374],
+                  [-0.00213629,-0.01028038],
+                  [-0.00071655,-0.01047552],
+                  [0.00071655,-0.01047552],
+                  [0.00213629,-0.01028038],
+                  [0.00351624,-0.00989374],
+                  [0.00483068,-0.00932279],
+                  [0.00605514,-0.00857818],
+                  [0.00716681,-0.00767378],
+                  [0.00814497,-0.00662642],
+                  [0.0089714,-0.00545563],
+                  [0.00963072,-0.00418321],
+                  [0.01011063,-0.00283287],
+                  [0.0104022,-0.00142975]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.flange--0.028",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.annular-spoke-flange",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.032],
+                [0,0,-0.024]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.037,0],
+                [0.03658674,0.00551456],
+                [0.03535619,0.01090594],
+                [0.03333585,0.0160537],
+                [0.03057083,0.02084284],
+                [0.02712292,0.02516639],
+                [0.02306912,0.02892776],
+                [0.0185,0.03204294],
+                [0.01351762,0.03444233],
+                [0.00823327,0.03607233],
+                [0.00276501,0.03689654],
+                [-0.00276501,0.03689654],
+                [-0.00823327,0.03607233],
+                [-0.01351762,0.03444233],
+                [-0.0185,0.03204294],
+                [-0.02306912,0.02892776],
+                [-0.02712292,0.02516639],
+                [-0.03057083,0.02084284],
+                [-0.03333585,0.0160537],
+                [-0.03535619,0.01090594],
+                [-0.03658674,0.00551456],
+                [-0.037,0],
+                [-0.03658674,-0.00551456],
+                [-0.03535619,-0.01090594],
+                [-0.03333585,-0.0160537],
+                [-0.03057083,-0.02084284],
+                [-0.02712292,-0.02516639],
+                [-0.02306912,-0.02892776],
+                [-0.0185,-0.03204294],
+                [-0.01351762,-0.03444233],
+                [-0.00823327,-0.03607233],
+                [-0.00276501,-0.03689654],
+                [0.00276501,-0.03689654],
+                [0.00823327,-0.03607233],
+                [0.01351762,-0.03444233],
+                [0.0185,-0.03204294],
+                [0.02306912,-0.02892776],
+                [0.02712292,-0.02516639],
+                [0.03057083,-0.02084284],
+                [0.03333585,-0.0160537],
+                [0.03535619,-0.01090594],
+                [0.03658674,-0.00551456]
+              ],
+              "holes": [
+                [
+                  [0.011,0],
+                  [0.01087714,0.00163946],
+                  [0.0105113,0.00324231],
+                  [0.00991066,0.00477272],
+                  [0.00908863,0.00619652],
+                  [0.00806357,0.0074819],
+                  [0.00685839,0.00860015],
+                  [0.0055,0.00952628],
+                  [0.00401875,0.01023961],
+                  [0.00244773,0.01072421],
+                  [0.00082203,0.01096924],
+                  [-0.00082203,0.01096924],
+                  [-0.00244773,0.01072421],
+                  [-0.00401875,0.01023961],
+                  [-0.0055,0.00952628],
+                  [-0.00685839,0.00860015],
+                  [-0.00806357,0.0074819],
+                  [-0.00908863,0.00619652],
+                  [-0.00991066,0.00477272],
+                  [-0.0105113,0.00324231],
+                  [-0.01087714,0.00163946],
+                  [-0.011,0],
+                  [-0.01087714,-0.00163946],
+                  [-0.0105113,-0.00324231],
+                  [-0.00991066,-0.00477272],
+                  [-0.00908863,-0.00619652],
+                  [-0.00806357,-0.0074819],
+                  [-0.00685839,-0.00860015],
+                  [-0.0055,-0.00952628],
+                  [-0.00401875,-0.01023961],
+                  [-0.00244773,-0.01072421],
+                  [-0.00082203,-0.01096924],
+                  [0.00082203,-0.01096924],
+                  [0.00244773,-0.01072421],
+                  [0.00401875,-0.01023961],
+                  [0.0055,-0.00952628],
+                  [0.00685839,-0.00860015],
+                  [0.00806357,-0.0074819],
+                  [0.00908863,-0.00619652],
+                  [0.00991066,-0.00477272],
+                  [0.0105113,-0.00324231],
+                  [0.01087714,-0.00163946]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.flange-0.028",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.annular-spoke-flange",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0.024],
+                [0,0,0.032]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.037,0],
+                [0.03658674,0.00551456],
+                [0.03535619,0.01090594],
+                [0.03333585,0.0160537],
+                [0.03057083,0.02084284],
+                [0.02712292,0.02516639],
+                [0.02306912,0.02892776],
+                [0.0185,0.03204294],
+                [0.01351762,0.03444233],
+                [0.00823327,0.03607233],
+                [0.00276501,0.03689654],
+                [-0.00276501,0.03689654],
+                [-0.00823327,0.03607233],
+                [-0.01351762,0.03444233],
+                [-0.0185,0.03204294],
+                [-0.02306912,0.02892776],
+                [-0.02712292,0.02516639],
+                [-0.03057083,0.02084284],
+                [-0.03333585,0.0160537],
+                [-0.03535619,0.01090594],
+                [-0.03658674,0.00551456],
+                [-0.037,0],
+                [-0.03658674,-0.00551456],
+                [-0.03535619,-0.01090594],
+                [-0.03333585,-0.0160537],
+                [-0.03057083,-0.02084284],
+                [-0.02712292,-0.02516639],
+                [-0.02306912,-0.02892776],
+                [-0.0185,-0.03204294],
+                [-0.01351762,-0.03444233],
+                [-0.00823327,-0.03607233],
+                [-0.00276501,-0.03689654],
+                [0.00276501,-0.03689654],
+                [0.00823327,-0.03607233],
+                [0.01351762,-0.03444233],
+                [0.0185,-0.03204294],
+                [0.02306912,-0.02892776],
+                [0.02712292,-0.02516639],
+                [0.03057083,-0.02084284],
+                [0.03333585,-0.0160537],
+                [0.03535619,-0.01090594],
+                [0.03658674,-0.00551456]
+              ],
+              "holes": [
+                [
+                  [0.011,0],
+                  [0.01087714,0.00163946],
+                  [0.0105113,0.00324231],
+                  [0.00991066,0.00477272],
+                  [0.00908863,0.00619652],
+                  [0.00806357,0.0074819],
+                  [0.00685839,0.00860015],
+                  [0.0055,0.00952628],
+                  [0.00401875,0.01023961],
+                  [0.00244773,0.01072421],
+                  [0.00082203,0.01096924],
+                  [-0.00082203,0.01096924],
+                  [-0.00244773,0.01072421],
+                  [-0.00401875,0.01023961],
+                  [-0.0055,0.00952628],
+                  [-0.00685839,0.00860015],
+                  [-0.00806357,0.0074819],
+                  [-0.00908863,0.00619652],
+                  [-0.00991066,0.00477272],
+                  [-0.0105113,0.00324231],
+                  [-0.01087714,0.00163946],
+                  [-0.011,0],
+                  [-0.01087714,-0.00163946],
+                  [-0.0105113,-0.00324231],
+                  [-0.00991066,-0.00477272],
+                  [-0.00908863,-0.00619652],
+                  [-0.00806357,-0.0074819],
+                  [-0.00685839,-0.00860015],
+                  [-0.0055,-0.00952628],
+                  [-0.00401875,-0.01023961],
+                  [-0.00244773,-0.01072421],
+                  [-0.00082203,-0.01096924],
+                  [0.00082203,-0.01096924],
+                  [0.00244773,-0.01072421],
+                  [0.00401875,-0.01023961],
+                  [0.0055,-0.00952628],
+                  [0.00685839,-0.00860015],
+                  [0.00806357,-0.0074819],
+                  [0.00908863,-0.00619652],
+                  [0.00991066,-0.00477272],
+                  [0.0105113,-0.00324231],
+                  [0.01087714,-0.00163946]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-0",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.03031896,-0.00646226,0.028],
+              "end": [0.298,0,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-1",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02812081,0.01304684,-0.028],
+              "end": [0.29052852,0.06631124,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-2",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.03012031,0.00733261,0.028],
+              "end": [0.26848872,0.12929735,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-3",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01967516,0.02395596,-0.028],
+              "end": [0.23298578,0.18579996,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-4",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02395596,0.01967516,0.028],
+              "end": [0.18579996,0.23298578,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-5",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.00733261,0.03012031,-0.028],
+              "end": [0.12929735,0.26848872,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-6",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01304684,0.02812081,0.028],
+              "end": [0.06631124,0.29052852,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-7",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.00646226,0.03031896,-0.028],
+              "end": [0,0.298,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-8",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.00044637,0.03099679,0.028],
+              "end": [-0.06631124,0.29052852,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-9",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.0189772,0.02451257,-0.028],
+              "end": [-0.12929735,0.26848872,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-10",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01385117,0.02773347,0.028],
+              "end": [-0.18579996,0.23298578,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-11",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.02773347,0.01385117,-0.028],
+              "end": [-0.23298578,0.18579996,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-12",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.02451257,0.0189772,0.028],
+              "end": [-0.26848872,0.12929735,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-13",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.03099679,0.00044637,-0.028],
+              "end": [-0.29052852,0.06631124,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-14",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.03031896,0.00646226,0.028],
+              "end": [-0.298,0,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-15",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.02812081,-0.01304684,-0.028],
+              "end": [-0.29052852,-0.06631124,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-16",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.03012031,-0.00733261,0.028],
+              "end": [-0.26848872,-0.12929735,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-17",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01967516,-0.02395596,-0.028],
+              "end": [-0.23298578,-0.18579996,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-18",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.02395596,-0.01967516,0.028],
+              "end": [-0.18579996,-0.23298578,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-19",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.00733261,-0.03012031,-0.028],
+              "end": [-0.12929735,-0.26848872,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-20",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01304684,-0.02812081,0.028],
+              "end": [-0.06631124,-0.29052852,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-21",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.00646226,-0.03031896,-0.028],
+              "end": [0,-0.298,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-22",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.00044637,-0.03099679,0.028],
+              "end": [0.06631124,-0.29052852,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-23",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.0189772,-0.02451257,-0.028],
+              "end": [0.12929735,-0.26848872,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-24",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01385117,-0.02773347,0.028],
+              "end": [0.18579996,-0.23298578,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-25",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02773347,-0.01385117,-0.028],
+              "end": [0.23298578,-0.18579996,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-26",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02451257,-0.0189772,0.028],
+              "end": [0.26848872,-0.12929735,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.spoke-27",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.03099679,-0.00044637,-0.028],
+              "end": [0.29052852,-0.06631124,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2",
+            "semanticType": "mobility.complete-city-bicycle-with-spoked-wheels-and-steering.mounted-assembly",
+            "transform": {
+              "position": [0.147,-0.384,0]
+            },
+            "parent": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.tyre",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.annular-city-cycle-tyre",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.022],
+                [0,0,0.022]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.335,0],
+                [0.33396731,0.0262838],
+                [0.33087559,0.05240555],
+                [0.32574392,0.0782042],
+                [0.31860393,0.10352069],
+                [0.30949964,0.12819895],
+                [0.29848719,0.15208682],
+                [0.28563446,0.17503702],
+                [0.27102069,0.19690806],
+                [0.254736,0.2175651],
+                [0.23688077,0.23688077],
+                [0.2175651,0.254736],
+                [0.19690806,0.27102069],
+                [0.17503702,0.28563446],
+                [0.15208682,0.29848719],
+                [0.12819895,0.30949964],
+                [0.10352069,0.31860393],
+                [0.0782042,0.32574392],
+                [0.05240555,0.33087559],
+                [0.0262838,0.33396731],
+                [0,0.335],
+                [-0.0262838,0.33396731],
+                [-0.05240555,0.33087559],
+                [-0.0782042,0.32574392],
+                [-0.10352069,0.31860393],
+                [-0.12819895,0.30949964],
+                [-0.15208682,0.29848719],
+                [-0.17503702,0.28563446],
+                [-0.19690806,0.27102069],
+                [-0.2175651,0.254736],
+                [-0.23688077,0.23688077],
+                [-0.254736,0.2175651],
+                [-0.27102069,0.19690806],
+                [-0.28563446,0.17503702],
+                [-0.29848719,0.15208682],
+                [-0.30949964,0.12819895],
+                [-0.31860393,0.10352069],
+                [-0.32574392,0.0782042],
+                [-0.33087559,0.05240555],
+                [-0.33396731,0.0262838],
+                [-0.335,0],
+                [-0.33396731,-0.0262838],
+                [-0.33087559,-0.05240555],
+                [-0.32574392,-0.0782042],
+                [-0.31860393,-0.10352069],
+                [-0.30949964,-0.12819895],
+                [-0.29848719,-0.15208682],
+                [-0.28563446,-0.17503702],
+                [-0.27102069,-0.19690806],
+                [-0.254736,-0.2175651],
+                [-0.23688077,-0.23688077],
+                [-0.2175651,-0.254736],
+                [-0.19690806,-0.27102069],
+                [-0.17503702,-0.28563446],
+                [-0.15208682,-0.29848719],
+                [-0.12819895,-0.30949964],
+                [-0.10352069,-0.31860393],
+                [-0.0782042,-0.32574392],
+                [-0.05240555,-0.33087559],
+                [-0.0262838,-0.33396731],
+                [0,-0.335],
+                [0.0262838,-0.33396731],
+                [0.05240555,-0.33087559],
+                [0.0782042,-0.32574392],
+                [0.10352069,-0.31860393],
+                [0.12819895,-0.30949964],
+                [0.15208682,-0.29848719],
+                [0.17503702,-0.28563446],
+                [0.19690806,-0.27102069],
+                [0.2175651,-0.254736],
+                [0.23688077,-0.23688077],
+                [0.254736,-0.2175651],
+                [0.27102069,-0.19690806],
+                [0.28563446,-0.17503702],
+                [0.29848719,-0.15208682],
+                [0.30949964,-0.12819895],
+                [0.31860393,-0.10352069],
+                [0.32574392,-0.0782042],
+                [0.33087559,-0.05240555],
+                [0.33396731,-0.0262838]
+              ],
+              "holes": [
+                [
+                  [0.306,0],
+                  [0.3050567,0.02400848],
+                  [0.30223263,0.04786895],
+                  [0.2975452,0.07143428],
+                  [0.29102329,0.0945592],
+                  [0.28270714,0.11710113],
+                  [0.272648,0.13892109],
+                  [0.26090789,0.15988456],
+                  [0.2475592,0.17986229],
+                  [0.23268423,0.1987311],
+                  [0.21637468,0.21637468],
+                  [0.1987311,0.23268423],
+                  [0.17986229,0.2475592],
+                  [0.15988456,0.26090789],
+                  [0.13892109,0.272648],
+                  [0.11710113,0.28270714],
+                  [0.0945592,0.29102329],
+                  [0.07143428,0.2975452],
+                  [0.04786895,0.30223263],
+                  [0.02400848,0.3050567],
+                  [0,0.306],
+                  [-0.02400848,0.3050567],
+                  [-0.04786895,0.30223263],
+                  [-0.07143428,0.2975452],
+                  [-0.0945592,0.29102329],
+                  [-0.11710113,0.28270714],
+                  [-0.13892109,0.272648],
+                  [-0.15988456,0.26090789],
+                  [-0.17986229,0.2475592],
+                  [-0.1987311,0.23268423],
+                  [-0.21637468,0.21637468],
+                  [-0.23268423,0.1987311],
+                  [-0.2475592,0.17986229],
+                  [-0.26090789,0.15988456],
+                  [-0.272648,0.13892109],
+                  [-0.28270714,0.11710113],
+                  [-0.29102329,0.0945592],
+                  [-0.2975452,0.07143428],
+                  [-0.30223263,0.04786895],
+                  [-0.3050567,0.02400848],
+                  [-0.306,0],
+                  [-0.3050567,-0.02400848],
+                  [-0.30223263,-0.04786895],
+                  [-0.2975452,-0.07143428],
+                  [-0.29102329,-0.0945592],
+                  [-0.28270714,-0.11710113],
+                  [-0.272648,-0.13892109],
+                  [-0.26090789,-0.15988456],
+                  [-0.2475592,-0.17986229],
+                  [-0.23268423,-0.1987311],
+                  [-0.21637468,-0.21637468],
+                  [-0.1987311,-0.23268423],
+                  [-0.17986229,-0.2475592],
+                  [-0.15988456,-0.26090789],
+                  [-0.13892109,-0.272648],
+                  [-0.11710113,-0.28270714],
+                  [-0.0945592,-0.29102329],
+                  [-0.07143428,-0.2975452],
+                  [-0.04786895,-0.30223263],
+                  [-0.02400848,-0.3050567],
+                  [0,-0.306],
+                  [0.02400848,-0.3050567],
+                  [0.04786895,-0.30223263],
+                  [0.07143428,-0.2975452],
+                  [0.0945592,-0.29102329],
+                  [0.11710113,-0.28270714],
+                  [0.13892109,-0.272648],
+                  [0.15988456,-0.26090789],
+                  [0.17986229,-0.2475592],
+                  [0.1987311,-0.23268423],
+                  [0.21637468,-0.21637468],
+                  [0.23268423,-0.1987311],
+                  [0.2475592,-0.17986229],
+                  [0.26090789,-0.15988456],
+                  [0.272648,-0.13892109],
+                  [0.28270714,-0.11710113],
+                  [0.29102329,-0.0945592],
+                  [0.2975452,-0.07143428],
+                  [0.30223263,-0.04786895],
+                  [0.3050567,-0.02400848]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#354149"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.rim--0.015",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.annular-metal-rim-sidewall",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.020999999999999998],
+                [0,0,-0.009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.309,0],
+                [0.30804746,0.02424386],
+                [0.3051957,0.04833825],
+                [0.30046231,0.07213462],
+                [0.29387646,0.09548625],
+                [0.28547878,0.11824918],
+                [0.27532102,0.14028306],
+                [0.26346581,0.16145206],
+                [0.24998625,0.18162564],
+                [0.23496544,0.20067945],
+                [0.218496,0.218496],
+                [0.20067945,0.23496544],
+                [0.18162564,0.24998625],
+                [0.16145206,0.26346581],
+                [0.14028306,0.27532102],
+                [0.11824918,0.28547878],
+                [0.09548625,0.29387646],
+                [0.07213462,0.30046231],
+                [0.04833825,0.3051957],
+                [0.02424386,0.30804746],
+                [0,0.309],
+                [-0.02424386,0.30804746],
+                [-0.04833825,0.3051957],
+                [-0.07213462,0.30046231],
+                [-0.09548625,0.29387646],
+                [-0.11824918,0.28547878],
+                [-0.14028306,0.27532102],
+                [-0.16145206,0.26346581],
+                [-0.18162564,0.24998625],
+                [-0.20067945,0.23496544],
+                [-0.218496,0.218496],
+                [-0.23496544,0.20067945],
+                [-0.24998625,0.18162564],
+                [-0.26346581,0.16145206],
+                [-0.27532102,0.14028306],
+                [-0.28547878,0.11824918],
+                [-0.29387646,0.09548625],
+                [-0.30046231,0.07213462],
+                [-0.3051957,0.04833825],
+                [-0.30804746,0.02424386],
+                [-0.309,0],
+                [-0.30804746,-0.02424386],
+                [-0.3051957,-0.04833825],
+                [-0.30046231,-0.07213462],
+                [-0.29387646,-0.09548625],
+                [-0.28547878,-0.11824918],
+                [-0.27532102,-0.14028306],
+                [-0.26346581,-0.16145206],
+                [-0.24998625,-0.18162564],
+                [-0.23496544,-0.20067945],
+                [-0.218496,-0.218496],
+                [-0.20067945,-0.23496544],
+                [-0.18162564,-0.24998625],
+                [-0.16145206,-0.26346581],
+                [-0.14028306,-0.27532102],
+                [-0.11824918,-0.28547878],
+                [-0.09548625,-0.29387646],
+                [-0.07213462,-0.30046231],
+                [-0.04833825,-0.3051957],
+                [-0.02424386,-0.30804746],
+                [0,-0.309],
+                [0.02424386,-0.30804746],
+                [0.04833825,-0.3051957],
+                [0.07213462,-0.30046231],
+                [0.09548625,-0.29387646],
+                [0.11824918,-0.28547878],
+                [0.14028306,-0.27532102],
+                [0.16145206,-0.26346581],
+                [0.18162564,-0.24998625],
+                [0.20067945,-0.23496544],
+                [0.218496,-0.218496],
+                [0.23496544,-0.20067945],
+                [0.24998625,-0.18162564],
+                [0.26346581,-0.16145206],
+                [0.27532102,-0.14028306],
+                [0.28547878,-0.11824918],
+                [0.29387646,-0.09548625],
+                [0.30046231,-0.07213462],
+                [0.3051957,-0.04833825],
+                [0.30804746,-0.02424386]
+              ],
+              "holes": [
+                [
+                  [0.29,0],
+                  [0.28910603,0.02275314],
+                  [0.28642962,0.04536599],
+                  [0.28198728,0.06769916],
+                  [0.27580639,0.08961493],
+                  [0.26792506,0.1109782],
+                  [0.25839189,0.13165724],
+                  [0.24726565,0.15152458],
+                  [0.23461493,0.17045772],
+                  [0.22051773,0.18833993],
+                  [0.20506097,0.20506097],
+                  [0.18833993,0.22051773],
+                  [0.17045772,0.23461493],
+                  [0.15152458,0.24726565],
+                  [0.13165724,0.25839189],
+                  [0.1109782,0.26792506],
+                  [0.08961493,0.27580639],
+                  [0.06769916,0.28198728],
+                  [0.04536599,0.28642962],
+                  [0.02275314,0.28910603],
+                  [0,0.29],
+                  [-0.02275314,0.28910603],
+                  [-0.04536599,0.28642962],
+                  [-0.06769916,0.28198728],
+                  [-0.08961493,0.27580639],
+                  [-0.1109782,0.26792506],
+                  [-0.13165724,0.25839189],
+                  [-0.15152458,0.24726565],
+                  [-0.17045772,0.23461493],
+                  [-0.18833993,0.22051773],
+                  [-0.20506097,0.20506097],
+                  [-0.22051773,0.18833993],
+                  [-0.23461493,0.17045772],
+                  [-0.24726565,0.15152458],
+                  [-0.25839189,0.13165724],
+                  [-0.26792506,0.1109782],
+                  [-0.27580639,0.08961493],
+                  [-0.28198728,0.06769916],
+                  [-0.28642962,0.04536599],
+                  [-0.28910603,0.02275314],
+                  [-0.29,0],
+                  [-0.28910603,-0.02275314],
+                  [-0.28642962,-0.04536599],
+                  [-0.28198728,-0.06769916],
+                  [-0.27580639,-0.08961493],
+                  [-0.26792506,-0.1109782],
+                  [-0.25839189,-0.13165724],
+                  [-0.24726565,-0.15152458],
+                  [-0.23461493,-0.17045772],
+                  [-0.22051773,-0.18833993],
+                  [-0.20506097,-0.20506097],
+                  [-0.18833993,-0.22051773],
+                  [-0.17045772,-0.23461493],
+                  [-0.15152458,-0.24726565],
+                  [-0.13165724,-0.25839189],
+                  [-0.1109782,-0.26792506],
+                  [-0.08961493,-0.27580639],
+                  [-0.06769916,-0.28198728],
+                  [-0.04536599,-0.28642962],
+                  [-0.02275314,-0.28910603],
+                  [0,-0.29],
+                  [0.02275314,-0.28910603],
+                  [0.04536599,-0.28642962],
+                  [0.06769916,-0.28198728],
+                  [0.08961493,-0.27580639],
+                  [0.1109782,-0.26792506],
+                  [0.13165724,-0.25839189],
+                  [0.15152458,-0.24726565],
+                  [0.17045772,-0.23461493],
+                  [0.18833993,-0.22051773],
+                  [0.20506097,-0.20506097],
+                  [0.22051773,-0.18833993],
+                  [0.23461493,-0.17045772],
+                  [0.24726565,-0.15152458],
+                  [0.25839189,-0.13165724],
+                  [0.26792506,-0.1109782],
+                  [0.27580639,-0.08961493],
+                  [0.28198728,-0.06769916],
+                  [0.28642962,-0.04536599],
+                  [0.28910603,-0.02275314]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.rim-0.015",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.annular-metal-rim-sidewall",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0.009],
+                [0,0,0.020999999999999998]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.309,0],
+                [0.30804746,0.02424386],
+                [0.3051957,0.04833825],
+                [0.30046231,0.07213462],
+                [0.29387646,0.09548625],
+                [0.28547878,0.11824918],
+                [0.27532102,0.14028306],
+                [0.26346581,0.16145206],
+                [0.24998625,0.18162564],
+                [0.23496544,0.20067945],
+                [0.218496,0.218496],
+                [0.20067945,0.23496544],
+                [0.18162564,0.24998625],
+                [0.16145206,0.26346581],
+                [0.14028306,0.27532102],
+                [0.11824918,0.28547878],
+                [0.09548625,0.29387646],
+                [0.07213462,0.30046231],
+                [0.04833825,0.3051957],
+                [0.02424386,0.30804746],
+                [0,0.309],
+                [-0.02424386,0.30804746],
+                [-0.04833825,0.3051957],
+                [-0.07213462,0.30046231],
+                [-0.09548625,0.29387646],
+                [-0.11824918,0.28547878],
+                [-0.14028306,0.27532102],
+                [-0.16145206,0.26346581],
+                [-0.18162564,0.24998625],
+                [-0.20067945,0.23496544],
+                [-0.218496,0.218496],
+                [-0.23496544,0.20067945],
+                [-0.24998625,0.18162564],
+                [-0.26346581,0.16145206],
+                [-0.27532102,0.14028306],
+                [-0.28547878,0.11824918],
+                [-0.29387646,0.09548625],
+                [-0.30046231,0.07213462],
+                [-0.3051957,0.04833825],
+                [-0.30804746,0.02424386],
+                [-0.309,0],
+                [-0.30804746,-0.02424386],
+                [-0.3051957,-0.04833825],
+                [-0.30046231,-0.07213462],
+                [-0.29387646,-0.09548625],
+                [-0.28547878,-0.11824918],
+                [-0.27532102,-0.14028306],
+                [-0.26346581,-0.16145206],
+                [-0.24998625,-0.18162564],
+                [-0.23496544,-0.20067945],
+                [-0.218496,-0.218496],
+                [-0.20067945,-0.23496544],
+                [-0.18162564,-0.24998625],
+                [-0.16145206,-0.26346581],
+                [-0.14028306,-0.27532102],
+                [-0.11824918,-0.28547878],
+                [-0.09548625,-0.29387646],
+                [-0.07213462,-0.30046231],
+                [-0.04833825,-0.3051957],
+                [-0.02424386,-0.30804746],
+                [0,-0.309],
+                [0.02424386,-0.30804746],
+                [0.04833825,-0.3051957],
+                [0.07213462,-0.30046231],
+                [0.09548625,-0.29387646],
+                [0.11824918,-0.28547878],
+                [0.14028306,-0.27532102],
+                [0.16145206,-0.26346581],
+                [0.18162564,-0.24998625],
+                [0.20067945,-0.23496544],
+                [0.218496,-0.218496],
+                [0.23496544,-0.20067945],
+                [0.24998625,-0.18162564],
+                [0.26346581,-0.16145206],
+                [0.27532102,-0.14028306],
+                [0.28547878,-0.11824918],
+                [0.29387646,-0.09548625],
+                [0.30046231,-0.07213462],
+                [0.3051957,-0.04833825],
+                [0.30804746,-0.02424386]
+              ],
+              "holes": [
+                [
+                  [0.29,0],
+                  [0.28910603,0.02275314],
+                  [0.28642962,0.04536599],
+                  [0.28198728,0.06769916],
+                  [0.27580639,0.08961493],
+                  [0.26792506,0.1109782],
+                  [0.25839189,0.13165724],
+                  [0.24726565,0.15152458],
+                  [0.23461493,0.17045772],
+                  [0.22051773,0.18833993],
+                  [0.20506097,0.20506097],
+                  [0.18833993,0.22051773],
+                  [0.17045772,0.23461493],
+                  [0.15152458,0.24726565],
+                  [0.13165724,0.25839189],
+                  [0.1109782,0.26792506],
+                  [0.08961493,0.27580639],
+                  [0.06769916,0.28198728],
+                  [0.04536599,0.28642962],
+                  [0.02275314,0.28910603],
+                  [0,0.29],
+                  [-0.02275314,0.28910603],
+                  [-0.04536599,0.28642962],
+                  [-0.06769916,0.28198728],
+                  [-0.08961493,0.27580639],
+                  [-0.1109782,0.26792506],
+                  [-0.13165724,0.25839189],
+                  [-0.15152458,0.24726565],
+                  [-0.17045772,0.23461493],
+                  [-0.18833993,0.22051773],
+                  [-0.20506097,0.20506097],
+                  [-0.22051773,0.18833993],
+                  [-0.23461493,0.17045772],
+                  [-0.24726565,0.15152458],
+                  [-0.25839189,0.13165724],
+                  [-0.26792506,0.1109782],
+                  [-0.27580639,0.08961493],
+                  [-0.28198728,0.06769916],
+                  [-0.28642962,0.04536599],
+                  [-0.28910603,0.02275314],
+                  [-0.29,0],
+                  [-0.28910603,-0.02275314],
+                  [-0.28642962,-0.04536599],
+                  [-0.28198728,-0.06769916],
+                  [-0.27580639,-0.08961493],
+                  [-0.26792506,-0.1109782],
+                  [-0.25839189,-0.13165724],
+                  [-0.24726565,-0.15152458],
+                  [-0.23461493,-0.17045772],
+                  [-0.22051773,-0.18833993],
+                  [-0.20506097,-0.20506097],
+                  [-0.18833993,-0.22051773],
+                  [-0.17045772,-0.23461493],
+                  [-0.15152458,-0.24726565],
+                  [-0.13165724,-0.25839189],
+                  [-0.1109782,-0.26792506],
+                  [-0.08961493,-0.27580639],
+                  [-0.06769916,-0.28198728],
+                  [-0.04536599,-0.28642962],
+                  [-0.02275314,-0.28910603],
+                  [0,-0.29],
+                  [0.02275314,-0.28910603],
+                  [0.04536599,-0.28642962],
+                  [0.06769916,-0.28198728],
+                  [0.08961493,-0.27580639],
+                  [0.1109782,-0.26792506],
+                  [0.13165724,-0.25839189],
+                  [0.15152458,-0.24726565],
+                  [0.17045772,-0.23461493],
+                  [0.18833993,-0.22051773],
+                  [0.20506097,-0.20506097],
+                  [0.22051773,-0.18833993],
+                  [0.23461493,-0.17045772],
+                  [0.24726565,-0.15152458],
+                  [0.25839189,-0.13165724],
+                  [0.26792506,-0.1109782],
+                  [0.27580639,-0.08961493],
+                  [0.28198728,-0.06769916],
+                  [0.28642962,-0.04536599],
+                  [0.28910603,-0.02275314]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.hub-cylinder",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.hollow-wheel-hub",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.04],
+                [0,0,0.04]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.026,0],
+                [0.02575783,0.00354033],
+                [0.02503585,0.00701472],
+                [0.02384749,0.01035843],
+                [0.0222149,0.01350918],
+                [0.02016849,0.01640829],
+                [0.01774638,0.01900174],
+                [0.01499369,0.02124122],
+                [0.01196169,0.02308502],
+                [0.00870687,0.02449878],
+                [0.00528986,0.02545619],
+                [0.0017743,0.02593939],
+                [-0.0017743,0.02593939],
+                [-0.00528986,0.02545619],
+                [-0.00870687,0.02449878],
+                [-0.01196169,0.02308502],
+                [-0.01499369,0.02124122],
+                [-0.01774638,0.01900174],
+                [-0.02016849,0.01640829],
+                [-0.0222149,0.01350918],
+                [-0.02384749,0.01035843],
+                [-0.02503585,0.00701472],
+                [-0.02575783,0.00354033],
+                [-0.026,0],
+                [-0.02575783,-0.00354033],
+                [-0.02503585,-0.00701472],
+                [-0.02384749,-0.01035843],
+                [-0.0222149,-0.01350918],
+                [-0.02016849,-0.01640829],
+                [-0.01774638,-0.01900174],
+                [-0.01499369,-0.02124122],
+                [-0.01196169,-0.02308502],
+                [-0.00870687,-0.02449878],
+                [-0.00528986,-0.02545619],
+                [-0.0017743,-0.02593939],
+                [0.0017743,-0.02593939],
+                [0.00528986,-0.02545619],
+                [0.00870687,-0.02449878],
+                [0.01196169,-0.02308502],
+                [0.01499369,-0.02124122],
+                [0.01774638,-0.01900174],
+                [0.02016849,-0.01640829],
+                [0.0222149,-0.01350918],
+                [0.02384749,-0.01035843],
+                [0.02503585,-0.00701472],
+                [0.02575783,-0.00354033]
+              ],
+              "holes": [
+                [
+                  [0.0105,0],
+                  [0.0104022,0.00142975],
+                  [0.01011063,0.00283287],
+                  [0.00963072,0.00418321],
+                  [0.0089714,0.00545563],
+                  [0.00814497,0.00662642],
+                  [0.00716681,0.00767378],
+                  [0.00605514,0.00857818],
+                  [0.00483068,0.00932279],
+                  [0.00351624,0.00989374],
+                  [0.00213629,0.01028038],
+                  [0.00071655,0.01047552],
+                  [-0.00071655,0.01047552],
+                  [-0.00213629,0.01028038],
+                  [-0.00351624,0.00989374],
+                  [-0.00483068,0.00932279],
+                  [-0.00605514,0.00857818],
+                  [-0.00716681,0.00767378],
+                  [-0.00814497,0.00662642],
+                  [-0.0089714,0.00545563],
+                  [-0.00963072,0.00418321],
+                  [-0.01011063,0.00283287],
+                  [-0.0104022,0.00142975],
+                  [-0.0105,0],
+                  [-0.0104022,-0.00142975],
+                  [-0.01011063,-0.00283287],
+                  [-0.00963072,-0.00418321],
+                  [-0.0089714,-0.00545563],
+                  [-0.00814497,-0.00662642],
+                  [-0.00716681,-0.00767378],
+                  [-0.00605514,-0.00857818],
+                  [-0.00483068,-0.00932279],
+                  [-0.00351624,-0.00989374],
+                  [-0.00213629,-0.01028038],
+                  [-0.00071655,-0.01047552],
+                  [0.00071655,-0.01047552],
+                  [0.00213629,-0.01028038],
+                  [0.00351624,-0.00989374],
+                  [0.00483068,-0.00932279],
+                  [0.00605514,-0.00857818],
+                  [0.00716681,-0.00767378],
+                  [0.00814497,-0.00662642],
+                  [0.0089714,-0.00545563],
+                  [0.00963072,-0.00418321],
+                  [0.01011063,-0.00283287],
+                  [0.0104022,-0.00142975]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.flange--0.028",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.annular-spoke-flange",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.032],
+                [0,0,-0.024]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.037,0],
+                [0.03658674,0.00551456],
+                [0.03535619,0.01090594],
+                [0.03333585,0.0160537],
+                [0.03057083,0.02084284],
+                [0.02712292,0.02516639],
+                [0.02306912,0.02892776],
+                [0.0185,0.03204294],
+                [0.01351762,0.03444233],
+                [0.00823327,0.03607233],
+                [0.00276501,0.03689654],
+                [-0.00276501,0.03689654],
+                [-0.00823327,0.03607233],
+                [-0.01351762,0.03444233],
+                [-0.0185,0.03204294],
+                [-0.02306912,0.02892776],
+                [-0.02712292,0.02516639],
+                [-0.03057083,0.02084284],
+                [-0.03333585,0.0160537],
+                [-0.03535619,0.01090594],
+                [-0.03658674,0.00551456],
+                [-0.037,0],
+                [-0.03658674,-0.00551456],
+                [-0.03535619,-0.01090594],
+                [-0.03333585,-0.0160537],
+                [-0.03057083,-0.02084284],
+                [-0.02712292,-0.02516639],
+                [-0.02306912,-0.02892776],
+                [-0.0185,-0.03204294],
+                [-0.01351762,-0.03444233],
+                [-0.00823327,-0.03607233],
+                [-0.00276501,-0.03689654],
+                [0.00276501,-0.03689654],
+                [0.00823327,-0.03607233],
+                [0.01351762,-0.03444233],
+                [0.0185,-0.03204294],
+                [0.02306912,-0.02892776],
+                [0.02712292,-0.02516639],
+                [0.03057083,-0.02084284],
+                [0.03333585,-0.0160537],
+                [0.03535619,-0.01090594],
+                [0.03658674,-0.00551456]
+              ],
+              "holes": [
+                [
+                  [0.011,0],
+                  [0.01087714,0.00163946],
+                  [0.0105113,0.00324231],
+                  [0.00991066,0.00477272],
+                  [0.00908863,0.00619652],
+                  [0.00806357,0.0074819],
+                  [0.00685839,0.00860015],
+                  [0.0055,0.00952628],
+                  [0.00401875,0.01023961],
+                  [0.00244773,0.01072421],
+                  [0.00082203,0.01096924],
+                  [-0.00082203,0.01096924],
+                  [-0.00244773,0.01072421],
+                  [-0.00401875,0.01023961],
+                  [-0.0055,0.00952628],
+                  [-0.00685839,0.00860015],
+                  [-0.00806357,0.0074819],
+                  [-0.00908863,0.00619652],
+                  [-0.00991066,0.00477272],
+                  [-0.0105113,0.00324231],
+                  [-0.01087714,0.00163946],
+                  [-0.011,0],
+                  [-0.01087714,-0.00163946],
+                  [-0.0105113,-0.00324231],
+                  [-0.00991066,-0.00477272],
+                  [-0.00908863,-0.00619652],
+                  [-0.00806357,-0.0074819],
+                  [-0.00685839,-0.00860015],
+                  [-0.0055,-0.00952628],
+                  [-0.00401875,-0.01023961],
+                  [-0.00244773,-0.01072421],
+                  [-0.00082203,-0.01096924],
+                  [0.00082203,-0.01096924],
+                  [0.00244773,-0.01072421],
+                  [0.00401875,-0.01023961],
+                  [0.0055,-0.00952628],
+                  [0.00685839,-0.00860015],
+                  [0.00806357,-0.0074819],
+                  [0.00908863,-0.00619652],
+                  [0.00991066,-0.00477272],
+                  [0.0105113,-0.00324231],
+                  [0.01087714,-0.00163946]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.flange-0.028",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.annular-spoke-flange",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0.024],
+                [0,0,0.032]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [0.037,0],
+                [0.03658674,0.00551456],
+                [0.03535619,0.01090594],
+                [0.03333585,0.0160537],
+                [0.03057083,0.02084284],
+                [0.02712292,0.02516639],
+                [0.02306912,0.02892776],
+                [0.0185,0.03204294],
+                [0.01351762,0.03444233],
+                [0.00823327,0.03607233],
+                [0.00276501,0.03689654],
+                [-0.00276501,0.03689654],
+                [-0.00823327,0.03607233],
+                [-0.01351762,0.03444233],
+                [-0.0185,0.03204294],
+                [-0.02306912,0.02892776],
+                [-0.02712292,0.02516639],
+                [-0.03057083,0.02084284],
+                [-0.03333585,0.0160537],
+                [-0.03535619,0.01090594],
+                [-0.03658674,0.00551456],
+                [-0.037,0],
+                [-0.03658674,-0.00551456],
+                [-0.03535619,-0.01090594],
+                [-0.03333585,-0.0160537],
+                [-0.03057083,-0.02084284],
+                [-0.02712292,-0.02516639],
+                [-0.02306912,-0.02892776],
+                [-0.0185,-0.03204294],
+                [-0.01351762,-0.03444233],
+                [-0.00823327,-0.03607233],
+                [-0.00276501,-0.03689654],
+                [0.00276501,-0.03689654],
+                [0.00823327,-0.03607233],
+                [0.01351762,-0.03444233],
+                [0.0185,-0.03204294],
+                [0.02306912,-0.02892776],
+                [0.02712292,-0.02516639],
+                [0.03057083,-0.02084284],
+                [0.03333585,-0.0160537],
+                [0.03535619,-0.01090594],
+                [0.03658674,-0.00551456]
+              ],
+              "holes": [
+                [
+                  [0.011,0],
+                  [0.01087714,0.00163946],
+                  [0.0105113,0.00324231],
+                  [0.00991066,0.00477272],
+                  [0.00908863,0.00619652],
+                  [0.00806357,0.0074819],
+                  [0.00685839,0.00860015],
+                  [0.0055,0.00952628],
+                  [0.00401875,0.01023961],
+                  [0.00244773,0.01072421],
+                  [0.00082203,0.01096924],
+                  [-0.00082203,0.01096924],
+                  [-0.00244773,0.01072421],
+                  [-0.00401875,0.01023961],
+                  [-0.0055,0.00952628],
+                  [-0.00685839,0.00860015],
+                  [-0.00806357,0.0074819],
+                  [-0.00908863,0.00619652],
+                  [-0.00991066,0.00477272],
+                  [-0.0105113,0.00324231],
+                  [-0.01087714,0.00163946],
+                  [-0.011,0],
+                  [-0.01087714,-0.00163946],
+                  [-0.0105113,-0.00324231],
+                  [-0.00991066,-0.00477272],
+                  [-0.00908863,-0.00619652],
+                  [-0.00806357,-0.0074819],
+                  [-0.00685839,-0.00860015],
+                  [-0.0055,-0.00952628],
+                  [-0.00401875,-0.01023961],
+                  [-0.00244773,-0.01072421],
+                  [-0.00082203,-0.01096924],
+                  [0.00082203,-0.01096924],
+                  [0.00244773,-0.01072421],
+                  [0.00401875,-0.01023961],
+                  [0.0055,-0.00952628],
+                  [0.00685839,-0.00860015],
+                  [0.00806357,-0.0074819],
+                  [0.00908863,-0.00619652],
+                  [0.00991066,-0.00477272],
+                  [0.0105113,-0.00324231],
+                  [0.01087714,-0.00163946]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-0",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.03031896,-0.00646226,0.028],
+              "end": [0.298,0,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-1",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02812081,0.01304684,-0.028],
+              "end": [0.29052852,0.06631124,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-2",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.03012031,0.00733261,0.028],
+              "end": [0.26848872,0.12929735,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-3",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01967516,0.02395596,-0.028],
+              "end": [0.23298578,0.18579996,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-4",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02395596,0.01967516,0.028],
+              "end": [0.18579996,0.23298578,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-5",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.00733261,0.03012031,-0.028],
+              "end": [0.12929735,0.26848872,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-6",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01304684,0.02812081,0.028],
+              "end": [0.06631124,0.29052852,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-7",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.00646226,0.03031896,-0.028],
+              "end": [0,0.298,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-8",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.00044637,0.03099679,0.028],
+              "end": [-0.06631124,0.29052852,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-9",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.0189772,0.02451257,-0.028],
+              "end": [-0.12929735,0.26848872,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-10",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01385117,0.02773347,0.028],
+              "end": [-0.18579996,0.23298578,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-11",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.02773347,0.01385117,-0.028],
+              "end": [-0.23298578,0.18579996,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-12",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.02451257,0.0189772,0.028],
+              "end": [-0.26848872,0.12929735,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-13",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.03099679,0.00044637,-0.028],
+              "end": [-0.29052852,0.06631124,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-14",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.03031896,0.00646226,0.028],
+              "end": [-0.298,0,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-15",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.02812081,-0.01304684,-0.028],
+              "end": [-0.29052852,-0.06631124,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-16",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.03012031,-0.00733261,0.028],
+              "end": [-0.26848872,-0.12929735,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-17",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01967516,-0.02395596,-0.028],
+              "end": [-0.23298578,-0.18579996,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-18",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.02395596,-0.01967516,0.028],
+              "end": [-0.18579996,-0.23298578,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-19",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.00733261,-0.03012031,-0.028],
+              "end": [-0.12929735,-0.26848872,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-20",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.01304684,-0.02812081,0.028],
+              "end": [-0.06631124,-0.29052852,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-21",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.00646226,-0.03031896,-0.028],
+              "end": [0,-0.298,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-22",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.00044637,-0.03099679,0.028],
+              "end": [0.06631124,-0.29052852,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-23",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.0189772,-0.02451257,-0.028],
+              "end": [0.12929735,-0.26848872,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-24",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.01385117,-0.02773347,0.028],
+              "end": [0.18579996,-0.23298578,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-25",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02773347,-0.01385117,-0.028],
+              "end": [0.23298578,-0.18579996,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-26",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.02451257,-0.0189772,0.028],
+              "end": [0.26848872,-0.12929735,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.spoke-27",
+            "semanticType": "mobility.spoked-city-bicycle-wheel-with-annular-tyre-and-hub.straight-laced-spoke",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.03099679,-0.00044637,-0.028],
+              "end": [0.29052852,-0.06631124,0],
+              "radius": 0.0017,
+              "radialSegments": 10
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "parent": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          {
+            "id": "city-bicycle-saddle-with-height-adjustable-seatpost",
+            "semanticType": "mobility.complete-city-bicycle-with-spoked-wheels-and-steering.mounted-assembly",
+            "transform": {
+              "position": [-0.19,0.765,0]
+            }
+          },
+          {
+            "id": "city-bicycle-saddle-with-height-adjustable-seatpost.fixed-clamp",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.annular-seatpost-clamp",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.025,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.021,0],
+                [0.02068096,0.00364661],
+                [0.01973355,0.00718242],
+                [0.01818653,0.0105],
+                [0.01608693,0.01349854],
+                [0.01349854,0.01608693],
+                [0.0105,0.01818653],
+                [0.00718242,0.01973355],
+                [0.00364661,0.02068096],
+                [0,0.021],
+                [-0.00364661,0.02068096],
+                [-0.00718242,0.01973355],
+                [-0.0105,0.01818653],
+                [-0.01349854,0.01608693],
+                [-0.01608693,0.01349854],
+                [-0.01818653,0.0105],
+                [-0.01973355,0.00718242],
+                [-0.02068096,0.00364661],
+                [-0.021,0],
+                [-0.02068096,-0.00364661],
+                [-0.01973355,-0.00718242],
+                [-0.01818653,-0.0105],
+                [-0.01608693,-0.01349854],
+                [-0.01349854,-0.01608693],
+                [-0.0105,-0.01818653],
+                [-0.00718242,-0.01973355],
+                [-0.00364661,-0.02068096],
+                [0,-0.021],
+                [0.00364661,-0.02068096],
+                [0.00718242,-0.01973355],
+                [0.0105,-0.01818653],
+                [0.01349854,-0.01608693],
+                [0.01608693,-0.01349854],
+                [0.01818653,-0.0105],
+                [0.01973355,-0.00718242],
+                [0.02068096,-0.00364661]
+              ],
+              "holes": [
+                [
+                  [0.0133,0],
+                  [0.01309794,0.00230952],
+                  [0.01249791,0.00454887],
+                  [0.01151814,0.00665],
+                  [0.01018839,0.00854908],
+                  [0.00854908,0.01018839],
+                  [0.00665,0.01151814],
+                  [0.00454887,0.01249791],
+                  [0.00230952,0.01309794],
+                  [0,0.0133],
+                  [-0.00230952,0.01309794],
+                  [-0.00454887,0.01249791],
+                  [-0.00665,0.01151814],
+                  [-0.00854908,0.01018839],
+                  [-0.01018839,0.00854908],
+                  [-0.01151814,0.00665],
+                  [-0.01249791,0.00454887],
+                  [-0.01309794,0.00230952],
+                  [-0.0133,0],
+                  [-0.01309794,-0.00230952],
+                  [-0.01249791,-0.00454887],
+                  [-0.01151814,-0.00665],
+                  [-0.01018839,-0.00854908],
+                  [-0.00854908,-0.01018839],
+                  [-0.00665,-0.01151814],
+                  [-0.00454887,-0.01249791],
+                  [-0.00230952,-0.01309794],
+                  [0,-0.0133],
+                  [0.00230952,-0.01309794],
+                  [0.00454887,-0.01249791],
+                  [0.00665,-0.01151814],
+                  [0.00854908,-0.01018839],
+                  [0.01018839,-0.00854908],
+                  [0.01151814,-0.00665],
+                  [0.01249791,-0.00454887],
+                  [0.01309794,-0.00230952]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "parent": "city-bicycle-saddle-with-height-adjustable-seatpost"
+          },
+          {
+            "id": "city-bicycle-saddle-with-height-adjustable-seatpost.sliding-seatpost",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.frame",
+            "transform": {
+              "position": [0,0,0]
+            },
+            "parent": "city-bicycle-saddle-with-height-adjustable-seatpost"
+          },
+          {
+            "id": "city-bicycle-saddle-with-height-adjustable-seatpost.post",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.moving-seatpost-stem",
+            "parent": "city-bicycle-saddle-with-height-adjustable-seatpost.sliding-seatpost",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.081,0],
+              "end": [0,0.112,0],
+              "radius": 0.0128,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "city-bicycle-saddle-with-height-adjustable-seatpost.seat-rail--0.041",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.curved-saddle-support",
+            "parent": "city-bicycle-saddle-with-height-adjustable-seatpost.sliding-seatpost",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.1,0.134,-0.041],
+                [0,0.119,-0.021320000000000002],
+                [0.092,0.141,-0.0205]
+              ],
+              "radius": 0.006,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "city-bicycle-saddle-with-height-adjustable-seatpost.seat-rail-0.041",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.curved-saddle-support",
+            "parent": "city-bicycle-saddle-with-height-adjustable-seatpost.sliding-seatpost",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.1,0.134,0.041],
+                [0,0.119,0.021320000000000002],
+                [0.092,0.141,0.0205]
+              ],
+              "radius": 0.006,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "city-bicycle-saddle-with-height-adjustable-seatpost.pad-lower",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.shaped-saddle-seat-base",
+            "parent": "city-bicycle-saddle-with-height-adjustable-seatpost.sliding-seatpost",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.138,0],
+                [0,0.157,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.139,-0.054],
+                [0.119,-0.084],
+                [0.067,-0.079],
+                [-0.028,-0.044],
+                [-0.113,-0.021],
+                [-0.149,-0.009],
+                [-0.147,0.014],
+                [-0.115,0.023],
+                [-0.03,0.045],
+                [0.069,0.08],
+                [0.12,0.083],
+                [0.139,0.054]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "city-bicycle-saddle-with-height-adjustable-seatpost.seat-shell",
+            "semanticType": "mobility.city-bicycle-saddle-with-height-adjustable-seatpost.padded-bicycle-saddle-surface",
+            "parent": "city-bicycle-saddle-with-height-adjustable-seatpost.sliding-seatpost",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.157,0],
+                [0,0.179,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.13622,-0.05292],
+                [0.11661999999999999,-0.08232],
+                [0.06566,-0.07742],
+                [-0.02744,-0.04312],
+                [-0.11074,-0.02058],
+                [-0.14601999999999998,-0.00882],
+                [-0.14406,0.01372],
+                [-0.11270000000000001,0.022539999999999998],
+                [-0.0294,0.0441],
+                [0.06762,0.0784],
+                [0.1176,0.08134000000000001],
+                [0.13622,0.05292]
+              ]
+            },
+            "appearance": {
+              "color": "#354149"
+            }
+          }
+        ],
+        "anchors": {
+          "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-axle": {
+            "position": [-0.5,0.335,0],
+            "direction": [0,0,1],
+            "kind": "cycle-wheel-axle",
+            "node": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.fork": {
+            "position": [0.38,0.719,0],
+            "direction": [0,-1,0],
+            "kind": "cycle-steerer-seat",
+            "node": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.saddle": {
+            "position": [-0.19,0.765,0],
+            "direction": [0,1,0],
+            "kind": "cycle-saddle-seat",
+            "node": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts"
+          },
+          "city-bicycle-steering-fork-with-handlebar-and-brake-levers.grip--1": {
+            "node": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "position": [0.016,0.08,-0.257],
+            "direction": [0,0,-1],
+            "kind": "hand-grip"
+          },
+          "city-bicycle-steering-fork-with-handlebar-and-brake-levers.grip-1": {
+            "node": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "position": [0.016,0.08,0.257],
+            "direction": [0,0,1],
+            "kind": "hand-grip"
+          },
+          "city-bicycle-steering-fork-with-handlebar-and-brake-levers.frame-fit": {
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "cycle-steerer-seat",
+            "node": "city-bicycle-steering-fork-with-handlebar-and-brake-levers"
+          },
+          "city-bicycle-steering-fork-with-handlebar-and-brake-levers.wheel": {
+            "node": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+            "position": [0.147,-0.384,0],
+            "direction": [0,0,1],
+            "kind": "cycle-wheel-axle"
+          },
+          "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.axle-fit": {
+            "position": [0,0,0],
+            "direction": [0,0,-1],
+            "kind": "cycle-wheel-axle",
+            "node": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.ground": {
+            "position": [0,-0.335,0],
+            "direction": [0,-1,0],
+            "kind": "cycle-tire-contact",
+            "node": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub"
+          },
+          "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.axle-fit": {
+            "position": [0,0,0],
+            "direction": [0,0,-1],
+            "kind": "cycle-wheel-axle",
+            "node": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.ground": {
+            "position": [0,-0.335,0],
+            "direction": [0,-1,0],
+            "kind": "cycle-tire-contact",
+            "node": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2"
+          },
+          "city-bicycle-saddle-with-height-adjustable-seatpost.tube-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "cycle-saddle-seat",
+            "node": "city-bicycle-saddle-with-height-adjustable-seatpost"
+          },
+          "city-bicycle-saddle-with-height-adjustable-seatpost.sit": {
+            "node": "city-bicycle-saddle-with-height-adjustable-seatpost.sliding-seatpost",
+            "position": [-0.057,0.179,0],
+            "direction": [0,1,0],
+            "kind": "sitting-surface"
+          },
+          "ground": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "floor"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crank-angle",
+            "label": "脚踏曲柄角",
+            "min": 0,
+            "max": 360,
+            "value": 34,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.crankset",
+                "axis": "z",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          },
+          {
+            "id": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering",
+            "label": "车把转向",
+            "min": -48,
+            "max": 48,
+            "value": 0,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.steering-yoke",
+                "axis": "y",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          },
+          {
+            "id": "city-bicycle-saddle-with-height-adjustable-seatpost.seat-height",
+            "label": "坐垫升高",
+            "min": 0,
+            "max": 0.074,
+            "value": 0.012,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "city-bicycle-saddle-with-height-adjustable-seatpost.sliding-seatpost",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          }
+        ],
+        "attachments": [
+          {
+            "from": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.fork",
+            "to": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.frame-fit",
+            "contract": {
+              "direction": "opposed",
+              "gapTolerance": 0.000001
+            }
+          },
+          {
+            "from": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.rear-axle",
+            "to": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub.axle-fit",
+            "contract": {
+              "direction": "opposed",
+              "gapTolerance": 0.000001
+            }
+          },
+          {
+            "from": "city-bicycle-steering-fork-with-handlebar-and-brake-levers.wheel",
+            "to": "spoked-city-bicycle-wheel-with-annular-tyre-and-hub-2.axle-fit",
+            "contract": {
+              "direction": "opposed",
+              "gapTolerance": 0.000001
+            }
+          },
+          {
+            "from": "diamond-city-bicycle-frame-with-chainset-and-rear-dropouts.saddle",
+            "to": "city-bicycle-saddle-with-height-adjustable-seatpost.tube-fit",
+            "contract": {
+              "direction": "opposed",
+              "gapTolerance": 0.000001
+            }
+          }
+        ]
+      }
+    }
+  }
+}

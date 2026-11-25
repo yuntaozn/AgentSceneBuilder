@@ -1,0 +1,247 @@
+{
+  "schemaVersion": "0.1",
+  "id": "foodservice.countertop-coffee-scale-with-removable-slotted-weigh-pan",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可拆沥水称盘的咖啡电子秤",
+  "summary": "低矮电子秤，带独立称盘、开孔沥水垫与前向显示面。",
+  "license": "Apache-2.0",
+  "semanticType": "foodservice.countertop-coffee-scale-with-removable-slotted-weigh-pan",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "咖啡吧台",
+    "coffee bar",
+    "咖啡电子秤",
+    "coffee scale"
+  ],
+  "anchors": [
+    "object",
+    "counter"
+  ],
+  "ai": {
+    "intent": "布置独立称量台并挂接咖啡杯，分离底座、称面与显示面。",
+    "useWhen": [
+      "低矮电子秤，带独立称盘、开孔沥水垫与前向显示面。"
+    ],
+    "editableParts": [
+      "pan-lift"
+    ],
+    "qualityChecks": [
+      "托盘孔阵实际贯通。",
+      "称盘抬起时底座保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "countertop-coffee-scale-with-removable-slotted-weigh-pan",
+      "title": "可拆沥水称盘的咖啡电子秤",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "foodservice.countertop-coffee-scale-with-removable-slotted-weigh-pan.countertop-scale-housing",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.022,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.066,-0.091],
+                [-0.066,-0.091],
+                [-0.082,-0.075],
+                [-0.082,0.075],
+                [-0.066,0.091],
+                [0.066,0.091],
+                [0.082,0.075],
+                [0.082,-0.075]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "weigh-pan",
+            "semanticType": "foodservice.countertop-coffee-scale-with-removable-slotted-weigh-pan.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "platform",
+            "semanticType": "foodservice.countertop-coffee-scale-with-removable-slotted-weigh-pan.through-slotted-weigh-pan",
+            "parent": "weigh-pan",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.022,0],
+                [0,0.029,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.05600000000000001,-0.057],
+                [-0.05600000000000001,-0.057],
+                [-0.069,-0.044000000000000004],
+                [-0.069,0.06400000000000002],
+                [-0.05600000000000001,0.07700000000000001],
+                [0.05600000000000001,0.07700000000000001],
+                [0.069,0.06400000000000002],
+                [0.069,-0.044000000000000004]
+              ],
+              "holes": [
+                [
+                  [0.044,-0.04],
+                  [0.034,-0.04],
+                  [0.031,-0.037],
+                  [0.031,-0.027],
+                  [0.034,-0.024],
+                  [0.044,-0.024],
+                  [0.047,-0.027],
+                  [0.047,-0.037]
+                ],
+                [
+                  [0.044,0.004],
+                  [0.034,0.004],
+                  [0.031,0.007],
+                  [0.031,0.017],
+                  [0.034,0.02],
+                  [0.044,0.02],
+                  [0.047,0.017],
+                  [0.047,0.007]
+                ],
+                [
+                  [0.044,0.048],
+                  [0.034,0.048],
+                  [0.031,0.051000000000000004],
+                  [0.031,0.061],
+                  [0.034,0.064],
+                  [0.044,0.064],
+                  [0.047,0.061],
+                  [0.047,0.051000000000000004]
+                ],
+                [
+                  [0.005,-0.04],
+                  [-0.005,-0.04],
+                  [-0.008,-0.037],
+                  [-0.008,-0.027],
+                  [-0.005,-0.024],
+                  [0.005,-0.024],
+                  [0.008,-0.027],
+                  [0.008,-0.037]
+                ],
+                [
+                  [0.005,0.004],
+                  [-0.005,0.004],
+                  [-0.008,0.007],
+                  [-0.008,0.017],
+                  [-0.005,0.02],
+                  [0.005,0.02],
+                  [0.008,0.017],
+                  [0.008,0.007]
+                ],
+                [
+                  [0.005,0.048],
+                  [-0.005,0.048],
+                  [-0.008,0.051000000000000004],
+                  [-0.008,0.061],
+                  [-0.005,0.064],
+                  [0.005,0.064],
+                  [0.008,0.061],
+                  [0.008,0.051000000000000004]
+                ],
+                [
+                  [-0.034,-0.04],
+                  [-0.044,-0.04],
+                  [-0.047,-0.037],
+                  [-0.047,-0.027],
+                  [-0.044,-0.024],
+                  [-0.034,-0.024],
+                  [-0.031,-0.027],
+                  [-0.031,-0.037]
+                ],
+                [
+                  [-0.034,0.004],
+                  [-0.044,0.004],
+                  [-0.047,0.007],
+                  [-0.047,0.017],
+                  [-0.044,0.02],
+                  [-0.034,0.02],
+                  [-0.031,0.017],
+                  [-0.031,0.007]
+                ],
+                [
+                  [-0.034,0.048],
+                  [-0.044,0.048],
+                  [-0.047,0.051000000000000004],
+                  [-0.047,0.061],
+                  [-0.044,0.064],
+                  [-0.034,0.064],
+                  [-0.031,0.061],
+                  [-0.031,0.051000000000000004]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "readout",
+            "semanticType": "foodservice.countertop-coffee-scale-with-removable-slotted-weigh-pan.independent-scale-readout-glass",
+            "geometry": {
+              "type": "box",
+              "size": [0.084,0.005,0.021]
+            },
+            "appearance": {
+              "color": "#719cab"
+            },
+            "transform": {
+              "position": [0,0.024,0.078]
+            }
+          }
+        ],
+        "anchors": {
+          "object": {
+            "node": "weigh-pan",
+            "position": [0,0.029,0.011],
+            "direction": [0,1,0],
+            "kind": "espresso-cup-deck"
+          },
+          "counter": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "countertop"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "pan-lift",
+            "label": "称盘拆卸高度",
+            "min": 0,
+            "max": 0.076,
+            "value": 0,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "weigh-pan",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,283 @@
+{
+  "schemaVersion": "0.1",
+  "id": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "滑入式收纳抽屉与可调分隔板",
+  "summary": "带前板、两条滑轨、实空盒内腔与独立横移分隔条。",
+  "license": "Apache-2.0",
+  "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "日常家具",
+    "everyday furniture",
+    "收纳抽屉",
+    "storage drawer"
+  ],
+  "anchors": [
+    "cabinet-fit",
+    "drawer-handle",
+    "divider"
+  ],
+  "ai": {
+    "intent": "可装进上下任一收纳格，通过抽屉组位移控制开合，再独立调整盒内分区。",
+    "useWhen": [
+      "带前板、两条滑轨、实空盒内腔与独立横移分隔条。"
+    ],
+    "editableParts": [
+      "opening",
+      "division"
+    ],
+    "qualityChecks": [
+      "抽屉盒有清晰内腔。",
+      "对接面固定，拉手随抽屉移动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "slide-in-storage-drawer-with-open-box-and-removable-divider",
+      "title": "滑入式收纳抽屉与可调分隔板",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "drawer-travel",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "drawer-floor",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.drawer-bottom-sheet",
+            "parent": "drawer-travel",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.005,0],
+                [0,0.021,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.18,-0.37],
+                [-0.18,-0.37],
+                [-0.192,-0.358],
+                [-0.192,-0.011],
+                [-0.18,0.0010000000000000009],
+                [0.18,0.0010000000000000009],
+                [0.192,-0.011],
+                [0.192,-0.358]
+              ]
+            },
+            "appearance": {
+              "color": "#e2e8e6"
+            }
+          },
+          {
+            "id": "drawer-wall--0.183",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.low-drawer-side-board",
+            "parent": "drawer-travel",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.109,0.36]
+            },
+            "appearance": {
+              "color": "#ba906a"
+            },
+            "transform": {
+              "position": [-0.183,0.064,-0.18]
+            }
+          },
+          {
+            "id": "slide-rail--0.183",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.drawer-sliding-side-rail",
+            "parent": "drawer-travel",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.024,0.339]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [-0.195,0.019,-0.174]
+            }
+          },
+          {
+            "id": "drawer-wall-0.183",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.low-drawer-side-board",
+            "parent": "drawer-travel",
+            "geometry": {
+              "type": "box",
+              "size": [0.018,0.109,0.36]
+            },
+            "appearance": {
+              "color": "#ba906a"
+            },
+            "transform": {
+              "position": [0.183,0.064,-0.18]
+            }
+          },
+          {
+            "id": "slide-rail-0.183",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.drawer-sliding-side-rail",
+            "parent": "drawer-travel",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.024,0.339]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [0.195,0.019,-0.174]
+            }
+          },
+          {
+            "id": "back-wall",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.drawer-rear-board",
+            "parent": "drawer-travel",
+            "geometry": {
+              "type": "box",
+              "size": [0.355,0.095,0.015]
+            },
+            "appearance": {
+              "color": "#ba906a"
+            },
+            "transform": {
+              "position": [0,0.068,-0.36]
+            }
+          },
+          {
+            "id": "face",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.rounded-drawer-front",
+            "parent": "drawer-travel",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0,0.021]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.19,-0.013],
+                [0.19,-0.013],
+                [0.207,0.004000000000000002],
+                [0.207,0.137],
+                [0.19,0.154],
+                [-0.19,0.154],
+                [-0.207,0.137],
+                [-0.207,0.004000000000000002]
+              ]
+            },
+            "appearance": {
+              "color": "#ba906a"
+            }
+          },
+          {
+            "id": "drawer-pull",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.open-grip-handle",
+            "parent": "drawer-travel",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.051,0.086,0.02],
+                [-0.047,0.086,0.044],
+                [0.047,0.086,0.044],
+                [0.051,0.086,0.02]
+              ],
+              "radius": 0.0055,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "divider",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.frame",
+            "parent": "drawer-travel",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "sliding-divider",
+            "semanticType": "furniture.slide-in-storage-drawer-with-open-box-and-removable-divider.removable-compartment-separator",
+            "parent": "divider",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.078,0.307]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [0,0.061,-0.18]
+            }
+          }
+        ],
+        "anchors": {
+          "cabinet-fit": {
+            "position": [0,0,0],
+            "direction": [0,0,-1],
+            "kind": "storage-cubby-insert"
+          },
+          "drawer-handle": {
+            "node": "drawer-travel",
+            "position": [0,0.086,0.044],
+            "direction": [0,0,1],
+            "kind": "drawer-handle"
+          },
+          "divider": {
+            "node": "divider",
+            "position": [0,0.105,-0.18],
+            "direction": [0,1,0],
+            "kind": "furniture-divider"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "opening",
+            "label": "抽屉开合",
+            "min": 0,
+            "max": 0.252,
+            "value": 0.039,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "drawer-travel",
+                "axis": "z",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          },
+          {
+            "id": "division",
+            "label": "分隔板横移",
+            "min": -0.127,
+            "max": 0.127,
+            "value": 0,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "divider",
+                "axis": "x",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

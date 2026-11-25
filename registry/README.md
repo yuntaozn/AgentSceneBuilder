@@ -10,6 +10,34 @@
 
 内容积累从可独立复用的构件和单体模型开始。例如无人机条目表达机身、旋翼和云台，巡检案例再组合无人机、外墙和测区。锚点连接、阵列、路径等可复用计算由空间方法提供。Agent 可用场景案例检查这些基础模型能否组合和复用。
 
+## 日常家具、零售、餐饮与影像
+
+- 日常家具提供桌腿、走线桌面、抽屉、柜门和万向脚轮。可直接打开工作桌或收纳柜整件，再调节翻盖、抽屉、柜门和脚垫。
+- 零售提供货架立柱、搁板、洞洞板、挂钩、价签槽和线框篮。搁板可安装在不同高度，挂钩可换到任一有效孔位。陈列架整件和收银台可独立放置。
+- 餐饮提供意式咖啡机机身、旋锁手柄、实孔滤篮、磨豆机、奶缸、咖啡杯和称盘。咖啡机整件保留滤篮随手柄转动、杯子随接水盘移动的结构关系。
+- 影像与音频提供显示器支架和屏体、桌夹式麦克风悬臂、录音话筒、监听音箱和调音台。显示器和播客麦克风也有整件，安装点与观看或拾音方向可分别读取。
+
+同一个场景可以使用多个领域的模型。例如先将桌脚与桌面组合，再把显示器的 `desk` 锚点对齐桌面的 `surface`。CLI 使用与网页相同的领域 ID。
+
+```powershell
+node packages/cli/src/agentscene.mjs registry search --domain furniture --kind component
+node packages/cli/src/agentscene.mjs registry search "播客" --domain media
+node packages/cli/src/agentscene.mjs registry search "咖啡机" --domain foodservice
+node packages/cli/src/agentscene.mjs registry search "陈列" --domain retail
+```
+
+## 体育健身、出行与光学教学
+
+- 体育与健身提供乒乓球台半幅、带轮底架、可调网柱、球拍、哑铃杆和中孔配重盘。球台两片台面沿各自铰轴折转，哑铃两侧可以继续叠加配重。
+- 出行与旅行提供自行车车架、辐条轮组、可转向前叉、可升降鞍座，以及独立旅行箱壳、脚轮和伸缩拉杆。整车前轮随车把转向，旅行箱整件保留四轮回转和两级拉幅。
+- 光学与教学提供四工位底板、升降立柱、凸透镜、四叶光阑、带孔板的示教光源和网格像屏。水平实验台与立式载片观察架可使用同一个透镜条目，分别读取机械安装面和光轴。
+
+```powershell
+node packages/cli/src/agentscene.mjs registry search "乒乓" --domain sports
+node packages/cli/src/agentscene.mjs registry search "自行车" --domain mobility
+node packages/cli/src/agentscene.mjs registry search "光学" --domain optics
+```
+
 ## 基础构件拼装示例
 
 下列示例 JSON 可用于 CLI 校核。由可编辑组合实例构成的场景也可通过编辑器的「导入 JSON」打开。
