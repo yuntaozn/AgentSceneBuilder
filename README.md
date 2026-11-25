@@ -4,7 +4,7 @@ AgentSceneBuilder is open-source digital modeling infrastructure for AI large la
 
 An LLM-powered Agent can find reusable objects, describe their geometry and relationships in CompositionSpec, call deterministic spatial methods, and use JSON diagnostics to revise and verify the result.
 
-The registry spans buildings, furniture, retail and coffee-bar equipment, desktop media hardware, sports gear, personal mobility, and teaching optics. An Agent can combine components from different domains in one scene.
+The registry spans buildings and everyday scenes, including furniture, retail, music, outdoor equipment, office supplies, pet supplies, household cleaning, gardening, textile crafts, desktop electronics, aquariums, pottery, and art supplies. An Agent can combine components from different domains in one scene.
 
 中文说明见[产品定位](docs/product-positioning-v3.md)和[大模型接入](docs/ai-integration.md)。
 

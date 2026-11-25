@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "0.1",
+  "id": "textilecraft.sewing-needle-bar-with-travelling-clamp-and-eye",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可进给缝针杆与带孔缝针",
+  "summary": "升降套杆包含针夹、可辨的针眼与针尖锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "textilecraft.sewing-needle-bar-with-travelling-clamp-and-eye",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "纺织手作",
+    "textile craft",
+    "缝纫针杆",
+    "sewing needle bar"
+  ],
+  "anchors": [
+    "machine-fit",
+    "tip",
+    "thread-eye"
+  ],
+  "ai": {
+    "intent": "为缝制场景设置缝针和针杆位置，以实际针眼和针尖布置穿线或接触点。",
+    "useWhen": [
+      "升降套杆包含针夹、可辨的针眼与针尖锚点。"
+    ],
+    "editableParts": [
+      "needle-feed"
+    ],
+    "qualityChecks": [
+      "针眼贯穿薄针段。",
+      "针夹和针尖随进给等量移动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "sewing-needle-bar-with-travelling-clamp-and-eye",
+      "title": "可进给缝针杆与带孔缝针",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "needle-drive",
+            "semanticType": "textilecraft.sewing-needle-bar-with-travelling-clamp-and-eye.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "bar",
+            "semanticType": "textilecraft.sewing-needle-bar-with-travelling-clamp-and-eye.separate-polished-slide-bar",
+            "parent": "needle-drive",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.079,0],
+              "end": [0,0.021,0],
+              "radius": 0.0044,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "clamp",
+            "semanticType": "textilecraft.sewing-needle-bar-with-travelling-clamp-and-eye.moving-needle-clamp-block",
+            "parent": "needle-drive",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.015,0.016]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [0,-0.08,0]
+            }
+          },
+          {
+            "id": "side-thumbscrew",
+            "semanticType": "textilecraft.sewing-needle-bar-with-travelling-clamp-and-eye.needle-clamp-thumb-screw",
+            "parent": "needle-drive",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.011,-0.08,0],
+              "end": [0.023,-0.08,0],
+              "radius": 0.0049,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#d49748"
+            }
+          },
+          {
+            "id": "needle-body",
+            "semanticType": "textilecraft.sewing-needle-bar-with-travelling-clamp-and-eye.needle-shaft-above-eye",
+            "parent": "needle-drive",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,-0.087,0],
+              "end": [0,-0.108,0],
+              "startRadius": 0.0025,
+              "endRadius": 0.0019,
+              "radialSegments": 32
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "pierced-eye",
+            "semanticType": "textilecraft.sewing-needle-bar-with-travelling-clamp-and-eye.actual-through-opening-in-needle-eye",
+            "parent": "needle-drive",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.0013],
+                [0,0,0.0013]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0010000000000000002,-0.128],
+                [0.0010000000000000002,-0.128],
+                [0.0022,-0.1268],
+                [0.0022,-0.10720000000000002],
+                [0.0010000000000000002,-0.10600000000000001],
+                [-0.0010000000000000002,-0.10600000000000001],
+                [-0.0022,-0.10720000000000002],
+                [-0.0022,-0.1268]
+              ],
+              "holes": [
+                [
+                  [-0.00035,-0.123],
+                  [0.00035,-0.123],
+                  [0.00075,-0.1226],
+                  [0.00075,-0.1124],
+                  [0.00035,-0.112],
+                  [-0.00035,-0.112],
+                  [-0.00075,-0.1124],
+                  [-0.00075,-0.1226]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "needle-point",
+            "semanticType": "textilecraft.sewing-needle-bar-with-travelling-clamp-and-eye.tapered-needle-tip",
+            "parent": "needle-drive",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,-0.127,0],
+              "end": [0,-0.14,0],
+              "startRadius": 0.0019,
+              "endRadius": 0.00013,
+              "radialSegments": 32
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          }
+        ],
+        "anchors": {
+          "machine-fit": {
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "sewing-needle-drive-mount"
+          },
+          "tip": {
+            "node": "needle-drive",
+            "position": [0,-0.14,0],
+            "direction": [0,-1,0],
+            "kind": "needle-tip"
+          },
+          "thread-eye": {
+            "node": "needle-drive",
+            "position": [0,-0.118,0.0013],
+            "direction": [0,0,1],
+            "kind": "sewing-thread-eye"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "needle-feed",
+            "label": "针杆向下行程",
+            "min": 0,
+            "max": 0.012,
+            "value": 0.003,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "needle-drive",
+                "axis": "y",
+                "factor": -1,
+                "property": "position"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

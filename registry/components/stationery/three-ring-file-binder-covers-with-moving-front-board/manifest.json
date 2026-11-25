@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "0.1",
+  "id": "stationery.three-ring-file-binder-covers-with-moving-front-board",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "三孔文件夹外壳与可翻封面",
+  "summary": "底板、直立书脊、可翻前封面，以及可独立装入的夹环和活页基准。",
+  "license": "Apache-2.0",
+  "semanticType": "stationery.three-ring-file-binder-covers-with-moving-front-board",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "办公文具",
+    "office stationery",
+    "三孔文件夹",
+    "ring binder shell"
+  ],
+  "anchors": [
+    "ring-rail",
+    "page-bed",
+    "cover-edge"
+  ],
+  "ai": {
+    "intent": "搭建带独立扣环和纸张的文件夹，前封面开启时底板保持原位。",
+    "useWhen": [
+      "底板、直立书脊、可翻前封面，以及可独立装入的夹环和活页基准。"
+    ],
+    "editableParts": [
+      "cover-open"
+    ],
+    "qualityChecks": [
+      "夹环、纸张有各自安装基准。",
+      "封面绕书脊转动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "three-ring-file-binder-covers-with-moving-front-board",
+      "title": "三孔文件夹外壳与可翻封面",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "back-cover",
+            "semanticType": "stationery.three-ring-file-binder-covers-with-moving-front-board.stiff-backed-file-cover",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.004,0],
+                [0,0.014,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.002999999999999999,-0.155],
+                [-0.247,-0.155],
+                [-0.256,-0.146],
+                [-0.256,0.146],
+                [-0.247,0.155],
+                [-0.002999999999999999,0.155],
+                [0.006,0.146],
+                [0.006,-0.146]
+              ]
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          },
+          {
+            "id": "spine",
+            "semanticType": "stationery.three-ring-file-binder-covers-with-moving-front-board.rigid-file-spine-channel",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.152],
+                [0,0,0.152]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.002999999999999999,0.009],
+                [0.008,0.009],
+                [0.014,0.015],
+                [0.014,0.07699999999999999],
+                [0.008,0.08299999999999999],
+                [-0.002999999999999999,0.08299999999999999],
+                [-0.009,0.07699999999999999],
+                [-0.009,0.015]
+              ]
+            },
+            "appearance": {
+              "color": "#478983"
+            }
+          },
+          {
+            "id": "inside-spine-band",
+            "semanticType": "stationery.three-ring-file-binder-covers-with-moving-front-board.soft-spine-hinge-wrap",
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.054,0.301]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [0.013,0.041,0]
+            }
+          },
+          {
+            "id": "front-cover-hinge",
+            "semanticType": "stationery.three-ring-file-binder-covers-with-moving-front-board.frame",
+            "transform": {
+              "position": [0.006,0.075,0]
+            }
+          },
+          {
+            "id": "front-cover",
+            "semanticType": "stationery.three-ring-file-binder-covers-with-moving-front-board.independently-rotating-clean-cover-board",
+            "parent": "front-cover-hinge",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.01,-0.156],
+                [-0.24,-0.156],
+                [-0.25,-0.146],
+                [-0.25,0.146],
+                [-0.24,0.156],
+                [-0.01,0.156],
+                [0,0.146],
+                [0,-0.146]
+              ]
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          },
+          {
+            "id": "cover-label",
+            "semanticType": "stationery.three-ring-file-binder-covers-with-moving-front-board.plain-index-label-insert",
+            "parent": "front-cover-hinge",
+            "geometry": {
+              "type": "box",
+              "size": [0.11,0.0018,0.043]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0.119,0.009,0.081]
+            }
+          }
+        ],
+        "anchors": {
+          "ring-rail": {
+            "position": [0.038,0.015,0],
+            "direction": [0,1,0],
+            "kind": "binder-ring-rail"
+          },
+          "page-bed": {
+            "position": [0.034,0.023,0],
+            "direction": [0,1,0],
+            "kind": "binder-paper-bed"
+          },
+          "cover-edge": {
+            "node": "front-cover-hinge",
+            "position": [0.246,0.008,0],
+            "direction": [1,0,0],
+            "kind": "file-cover-edge"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "cover-open",
+            "label": "前封面开角",
+            "min": 0,
+            "max": 178,
+            "value": 114,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "front-cover-hinge",
+                "axis": "z",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

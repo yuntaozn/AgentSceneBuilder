@@ -1,0 +1,183 @@
+{
+  "schemaVersion": "0.1",
+  "id": "packaging.stackable-foam-carton-end-cradle-with-open-recess",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带开口凹座的泡棉包装端托",
+  "summary": "厚底、外壁和两片内撑构成开放式承托腔，兼容纸箱内端托位。",
+  "license": "Apache-2.0",
+  "semanticType": "packaging.stackable-foam-carton-end-cradle-with-open-recess",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "包装与收纳",
+    "packaging and containers",
+    "包装端托",
+    "泡棉内托",
+    "foam end cradle"
+  ],
+  "anchors": [
+    "carton-fit",
+    "object-contact"
+  ],
+  "ai": {
+    "intent": "在纸箱两端旋转复用同一端托，利用开口侧承托平面式物品。",
+    "useWhen": [
+      "厚底、外壁和两片内撑构成开放式承托腔，兼容纸箱内端托位。"
+    ],
+    "editableParts": [
+      "carton-fit",
+      "object-contact"
+    ],
+    "qualityChecks": [
+      "两侧护墙之间留有开放承托腔。",
+      "端侧抽孔真实贯通。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "stackable-foam-carton-end-cradle-with-open-recess",
+      "title": "带开口凹座的泡棉包装端托",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "packaging.stackable-foam-carton-end-cradle-with-open-recess.impact-cushion-foam-base",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.026,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.062,-0.134],
+                [-0.062,-0.134],
+                [-0.074,-0.12200000000000001],
+                [-0.074,0.12200000000000001],
+                [-0.062,0.134],
+                [0.062,0.134],
+                [0.074,0.12200000000000001],
+                [0.074,-0.12200000000000001]
+              ]
+            },
+            "appearance": {
+              "color": "#e2e8e6"
+            }
+          },
+          {
+            "id": "guard--0.116",
+            "semanticType": "packaging.stackable-foam-carton-end-cradle-with-open-recess.raised-foam-recess-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.144,0.119,0.03]
+            },
+            "appearance": {
+              "color": "#e2e8e6"
+            },
+            "transform": {
+              "position": [0,0.081,-0.116]
+            }
+          },
+          {
+            "id": "guard-0.116",
+            "semanticType": "packaging.stackable-foam-carton-end-cradle-with-open-recess.raised-foam-recess-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.144,0.119,0.03]
+            },
+            "appearance": {
+              "color": "#e2e8e6"
+            },
+            "transform": {
+              "position": [0,0.081,0.116]
+            }
+          },
+          {
+            "id": "end-wall",
+            "semanticType": "packaging.stackable-foam-carton-end-cradle-with-open-recess.bored-short-foam-end-wall",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0.045,0,0],
+                [0.071,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.09,0.019],
+                [0.09,0.019],
+                [0.102,0.031],
+                [0.102,0.147],
+                [0.09,0.159],
+                [-0.09,0.159],
+                [-0.102,0.147],
+                [-0.102,0.031]
+              ],
+              "holes": [
+                [
+                  [-0.066,0.053],
+                  [0.066,0.053],
+                  [0.075,0.062],
+                  [0.075,0.12200000000000001],
+                  [0.066,0.131],
+                  [-0.066,0.131],
+                  [-0.075,0.12200000000000001],
+                  [-0.075,0.062]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#e2e8e6"
+            }
+          },
+          {
+            "id": "raised-tongue--0.081",
+            "semanticType": "packaging.stackable-foam-carton-end-cradle-with-open-recess.compression-foam-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.133,0.028,0.033]
+            },
+            "appearance": {
+              "color": "#e5dfcd"
+            },
+            "transform": {
+              "position": [-0.007,0.044,-0.081]
+            }
+          },
+          {
+            "id": "raised-tongue-0.081",
+            "semanticType": "packaging.stackable-foam-carton-end-cradle-with-open-recess.compression-foam-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.133,0.028,0.033]
+            },
+            "appearance": {
+              "color": "#e5dfcd"
+            },
+            "transform": {
+              "position": [-0.007,0.044,0.081]
+            }
+          }
+        ],
+        "anchors": {
+          "carton-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "carton-end-support"
+          },
+          "object-contact": {
+            "position": [-0.074,0.051,0],
+            "direction": [-1,0,0],
+            "kind": "foam-article-end"
+          }
+        }
+      }
+    }
+  }
+}

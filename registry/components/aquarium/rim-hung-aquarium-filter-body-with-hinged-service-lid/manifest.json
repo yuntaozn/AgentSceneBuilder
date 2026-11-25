@@ -1,0 +1,564 @@
+{
+  "schemaVersion": "0.1",
+  "id": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "背挂式双槽过滤盒与检修盖",
+  "summary": "挂钩越过后缸沿，双槽收纳滤芯，翻盖和回水槽分别可动。",
+  "license": "Apache-2.0",
+  "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "水族造景",
+    "aquarium hardware",
+    "鱼缸过滤盒",
+    "背挂过滤",
+    "hang-on-back aquarium filter"
+  ],
+  "anchors": [
+    "slot-0",
+    "slot-1",
+    "glass-rim-fit",
+    "return-lip"
+  ],
+  "ai": {
+    "intent": "沿缸沿挂载可换滤芯的过滤盒，保留回水槽位置与独立检修姿态。",
+    "useWhen": [
+      "挂钩越过后缸沿，双槽收纳滤芯，翻盖和回水槽分别可动。"
+    ],
+    "editableParts": [
+      "service-open",
+      "return-angle"
+    ],
+    "qualityChecks": [
+      "装入两片滤芯后仍可独立调整。",
+      "回水口越过缸沿并朝向缸内。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "rim-hung-aquarium-filter-body-with-hinged-service-lid",
+      "title": "背挂式双槽过滤盒与检修盖",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "housing-floor",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.filter-chamber-bottom",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.151,0],
+                [0,-0.14,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.10200000000000001,-0.158],
+                [-0.10200000000000001,-0.158],
+                [-0.112,-0.148],
+                [-0.112,-0.01800000000000001],
+                [-0.10200000000000001,-0.008000000000000007],
+                [0.10200000000000001,-0.008000000000000007],
+                [0.112,-0.01800000000000001],
+                [0.112,-0.148]
+              ]
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          },
+          {
+            "id": "open-filter-walls",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.open-hollow-filter-chamber",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.141,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.10200000000000001,-0.158],
+                [-0.10200000000000001,-0.158],
+                [-0.112,-0.148],
+                [-0.112,-0.01800000000000001],
+                [-0.10200000000000001,-0.008000000000000007],
+                [0.10200000000000001,-0.008000000000000007],
+                [0.112,-0.01800000000000001],
+                [0.112,-0.148]
+              ],
+              "holes": [
+                [
+                  [0.09799999999999999,-0.15],
+                  [-0.09799999999999999,-0.15],
+                  [-0.104,-0.144],
+                  [-0.104,-0.021999999999999985],
+                  [-0.09799999999999999,-0.015999999999999986],
+                  [0.09799999999999999,-0.015999999999999986],
+                  [0.104,-0.021999999999999985],
+                  [0.104,-0.144]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#374b55",
+              "opacity": 0.8
+            }
+          },
+          {
+            "id": "upper-back-wall",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.high-rear-housing-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.214,0.046,0.008]
+            },
+            "appearance": {
+              "color": "#374b55"
+            },
+            "transform": {
+              "position": [0,0.023,-0.154]
+            }
+          },
+          {
+            "id": "upper-side--0.108",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.raised-filter-chamber-sidewall",
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.046,0.145]
+            },
+            "appearance": {
+              "color": "#374b55"
+            },
+            "transform": {
+              "position": [-0.108,0.023,-0.082]
+            }
+          },
+          {
+            "id": "upper-side-0.108",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.raised-filter-chamber-sidewall",
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.046,0.145]
+            },
+            "appearance": {
+              "color": "#374b55"
+            },
+            "transform": {
+              "position": [0.108,0.023,-0.082]
+            }
+          },
+          {
+            "id": "weir-pass-through",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.front-chamber-wall-with-real-weir-opening",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.016],
+                [0,0,-0.008]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.104,0],
+                [0.104,0],
+                [0.108,0.004],
+                [0.108,0.041999999999999996],
+                [0.104,0.046],
+                [-0.104,0.046],
+                [-0.108,0.041999999999999996],
+                [-0.108,0.004]
+              ],
+              "holes": [
+                [
+                  [-0.034999999999999996,0.021],
+                  [0.034999999999999996,0.021],
+                  [0.037,0.023],
+                  [0.037,0.03],
+                  [0.034999999999999996,0.032],
+                  [-0.034999999999999996,0.032],
+                  [-0.037,0.03],
+                  [-0.037,0.023]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#374b55"
+            }
+          },
+          {
+            "id": "slide-fin-0--1",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.stationary-media-cartridge-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.149,0.079]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [-0.087,-0.055,-0.08]
+            }
+          },
+          {
+            "id": "slide-fin-0-1",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.stationary-media-cartridge-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.149,0.079]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [-0.009000000000000001,-0.055,-0.08]
+            }
+          },
+          {
+            "id": "slide-fin-1--1",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.stationary-media-cartridge-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.149,0.079]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [0.009000000000000001,-0.055,-0.08]
+            }
+          },
+          {
+            "id": "slide-fin-1-1",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.stationary-media-cartridge-guide",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.149,0.079]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [0.087,-0.055,-0.08]
+            }
+          },
+          {
+            "id": "rear-hanger--0.081",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.filter-rim-bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.009,0.045]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [-0.081,0.006,-0.003]
+            }
+          },
+          {
+            "id": "hanger-toe--0.081",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.rim-hanger-inboard-lip",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.03,0.007]
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "transform": {
+              "position": [-0.081,-0.011,0.017]
+            }
+          },
+          {
+            "id": "rear-hanger-0.081",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.filter-rim-bridge",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.009,0.045]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [0.081,0.006,-0.003]
+            }
+          },
+          {
+            "id": "hanger-toe-0.081",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.rim-hanger-inboard-lip",
+            "geometry": {
+              "type": "box",
+              "size": [0.019,0.03,0.007]
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "transform": {
+              "position": [0.081,-0.011,0.017]
+            }
+          },
+          {
+            "id": "service-lid-hinge",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.frame",
+            "transform": {
+              "position": [0,0.047,-0.155]
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.filter-service-cover-with-open-cooling-slits",
+            "parent": "service-lid-hinge",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.007,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.10300000000000001,0.001],
+                [-0.10300000000000001,0.001],
+                [-0.113,0.011],
+                [-0.113,0.13599999999999998],
+                [-0.10300000000000001,0.146],
+                [0.10300000000000001,0.146],
+                [0.113,0.13599999999999998],
+                [0.113,0.011]
+              ],
+              "holes": [
+                [
+                  [0.078,0.022],
+                  [0.05600000000000001,0.022],
+                  [0.054000000000000006,0.024],
+                  [0.054000000000000006,0.026999999999999996],
+                  [0.05600000000000001,0.028999999999999998],
+                  [0.078,0.028999999999999998],
+                  [0.08,0.026999999999999996],
+                  [0.08,0.024]
+                ],
+                [
+                  [0.039,0.022],
+                  [0.017,0.022],
+                  [0.015000000000000003,0.024],
+                  [0.015000000000000003,0.026999999999999996],
+                  [0.017,0.028999999999999998],
+                  [0.039,0.028999999999999998],
+                  [0.041,0.026999999999999996],
+                  [0.041,0.024]
+                ],
+                [
+                  [-0.017,0.022],
+                  [-0.039,0.022],
+                  [-0.041,0.024],
+                  [-0.041,0.026999999999999996],
+                  [-0.039,0.028999999999999998],
+                  [-0.017,0.028999999999999998],
+                  [-0.015000000000000001,0.026999999999999996],
+                  [-0.015000000000000001,0.024]
+                ],
+                [
+                  [-0.05600000000000001,0.022],
+                  [-0.078,0.022],
+                  [-0.08,0.024],
+                  [-0.08,0.026999999999999996],
+                  [-0.078,0.028999999999999998],
+                  [-0.05600000000000001,0.028999999999999998],
+                  [-0.054000000000000006,0.026999999999999996],
+                  [-0.054000000000000006,0.024]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#478983"
+            }
+          },
+          {
+            "id": "service-grip",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.raised-lid-grip",
+            "parent": "service-lid-hinge",
+            "geometry": {
+              "type": "box",
+              "size": [0.075,0.01,0.013]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [0,0.01,0.131]
+            }
+          },
+          {
+            "id": "spillway-pivot",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.frame",
+            "transform": {
+              "position": [0,0.018,-0.013]
+            }
+          },
+          {
+            "id": "weir-pivot",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.trough-inlet-with-open-flow-window",
+            "parent": "spillway-pivot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.009],
+                [0,0,0.002]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.040999999999999995,-0.002],
+                [0.040999999999999995,-0.002],
+                [0.045,0.002],
+                [0.045,0.016999999999999998],
+                [0.040999999999999995,0.020999999999999998],
+                [-0.040999999999999995,0.020999999999999998],
+                [-0.045,0.016999999999999998],
+                [-0.045,0.002]
+              ],
+              "holes": [
+                [
+                  [-0.034999999999999996,0.004],
+                  [0.034999999999999996,0.004],
+                  [0.037,0.006],
+                  [0.037,0.013],
+                  [0.034999999999999996,0.015],
+                  [-0.034999999999999996,0.015],
+                  [-0.037,0.013],
+                  [-0.037,0.006]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          },
+          {
+            "id": "chute-floor",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.projecting-return-trough-floor",
+            "parent": "spillway-pivot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.002,0],
+                [0,-0.009,0.073]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.044,0],
+                [0.044,0],
+                [0.044,0.004],
+                [-0.044,0.004]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "chute-edge--0.043",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.separate-raised-spillway-edge",
+            "parent": "spillway-pivot",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.043,0.008,0],
+                [-0.043,0.004,0.052],
+                [-0.043,0.001,0.074]
+              ],
+              "radius": 0.0038,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          },
+          {
+            "id": "chute-edge-0.043",
+            "semanticType": "aquarium.rim-hung-aquarium-filter-body-with-hinged-service-lid.separate-raised-spillway-edge",
+            "parent": "spillway-pivot",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.043,0.008,0],
+                [0.043,0.004,0.052],
+                [0.043,0.001,0.074]
+              ],
+              "radius": 0.0038,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          }
+        ],
+        "anchors": {
+          "slot-0": {
+            "position": [-0.048,0.04,-0.083],
+            "direction": [0,1,0],
+            "kind": "aquarium-cartridge-guide"
+          },
+          "slot-1": {
+            "position": [0.048,0.04,-0.083],
+            "direction": [0,1,0],
+            "kind": "aquarium-cartridge-guide"
+          },
+          "glass-rim-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "aquarium-rear-rim"
+          },
+          "return-lip": {
+            "node": "spillway-pivot",
+            "position": [0,-0.006,0.074],
+            "direction": [0,0,1],
+            "kind": "aquarium-return"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "service-open",
+            "label": "检修盖翻角",
+            "min": 0,
+            "max": 104,
+            "value": 96,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "service-lid-hinge",
+                "axis": "x",
+                "factor": -0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          },
+          {
+            "id": "return-angle",
+            "label": "回水槽俯角",
+            "min": -3,
+            "max": 16,
+            "value": 4,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "spillway-pivot",
+                "axis": "x",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

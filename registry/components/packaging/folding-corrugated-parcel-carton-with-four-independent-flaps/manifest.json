@@ -1,0 +1,485 @@
+{
+  "schemaVersion": "0.1",
+  "id": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "瓦楞纸箱与四片独立摇盖",
+  "summary": "真实内腔、四块独立铰接摇盖和用于隔板、端部内托的固定底部锚点。",
+  "license": "Apache-2.0",
+  "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "包装与收纳",
+    "packaging and containers",
+    "瓦楞纸箱",
+    "four flap carton"
+  ],
+  "anchors": [
+    "flap-edge-front",
+    "flap-edge-back",
+    "flap-edge-right",
+    "flap-edge-left",
+    "insert",
+    "end--1",
+    "end-1",
+    "bottom"
+  ],
+  "ai": {
+    "intent": "作为独立外箱布置，通过内部锚点安装十字隔板或两件泡棉端托。",
+    "useWhen": [
+      "真实内腔、四块独立铰接摇盖和用于隔板、端部内托的固定底部锚点。"
+    ],
+    "editableParts": [
+      "flap-front",
+      "flap-back",
+      "flap-right",
+      "flap-left"
+    ],
+    "qualityChecks": [
+      "两对摇盖分别围绕压线转动。",
+      "调整摇盖时底板和内托基准固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "folding-corrugated-parcel-carton-with-four-independent-flaps",
+      "title": "瓦楞纸箱与四片独立摇盖",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "floor",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.rounded-corrugated-carton-floor",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.014,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.215,-0.156],
+                [-0.215,-0.156],
+                [-0.221,-0.15],
+                [-0.221,0.15],
+                [-0.215,0.156],
+                [0.215,0.156],
+                [0.221,0.15],
+                [0.221,-0.15]
+              ]
+            },
+            "appearance": {
+              "color": "#bd9267"
+            }
+          },
+          {
+            "id": "long-wall--1",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.long-carton-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.44,0.229,0.009]
+            },
+            "appearance": {
+              "color": "#bd9267"
+            },
+            "transform": {
+              "position": [0,0.126,-0.151]
+            }
+          },
+          {
+            "id": "end-wall--1",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.short-carton-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.229,0.293]
+            },
+            "appearance": {
+              "color": "#bd9267"
+            },
+            "transform": {
+              "position": [-0.216,0.126,0]
+            }
+          },
+          {
+            "id": "long-wall-1",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.long-carton-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.44,0.229,0.009]
+            },
+            "appearance": {
+              "color": "#bd9267"
+            },
+            "transform": {
+              "position": [0,0.126,0.151]
+            }
+          },
+          {
+            "id": "end-wall-1",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.short-carton-side-wall",
+            "geometry": {
+              "type": "box",
+              "size": [0.009,0.229,0.293]
+            },
+            "appearance": {
+              "color": "#bd9267"
+            },
+            "transform": {
+              "position": [0.216,0.126,0]
+            }
+          },
+          {
+            "id": "crease-front",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.frame",
+            "transform": {
+              "position": [0,0.241,0.153],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "flap-hinge-front",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.frame",
+            "parent": "crease-front",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "flap-front",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.independently-folded-carton-top-panel",
+            "parent": "flap-hinge-front",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.006,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.209,-0.148],
+                [-0.209,-0.148],
+                [-0.217,-0.13999999999999999],
+                [-0.217,-0.008],
+                [-0.209,0],
+                [0.209,0],
+                [0.217,-0.008],
+                [0.217,-0.13999999999999999]
+              ]
+            },
+            "appearance": {
+              "color": "#e5dfcd"
+            }
+          },
+          {
+            "id": "visible-crease-front",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.corrugated-fold-line",
+            "parent": "crease-front",
+            "geometry": {
+              "type": "box",
+              "size": [0.416,0.008,0.005]
+            },
+            "appearance": {
+              "color": "#bd9267"
+            },
+            "transform": {
+              "position": [0,0.002,0]
+            }
+          },
+          {
+            "id": "crease-back",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.frame",
+            "transform": {
+              "position": [0,0.241,-0.153],
+              "rotation": [0,3.141592653589793,0]
+            }
+          },
+          {
+            "id": "flap-hinge-back",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.frame",
+            "parent": "crease-back",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "flap-back",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.independently-folded-carton-top-panel",
+            "parent": "flap-hinge-back",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.006,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.209,-0.148],
+                [-0.209,-0.148],
+                [-0.217,-0.13999999999999999],
+                [-0.217,-0.008],
+                [-0.209,0],
+                [0.209,0],
+                [0.217,-0.008],
+                [0.217,-0.13999999999999999]
+              ]
+            },
+            "appearance": {
+              "color": "#e5dfcd"
+            }
+          },
+          {
+            "id": "visible-crease-back",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.corrugated-fold-line",
+            "parent": "crease-back",
+            "geometry": {
+              "type": "box",
+              "size": [0.416,0.008,0.005]
+            },
+            "appearance": {
+              "color": "#bd9267"
+            },
+            "transform": {
+              "position": [0,0.002,0]
+            }
+          },
+          {
+            "id": "crease-right",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.frame",
+            "transform": {
+              "position": [0.216,0.241,0],
+              "rotation": [0,1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "flap-hinge-right",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.frame",
+            "parent": "crease-right",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "flap-right",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.independently-folded-carton-top-panel",
+            "parent": "flap-hinge-right",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.006,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.13849999999999998,-0.145],
+                [-0.13849999999999998,-0.145],
+                [-0.1465,-0.13699999999999998],
+                [-0.1465,-0.008],
+                [-0.13849999999999998,0],
+                [0.13849999999999998,0],
+                [0.1465,-0.008],
+                [0.1465,-0.13699999999999998]
+              ]
+            },
+            "appearance": {
+              "color": "#e5dfcd"
+            }
+          },
+          {
+            "id": "visible-crease-right",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.corrugated-fold-line",
+            "parent": "crease-right",
+            "geometry": {
+              "type": "box",
+              "size": [0.27499999999999997,0.008,0.005]
+            },
+            "appearance": {
+              "color": "#bd9267"
+            },
+            "transform": {
+              "position": [0,0.002,0]
+            }
+          },
+          {
+            "id": "crease-left",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.frame",
+            "transform": {
+              "position": [-0.216,0.241,0],
+              "rotation": [0,-1.5707963267948966,0]
+            }
+          },
+          {
+            "id": "flap-hinge-left",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.frame",
+            "parent": "crease-left",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "flap-left",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.independently-folded-carton-top-panel",
+            "parent": "flap-hinge-left",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.006,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.13849999999999998,-0.145],
+                [-0.13849999999999998,-0.145],
+                [-0.1465,-0.13699999999999998],
+                [-0.1465,-0.008],
+                [-0.13849999999999998,0],
+                [0.13849999999999998,0],
+                [0.1465,-0.008],
+                [0.1465,-0.13699999999999998]
+              ]
+            },
+            "appearance": {
+              "color": "#e5dfcd"
+            }
+          },
+          {
+            "id": "visible-crease-left",
+            "semanticType": "packaging.folding-corrugated-parcel-carton-with-four-independent-flaps.corrugated-fold-line",
+            "parent": "crease-left",
+            "geometry": {
+              "type": "box",
+              "size": [0.27499999999999997,0.008,0.005]
+            },
+            "appearance": {
+              "color": "#bd9267"
+            },
+            "transform": {
+              "position": [0,0.002,0]
+            }
+          }
+        ],
+        "anchors": {
+          "flap-edge-front": {
+            "node": "flap-hinge-front",
+            "position": [0,0.006,-0.148],
+            "direction": [0,1,0],
+            "kind": "carton-flap-edge"
+          },
+          "flap-edge-back": {
+            "node": "flap-hinge-back",
+            "position": [0,0.006,-0.148],
+            "direction": [0,1,0],
+            "kind": "carton-flap-edge"
+          },
+          "flap-edge-right": {
+            "node": "flap-hinge-right",
+            "position": [0,0.006,-0.145],
+            "direction": [0,1,0],
+            "kind": "carton-flap-edge"
+          },
+          "flap-edge-left": {
+            "node": "flap-hinge-left",
+            "position": [0,0.006,-0.145],
+            "direction": [0,1,0],
+            "kind": "carton-flap-edge"
+          },
+          "insert": {
+            "position": [0,0.014,0],
+            "direction": [0,1,0],
+            "kind": "parcel-carton-insert-face"
+          },
+          "end--1": {
+            "position": [-0.129,0.014,0],
+            "direction": [0,1,0],
+            "kind": "carton-end-support"
+          },
+          "end-1": {
+            "position": [0.129,0.014,0],
+            "direction": [0,1,0],
+            "kind": "carton-end-support"
+          },
+          "bottom": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "floor"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "flap-front",
+            "label": "前盖开角",
+            "min": 0,
+            "max": 175,
+            "value": 105,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "flap-hinge-front",
+                "axis": "x",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          },
+          {
+            "id": "flap-back",
+            "label": "后盖开角",
+            "min": 0,
+            "max": 175,
+            "value": 105,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "flap-hinge-back",
+                "axis": "x",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          },
+          {
+            "id": "flap-right",
+            "label": "右盖开角",
+            "min": 0,
+            "max": 175,
+            "value": 105,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "flap-hinge-right",
+                "axis": "x",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          },
+          {
+            "id": "flap-left",
+            "label": "左盖开角",
+            "min": 0,
+            "max": 175,
+            "value": 105,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "flap-hinge-left",
+                "axis": "x",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,459 @@
+{
+  "schemaVersion": "0.1",
+  "id": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可俯仰的跨缸灯与搭边臂",
+  "summary": "跨缸托臂支撑转轴，灯条、反光罩和扩散片随灯座共同转动。",
+  "license": "Apache-2.0",
+  "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "水族造景",
+    "aquarium hardware",
+    "水族灯",
+    "跨缸灯",
+    "aquarium light bar"
+  ],
+  "anchors": [
+    "rail-fit",
+    "beam-centre"
+  ],
+  "ai": {
+    "intent": "架设在两侧缸沿并改变灯条朝向。用光束方向锚点放置可选的渲染灯光。",
+    "useWhen": [
+      "跨缸托臂支撑转轴，灯条、反光罩和扩散片随灯座共同转动。"
+    ],
+    "editableParts": [
+      "aim"
+    ],
+    "qualityChecks": [
+      "调节朝向时两边搭臂固定。",
+      "灯罩、灯条和扩散片可分别编辑。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms",
+      "title": "可俯仰的跨缸灯与搭边臂",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rim-foot--0.273",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.outside-rim-bridge-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.008,0.066]
+            },
+            "appearance": {
+              "color": "#374b55"
+            },
+            "transform": {
+              "position": [-0.273,0.004,0]
+            }
+          },
+          {
+            "id": "slanted-arm--0.273",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.outboard-slanted-lamp-support",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.273,0.007,0],
+                [-0.273,0.049,0],
+                [-0.262899,0.071,0]
+              ],
+              "radius": 0.0062,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          },
+          {
+            "id": "pivot-pin--0.273",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.lateral-lamp-hinge-pin",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.25662,0.071,0],
+              "end": [-0.273,0.071,0],
+              "radius": 0.0046,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#374b55"
+            }
+          },
+          {
+            "id": "rim-foot-0.273",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.outside-rim-bridge-foot",
+            "geometry": {
+              "type": "box",
+              "size": [0.023,0.008,0.066]
+            },
+            "appearance": {
+              "color": "#374b55"
+            },
+            "transform": {
+              "position": [0.273,0.004,0]
+            }
+          },
+          {
+            "id": "slanted-arm-0.273",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.outboard-slanted-lamp-support",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [0.273,0.007,0],
+                [0.273,0.049,0],
+                [0.262899,0.071,0]
+              ],
+              "radius": 0.0062,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          },
+          {
+            "id": "pivot-pin-0.273",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.lateral-lamp-hinge-pin",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.25662,0.071,0],
+              "end": [0.273,0.071,0],
+              "radius": 0.0046,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#374b55"
+            }
+          },
+          {
+            "id": "lamp-tilt",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.frame",
+            "transform": {
+              "position": [0,0.071,0]
+            }
+          },
+          {
+            "id": "lamp-housing",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.beveled-lamp-top-housing",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.005,0],
+                [0,0.013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.253,-0.027],
+                [-0.253,-0.027],
+                [-0.261,-0.019],
+                [-0.261,0.019],
+                [-0.253,0.027],
+                [0.253,0.027],
+                [0.261,0.019],
+                [0.261,-0.019]
+              ]
+            },
+            "appearance": {
+              "color": "#374b55"
+            }
+          },
+          {
+            "id": "diffuser",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.individual-frosted-light-diffuser",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.011,0],
+                [0,-0.005,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.23399999999999999,-0.019],
+                [-0.23399999999999999,-0.019],
+                [-0.239,-0.013999999999999999],
+                [-0.239,0.013999999999999999],
+                [-0.23399999999999999,0.019],
+                [0.23399999999999999,0.019],
+                [0.239,0.013999999999999999],
+                [0.239,-0.013999999999999999]
+              ]
+            },
+            "appearance": {
+              "color": "#b6d8e8",
+              "opacity": 0.86
+            }
+          },
+          {
+            "id": "light-tile-0",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [-0.223,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-1",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [-0.191,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-2",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [-0.159,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-3",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [-0.127,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-4",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [-0.095,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-5",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [-0.063,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-6",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [-0.031,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-7",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0.0010000000000000009,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-8",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0.033,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-9",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0.06500000000000003,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-10",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0.097,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-11",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0.12899999999999998,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-12",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0.161,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-13",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0.19300000000000003,-0.0105,0]
+            }
+          },
+          {
+            "id": "light-tile-14",
+            "semanticType": "aquarium.aquarium-overhead-light-bar-with-pitchable-strip-and-rim-arms.editable-strip-element",
+            "parent": "lamp-tilt",
+            "geometry": {
+              "type": "box",
+              "size": [0.011,0.002,0.019]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0.225,-0.0105,0]
+            }
+          }
+        ],
+        "anchors": {
+          "rail-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "aquarium-light-rail"
+          },
+          "beam-centre": {
+            "node": "lamp-tilt",
+            "position": [0,-0.011,0],
+            "direction": [0,-1,0],
+            "kind": "aquarium-lighting-direction"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "aim",
+            "label": "灯条俯仰",
+            "min": -27,
+            "max": 27,
+            "value": -8,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "lamp-tilt",
+                "axis": "x",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

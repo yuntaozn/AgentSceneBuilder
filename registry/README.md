@@ -38,6 +38,54 @@ node packages/cli/src/agentscene.mjs registry search "自行车" --domain mobili
 node packages/cli/src/agentscene.mjs registry search "光学" --domain optics
 ```
 
+## 乐器、露营与包装
+
+- 乐器与演出提供军鼓鼓体、三脚鼓篮、铜镲、踩镲架、舞台键盘、双 X 支架和延音踏板。鼓篮升高时带动鼓体，两张镲片可共用一个条目并分别跟随固定托座和可动抽杆。
+- 户外与露营提供帐篷篷面、分段拱杆、地钉、睡垫、露营灯、保温箱壳与线框篮。双拱帐篷带实际开口的独立篷门，保温箱内篮可随托架抬出。
+- 包装与容器提供四摇盖纸箱、插槽隔板、开口玻璃罐、环封罐盖、泡棉端托、护角和打包带。纸箱可分别配合四格瓶罐内隔或对向泡棉端托，箱盖与箱内物品位置可独立调整。
+
+```powershell
+node packages/cli/src/agentscene.mjs registry search "踩镲" --domain music
+node packages/cli/src/agentscene.mjs registry search "帐篷" --domain outdoor
+node packages/cli/src/agentscene.mjs registry search "纸箱" --domain packaging
+```
+
+## 办公文具、宠物用品与家庭清洁
+
+- 办公文具提供可翻封面、对开夹环、三孔活页纸、文件托盘、层架、订书机和双孔打孔器。活页夹整件保留独立的封面与夹环开度，双层文件盘的两张索引片可各自移动。
+- 宠物用品提供猫爬架底板、可叠装猫抓柱、偏置踏板、猫窝、食盆、双盆架和猫砂铲。同种四孔立柱可叠到不同高度，两只食盆可按各自孔心嵌入同一承板。
+- 家庭清洁提供双腔桶、可转甩水篮、拖布盘、伸缩拖把杆、吸尘器机体、地刷吸管和晾衣架。拖把整件默认位于甩水篮，吸尘器在吸管调姿后仍可独立抽出尘杯。
+
+```powershell
+node packages/cli/src/agentscene.mjs registry search "活页" --domain stationery
+node packages/cli/src/agentscene.mjs registry search "猫爬架" --domain petcare
+node packages/cli/src/agentscene.mjs registry search "吸尘器" --domain housekeeping
+```
+
+## 家庭园艺、纺织手作与桌面电子配件
+
+- 家庭园艺提供三孔陶盆、接水盘、可提根团的观叶植物、盆缘支架、育苗接水座、育苗杯和透明盖。六格育苗盘复用同一款苗杯，每杯可独立取出，两片通风片可单独调节。
+- 纺织手作提供带配件抽屉的机身、压脚、缝针杆、线轴、刺绣内外绷圈和绣布。缝纫机可分别调整针杆和压脚。绣绷提起内圈时带动布样。
+- 电子设备新增双仓硬盘底座、可抽托架、四孔存储盘、集线器、回转托座、短线和理线夹。两个仓位各自抽换。集线器和线缆配接点随托座共同回转。
+
+```powershell
+node packages/cli/src/agentscene.mjs registry search "育苗" --domain gardening
+node packages/cli/src/agentscene.mjs registry search "缝纫" --domain textilecraft
+node packages/cli/src/agentscene.mjs registry search "硬盘" --domain electronics
+```
+
+## 水族造景、陶艺工坊与美术画具
+
+- 水族造景提供玻璃缸、滑窗盖板、跨缸灯、背挂过滤盒、滤芯匣、石拱和喷淋管。滤芯匣可逐片提出，投喂窗和灯条可单独调节，石拱有贯通洞口。
+- 陶艺工坊提供拉坯机底座、双销轮头、双孔坯板、可分挡泥盘、敞口陶瓶、压片床和压辊车。陶坯随坯板转动并可一同提起。压辊随行程联动转动，压片间隙可单独调整。
+- 美术画具提供三脚底座、升降立杆、画布、六格色盒、小颜料盒、调色盘和水彩笔。画布随下画托移动，六色水彩盒重复使用同款可提色格，各自保留颜色和取出动作。
+
+```powershell
+node packages/cli/src/agentscene.mjs registry search "水族箱" --domain aquarium
+node packages/cli/src/agentscene.mjs registry search "拉坯" --domain ceramics
+node packages/cli/src/agentscene.mjs registry search "水彩" --domain artsupplies
+```
+
 ## 基础构件拼装示例
 
 下列示例 JSON 可用于 CLI 校核。由可编辑组合实例构成的场景也可通过编辑器的「导入 JSON」打开。

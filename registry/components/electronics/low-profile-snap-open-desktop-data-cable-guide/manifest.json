@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "0.1",
+  "id": "electronics.low-profile-snap-open-desktop-data-cable-guide",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "低位翻扣理线夹",
+  "summary": "开口夹槽与绕销翻动的压片，用于承托单根线缆。",
+  "license": "Apache-2.0",
+  "semanticType": "electronics.low-profile-snap-open-desktop-data-cable-guide",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "桌面配件",
+    "desktop accessories",
+    "桌面理线夹",
+    "wire retaining clip"
+  ],
+  "anchors": [
+    "tray-fit",
+    "guide"
+  ],
+  "ai": {
+    "intent": "给桌面或设备托盘增加独立小线夹，再对齐适当的线缆段。",
+    "useWhen": [
+      "开口夹槽与绕销翻动的压片，用于承托单根线缆。"
+    ],
+    "editableParts": [
+      "gate-angle"
+    ],
+    "qualityChecks": [
+      "翻盖抬起时夹座位置固定。",
+      "夹槽保持上下和前后可辨。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "low-profile-snap-open-desktop-data-cable-guide",
+      "title": "低位翻扣理线夹",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "adhesive-foot",
+            "semanticType": "electronics.low-profile-snap-open-desktop-data-cable-guide.small-rounded-desk-clip-foot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.0035,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.008,-0.008],
+                [-0.008,-0.008],
+                [-0.011,-0.005],
+                [-0.011,0.005],
+                [-0.008,0.008],
+                [0.008,0.008],
+                [0.011,0.005],
+                [0.011,-0.005]
+              ]
+            },
+            "appearance": {
+              "color": "#4f8b7f"
+            }
+          },
+          {
+            "id": "jamb--0.007",
+            "semanticType": "electronics.low-profile-snap-open-desktop-data-cable-guide.open-cable-channel-jamb",
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.006,0.014]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [-0.007,0.005,0]
+            }
+          },
+          {
+            "id": "jamb-0.007",
+            "semanticType": "electronics.low-profile-snap-open-desktop-data-cable-guide.open-cable-channel-jamb",
+            "geometry": {
+              "type": "box",
+              "size": [0.005,0.006,0.014]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [0.007,0.005,0]
+            }
+          },
+          {
+            "id": "clip-lid-hinge",
+            "semanticType": "electronics.low-profile-snap-open-desktop-data-cable-guide.frame",
+            "transform": {
+              "position": [-0.009,0.01,0]
+            }
+          },
+          {
+            "id": "clasp-arm",
+            "semanticType": "electronics.low-profile-snap-open-desktop-data-cable-guide.moving-snap-clip-cap",
+            "parent": "clip-lid-hinge",
+            "geometry": {
+              "type": "box",
+              "size": [0.021,0.003,0.014]
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "transform": {
+              "position": [0.0105,0.001,0]
+            }
+          },
+          {
+            "id": "pivot",
+            "semanticType": "electronics.low-profile-snap-open-desktop-data-cable-guide.clip-hinge-axis-pin",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.009,0.01,-0.0075],
+              "end": [-0.009,0.01,0.0075],
+              "radius": 0.0024,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#9eafba"
+            }
+          }
+        ],
+        "anchors": {
+          "tray-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "hub-cable-clip"
+          },
+          "guide": {
+            "position": [0,0.007,0],
+            "direction": [0,1,0],
+            "kind": "cable-routing-span"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "gate-angle",
+            "label": "理线夹翻扣角",
+            "min": 0,
+            "max": 94,
+            "value": 0,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "clip-lid-hinge",
+                "axis": "z",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

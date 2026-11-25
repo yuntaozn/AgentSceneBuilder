@@ -1,0 +1,202 @@
+{
+  "schemaVersion": "0.1",
+  "id": "packaging.reusable-packing-strap-with-rectangular-buckle-and-sliding-tail",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可调尾端的打包带与矩形扣",
+  "summary": "环形扁带、贯通矩形扣和可单独调整的外露尾端。",
+  "license": "Apache-2.0",
+  "semanticType": "packaging.reusable-packing-strap-with-rectangular-buckle-and-sliding-tail",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "包装与收纳",
+    "packaging and containers",
+    "打包带",
+    "包装扣",
+    "adjustable packing strap"
+  ],
+  "anchors": [
+    "floor",
+    "pull-tail"
+  ],
+  "ai": {
+    "intent": "单独布置打包带闭环，按拖拽端调整尾带位置。",
+    "useWhen": [
+      "环形扁带、贯通矩形扣和可单独调整的外露尾端。"
+    ],
+    "editableParts": [
+      "tail-adjust"
+    ],
+    "qualityChecks": [
+      "扣具双窗真实开口。",
+      "尾端沿作业方向滑动，扣位固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "reusable-packing-strap-with-rectangular-buckle-and-sliding-tail",
+      "title": "可调尾端的打包带与矩形扣",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "strap-loop",
+            "semanticType": "packaging.reusable-packing-strap-with-rectangular-buckle-and-sliding-tail.continuous-flat-protective-strap-ring",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.011],
+                [0,0,0.011]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.22199999999999998,0],
+                [0.22199999999999998,0],
+                [0.237,0.015],
+                [0.237,0.259],
+                [0.22199999999999998,0.274],
+                [-0.22199999999999998,0.274],
+                [-0.237,0.259],
+                [-0.237,0.015]
+              ],
+              "holes": [
+                [
+                  [-0.22,0.004],
+                  [0.22,0.004],
+                  [0.233,0.017],
+                  [0.233,0.257],
+                  [0.22,0.27],
+                  [-0.22,0.27],
+                  [-0.233,0.257],
+                  [-0.233,0.017]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "buckle",
+            "semanticType": "packaging.reusable-packing-strap-with-rectangular-buckle-and-sliding-tail.true-holed-strap-buckle",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.272,0],
+                [0,0.282,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.05,-0.025],
+                [-0.105,-0.025],
+                [-0.11399999999999999,-0.016],
+                [-0.11399999999999999,0.016],
+                [-0.105,0.025],
+                [-0.05,0.025],
+                [-0.041,0.016],
+                [-0.041,-0.016]
+              ],
+              "holes": [
+                [
+                  [-0.055999999999999994,-0.015],
+                  [-0.06499999999999999,-0.015],
+                  [-0.06999999999999999,-0.009999999999999998],
+                  [-0.06999999999999999,0.009999999999999998],
+                  [-0.06499999999999999,0.015],
+                  [-0.055999999999999994,0.015],
+                  [-0.051,0.009999999999999998],
+                  [-0.051,-0.009999999999999998]
+                ],
+                [
+                  [-0.08700000000000001,-0.015],
+                  [-0.098,-0.015],
+                  [-0.10300000000000001,-0.009999999999999998],
+                  [-0.10300000000000001,0.009999999999999998],
+                  [-0.098,0.015],
+                  [-0.08700000000000001,0.015],
+                  [-0.082,0.009999999999999998],
+                  [-0.082,-0.009999999999999998]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "sliding-tail",
+            "semanticType": "packaging.reusable-packing-strap-with-rectangular-buckle-and-sliding-tail.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "free-end",
+            "semanticType": "packaging.reusable-packing-strap-with-rectangular-buckle-and-sliding-tail.sliding-packing-strap-tail",
+            "parent": "sliding-tail",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.284,0],
+                [0,0.287,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.034,-0.01],
+                [-0.093,-0.01],
+                [-0.097,-0.006],
+                [-0.097,0.006],
+                [-0.093,0.01],
+                [0.034,0.01],
+                [0.038,0.006],
+                [0.038,-0.006]
+              ]
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          }
+        ],
+        "anchors": {
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "ground"
+          },
+          "pull-tail": {
+            "node": "sliding-tail",
+            "position": [-0.038,0.286,0],
+            "direction": [-1,0,0],
+            "kind": "strap-pull-end"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "tail-adjust",
+            "label": "外露带尾位移",
+            "min": -0.042,
+            "max": 0.025,
+            "value": 0,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "sliding-tail",
+                "axis": "x",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

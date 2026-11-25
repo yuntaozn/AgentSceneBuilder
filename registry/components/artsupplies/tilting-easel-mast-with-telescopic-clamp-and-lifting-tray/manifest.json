@@ -1,0 +1,284 @@
+{
+  "schemaVersion": "0.1",
+  "id": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "俯仰升降画架立杆与夹板",
+  "summary": "立杆支架带俯仰轴，上夹具伸缩，下画托可独立升降。",
+  "license": "Apache-2.0",
+  "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "美术画具",
+    "artist supplies",
+    "可调画架立杆",
+    "easel telescopic mast"
+  ],
+  "anchors": [
+    "base-fit",
+    "canvas-seat",
+    "upper-pad"
+  ],
+  "ai": {
+    "intent": "在三脚画架上调整画托位置和上夹跨度。下托板的朝向随立杆一起改变。",
+    "useWhen": [
+      "立杆支架带俯仰轴，上夹具伸缩，下画托可独立升降。"
+    ],
+    "editableParts": [
+      "tilt",
+      "lower-height",
+      "telescope"
+    ],
+    "qualityChecks": [
+      "后倾动作只影响画架立杆上的附件。",
+      "画布支承面随下画托升降。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "tilting-easel-mast-with-telescopic-clamp-and-lifting-tray",
+      "title": "俯仰升降画架立杆与夹板",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mast-tilt-pivot",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.frame",
+            "transform": {
+              "position": [0,0,0.025]
+            }
+          },
+          {
+            "id": "backing-mast",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.continuous wooden support mast",
+            "parent": "mast-tilt-pivot",
+            "geometry": {
+              "type": "box",
+              "size": [0.059,0.727,0.029]
+            },
+            "appearance": {
+              "color": "#ac7d54"
+            },
+            "transform": {
+              "position": [0,-0.041,0]
+            }
+          },
+          {
+            "id": "mast-knuckle",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.wood and steel pivot block",
+            "geometry": {
+              "type": "box",
+              "size": [0.095,0.041,0.027]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "transform": {
+              "position": [0,0,-0.013]
+            }
+          },
+          {
+            "id": "lower-canvas-carriage",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.frame",
+            "parent": "mast-tilt-pivot",
+            "transform": {
+              "position": [0,-0.189,0.028]
+            }
+          },
+          {
+            "id": "lower-socket",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.sliding mount for the ledge",
+            "parent": "lower-canvas-carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.081,0.059,0.036]
+            },
+            "appearance": {
+              "color": "#735c4c"
+            },
+            "transform": {
+              "position": [0,-0.015,-0.004]
+            }
+          },
+          {
+            "id": "canvas-shelf",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.wooden canvas resting shelf with chamfered ends",
+            "parent": "lower-canvas-carriage",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.18,0],
+                [-0.18,0],
+                [-0.188,0.008],
+                [-0.188,0.063],
+                [-0.18,0.071],
+                [0.18,0.071],
+                [0.188,0.063],
+                [0.188,0.008]
+              ]
+            },
+            "appearance": {
+              "color": "#d0a477"
+            }
+          },
+          {
+            "id": "edge-lip",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.front stop on art tray",
+            "parent": "lower-canvas-carriage",
+            "geometry": {
+              "type": "box",
+              "size": [0.353,0.018,0.009]
+            },
+            "appearance": {
+              "color": "#ac7d54"
+            },
+            "transform": {
+              "position": [0,0.017,0.066]
+            }
+          },
+          {
+            "id": "upper-telescope",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.frame",
+            "parent": "mast-tilt-pivot",
+            "transform": {
+              "position": [0,0.11,0.006]
+            }
+          },
+          {
+            "id": "extending-inner-rail",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.box section for upper stop",
+            "parent": "upper-telescope",
+            "geometry": {
+              "type": "box",
+              "size": [0.034,0.43,0.019]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [0,0.032,0.002]
+            }
+          },
+          {
+            "id": "upper-clamp",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.frame",
+            "parent": "upper-telescope",
+            "transform": {
+              "position": [0,0.149,0.044]
+            }
+          },
+          {
+            "id": "upper-grab",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.wooden upper retaining clamp",
+            "parent": "upper-clamp",
+            "geometry": {
+              "type": "box",
+              "size": [0.117,0.023,0.067]
+            },
+            "appearance": {
+              "color": "#d0a477"
+            },
+            "transform": {
+              "position": [0,0.015,0.017]
+            }
+          },
+          {
+            "id": "upper-stop",
+            "semanticType": "artsupplies.tilting-easel-mast-with-telescopic-clamp-and-lifting-tray.soft forward lip of upper clamp",
+            "parent": "upper-clamp",
+            "geometry": {
+              "type": "box",
+              "size": [0.09,0.014,0.009]
+            },
+            "appearance": {
+              "color": "#735c4c"
+            },
+            "transform": {
+              "position": [0,0.002,0.047]
+            }
+          }
+        ],
+        "anchors": {
+          "base-fit": {
+            "position": [0,0,0],
+            "direction": [0,0,-1],
+            "kind": "easel-mast-beam"
+          },
+          "canvas-seat": {
+            "node": "lower-canvas-carriage",
+            "position": [0,0.013,0.033],
+            "direction": [0,1,0],
+            "kind": "easel-canvas-bottom"
+          },
+          "upper-pad": {
+            "node": "upper-clamp",
+            "position": [0,0.003,0.021],
+            "direction": [0,-1,0],
+            "kind": "easel-canvas-upper-pad"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "tilt",
+            "label": "立杆后倾角",
+            "min": 0,
+            "max": 16,
+            "value": 7,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "mast-tilt-pivot",
+                "axis": "x",
+                "factor": -0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          },
+          {
+            "id": "lower-height",
+            "label": "下托板升高",
+            "min": 0,
+            "max": 0.235,
+            "value": 0.058,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "lower-canvas-carriage",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          },
+          {
+            "id": "telescope",
+            "label": "上夹具延伸",
+            "min": 0,
+            "max": 0.28,
+            "value": 0,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "upper-telescope",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

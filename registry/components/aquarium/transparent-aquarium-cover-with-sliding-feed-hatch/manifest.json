@@ -1,0 +1,286 @@
+{
+  "schemaVersion": "0.1",
+  "id": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "透明缸盖与滑移投喂窗",
+  "summary": "前置透明盖板留有贯通喂食口，滑动片与玻璃处于各自轨道。",
+  "license": "Apache-2.0",
+  "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "水族造景",
+    "aquarium hardware",
+    "鱼缸盖",
+    "投喂窗",
+    "aquarium feed hatch"
+  ],
+  "anchors": [
+    "rim-fit",
+    "feed-opening"
+  ],
+  "ai": {
+    "intent": "在有后置过滤挂件的水族箱上使用前半盖板，独立开合投喂窗。",
+    "useWhen": [
+      "前置透明盖板留有贯通喂食口，滑动片与玻璃处于各自轨道。"
+    ],
+    "editableParts": [
+      "hatch-open",
+      "lid-lift"
+    ],
+    "qualityChecks": [
+      "投喂口贯通玻璃轮廓。",
+      "抬起整盖时滑窗和导轨同行。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "transparent-aquarium-cover-with-sliding-feed-hatch",
+      "title": "透明缸盖与滑移投喂窗",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "lid-carrier",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "clear-lid",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.fitted-clear-lid-with-real-feed-cutout",
+            "parent": "lid-carrier",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.002,0],
+                [0,0.007,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.262,-0.09],
+                [-0.262,-0.09],
+                [-0.272,-0.08],
+                [-0.272,0.149],
+                [-0.262,0.159],
+                [0.262,0.159],
+                [0.272,0.149],
+                [0.272,-0.08]
+              ],
+              "holes": [
+                [
+                  [0.087,0.037],
+                  [0.009000000000000005,0.037],
+                  [0.0040000000000000036,0.041999999999999996],
+                  [0.0040000000000000036,0.093],
+                  [0.009000000000000005,0.098],
+                  [0.087,0.098],
+                  [0.092,0.093],
+                  [0.092,0.041999999999999996]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#82bad0",
+              "opacity": 0.44
+            }
+          },
+          {
+            "id": "rail--0.267",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.edge-shoe-on-rim-rails",
+            "parent": "lid-carrier",
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.01,0.248]
+            },
+            "appearance": {
+              "color": "#374b55"
+            },
+            "transform": {
+              "position": [-0.267,0.005,0.035]
+            }
+          },
+          {
+            "id": "rail-0.267",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.edge-shoe-on-rim-rails",
+            "parent": "lid-carrier",
+            "geometry": {
+              "type": "box",
+              "size": [0.012,0.01,0.248]
+            },
+            "appearance": {
+              "color": "#374b55"
+            },
+            "transform": {
+              "position": [0.267,0.005,0.035]
+            }
+          },
+          {
+            "id": "edge-0.152",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.front-or-rear-cover-edge",
+            "parent": "lid-carrier",
+            "geometry": {
+              "type": "box",
+              "size": [0.518,0.008,0.009]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [0,0.005,0.152]
+            }
+          },
+          {
+            "id": "edge--0.085",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.front-or-rear-cover-edge",
+            "parent": "lid-carrier",
+            "geometry": {
+              "type": "box",
+              "size": [0.518,0.008,0.009]
+            },
+            "appearance": {
+              "color": "#597994"
+            },
+            "transform": {
+              "position": [0,0.005,-0.085]
+            }
+          },
+          {
+            "id": "guide-0.031",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.feed-hatch-slide-rail",
+            "parent": "lid-carrier",
+            "geometry": {
+              "type": "box",
+              "size": [0.208,0.008,0.006]
+            },
+            "appearance": {
+              "color": "#374b55"
+            },
+            "transform": {
+              "position": [-0.01,0.009,0.031]
+            }
+          },
+          {
+            "id": "guide-0.105",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.feed-hatch-slide-rail",
+            "parent": "lid-carrier",
+            "geometry": {
+              "type": "box",
+              "size": [0.208,0.008,0.006]
+            },
+            "appearance": {
+              "color": "#374b55"
+            },
+            "transform": {
+              "position": [-0.01,0.009,0.105]
+            }
+          },
+          {
+            "id": "tray-shutter",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.frame",
+            "parent": "lid-carrier",
+            "transform": {
+              "position": [-0.048,0.009,0.0675]
+            }
+          },
+          {
+            "id": "hatch",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.sliding-feeding-cover",
+            "parent": "tray-shutter",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.044,-0.033],
+                [-0.044,-0.033],
+                [-0.048,-0.029],
+                [-0.048,0.029],
+                [-0.044,0.033],
+                [0.044,0.033],
+                [0.048,0.029],
+                [0.048,-0.029]
+              ]
+            },
+            "appearance": {
+              "color": "#478983"
+            }
+          },
+          {
+            "id": "thumb-grip",
+            "semanticType": "aquarium.transparent-aquarium-cover-with-sliding-feed-hatch.elongated-thumb-catch",
+            "parent": "tray-shutter",
+            "geometry": {
+              "type": "box",
+              "size": [0.027,0.009,0.013]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [-0.021,0.007,0]
+            }
+          }
+        ],
+        "anchors": {
+          "rim-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "aquarium-lid-seat"
+          },
+          "feed-opening": {
+            "node": "lid-carrier",
+            "position": [-0.048,0.007,0.0675],
+            "direction": [0,1,0],
+            "kind": "aquarium-feeding-access"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "hatch-open",
+            "label": "投喂窗横移",
+            "min": 0,
+            "max": 0.1,
+            "value": 0.058,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "tray-shutter",
+                "axis": "x",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          },
+          {
+            "id": "lid-lift",
+            "label": "整盖抬离缸口",
+            "min": 0,
+            "max": 0.14,
+            "value": 0,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "lid-carrier",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

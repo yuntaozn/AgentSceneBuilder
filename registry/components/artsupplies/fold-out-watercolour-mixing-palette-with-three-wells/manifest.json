@@ -1,0 +1,218 @@
+{
+  "schemaVersion": "0.1",
+  "id": "artsupplies.fold-out-watercolour-mixing-palette-with-three-wells",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "前翻三槽水彩调色盘",
+  "summary": "前翻盘由独立底板和三只深槽组成，绕后侧长轴折起。",
+  "license": "Apache-2.0",
+  "semanticType": "artsupplies.fold-out-watercolour-mixing-palette-with-three-wells",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "美术画具",
+    "artist supplies",
+    "水彩调色盘",
+    "颜料混色盘",
+    "fold out mixing palette"
+  ],
+  "anchors": [
+    "box-fit",
+    "mix-centre"
+  ],
+  "ai": {
+    "intent": "将调色盘独立放置或装到便携水彩盒前沿，保留可选取的调色槽底。",
+    "useWhen": [
+      "前翻盘由独立底板和三只深槽组成，绕后侧长轴折起。"
+    ],
+    "editableParts": [
+      "palette-fold"
+    ],
+    "qualityChecks": [
+      "三个调色槽保留可见的凹陷。",
+      "三个槽和前把手一起转动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "fold-out-watercolour-mixing-palette-with-three-wells",
+      "title": "前翻三槽水彩调色盘",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "mixing-tray-hinge",
+            "semanticType": "artsupplies.fold-out-watercolour-mixing-palette-with-three-wells.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "palette-floor",
+            "semanticType": "artsupplies.fold-out-watercolour-mixing-palette-with-three-wells.closed bottom of the mixing wells",
+            "parent": "mixing-tray-hinge",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.008,0],
+                [0,-0.0045,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.077,0.002],
+                [-0.077,0.002],
+                [-0.088,0.013],
+                [-0.088,0.08600000000000001],
+                [-0.077,0.097],
+                [0.077,0.097],
+                [0.088,0.08600000000000001],
+                [0.088,0.013]
+              ]
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          },
+          {
+            "id": "perforated-palette-top",
+            "semanticType": "artsupplies.fold-out-watercolour-mixing-palette-with-three-wells.genuine dipped paint-mixing compartments",
+            "parent": "mixing-tray-hinge",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0045,0],
+                [0,0.005,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.077,0.002],
+                [-0.077,0.002],
+                [-0.088,0.013],
+                [-0.088,0.08600000000000001],
+                [-0.077,0.097],
+                [0.077,0.097],
+                [0.088,0.08600000000000001],
+                [0.088,0.013]
+              ],
+              "holes": [
+                [
+                  [0.07050000000000001,0.017],
+                  [0.0415,0.017],
+                  [0.0325,0.026000000000000002],
+                  [0.0325,0.07100000000000001],
+                  [0.0415,0.08],
+                  [0.07050000000000001,0.08],
+                  [0.0795,0.07100000000000001],
+                  [0.0795,0.026000000000000002]
+                ],
+                [
+                  [0.0145,0.017],
+                  [-0.0145,0.017],
+                  [-0.0235,0.026000000000000002],
+                  [-0.0235,0.07100000000000001],
+                  [-0.0145,0.08],
+                  [0.0145,0.08],
+                  [0.0235,0.07100000000000001],
+                  [0.0235,0.026000000000000002]
+                ],
+                [
+                  [-0.0415,0.017],
+                  [-0.07050000000000001,0.017],
+                  [-0.0795,0.026000000000000002],
+                  [-0.0795,0.07100000000000001],
+                  [-0.07050000000000001,0.08],
+                  [-0.0415,0.08],
+                  [-0.0325,0.07100000000000001],
+                  [-0.0325,0.026000000000000002]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#e2e8e6"
+            }
+          },
+          {
+            "id": "front-tab",
+            "semanticType": "artsupplies.fold-out-watercolour-mixing-palette-with-three-wells.palette moving thumb lip",
+            "parent": "mixing-tray-hinge",
+            "geometry": {
+              "type": "box",
+              "size": [0.055,0.008,0.018]
+            },
+            "appearance": {
+              "color": "#668b96"
+            },
+            "transform": {
+              "position": [0,-0.001,0.094]
+            }
+          },
+          {
+            "id": "hinge-bar--0.069",
+            "semanticType": "artsupplies.fold-out-watercolour-mixing-palette-with-three-wells.stationary physical pin of mixing palette",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.08,0,0],
+              "end": [-0.05800000000000001,0,0],
+              "radius": 0.0041,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#3b535e"
+            }
+          },
+          {
+            "id": "hinge-bar-0.069",
+            "semanticType": "artsupplies.fold-out-watercolour-mixing-palette-with-three-wells.stationary physical pin of mixing palette",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0.05800000000000001,0,0],
+              "end": [0.08,0,0],
+              "radius": 0.0041,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#3b535e"
+            }
+          }
+        ],
+        "anchors": {
+          "box-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "watercolour-front-hinge"
+          },
+          "mix-centre": {
+            "node": "mixing-tray-hinge",
+            "position": [0,-0.0045,0.05],
+            "direction": [0,1,0],
+            "kind": "paint-mixing-surface"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "palette-fold",
+            "label": "调色盘折起角",
+            "min": 0,
+            "max": 98,
+            "value": 0,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "mixing-tray-hinge",
+                "axis": "x",
+                "factor": -0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

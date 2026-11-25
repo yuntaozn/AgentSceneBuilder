@@ -1,0 +1,423 @@
+{
+  "schemaVersion": "0.1",
+  "id": "gardening.hinged-translucent-propagation-lid-with-two-vents",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可翻透明育苗盖与双通风片",
+  "summary": "独立翻转的透明盖带两个开口，通风片可分别滑动露出孔口。",
+  "license": "Apache-2.0",
+  "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "家庭园艺",
+    "houseplant gardening",
+    "育苗盖",
+    "通风罩",
+    "propagation dome lid"
+  ],
+  "anchors": [
+    "hinge-fit",
+    "front-pull"
+  ],
+  "ai": {
+    "intent": "在育苗盘上安装透明盖，分别设置盖体开启与两处通风孔开口。",
+    "useWhen": [
+      "独立翻转的透明盖带两个开口，通风片可分别滑动露出孔口。"
+    ],
+    "editableParts": [
+      "vent-slide-0",
+      "vent-slide-1",
+      "lid-angle"
+    ],
+    "qualityChecks": [
+      "透明壳的通风孔是真实开口。",
+      "两块滑片随总盖转动并保持独立滑移。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-translucent-propagation-lid-with-two-vents",
+      "title": "可翻透明育苗盖与双通风片",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "rear-cover-pivot",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "clear-roof",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.translucent-roof-with-open-vents",
+            "parent": "rear-cover-pivot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.097,0],
+                [0,0.101,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.12300000000000001,0.018],
+                [-0.12300000000000001,0.018],
+                [-0.139,0.034],
+                [-0.139,0.13],
+                [-0.12300000000000001,0.146],
+                [0.12300000000000001,0.146],
+                [0.139,0.13],
+                [0.139,0.034]
+              ],
+              "holes": [
+                [
+                  [0.08,0.055],
+                  [0.054000000000000006,0.055],
+                  [0.04800000000000001,0.061],
+                  [0.04800000000000001,0.095],
+                  [0.054000000000000006,0.101],
+                  [0.08,0.101],
+                  [0.08600000000000001,0.095],
+                  [0.08600000000000001,0.061]
+                ],
+                [
+                  [-0.054,0.055],
+                  [-0.07999999999999999,0.055],
+                  [-0.086,0.061],
+                  [-0.086,0.095],
+                  [-0.07999999999999999,0.101],
+                  [-0.054,0.101],
+                  [-0.048,0.095],
+                  [-0.048,0.061]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#719cab",
+              "opacity": 0.34
+            }
+          },
+          {
+            "id": "cover-bottom-rim",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.stiff-perimeter-hood-frame",
+            "parent": "rear-cover-pivot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.008,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.144,-0.003],
+                [-0.144,-0.003],
+                [-0.156,0.009000000000000001],
+                [-0.156,0.151],
+                [-0.144,0.163],
+                [0.144,0.163],
+                [0.156,0.151],
+                [0.156,0.009000000000000001]
+              ],
+              "holes": [
+                [
+                  [0.12400000000000001,0.006],
+                  [-0.12400000000000001,0.006],
+                  [-0.137,0.019],
+                  [-0.137,0.141],
+                  [-0.12400000000000001,0.154],
+                  [0.12400000000000001,0.154],
+                  [0.137,0.141],
+                  [0.137,0.019]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#478983"
+            }
+          },
+          {
+            "id": "clear-side--1",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.translucent-dome-side",
+            "parent": "rear-cover-pivot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [-0.14,0,0],
+                [-0.138,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.004,0.008],
+                [-0.155,0.008],
+                [-0.142,0.098],
+                [-0.022,0.098]
+              ]
+            },
+            "appearance": {
+              "color": "#719cab",
+              "opacity": 0.34
+            }
+          },
+          {
+            "id": "clear-side-1",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.translucent-dome-side",
+            "parent": "rear-cover-pivot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0.138,0,0],
+                [0.14,0,0]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.004,0.008],
+                [-0.155,0.008],
+                [-0.142,0.098],
+                [-0.022,0.098]
+              ]
+            },
+            "appearance": {
+              "color": "#719cab",
+              "opacity": 0.34
+            }
+          },
+          {
+            "id": "clear-front",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.translucent-slanted-front",
+            "parent": "rear-cover-pivot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.008,0.155],
+                [0,0.097,0.143]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.139,0],
+                [0.139,0],
+                [0.139,0.004],
+                [-0.139,0.004]
+              ]
+            },
+            "appearance": {
+              "color": "#719cab",
+              "opacity": 0.34
+            }
+          },
+          {
+            "id": "clear-rear",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.translucent-slanted-rear",
+            "parent": "rear-cover-pivot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.008,0.006],
+                [0,0.097,0.021]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [-0.139,0],
+                [0.139,0],
+                [0.139,0.004],
+                [-0.139,0.004]
+              ]
+            },
+            "appearance": {
+              "color": "#719cab",
+              "opacity": 0.34
+            }
+          },
+          {
+            "id": "front-handle",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.solid-greenhood-lift-handle",
+            "parent": "rear-cover-pivot",
+            "geometry": {
+              "type": "box",
+              "size": [0.073,0.018,0.012]
+            },
+            "appearance": {
+              "color": "#478983"
+            },
+            "transform": {
+              "position": [0,0.013,0.168]
+            }
+          },
+          {
+            "id": "vent-shutter-axis-0",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.frame",
+            "parent": "rear-cover-pivot",
+            "transform": {
+              "position": [-0.067,0.103,0.078]
+            }
+          },
+          {
+            "id": "vent-shutter-0",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.separate-sliding-vent-cover",
+            "parent": "vent-shutter-axis-0",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.015000000000000001,-0.026],
+                [-0.015000000000000001,-0.026],
+                [-0.021,-0.019999999999999997],
+                [-0.021,0.019999999999999997],
+                [-0.015000000000000001,0.026],
+                [0.015000000000000001,0.026],
+                [0.021,0.019999999999999997],
+                [0.021,-0.019999999999999997]
+              ]
+            },
+            "appearance": {
+              "color": "#478983"
+            }
+          },
+          {
+            "id": "vent-grip-0",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.raised-vent-slider-knob",
+            "parent": "vent-shutter-axis-0",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#86a563"
+            },
+            "transform": {
+              "position": [0,0.007,-0.007]
+            }
+          },
+          {
+            "id": "vent-shutter-axis-1",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.frame",
+            "parent": "rear-cover-pivot",
+            "transform": {
+              "position": [0.067,0.103,0.078]
+            }
+          },
+          {
+            "id": "vent-shutter-1",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.separate-sliding-vent-cover",
+            "parent": "vent-shutter-axis-1",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.004,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.015000000000000001,-0.026],
+                [-0.015000000000000001,-0.026],
+                [-0.021,-0.019999999999999997],
+                [-0.021,0.019999999999999997],
+                [-0.015000000000000001,0.026],
+                [0.015000000000000001,0.026],
+                [0.021,0.019999999999999997],
+                [0.021,-0.019999999999999997]
+              ]
+            },
+            "appearance": {
+              "color": "#478983"
+            }
+          },
+          {
+            "id": "vent-grip-1",
+            "semanticType": "gardening.hinged-translucent-propagation-lid-with-two-vents.raised-vent-slider-knob",
+            "parent": "vent-shutter-axis-1",
+            "geometry": {
+              "type": "box",
+              "size": [0.015,0.008,0.011]
+            },
+            "appearance": {
+              "color": "#86a563"
+            },
+            "transform": {
+              "position": [0,0.007,-0.007]
+            }
+          }
+        ],
+        "anchors": {
+          "hinge-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "propagation-cover-fitting"
+          },
+          "front-pull": {
+            "node": "rear-cover-pivot",
+            "position": [0,0.013,0.17],
+            "direction": [0,0,1],
+            "kind": "propagation-cover-pull"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "vent-slide-0",
+            "label": "通风片 1 横移",
+            "min": 0,
+            "max": 0.047,
+            "value": 0.035,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "vent-shutter-axis-0",
+                "axis": "x",
+                "factor": -1,
+                "property": "position"
+              }
+            ]
+          },
+          {
+            "id": "vent-slide-1",
+            "label": "通风片 2 横移",
+            "min": 0,
+            "max": 0.047,
+            "value": 0,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "vent-shutter-axis-1",
+                "axis": "x",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          },
+          {
+            "id": "lid-angle",
+            "label": "育苗盖开启角",
+            "min": 0,
+            "max": 95,
+            "value": 16,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "rear-cover-pivot",
+                "axis": "x",
+                "factor": -0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

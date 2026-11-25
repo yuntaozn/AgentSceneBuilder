@@ -1,0 +1,197 @@
+{
+  "schemaVersion": "0.1",
+  "id": "artsupplies.liftable-watercolour-half-pan-with-separate-pigment-cake",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可取出的水彩色盒与独立色块",
+  "summary": "杯底、带倒角开口的围边和可单独换材质的色块。",
+  "license": "Apache-2.0",
+  "semanticType": "artsupplies.liftable-watercolour-half-pan-with-separate-pigment-cake",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "美术画具",
+    "artist supplies",
+    "水彩色块",
+    "可换水彩格",
+    "watercolour half pan"
+  ],
+  "anchors": [
+    "tray-fit",
+    "colour-surface"
+  ],
+  "ai": {
+    "intent": "当作可重复插入的标准色盒。选择色块节点即可编辑颜色和材质。",
+    "useWhen": [
+      "杯底、带倒角开口的围边和可单独换材质的色块。"
+    ],
+    "editableParts": [
+      "paint-lift"
+    ],
+    "qualityChecks": [
+      "色块与外盒分别建模。",
+      "移动色块承载组不改变名义装配基准。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "liftable-watercolour-half-pan-with-separate-pigment-cake",
+      "title": "可取出的水彩色盒与独立色块",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "paint-pan-lift",
+            "semanticType": "artsupplies.liftable-watercolour-half-pan-with-separate-pigment-cake.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "half-pan-floor",
+            "semanticType": "artsupplies.liftable-watercolour-half-pan-with-separate-pigment-cake.closed small removable pan floor",
+            "parent": "paint-pan-lift",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0095,0],
+                [0,-0.007,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.0165,-0.0177],
+                [-0.0165,-0.0177],
+                [-0.0205,-0.0137],
+                [-0.0205,0.0137],
+                [-0.0165,0.0177],
+                [0.0165,0.0177],
+                [0.0205,0.0137],
+                [0.0205,-0.0137]
+              ]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            }
+          },
+          {
+            "id": "open-pan-rim",
+            "semanticType": "artsupplies.liftable-watercolour-half-pan-with-separate-pigment-cake.genuine open rim around the colour cake",
+            "parent": "paint-pan-lift",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.007,0],
+                [0,0.002,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.0165,-0.0177],
+                [-0.0165,-0.0177],
+                [-0.0205,-0.0137],
+                [-0.0205,0.0137],
+                [-0.0165,0.0177],
+                [0.0165,0.0177],
+                [0.0205,0.0137],
+                [0.0205,-0.0137]
+              ],
+              "holes": [
+                [
+                  [0.0153,-0.0155],
+                  [-0.0153,-0.0155],
+                  [-0.0185,-0.0123],
+                  [-0.0185,0.0123],
+                  [-0.0153,0.0155],
+                  [0.0153,0.0155],
+                  [0.0185,0.0123],
+                  [0.0185,-0.0123]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            }
+          },
+          {
+            "id": "pigment-cake",
+            "semanticType": "artsupplies.liftable-watercolour-half-pan-with-separate-pigment-cake.replaceable pigment cake volume",
+            "parent": "paint-pan-lift",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0065,0],
+                [0,0,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.014400000000000001,-0.0145],
+                [-0.014400000000000001,-0.0145],
+                [-0.0175,-0.0114],
+                [-0.0175,0.0114],
+                [-0.014400000000000001,0.0145],
+                [0.014400000000000001,0.0145],
+                [0.0175,0.0114],
+                [0.0175,-0.0114]
+              ]
+            },
+            "appearance": {
+              "color": "#357d82"
+            }
+          },
+          {
+            "id": "small-pull-flange",
+            "semanticType": "artsupplies.liftable-watercolour-half-pan-with-separate-pigment-cake.bottom flange stays in its matching socket",
+            "parent": "paint-pan-lift",
+            "geometry": {
+              "type": "box",
+              "size": [0.016,0.002,0.043]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            },
+            "transform": {
+              "position": [0,0.001,0]
+            }
+          }
+        ],
+        "anchors": {
+          "tray-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "watercolour-pan-pocket"
+          },
+          "colour-surface": {
+            "node": "paint-pan-lift",
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "watercolour-active-surface"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "paint-lift",
+            "label": "取出颜料色盒",
+            "min": 0,
+            "max": 0.058,
+            "value": 0,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "paint-pan-lift",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

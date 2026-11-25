@@ -1,0 +1,221 @@
+{
+  "schemaVersion": "0.1",
+  "id": "electronics.right-angle-desktop-data-cable-with-separate-moulded-connectors",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "直角数据短线与分体插头",
+  "summary": "两端采用可辨的插头、护尾和连续护套，近端直角走线。",
+  "license": "Apache-2.0",
+  "semanticType": "electronics.right-angle-desktop-data-cable-with-separate-moulded-connectors",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material"
+  ],
+  "tags": [
+    "桌面配件",
+    "desktop accessories",
+    "数据短线",
+    "USB-C 短线",
+    "right angle desktop USB cable"
+  ],
+  "anchors": [
+    "hub-fit",
+    "clip-span",
+    "remote-tip"
+  ],
+  "ai": {
+    "intent": "将近端对齐集线器的上行口，使用远端锚点继续布置桌面数据连接。",
+    "useWhen": [
+      "两端采用可辨的插头、护尾和连续护套，近端直角走线。"
+    ],
+    "editableParts": [
+      "hub-fit",
+      "clip-span",
+      "remote-tip"
+    ],
+    "qualityChecks": [
+      "可独立选中两端外壳和护套。",
+      "近端保留向左出线的净空。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "right-angle-desktop-data-cable-with-separate-moulded-connectors",
+      "title": "直角数据短线与分体插头",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "upstream-plug",
+            "semanticType": "electronics.right-angle-desktop-data-cable-with-separate-moulded-connectors.short-metal-plug-with-rounded-profile",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.002],
+                [0,0,0.0065]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0034999999999999996,-0.0015],
+                [0.0034999999999999996,-0.0015],
+                [0.0046,-0.00039999999999999996],
+                [0.0046,0.00039999999999999996],
+                [0.0034999999999999996,0.0015],
+                [-0.0034999999999999996,0.0015],
+                [-0.0046,0.00039999999999999996],
+                [-0.0046,-0.00039999999999999996]
+              ]
+            },
+            "appearance": {
+              "color": "#9eafba"
+            }
+          },
+          {
+            "id": "near-elbow",
+            "semanticType": "electronics.right-angle-desktop-data-cable-with-separate-moulded-connectors.low-profile-right-angle-jacket",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0044,0],
+                [0,0.0044,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.009,-0.012],
+                [0.009,-0.005],
+                [0.005,-0.001],
+                [-0.006,-0.001],
+                [-0.009,-0.004],
+                [-0.009,-0.012],
+                [-0.005,-0.017],
+                [0.015,-0.017],
+                [0.015,-0.012]
+              ]
+            },
+            "appearance": {
+              "color": "#283842"
+            }
+          },
+          {
+            "id": "near-tail",
+            "semanticType": "electronics.right-angle-desktop-data-cable-with-separate-moulded-connectors.integral-protected-elbow-tail",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.022,0,-0.014],
+              "end": [-0.011,0,-0.014],
+              "radius": 0.004,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#3e4a53"
+            }
+          },
+          {
+            "id": "cable-jacket",
+            "semanticType": "electronics.right-angle-desktop-data-cable-with-separate-moulded-connectors.desktop-cable-curved-between-connectors",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.02,0,-0.014],
+                [-0.029,-0.001,-0.021],
+                [-0.035,-0.006,-0.036],
+                [-0.035,-0.008,-0.05],
+                [-0.039,-0.011,-0.063],
+                [-0.056,-0.011,-0.079],
+                [-0.078,-0.011,-0.093]
+              ],
+              "radius": 0.0025,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#3e4a53"
+            }
+          },
+          {
+            "id": "far-connector",
+            "semanticType": "electronics.right-angle-desktop-data-cable-with-separate-moulded-connectors.frame",
+            "transform": {
+              "position": [-0.086,-0.011,-0.098],
+              "rotation": [0,0.94,0]
+            }
+          },
+          {
+            "id": "far-plug-body",
+            "semanticType": "electronics.right-angle-desktop-data-cable-with-separate-moulded-connectors.moulded-remote-data-cable-end",
+            "parent": "far-connector",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.01],
+                [0,0,0.009]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0055,-0.004],
+                [0.0055,-0.004],
+                [0.0075,-0.002],
+                [0.0075,0.002],
+                [0.0055,0.004],
+                [-0.0055,0.004],
+                [-0.0075,0.002],
+                [-0.0075,-0.002]
+              ]
+            },
+            "appearance": {
+              "color": "#283842"
+            }
+          },
+          {
+            "id": "far-plug",
+            "semanticType": "electronics.right-angle-desktop-data-cable-with-separate-moulded-connectors.remotely-mateable-cable-plug",
+            "parent": "far-connector",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.018],
+                [0,0,-0.01]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.0034999999999999996,-0.0015],
+                [0.0034999999999999996,-0.0015],
+                [0.0046,-0.00039999999999999996],
+                [0.0046,0.00039999999999999996],
+                [0.0034999999999999996,0.0015],
+                [-0.0034999999999999996,0.0015],
+                [-0.0046,0.00039999999999999996],
+                [-0.0046,-0.00039999999999999996]
+              ]
+            },
+            "appearance": {
+              "color": "#9eafba"
+            }
+          }
+        ],
+        "anchors": {
+          "hub-fit": {
+            "position": [0,0,0],
+            "direction": [0,0,1],
+            "kind": "usb-c-mating-plane"
+          },
+          "clip-span": {
+            "position": [-0.035,-0.008,-0.05],
+            "direction": [0,-1,0],
+            "kind": "cable-routing-span"
+          },
+          "remote-tip": {
+            "node": "far-connector",
+            "position": [0,0,-0.018],
+            "direction": [0,0,-1],
+            "kind": "usb-c-mating-plane"
+          }
+        }
+      }
+    }
+  }
+}

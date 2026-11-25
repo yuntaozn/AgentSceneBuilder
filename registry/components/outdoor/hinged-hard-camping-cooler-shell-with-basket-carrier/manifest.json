@@ -1,0 +1,332 @@
+{
+  "schemaVersion": "0.1",
+  "id": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带翻盖的硬壳露营保温箱",
+  "summary": "有真实内腔的箱体、独立翻盖、手柄和可抬篮座。",
+  "license": "Apache-2.0",
+  "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "户外露营",
+    "camping equipment",
+    "露营保温箱箱体",
+    "camping cooler shell"
+  ],
+  "anchors": [
+    "basket",
+    "floor"
+  ],
+  "ai": {
+    "intent": "打开可观察空保温箱，按箱内移动托架配接可拆置物篮。",
+    "useWhen": [
+      "有真实内腔的箱体、独立翻盖、手柄和可抬篮座。"
+    ],
+    "editableParts": [
+      "lid-angle",
+      "basket-rise"
+    ],
+    "qualityChecks": [
+      "内壁围成真实空间。",
+      "箱盖和篮座分别可动。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "hinged-hard-camping-cooler-shell-with-basket-carrier",
+      "title": "带翻盖的硬壳露营保温箱",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "base",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.moulded-insulated-cooler-base",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.055,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.229,-0.169],
+                [-0.229,-0.169],
+                [-0.27,-0.128],
+                [-0.27,0.128],
+                [-0.229,0.169],
+                [0.229,0.169],
+                [0.27,0.128],
+                [0.27,-0.128]
+              ]
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          },
+          {
+            "id": "cavity-rim",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.open-insulated-cooler-body",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.047,0],
+                [0,0.319,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.229,-0.169],
+                [-0.229,-0.169],
+                [-0.27,-0.128],
+                [-0.27,0.128],
+                [-0.229,0.169],
+                [0.229,0.169],
+                [0.27,0.128],
+                [0.27,-0.128]
+              ],
+              "holes": [
+                [
+                  [0.212,-0.139],
+                  [-0.212,-0.139],
+                  [-0.24,-0.11100000000000002],
+                  [-0.24,0.11100000000000002],
+                  [-0.212,0.139],
+                  [0.212,0.139],
+                  [0.24,0.11100000000000002],
+                  [0.24,-0.11100000000000002]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#597994"
+            }
+          },
+          {
+            "id": "seal",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.annular-lip-cooler-gasket",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0.311,0],
+                [0,0.324,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.225,-0.162],
+                [-0.225,-0.162],
+                [-0.263,-0.124],
+                [-0.263,0.124],
+                [-0.225,0.162],
+                [0.225,0.162],
+                [0.263,0.124],
+                [0.263,-0.124]
+              ],
+              "holes": [
+                [
+                  [0.212,-0.139],
+                  [-0.212,-0.139],
+                  [-0.24,-0.11100000000000002],
+                  [-0.24,0.11100000000000002],
+                  [-0.212,0.139],
+                  [0.212,0.139],
+                  [0.24,0.11100000000000002],
+                  [0.24,-0.11100000000000002]
+                ]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "hinged-cooler-lid",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.frame",
+            "transform": {
+              "position": [0,0.324,-0.158]
+            }
+          },
+          {
+            "id": "lid",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.separate-cooler-lid",
+            "parent": "hinged-cooler-lid",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,0],
+                [0,0.023,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.229,-0.01100000000000001],
+                [-0.229,-0.01100000000000001],
+                [-0.27,0.03],
+                [-0.27,0.28600000000000003],
+                [-0.229,0.327],
+                [0.229,0.327],
+                [0.27,0.28600000000000003],
+                [0.27,0.03]
+              ]
+            },
+            "appearance": {
+              "color": "#f2ede0"
+            }
+          },
+          {
+            "id": "insulation-pad",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.underside-lid-insulation-pad",
+            "parent": "hinged-cooler-lid",
+            "geometry": {
+              "type": "box",
+              "size": [0.475,0.014,0.271]
+            },
+            "appearance": {
+              "color": "#e2e8e6"
+            },
+            "transform": {
+              "position": [0,-0.003,0.156]
+            }
+          },
+          {
+            "id": "front-latch--0.134",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.fixed-cooler-latch",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,0.048,0.022]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [-0.134,0.29,0.172]
+            }
+          },
+          {
+            "id": "front-latch-0.134",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.fixed-cooler-latch",
+            "geometry": {
+              "type": "box",
+              "size": [0.041,0.048,0.022]
+            },
+            "appearance": {
+              "color": "#384955"
+            },
+            "transform": {
+              "position": [0.134,0.29,0.172]
+            }
+          },
+          {
+            "id": "carry-grip",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.front-handed-cooler-grip",
+            "geometry": {
+              "type": "tube-along",
+              "points": [
+                [-0.106,0.239,0.164],
+                [-0.092,0.243,0.211],
+                [0.092,0.243,0.211],
+                [0.106,0.239,0.164]
+              ],
+              "radius": 0.008,
+              "radialSegments": 12
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "sliding-basket-carrier",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "shelf--0.114",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.separate-movable-basket-support",
+            "parent": "sliding-basket-carrier",
+            "geometry": {
+              "type": "box",
+              "size": [0.414,0.014,0.024]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "transform": {
+              "position": [0,0.157,-0.114]
+            }
+          },
+          {
+            "id": "shelf-0.114",
+            "semanticType": "outdoor.hinged-hard-camping-cooler-shell-with-basket-carrier.separate-movable-basket-support",
+            "parent": "sliding-basket-carrier",
+            "geometry": {
+              "type": "box",
+              "size": [0.414,0.014,0.024]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            },
+            "transform": {
+              "position": [0,0.157,0.114]
+            }
+          }
+        ],
+        "anchors": {
+          "basket": {
+            "node": "sliding-basket-carrier",
+            "position": [0,0.164,0],
+            "direction": [0,1,0],
+            "kind": "cooler-basket-seat"
+          },
+          "floor": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "floor"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "lid-angle",
+            "label": "保温箱盖开角",
+            "min": 0,
+            "max": 102,
+            "value": 48,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "hinged-cooler-lid",
+                "axis": "x",
+                "factor": -0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          },
+          {
+            "id": "basket-rise",
+            "label": "篮座抬高",
+            "min": 0,
+            "max": 0.14,
+            "value": 0,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "sliding-basket-carrier",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

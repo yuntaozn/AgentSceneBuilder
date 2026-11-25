@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "0.1",
+  "id": "textilecraft.liftable-sewing-presser-foot-with-pivoted-open-toe",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "可抬压脚与开槽趾板",
+  "summary": "压杆可升降，趾板绕横轴摆动并留出缝针通过的开槽。",
+  "license": "Apache-2.0",
+  "semanticType": "textilecraft.liftable-sewing-presser-foot-with-pivoted-open-toe",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "纺织手作",
+    "textile craft",
+    "缝纫压脚",
+    "open toe presser foot"
+  ],
+  "anchors": [
+    "machine-fit",
+    "cloth-contact"
+  ],
+  "ai": {
+    "intent": "在针板上方安装可独立抬起的压脚，趾板围绕缝针位置保持开槽。",
+    "useWhen": [
+      "压杆可升降，趾板绕横轴摆动并留出缝针通过的开槽。"
+    ],
+    "editableParts": [
+      "presser-lift",
+      "toe-pitch"
+    ],
+    "qualityChecks": [
+      "开趾为实际缺口。",
+      "抬升时压脚座位置保持固定。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "liftable-sewing-presser-foot-with-pivoted-open-toe",
+      "title": "可抬压脚与开槽趾板",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "sliding-foot-shank",
+            "semanticType": "textilecraft.liftable-sewing-presser-foot-with-pivoted-open-toe.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "presser-shank",
+            "semanticType": "textilecraft.liftable-sewing-presser-foot-with-pivoted-open-toe.vertical-presser-foot-shank",
+            "parent": "sliding-foot-shank",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [0,-0.106,0],
+              "end": [0,0.018,0],
+              "radius": 0.0051,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "ankle-link",
+            "semanticType": "textilecraft.liftable-sewing-presser-foot-with-pivoted-open-toe.exposed-presser-foot-ankle",
+            "parent": "sliding-foot-shank",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,0,-0.006],
+                [0,0,0.006]
+              ],
+              "up": [0,1,0],
+              "profile": [
+                [-0.004,-0.138],
+                [0.004,-0.138],
+                [0.007,-0.135],
+                [0.007,-0.09700000000000002],
+                [0.004,-0.09400000000000001],
+                [-0.004,-0.09400000000000001],
+                [-0.007,-0.09700000000000002],
+                [-0.007,-0.135]
+              ]
+            },
+            "appearance": {
+              "color": "#384955"
+            }
+          },
+          {
+            "id": "hinged-foot",
+            "semanticType": "textilecraft.liftable-sewing-presser-foot-with-pivoted-open-toe.frame",
+            "parent": "sliding-foot-shank",
+            "transform": {
+              "position": [0,-0.138,0]
+            }
+          },
+          {
+            "id": "forked-toe",
+            "semanticType": "textilecraft.liftable-sewing-presser-foot-with-pivoted-open-toe.open-front-fork-with-thread-clearance",
+            "parent": "hinged-foot",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.009,0],
+                [0,-0.005,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0.014,-0.012],
+                [-0.014,-0.012],
+                [-0.014,0.035],
+                [-0.006,0.04],
+                [-0.005,0.035],
+                [-0.005,0.01],
+                [0.005,0.01],
+                [0.005,0.035],
+                [0.007,0.04],
+                [0.014,0.035]
+              ]
+            },
+            "appearance": {
+              "color": "#b5c6ca"
+            }
+          },
+          {
+            "id": "toe-pin",
+            "semanticType": "textilecraft.liftable-sewing-presser-foot-with-pivoted-open-toe.horizontal-ankle-hinge-pin",
+            "parent": "hinged-foot",
+            "geometry": {
+              "type": "cylinder-between",
+              "start": [-0.009,0,0],
+              "end": [0.009,0,0],
+              "radius": 0.0028,
+              "radialSegments": 28
+            },
+            "appearance": {
+              "color": "#d49748"
+            }
+          }
+        ],
+        "anchors": {
+          "machine-fit": {
+            "position": [0,0,0],
+            "direction": [0,1,0],
+            "kind": "sewing-presser-mount"
+          },
+          "cloth-contact": {
+            "node": "hinged-foot",
+            "position": [0.01,-0.009,0.016],
+            "direction": [0,-1,0],
+            "kind": "presser-fabric-contact"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "presser-lift",
+            "label": "压脚抬升",
+            "min": 0,
+            "max": 0.018,
+            "value": 0.002,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "sliding-foot-shank",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          },
+          {
+            "id": "toe-pitch",
+            "label": "趾板摆角",
+            "min": 0,
+            "max": 24,
+            "value": 0,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "hinged-foot",
+                "axis": "x",
+                "factor": -0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

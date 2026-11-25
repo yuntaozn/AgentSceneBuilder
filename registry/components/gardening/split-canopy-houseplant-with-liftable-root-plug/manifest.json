@@ -1,0 +1,956 @@
+{
+  "schemaVersion": "0.1",
+  "id": "gardening.split-canopy-houseplant-with-liftable-root-plug",
+  "version": "0.1.0",
+  "kind": "component",
+  "title": "带根团的分枝观叶植物",
+  "summary": "土团、主茎及三组可改变展开角的枝叶，叶片与叶脉分别建模。",
+  "license": "Apache-2.0",
+  "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug",
+  "capabilities": [
+    "attach",
+    "inspect-structure",
+    "material",
+    "set-pose"
+  ],
+  "tags": [
+    "家庭园艺",
+    "houseplant gardening",
+    "盆栽",
+    "观叶植物",
+    "foliage houseplant"
+  ],
+  "anchors": [
+    "root-fit",
+    "actual-root-bottom",
+    "canopy-top"
+  ],
+  "ai": {
+    "intent": "以具备透明层级的根团、茎、枝叶构建可换盆的观叶植物。",
+    "useWhen": [
+      "土团、主茎及三组可改变展开角的枝叶，叶片与叶脉分别建模。"
+    ],
+    "editableParts": [
+      "root-lift",
+      "leaf-spread"
+    ],
+    "qualityChecks": [
+      "移出时根团携带土粒、茎和叶片。",
+      "枝叶姿态调节不会移动根团装配基准。"
+    ]
+  },
+  "editor": {
+    "document": {
+      "id": "split-canopy-houseplant-with-liftable-root-plug",
+      "title": "带根团的分枝观叶植物",
+      "component": "core.composition",
+      "parameters": {
+        "nodes": [
+          {
+            "id": "root-and-stems",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "transform": {
+              "position": [0,0,0]
+            }
+          },
+          {
+            "id": "nursery-root-plug",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.tapered-soil-root-ball",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,0],
+              "end": [0,0.112,0],
+              "startRadius": 0.058,
+              "endRadius": 0.078,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#694a36"
+            }
+          },
+          {
+            "id": "soil-chip-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#563b2b"
+            },
+            "transform": {
+              "position": [0.01722002937757964,0.1125,0],
+              "rotation": [0,0,0]
+            }
+          },
+          {
+            "id": "soil-chip-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#987354"
+            },
+            "transform": {
+              "position": [-0.017956943013847718,0.1125,0.016450137419694626],
+              "rotation": [0,2.39996,0]
+            }
+          },
+          {
+            "id": "soil-chip-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#563b2b"
+            },
+            "transform": {
+              "position": [0.0026073647526347493,0.1125,-0.029711780228401586],
+              "rotation": [0,4.79992,0]
+            }
+          },
+          {
+            "id": "soil-chip-3",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#987354"
+            },
+            "transform": {
+              "position": [0.020954934941553,0.1125,0.027331453467646104],
+              "rotation": [0,7.19988,0]
+            }
+          },
+          {
+            "id": "soil-chip-4",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#563b2b"
+            },
+            "transform": {
+              "position": [-0.03791663326891416,0.1125,-0.006706413376328755],
+              "rotation": [0,9.59984,0]
+            }
+          },
+          {
+            "id": "soil-chip-5",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#987354"
+            },
+            "transform": {
+              "position": [0.035589473485260745,0.1125,-0.022639917129489612],
+              "rotation": [0,11.9998,0]
+            }
+          },
+          {
+            "id": "soil-chip-6",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#563b2b"
+            },
+            "transform": {
+              "position": [-0.011826697533592608,0.1125,0.04399812618512128],
+              "rotation": [0,14.39976,0]
+            }
+          },
+          {
+            "id": "soil-chip-7",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#987354"
+            },
+            "transform": {
+              "position": [-0.022449729544415244,0.1125,-0.0432231990660138],
+              "rotation": [0,16.79972,0]
+            }
+          },
+          {
+            "id": "soil-chip-8",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#563b2b"
+            },
+            "transform": {
+              "position": [0.04852587881952418,0.1125,0.0177201521064354],
+              "rotation": [0,19.19968,0]
+            }
+          },
+          {
+            "id": "soil-chip-9",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#987354"
+            },
+            "transform": {
+              "position": [-0.05033418424841549,0.1125,0.020778931967106017],
+              "rotation": [0,21.59964,0]
+            }
+          },
+          {
+            "id": "soil-chip-10",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#563b2b"
+            },
+            "transform": {
+              "position": [0.02420518126551207,0.1125,-0.05172941841269306],
+              "rotation": [0,23.9996,0]
+            }
+          },
+          {
+            "id": "soil-chip-11",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#987354"
+            },
+            "transform": {
+              "position": [0.017854882710632763,0.1125,0.05691709852553991],
+              "rotation": [0,26.39956,0]
+            }
+          },
+          {
+            "id": "soil-chip-12",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#563b2b"
+            },
+            "transform": {
+              "position": [-0.05372017956909052,0.1125,-0.03112916092678768],
+              "rotation": [0,28.79952,0]
+            }
+          },
+          {
+            "id": "soil-chip-13",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.006,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#987354"
+            },
+            "transform": {
+              "position": [0.06292805546794211,0.1125,-0.013837326321565258],
+              "rotation": [0,31.19948,0]
+            }
+          },
+          {
+            "id": "soil-chip-14",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.008,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#563b2b"
+            },
+            "transform": {
+              "position": [-0.03835457504086712,0.1125,0.054560679522024653],
+              "rotation": [0,33.59944,0]
+            }
+          },
+          {
+            "id": "soil-chip-15",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.bark-particle",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "box",
+              "size": [0.004,0.0019,0.004]
+            },
+            "appearance": {
+              "color": "#987354"
+            },
+            "transform": {
+              "position": [-0.00885514069596415,0.1125,-0.06830854318084943],
+              "rotation": [0,35.9994,0]
+            }
+          },
+          {
+            "id": "main-stem",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.visible-main-stem",
+            "parent": "root-and-stems",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.112,0],
+              "end": [0,0.389,0],
+              "startRadius": 0.0062,
+              "endRadius": 0.003,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#47815a"
+            }
+          },
+          {
+            "id": "branch-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "root-and-stems",
+            "transform": {
+              "position": [0,0.164,0],
+              "rotation": [0,-0.3490658503988659,0]
+            }
+          },
+          {
+            "id": "branch-stem-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.leaf-bearing-branch",
+            "parent": "branch-0",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,0],
+              "end": [0.157,0.048,0],
+              "startRadius": 0.004,
+              "endRadius": 0.0014,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#47815a"
+            }
+          },
+          {
+            "id": "leaf-axis-0-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "branch-0",
+            "transform": {
+              "position": [0.042,0.014,0],
+              "rotation": [0,-0.71,0.12]
+            }
+          },
+          {
+            "id": "leaf-blade-0-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.editable-elliptic-leaf-blade",
+            "parent": "leaf-axis-0-0",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0013,0],
+                [0,0.0013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [-0.019,-0.024],
+                [-0.055,-0.031],
+                [-0.086,-0.019],
+                [-0.107,0],
+                [-0.084,0.021],
+                [-0.046,0.029],
+                [-0.016,0.019]
+              ]
+            },
+            "appearance": {
+              "color": "#47815a"
+            }
+          },
+          {
+            "id": "leaf-vein-0-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.contrasting-leaf-midrib",
+            "parent": "leaf-axis-0-0",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.0013,0],
+              "end": [0.098,0.0015,0],
+              "startRadius": 0.00104,
+              "endRadius": 0.00035,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "leaf-axis-0-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "branch-0",
+            "transform": {
+              "position": [0.093,0.03,0],
+              "rotation": [0,0.71,0.12]
+            }
+          },
+          {
+            "id": "leaf-blade-0-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.editable-elliptic-leaf-blade",
+            "parent": "leaf-axis-0-1",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0013,0],
+                [0,0.0013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [-0.019,-0.024],
+                [-0.055,-0.031],
+                [-0.086,-0.019],
+                [-0.107,0],
+                [-0.084,0.021],
+                [-0.046,0.029],
+                [-0.016,0.019]
+              ]
+            },
+            "appearance": {
+              "color": "#47815a"
+            }
+          },
+          {
+            "id": "leaf-vein-0-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.contrasting-leaf-midrib",
+            "parent": "leaf-axis-0-1",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.0013,0],
+              "end": [0.098,0.0015,0],
+              "startRadius": 0.00104,
+              "endRadius": 0.00035,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "leaf-axis-0-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "branch-0",
+            "transform": {
+              "position": [0.144,0.046,0],
+              "rotation": [0,-0.71,0.12]
+            }
+          },
+          {
+            "id": "leaf-blade-0-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.editable-elliptic-leaf-blade",
+            "parent": "leaf-axis-0-2",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0013,0],
+                [0,0.0013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [-0.019,-0.024],
+                [-0.055,-0.031],
+                [-0.086,-0.019],
+                [-0.107,0],
+                [-0.084,0.021],
+                [-0.046,0.029],
+                [-0.016,0.019]
+              ]
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "leaf-vein-0-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.contrasting-leaf-midrib",
+            "parent": "leaf-axis-0-2",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.0013,0],
+              "end": [0.098,0.0015,0],
+              "startRadius": 0.00104,
+              "endRadius": 0.00035,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "branch-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "root-and-stems",
+            "transform": {
+              "position": [0,0.231,0],
+              "rotation": [0,1.7453292519943295,0]
+            }
+          },
+          {
+            "id": "branch-stem-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.leaf-bearing-branch",
+            "parent": "branch-1",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,0],
+              "end": [0.157,0.048,0],
+              "startRadius": 0.004,
+              "endRadius": 0.0014,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#47815a"
+            }
+          },
+          {
+            "id": "leaf-axis-1-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "branch-1",
+            "transform": {
+              "position": [0.042,0.014,0],
+              "rotation": [0,-0.71,0.12]
+            }
+          },
+          {
+            "id": "leaf-blade-1-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.editable-elliptic-leaf-blade",
+            "parent": "leaf-axis-1-0",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0013,0],
+                [0,0.0013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [-0.019,-0.024],
+                [-0.055,-0.031],
+                [-0.086,-0.019],
+                [-0.107,0],
+                [-0.084,0.021],
+                [-0.046,0.029],
+                [-0.016,0.019]
+              ]
+            },
+            "appearance": {
+              "color": "#47815a"
+            }
+          },
+          {
+            "id": "leaf-vein-1-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.contrasting-leaf-midrib",
+            "parent": "leaf-axis-1-0",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.0013,0],
+              "end": [0.098,0.0015,0],
+              "startRadius": 0.00104,
+              "endRadius": 0.00035,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "leaf-axis-1-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "branch-1",
+            "transform": {
+              "position": [0.093,0.03,0],
+              "rotation": [0,0.71,0.12]
+            }
+          },
+          {
+            "id": "leaf-blade-1-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.editable-elliptic-leaf-blade",
+            "parent": "leaf-axis-1-1",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0013,0],
+                [0,0.0013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [-0.019,-0.024],
+                [-0.055,-0.031],
+                [-0.086,-0.019],
+                [-0.107,0],
+                [-0.084,0.021],
+                [-0.046,0.029],
+                [-0.016,0.019]
+              ]
+            },
+            "appearance": {
+              "color": "#47815a"
+            }
+          },
+          {
+            "id": "leaf-vein-1-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.contrasting-leaf-midrib",
+            "parent": "leaf-axis-1-1",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.0013,0],
+              "end": [0.098,0.0015,0],
+              "startRadius": 0.00104,
+              "endRadius": 0.00035,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "leaf-axis-1-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "branch-1",
+            "transform": {
+              "position": [0.144,0.046,0],
+              "rotation": [0,-0.71,0.12]
+            }
+          },
+          {
+            "id": "leaf-blade-1-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.editable-elliptic-leaf-blade",
+            "parent": "leaf-axis-1-2",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0013,0],
+                [0,0.0013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [-0.019,-0.024],
+                [-0.055,-0.031],
+                [-0.086,-0.019],
+                [-0.107,0],
+                [-0.084,0.021],
+                [-0.046,0.029],
+                [-0.016,0.019]
+              ]
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "leaf-vein-1-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.contrasting-leaf-midrib",
+            "parent": "leaf-axis-1-2",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.0013,0],
+              "end": [0.098,0.0015,0],
+              "startRadius": 0.00104,
+              "endRadius": 0.00035,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "branch-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "root-and-stems",
+            "transform": {
+              "position": [0,0.29800000000000004,0],
+              "rotation": [0,3.839724354387525,0]
+            }
+          },
+          {
+            "id": "branch-stem-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.leaf-bearing-branch",
+            "parent": "branch-2",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0,0],
+              "end": [0.157,0.048,0],
+              "startRadius": 0.004,
+              "endRadius": 0.0014,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#47815a"
+            }
+          },
+          {
+            "id": "leaf-axis-2-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "branch-2",
+            "transform": {
+              "position": [0.042,0.014,0],
+              "rotation": [0,-0.71,0.12]
+            }
+          },
+          {
+            "id": "leaf-blade-2-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.editable-elliptic-leaf-blade",
+            "parent": "leaf-axis-2-0",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0013,0],
+                [0,0.0013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [-0.019,-0.024],
+                [-0.055,-0.031],
+                [-0.086,-0.019],
+                [-0.107,0],
+                [-0.084,0.021],
+                [-0.046,0.029],
+                [-0.016,0.019]
+              ]
+            },
+            "appearance": {
+              "color": "#47815a"
+            }
+          },
+          {
+            "id": "leaf-vein-2-0",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.contrasting-leaf-midrib",
+            "parent": "leaf-axis-2-0",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.0013,0],
+              "end": [0.098,0.0015,0],
+              "startRadius": 0.00104,
+              "endRadius": 0.00035,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "leaf-axis-2-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "branch-2",
+            "transform": {
+              "position": [0.093,0.03,0],
+              "rotation": [0,0.71,0.12]
+            }
+          },
+          {
+            "id": "leaf-blade-2-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.editable-elliptic-leaf-blade",
+            "parent": "leaf-axis-2-1",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0013,0],
+                [0,0.0013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [-0.019,-0.024],
+                [-0.055,-0.031],
+                [-0.086,-0.019],
+                [-0.107,0],
+                [-0.084,0.021],
+                [-0.046,0.029],
+                [-0.016,0.019]
+              ]
+            },
+            "appearance": {
+              "color": "#47815a"
+            }
+          },
+          {
+            "id": "leaf-vein-2-1",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.contrasting-leaf-midrib",
+            "parent": "leaf-axis-2-1",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.0013,0],
+              "end": [0.098,0.0015,0],
+              "startRadius": 0.00104,
+              "endRadius": 0.00035,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "leaf-axis-2-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.frame",
+            "parent": "branch-2",
+            "transform": {
+              "position": [0.144,0.046,0],
+              "rotation": [0,-0.71,0.12]
+            }
+          },
+          {
+            "id": "leaf-blade-2-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.editable-elliptic-leaf-blade",
+            "parent": "leaf-axis-2-2",
+            "geometry": {
+              "type": "sweep",
+              "closedProfile": true,
+              "points": [
+                [0,-0.0013,0],
+                [0,0.0013,0]
+              ],
+              "up": [0,0,1],
+              "profile": [
+                [0,0],
+                [-0.019,-0.024],
+                [-0.055,-0.031],
+                [-0.086,-0.019],
+                [-0.107,0],
+                [-0.084,0.021],
+                [-0.046,0.029],
+                [-0.016,0.019]
+              ]
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          },
+          {
+            "id": "leaf-vein-2-2",
+            "semanticType": "gardening.split-canopy-houseplant-with-liftable-root-plug.contrasting-leaf-midrib",
+            "parent": "leaf-axis-2-2",
+            "geometry": {
+              "type": "tapered-cylinder-between",
+              "start": [0,0.0013,0],
+              "end": [0.098,0.0015,0],
+              "startRadius": 0.00104,
+              "endRadius": 0.00035,
+              "radialSegments": 40
+            },
+            "appearance": {
+              "color": "#86a563"
+            }
+          }
+        ],
+        "anchors": {
+          "root-fit": {
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "root-plug-seat"
+          },
+          "actual-root-bottom": {
+            "node": "root-and-stems",
+            "position": [0,0,0],
+            "direction": [0,-1,0],
+            "kind": "moving-root-location"
+          },
+          "canopy-top": {
+            "node": "root-and-stems",
+            "position": [0,0.389,0],
+            "direction": [0,1,0],
+            "kind": "plant-crown-centre"
+          }
+        },
+        "poseControls": [
+          {
+            "id": "root-lift",
+            "label": "根团抬高",
+            "min": 0,
+            "max": 0.18,
+            "value": 0,
+            "unit": "m",
+            "targets": [
+              {
+                "node": "root-and-stems",
+                "axis": "y",
+                "factor": 1,
+                "property": "position"
+              }
+            ]
+          },
+          {
+            "id": "leaf-spread",
+            "label": "三组枝叶展开角",
+            "min": -28,
+            "max": 17,
+            "value": 0,
+            "unit": "deg",
+            "targets": [
+              {
+                "node": "branch-0",
+                "axis": "z",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              },
+              {
+                "node": "branch-1",
+                "axis": "z",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              },
+              {
+                "node": "branch-2",
+                "axis": "z",
+                "factor": 0.017453292519943295,
+                "property": "rotation"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
